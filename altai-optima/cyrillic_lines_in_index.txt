@@ -1,0 +1,620 @@
+L1260: <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;" class="flex items-center gap-2 group shrink-0" title="Подняться наверх">
+L1267: <a href="#cases" class="px-2.5 py-1 hover:text-sky-600 hover:bg-sky-50 rounded-full transition-colors">КЕЙСЫ</a>
+L1269: <a href="#calculator" class="px-2.5 py-1 hover:text-sky-600 hover:bg-sky-50 rounded-full transition-colors">КАЛЬКУЛЯТОР</a>
+L1271: <a href="#solutions" class="px-2.5 py-1 hover:text-sky-600 hover:bg-sky-50 rounded-full transition-colors">АРХИТЕКТУРА</a>
+L1273: <a href="#philosophy" class="px-2.5 py-1 hover:text-sky-600 hover:bg-sky-50 rounded-full transition-colors">РЕЗЮМЕ</a>
+L1293: <span class="hidden sm:inline">ТЕСТОВЫЙ ЗАПУСК</span>
+L1294: <span class="sm:hidden">ТЕСТ</span>
+L1306: <button type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-700 flex items-center justify-center text-xs sm:text-sm font-bold transition-all hover:scale-110 cursor-pointer shadow-inner shrink-0" title="Подняться наверх">
+L1328: <a href="#demo" onclick="toggleMobileStickyMenu()" class="block p-2.5 bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold hover:from-sky-400 hover:to-blue-500 rounded-xl transition text-center shadow-md">СВЯЗАТЬСЯ С МЕНЕДЖЕРОМ</a>
+L1396: <span>Тестовый запуск</span>
+L1412: <span id="heroEvaTypingText" class="text-white">Добрый день. Меня зовут Эва, как могу вам помочь?</span><span id="heroEvaTypingCursor" class="inline-block w-0.5 h-3.5 bg-white ml-0.5 animate-pulse"></span>
+L1419: АВТОНОМНЫЙ
+L1422: AI-ОТДЕЛ ПРОДАЖ
+L1442: Пока наемный персонал теряет прибыль компании, искусственный интеллект конвертирует каждый контакт в сделку
+L1449: <span>Посмотреть выгоду</span>
+L1455: <span class="text-white font-black drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">100% ВНИМАНИЯ</span>
+L1456: <span class="text-white font-bold drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"> К КАЖДОМУ КЛИЕНТУ</span>
+L1466: <a href="#solutions" class="group flex flex-col items-center gap-1.5 text-white/80 hover:text-cyan-300 transition-all cursor-pointer select-none" title="Листайте вниз к возможностям">
+L1467: <span class="text-[10px] uppercase font-mono tracking-widest font-semibold text-white/70 group-hover:text-cyan-200 transition-colors">Скролл вниз</span>
+L1485: СКОЛЬКО ДЕНЕГ ВЫ ТЕРЯЕТЕ,
+L1487: ПОКА МЕНЕДЖЕР ТОРМОЗИТ?
+L1492: Вы оплачиваете рекламу и привлекаете лиды, но деньги сгорают на трех системных ошибках наемного персонала
+L1501: <span class="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider block">ПОТЕРЯ ВЫРУЧКИ</span>
+L1504: <span class="px-3 py-1.5 rounded-xl bg-rose-50 text-rose-700 text-[11px] font-mono font-bold border border-rose-200/60">СУББОТА 21:30</span>
+L1507: <h3 class="text-xl font-bold text-slate-950 group-hover:text-rose-600 transition-colors font-inter">Ответим в понедельник</h3>
+L1509: Клиент готов оплатить чек 300 000 ₽ вечером в выходной. Менеджер не на связи. Через 5 минут заказ уходит конкуренту, ответившему сразу.
+L1519: <span class="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider block">СЛИВ КОНВЕРСИИ</span>
+L1522: <span class="px-3 py-1.5 rounded-xl bg-amber-50 text-amber-800 text-[11px] font-mono font-bold border border-amber-200/60">ОЖИДАНИЕ 2 ЧАСА</span>
+L1525: <h3 class="text-xl font-bold text-slate-950 group-hover:text-amber-600 transition-colors font-inter">Кофе ценой в сделку</h3>
+L1527: Горячая заявка остывает, пока сотрудник раскачивается с утра. Лид теряет интерес и при звонке сухо бросает: спасибо, уже неактуально.
+L1537: <span class="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider block">УТЕЧКА МАРЖИ</span>
+L1540: <span class="px-3 py-1.5 rounded-xl bg-rose-50 text-rose-700 text-[11px] font-mono font-bold border border-rose-200/60">ПЕРЕГОВОРЫ</span>
+L1543: <h3 class="text-xl font-bold text-slate-950 group-hover:text-rose-600 transition-colors font-inter">Скидка из слабости</h3>
+L1545: Сотрудник пугается возражения дорого и раздает скидки за счет вашей прибыли, вместо аргументации ценности и удержания полной маржи.
+L1556: <a href="#manifesto" class="blue-path-track block cursor-pointer" title="А можете получать...">
+L1567: А МОЖЕТЕ ПОЛУЧАТЬ...
+L1572: <a href="#manifesto" class="green-path-track block cursor-pointer relative" title="Перейти к +30% к выручке">
+L1633: +30% К ВЫРУЧКЕ
+L1638: <span class="block">Оптимизируем каждый этап вашей воронки и</span>
+L1639: <span class="block">выжимаем максимум чистой прибыли из входящего потока</span>
+L1651: Мгновенный захват горячего клиента
+L1658: <span class="text-lg sm:text-xl font-bold text-slate-900 uppercase leading-none font-inter">СЕКУНДЫ</span>
+L1661: В 45 раз быстрее человека
+L1667: Ответ в первую минуту <strong class="text-sky-700 font-bold">поднимает конверсию в закрытие сделки на 40%</strong>
+L1678: <strong class="text-emerald-700 font-bold">AI-продавец знает абсолютно всю информацию о продукте и компании</strong>, легко отрабатывает любое возражение и снимает «дорого» на основе кейсов вместо уступок за счет чистой прибыли
+L1685: Круглосуточная работа без выгорания и человеческого фактора. <strong class="text-amber-700 font-bold">Каждая заявка берется в обработку за секунды 24/7/365</strong>
+L1698: Четкая механика сделки
+L1702: Рутина уходит алгоритмам, чистая прибыль остается бизнесу
+L1712: <span class="text-xs font-code font-bold text-sky-950 uppercase tracking-wider">ГОЛОСОВОЙ AI</span>
+L1722: <h3 class="text-2xl sm:text-3xl font-bold text-slate-950 group-hover:text-sky-950 transition-colors leading-snug">Живая речь эксперта</h3>
+L1724: <strong class="font-bold text-slate-950">Собеседник слышит уверенного менеджера с безупречной дикцией.</strong> AI-продавец мгновенно считывает микропаузы, <strong class="text-sky-700 font-bold">снимает возражения и ведет коммуникацию человеческим голосом и подачей</strong>.
+L1728: <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Естественные интонации и контекстная память</span>
+L1729: <span class="text-sky-900 font-bold px-3.5 py-1.5 rounded-full bg-white border border-sky-200/90 shadow-2xs group-hover:bg-sky-50 transition-colors">100% фокус на продаже</span>
+L1738: ВСЕ МЕССЕНДЖЕРЫ
+L1742: <strong class="text-emerald-700 font-bold">Мгновенный ответ в любом удобном для клиента мессенджере</strong>
+L1748: КАНАЛЫ СВЯЗИ 24/7/365:
+L1759: <div class="text-xs text-emerald-700 font-semibold font-inter mt-0.5">Официальный API</div>
+L1770: <div class="text-xs text-sky-700 font-semibold font-inter mt-0.5">Личные и бот</div>
+L1794: <div class="text-sm font-bold text-slate-950 font-inter leading-tight">Avito Чат</div>
+L1795: <div class="text-xs text-sky-700 font-semibold font-inter mt-0.5">Авто-ответ 24/7</div>
+L1806: <span class="text-xs font-code font-bold text-purple-950 uppercase">РЕАКТИВАЦИЯ АРХИВА</span>
+L1808: <h3 class="text-2xl font-bold text-slate-950 group-hover:text-purple-950 transition-colors leading-snug">Второе дыхание базы</h3>
+L1810: <strong class="text-purple-700 font-bold">Уснувшие контакты возвращаются в диалог</strong> через деликатные персонализированные касания без спама и раздражения
+L1815: <span class="text-slate-500">Уснувшая база</span>
+L1816: <span class="text-emerald-700">Успешная оплата</span>
+L1822: <span>800 контактов</span>
+L1832: <span class="text-xs font-code font-bold text-sky-950 uppercase">АВТОНОМНАЯ CRM</span>
+L1834: <h3 class="text-2xl sm:text-3xl font-bold text-slate-950 group-hover:text-sky-950 transition-colors leading-snug">Сделки двигаются сами</h3>
+L1836: Система протоколирует договоренности, выставляет счета и <strong class="text-sky-700 font-bold">автоматически переводит этап сделки по воронке без участия человека</strong>
+L1852: <span>Этап 1</span>
+L1854: <div class="font-bold text-slate-900 text-xs sm:text-sm font-inter">Скоринг</div>
+L1861: <span>Этап 2</span>
+L1863: <div class="font-bold text-slate-900 text-xs sm:text-sm font-inter">Расчет КП</div>
+L1870: <span>Финал</span>
+L1872: <div class="font-bold text-xs sm:text-sm text-emerald-900 font-inter">Оплачено ✓</div>
+L1880: <span class="px-3.5 py-1.5 rounded-xl bg-sky-800 text-white text-xs font-bold shadow-sm">Битрикс24 REST</span>
+L1884: Сквозная синхронизация
+L1897: <span class="block sm:whitespace-nowrap">Психология коммуникации</span>
+L1898: <span class="block mt-1 sm:mt-2 sm:whitespace-nowrap">в реальном времени</span>
+L1909: <span class="uppercase tracking-wider font-code text-[11px] text-sky-950">Автономная генерация ответов 0.8с</span>
+L1912: <strong class="text-sky-800 font-bold">Диалог ведется на основе регламентов вашего бизнеса</strong>, без пауз, раздражения и глупых опечаток нанятых стажеров.
+L1924: <div class="text-sm sm:text-base font-bold text-slate-950">Знакомство и закрытие на внедрение</div>
+L1937: <div class="text-sm sm:text-base font-bold text-slate-950">Отработка «Почему это стоит денег»</div>
+L1950: <div class="text-sm sm:text-base font-bold text-slate-950">Мгновенная продажа товара в Direct</div>
+L1969: Э
+L1973: <span>Эва // Altai Optima</span>
+L1976: <div id="agentStatus" class="text-[10px] text-emerald-200 font-medium">в сети • отклик 0.8с</div>
+L1990: <span id="typingIndicatorText">Ожидание реакции клиента...</span>
+L2009: <span>Пока менеджеры ленятся заполнять CRM</span>
+L2012: <span class="block">AI-сотрудник автоматически</span>
+L2013: <span class="block">вносит 100% данных из диалогов</span>
+L2014: <span class="block">и двигает сделку по воронке</span>
+L2033: <span>Фрэнк Каупервуд</span>
+L2047: #ТЕГИРОВАТЬ
+L2059: Основное
+L2062: Сделки
+L2065: Настроить
+L2076: <span class="text-[#8795a1] w-28 shrink-0 font-medium">Отв-ный</span>
+L2077: <span class="text-slate-900 font-semibold flex-1 text-left">Егоров Ренат (AI Altai)</span>
+L2081: <span class="text-[#8795a1] w-28 shrink-0 font-medium">Раб. тел.</span>
+L2084: <span id="amoPhoneBadge" class="text-[9px] bg-emerald-100 text-emerald-800 px-1.5 py-0.2 rounded font-mono opacity-0 transition-opacity duration-300 font-semibold">валиден ✓</span>
+L2089: <span class="text-[#8795a1] w-28 shrink-0 font-medium">Email раб.</span>
+L2094: <span class="text-[#8795a1] w-28 shrink-0 font-medium">Должность</span>
+L2099: <span class="text-[#8795a1] w-36 shrink-0 font-medium">Пользовательское с...</span>
+L2100: <div class="w-8 h-4 rounded-full bg-emerald-500 p-0.5 flex items-center justify-end transition-colors cursor-pointer" title="Активно">
+L2116: <div class="text-[9px] uppercase tracking-wider font-bold text-[#8795a1]">КОМПАНИЯ</div>
+L2118: Тестовая компания
+L2126: <span class="text-[#8795a1] w-28 shrink-0 font-medium">Бюджет лида</span>
+L2131: <span class="text-[#8795a1] w-28 shrink-0 font-medium">Сфера / Web</span>
+L2136: <span class="text-[#8795a1] w-28 shrink-0 font-medium">Адрес</span>
+L2141: <span class="text-[#8795a1] w-28 shrink-0 font-medium">Статус в CRM</span>
+L2144: <span>Анализ переписки...</span>
+L2155: <span id="amoFillCounter" class="text-slate-700 font-medium">Автозаполнение всех полей в CRM</span>
+L2157: <span id="amoSpeedTimer" class="text-[10px] font-mono text-emerald-700 font-bold bg-emerald-100/80 px-2 py-0.5 rounded border border-emerald-300">СИНХРОНИЗИРОВАНО</span>
+L2171: <span class="text-[10px] font-code font-bold text-sky-800 uppercase tracking-wider block">ДВИЖЕНИЕ СДЕЛКИ В AMOCRM</span>
+L2173: Этапы воронки без зависаний
+L2178: Заполнение без ошибок
+L2185: <div class="text-[#0284c7] font-extrabold truncate">НОВЫЙ ЛИД</div>
+L2186: <div class="text-[9px] text-slate-400 font-mono">409 сделок</div>
+L2189: <div class="text-[#d97706] font-extrabold truncate">КОНТАКТ</div>
+L2190: <div class="text-[9px] text-slate-400 font-mono">732 сделки</div>
+L2193: <div class="text-[#059669] font-extrabold truncate">КВАЛИФИКАЦИЯ</div>
+L2194: <div class="text-[9px] text-slate-400 font-mono">235 сделок</div>
+L2197: <div class="text-[#ea580c] font-extrabold truncate">КП ОТПРАВЛЕНО</div>
+L2198: <div class="text-[9px] text-slate-400 font-mono">1 389 сделок</div>
+L2201: <div class="text-emerald-800 font-extrabold truncate">УСПЕШНО</div>
+L2202: <div class="text-[9px] text-emerald-600 font-mono font-bold">100% ОПЛАТА</div>
+L2217: <span class="text-xs font-bold text-slate-950">1. Новый лид (Мгновенный захват 0.8с)</span>
+L2218: <span class="text-[10px] font-code text-sky-800 bg-sky-50 px-2 py-0.5 rounded font-bold whitespace-nowrap">✓ Захват</span>
+L2220: <p class="text-[11px] text-slate-500 mt-0.5 truncate">Лид из WhatsApp, Telegram, сайта или JivoSite моментально регистрируется в CRM</p>
+L2242: <span class="text-xs font-bold text-slate-950">2. Контакт установлен (Живой диалог)</span>
+L2243: <span class="text-[10px] font-code text-amber-800 bg-amber-50 px-2 py-0.5 rounded font-bold whitespace-nowrap">Диалог 24/7</span>
+L2245: <p class="text-[11px] text-slate-500 mt-0.5 truncate">AI выходит на связь за секунды, задает уточняющие вопросы и удерживает внимание лида</p>
+L2267: <span class="text-xs font-bold text-slate-950">3. Квалифицирован (ЛПР, бюджет, объем)</span>
+L2268: <span class="text-[10px] font-code text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded font-bold whitespace-nowrap">100% полей в CRM</span>
+L2270: <p class="text-[11px] text-slate-500 mt-0.5 truncate">ИИ фиксирует должность, компанию, объем закупки и бюджет — вносит данные прямо в карточку</p>
+L2292: <span class="text-xs font-bold text-slate-950">4. КП отправлено (Согласование и дожим)</span>
+L2293: <span class="text-[10px] font-code text-orange-800 bg-orange-50 px-2 py-0.5 rounded font-bold whitespace-nowrap">Прайс защищен</span>
+L2295: <p class="text-[11px] text-slate-500 mt-0.5 truncate">Автоматический расчет спецификации и сметы по прайсу без скидок из страха потери лида</p>
+L2317: <span class="text-xs font-bold text-emerald-950">5. Успешно реализовано (Оплата)</span>
+L2318: <span class="text-[10px] font-code text-emerald-900 bg-emerald-200/90 px-2 py-0.5 rounded font-black whitespace-nowrap shadow-2xs">ДЕНЬГИ НА СЧЕТУ</span>
+L2320: <p class="text-[11px] text-emerald-800 mt-0.5 font-medium truncate">Чек пробит, транзакция зафиксирована, сделка переведена в финальный этап amoCRM</p>
+L2338: <span class="block">Разборы внедрения</span>
+L2339: <span class="block mt-1 sm:mt-1.5 sm:whitespace-nowrap">автономного отдела продаж</span>
+L2350: <span>ВЫБЕРИТЕ СФЕРУ ДЛЯ ИЗУЧЕНИЯ:</span>
+L2353: 4 ГОТОВЫХ СЦЕНАРИЯ
+L2365: <span class="text-xs font-bold text-slate-900 group-hover:text-sky-900 font-inter tracking-tight">B2B Опт & Поставки</span>
+L2369: <span class="text-[11px] text-slate-600 font-medium truncate">Металл, комплектующие</span>
+L2377: <span class="text-xs font-semibold text-slate-700 group-hover:text-slate-900 font-inter tracking-tight">Недвижимость & КП</span>
+L2381: <span class="text-[11px] text-slate-600 font-medium truncate">Девелопмент, ЖК</span>
+L2389: <span class="text-xs font-semibold text-slate-700 group-hover:text-slate-900 font-inter tracking-tight">Автобизнес & Лизинг</span>
+L2393: <span class="text-[11px] text-slate-600 font-medium truncate">Avito, спецтехника</span>
+L2401: <span class="text-xs font-semibold text-slate-700 group-hover:text-slate-900 font-inter tracking-tight">B2B Консалтинг</span>
+L2405: <span class="text-[11px] text-slate-600 font-medium truncate">Аудит, сложные услуги</span>
+L2427: Оптовый поставщик металлопроката и комплектующих
+L2430: Автоматизация расчета спецификаций из 4 000+ позиций и моментальный дожим в Telegram
+L2437: <span class="text-[10px] font-bold text-emerald-800 uppercase tracking-wider block font-code">ЧИСТАЯ ВЫРУЧКА С AI</span>
+L2442: В первый месяц внедрения
+L2445: <span class="text-xs font-code font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">РЕЗУЛЬТАТ</span>
+L2451: <span class="text-[10px] font-code text-slate-400 uppercase font-bold block">СКОРОСТЬ РАСЧЕТА</span>
+L2452: <div id="caseMetric1" class="text-base sm:text-lg text-slate-950 font-bold mt-0.5 font-inter">15 СЕКУНД</div>
+L2453: <span id="caseMetric1Sub" class="text-[11px] text-slate-500 block font-inter">Вместо 3–4 дней в Excel</span>
+L2456: <span class="text-[10px] font-code text-slate-400 uppercase font-bold block">ЦИКЛ СДЕЛКИ</span>
+L2457: <div id="caseMetric2" class="text-base sm:text-lg text-slate-950 font-bold mt-0.5 font-inter">В 8 РАЗ БЫСТРЕЕ</div>
+L2458: <span id="caseMetric2Sub" class="text-[11px] text-slate-500 block font-inter">1 день вместо 8 дней</span>
+L2461: <span class="text-[10px] font-code text-slate-400 uppercase font-bold block">КОНВЕРСИЯ В ОПЛАТУ</span>
+L2463: <span id="caseMetric3Sub" class="text-[11px] text-slate-500 block font-inter">За счет скорости КП</span>
+L2466: <span class="text-[10px] font-code text-slate-400 uppercase font-bold block">ОКУПАЕМОСТЬ AI</span>
+L2467: <div id="caseMetric4" class="text-base sm:text-lg text-emerald-600 font-bold mt-0.5 font-inter">11 ДНЕЙ</div>
+L2468: <span id="caseMetric4Sub" class="text-[11px] text-slate-500 block font-inter">С первых 4 сделок</span>
+L2476: <div><strong class="text-rose-900 font-bold">Было:</strong> <span id="caseSummaryA">Сметы собирались 3–4 дня в Excel • 38% клиентов уходили к конкурентам</span></div>
+L2480: <div><strong class="text-emerald-900 font-bold">Стало:</strong> <span id="caseSummaryB">КП формируется за 15 секунд • Сделка в 8 раз быстрее • +10.4M ₽ в месяц</span></div>
+L2489: МВ
+L2492: <div id="caseAuthorName" class="font-bold text-slate-950 text-xs truncate font-inter">Михаил Воронов</div>
+L2493: <div id="caseAuthorRole" class="text-[10px] text-sky-800 font-medium truncate font-inter">Генеральный директор и основатель</div>
+L2501: «Раньше менеджеры вручную сводили спецификации по 3–4 дня в Excel, из-за чего 38% горячих заявок уходили к более быстрым конкурентам. После внедрения Altai Optima расчет из 4 000 позиций формируется в 1С за 15 секунд и моментально улетает в Telegram клиенту. В первый же месяц получили +10.4M ₽ чистой выручки.»
+L2510: <span class="text-slate-600">Рассчитайте выгоду под вашу нишу:</span>
+L2515: <span>Открыть калькулятор</span>
+L2534: ДЕМОНСТРАЦИЯ СЦЕНАРИЯ
+L2538: TELEGRAM + 1С + БИТРИКС24
+L2576: <span>МЫСЛИ ГЛОБАЛЬНО, ДЕЙСТВУЙ ЛОКАЛЬНО</span>
+L2580: <span>— Команда Altai</span>
+L2586: <span class="block sm:whitespace-nowrap">Сколько чистой прибыли принесет</span>
+L2587: <span class="block mt-1 sm:mt-1.5 sm:whitespace-nowrap">автономный отдел продаж?</span>
+L2675: <span class="text-slate-900 font-medium">Входящих заявок в месяц:</span>
+L2679: <div class="flex justify-between text-[11px] text-slate-500 font-semibold font-code"><span>100 лидов</span><span>3 000 лидов</span></div>
+L2684: <span class="text-slate-900 font-medium">Средний чек сделки (₽):</span>
+L2696: <span class="text-[11px] uppercase tracking-widest text-sky-200 font-bold font-code">ДОПОЛНИТЕЛЬНО В МЕСЯЦ</span>
+L2697: <span id="turboBadge" class="text-[9px] font-bold bg-emerald-400/30 text-emerald-100 px-2.5 py-0.5 rounded-full border border-emerald-300 uppercase font-code">● РЕЖИМ МАКСИМАЛЬНОГО РОСТА</span>
+L2703: <span class="text-[11px] uppercase tracking-widest text-sky-200 block font-medium font-code">ПРИРОСТ ПРИБЫЛИ ЗА ГОД</span>
+L2709: <span>Забрать эту прибыль</span>
+L2724: РЕЗЮМЕ СОТРУДНИКА
+L2739: <span>ИНТЕРАКТИВНЫЙ РЕКРУТЕР</span>
+L2742: Ваш сотрудник может быть любым
+L2745: Кликните на аватар, чтобы изучить резюме
+L2754: <span>Интерактивный выбор</span>
+L2761: <button onclick="selectPersona('eva', this)" data-key="eva" class="persona-btn active group relative flex flex-col items-center p-1 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer" title="Эва // Эксперт по сложным B2B продажам">
+L2763: <img src="eva-portrait.jpg" alt="Эва" class="w-full h-full object-cover object-center">
+L2765: <span class="persona-name text-[9px] sm:text-[10px] font-bold text-slate-900 mt-1 font-inter truncate max-w-full">Эва</span>
+L2766: <span class="persona-age text-[8px] sm:text-[9px] font-mono text-emerald-700 font-bold whitespace-nowrap">35 лет</span>
+L2770: <button onclick="selectPersona('alexander', this)" data-key="alexander" class="persona-btn group relative flex flex-col items-center p-1 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer" title="Александр // Уверенный мужской баритон">
+L2774: <span class="persona-name text-[9px] sm:text-[10px] font-bold text-slate-900 mt-1 font-inter truncate max-w-full">Алекс</span>
+L2775: <span class="persona-age text-[8px] sm:text-[9px] font-mono text-slate-500 font-bold whitespace-nowrap">38 лет</span>
+L2779: <button onclick="selectPersona('daria', this)" data-key="daria" class="persona-btn group relative flex flex-col items-center p-1 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer" title="Дарья // Премиальный сервис и забота">
+L2783: <span class="persona-name text-[9px] sm:text-[10px] font-bold text-slate-900 mt-1 font-inter truncate max-w-full">Дарья</span>
+L2784: <span class="persona-age text-[8px] sm:text-[9px] font-mono text-slate-500 font-bold whitespace-nowrap">29 лет</span>
+L2788: <button onclick="selectPersona('ruslan', this)" data-key="ruslan" class="persona-btn group relative flex flex-col items-center p-1 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer" title="Руслан // Твердые переговоры и опт">
+L2792: <span class="persona-name text-[9px] sm:text-[10px] font-bold text-slate-900 mt-1 font-inter truncate max-w-full">Руслан</span>
+L2793: <span class="persona-age text-[8px] sm:text-[9px] font-mono text-slate-500 font-bold whitespace-nowrap">42 года</span>
+L2797: <button onclick="selectPersona('mei', this)" data-key="mei" class="persona-btn group relative flex flex-col items-center p-1 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer" title="Мэй // Международные сделки и Tech">
+L2801: <span class="persona-name text-[9px] sm:text-[10px] font-bold text-slate-900 mt-1 font-inter truncate max-w-full">Мэй</span>
+L2802: <span class="persona-age text-[8px] sm:text-[9px] font-mono text-slate-500 font-bold whitespace-nowrap">31 год</span>
+L2806: <button onclick="selectPersona('mark', this)" data-key="mark" class="persona-btn group relative flex flex-col items-center p-1 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer" title="Марк // Корпоративные сделки">
+L2810: <span class="persona-name text-[9px] sm:text-[10px] font-bold text-slate-900 mt-1 font-inter truncate max-w-full">Марк</span>
+L2811: <span class="persona-age text-[8px] sm:text-[9px] font-mono text-slate-500 font-bold whitespace-nowrap">45 лет</span>
+L2815: <button onclick="selectPersona('amina', this)" data-key="amina" class="persona-btn group relative flex flex-col items-center p-1 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer" title="Амина // Деликатный премиум-дожим">
+L2819: <span class="persona-name text-[9px] sm:text-[10px] font-bold text-slate-900 mt-1 font-inter truncate max-w-full">Амина</span>
+L2820: <span class="persona-age text-[8px] sm:text-[9px] font-mono text-slate-500 font-bold whitespace-nowrap">27 лет</span>
+L2824: <button onclick="selectPersona('denis', this)" data-key="denis" class="persona-btn group relative flex flex-col items-center p-1 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer" title="Денис // Скоростной захват лидов">
+L2828: <span class="persona-name text-[9px] sm:text-[10px] font-bold text-slate-900 mt-1 font-inter truncate max-w-full">Денис</span>
+L2829: <span class="persona-age text-[8px] sm:text-[9px] font-mono text-slate-500 font-bold whitespace-nowrap">30 лет</span>
+L2833: <button onclick="selectPersona('kenji', this)" data-key="kenji" class="persona-btn group relative flex flex-col items-center p-1 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer" title="Кенджи // Инженерный расчет и B2B">
+L2837: <span class="persona-name text-[9px] sm:text-[10px] font-bold text-slate-900 mt-1 font-inter truncate max-w-full">Кенджи</span>
+L2838: <span class="persona-age text-[8px] sm:text-[9px] font-mono text-slate-500 font-bold whitespace-nowrap">34 года</span>
+L2842: <button onclick="selectPersona('elena', this)" data-key="elena" class="persona-btn group relative flex flex-col items-center p-1 rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer" title="Елена // Высокие чеки и доверие">
+L2846: <span class="persona-name text-[9px] sm:text-[10px] font-bold text-slate-900 mt-1 font-inter truncate max-w-full">Елена</span>
+L2847: <span class="persona-age text-[8px] sm:text-[9px] font-mono text-slate-500 font-bold whitespace-nowrap">46 лет</span>
+L2856: <span class="font-bold text-slate-950 text-xs sm:text-[13px]" id="personaProfileTitle">Эва // AI Altai Optima</span>
+L2859: Безупречный женский альт, строгий деловой этикет Ritz-Carlton. Идеально закрывает чеки от 500 000 ₽.
+L2888: ЭВА
+L2892: СТАРШИЙ ВИЦЕ-ПРЕЗИДЕНТ ПО ПРОДАЖАМ
+L2899: <span class="text-[11px] sm:text-xs">Вся Россия, CRM</span>
+L2903: <span class="text-[11px] sm:text-xs">Возраст: <strong id="resumeCandidateAge" class="text-slate-900 font-semibold">35 лет</strong></span>
+L2907: <span id="resumeCandidateReady">Готова к работе</span>
+L2918: alt="Эва — Старший вице-президент по продажам"
+L2938: Ключевые компетенции
+L2945: <span><strong class="text-slate-950">Навыки коммуникации уровня Ritz-Carlton:</strong> безупречный тон, уважение границ и персональный сервис высшего класса.</span>
+L2949: <span><strong class="text-slate-950">Отработка любых возражений:</strong> аргументация ценности и твердая защита чека без раздачи скидок.</span>
+L2953: <span><strong class="text-slate-950">Автономная работа в CRM:</strong> самостоятельное ведение лида по воронке до оплаты.</span>
+L2957: <span><strong class="text-slate-950">Мгновенная реакция на обращения:</strong> отклик за 0.8 секунды в любых каналах связи.</span>
+L2961: <span><strong class="text-slate-950">Знание русского языка уровня Даля:</strong> живая, убедительная речь без скриптовой сухости.</span>
+L2972: Условия и график
+L2978: <span class="text-slate-500 font-medium">Режим работы:</span>
+L2982: <span class="text-slate-500 font-medium">Результат:</span>
+L2983: <span class="font-extrabold text-emerald-700 text-sm font-inter">+30% к прибыли</span>
+L2986: <span class="text-slate-500 font-medium">Зарплата:</span>
+L2987: <span class="font-bold text-slate-900 font-inter">от 100 000 ₽</span>
+L2995: Языки
+L3001: <span class="text-slate-500 font-medium">Владение:</span>
+L3002: <span class="text-xs text-emerald-700 font-mono font-semibold">7 170 языков</span>
+L3005: <span class="text-slate-500 font-medium">Уровень:</span>
+L3016: О себе
+L3020: Обучена строгим стандартам персонального сервиса на базе Ritz-Carlton. <strong class="text-slate-950 font-bold">Благодаря интеллекту AI знаю любую тему и продукт в совершенстве, поэтому мне не требуется время на адаптацию и обучение.</strong> Я готова уже здесь и сейчас зарабатывать деньги для вашей компании: веду диалог безупречным голосом, строго защищаю базовый прайс и довожу сделку до оплаты с достоинством профессионала — без отпусков, выгорания и человеческого фактора.
+L3044: <span class="text-emerald-800 font-bold">ПОДАРОК ПРИ ПОДКЛЮЧЕНИИ</span>
+L3049: Время убрать человеческий фактор из отдела продаж и забрать упущенную прибыль
+L3052: Давайте создадим для вас кастомного <strong class="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-indigo-600 font-bold">AI-менеджера</strong> под ваш продукт, интегрируем в CRM и мессенджеры, и проведем тестовый запуск на живом потоке клиентов, чтобы вы увидели рост конверсии в первый же день.
+L3060: <span><strong class="text-slate-950 font-bold font-inter">3 дня на настройку</strong></span>
+L3065: <span><strong class="text-slate-950 font-bold font-inter">Перенос базы из Excel в CRM в подарок</strong> — <span class="inline-flex items-center text-emerald-800 font-bold bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-300 font-mono text-[11px] sm:text-xs shadow-2xs">выгода 45 000 ₽</span></span>
+L3070: <span><strong class="text-slate-950 font-bold font-inter">Подписание NDA перед началом любых работ</strong> — ваши данные в безопасности</span>
+L3079: <label class="block text-[11px] font-mono text-slate-500 mb-1 font-semibold uppercase">Ваше имя</label>
+L3082: <input type="text" id="pilotInputName" placeholder="Александр" required class="w-full pl-9 pr-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-400/20 text-sm text-slate-900 font-medium outline-none transition shadow-xs font-inter" />
+L3087: <label class="block text-[11px] font-mono text-slate-500 mb-1 font-semibold uppercase">Телефон или Telegram *</label>
+L3090: <input type="text" id="pilotInputContact" placeholder="+7 (999) 000-00-00 или @username" required class="w-full pl-9 pr-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-400/20 text-sm text-slate-900 font-medium outline-none transition shadow-xs font-inter" />
+L3096: <span class="font-bold tracking-wide">ОБСУДИТЬ ДЕТАЛИ ПРОЕКТА</span>
+L3101: ✓ Заявка принята! Свяжемся с вами в течение 10 минут.
+L3140: «Мысли глобально, действуй локально»
+L3144: <span>— Команда Altai</span>
+L3151: <span>Начать работу</span>
+L3194: <button type="button" onclick="openExcelGiftModal(false)" class="floating-neon-btn relative w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center cursor-pointer transition-transform duration-300 hover:scale-115 active:scale-95 group focus:outline-none bg-transparent" title="Подарок при подключении — выгода 45 000 ₽">
+L3231: <span>🎁 ПОДАРОК ПРИ ПОДКЛЮЧЕНИИ AI-ПРОДАВЦА</span>
+L3233: <span class="text-emerald-700 font-mono">ВЫГОДА 45 000 ₽</span>
+L3237: Вся база в Excel или Google Таблицах? Наведем четкий порядок
+L3241: Если у вас еще нет CRM — не проблема. Мы возьмем на себя всю рутину: перенесем ваши разрозненные таблицы, почистим от дублей, сегментируем контакты и подготовим базу для старта AI-продаж.
+L3249: <span>Очистка от дублей</span>
+L3253: <span>Импорт в CRM</span>
+L3257: <span>AI-сегментация</span>
+L3266: <label class="block text-[11px] font-mono text-slate-500 mb-1">Ваше имя</label>
+L3267: <input type="text" id="giftModalName" placeholder="Александр" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 focus:border-slate-950 focus:bg-white text-xs text-slate-900 outline-none transition" />
+L3270: <label class="block text-[11px] font-mono text-slate-500 mb-1">Телефон или Telegram *</label>
+L3271: <input type="text" id="giftModalContact" required placeholder="+7 (999) 000-00-00 или @username" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 focus:border-slate-950 focus:bg-white text-xs text-slate-900 outline-none transition" />
+L3276: <span>Забрать подарок и перенести базу</span>
+L3281: ✓ Заявка принята! Мы свяжемся с вами в течение 15 минут для согласования переноса базы.
+L3285: <span>🔒 Конфиденциально • Подписываем NDA перед началом работ</span>
+L3414: { sender: 'user', author: 'Максим (Лид)', text: 'Добрый день! Интересует подключение ИИ-отдела. Как быстро можно настроить под наши услуги?', time: '14:20' },
+L3415: { sender: 'ai', author: 'Эва // Altai Optima', text: 'Максим, приветствую! Меня зовут Эва. Тестовый контур разворачиваем за 24 часа. Вам удобнее текстом или набрать голосом?', time: '14:20' },
+L3416: { sender: 'user', author: 'Максим (Лид)', text: 'Давайте текстом, на встрече сейчас.', time: '14:21' },
+L3417: { sender: 'ai', author: 'Эва // Altai Optima', text: 'Принято! Система перехватывает лиды за 0.8с, квалифицирует бюджет и сама выставляет счет. Готовы протестировать на 50 входящих лидах?', time: '14:21' },
+L3418: { sender: 'user', author: 'Максим (Лид)', text: 'Да, давайте попробуем, отправляйте ссылку.', time: '14:22' },
+L3419: { sender: 'ai', author: 'Эва // Altai Optima', text: 'Формирую защищенный доступ к тестовому стенду. Сделка переведена на этап «Пилот» ✓', time: '14:22' }
+L3422: { sender: 'user', author: 'Максим (Лид)', text: 'Видел кнопочных ботов за три копейки. Зачем платить за вашу систему?', time: '15:10' },
+L3423: { sender: 'ai', author: 'Эва // Altai Optima', text: 'Кнопочные боты теряют 70% клиентов на первом же вопросе не по сценарию. Наша система понимает нюансы бизнеса, не раздает скидки из страха и дожимает сделку на уровне лучшего коммерческого директора.', time: '15:10' },
+L3424: { sender: 'user', author: 'Максим (Лид)', text: 'То есть скидку вы мне не дадите?)', time: '15:11' },
+L3425: { sender: 'ai', author: 'Эва // Altai Optima', text: 'Скидка обесценивает ваш результат. Вместо уступок мы даем гарантию сохранения +30% выручки в договоре 🤝', time: '15:11' }
+L3430: author: 'Анастасия (Direct)',
+L3431: text: 'Добрый день! Подскажите, пожалуйста, сколько стоит данное платье?',
+L3436: author: 'Эва // Altai Optima',
+L3437: text: 'Анастасия, добрый день! Благодарю за обращение в нашу компанию, меня зовут Эва ✨<br><br>Стоимость платья составляет 5 000 рублей.<br><br>На данный момент у нас действует экспресс-доставка по городу с примеркой, а также изделие представлено в онлайн-пространствах.<br><br>Направляю ссылки для вашего удобства:<br>• <strong>Lamoda:</strong> <span class="underline decoration-pink-200 font-medium">lamoda.ru/brand/dress</span><br>• <strong>Ozon:</strong> <span class="underline decoration-pink-200 font-medium">ozon.ru/product/dress</span><br><br>Подсказать вам по наличию вашего размера или оформить заказ с доставкой прямо сейчас?',
+L3442: author: 'Анастасия (Direct)',
+L3443: text: 'Да, подскажите! На параметры 88-64-92 лучше взять размер S?',
+L3448: author: 'Эва // Altai Optima',
+L3449: text: 'Анастасия, под ваши параметры идеально подойдет размер S — посадка будет точной и подчеркнет талию. Забронировать его для вас на доставку курьером на завтра?',
+L3510: document.getElementById('agentStatus').textContent = 'сделка закрыта ✓';
+L3518: status.textContent = 'Эва печатает ответ...';
+L3519: typing.textContent = 'Обработка намерения лида (0.8c)...';
+L3522: status.textContent = 'в сети • отклик 0.8с';
+L3523: typing.textContent = 'Ожидание реакции клиента...';
+L3528: typing.textContent = 'Клиент пишет ответ...';
+L3697: if (counterEl) counterEl.textContent = 'Заполнено 1 из 8 обязательных полей';
+L3705: if (counterEl) counterEl.textContent = 'Заполнено 2 из 8 обязательных полей';
+L3711: posEl.textContent = 'Коммерческий директор (ЛПР)';
+L3713: if (counterEl) counterEl.textContent = 'Заполнено 3 из 8 обязательных полей';
+L3721: if (counterEl) counterEl.textContent = 'Заполнено 4 из 8 обязательных полей';
+L3727: compEl.textContent = 'ПромСтройХолдинг ООО';
+L3729: if (counterEl) counterEl.textContent = 'Заполнено 5 из 8 обязательных полей';
+L3735: indEl.textContent = 'Оптовые поставки металлопроката';
+L3737: if (counterEl) counterEl.textContent = 'Заполнено 6 из 8 обязательных полей';
+L3743: cityEl.textContent = 'Москва, ЦФО';
+L3745: if (counterEl) counterEl.textContent = 'Заполнено 7 из 8 обязательных полей';
+L3754: <span class="text-emerald-700 font-bold">КП отправлено • Ждем оплату</span>
+L3762: counterEl.textContent = 'Все 8 обязательных полей заполнены на 100%';
+L3782: <span class="text-slate-500">Анализ диалога в переписке...</span>
+L3790: counterEl.textContent = 'Заполнено 0 из 8 обязательных полей';
+L3806: const fullText = "Добрый день. Меня зовут Эва, как могу вам помочь?";
+L3843: name: 'ЭВА',
+L3844: role: 'СТАРШИЙ ВИЦЕ-ПРЕЗИДЕНТ ПО ПРОДАЖАМ',
+L3845: age: '35 лет',
+L3848: badge: 'ПЕРСОНА: ЭВА',
+L3849: ready: 'Готова приступить мгновенно',
+L3850: title: 'Эва // AI Altai Optima',
+L3851: voiceBadge: 'ГОЛОС: СИНТЕЗ HD',
+L3852: desc: 'Безупречный женский альт, строгий деловой этикет Ritz-Carlton. Идеально закрывает чеки от 500 000 ₽.',
+L3857: name: 'АЛЕКСАНДР СЕМЕНОВ',
+L3858: role: 'ДИРЕКТОР ПО B2B ПРОДАЖАМ И ОПТУ',
+L3859: age: '38 лет',
+L3862: badge: 'ПЕРСОНА: АЛЕКСАНДР',
+L3863: ready: 'Готов приступить мгновенно',
+L3864: title: 'Александр // Уверенный баритон',
+L3865: voiceBadge: 'ГОЛОС: СИНТЕЗ HD (БАРИТОН)',
+L3866: desc: 'Глубокий спокойный мужской баритон. Идеален для оптовой торговли, поставок оборудования, девелопмента и логистики.',
+L3871: name: 'ДАРЬЯ РОМАНОВА',
+L3872: role: 'РУКОВОДИТЕЛЬ VIP-КОНСЬЕРЖ СЕРВИСА',
+L3873: age: '29 лет',
+L3876: badge: 'ПЕРСОНА: ДАРЬЯ',
+L3877: ready: 'Готова приступить мгновенно',
+L3878: title: 'Дарья // Премиальный сервис и забота',
+L3879: voiceBadge: 'ГОЛОС: СИНТЕЗ HD (СОПРАНО)',
+L3880: desc: 'Эмпатичный, интеллигентный и располагающий голос. Высокая конверсия в премиальной медицине, туризме и сфере услуг.',
+L3885: name: 'РУСЛАН АЛИЕВ',
+L3886: role: 'ВЕДУЩИЙ ПЕРЕГОВОРЩИК И СТРАТЕГ',
+L3887: age: '42 года',
+L3890: badge: 'ПЕРСОНА: РУСЛАН',
+L3891: ready: 'Готов приступить мгновенно',
+L3892: title: 'Руслан // Твердые переговоры и опт',
+L3893: voiceBadge: 'ГОЛОС: СИНТЕЗ HD (ТЕМБР-ЛИДЕР)',
+L3894: desc: 'Твердая аргументация, железная позиция по цене без уступок. Идеален для дистрибуции, спецтехники и жестких B2B-переговоров.',
+L3899: name: 'МЭЙ ЛИН',
+L3900: role: 'МЕНЕДЖЕР ПО ВЭД И ТЕХНОЛОГИЯМ',
+L3901: age: '31 год',
+L3904: badge: 'ПЕРСОНА: МЭЙ',
+L3905: ready: 'Готова приступить мгновенно',
+L3906: title: 'Мэй // Международные сделки и Tech',
+L3907: voiceBadge: 'ГОЛОС: СИНТЕЗ HD (ДЕЛОВОЙ)',
+L3908: desc: 'Структурная, быстрая речь с точностью до цифры. Идеальна для SaaS, IT-решений, импорта из Азии и e-commerce.',
+L3913: name: 'МАРК ШТЕЙН',
+L3914: role: 'КОРПОРАТИВНЫЙ АМБАССАДОР',
+L3915: age: '45 лет',
+L3918: badge: 'ПЕРСОНА: МАРК',
+L3919: ready: 'Готов приступить мгновенно',
+L3920: title: 'Марк // Корпоративные сделки',
+L3921: voiceBadge: 'ГОЛОС: СИНТЕЗ HD (СТАТУС)',
+L3922: desc: 'Вызывает моментальное доверие собственников и топ-менеджеров. Специализация: консалтинг, инвестпроекты, банковский сектор.',
+L3927: name: 'АМИНА КАСЫМОВА',
+L3928: role: 'ЭКСПЕРТ ПО ЭЛИТНОЙ НЕДВИЖИМОСТИ',
+L3929: age: '27 лет',
+L3932: badge: 'ПЕРСОНА: АМИНА',
+L3933: ready: 'Готова приступить мгновенно',
+L3934: title: 'Амина // Деликатный премиум-дожим',
+L3935: voiceBadge: 'ГОЛОС: СИНТЕЗ HD (БАРХАТ)',
+L3936: desc: 'Мягкое ведение диалога с тактичным дожимом до закрытия договора. Прекрасно работает в загородной и премиум-недвижимости.',
+L3941: name: 'ДЕНИС ВОЛКОВ',
+L3942: role: 'HIGH-ENERGY СКОРОСТНОЙ КЛОУЗЕР',
+L3943: age: '30 лет',
+L3946: badge: 'ПЕРСОНА: ДЕНИС',
+L3947: ready: 'Готов приступить мгновенно',
+L3948: title: 'Денис // Скоростной захват лидов',
+L3949: voiceBadge: 'ГОЛОС: СИНТЕЗ HD (ДИНАМИК)',
+L3950: desc: 'Динамичный темп речи, моментальная реакция на входящий интерес. Превосходно конвертирует холодный и горячий трафик с рекламы.',
+L3955: name: 'КЕНДЖИ ТАНАКА',
+L3956: role: 'ТЕХНИЧЕСКИЙ ЭКСПЕРТ И B2B-ИНЖЕНЕР',
+L3957: age: '34 года',
+L3960: badge: 'ПЕРСОНА: КЕНДЖИ',
+L3961: ready: 'Готов приступить мгновенно',
+L3962: title: 'Кенджи // Инженерный расчет и B2B',
+L3963: voiceBadge: 'ГОЛОС: СИНТЕЗ HD (ВЗВЕШЕННЫЙ)',
+L3964: desc: 'Глубокое погружение в ТЗ, сложные спецификации и сметы. Конвертирует технических директоров и инженеров.',
+L3969: name: 'ЕЛЕНА СМИРНОВА',
+L3970: role: 'УПРАВЛЯЮЩИЙ ПАРТНЕР ПО ПРОДАЖАМ',
+L3971: age: '46 лет',
+L3974: badge: 'ПЕРСОНА: ЕЛЕНА',
+L3975: ready: 'Готова приступить мгновенно',
+L3976: title: 'Елена // Высокие чеки и доверие',
+L3977: voiceBadge: 'ГОЛОС: СИНТЕЗ HD (СТАТУСНЫЙ)',
+L3978: desc: 'Солидный статус и безупречный такт. Проводит переговоры на уровне генеральных директоров и акционеров холдингов.',
+L4048: companyLogo: 'ПС',
+L4050: companyName: 'ООО «ПромСталь Холдинг»',
+L4051: companyNiche: 'B2B Металлопрокат & Трубная продукция • Оборот 920M ₽/год',
+L4052: authorAvatar: 'МВ',
+L4054: authorName: 'Михаил Воронов',
+L4055: authorRole: 'Генеральный директор и основатель',
+L4056: review: '«Раньше менеджеры вручную сводили спецификации по 3–4 дня в Excel, из-за чего 38% горячих заявок уходили к более быстрым конкурентам. После внедрения Altai Optima расчет из 4 000 позиций формируется в 1С за 15 секунд и моментально улетает в Telegram клиенту. В первый же месяц получили +10.4M ₽ чистой выручки.»',
+L4057: nicheTag: 'НИША: B2B ОПТ И СТРОИТЕЛЬНЫЕ ПОСТАВКИ',
+L4058: stackTag: 'СТЕК: БИТРИКС24 + TELEGRAM API + 1С',
+L4059: title: 'Оптовый поставщик металлопроката и комплектующих',
+L4060: subtitle: 'Автоматизация расчета спецификаций из 4 000+ позиций и моментальный дожим в Telegram',
+L4062: revenueNote: 'В ПЕРВЫЙ МЕСЯЦ ВНЕДРЕНИЯ',
+L4064: { label: 'СКОРОСТЬ РАСЧЕТА', val: '15 СЕКУНД', sub: 'Вместо 3–4 дней в Excel', color: 'text-sky-950' },
+L4065: { label: 'ЦИКЛ СДЕЛКИ', val: 'В 8 РАЗ БЫСТРЕЕ', sub: '1 день вместо 8 дней', color: 'text-sky-950' },
+L4066: { label: 'КОНВЕРСИЯ В ОПЛАТУ', val: '+34%', sub: 'За счет скорости КП', color: 'text-emerald-600' },
+L4067: { label: 'ОКУПАЕМОСТЬ AI', val: '11 ДНЕЙ', sub: 'С первых 4 закрытых сделок', color: 'text-emerald-600' }
+L4069: summaryA: 'Сметы собирались <strong>3–4 дня</strong> в Excel • <strong>38% клиентов уходили</strong> к конкурентам • Менеджеры перегружены рутиной',
+L4070: summaryB: 'КП формируется <strong>за 15 секунд</strong> • Сделка в <strong>8 раз быстрее</strong> • <strong>+10.4M ₽ в месяц</strong> чистой выручки',
+L4071: liveTag: 'TELEGRAM + 1С + БИТРИКС24',
+L4072: leftTitle: 'Telegram Desktop • Заказчик @metall_stroy',
+L4082: <span class="text-xs font-normal">Чаты</span>
+L4084: <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-sky-300 to-indigo-500 text-white flex items-center justify-center font-bold text-xs shadow-xs shrink-0">МС</div>
+L4087: <span>МеталлСтрой Холдинг (Алексей)</span>
+L4090: <div class="text-[10px] text-white/80 font-normal">в сети • Telegram Desktop</div>
+L4104: <span class="text-[9px] font-sans font-semibold text-white bg-black/25 backdrop-blur-xs px-2.5 py-0.5 rounded-full shadow-2xs">СЕГОДНЯ, 14:02</span>
+L4109: <div class="text-[11px] font-bold text-[#2481cc] pb-0.5">Алексей (Закупки)</div>
+L4111: «Добрый день! Нужна арматура А500С 12мм — 45 тонн и балка 20Б1 — 18 тонн с доставкой в Новую Москву. Скиньте счет и сроки.»
+L4121: AI Altai Optima (1С:УТ)
+L4123: <span class="text-emerald-900 bg-emerald-200/90 px-1.5 py-0.5 rounded font-bold text-[9px]">15 сек ✓</span>
+L4126: «Здравствуйте, Алексей! Спецификацию и счет №482 на сумму <strong>3 420 000 ₽</strong> сформировал. При оплате до 17:00 отгрузим со склада завтра в 09:00.»
+L4135: <div class="text-[11px] font-bold text-slate-900 truncate">Счет_Спецификация_482_1С.pdf</div>
+L4136: <div class="text-[9px] text-slate-500 font-sans">1.4 MB • 4 120 позиций сверено в 1С</div>
+L4147: <div class="text-[11px] font-bold text-[#2481cc] pb-0.5">Алексей (Закупки)</div>
+L4148: <div class="font-normal">«Счет передал в бухгалтерию на оплату, резервируйте 45 тонн.»</div>
+L4156: <div class="flex-1 bg-white border border-slate-300 rounded-full px-3.5 py-1 text-[11px] text-slate-400 font-sans">Написать сообщение...</div>
+L4162: rightTitle: 'Битрикс24 CRM • Сделка #4892',
+L4163: rightBadge: 'БИТРИКС24 + 1С',
+L4172: <span class="text-[#00aeef] font-black text-sm tracking-tight font-sans">Битрикс</span><span class="text-white font-black text-sm tracking-tight font-sans">24</span>
+L4178: <span class="truncate">искать сделку, 1С...</span>
+L4184: <div class="w-6 h-6 rounded-full bg-cyan-600 text-white font-bold text-[10px] flex items-center justify-center border border-white/20">МО</div>
+L4190: <span class="cursor-default hover:text-white">Лиды</span>
+L4191: <span class="cursor-default text-cyan-300 font-bold border-b-2 border-cyan-400 pb-0.5">Сделки</span>
+L4192: <span class="cursor-default hover:text-white">Товары и Склады</span>
+L4193: <span class="cursor-default hover:text-white">Клиенты</span>
+L4194: <span class="cursor-default hover:text-white">Интеграция 1С</span>
+L4201: <span>Сделки</span>
+L4204: <span class="bg-[#7bd500] hover:bg-[#6ec200] text-slate-900 font-extrabold px-2 py-0.5 rounded text-[10px] shadow-2xs cursor-default">+ СОЗДАТЬ</span>
+L4207: <span>Сделки в работе</span>
+L4215: <div class="text-[#00aeef] uppercase text-[8px] truncate">01. Заявка</div>
+L4219: <div class="text-[#00a8a8] uppercase text-[8px] truncate">02. Расчет 1С</div>
+L4225: 03. Счет
+L4230: <div class="text-amber-700 uppercase text-[8px] truncate">04. Оплата</div>
+L4241: <span class="text-sky-600">⚡</span> Сделка #4892: ООО "МеталлСтрой Холдинг"
+L4243: <div class="text-[9px] font-mono text-slate-500">Воронка: Оптовые поставки металлопроката</div>
+L4245: <span class="text-[9px] font-mono font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded border border-emerald-300">СЧЕТ ВЫСТАВЛЕН</span>
+L4250: <span class="text-[9px] font-mono text-slate-400 block uppercase">СУММА СДЕЛКИ:</span>
+L4254: <span class="text-[9px] font-mono text-slate-400 block uppercase">МАРЖА (24.8%):</span>
+L4258: <span class="text-[9px] font-mono text-slate-400 block uppercase">ОТВЕТСТВЕННЫЙ:</span>
+L4264: <span class="text-[9px] font-mono text-slate-400 block uppercase">ИСТОЧНИК:</span>
+L4272: <span>1С:Управление торговлей v11.5</span>
+L4273: <span class="text-emerald-700 font-bold">Складской резерв ✓</span>
+L4277: <span>• Арматура А500С 12мм (45 т):</span>
+L4278: <span class="font-mono text-emerald-800 font-bold">Склад Подольск (Резерв)</span>
+L4281: <span>• Балка 20Б1 (18 т):</span>
+L4282: <span class="font-mono text-emerald-800 font-bold">Склад Чехов (Резерв)</span>
+L4290: <span class="hover:text-sky-600 cursor-default">📞 Звонок</span>
+L4291: <span class="hover:text-sky-600 cursor-default">✉️ Письмо</span>
+L4292: <span class="hover:text-sky-600 cursor-default">💬 Чат</span>
+L4294: <span class="text-[9px] font-mono text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.5 rounded">15 сек автосчет</span>
+L4304: companyName: 'Девелоперская группа «Skyline Estate»',
+L4305: companyNiche: 'Загородные поселки & Клубные резиденции • Оборот 1.4B ₽/год',
+L4306: authorAvatar: 'ЕБ',
+L4308: authorName: 'Екатерина Белова',
+L4309: authorRole: 'Коммерческий директор девелопера',
+L4310: review: '«База из 3 800 старых лидов просто лежала мертвым грузом — брокеры не успевали их прозванивать. AI-ассистент за один вечер поднял контакты в WhatsApp, выявил реальный интерес и назначил 42 показа на объекте. Система полностью окупилась с первой же комиссии загородного дома.»',
+L4311: nicheTag: 'НИША: НЕДВИЖИМОСТЬ & ДЕВЕЛОПМЕНТ (ЖК И КП)',
+L4312: stackTag: 'СТЕК: VOICE AI + AMOCRM + WHATSAPP',
+L4313: title: 'Федеральный девелопер премиальных коттеджных поселков',
+L4314: subtitle: 'Реактивация 3 800 спящих лидов из архива CRM и автоматическая запись на просмотры',
+L4316: revenueNote: 'С АРХИВНОЙ БАЗЫ ЗА 30 ДНЕЙ',
+L4318: { label: 'СКОРОСТЬ ОБЗВОНА', val: '48 ЧАСОВ', sub: 'На полный обзвон 3 800 контактов', color: 'text-sky-950' },
+L4319: { label: 'РЕАКТИВАЦИЯ БАЗЫ', val: '41% ВЕРНУЛИСЬ', sub: '1 558 клиентов вернулись в воронку', color: 'text-emerald-600' },
+L4320: { label: 'ВЫРУЧКА С АРХИВА', val: '+6.8M ₽', sub: 'Прямая выручка с закрытых сделок', color: 'text-emerald-600' },
+L4321: { label: 'ОКУПАЕМОСТЬ AI', val: 'СО 2-Й СДЕЛКИ', sub: 'Полный возврат инвестиций', color: 'text-sky-950' }
+L4323: summaryA: 'В архиве висело <strong>3 800 спящих лидов</strong> • Менеджеры саботировали звонки • Бюджет на рекламу рос на 30%',
+L4324: summaryB: 'Voice AI обзвонил базу за <strong>48 часов</strong> • <strong>1 558 лидов реактивировано</strong> • <strong>+6.8M ₽ чистой прибыли</strong>',
+L4326: leftTitle: 'WhatsApp & Voice AI • Диалог с клиентом',
+L4335: <div class="w-8 h-8 rounded-full bg-[#128C7E] text-white flex items-center justify-center font-bold text-xs shadow-xs shrink-0">МА</div>
+L4338: <span>Михаил Александрович (КП Резиденция)</span>
+L4341: <div class="text-[10px] text-emerald-200 font-sans">в сети • WhatsApp Business</div>
+L4359: Запись звонка: Voice AI Altai Optima
+L4361: <span class="text-[9px] font-mono text-emerald-800 font-bold bg-emerald-100 px-1.5 py-0.5 rounded border border-emerald-200">РАСПОЗНАНО 99.4%</span>
+L4391: <span id="waVoiceStatus" class="text-[8px] font-sans text-emerald-700 font-semibold block leading-none">Слушать</span>
+L4395: <div><strong class="text-sky-900">AI:</strong> «Михаил, добрый день! Открыли продажи 2-й очереди КП "Лесная Резиденция" с выгодой 12%. Отправляю генплан в WhatsApp?»</div>
+L4396: <div><strong class="text-slate-950">Клиент:</strong> «Да, скиньте в WhatsApp. Запишите на показ в субботу в 12:00.»</div>
+L4403: «Михаил, закрепил за вами просмотр коттеджа: <strong>Суббота, 12:00</strong>. Персональный пропуск на КП оформил, генплан и планировки 2-й очереди прикрепил ниже 📍»
+L4410: <div class="text-[11px] font-bold text-slate-900 truncate">Генплан_Лесная_Резиденция_2очередь.pdf</div>
+L4411: <div class="text-[9px] font-mono text-slate-500">4.8 MB • Коттедж 280 м²</div>
+L4425: <div class="flex-1 bg-white border border-slate-300 rounded-full px-3.5 py-1 text-[11px] text-slate-400 font-sans">Сообщение...</div>
+L4431: rightTitle: 'amoCRM • Карточка лида #74109',
+L4441: <span class="text-xs text-white/90 font-medium truncate">Воронка: КП "Лесная Резиденция"</span>
+L4446: <div class="w-6 h-6 rounded-full bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center">РОП</div>
+L4452: <div class="bg-slate-200 text-slate-600 py-1.5 rounded truncate">01. Архив (3 800)</div>
+L4456: 03. Просмотр Сб
+L4458: <div class="bg-slate-100 text-slate-400 py-1.5 rounded truncate">04. Бронь/ДКП</div>
+L4467: <span class="text-sky-600">🏠</span> Сделка #74109: Михаил (Архивная база)
+L4469: <div class="text-[9px] font-mono text-slate-500">Автоназначение слота показа</div>
+L4471: <span class="text-[9px] font-mono font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded border border-emerald-300">ПРОСМОТР НАЗНАЧЕН</span>
+L4476: <span class="text-[9px] font-mono text-slate-400 block uppercase">БЮДЖЕТ ПОКУПКИ:</span>
+L4480: <span class="text-[9px] font-mono text-slate-400 block uppercase">ДАТА ПОКАЗА:</span>
+L4481: <strong class="text-sky-900 font-mono font-bold text-xs bg-sky-50 px-1.5 py-0.5 rounded border border-sky-200 inline-block">Суббота, 12:00</strong>
+L4484: <span class="text-[9px] font-mono text-slate-400 block uppercase">ВЫБРАННЫЙ ОБЪЕКТ:</span>
+L4485: <span class="font-bold text-slate-900 text-xs">КП "Лесная Резиденция", Участок №14, Коттедж 280 м²</span>
+L4491: <span class="text-[9px] font-mono font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded border border-emerald-300">#РЕАКТИВАЦИЯ_41%</span>
+L4493: <span class="text-[9px] font-mono text-slate-700 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">#WHATSAPP_ГЕНПЛАН</span>
+L4497: ⚡ Итог: спящий контакт из 3 800 архива реактивирован за 48 сек разговора робота.
+L4505: companyLogo: 'ТА',
+L4507: companyName: 'Дилерский центр «ТрансАвто СпецТехника»',
+L4508: companyNiche: 'Тягачи Sitrak, спецтехника & коммерческий лизинг • Оборот 2.1B ₽/год',
+L4509: authorAvatar: 'ДС',
+L4511: authorName: 'Денис Самойлов',
+L4512: authorRole: 'Собственник сети дилерских центров',
+L4513: review: '«45% обращений с Avito падали ночью и на выходных, когда отдел продаж спал. Клиенты успевали оставить заявки у пяти других дилеров. Робот отвечает за 1.2 секунды, считает лизинг через 1С и записывает на тест-драйв на площадку. Это дало нам +8.2M ₽ дополнительных продаж в месяц.»',
+L4514: nicheTag: 'НИША: АВТОБИЗНЕС, СПЕЦТЕХНИКА & ЛИЗИНГ',
+L4515: stackTag: 'СТЕК: AVITO ЧАТ + WHATSAPP API + AMOCRM',
+L4516: title: 'Дилер коммерческой техники и грузовых авто',
+L4517: subtitle: 'Круглосуточный захват заявок с Avito, подбор спецтехники и моментальный расчет лизинга',
+L4519: revenueNote: 'ДОПОЛНИТЕЛЬНАЯ ВЫРУЧКА В МЕСЯЦ',
+L4521: { label: 'ВРЕМЯ ОТКЛИКА', val: '1.2 СЕКУНДЫ', sub: 'В ночные часы и выходные', color: 'text-sky-950' },
+L4522: { label: 'ДОХОДИМОСТЬ НА ТЕСТ', val: '+42%', sub: 'Рост конверсии в осмотр техники', color: 'text-emerald-600' },
+L4523: { label: 'КОНВЕРСИЯ В ДОГОВОР', val: '+28%', sub: 'Из холодного чата в сделку', color: 'text-emerald-600' },
+L4524: { label: 'ОКУПАЕМОСТЬ AI', val: '14 ДНЕЙ', sub: 'С первых двух проданных тягачей', color: 'text-sky-950' }
+L4526: summaryA: '<strong>45% заявок с Avito</strong> приходили ночью и сгорали • Менеджеры тратили до 40 мин на сбор параметров лизинга',
+L4527: summaryB: 'Отклик <strong>1.2 секунды 24/7</strong> • Авторасчет лизинга • <strong>+8.2M ₽ доп. продаж техники</strong>',
+L4529: leftTitle: 'Avito Сообщения • Sitrak C7H Тягач',
+L4530: leftBadge: 'AVITO API • 23:40 (НОЧЬ)',
+L4546: <span>ООО "ТрансЛогистик" (Покупатель)</span>
+L4549: <div class="text-[10px] text-slate-500 font-sans">в сети • Avito Профиль верифицирован ✓</div>
+L4562: <div class="text-[11px] font-bold text-slate-900 truncate">Седельный тягач Sitrak C7H 4x2 Luxury (480 л.с.)</div>
+L4563: <div class="text-[10px] font-mono text-slate-600"><strong class="text-slate-950 font-bold">14 800 000 ₽</strong> • В наличии 4 шт. с ЭПТС</div>
+L4571: <div class="text-slate-800 text-xs leading-relaxed font-normal">«Седельный тягач Sitrak C7H в наличии? Какой аванс и ежемесячный платеж по лизингу на 3 года?»</div>
+L4572: <div class="text-[9px] font-mono text-slate-400 text-right mt-1">23:40:05 (Ночь)</div>
+L4580: AI Дилер Altai Optima
+L4582: <span class="text-emerald-800 bg-emerald-100 px-1.5 py-0.5 rounded font-bold">1.2 сек отклик ✓</span>
+L4585: «В наличии 4 тягача 2024 г. на стоянке Север. При авансе 15% (2 220 000 ₽) платеж: <strong>218 000 ₽/мес</strong> с субсидией. Забронировать показ на площадке завтра в 11:00?»
+L4587: <div class="text-[9px] font-mono text-sky-700 text-right font-bold">23:40:07 • ✓✓ Доставлено</div>
+L4592: <div class="font-normal">«Да, бронируйте на 11:00, приеду с водителем и реквизитами.»</div>
+L4599: <span class="text-[9px] font-mono bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full border border-slate-200 whitespace-nowrap">Где посмотреть?</span>
+L4600: <span class="text-[9px] font-mono bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full border border-slate-200 whitespace-nowrap">График лизинга</span>
+L4601: <span class="text-[9px] font-mono bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full border border-slate-200 whitespace-nowrap">В наличии?</span>
+L4605: rightTitle: 'amoCRM • Ночной лид и бронь техники',
+L4606: rightBadge: 'AMOCRM + 1С ЛИЗИНГ',
+L4615: <span class="text-xs text-white/90 font-medium truncate">Воронка: Тягачи и Спецтехника в лизинг</span>
+L4617: <span class="text-[9px] font-mono font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded border border-emerald-300">БРОНЬ НА ТЕСТ</span>
+L4623: <div class="bg-sky-100 text-sky-800 py-1.5 rounded border border-sky-300 truncate">02. Лизинг 1С ✓</div>
+L4626: 03. Бронь 11:00
+L4628: <div class="bg-slate-100 text-slate-400 py-1.5 rounded truncate">04. Договор</div>
+L4636: <span class="text-[9px] font-mono text-slate-400 block uppercase">СТОИМОСТЬ ТЯГАЧА:</span>
+L4640: <span class="text-[9px] font-mono text-slate-400 block uppercase">АВАНС (15%):</span>
+L4644: <span class="text-[9px] font-mono text-slate-400 block uppercase">ПЛАТЕЖ ПО ЛИЗИНГУ:</span>
+L4645: <strong class="text-slate-900 font-mono font-bold text-xs">218 000 ₽ / мес (36 мес)</strong>
+L4648: <span class="text-[9px] font-mono text-slate-400 block uppercase">ДАТА ВИЗИТА:</span>
+L4649: <strong class="text-sky-900 font-mono font-bold text-xs bg-sky-50 px-1.5 py-0.5 rounded border border-sky-200 inline-block">Завтра, 11:00</strong>
+L4656: <span>1С:Лизинг • Автоматический скоринг</span>
+L4657: <span class="text-emerald-700 font-bold">Одобрено ✓</span>
+L4660: Локация: Стоянка Север (бокс №4) • Менеджер площадки уведомлен в Telegram.
+L4669: companyLogo: 'В&П',
+L4671: companyName: 'Юридическое бюро «Вершинин & Партнеры»',
+L4672: companyNiche: 'Налоговый консалтинг & Аудит холдингов • Оборот 450M ₽/год',
+L4673: authorAvatar: 'РВ',
+L4675: authorName: 'Роман Вершинин',
+L4676: authorRole: 'Управляющий партнер и CEO',
+L4677: review: '«Партнеры с высоким чеком тратили до 15 часов в неделю на пустые квалификационные созвоны. AI проводит интеллектуальный скоринг по 12 критериям за 20 секунд прямо в мессенджере и ставит в Google Calendar только целевых клиентов с крупным оборотом. Время закрытия сделки сократилось в разы.»',
+L4678: nicheTag: 'НИША: B2B УСЛУГИ, КОНСАЛТИНГ & АУДИТ',
+L4679: stackTag: 'СТЕК: TELEGRAM BOT + AMOCRM + CALENDAR AI',
+L4680: title: 'Юридический консалтинг и налоговый аудит бизнеса',
+L4681: subtitle: 'Интеллектуальный скоринг входящих заявок и автоматическая запись к экспертам',
+L4683: revenueNote: 'ПРИРОСТ МЕСЯЧНОЙ ВЫРУЧКИ',
+L4685: { label: 'ВРЕМЯ ДО ВСТРЕЧИ', val: '4 ЧАСА', sub: 'Вместо 7 дней до первой встречи', color: 'text-sky-950' },
+L4686: { label: 'СРЕДНИЙ ЧЕК', val: '+35%', sub: 'За счет точной квалификации', color: 'text-emerald-600' },
+L4687: { label: 'РУТИНА ЭКСПЕРТОВ', val: '0 МИНУТ', sub: 'На нецелевые первичные звонки', color: 'text-sky-950' },
+L4688: { label: 'ОКУПАЕМОСТЬ AI', val: '9 ДНЕЙ', sub: 'С первого закрытого договора аудита', color: 'text-emerald-600' }
+L4690: summaryA: 'Партнеры тратили <strong>15 часов/нед</strong> на нецелевых клиентов • Долгий цикл согласования слотов (5–7 дней)',
+L4691: summaryB: 'AI-скоринг 12 параметров • <strong>Время до Zoom: 4 часа</strong> • <strong>+4.6M ₽ выручки</strong>',
+L4693: leftTitle: 'Instagram Direct & Telegram • Скоринг лида',
+L4701: <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center font-bold text-xs shadow-xs shrink-0">РВ</div>
+L4704: <span>roman_invest_group (Роман В.)</span>
+L4707: <div class="text-[10px] text-purple-700 font-mono">Собственник • Оборот 800M • В сети</div>
+L4720: <div class="text-slate-800 text-xs leading-relaxed font-normal">«Нужен налоговый аудит группы компаний (холдинг 3 юрлица, оборот 800 млн) перед реструктуризацией. Кто ведет такие проекты?»</div>
+L4727: <span class="font-bold text-purple-950">AI Altai Optima (Скоринг 12/12)</span>
+L4728: <span class="text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded font-bold">15 сек ✓</span>
+L4731: «Здравствуйте, Роман! Проекты с оборотом от 500 млн ведет лично управляющий партнер. Провел экспресс-скоринг: подходит <strong>четверг в 15:00</strong> для конфиденциального Zoom-разбора?»
+L4737: <span class="flex items-center gap-1.5">📅 Zoom: Налоговый аудит холдинга</span>
+L4738: <span class="text-[9px] font-mono text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded font-bold">СЛОТ ПОДТВЕРЖДЕН</span>
+L4741: Четверг, 15:00 – 15:45 • Управляющий партнер • Бриф сформирован
+L4745: <div class="text-[9px] font-mono text-purple-800 text-right font-bold">16:20:25 • ✓✓ Прочитано</div>
+L4750: <div class="font-normal">«Подтверждаю четверг 15:00. Жду ссылку на Zoom и бриф.»</div>
+L4758: <div class="flex-1 bg-slate-50 border border-slate-200 rounded-full px-3 py-1 text-[11px] text-slate-400 font-sans">Написать сообщение...</div>
+L4763: rightTitle: 'amoCRM + Google Calendar • Сделка #11084',
+L4773: <span class="text-xs text-white/90 font-medium truncate">Воронка: Юридический консалтинг</span>
+L4775: <span class="text-[9px] font-mono font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded border border-emerald-300">ZOOM НАЗНАЧЕН</span>
+L4781: <div class="bg-purple-100 text-purple-800 py-1.5 rounded border border-purple-200 truncate">02. Скоринг 12/12 ✓</div>
+L4784: 03. Zoom Чт 15:00
+L4786: <div class="bg-slate-100 text-slate-400 py-1.5 rounded truncate">04. Договор 750k</div>
+L4794: <span class="text-[9px] font-mono text-slate-400 block uppercase">ЧЕК ПРОЕКТА:</span>
+L4798: <span class="text-[9px] font-mono text-slate-400 block uppercase">СКОРИНГ AI:</span>
+L4799: <strong class="text-emerald-700 font-mono font-bold text-xs bg-emerald-50 px-1 py-0.5 rounded border border-emerald-200 inline-block">12 из 12 параметров</strong>
+L4802: <span class="text-[9px] font-mono text-slate-400 block uppercase">ОБОРОТ БИЗНЕСА:</span>
+L4803: <strong class="text-slate-900 font-mono font-bold text-xs">800 000 000 ₽ (Холдинг)</strong>
+L4806: <span class="text-[9px] font-mono text-slate-400 block uppercase">СЛОТ CALENDAR:</span>
+L4807: <strong class="text-sky-900 font-mono font-bold text-xs bg-sky-50 px-1.5 py-0.5 rounded border border-sky-200 inline-block">Чт, 15:00 – 15:45</strong>
+L4814: <span class="text-emerald-700 font-bold">Синхронизировано ✓</span>
+L4817: Ссылка Zoom: <span class="font-mono text-sky-700 font-bold">zoom.us/j/94821034...</span> • Бриф рисков отправлен в календарь партнера.
+L4994: submitBtn.innerHTML = '<span>Заявка отправляется...</span>';
+L5004: submitBtn.innerHTML = '<span class="font-bold tracking-wide">ОБСУДИТЬ ДЕТАЛИ ПРОЕКТА</span><span class="btn-optic-arrow">→</span>';
+L5054: status.textContent = 'Воспроизведение...';
+L5088: status.textContent = 'Слушать';

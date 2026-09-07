@@ -1,0 +1,1308 @@
+`;
+            }
+            if (checkIcon) {
+              checkIcon.classList.remove('text-emerald-600');
+              checkIcon.classList.add('text-slate-400');
+            }
+            if (counterEl) {
+              counterEl.textContent = 'Заполнено 0 из 8 обязательных полей';
+              counterEl.classList.remove('text-emerald-700', 'font-bold');
+            }
+            runAmoCardAnimation();
+          }
+        }
+      ];
+
+      steps.forEach(st => setTimeout(st.action, st.delay));
+    }
+
+    
+    (function initEvaTypewriter() {
+      const textEl = document.getElementById('heroEvaTypingText');
+      if (!textEl) return;
+      
+      const fullText = "Добрый день. Меня зовут Эва, как могу вам помочь?";
+      let charIndex = 0;
+      let isDeleting = false;
+      
+      function type() {
+        if (!isDeleting) {
+          charIndex++;
+          textEl.textContent = fullText.slice(0, charIndex);
+          if (charIndex === fullText.length) {
+            setTimeout(() => {
+              isDeleting = true;
+              type();
+            }, 8000);
+            return;
+          }
+          const char = fullText[charIndex - 1];
+          const delay = (char === '.' || char === ',') ? 350 : (char === ' ') ? 90 : 45 + Math.random() * 30;
+          setTimeout(type, delay);
+        } else {
+          charIndex--;
+          textEl.textContent = fullText.slice(0, charIndex);
+          if (charIndex === 0) {
+            isDeleting = false;
+            setTimeout(type, 800);
+            return;
+          }
+          setTimeout(type, 18);
+        }
+      }
+      
+      textEl.textContent = '';
+      setTimeout(type, 500);
+    })();
+
+    
+    const personasData = {
+      eva: {
+        name: 'ЭВА',
+        role: 'СТАРШИЙ ВИЦЕ-ПРЕЗИДЕНТ ПО ПРОДАЖАМ',
+        age: '35 лет',
+        photo: 'eva-portrait.jpg',
+        photoPos: 'center',
+        badge: 'ПЕРСОНА: ЭВА',
+        ready: 'Готова приступить мгновенно',
+        title: 'Эва 
+        voiceBadge: 'ГОЛОС: СИНТЕЗ HD',
+        desc: 'Безупречный женский альт, строгий деловой этикет Ritz-Carlton. Идеально закрывает чеки от 500 000 ₽.',
+        haloClass: 'ring-2 ring-emerald-400 shadow-[0_0_18px_rgba(16,185,129,0.7)] scale-105',
+        ageColorClass: 'text-emerald-700'
+      },
+      alexander: {
+        name: 'АЛЕКСАНДР СЕМЕНОВ',
+        role: 'ДИРЕКТОР ПО B2B ПРОДАЖАМ И ОПТУ',
+        age: '38 лет',
+        photo: 'https:
+        photoPos: 'center',
+        badge: 'ПЕРСОНА: АЛЕКСАНДР',
+        ready: 'Готов приступить мгновенно',
+        title: 'Александр 
+        voiceBadge: 'ГОЛОС: СИНТЕЗ HD (БАРИТОН)',
+        desc: 'Глубокий спокойный мужской баритон. Идеален для оптовой торговли, поставок оборудования, девелопмента и логистики.',
+        haloClass: 'ring-2 ring-sky-400 shadow-[0_0_18px_rgba(14,165,233,0.7)] scale-105',
+        ageColorClass: 'text-sky-700'
+      },
+      daria: {
+        name: 'ДАРЬЯ РОМАНОВА',
+        role: 'РУКОВОДИТЕЛЬ VIP-КОНСЬЕРЖ СЕРВИСА',
+        age: '29 лет',
+        photo: 'https:
+        photoPos: 'center',
+        badge: 'ПЕРСОНА: ДАРЬЯ',
+        ready: 'Готова приступить мгновенно',
+        title: 'Дарья 
+        voiceBadge: 'ГОЛОС: СИНТЕЗ HD (СОПРАНО)',
+        desc: 'Эмпатичный, интеллигентный и располагающий голос. Высокая конверсия в премиальной медицине, туризме и сфере услуг.',
+        haloClass: 'ring-2 ring-cyan-400 shadow-[0_0_18px_rgba(6,182,212,0.7)] scale-105',
+        ageColorClass: 'text-cyan-700'
+      },
+      ruslan: {
+        name: 'РУСЛАН АЛИЕВ',
+        role: 'ВЕДУЩИЙ ПЕРЕГОВОРЩИК И СТРАТЕГ',
+        age: '42 года',
+        photo: 'https:
+        photoPos: 'center',
+        badge: 'ПЕРСОНА: РУСЛАН',
+        ready: 'Готов приступить мгновенно',
+        title: 'Руслан 
+        voiceBadge: 'ГОЛОС: СИНТЕЗ HD (ТЕМБР-ЛИДЕР)',
+        desc: 'Твердая аргументация, железная позиция по цене без уступок. Идеален для дистрибуции, спецтехники и жестких B2B-переговоров.',
+        haloClass: 'ring-2 ring-amber-400 shadow-[0_0_18px_rgba(245,158,11,0.7)] scale-105',
+        ageColorClass: 'text-amber-700'
+      },
+      mei: {
+        name: 'МЭЙ ЛИН',
+        role: 'МЕНЕДЖЕР ПО ВЭД И ТЕХНОЛОГИЯМ',
+        age: '31 год',
+        photo: 'https:
+        photoPos: 'center',
+        badge: 'ПЕРСОНА: МЭЙ',
+        ready: 'Готова приступить мгновенно',
+        title: 'Мэй 
+        voiceBadge: 'ГОЛОС: СИНТЕЗ HD (ДЕЛОВОЙ)',
+        desc: 'Структурная, быстрая речь с точностью до цифры. Идеальна для SaaS, IT-решений, импорта из Азии и e-commerce.',
+        haloClass: 'ring-2 ring-pink-400 shadow-[0_0_18px_rgba(236,72,153,0.7)] scale-105',
+        ageColorClass: 'text-pink-700'
+      },
+      mark: {
+        name: 'МАРК ШТЕЙН',
+        role: 'КОРПОРАТИВНЫЙ АМБАССАДОР',
+        age: '45 лет',
+        photo: 'https:
+        photoPos: 'center',
+        badge: 'ПЕРСОНА: МАРК',
+        ready: 'Готов приступить мгновенно',
+        title: 'Марк 
+        voiceBadge: 'ГОЛОС: СИНТЕЗ HD (СТАТУС)',
+        desc: 'Вызывает моментальное доверие собственников и топ-менеджеров. Специализация: консалтинг, инвестпроекты, банковский сектор.',
+        haloClass: 'ring-2 ring-indigo-400 shadow-[0_0_18px_rgba(99,102,241,0.7)] scale-105',
+        ageColorClass: 'text-indigo-700'
+      },
+      amina: {
+        name: 'АМИНА КАСЫМОВА',
+        role: 'ЭКСПЕРТ ПО ЭЛИТНОЙ НЕДВИЖИМОСТИ',
+        age: '27 лет',
+        photo: 'https:
+        photoPos: 'center',
+        badge: 'ПЕРСОНА: АМИНА',
+        ready: 'Готова приступить мгновенно',
+        title: 'Амина 
+        voiceBadge: 'ГОЛОС: СИНТЕЗ HD (БАРХАТ)',
+        desc: 'Мягкое ведение диалога с тактичным дожимом до закрытия договора. Прекрасно работает в загородной и премиум-недвижимости.',
+        haloClass: 'ring-2 ring-rose-400 shadow-[0_0_18px_rgba(244,63,94,0.7)] scale-105',
+        ageColorClass: 'text-rose-700'
+      },
+      denis: {
+        name: 'ДЕНИС ВОЛКОВ',
+        role: 'HIGH-ENERGY СКОРОСТНОЙ КЛОУЗЕР',
+        age: '30 лет',
+        photo: 'https:
+        photoPos: 'center',
+        badge: 'ПЕРСОНА: ДЕНИС',
+        ready: 'Готов приступить мгновенно',
+        title: 'Денис 
+        voiceBadge: 'ГОЛОС: СИНТЕЗ HD (ДИНАМИК)',
+        desc: 'Динамичный темп речи, моментальная реакция на входящий интерес. Превосходно конвертирует холодный и горячий трафик с рекламы.',
+        haloClass: 'ring-2 ring-lime-400 shadow-[0_0_18px_rgba(132,204,22,0.7)] scale-105',
+        ageColorClass: 'text-lime-700'
+      },
+      kenji: {
+        name: 'КЕНДЖИ ТАНАКА',
+        role: 'ТЕХНИЧЕСКИЙ ЭКСПЕРТ И B2B-ИНЖЕНЕР',
+        age: '34 года',
+        photo: 'https:
+        photoPos: 'center',
+        badge: 'ПЕРСОНА: КЕНДЖИ',
+        ready: 'Готов приступить мгновенно',
+        title: 'Кенджи 
+        voiceBadge: 'ГОЛОС: СИНТЕЗ HD (ВЗВЕШЕННЫЙ)',
+        desc: 'Глубокое погружение в ТЗ, сложные спецификации и сметы. Конвертирует технических директоров и инженеров.',
+        haloClass: 'ring-2 ring-teal-400 shadow-[0_0_18px_rgba(20,184,166,0.7)] scale-105',
+        ageColorClass: 'text-teal-700'
+      },
+      elena: {
+        name: 'ЕЛЕНА СМИРНОВА',
+        role: 'УПРАВЛЯЮЩИЙ ПАРТНЕР ПО ПРОДАЖАМ',
+        age: '46 лет',
+        photo: 'https:
+        photoPos: 'center',
+        badge: 'ПЕРСОНА: ЕЛЕНА',
+        ready: 'Готова приступить мгновенно',
+        title: 'Елена 
+        voiceBadge: 'ГОЛОС: СИНТЕЗ HD (СТАТУСНЫЙ)',
+        desc: 'Солидный статус и безупречный такт. Проводит переговоры на уровне генеральных директоров и акционеров холдингов.',
+        haloClass: 'ring-2 ring-purple-400 shadow-[0_0_18px_rgba(168,85,247,0.7)] scale-105',
+        ageColorClass: 'text-purple-700'
+      }
+    };
+
+    function selectPersona(key, btn) {
+      const data = personasData[key];
+      if (!data) return;
+
+      
+      document.querySelectorAll('.persona-btn').forEach(b => {
+        b.classList.remove('active');
+        const frame = b.querySelector('.persona-avatar-frame');
+        if (frame) {
+          frame.className = 'persona-avatar-frame relative w-9 h-9 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full overflow-hidden transition-all duration-300 border border-slate-200 shadow-xs bg-slate-100';
+        }
+        const age = b.querySelector('.persona-age');
+        if (age) {
+          age.className = 'persona-age text-[8px] sm:text-[9px] font-mono text-slate-500 font-bold whitespace-nowrap';
+        }
+      });
+      if (btn) {
+        btn.classList.add('active');
+        const frame = btn.querySelector('.persona-avatar-frame');
+        if (frame && data.haloClass) {
+          frame.className = `persona-avatar-frame relative w-9 h-9 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full overflow-hidden transition-all duration-300 ${data.haloClass}`;
+        }
+        const age = btn.querySelector('.persona-age');
+        if (age && data.ageColorClass) {
+          age.className = `persona-age text-[8px] sm:text-[9px] font-mono ${data.ageColorClass} font-bold whitespace-nowrap`;
+        }
+      }
+
+      
+      const nameEl = document.getElementById('resumeCandidateName');
+      const roleEl = document.getElementById('resumeCandidateRole');
+      const ageEl = document.getElementById('resumeCandidateAge');
+      const photoEl = document.getElementById('resumeCandidatePhoto');
+      const badgeEl = document.getElementById('activePersonaBadge');
+      const readyEl = document.getElementById('resumeCandidateReady');
+
+      if (nameEl) nameEl.textContent = data.name;
+      if (roleEl) roleEl.textContent = data.role;
+      if (ageEl) ageEl.textContent = data.age;
+      if (badgeEl) badgeEl.textContent = data.badge;
+      if (readyEl) readyEl.textContent = data.ready;
+
+      if (photoEl) {
+        photoEl.style.opacity = '0';
+        setTimeout(() => {
+          photoEl.src = data.photo;
+          photoEl.alt = `${data.name} — ${data.role}`;
+          photoEl.style.objectPosition = data.photoPos || 'center';
+          photoEl.style.opacity = '1';
+        }, 150);
+      }
+
+      
+      const pTitle = document.getElementById('personaProfileTitle');
+      const pDesc = document.getElementById('personaProfileDesc');
+      const pVoice = document.getElementById('personaVoiceBadge');
+      if (pTitle) pTitle.textContent = data.title;
+      if (pDesc) pDesc.textContent = data.desc;
+      if (pVoice && data.voiceBadge) pVoice.textContent = data.voiceBadge;
+    }
+
+    
+    const casesData = {
+      b2b: {
+        companyLogo: 'ПС',
+        companyLogoBg: 'bg-gradient-to-tr from-slate-900 to-sky-900',
+        companyName: 'ООО «ПромСталь Холдинг»',
+        companyNiche: 'B2B Металлопрокат & Трубная продукция • Оборот 920M ₽/год',
+        authorAvatar: 'МВ',
+        authorAvatarBg: 'bg-gradient-to-tr from-sky-600 to-indigo-700',
+        authorName: 'Михаил Воронов',
+        authorRole: 'Генеральный директор и основатель',
+        review: '«Раньше менеджеры вручную сводили спецификации по 3–4 дня в Excel, из-за чего 38% горячих заявок уходили к более быстрым конкурентам. После внедрения Altai Optima расчет из 4 000 позиций формируется в 1С за 15 секунд и моментально улетает в Telegram клиенту. В первый же месяц получили +10.4M ₽ чистой выручки.»',
+        nicheTag: 'НИША: B2B ОПТ И СТРОИТЕЛЬНЫЕ ПОСТАВКИ',
+        stackTag: 'СТЕК: БИТРИКС24 + TELEGRAM API + 1С',
+        title: 'Оптовый поставщик металлопроката и комплектующих',
+        subtitle: 'Автоматизация расчета спецификаций из 4 000+ позиций и моментальный дожим в Telegram',
+        revenue: '+10.4M ₽',
+        revenueNote: 'В ПЕРВЫЙ МЕСЯЦ ВНЕДРЕНИЯ',
+        metrics: [
+          { label: 'СКОРОСТЬ РАСЧЕТА', val: '15 СЕКУНД', sub: 'Вместо 3–4 дней в Excel', color: 'text-sky-950' },
+          { label: 'ЦИКЛ СДЕЛКИ', val: 'В 8 РАЗ БЫСТРЕЕ', sub: '1 день вместо 8 дней', color: 'text-sky-950' },
+          { label: 'КОНВЕРСИЯ В ОПЛАТУ', val: '+34%', sub: 'За счет скорости КП', color: 'text-emerald-600' },
+          { label: 'ОКУПАЕМОСТЬ AI', val: '11 ДНЕЙ', sub: 'С первых 4 закрытых сделок', color: 'text-emerald-600' }
+        ],
+        summaryA: 'Сметы собирались
+Подсказать вам по наличию вашего размера или оформить заказ с доставкой прямо сейчас?', 
+          time: '14:30' 
+        },
+        { 
+          sender: 'user', 
+          author: 'Анастасия (Direct)', 
+          text: 'Да, подскажите! На параметры 88-64-92 лучше взять размер S?', 
+          time: '14:31' 
+        },
+        { 
+          sender: 'ai', 
+          author: 'Эва 
+          text: 'Анастасия, под ваши параметры идеально подойдет размер S — посадка будет точной и подчеркнет талию. Забронировать его для вас на доставку курьером на завтра?', 
+          time: '14:31' 
+        }
+      ]
+    };
+
+    let currentKey = 'full_deal';
+    let step = 0;
+    let timer = null;
+
+    function applyMessengerTheme(key) {
+      const cfg = channelsConfig[key];
+      if (!cfg) return;
+
+      const notchText = document.getElementById('notchChannelText');
+      const chatHeader = document.getElementById('chatHeader');
+      const channelAvatar = document.getElementById('channelAvatar');
+      const channelBadge = document.getElementById('channelBadge');
+      const agentStatus = document.getElementById('agentStatus');
+      const messagesContainer = document.getElementById('messagesContainer');
+      const chatFooter = document.getElementById('chatFooter');
+      const chatActionBtn = document.getElementById('chatActionBtn');
+
+      if (notchText) notchText.textContent = cfg.channel;
+      if (channelBadge) channelBadge.textContent = cfg.badge;
+
+      
+      if (chatHeader) {
+        chatHeader.className = `pt-12 pb-3 px-4 text-white flex items-center justify-between transition-all duration-300 shadow-sm ${cfg.headerBg}`;
+      }
+      if (channelAvatar) {
+        channelAvatar.className = `w-8 h-8 rounded-full border text-white flex items-center justify-center font-bold text-xs shadow-sm transition-all duration-300 ${cfg.avatarBg} ${cfg.avatarBorder}`;
+      }
+      if (agentStatus) {
+        agentStatus.className = `text-[10px] font-medium transition-colors duration-300 ${cfg.headerSubText}`;
+      }
+      if (messagesContainer) {
+        messagesContainer.className = `p-4 space-y-3 flex-grow overflow-y-auto text-xs transition-colors duration-300 ${cfg.chatBg}`;
+      }
+      if (chatFooter) {
+        chatFooter.className = `p-3 border-t border-slate-200 flex items-center gap-2 transition-colors duration-300 ${cfg.footerBg}`;
+      }
+      if (chatActionBtn) {
+        chatActionBtn.className = `w-8 h-8 rounded-xl text-white flex items-center justify-center text-xs font-bold shadow-sm transition-all duration-300 ${cfg.actionBtnBg}`;
+        chatActionBtn.textContent = cfg.actionIcon;
+      }
+    }
+
+    function renderMsg(msg) {
+      const box = document.getElementById('messagesContainer');
+      if (!box) return;
+      const cfg = channelsConfig[currentKey];
+      const isAi = msg.sender === 'ai';
+      const html = isAi ? cfg.renderAiBubble(msg) : cfg.renderUserBubble(msg);
+      box.insertAdjacentHTML('beforeend', html);
+      box.scrollTop = box.scrollHeight;
+    }
+
+    function runDialogue() {
+      const list = branches[currentKey];
+      if (step >= list.length) {
+        document.getElementById('agentStatus').textContent = 'сделка закрыта ✓';
+        return;
+      }
+      const msg = list[step];
+      const status = document.getElementById('agentStatus');
+      const typing = document.getElementById('typingIndicatorText');
+
+      if (msg.sender === 'ai') {
+        status.textContent = 'Эва печатает ответ...';
+        typing.textContent = 'Обработка намерения лида (0.8c)...';
+        timer = setTimeout(() => {
+          renderMsg(msg);
+          status.textContent = 'в сети • отклик 0.8с';
+          typing.textContent = 'Ожидание реакции клиента...';
+          step++;
+          timer = setTimeout(runDialogue, 1700);
+        }, 800);
+      } else {
+        typing.textContent = 'Клиент пишет ответ...';
+        timer = setTimeout(() => {
+          renderMsg(msg);
+          step++;
+          timer = setTimeout(runDialogue, 800);
+        }, 600);
+      }
+    }
+
+    function selectBranch(key, btn) {
+      clearTimeout(timer);
+      document.querySelectorAll('.branch-btn').forEach(b => {
+        b.classList.remove('active', 'border-emerald-500', 'border-sky-500', 'border-pink-500');
+        b.classList.add('border-transparent');
+      });
+      if (btn) {
+        const cfg = channelsConfig[key];
+        btn.classList.add('active', cfg ? cfg.btnBorderClass : 'border-emerald-500');
+        btn.classList.remove('border-transparent');
+      }
+      currentKey = key;
+      step = 0;
+      applyMessengerTheme(key);
+      const container = document.getElementById('messagesContainer');
+      if (container) container.innerHTML = '';
+      runDialogue();
+    }
+
+    const lR = document.getElementById('leadsRange');
+    const cR = document.getElementById('checkRange');
+    const lL = document.getElementById('leadsLabel');
+    const cL = document.getElementById('checkLabel');
+    const mV = document.getElementById('monthVal');
+    const yV = document.getElementById('yearVal');
+
+    
+    const altaiCoinsData = [
+      
+      { x: 2, y: 70, size: 26 },
+      { x: 98, y: 70, size: 26 },
+      { x: 3, y: 55, size: 28 },
+      { x: 97, y: 55, size: 28 },
+      { x: 2, y: 42, size: 28 },
+      { x: 98, y: 42, size: 28 },
+      { x: 3, y: 82, size: 24 },
+      { x: 97, y: 82, size: 24 },
+
+      
+      { x: 12, y: 30, size: 30 },
+      { x: 88, y: 30, size: 30 },
+      { x: 20, y: 27, size: 32 },
+      { x: 80, y: 27, size: 32 },
+      { x: 28, y: 32, size: 30 },
+      { x: 72, y: 32, size: 30 },
+      { x: 38, y: 28, size: 32 },
+      { x: 62, y: 28, size: 32 },
+      { x: 46, y: 32, size: 30 },
+      { x: 54, y: 32, size: 30 },
+
+      
+      { x: 8, y: 22, size: 32 },
+      { x: 92, y: 22, size: 32 },
+      { x: 16, y: 16, size: 34 },
+      { x: 84, y: 16, size: 34 },
+      { x: 25, y: 15, size: 36 },
+      { x: 75, y: 15, size: 36 },
+      { x: 34, y: 19, size: 34 },
+      { x: 66, y: 19, size: 34 },
+
+      
+      { x: 42, y: 12, size: 38 },
+      { x: 58, y: 12, size: 38 },
+      { x: 48, y: 7, size: 44 },
+      { x: 52, y: 7, size: 44 },
+      { x: 68, y: 9, size: 40 },
+      { x: 50, y: 17, size: 36 }
+    ];
+
+    function initAltaiMountainsField() {
+      const field = document.getElementById('altaiRubleField');
+      if (!field) return;
+      field.innerHTML = '';
+      altaiCoinsData.forEach((pt, idx) => {
+        const coin = document.createElement('div');
+        coin.className = 'altai-ruble-token';
+        coin.id = `altaiCoin_${idx}`;
+        coin.style.left = `${pt.x}%`;
+        coin.style.top = `${pt.y}%`;
+        coin.style.width = `${pt.size}px`;
+        coin.style.height = `${pt.size}px`;
+        coin.style.fontSize = `${Math.round(pt.size * 0.48)}px`;
+        coin.style.opacity = '0';
+        coin.style.transform = 'scale(0) translateY(18px)';
+        
+        coin.style.animationDelay = `${(idx * 0.08) % 2.5}s`;
+        coin.textContent = '₽';
+        field.appendChild(coin);
+      });
+    }
+
+    function updateCalc() {
+      if (!lR || !cR || !lL || !cL || !mV || !yV) return;
+      const l = parseInt(lR.value);
+      const c = parseInt(cR.value);
+      lL.textContent = l.toLocaleString('ru-RU');
+      cL.textContent = c.toLocaleString('ru-RU') + ' ₽';
+      
+      const month = Math.round((l * 0.20) * 0.05 * c);
+      const year = month * 12;
+      mV.textContent = month.toLocaleString('ru-RU') + ' ₽';
+      yV.textContent = year.toLocaleString('ru-RU') + ' ₽';
+
+      
+      const leadsNorm = (l - 100) / (3000 - 100);
+      const checkNorm = (c - 20000) / (1000000 - 20000);
+      const combinedRatio = Math.max(0, Math.min(1, leadsNorm * 0.5 + checkNorm * 0.5));
+
+      
+      const totalCoins = altaiCoinsData.length;
+      const activeCount = Math.min(totalCoins, Math.max(3, Math.round(combinedRatio * totalCoins)));
+
+      altaiCoinsData.forEach((_, idx) => {
+        const coin = document.getElementById(`altaiCoin_${idx}`);
+        if (!coin) return;
+        if (idx
+';
+            submitBtn.disabled = false;
+          }
+          e.target.reset();
+        }, 4000);
+      }, 500);
+    }
+
+    function handleExcelGiftSubmit(e) {
+      e.preventDefault();
+      const contact = document.getElementById('giftModalContact');
+      if (!contact || !contact.value.trim()) return;
+      const success = document.getElementById('giftModalSuccess');
+      const submitBtn = document.getElementById('giftModalSubmitBtn');
+      if (submitBtn) submitBtn.style.display = 'none';
+      if (success) success.classList.remove('hidden');
+
+      setTimeout(() => {
+        closeExcelGiftModal();
+        if (success) success.classList.add('hidden');
+        if (submitBtn) submitBtn.style.display = 'flex';
+        e.target.reset();
+      }, 2500);
+    }
+
+    
+    let isWaVoicePlaying = false;
+    let waVoiceTimerInterval = null;
+    let waVoiceSeconds = 0;
+    const WA_VOICE_TOTAL_SEC = 14; 
+
+    function toggleWhatsAppVoiceAudio(event) {
+      if (event) event.stopPropagation();
+      if (isWaVoicePlaying) {
+        stopWhatsAppVoiceAudio();
+      } else {
+        playWhatsAppVoiceAudio();
+      }
+    }
+
+    function playWhatsAppVoiceAudio() {
+      isWaVoicePlaying = true;
+      const box = document.getElementById('waAudioPlayerBox');
+      const icon = document.getElementById('waVoicePlayIcon');
+      const timer = document.getElementById('waVoiceTimer');
+      const status = document.getElementById('waVoiceStatus');
+
+      if (box) box.classList.add('voice-playing', 'bg-emerald-50/90', 'border-emerald-300', 'ring-2', 'ring-emerald-400/30');
+      if (icon) icon.textContent = '⏸';
+      if (status) {
+        status.textContent = 'Воспроизведение...';
+        status.className = 'text-[8px] font-sans text-emerald-600 font-bold block leading-none animate-pulse';
+      }
+
+      
+      waVoiceSeconds = 0;
+      if (waVoiceTimerInterval) clearInterval(waVoiceTimerInterval);
+      waVoiceTimerInterval = setInterval(() => {
+        waVoiceSeconds++;
+        const mins = String(Math.floor(waVoiceSeconds / 60)).padStart(2, '0');
+        const secs = String(waVoiceSeconds % 60).padStart(2, '0');
+        if (timer) timer.textContent = `${mins}:${secs}`;
+
+        if (waVoiceSeconds >= WA_VOICE_TOTAL_SEC) {
+          stopWhatsAppVoiceAudio();
+        }
+      }, 1000);
+    }
+
+    function stopWhatsAppVoiceAudio() {
+      isWaVoicePlaying = false;
+      if (waVoiceTimerInterval) {
+        clearInterval(waVoiceTimerInterval);
+        waVoiceTimerInterval = null;
+      }
+      const box = document.getElementById('waAudioPlayerBox');
+      const icon = document.getElementById('waVoicePlayIcon');
+      const timer = document.getElementById('waVoiceTimer');
+      const status = document.getElementById('waVoiceStatus');
+
+      if (box) box.classList.remove('voice-playing', 'bg-emerald-50/90', 'border-emerald-300', 'ring-2', 'ring-emerald-400/30');
+      if (icon) icon.textContent = '▶';
+      if (timer) timer.textContent = '01:24';
+      if (status) {
+        status.textContent = 'Слушать';
+        status.className = 'text-[8px] font-sans text-emerald-700 font-semibold block leading-none';
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeExcelGiftModal();
+      }
+    });
+
+    
+    function handleStickyNavScroll() {
+      const nav = document.getElementById('stickyNavDock');
+      if (!nav) return;
+      if (window.scrollY > 220) {
+        nav.classList.remove('opacity-0', '-translate-y-6', 'pointer-events-none');
+        nav.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+      } else {
+        nav.classList.add('opacity-0', '-translate-y-6', 'pointer-events-none');
+        nav.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        const mob = document.getElementById('stickyMobileMenu');
+        if (mob && !mob.classList.contains('hidden')) {
+          mob.classList.add('hidden');
+        }
+      }
+    }
+    window.addEventListener('scroll', handleStickyNavScroll, { passive: true });
+
+    function toggleMobileStickyMenu() {
+      const mob = document.getElementById('stickyMobileMenu');
+      if (mob) mob.classList.toggle('hidden');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      handleStickyNavScroll();
+      applyMessengerTheme('full_deal');
+      runDialogue();
+      initAltaiMountainsField();
+      const leadsSlider = document.getElementById('leadsRange');
+      const checkSlider = document.getElementById('checkRange');
+      if (leadsSlider) leadsSlider.addEventListener('input', updateCalc);
+      if (checkSlider) checkSlider.addEventListener('input', updateCalc);
+      updateCalc();
+      runAmoCardAnimation();
+      switchCaseTab('b2b', document.querySelector('.case-tab-btn.active'));
+
+      
+      excelGiftTimer = setTimeout(() => {
+        openExcelGiftModal(true);
+      }, 15000);
+    });
+{
+            phoneEl.textContent = '+7 (999) 834-12-05';
+            phoneEl.classList.add('text-sky-700', 'font-bold');
+            if (badgeEl) badgeEl.classList.remove('opacity-0');
+            if (counterEl) counterEl.textContent = 'Заполнено 1 из 8 обязательных полей';
+          }
+        },
+        {
+          delay: 1300,
+          action: () => {
+            emailEl.textContent = 'maxim@prom-holding.ru';
+            emailEl.classList.add('text-sky-700');
+            if (counterEl) counterEl.textContent = 'Заполнено 2 из 8 обязательных полей';
+          }
+        },
+        {
+          delay: 1900,
+          action: () => {
+            posEl.textContent = 'Коммерческий директор (ЛПР)';
+            posEl.classList.add('text-slate-900');
+            if (counterEl) counterEl.textContent = 'Заполнено 3 из 8 обязательных полей';
+          }
+        },
+        {
+          delay: 2500,
+          action: () => {
+            budgetEl.textContent = '3 450 000 ₽';
+            budgetEl.classList.add('text-emerald-700');
+            if (counterEl) counterEl.textContent = 'Заполнено 4 из 8 обязательных полей';
+          }
+        },
+        {
+          delay: 3100,
+          action: () => {
+            compEl.textContent = 'ПромСтройХолдинг ООО';
+            compEl.classList.add('text-slate-950');
+            if (counterEl) counterEl.textContent = 'Заполнено 5 из 8 обязательных полей';
+          }
+        },
+        {
+          delay: 3700,
+          action: () => {
+            indEl.textContent = 'Оптовые поставки металлопроката';
+            indEl.classList.add('text-slate-700');
+            if (counterEl) counterEl.textContent = 'Заполнено 6 из 8 обязательных полей';
+          }
+        },
+        {
+          delay: 4300,
+          action: () => {
+            cityEl.textContent = 'Москва, ЦФО';
+            cityEl.classList.add('text-slate-700');
+            if (counterEl) counterEl.textContent = 'Заполнено 7 из 8 обязательных полей';
+          }
+        },
+        {
+          delay: 4900,
+          action: () => {
+            if (statusEl) {
+              statusEl.innerHTML = `
+`
+      },
+      realestate: {
+        companyLogo: 'SE',
+        companyLogoBg: 'bg-gradient-to-tr from-emerald-950 to-teal-800',
+        companyName: 'Девелоперская группа «Skyline Estate»',
+        companyNiche: 'Загородные поселки & Клубные резиденции • Оборот 1.4B ₽/год',
+        authorAvatar: 'ЕБ',
+        authorAvatarBg: 'bg-gradient-to-tr from-emerald-600 to-teal-700',
+        authorName: 'Екатерина Белова',
+        authorRole: 'Коммерческий директор девелопера',
+        review: '«База из 3 800 старых лидов просто лежала мертвым грузом — брокеры не успевали их прозванивать. AI-ассистент за один вечер поднял контакты в WhatsApp, выявил реальный интерес и назначил 42 показа на объекте. Система полностью окупилась с первой же комиссии загородного дома.»',
+        nicheTag: 'НИША: НЕДВИЖИМОСТЬ & ДЕВЕЛОПМЕНТ (ЖК И КП)',
+        stackTag: 'СТЕК: VOICE AI + AMOCRM + WHATSAPP',
+        title: 'Федеральный девелопер премиальных коттеджных поселков',
+        subtitle: 'Реактивация 3 800 спящих лидов из архива CRM и автоматическая запись на просмотры',
+        revenue: '+6.8M ₽',
+        revenueNote: 'С АРХИВНОЙ БАЗЫ ЗА 30 ДНЕЙ',
+        metrics: [
+          { label: 'СКОРОСТЬ ОБЗВОНА', val: '48 ЧАСОВ', sub: 'На полный обзвон 3 800 контактов', color: 'text-sky-950' },
+          { label: 'РЕАКТИВАЦИЯ БАЗЫ', val: '41% ВЕРНУЛИСЬ', sub: '1 558 клиентов вернулись в воронку', color: 'text-emerald-600' },
+          { label: 'ВЫРУЧКА С АРХИВА', val: '+6.8M ₽', sub: 'Прямая выручка с закрытых сделок', color: 'text-emerald-600' },
+          { label: 'ОКУПАЕМОСТЬ AI', val: 'СО 2-Й СДЕЛКИ', sub: 'Полный возврат инвестиций', color: 'text-sky-950' }
+        ],
+        summaryA: 'В архиве висело
+`
+      },
+      services: {
+        companyLogo: 'В&П',
+        companyLogoBg: 'bg-gradient-to-tr from-purple-950 to-indigo-900',
+        companyName: 'Юридическое бюро «Вершинин & Партнеры»',
+        companyNiche: 'Налоговый консалтинг & Аудит холдингов • Оборот 450M ₽/год',
+        authorAvatar: 'РВ',
+        authorAvatarBg: 'bg-gradient-to-tr from-purple-600 to-pink-700',
+        authorName: 'Роман Вершинин',
+        authorRole: 'Управляющий партнер и CEO',
+        review: '«Партнеры с высоким чеком тратили до 15 часов в неделю на пустые квалификационные созвоны. AI проводит интеллектуальный скоринг по 12 критериям за 20 секунд прямо в мессенджере и ставит в Google Calendar только целевых клиентов с крупным оборотом. Время закрытия сделки сократилось в разы.»',
+        nicheTag: 'НИША: B2B УСЛУГИ, КОНСАЛТИНГ & АУДИТ',
+        stackTag: 'СТЕК: TELEGRAM BOT + AMOCRM + CALENDAR AI',
+        title: 'Юридический консалтинг и налоговый аудит бизнеса',
+        subtitle: 'Интеллектуальный скоринг входящих заявок и автоматическая запись к экспертам',
+        revenue: '+4.6M ₽',
+        revenueNote: 'ПРИРОСТ МЕСЯЧНОЙ ВЫРУЧКИ',
+        metrics: [
+          { label: 'ВРЕМЯ ДО ВСТРЕЧИ', val: '4 ЧАСА', sub: 'Вместо 7 дней до первой встречи', color: 'text-sky-950' },
+          { label: 'СРЕДНИЙ ЧЕК', val: '+35%', sub: 'За счет точной квалификации', color: 'text-emerald-600' },
+          { label: 'РУТИНА ЭКСПЕРТОВ', val: '0 МИНУТ', sub: 'На нецелевые первичные звонки', color: 'text-sky-950' },
+          { label: 'ОКУПАЕМОСТЬ AI', val: '9 ДНЕЙ', sub: 'С первого закрытого договора аудита', color: 'text-emerald-600' }
+        ],
+        summaryA: 'Партнеры тратили
+`
+      },
+      auto: {
+        companyLogo: 'ТА',
+        companyLogoBg: 'bg-gradient-to-tr from-sky-950 to-blue-700',
+        companyName: 'Дилерский центр «ТрансАвто СпецТехника»',
+        companyNiche: 'Тягачи Sitrak, спецтехника & коммерческий лизинг • Оборот 2.1B ₽/год',
+        authorAvatar: 'ДС',
+        authorAvatarBg: 'bg-gradient-to-tr from-blue-600 to-sky-700',
+        authorName: 'Денис Самойлов',
+        authorRole: 'Собственник сети дилерских центров',
+        review: '«45% обращений с Avito падали ночью и на выходных, когда отдел продаж спал. Клиенты успевали оставить заявки у пяти других дилеров. Робот отвечает за 1.2 секунды, считает лизинг через 1С и записывает на тест-драйв на площадку. Это дало нам +8.2M ₽ дополнительных продаж в месяц.»',
+        nicheTag: 'НИША: АВТОБИЗНЕС, СПЕЦТЕХНИКА & ЛИЗИНГ',
+        stackTag: 'СТЕК: AVITO ЧАТ + WHATSAPP API + AMOCRM',
+        title: 'Дилер коммерческой техники и грузовых авто',
+        subtitle: 'Круглосуточный захват заявок с Avito, подбор спецтехники и моментальный расчет лизинга',
+        revenue: '+8.2M ₽',
+        revenueNote: 'ДОПОЛНИТЕЛЬНАЯ ВЫРУЧКА В МЕСЯЦ',
+        metrics: [
+          { label: 'ВРЕМЯ ОТКЛИКА', val: '1.2 СЕКУНДЫ', sub: 'В ночные часы и выходные', color: 'text-sky-950' },
+          { label: 'ДОХОДИМОСТЬ НА ТЕСТ', val: '+42%', sub: 'Рост конверсии в осмотр техники', color: 'text-emerald-600' },
+          { label: 'КОНВЕРСИЯ В ДОГОВОР', val: '+28%', sub: 'Из холодного чата в сделку', color: 'text-emerald-600' },
+          { label: 'ОКУПАЕМОСТЬ AI', val: '14 ДНЕЙ', sub: 'С первых двух проданных тягачей', color: 'text-sky-950' }
+        ],
+        summaryA: '
+`
+      }
+    };
+
+    const branches = {
+      full_deal: [
+        { sender: 'user', author: 'Максим (Лид)', text: 'Добрый день! Интересует подключение ИИ-отдела. Как быстро можно настроить под наши услуги?', time: '14:20' },
+        { sender: 'ai', author: 'Эва 
+        { sender: 'user', author: 'Максим (Лид)', text: 'Давайте текстом, на встрече сейчас.', time: '14:21' },
+        { sender: 'ai', author: 'Эва 
+        { sender: 'user', author: 'Максим (Лид)', text: 'Да, давайте попробуем, отправляйте ссылку.', time: '14:22' },
+        { sender: 'ai', author: 'Эва 
+      ],
+      price_objection: [
+        { sender: 'user', author: 'Максим (Лид)', text: 'Видел кнопочных ботов за три копейки. Зачем платить за вашу систему?', time: '15:10' },
+        { sender: 'ai', author: 'Эва 
+        { sender: 'user', author: 'Максим (Лид)', text: 'То есть скидку вы мне не дадите?)', time: '15:11' },
+        { sender: 'ai', author: 'Эва 
+      ],
+      reanimate: [
+        { 
+          sender: 'user', 
+          author: 'Анастасия (Direct)', 
+          text: 'Добрый день! Подскажите, пожалуйста, сколько стоит данное платье?', 
+          time: '14:30' 
+        },
+        { 
+          sender: 'ai', 
+          author: 'Эва 
+          text: 'Анастасия, добрый день! Благодарю за обращение в нашу компанию, меня зовут Эва ✨
+`;
+            }
+            if (checkIcon) {
+              checkIcon.classList.remove('text-slate-400');
+              checkIcon.classList.add('text-emerald-600');
+            }
+            if (counterEl) {
+              counterEl.textContent = 'Все 8 обязательных полей заполнены на 100%';
+              counterEl.classList.add('text-emerald-700', 'font-bold');
+            }
+          }
+        },
+        {
+          
+          delay: 11000,
+          action: () => {
+            phoneEl.textContent = '...';
+            if (badgeEl) badgeEl.classList.add('opacity-0');
+            emailEl.textContent = '...';
+            posEl.textContent = '...';
+            budgetEl.textContent = '...';
+            compEl.textContent = '...';
+            indEl.textContent = '...';
+            cityEl.textContent = '...';
+            if (statusEl) {
+              statusEl.innerHTML = `
+«Раньше менеджеры вручную сводили спецификации по 3–4 дня в Excel, из-за чего 38% горячих заявок уходили к более быстрым конкурентам. После внедрения Altai Optima расчет из 4 000 позиций формируется в 1С за 15 секунд и моментально улетает в Telegram клиенту. В первый же месяц получили +10.4M ₽ чистой выручки.»
+Я готова уже здесь и сейчас зарабатывать деньги для вашей компании: веду диалог безупречным голосом, строго защищаю базовый прайс и довожу сделку до оплаты с достоинством профессионала — без отпусков, выгорания и человеческого фактора.
+Если у вас еще нет CRM — не проблема. Мы возьмем на себя всю рутину: перенесем ваши разрозненные таблицы, почистим от дублей, сегментируем контакты и подготовим базу для старта AI-продаж.
+',
+        liveTag: 'INSTAGRAM DIRECT + TELEGRAM + AMOCRM',
+        leftTitle: 'Instagram Direct & Telegram • Скоринг лида',
+        leftBadge: 'DIRECT + CALENDAR AI',
+        leftHtml: `
+чистой выручки',
+        liveTag: 'TELEGRAM + 1С + БИТРИКС24',
+        leftTitle: 'Telegram Desktop • Заказчик @metall_stroy',
+        leftBadge: 'TELEGRAM API',
+        leftHtml: `
+',
+        liveTag: 'AVITO CHAT + WHATSAPP + AMOCRM',
+        leftTitle: 'Avito Сообщения • Sitrak C7H Тягач',
+        leftBadge: 'AVITO API • 23:40 (НОЧЬ)',
+        leftHtml: `
+',
+        liveTag: 'VOICE AI + AMOCRM + WHATSAPP',
+        leftTitle: 'WhatsApp & Voice AI • Диалог с клиентом',
+        leftBadge: 'VOICE AI + WHATSAPP',
+        leftHtml: `
+под ваш продукт, интегрируем в CRM и мессенджеры, и проведем тестовый запуск на живом потоке клиентов, чтобы вы увидели рост конверсии в первый же день.
+`,
+        rightTitle: 'amoCRM + Google Calendar • Сделка #11084',
+        rightBadge: 'AMOCRM + GOOGLE CALENDAR',
+        rightHtml: `
+Клиент готов оплатить чек 300 000 ₽ вечером в выходной. Менеджер не на связи. Через 5 минут заказ уходит конкуренту, ответившему сразу.
+Горячая заявка остывает, пока сотрудник раскачивается с утра. Лид теряет интерес и при звонке сухо бросает: спасибо, уже неактуально.
+Сотрудник пугается возражения дорого и раздает скидки за счет вашей прибыли, вместо аргументации ценности и удержания полной маржи.
+На данный момент у нас действует экспресс-доставка по городу с примеркой, а также изделие представлено в онлайн-пространствах.
+`,
+        rightTitle: 'amoCRM • Ночной лид и бронь техники',
+        rightBadge: 'AMOCRM + 1С ЛИЗИНГ',
+        rightHtml: `
+«Нужен налоговый аудит группы компаний (холдинг 3 юрлица, оборот 800 млн) перед реструктуризацией. Кто ведет такие проекты?»
+«Добрый день! Нужна арматура А500С 12мм — 45 тонн и балка 20Б1 — 18 тонн с доставкой в Новую Москву. Скиньте счет и сроки.»
+Благодаря интеллекту AI знаю любую тему и продукт в совершенстве, поэтому мне не требуется время на адаптацию и обучение.
+«Михаил, добрый день! Открыли продажи 2-й очереди КП "Лесная Резиденция" с выгодой 12%. Отправляю генплан в WhatsApp?»
+«Здравствуйте, Роман! Проекты с оборотом от 500 млн ведет лично управляющий партнер. Провел экспресс-скоринг: подходит
+`,
+        rightTitle: 'amoCRM • Карточка лида #74109',
+        rightBadge: 'AMOCRM LIVE SYNC',
+        rightHtml: `
+на нецелевых клиентов • Долгий цикл согласования слотов (5–7 дней)',
+        summaryB: 'AI-скоринг 12 параметров •
+`,
+        rightTitle: 'Битрикс24 CRM • Сделка #4892',
+        rightBadge: 'БИТРИКС24 + 1С',
+        rightHtml: `
+, легко отрабатывает любое возражение и снимает «дорого» на основе кейсов вместо уступок за счет чистой прибыли
+приходили ночью и сгорали • Менеджеры тратили до 40 мин на сбор параметров лизинга',
+        summaryB: 'Отклик
+• Менеджеры саботировали звонки • Бюджет на рекламу рос на 30%',
+        summaryB: 'Voice AI обзвонил базу за
+Пока наемный персонал теряет прибыль компании, искусственный интеллект конвертирует каждый контакт в сделку
+Вы оплачиваете рекламу и привлекаете лиды, но деньги сгорают на трех системных ошибках наемного персонала
+Безупречный женский альт, строгий деловой этикет Ritz-Carlton. Идеально закрывает чеки от 500 000 ₽.
+«Седельный тягач Sitrak C7H в наличии? Какой аванс и ежемесячный платеж по лизингу на 3 года?»
+ИИ фиксирует должность, компанию, объем закупки и бюджет — вносит данные прямо в карточку
+. Персональный пропуск на КП оформил, генплан и планировки 2-й очереди прикрепил ниже 📍»
+✓ Заявка принята! Мы свяжемся с вами в течение 15 минут для согласования переноса базы.
+Автоматический расчет спецификации и сметы по прайсу без скидок из страха потери лида
+Автоматизация расчета спецификаций из 4 000+ позиций и моментальный дожим в Telegram
+AI выходит на связь за секунды, задает уточняющие вопросы и удерживает внимание лида
+«В наличии 4 тягача 2024 г. на стоянке Север. При авансе 15% (2 220 000 ₽) платеж:
+к конкурентам • Менеджеры перегружены рутиной',
+        summaryB: 'КП формируется
+⚡ Итог: спящий контакт из 3 800 архива реактивирован за 48 сек разговора робота.
+Чек пробит, транзакция зафиксирована, сделка переведена в финальный этап amoCRM
+Лид из WhatsApp, Telegram, сайта или JivoSite моментально регистрируется в CRM
+Время убрать человеческий фактор из отдела продаж и забрать упущенную прибыль
+Локация: Стоянка Север (бокс №4) • Менеджер площадки уведомлен в Telegram.
+КП формируется за 15 секунд • Сделка в 8 раз быстрее • +10.4M ₽ в месяц
+безупречный тон, уважение границ и персональный сервис высшего класса.
+Обучена строгим стандартам персонального сервиса на базе Ritz-Carlton.
+снимает возражения и ведет коммуникацию человеческим голосом и подачей
+Сметы собирались 3–4 дня в Excel • 38% клиентов уходили к конкурентам
+через деликатные персонализированные касания без спама и раздражения
+сформировал. При оплате до 17:00 отгрузим со склада завтра в 09:00.»
+автоматически переводит этап сделки по воронке без участия человека
+AI-продавец знает абсолютно всю информацию о продукте и компании
+аргументация ценности и твердая защита чека без раздачи скидок.
+Четверг, 15:00 – 15:45 • Управляющий партнер • Бриф сформирован
+«Да, скиньте в WhatsApp. Запишите на показ в субботу в 12:00.»
+«Счет передал в бухгалтерию на оплату, резервируйте 45 тонн.»
+с субсидией. Забронировать показ на площадке завтра в 11:00?»
+Собеседник слышит уверенного менеджера с безупречной дикцией.
+Круглосуточная работа без выгорания и человеческого фактора.
+Вся база в Excel или Google Таблицах? Наведем четкий порядок
+«Да, бронируйте на 11:00, приеду с водителем и реквизитами.»
+, без пауз, раздражения и глупых опечаток нанятых стажеров.
+Рутина уходит алгоритмам, чистая прибыль остается бизнесу
+«Здравствуйте, Алексей! Спецификацию и счет №482 на сумму
+Мгновенный ответ в любом удобном для клиента мессенджере
+Система протоколирует договоренности, выставляет счета и
+🔒 Конфиденциально • Подписываем NDA перед началом работ
+«Подтверждаю четверг 15:00. Жду ссылку на Zoom и бриф.»
+✓ Заявка принята! Свяжемся с вами в течение 10 минут.
+Каждая заявка берется в обработку за секунды 24/7/365
+выжимаем максимум чистой прибыли из входящего потока
+Диалог ведется на основе регламентов вашего бизнеса
+КП "Лесная Резиденция", Участок №14, Коттедж 280 м²
+самостоятельное ведение лида по воронке до оплаты.
+Добрый день. Меня зовут Эва, как могу вам помочь?
+Седельный тягач Sitrak C7H 4x2 Luxury (480 л.с.)
+Оптовый поставщик металлопроката и комплектующих
+живая, убедительная речь без скриптовой сухости.
+• Бриф рисков отправлен в календарь партнера.
+«Михаил, закрепил за вами просмотр коттеджа:
+поднимает конверсию в закрытие сделки на 40%
+отклик за 0.8 секунды в любых каналах связи.
+AI-продавец мгновенно считывает микропаузы,
+Естественные интонации и контекстная память
+Стоимость платья составляет 5 000 рублей.
+Кликните на аватар, чтобы изучить резюме
+Подписание NDA перед началом любых работ
+Оптимизируем каждый этап вашей воронки и
+Навыки коммуникации уровня Ritz-Carlton:
+Воронка: Оптовые поставки металлопроката
+Уснувшие контакты возвращаются в диалог
+Сделка #4892: ООО "МеталлСтрой Холдинг"
+4. КП отправлено (Согласование и дожим)
+3. Квалифицирован (ЛПР, бюджет, объем)
+Воронка: Тягачи и Спецтехника в лизинг
+Генплан_Лесная_Резиденция_2очередь.pdf
+в сети • Avito Профиль верифицирован ✓
+Сделка #74109: Михаил (Архивная база)
+Направляю ссылки для вашего удобства:
+Перенос базы из Excel в CRM в подарок
+1. Новый лид (Мгновенный захват 0.8с)
+🎁 ПОДАРОК ПРИ ПОДКЛЮЧЕНИИ AI-ПРОДАВЦА
+«Мысли глобально, действуй локально»
+Пока менеджеры ленятся заполнять CRM
+Михаил Александрович (КП Резиденция)
+2. Контакт установлен (Живой диалог)
+Запись звонка: Voice AI Altai Optima
+для конфиденциального Zoom-разбора?»
+1.4 MB • 4 120 позиций сверено в 1С
+Давайте создадим для вас кастомного
+Мгновенный захват горячего клиента
+Собственник • Оборот 800M • В сети
+СТАРШИЙ ВИЦЕ-ПРЕЗИДЕНТ ПО ПРОДАЖАМ
+Мгновенная продажа товара в Direct
+Знание русского языка уровня Даля:
+1С:Лизинг • Автоматический скоринг
+Знакомство и закрытие на внедрение
+МЫСЛИ ГЛОБАЛЬНО, ДЕЙСТВУЙ ЛОКАЛЬНО
+Отработка «Почему это стоит денег»
+Автономная генерация ответов 0.8с
+Генеральный директор и основатель
+Рассчитайте выгоду под вашу нишу:
+ООО "ТрансЛогистик" (Покупатель)
+Забрать подарок и перенести базу
+Мгновенная реакция на обращения:
+📅 Zoom: Налоговый аудит холдинга
+5. Успешно реализовано (Оплата)
+Воронка: КП "Лесная Резиденция"
+Воронка: Юридический консалтинг
+AI Altai Optima (Скоринг 12/12)
+Сколько чистой прибыли принесет
+Автозаполнение всех полей в CRM
+вносит 100% данных из диалогов
+Ваш сотрудник может быть любым
+Анализ диалога в переписке...
+roman_invest_group (Роман В.)
+1С:Управление торговлей v11.5
+• Арматура А500С 12мм (45 т):
+МеталлСтрой Холдинг (Алексей)
+— ваши данные в безопасности
+ВЫБЕРИТЕ СФЕРУ ДЛЯ ИЗУЧЕНИЯ:
+Счет_Спецификация_482_1С.pdf
+КП отправлено • Ждем оплату
+Отработка любых возражений:
+● РЕЖИМ МАКСИМАЛЬНОГО РОСТА
+Этапы воронки без зависаний
+Автоназначение слота показа
+Ожидание реакции клиента...
++8.2M ₽ доп. продаж техники
+и двигает сделку по воронке
+1 558 лидов реактивировано
+AI-сотрудник автоматически
+в сети • WhatsApp Business
+автономного отдела продаж
+TELEGRAM + 1С + БИТРИКС24
+В 45 раз быстрее человека
+СКОЛЬКО ДЕНЕГ ВЫ ТЕРЯЕТЕ,
+в сети • Telegram Desktop
+23:40:07 • ✓✓ Доставлено
+Автономная работа в CRM:
+Входящих заявок в месяц:
+автономный отдел продаж?
+В первый месяц внедрения
+218 000 ₽ / мес (36 мес)
+• В наличии 4 шт. с ЭПТС
+ДВИЖЕНИЕ СДЕЛКИ В AMOCRM
+AI Altai Optima (1С:УТ)
+Психология коммуникации
+Средний чек сделки (₽):
+Склад Подольск (Резерв)
+4.8 MB • Коттедж 280 м²
+16:20:25 • ✓✓ Прочитано
+Егоров Ренат (AI Altai)
+ОБСУДИТЬ ДЕТАЛИ ПРОЕКТА
+Вместо 3–4 дней в Excel
+800 000 000 ₽ (Холдинг)
+ПОКА МЕНЕДЖЕР ТОРМОЗИТ?
+ПОДАРОК ПРИ ПОДКЛЮЧЕНИИ
++6.8M ₽ чистой прибыли
+ПРИРОСТ ПРИБЫЛИ ЗА ГОД
+КАНАЛЫ СВЯЗИ 24/7/365:
+• Авторасчет лизинга •
+СВЯЗАТЬСЯ С МЕНЕДЖЕРОМ
+Четкая механика сделки
+Заявка отправляется...
+Телефон или Telegram *
+ИНТЕРАКТИВНЫЙ РЕКРУТЕР
+Сквозная синхронизация
+100% фокус на продаже
+Ответ в первую минуту
+ДЕМОНСТРАЦИЯ СЦЕНАРИЯ
+Написать сообщение...
+Ответим в понедельник
+Аудит, сложные услуги
+AI Дилер Altai Optima
+Сделки двигаются сами
+ДОПОЛНИТЕЛЬНО В МЕСЯЦ
+Время до Zoom: 4 часа
+Заполнение без ошибок
+Металл, комплектующие
+Пользовательское с...
+1 день вместо 8 дней
+Склад Чехов (Резерв)
+• Балка 20Б1 (18 т):
+38% клиентов уходили
+Ключевые компетенции
+искать сделку, 1С...
+в сети • отклик 0.8с
+А МОЖЕТЕ ПОЛУЧАТЬ...
+Живая речь эксперта
+Кофе ценой в сделку
+ЧИСТАЯ ВЫРУЧКА С AI
+Второе дыхание базы
+За счет скорости КП
+Автобизнес & Лизинг
+02. Скоринг 12/12 ✓
+Открыть калькулятор
+Интерактивный выбор
+12 из 12 параметров
+Анализ переписки...
+Забрать эту прибыль
+РЕАКТИВАЦИЯ АРХИВА
+3 дня на настройку
+45% заявок с Avito
+Avito, спецтехника
+ПЛАТЕЖ ПО ЛИЗИНГУ:
+Синхронизировано ✓
+4 ГОТОВЫХ СЦЕНАРИЯ
+КОНВЕРСИЯ В ОПЛАТУ
+B2B Опт & Поставки
+Складской резерв ✓
+3 800 спящих лидов
+Скидка из слабости
+в реальном времени
+03. Zoom Чт 15:00
+Алексей (Закупки)
+01. Архив (3 800)
+ВЫБРАННЫЙ ОБЪЕКТ:
+Разборы внедрения
+Недвижимость & КП
+К КАЖДОМУ КЛИЕНТУ
+Посмотреть выгоду
+ПРОСМОТР НАЗНАЧЕН
+С первых 4 сделок
+Тестовая компания
+#WHATSAPP_ГЕНПЛАН
+РЕЗЮМЕ СОТРУДНИКА
+Чт, 15:00 – 15:45
+СТОИМОСТЬ ТЯГАЧА:
+Очистка от дублей
+СЛОТ ПОДТВЕРЖДЕН
+СКОРОСТЬ РАСЧЕТА
+СИНХРОНИЗИРОВАНО
+1.2 секунды 24/7
+РАСПОЗНАНО 99.4%
+#РЕАКТИВАЦИЯ_41%
+04. Договор 750k
+100% полей в CRM
+Условия и график
++10.4M ₽ в месяц
+1.2 сек отклик ✓
+ВСЕ МЕССЕНДЖЕРЫ
+02. Лизинг 1С ✓
+ВЫГОДА 45 000 ₽
+ОБОРОТ БИЗНЕСА:
+AI-ОТДЕЛ ПРОДАЖ
+Официальный API
+15 сек автосчет
+Где посмотреть?
+Товары и Склады
+Фрэнк Каупервуд
+03. Просмотр Сб
+выгода 45 000 ₽
+Авто-ответ 24/7
+ДЕНЬГИ НА СЧЕТУ
+Готова к работе
+БЮДЖЕТ ПОКУПКИ:
+03. Бронь 11:00
++4.6M ₽ выручки
+ТЕСТОВЫЙ ЗАПУСК
+Вся Россия, CRM
+Девелопмент, ЖК
+Тестовый запуск
+— Команда Altai
+23:40:05 (Ночь)
+Успешная оплата
+ОЖИДАНИЕ 2 ЧАСА
+четверг в 15:00
+Сделки в работе
+В 8 РАЗ БЫСТРЕЕ
+СЛОТ CALENDAR:
+АВТОНОМНАЯ CRM
+МАРЖА (24.8%):
++30% К ВЫРУЧКЕ
+СЧЕТ ВЫСТАВЛЕН
+График лизинга
+СЛИВ КОНВЕРСИИ
+СЕГОДНЯ, 14:02
+AI-сегментация
+Михаил Воронов
+ОКУПАЕМОСТЬ AI
++30% к прибыли
+ПОТЕРЯ ВЫРУЧКИ
+Битрикс24 REST
+Суббота, 12:00
+B2B Консалтинг
+ОТВЕТСТВЕННЫЙ:
+Режим работы:
+04. Бронь/ДКП
+218 000 ₽/мес
+Интеграция 1С
+Завтра, 11:00
+800 контактов
+100% ВНИМАНИЯ
+Уснувшая база
+СУББОТА 21:30
+КП ОТПРАВЛЕНО
+БРОНЬ НА ТЕСТ
+02. Расчет 1С
+Прайс защищен
+8 раз быстрее
+Начать работу
+СУММА СДЕЛКИ:
+ZOOM НАЗНАЧЕН
+от 100 000 ₽
+Импорт в CRM
+УТЕЧКА МАРЖИ
+7 170 языков
+КВАЛИФИКАЦИЯ
+ГОЛОСОВОЙ AI
+15 часов/нед
+Статус в CRM
+за 15 секунд
+АВАНС (15%):
+Ссылка Zoom:
+Личные и бот
+ДАТА ВИЗИТА:
+AI-менеджера
+1 389 сделок
+ЧЕК ПРОЕКТА:
+ДАТА ПОКАЗА:
+Сообщение...
+Диалог 24/7
+АРХИТЕКТУРА
+Бюджет лида
+Скролл вниз
+КАЛЬКУЛЯТОР
+ЦИКЛ СДЕЛКИ
+Сфера / Web
+СКОРИНГ AI:
+3 000 лидов
+04. Договор
+#ТЕГИРОВАТЬ
+100% ОПЛАТА
+04. Оплата
+ПЕРЕГОВОРЫ
+АВТОНОМНЫЙ
+Результат:
+Оплачено ✓
+Одобрено ✓
+235 сделок
+409 сделок
+В наличии?
+Email раб.
+732 сделки
+01. Заявка
+• Сделка в
+✉️ Письмо
++ СОЗДАТЬ
+НОВЫЙ ЛИД
+Расчет КП
+Avito Чат
+Владение:
+в Excel •
+Настроить
+Раб. тел.
+Должность
+100 лидов
+15 СЕКУНД
+валиден ✓
+Зарплата:
+РЕЗУЛЬТАТ
+ИСТОЧНИК:
+📞 Звонок
+КОМПАНИЯ
+Уровень:
+48 часов
+Ваше имя
+03. Счет
+Возраст:
+15 сек ✓
+✓ Захват
+Основное
+Битрикс
+Клиенты
+Отв-ный
+11 ДНЕЙ
+Слушать
+34 года
+42 года
+Клиент:
+СЕКУНДЫ
+Скоринг
+КОНТАКТ
+УСПЕШНО
+3–4 дня
+30 лет
+Сделки
+Стало:
+Кенджи
+31 год
+46 лет
+45 лет
+27 лет
+РЕЗЮМЕ
+Руслан
+29 лет
+35 лет
+Этап 2
+38 лет
+О себе
+Этап 1
+Елена
+💬 Чат
+Дарья
+Денис
+Алекс
+Финал
+Адрес
+Амина
+КЕЙСЫ
+Было:
+Языки
+Лиды
+Марк
+Чаты
+ТЕСТ
+РОП
+Мэй
+Эва
+ЭВА
+МА
+МС
+МВ
+МО
+РВ
+Э
