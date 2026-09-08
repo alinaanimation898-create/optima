@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 92 48" width="92" height="48">
+  <ellipse cx="46" cy="24" rx="45" ry="23" fill="#FED200"/>
+  <g transform="skewX(-11) translate(4, 0)">
+    <!-- Красная цифра 1 -->
+    <path d="M30 35H25.5V31H29.5V17.5L25 20.2L23.2 16.8L30.5 12.2H34.8V31H38.5V35H30Z" fill="#E30613"/>
+    <!-- Красная буква С -->
+    <path d="M60.5 16C58.5 13.5 55.2 12 51.2 12C43.8 12 38.8 17.2 38.8 24C38.8 30.8 43.8 36 51.2 36C55.5 36 58.8 34.2 61 31.5L57.2 28C55.8 29.8 53.8 31 51.2 31C46.8 31 43.8 27.8 43.8 24C43.8 20.2 46.8 17 51.2 17C53.6 17 55.6 18.2 57 20L60.5 16Z" fill="#E30613"/>
+    <!-- Знак R -->
+    <circle cx="68" cy="14" r="3.2" stroke="#E30613" stroke-width="0.8" fill="none"/>
+    <text x="68" y="15.8" font-family="'Arial', sans-serif" font-weight="bold" font-size="3.8" fill="#E30613" text-anchor="middle">R</text>
+  </g>
+</svg>
