@@ -2778,7 +2778,7 @@
       
       
       <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;" class="flex items-center gap-1.5 group shrink-0" title="Back to Top">
-        <img src="brand_logo.png" alt="ALTAI OPTIMA" class="h-5 sm:h-6 w-auto object-contain transition-transform duration-200 group-hover:scale-105" / loading="lazy">
+        <img src="brand_logo.png" alt="ALTAI OPTIMA" class="h-5 sm:h-6 w-auto object-contain transition-transform duration-200 group-hover:scale-105" loading="lazy">
       </a>
 
       
@@ -2997,19 +2997,15 @@
     <video 
       id="heroBgVideo"
       src="0906.mp4" 
+      poster="eva_desk_wide.jpg"
       autoplay 
       muted 
+      loop
       playsinline 
-      preload="auto"
+      preload="metadata"
       class="absolute inset-0 w-full h-full object-cover object-[88%_center] sm:object-center select-none pointer-events-none scale-105"
       style="mask-image: linear-gradient(to bottom, #000 0%, #000 62%, rgba(0,0,0,0.4) 82%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 62%, rgba(0,0,0,0.4) 82%, transparent 100%);"
     ></video>
-    
-    <canvas 
-      id="heroBgCanvas" 
-      class="absolute inset-0 w-full h-full object-cover object-[88%_center] sm:object-center select-none pointer-events-none scale-105 opacity-0 transition-opacity duration-150"
-      style="mask-image: linear-gradient(to bottom, #000 0%, #000 62%, rgba(0,0,0,0.4) 82%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 62%, rgba(0,0,0,0.4) 82%, transparent 100%);"
-    ></canvas>
 
     
     <div class="absolute inset-0 w-full h-full pointer-events-none z-1 overflow-hidden">
@@ -6398,167 +6394,11 @@
     }
 
     
-    (function initHeroVideoPingPong() {
-      const video = document.getElementById('heroBgVideo') || document.querySelector('section video');
-      const canvas = document.getElementById('heroBgCanvas');
+    (function initHeroVideo() {
+      const video = document.getElementById('heroBgVideo');
       if (!video) return;
-
-      if (!canvas) {
-        video.setAttribute('loop', '');
-        video.play().catch(() => {});
-        return;
-      }
-
-      const ctx = canvas.getContext('2d', { alpha: false });
-      let frames = [];
-      let isCapturing = true;
-      let isReversing = false;
-      let lastRecordedSec = -1;
-      let reverseRafId = null;
-
-      function syncCanvasResolution() {
-        const w = video.videoWidth || 1280;
-        const h = video.videoHeight || 720;
-        if (canvas.width !== w || canvas.height !== h) {
-          canvas.width = w;
-          canvas.height = h;
-        }
-      }
-
-      video.addEventListener('loadedmetadata', syncCanvasResolution);
-      if (video.videoWidth) syncCanvasResolution();
-
-      
-      function recordCurrentFrame() {
-        if (!isCapturing || isReversing || video.paused || video.ended) return;
-        syncCanvasResolution();
-        if (canvas.width <= 0 || canvas.height <= 0) return;
-
-        const curT = video.currentTime;
-        if (curT > lastRecordedSec + 0.032) {
-          lastRecordedSec = curT;
-          if (typeof createImageBitmap === 'function') {
-            createImageBitmap(video).then(bmp => {
-              if (isCapturing) frames.push(bmp);
-            }).catch(() => {
-              
-              const off = document.createElement('canvas');
-              off.width = canvas.width;
-              off.height = canvas.height;
-              const offCtx = off.getContext('2d', { alpha: false });
-              offCtx.drawImage(video, 0, 0);
-              if (isCapturing) frames.push(off);
-            });
-          } else {
-            const off = document.createElement('canvas');
-            off.width = canvas.width;
-            off.height = canvas.height;
-            const offCtx = off.getContext('2d', { alpha: false });
-            offCtx.drawImage(video, 0, 0);
-            if (isCapturing) frames.push(off);
-          }
-        }
-      }
-
-      
-      let captureActive = false;
-      function captureLoop() {
-        if (!captureActive || !isCapturing || isReversing) return;
-        recordCurrentFrame();
-        if ('requestVideoFrameCallback' in video) {
-          video.requestVideoFrameCallback(captureLoop);
-        } else {
-          requestAnimationFrame(captureLoop);
-        }
-      }
-
-      video.addEventListener('play', () => {
-        if (isCapturing && !captureActive) {
-          captureActive = true;
-          if ('requestVideoFrameCallback' in video) {
-            video.requestVideoFrameCallback(captureLoop);
-          } else {
-            requestAnimationFrame(captureLoop);
-          }
-        }
-      });
-
-      video.addEventListener('pause', () => {
-        captureActive = false;
-      });
-
-      
-      function startReverse() {
-        if (isReversing) return;
-        isReversing = true;
-        isCapturing = false;
-        captureActive = false;
-        video.pause();
-
-        if (frames.length < 8) {
-          
-          video.currentTime = 0;
-          isReversing = false;
-          isCapturing = true;
-          video.play().catch(() => {});
-          return;
-        }
-
-        
-        syncCanvasResolution();
-        const total = frames.length;
-        const lastFrame = frames[total - 1];
-        if (lastFrame) {
-          ctx.drawImage(lastFrame, 0, 0, canvas.width, canvas.height);
-        }
-        canvas.style.opacity = '1';
-
-        const totalDuration = (video.duration || 4.43) * 1000;
-        const startTime = performance.now();
-
-        function stepReverse(now) {
-          if (!isReversing) return;
-          const elapsed = now - startTime;
-          const rawProgress = Math.min(elapsed / totalDuration, 1);
-
-          
-          const easeProgress = -(Math.cos(Math.PI * rawProgress) - 1) / 2;
-
-          const targetIndex = Math.max(0, Math.min(total - 1, Math.round((1 - easeProgress) * (total - 1))));
-          const frame = frames[targetIndex];
-          if (frame) {
-            ctx.drawImage(frame, 0, 0, canvas.width, canvas.height);
-          }
-
-          if (rawProgress >= 1) {
-            
-            video.currentTime = 0;
-            video.play().then(() => {
-              setTimeout(() => {
-                canvas.style.opacity = '0';
-                isReversing = false;
-              }, 40);
-            }).catch(() => {
-              canvas.style.opacity = '0';
-              isReversing = false;
-            });
-            return;
-          }
-
-          reverseRafId = requestAnimationFrame(stepReverse);
-        }
-
-        if (reverseRafId) cancelAnimationFrame(reverseRafId);
-        reverseRafId = requestAnimationFrame(stepReverse);
-      }
-
-      video.addEventListener('ended', startReverse);
-      video.addEventListener('timeupdate', () => {
-        if (!isReversing && video.duration && video.currentTime >= video.duration - 0.08) {
-          startReverse();
-        }
-      });
-
+      video.muted = true;
+      video.loop = true;
       video.play().catch(() => {});
     })();
 
