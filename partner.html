@@ -593,7 +593,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #e0f2fe;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(240, 249, 255, 0.94) 100%);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
     }
 
     /* ФИРМЕННАЯ ОПТИЧЕСКАЯ КНОПКА (BTN-OPTIC С ФАСКОЙ И БЛИКОМ) */
@@ -1579,41 +1581,46 @@
 
     </section>
 
-    <!-- 6. FINAL CTA SECTION: СТАТЬ ПАРТНЕРОМ С БЕГАЮЩИМ НЕОНОВЫМ КОНТУРОМ И ЧИСТЫМ ВИДЕО -->
-    <section id="partner-contact" class="partner-video-box w-full my-16 sm:my-24 scroll-mt-28">
-      <div class="partner-video-box-inner min-h-[460px] sm:min-h-[520px] lg:min-h-[560px] py-8 sm:py-12 px-4 sm:px-6 relative flex items-center justify-center">
+    <!-- 6. FINAL CTA SECTION: СТАТЬ ПАРТНЕРОМ С БЕГАЮЩИМ НЕОНОВЫМ КОНТУРОМ И КРУГЛЫМ АВАТАРОМ ЭВЫ -->
+    <section id="partner-contact" class="partner-video-box w-full max-w-4xl mx-auto my-16 sm:my-24 scroll-mt-28">
+      <div class="partner-video-box-inner py-10 sm:py-14 px-5 sm:px-10 relative flex items-center justify-center">
         
-        <!-- ФОНОВОЕ ВИДЕО (ЧИСТОЕ, БЕЗ ТЕМНЫХ ТЕНЕЙ, ФОКУС НА ЭВУ, ЛЕНИВАЯ ЗАГРУЗКА) -->
-        <video 
-          id="partnerBgVideo" 
-          data-src="0906.mp4" 
-          poster="avatar_eva.jpg"
-          muted 
-          loop 
-          playsinline 
-          preload="none" 
-          class="absolute inset-0 w-full h-full object-cover object-[78%_20%] sm:object-center select-none pointer-events-none transition-opacity duration-700"
-        ></video>
-        
-        <!-- ДЕЛИКАТНАЯ ЛЕГКАЯ ТОНИРОВКА (БЕЗ ТЕМНЫХ ГЛУХИХ ПЯТЕН) -->
-        <div class="absolute inset-0 bg-slate-950/10 pointer-events-none z-[2]"></div>
+        <!-- ДЕКОРАТИВНЫЙ МЯГКИЙ НЕОНОВЫЙ БЛИК ВНУТРИ -->
+        <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-sky-400/10 rounded-full blur-3xl pointer-events-none"></div>
 
-        <!-- КОНТЕНТ ПОВЕРХ ВИДЕО ВНУТРИ СТИЛЬНОЙ ПРОЗРАЧНОЙ СТЕКЛЯННОЙ КАРТОЧКИ С ВОЗДУХОМ -->
-        <div class="relative z-10 max-w-xl mx-auto px-5 sm:px-9 py-8 sm:py-12 text-center space-y-4 sm:space-y-6 rounded-3xl bg-slate-950/25 sm:bg-slate-950/30 backdrop-blur-xl border border-white/25 shadow-[0_16px_40px_rgba(0,0,0,0.25)]">
-          <h2 class="font-benzin block-title-benzin text-xl sm:text-3xl md:text-4xl font-black text-white tracking-tight leading-tight uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
-            ГОТОВЫ <span class="text-shimmer-highlight whitespace-nowrap">ЗАРАБАТЫВАТЬ ВМЕСТЕ?</span>
-          </h2>
+        <div class="relative z-10 max-w-xl mx-auto text-center space-y-6">
+          <!-- КРУГЛЫЙ АВАТАР ЭВЫ В НЕОНОВОЙ РАМКЕ 24/7 -->
+          <div class="relative mx-auto w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 border-2 border-sky-400 shadow-[0_0_30px_rgba(56,189,248,0.6)] bg-gradient-to-tr from-sky-400 via-sky-200 to-blue-600 transition-transform duration-300 hover:scale-105">
+            <div class="w-full h-full rounded-full overflow-hidden bg-slate-900 relative">
+              <img 
+                src="avatar_eva.jpg" 
+                alt="Эва — AI продавец" 
+                class="w-full h-full object-cover object-[center_12%]"
+                loading="lazy"
+              />
+            </div>
+            <!-- Индикатор В сети 24/7 -->
+            <div class="absolute bottom-0 right-0 w-5 h-5 rounded-full bg-emerald-500 border-2 border-white shadow-md flex items-center justify-center z-10" title="В сети 24/7">
+              <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
+            </div>
+          </div>
 
-          <p class="text-slate-100 text-xs sm:text-sm md:text-base leading-relaxed font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] max-w-lg mx-auto">
-            Напишите нам напрямую в Telegram. Мы подключим вас к партнерской программе, вышлем демо-материалы и поможем закрыть первого клиента
-          </p>
+          <div class="space-y-3">
+            <h2 class="font-benzin block-title-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight leading-tight uppercase" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+              ГОТОВЫ <span class="whitespace-nowrap">ЗАРАБАТЫВАТЬ ВМЕСТЕ?</span>
+            </h2>
 
-          <div class="pt-2 sm:pt-3 flex items-center justify-center">
+            <p class="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed font-medium max-w-lg mx-auto">
+              Напишите нам напрямую в Telegram. Мы подключим вас к партнерской программе, вышлем демо-материалы и поможем закрыть первого клиента
+            </p>
+          </div>
+
+          <div class="pt-2 sm:pt-4 flex items-center justify-center">
             <a 
               href="https://t.me/altaioptima?text=%D0%94%D0%BE%D0%B1%D1%80%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%20%D0%BF%D0%B0%D1%80%D1%82%D0%BD%D0%B5%D1%80%D0%BE%D0%BC%20ALTAI%20OPTIMA" 
               target="_blank" 
               rel="noopener noreferrer" 
-              class="btn-optic group shadow-[0_0_35px_rgba(14,165,233,0.6)] py-3.5 sm:py-4 px-8 sm:px-10 text-xs sm:text-sm font-black tracking-wider uppercase inline-flex items-center justify-center gap-2.5 w-full sm:w-auto"
+              class="btn-optic group shadow-[0_0_30px_rgba(14,165,233,0.5)] py-3.5 sm:py-4 px-8 sm:px-10 text-xs sm:text-sm font-black tracking-wider uppercase inline-flex items-center justify-center gap-2.5 w-full sm:w-auto"
             >
               <span>СТАТЬ ПАРТНЕРОМ</span>
               <span class="optic-arrow font-inter">→</span>
@@ -1975,32 +1982,6 @@
       }
 
       initProductUspCarousel();
-
-      // ЛЕНИВАЯ ПОДГРУЗКА ВИДЕО ТОЛЬКО ПРИ ПРИБЛИЖЕНИИ К СЕКЦИИ (МГНОВЕННЫЙ СТАРТ СТРАНИЦЫ)
-      const partnerVid = document.getElementById('partnerBgVideo');
-      if (partnerVid) {
-        if ('IntersectionObserver' in window) {
-          const vidObs = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                if (!partnerVid.src && partnerVid.dataset.src) {
-                  partnerVid.src = partnerVid.dataset.src;
-                  partnerVid.load();
-                }
-                partnerVid.play().catch(() => {});
-              } else {
-                if (partnerVid.src) {
-                  partnerVid.pause();
-                }
-              }
-            });
-          }, { rootMargin: '350px 0px' });
-          vidObs.observe(partnerVid);
-        } else {
-          partnerVid.src = partnerVid.dataset.src;
-          partnerVid.play().catch(() => {});
-        }
-      }
     });
   </script>
 </body>
