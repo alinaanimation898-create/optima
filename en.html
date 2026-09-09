@@ -1215,11 +1215,9 @@
       display: inline-block;
       background-image: linear-gradient(
         90deg,
-        #881337 0%,
-        #9f1239 calc(var(--leak-p, 0%) * 0.75),
-        #be123c var(--leak-p, 0%),
-        rgba(159, 18, 57, 0.4) calc(var(--leak-p, 0%) + 10%),
-        #0f172a calc(var(--leak-p, 0%) + 25%),
+        #e11d48 0%,
+        #f43f5e var(--leak-p, 0%),
+        #0f172a calc(var(--leak-p, 0%) + 0.1%),
         #0f172a 100%
       );
       -webkit-background-clip: text;
@@ -1235,11 +1233,9 @@
       display: inline-block;
       background-image: linear-gradient(
         90deg,
-        #7c2d12 0%,
-        #9a3412 calc(var(--leak-p, 0%) * 0.75),
-        #c2410c var(--leak-p, 0%),
-        rgba(154, 52, 18, 0.4) calc(var(--leak-p, 0%) + 10%),
-        #0f172a calc(var(--leak-p, 0%) + 25%),
+        #ea580c 0%,
+        #f97316 var(--leak-p, 0%),
+        #0f172a calc(var(--leak-p, 0%) + 0.1%),
         #0f172a 100%
       );
       -webkit-background-clip: text;
@@ -7532,9 +7528,11 @@
         ].forEach(item => {
           if (!item.el || !item.card) return;
           const r = item.card.getBoundingClientRect();
-          const cp = smoothStep(winH * 0.90, winH * 0.40, winH - r.top);
+          
+          
+          const cp = smoothStep(winH * 0.15, winH * 0.65, winH - r.top);
           item.el.style.setProperty('--leak-p', `${(cp * 100).toFixed(2)}%`);
-          if (cp > 0.12) {
+          if (cp > 0.20) {
             item.card.classList.add('leak-card-active');
           } else {
             item.card.classList.remove('leak-card-active');
