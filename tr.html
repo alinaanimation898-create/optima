@@ -22,6 +22,11 @@
       }
     }
   </script>
+  <!-- Preconnect and Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
@@ -37,7 +42,6 @@
     }
 
     
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
     @font-face {
       font-family: 'Inter';
       src: url('Inter/Inter-Regular.otf') format('opentype');
@@ -2774,7 +2778,7 @@
       
       
       <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;" class="flex items-center gap-1.5 group shrink-0" title="Yukarı Çık">
-        <img src="brand_logo.png" alt="ALTAI OPTIMA" class="h-5 sm:h-6 w-auto object-contain transition-transform duration-200 group-hover:scale-105" />
+        <img src="brand_logo.png" alt="ALTAI OPTIMA" class="h-5 sm:h-6 w-auto object-contain transition-transform duration-200 group-hover:scale-105" / loading="lazy">
       </a>
 
       
@@ -3020,7 +3024,7 @@
         
         
         <a href="#" class="flex items-center gap-2 shrink-0 group py-1" title="Altai Optima">
-          <img src="brand_logo.png" alt="ALTAI OPTIMA" class="h-6 sm:h-7 md:h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+          <img src="brand_logo.png" alt="ALTAI OPTIMA" class="h-6 sm:h-7 md:h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
         </a>
 
         
@@ -3561,9 +3565,9 @@
 
           
           <div class="flex items-center justify-between sm:justify-start gap-3 sm:gap-8 pt-2 relative z-10">
-            <img src="logo_amocrm_cropped.png" alt="amoCRM" class="h-5 sm:h-7 max-w-[95px] sm:max-w-none w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer select-none shrink-0">
-            <img src="logo_bitrix24.webp" alt="Битрикс24" class="h-5 sm:h-7 max-w-[105px] sm:max-w-none w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer select-none shrink-0">
-            <img src="logo_1c.svg" alt="1С:Предприятие" class="h-5 sm:h-7 max-w-[42px] sm:max-w-none w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer select-none shrink-0">
+            <img src="logo_amocrm_cropped.png" alt="amoCRM" class="h-5 sm:h-7 max-w-[95px] sm:max-w-none w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer select-none shrink-0" loading="lazy">
+            <img src="logo_bitrix24.webp" alt="Битрикс24" class="h-5 sm:h-7 max-w-[105px] sm:max-w-none w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer select-none shrink-0" loading="lazy">
+            <img src="logo_1c.svg" alt="1С:Предприятие" class="h-5 sm:h-7 max-w-[42px] sm:max-w-none w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer select-none shrink-0" loading="lazy">
           </div>
         </div>
 
@@ -3612,13 +3616,13 @@
         <div class="order-1 lg:order-2 lg:col-span-3 flex items-center justify-center">
           <div class="relative w-full max-w-[260px] aspect-[4/5] sm:aspect-[3/4] rounded-3xl overflow-hidden shadow-lg border border-slate-200/90 bg-slate-950 group">
             <video 
-              src="the_girl_is_reading_book_202609081906.mp4" 
+              id="readingBookVideo"
+              data-src="the_girl_is_reading_book_202609081906.mp4" 
               poster="eva_reading.jpg"
-              autoplay 
               muted 
               loop 
               playsinline 
-              preload="auto"
+              preload="none"
               class="w-full h-full object-cover select-none transition-transform duration-700 group-hover:scale-105"
             ></video>
           </div>
@@ -4291,7 +4295,7 @@
                 
                 <button onclick="selectPersona('stanislav', this)" data-key="stanislav" class="persona-btn active group relative flex items-center justify-center p-1 sm:p-1.5 rounded-xl cursor-pointer text-center w-auto lg:w-full transition-all lg:flex-row lg:items-center lg:text-left lg:p-2.5 lg:rounded-2xl lg:gap-3" title="Михаил 
                   <div class="persona-avatar-frame relative w-11 h-11 sm:w-12 sm:h-12 lg:w-11 lg:h-11 rounded-full overflow-hidden shrink-0 transition-all duration-300 ring-2 ring-sky-500 shadow-[0_0_18px_rgba(2,132,199,0.75)] scale-115">
-                    <img src="persona_mikhail.jpg" alt="Михаил" class="w-full h-full object-cover" style="object-position: 50% 12%;">
+                    <img src="persona_mikhail.jpg" alt="Михаил" class="w-full h-full object-cover" style="object-position: 50% 12%;" loading="lazy">
                   </div>
                   <div class="min-w-0 flex-1 w-full font-inter text-left hidden lg:block">
                     <div class="flex items-center justify-start gap-1 flex-wrap">
@@ -4304,7 +4308,7 @@
                 
                 <button onclick="selectPersona('yaroslav', this)" data-key="yaroslav" class="persona-btn group relative flex items-center justify-center p-1 sm:p-1.5 rounded-xl cursor-pointer text-center w-auto lg:w-full transition-all lg:flex-row lg:items-center lg:text-left lg:p-2.5 lg:rounded-2xl lg:gap-3" title="Максим 
                   <div class="persona-avatar-frame relative w-11 h-11 sm:w-12 sm:h-12 lg:w-11 lg:h-11 rounded-full overflow-hidden shrink-0 transition-all duration-300 border border-slate-200/80 bg-slate-100 group-hover:scale-110 group-hover:ring-2 group-hover:ring-amber-400 group-hover:shadow-[0_0_16px_rgba(245,158,11,0.7)]">
-                    <img src="persona_maxim.jpg" alt="Максим" class="w-full h-full object-cover" style="object-position: 50% 10%;">
+                    <img src="persona_maxim.jpg" alt="Максим" class="w-full h-full object-cover" style="object-position: 50% 10%;" loading="lazy">
                   </div>
                   <div class="min-w-0 flex-1 w-full font-inter text-left hidden lg:block">
                     <div class="flex items-center justify-start gap-1 flex-wrap">
@@ -4317,7 +4321,7 @@
                 
                 <button onclick="selectPersona('polina', this)" data-key="polina" class="persona-btn group relative flex items-center justify-center p-1 sm:p-1.5 rounded-xl cursor-pointer text-center w-auto lg:w-full transition-all lg:flex-row lg:items-center lg:text-left lg:p-2.5 lg:rounded-2xl lg:gap-3" title="Софья Держинская 
                   <div class="persona-avatar-frame relative w-11 h-11 sm:w-12 sm:h-12 lg:w-11 lg:h-11 rounded-full overflow-hidden shrink-0 transition-all duration-300 border border-slate-200/80 bg-slate-100 group-hover:scale-110 group-hover:ring-2 group-hover:ring-rose-400 group-hover:shadow-[0_0_16px_rgba(244,63,94,0.7)]">
-                    <img src="persona_sofya.jpg" alt="Софья" class="w-full h-full object-cover" style="object-position: 50% 15%;">
+                    <img src="persona_sofya.jpg" alt="Софья" class="w-full h-full object-cover" style="object-position: 50% 15%;" loading="lazy">
                   </div>
                   <div class="min-w-0 flex-1 w-full font-inter text-left hidden lg:block">
                     <div class="flex items-center justify-start gap-1 flex-wrap">
@@ -4330,7 +4334,7 @@
                 
                 <button onclick="selectPersona('dmitry', this)" data-key="dmitry" class="persona-btn group relative flex items-center justify-center p-1 sm:p-1.5 rounded-xl cursor-pointer text-center w-auto lg:w-full transition-all lg:flex-row lg:items-center lg:text-left lg:p-2.5 lg:rounded-2xl lg:gap-3" title="Дмитрий 
                   <div class="persona-avatar-frame relative w-11 h-11 sm:w-12 sm:h-12 lg:w-11 lg:h-11 rounded-full overflow-hidden shrink-0 transition-all duration-300 border border-slate-200/80 bg-slate-100 group-hover:scale-110 group-hover:ring-2 group-hover:ring-indigo-400 group-hover:shadow-[0_0_16px_rgba(99,102,241,0.7)]">
-                    <img src="persona_dmitry.png" alt="Дмитрий" class="w-full h-full object-cover" style="object-position: 72% 15%;">
+                    <img src="persona_dmitry.png" alt="Дмитрий" class="w-full h-full object-cover" style="object-position: 72% 15%;" loading="lazy">
                   </div>
                   <div class="min-w-0 flex-1 w-full font-inter text-left hidden lg:block">
                     <div class="flex items-center justify-start gap-1 flex-wrap">
@@ -4343,7 +4347,7 @@
                 
                 <button onclick="selectPersona('ekaterina', this)" data-key="ekaterina" class="persona-btn group relative flex items-center justify-center p-1 sm:p-1.5 rounded-xl cursor-pointer text-center w-auto lg:w-full transition-all lg:flex-row lg:items-center lg:text-left lg:p-2.5 lg:rounded-2xl lg:gap-3" title="Константин 
                   <div class="persona-avatar-frame relative w-11 h-11 sm:w-12 sm:h-12 lg:w-11 lg:h-11 rounded-full overflow-hidden shrink-0 transition-all duration-300 border border-slate-200/80 bg-slate-100 group-hover:scale-110 group-hover:ring-2 group-hover:ring-emerald-400 group-hover:shadow-[0_0_16px_rgba(16,185,129,0.7)]">
-                    <img src="persona_ekaterina.png" alt="Константин" class="w-full h-full object-cover" style="object-position: 72% 15%;">
+                    <img src="persona_ekaterina.png" alt="Константин" class="w-full h-full object-cover" style="object-position: 72% 15%;" loading="lazy">
                   </div>
                   <div class="min-w-0 flex-1 w-full font-inter text-left hidden lg:block">
                     <div class="flex items-center justify-start gap-1 flex-wrap">
@@ -4414,7 +4418,7 @@
                     alt="Михаил — Директор по стратегическим сделкам" 
                     class="w-full h-full object-cover rounded-lg select-none pointer-events-none transition-all duration-300"
                     style="object-position: 50% top;"
-                  />
+                  / loading="lazy">
                   <div class="absolute bottom-1 sm:bottom-2 left-1 sm:left-2 right-1 sm:right-2 bg-slate-950/75 backdrop-blur-xs text-white text-[8px] sm:text-[9px] font-mono text-center py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">
                     AI AVATAR
                   </div>
@@ -5412,7 +5416,7 @@
         
         <div class="py-2">
           <a href="#" class="inline-block group py-2">
-            <img src="brand_logo.png" alt="ALTAI OPTIMA" class="h-10 sm:h-12 w-auto object-contain mx-auto transition-transform duration-300 group-hover:scale-105">
+            <img src="brand_logo.png" alt="ALTAI OPTIMA" class="h-10 sm:h-12 w-auto object-contain mx-auto transition-transform duration-300 group-hover:scale-105" loading="lazy">
           </a>
         </div>
 
@@ -7867,6 +7871,32 @@
       });
       updateCalc();
       runAmoCardAnimation();
+
+      
+      const readingVid = document.getElementById('readingBookVideo');
+      if (readingVid) {
+        if ('IntersectionObserver' in window) {
+          const rVidObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                if (!readingVid.src && readingVid.dataset.src) {
+                  readingVid.src = readingVid.dataset.src;
+                  readingVid.load();
+                }
+                readingVid.play().catch(() => {});
+              } else {
+                if (readingVid.src) {
+                  readingVid.pause();
+                }
+              }
+            });
+          }, { rootMargin: '350px 0px' });
+          rVidObs.observe(readingVid);
+        } else {
+          readingVid.src = readingVid.dataset.src;
+          readingVid.play().catch(() => {});
+        }
+      }
 
       
       excelGiftTimer = setTimeout(() => {
