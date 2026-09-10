@@ -2989,19 +2989,27 @@
   <!-- 2. МОНУМЕНТАЛЬНЫЙ FULL-SCREEN CINEMATIC HERO С ИНТЕГРИРОВАННЫМ ПРОЗРАЧНЫМ МЕНЮ -->
   <section class="relative w-full min-h-screen overflow-hidden flex flex-col justify-between py-5 sm:py-6 px-4 sm:px-8 lg:px-12 mb-12 sm:mb-18 md:mb-24 pb-8 sm:pb-12 md:pb-16">
     
-    <!-- ФОНОВОЕ ВИДЕО НА ВСЮ ШИРИНУ И ВЫСОТУ С ПЛАВНЫМ РАЗМЫТИЕМ/УГАСАНИЕМ КНИЗУ -->
-    <video 
-      id="heroBgVideo"
-      src="0906.mp4" 
-      poster="eva_desk_wide.jpg"
-      autoplay 
-      muted 
-      loop
-      playsinline 
-      preload="metadata"
-      class="absolute inset-0 w-full h-full object-cover object-[88%_center] sm:object-center select-none pointer-events-none scale-105"
-      style="mask-image: linear-gradient(to bottom, #000 0%, #000 62%, rgba(0,0,0,0.4) 82%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 62%, rgba(0,0,0,0.4) 82%, transparent 100%);"
-    ></video>
+    <!-- ФОНОВОЕ ВИДЕО НА ВСЮ ШИРИНУ И ВЫСОТУ С АППАРАТНЫМ GPU-УСКОРЕНИЕМ И БЕСШОВНЫМ ГРАДИЕНТОМ -->
+    <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none select-none">
+      <!-- Фоновый постер для мгновенного первого кадра без мигания -->
+      <img src="eva_desk_wide.jpg" alt="" class="absolute inset-0 w-full h-full object-cover object-[88%_center] sm:object-center select-none" />
+      
+      <!-- Аппаратный видеопоток (чистый GPU слой без масок) -->
+      <video 
+        id="heroBgVideo"
+        src="0906.mp4" 
+        autoplay 
+        muted 
+        loop
+        playsinline 
+        preload="auto"
+        class="absolute inset-0 w-full h-full object-cover object-[88%_center] sm:object-center select-none pointer-events-none"
+        style="transform: translateZ(0); -webkit-transform: translateZ(0); will-change: transform;"
+      ></video>
+
+      <!-- Мягкий градиент угасания книзу (отдельный слой, не нагружающий видео) -->
+      <div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent via-60% to-[#f0f5fa]"></div>
+    </div>
 
     <!-- МЯГКИЙ СВЕТОВОЙ ОРЕОЛ ПОД ЛОГОТИПОМ И КОНТАКТАМИ -->
     <div class="absolute inset-0 w-full h-full pointer-events-none z-1 overflow-hidden">
@@ -6382,8 +6390,23 @@
       const video = document.getElementById('heroBgVideo');
       if (!video) return;
       video.muted = true;
+      video.defaultMuted = true;
       video.loop = true;
-      video.play().catch(() => {});
+      
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          const onFirstInteraction = () => {
+            video.play().catch(() => {});
+            window.removeEventListener('touchstart', onFirstInteraction);
+            window.removeEventListener('click', onFirstInteraction);
+            window.removeEventListener('scroll', onFirstInteraction);
+          };
+          window.addEventListener('touchstart', onFirstInteraction, { passive: true, once: true });
+          window.addEventListener('click', onFirstInteraction, { passive: true, once: true });
+          window.addEventListener('scroll', onFirstInteraction, { passive: true, once: true });
+        });
+      }
     })();
 
     // ДАННЫЕ И ЛОГИКА ДЛЯ ВЫБОРА АВАТАРОВ И ПЕРСОН (ПО СКРИНШОТУ 2)
