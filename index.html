@@ -5911,42 +5911,73 @@
 
       </div>
 
-      <!-- ФИНАЛЬНЫЙ ПРИЗЫВ ВНИЗУ БЛОКА С НЕОНОВЫМ СВЕЧЕНИЕМ -->
-      <div class="relative p-5 sm:p-7 md:p-8 rounded-3xl bg-slate-950 text-white border border-sky-500/30 shadow-[0_20px_50px_rgba(2,132,199,0.2)] overflow-hidden">
+      <!-- ФИНАЛЬНЫЙ ПРИЗЫВ ВНИЗУ БЛОКА С БОГАТЫМ ГРАДИЕНТОМ И ЗВУКОВОЙ ВОЛНОЙ -->
+      <div class="relative p-6 sm:p-9 md:p-11 rounded-3xl text-white border border-sky-400/30 shadow-[0_25px_60px_-15px_rgba(2,132,199,0.3),0_0_35px_rgba(56,189,248,0.15)] overflow-hidden" style="background: radial-gradient(130% 120% at 50% 0%, #032b52 0%, #021a36 38%, #021226 70%, #010814 100%);">
         
         <!-- Неоновый контурный SVG луч -->
         <svg class="absolute inset-0 w-full h-full pointer-events-none overflow-visible rounded-3xl" viewBox="0 0 100 100" preserveAspectRatio="none">
           <defs>
             <linearGradient id="faqCtaNeonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stop-color="#0284c7" />
-              <stop offset="35%" stop-color="#38bdf8" />
-              <stop offset="70%" stop-color="#22d3ee" />
+              <stop offset="30%" stop-color="#38bdf8" />
+              <stop offset="65%" stop-color="#22d3ee" />
+              <stop offset="85%" stop-color="#34d399" />
               <stop offset="100%" stop-color="#ffffff" />
             </linearGradient>
+            <linearGradient id="faqSoundwaveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.1" />
+              <stop offset="50%" stop-color="#22d3ee" stop-opacity="0.5" />
+              <stop offset="100%" stop-color="#34d399" stop-opacity="0.1" />
+            </linearGradient>
           </defs>
-          <rect x="0.5" y="0.5" width="99" height="99" rx="6" ry="6" fill="none" stroke="rgba(56, 189, 248, 0.2)" stroke-width="1.2" vector-effect="non-scaling-stroke" />
+          <rect x="0.5" y="0.5" width="99" height="99" rx="6" ry="6" fill="none" stroke="rgba(56, 189, 248, 0.25)" stroke-width="1.2" vector-effect="non-scaling-stroke" />
           <rect x="0.5" y="0.5" width="99" height="99" rx="6" ry="6" fill="none" stroke="url(#faqCtaNeonGrad)" stroke-width="2.2" vector-effect="non-scaling-stroke" pathLength="100" class="hero-card-neon-stroke" />
         </svg>
 
-        <!-- Мягкий фоновый свет -->
-        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-sky-500/15 rounded-full blur-3xl pointer-events-none"></div>
+        <!-- Атмосферное градиентное сияние (верхний центр, углы) -->
+        <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-3/4 h-36 bg-gradient-to-r from-sky-400/25 via-cyan-400/30 to-emerald-400/20 blur-3xl pointer-events-none rounded-full"></div>
+        <div class="absolute -left-12 -bottom-12 w-64 h-64 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -right-12 -bottom-12 w-64 h-64 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div class="relative z-10 max-w-3xl mx-auto text-center space-y-4 sm:space-y-5">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-sky-500/10 border border-sky-400/30 text-sky-300">
+        <!-- Фоновая эстетичная звуковая волна (ассоциация со словом "услышать") -->
+        <div class="absolute inset-0 flex items-center justify-center opacity-25 pointer-events-none overflow-hidden">
+          <svg class="w-full max-w-4xl h-28" viewBox="0 0 800 120" fill="none">
+            <path d="M0 60 Q 50 15, 100 60 T 200 60 T 300 20 T 400 95 T 500 35 T 600 85 T 700 45 T 800 60" stroke="url(#faqSoundwaveGrad)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M0 60 Q 70 85, 140 60 T 280 35 T 420 85 T 560 45 T 700 75 T 800 60" stroke="url(#faqSoundwaveGrad)" stroke-width="1.2" stroke-dasharray="5 5"/>
+          </svg>
+        </div>
+
+        <div class="relative z-10 max-w-3xl mx-auto text-center space-y-4 sm:space-y-6">
+          
+          <!-- Бейдж с анимированным эквалайзером частот -->
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-mono font-bold tracking-wider uppercase bg-white/5 border border-sky-400/30 text-sky-300 backdrop-blur-md shadow-sm">
+            <span class="flex items-end gap-0.5 h-3 px-0.5" aria-hidden="true">
+              <span class="w-0.5 bg-cyan-400 rounded-full animate-pulse" style="height: 60%; animation-duration: 0.8s;"></span>
+              <span class="w-0.5 bg-sky-300 rounded-full animate-pulse" style="height: 100%; animation-duration: 0.6s;"></span>
+              <span class="w-0.5 bg-emerald-400 rounded-full animate-pulse" style="height: 40%; animation-duration: 0.9s;"></span>
+              <span class="w-0.5 bg-cyan-300 rounded-full animate-pulse" style="height: 85%; animation-duration: 0.7s;"></span>
+              <span class="w-0.5 bg-sky-400 rounded-full animate-pulse" style="height: 50%; animation-duration: 0.85s;"></span>
+            </span>
             <span>💡 БЕСПЛАТНЫЙ ТЕСТОВЫЙ ПИЛОТ</span>
           </div>
 
-          <h3 class="text-xl sm:text-2xl md:text-3xl font-bold font-sans text-white leading-tight tracking-tight">
-            Хотите услышать, как ассистент общается на регламентах именно вашей сферы?
+          <h3 class="font-benzin text-xl sm:text-2xl md:text-3xl lg:text-[30px] font-bold text-white leading-[1.3] tracking-tight">
+            Хотите услышать, как ассистент общается <br class="hidden sm:inline">
+            <span class="bg-gradient-to-r from-sky-300 via-cyan-200 to-emerald-300 bg-clip-text text-transparent filter drop-shadow-[0_2px_12px_rgba(56,189,248,0.3)]">на регламентах именно вашей компании?</span>
           </h3>
 
-          <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-normal max-w-2xl mx-auto">
+          <p class="text-slate-200/90 text-sm sm:text-base leading-relaxed font-normal max-w-2xl mx-auto">
             Мы настроим тестовый диалог под ваши стандарты еще до заключения договора, чтобы вы лично оценили уровень сервиса.
           </p>
 
-          <div class="pt-1.5">
-            <a href="https://t.me/altaioptima" target="_blank" class="btn-optic group shadow-xl">
-              <span>ПРОТЕСТИРОВАТЬ НА СВОИХ РЕГЛАМЕНТАХ</span>
+          <div class="pt-2">
+            <a href="https://t.me/altaioptima" target="_blank" class="btn-optic group shadow-[0_10px_35px_rgba(2,132,199,0.45)] hover:shadow-[0_15px_45px_rgba(56,189,248,0.6)] !px-8 !py-3.5 rounded-2xl transition-all duration-300">
+              <span class="flex items-center gap-2 text-xs sm:text-sm font-bold tracking-wider uppercase">
+                <span>ПРОТЕСТИРОВАТЬ СЕРВИС</span>
+                <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </span>
             </a>
           </div>
         </div>
