@@ -3590,8 +3590,8 @@
     <!-- 5. БЛОК: ПСИХОЛОГИЯ КОММУНИКАЦИИ И ИНТЕЛЛЕКТУАЛЬНАЯ БАЗА AI-ПРОДАВЦА -->
     <section id="psychology" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16 xl:py-20 relative z-20 font-inter overflow-x-clip">
 
-      <!-- ЗАГОЛОВОК СЕКЦИИ (ВЫРАВНЕН В ЛЕВЫЙ УГОЛ, В ФИРМЕННЫХ ЦВЕТАХ) -->
-      <div class="text-left max-w-6xl mb-6 sm:mb-9 space-y-3">
+      <!-- ЗАГОЛОВОК И ВВОДНЫЙ ТЕКСТ СЕКЦИИ -->
+      <div class="text-left max-w-5xl mb-7 sm:mb-10 space-y-4">
         <h2 class="font-benzin uppercase tracking-tight font-black leading-[1.15] sm:leading-[1.18] break-words" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 8px 20px rgba(2, 132, 199, 0.16)); overflow: visible;">
           <!-- ДЕСКТОП: СТРОГО 3 СТРОКИ -->
           <span class="hidden lg:block text-[22px] lg:text-[25px] xl:text-[29px] 2xl:text-[33px] leading-[1.18]">
@@ -3599,7 +3599,7 @@
             <span class="block whitespace-nowrap">выстроен на фундаментальных трудах</span>
             <span class="block whitespace-nowrap">признанных гуру продаж и сервиса</span>
           </span>
-          <!-- МОБИЛЬНЫЙ / ПЛАНШЕТ: АККУРАТНАЯ РАЗБИВКА СТРОК БЕЗ РАЗРЫВОВ СЛОВ -->
+          <!-- МОБИЛЬНЫЙ / ПЛАНШЕТ -->
           <span class="block lg:hidden text-[14px] sm:text-xl md:text-2xl leading-snug">
             <span class="block whitespace-nowrap">Интеллект <span class="inline-block">ИИ&#8209;продавца</span></span>
             <span class="block whitespace-nowrap">выстроен на фундаментальных</span>
@@ -3607,14 +3607,27 @@
             <span class="block whitespace-nowrap">продаж и сервиса</span>
           </span>
         </h2>
+
+        <!-- МАНИФЕСТ И ВВОДНЫЙ ТЕКСТ БИБЛИОТЕКИ -->
+        <div class="space-y-2.5 text-xs sm:text-sm md:text-[15px] text-slate-600 leading-relaxed font-normal pt-1">
+          <p>
+            Чтобы построить отдел продаж высшей лиги, нужно выжечь из голов сотрудников две главные иллюзии: представление о продажах как о «втюхивании» и сервис в стиле «чего изволите».
+          </p>
+          <p class="font-semibold text-slate-800">
+            В элитном B2B и высоком чеке работают только две вещи: стальная переговорная позиция на равных и безупречная сервисная культура, превращающая каждого клиента в долгосрочный капитал.
+          </p>
+          <p class="text-xs sm:text-sm font-bold text-sky-700 flex items-center gap-1.5 pt-1">
+            <span>Вот 10 фундаментальных книг, формирующих идеальную библиотеку переговорщика:</span>
+          </p>
+        </div>
       </div>
 
       <!-- 3-КОЛОНОЧНАЯ СЕТКА НА ДЕСКТОПЕ / СПЕЦИАЛЬНЫЙ ПОРЯДОК НА МОБИЛЬНОМ:
            1. Видео с Эвой
            2. Название книги, автор и цитата
            3. Интерактивная 3D-карусель книг
-           4. Как это заложено в нашего AI-продавца
-           5. Кнопка «Скачать книгу»
+           4. Как это заложено в нашего AI-продавца / суть
+           5. Кнопка «Скачать книги в Telegram»
       -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center max-w-7xl mx-auto">
         
@@ -3669,42 +3682,65 @@
           
           <!-- ЭЛЕМЕНТ 2 (НА МОБИЛКЕ: 2, НА ДЕСКТОПЕ: ВЕРХ ПРАВОЙ КОЛОНКИ): НАЗВАНИЕ КНИГИ, АВТОР И ЦИТАТА -->
           <div class="order-2 lg:order-none space-y-3 active-book-subpart transition-opacity duration-300">
-            <!-- 1. ЗАГОЛОВОК И АВТОР КНИГИ -->
-            <div class="space-y-0.5">
-              <h3 id="activeBookTitle" class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug">
-                «Клиенты на всю жизнь»
+            <!-- 1. ЗАГОЛОВОК, БЕЙДЖ И АВТОР КНИГИ -->
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span id="activeBookBadge" class="text-[9px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-sky-100 text-sky-800 border border-sky-200">
+                  СТАНДАРТЫ СЕРВИСА
+                </span>
+                <span id="activeBookCategory" class="text-[10px] text-slate-400 font-mono">
+                  Премиальный сервис
+                </span>
+              </div>
+              <h3 id="activeBookTitle" class="text-lg sm:text-xl font-black text-slate-900 tracking-tight leading-snug">
+                «Удовлетворение гарантировано»
               </h3>
-              <p id="activeBookAuthor" class="text-xs sm:text-sm font-semibold text-slate-500">
-                Автор: Карл Сьюэлл
+              <p id="activeBookAuthor" class="text-xs sm:text-sm font-semibold text-slate-600">
+                Автор: Хорст Шульце
               </p>
             </div>
 
-            <!-- 2. ЦИТАТА ИЗ КНИГИ -->
-            <div class="relative pl-4 border-l-3 border-sky-500 py-1.5 space-y-1 pr-3">
-              <div class="text-[10px] font-mono font-bold uppercase tracking-wider text-sky-600 flex items-center gap-1.5">
-                <span>— ЦИТАТА ИЗ КНИГИ —</span>
+            <!-- 2. ЛУЧШАЯ МЫСЛЬ / ЦИТАТА ИЗ КНИГИ -->
+            <div class="relative pl-3.5 border-l-3 border-sky-500 py-1 space-y-0.5 pr-2">
+              <div class="text-[9px] font-mono font-bold uppercase tracking-wider text-sky-600 flex items-center gap-1">
+                <span>— ЛУЧШАЯ МЫСЛЬ —</span>
               </div>
-              <blockquote id="activeBookQuote" class="text-sm sm:text-[15px] font-bold text-slate-900 leading-snug italic">
-                «Делайте то, что обещали, и делайте это с первого раза.»
+              <blockquote id="activeBookQuote" class="text-xs sm:text-sm font-bold text-slate-900 leading-snug italic">
+                «Мы — дамы и господа к услугам дам и господ.»
               </blockquote>
             </div>
           </div>
 
-          <!-- ЭЛЕМЕНТ 4 (НА МОБИЛКЕ: 4, НА ДЕСКТОПЕ: СЕРЕДИНА ПРАВОЙ КОЛОНКИ): ЧТО ЗАЛОЖЕНО В НАШЕГО ИИ-ПРОДАВЦА -->
-          <div class="order-4 lg:order-none pt-3 border-t border-slate-100 space-y-1.5 active-book-subpart transition-opacity duration-300">
-            <div class="inline-flex items-center gap-1.5 text-[11px] font-mono font-bold uppercase tracking-wider text-emerald-800">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span>Как это заложено в нашего AI-продавца:</span>
+          <!-- ЭЛЕМЕНТ 4 (НА МОБИЛКЕ: 4, НА ДЕСКТОПЕ: СЕРЕДИНА ПРАВОЙ КОЛОНКИ): СУТЬ И ЧТО ДАЛА ИИ-ПРОДАВЦУ -->
+          <div class="order-4 lg:order-none pt-2.5 border-t border-slate-100 space-y-2.5 active-book-subpart transition-opacity duration-300">
+            
+            <!-- Суть книги и чем полезна -->
+            <div class="space-y-1">
+              <div class="text-[10px] font-bold text-slate-800 uppercase tracking-wider font-mono flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
+                <span>Суть и польза для бизнеса:</span>
+              </div>
+              <p id="activeBookEssence" class="text-xs text-slate-600 leading-relaxed font-normal">
+                Создание безупречного сервиса через самоуважение сотрудников и абсолютные стандарты качества. Учит вести бизнес без лакейства, суеты и заискивания, выстраивая подлинное гостеприимство.
+              </p>
             </div>
-            <p id="activeBookThought" class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-              Привлекать новых клиентов в 5 раз дороже, чем удерживать существующих. Наш AI превращает разового покупателя в постоянного за счет мгновенного внимания к деталям, персонального подхода и безукоризненного соблюдения договоренностей.
-            </p>
+
+            <!-- Что дала ИИ-продавцу -->
+            <div class="space-y-1 pt-1 border-t border-slate-100/80">
+              <div class="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-800">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Что дала ИИ-продавцу:</span>
+              </div>
+              <p id="activeBookThought" class="text-xs text-slate-700 leading-relaxed font-normal">
+                В диалоге исключены робость и подобострастие. Агент держит благородную осанку, соблюдает эталонный деловой этикет и обращается к собеседнику с равным достоинством.
+              </p>
+            </div>
           </div>
 
-          <!-- ЭЛЕМЕНТ 5 (НА МОБИЛКЕ: 5, НА ДЕСКТОПЕ: НИЗ ПРАВОЙ КОЛОНКИ): КНОПКА СКАЧАТЬ КНИГУ -->
-          <div class="order-5 lg:order-none pt-1 pb-3 sm:pb-0 active-book-subpart transition-opacity duration-300">
-            <button id="downloadBookBtn" type="button" class="btn-optic w-full shadow-md text-xs sm:text-[13px] font-bold uppercase tracking-wide flex items-center justify-center group/btn !px-4 sm:!px-6 !py-3.5 sm:!py-4 text-center leading-snug min-h-[48px]">
-              <span class="text-center leading-snug break-words">Скачать книгу <span id="downloadBtnBookTitle">«Клиенты на всю жизнь»</span></span>
+          <!-- ЭЛЕМЕНТ 5 (НА МОБИЛКЕ: 5, НА ДЕСКТОПЕ: НИЗ ПРАВОЙ КОЛОНКИ): КНОПКА СКАЧАТЬ КНИГИ -->
+          <div class="order-5 lg:order-none pt-1 pb-2 sm:pb-0 active-book-subpart transition-opacity duration-300">
+            <button id="downloadBookBtn" type="button" class="btn-optic w-full shadow-md text-xs sm:text-[13px] font-bold uppercase tracking-wide flex items-center justify-center group/btn !px-4 sm:!px-6 !py-3 sm:!py-3.5 text-center leading-snug min-h-[44px]">
+              <span class="text-center leading-snug break-words">Скачать книги в Telegram</span>
             </button>
           </div>
 
@@ -3720,7 +3756,7 @@
           <div class="absolute -right-20 -top-20 w-60 h-60 bg-sky-500/15 rounded-full blur-3xl pointer-events-none"></div>
 
           <!-- Кнопка закрытия -->
-          <button type="button" onclick="closeBookModal()" aria-label="Закрыть" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
+          <button type="button" onclick="closeBookModal()" aria-label="Закрыть" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white flex items-center justify-center transition-colors cursor-pointer">
             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
 
@@ -3732,28 +3768,28 @@
 
             <div class="pr-6">
               <h3 id="modalBookTitle" class="text-xl sm:text-2xl font-extrabold text-white leading-tight">
-                Клиенты на всю жизнь
+                Удовлетворение гарантировано
               </h3>
               <p id="modalBookAuthor" class="text-sm text-sky-400 font-semibold mt-1">
-                Автор: Карл Сьюэлл
+                Автор: Хорст Шульце
               </p>
             </div>
 
             <div class="p-4 rounded-2xl bg-white/5 border border-white/10 text-sm text-slate-300 leading-relaxed space-y-2">
               <p>
-                📚 Полная электронная версия книги, ключевые конспекты и практические AI-промпты для переговоров уже выложены в нашем закрытом Telegram-канале.
+                📚 Полные электронные версии книг переговорщика, подробные конспекты и практические AI-промпты для продаж уже доступны в нашем Telegram-канале.
               </p>
               <p class="text-xs text-sky-300/80">
-                Перейдите по ссылке ниже, чтобы бесплатно скачать книгу и получить доступ к базе знаний Altai Optima.
+                Перейдите по ссылке ниже (пост #31), чтобы бесплатно скачать книги и получить доступ к базе знаний Altai Optima.
               </p>
             </div>
 
             <div class="pt-2 flex flex-col gap-3">
-              <a id="modalTgLink" href="https://t.me/altaioptima" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold text-center text-sm shadow-lg shadow-sky-500/25 transition-all duration-200 flex items-center justify-center gap-2.5">
+              <a id="modalTgLink" href="https://t.me/altaiweb/31" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold text-center text-sm shadow-lg shadow-sky-500/25 transition-all duration-200 flex items-center justify-center gap-2.5">
                 <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
-                <span>Перейти в Telegram и скачать книгу</span>
+                <span>Скачать книги в Telegram</span>
               </a>
-              <button type="button" onclick="closeBookModal()" class="w-full py-2.5 text-xs text-slate-400 hover:text-slate-200 text-center transition-colors">
+              <button type="button" onclick="closeBookModal()" class="w-full py-2.5 text-xs text-slate-400 hover:text-slate-200 text-center transition-colors cursor-pointer">
                 Закрыть окно
               </button>
             </div>
@@ -3906,7 +3942,162 @@
     <!-- СКРИПТ: 3D-СФЕРА КНИГ И ИНТЕЛЛЕКТУАЛЬНАЯ БАЗА ЗНАНИЙ -->
     <script>
       (function() {
-        const books = [{"id": 1, "title": "Клиенты на всю жизнь", "author": "Карл Сьюэлл", "category": "Клиентский сервис", "badge": "LTV & СЕРВИС", "gradient": "linear-gradient(145deg, #091a28 0%, #03456b 50%, #011624 100%)", "border": "#38bdf8", "spine": "#0284c7", "accent": "#38bdf8", "thought": "Привлекать новых клиентов в 5 раз дороже, чем удерживать существующих. Наш AI превращает разового покупателя в постоянного за счет мгновенного внимания к деталям, персонального подхода и безукоризненного соблюдения договоренностей.", "quote": "«Делайте то, что обещали, и делайте это с первого раза.»"}, {"id": 2, "title": "Обслуживание без срывов", "author": "Джон Шоул", "category": "Системный сервис", "badge": "СТАНДАРТЫ СЕРВИСА", "gradient": "linear-gradient(145deg, #061e2c 0%, #0c567a 50%, #02131e 100%)", "border": "#22d3ee", "spine": "#0891b2", "accent": "#22d3ee", "thought": "Сервис мирового уровня — это корпоративная религия. AI держит высочайший стандарт в каждом диалоге без человеческой усталости, раздражения и выгорания, выдавая 100% результат даже в 3 часа ночи.", "quote": "«Скорость ответа — это главный фактор удовлетворенности клиента XXI века.»"}, {"id": 3, "title": "Доставляя счастье", "author": "Тони Шей", "category": "Бизнес-культура", "badge": "ЛОЯЛЬНОСТЬ & КУЛЬТУРА", "gradient": "linear-gradient(145deg, #06221c 0%, #0d5f4c 50%, #021712 100%)", "border": "#34d399", "spine": "#059669", "accent": "#34d399", "thought": "Искренняя забота о клиенте создает пожизненную лояльность (LTV), которую невозможно скопировать конкурентам. AI помнит историю каждого обращения и создает вау-эффект в каждом касании.", "quote": "«Обслуживание клиентов — это не отдел, это вся компания целиком.»"}, {"id": 4, "title": "Жесткий менеджмент", "author": "Ден Кеннеди", "category": "Управление", "badge": "КОНТРОЛЬ ПРИБЫЛИ", "gradient": "linear-gradient(145deg, #241403 0%, #683a06 50%, #150a01 100%)", "border": "#fbbf24", "spine": "#d97706", "accent": "#fbbf24", "thought": "Бизнес существует ради чистой прибыли. Автономный AI устраняет человеческую лень, забывчивость менеджеров и потери заявок, обеспечивая жесткий контроль над воронкой продаж 24/7.", "quote": "«Если вы не управляете своими продажами жестко, ими управляет хаос.»"}, {"id": 5, "title": "Сначала скажите „нет“", "author": "Джим Кэмп", "category": "Переговоры", "badge": "ПЕРЕГОВОРЫ", "gradient": "linear-gradient(145deg, #270611 0%, #6d1030 50%, #170208 100%)", "border": "#fb7185", "spine": "#e11d48", "accent": "#fb7185", "thought": "Защита собственных границ и отказ от позиции просителя. AI ведет переговоры на равных, не раздает пустых скидок и ведет клиента к сделке без давления, защищая маржинальность бизнеса.", "quote": "«Никаких компромиссов в ущерб себе: цель переговоров — соглашение на выгодных условиях.»"}, {"id": 6, "title": "Никогда не идите на компромисс", "author": "Крис Восс", "category": "Тактика диалога", "badge": "ЭМОЦИОНАЛЬНЫЙ ИНТЕЛЛЕКТ", "gradient": "linear-gradient(145deg, #130f30 0%, #3e338c 50%, #0a071d 100%)", "border": "#c084fc", "spine": "#7c3aed", "accent": "#c084fc", "thought": "Тактический эмоциональный интеллект переговорщика ФБР. AI калибрует интонации собеседника, зеркалит формулировки, снимает страхи и вскрывает истинные скрытые возражения.", "quote": "«Тот, кто задает правильные калиброванные вопросы — полностью контролирует диалог.»"}, {"id": 7, "title": "СПИН-продажи", "author": "Нил Рэкхэм", "category": "Технологии продаж", "badge": "СПИН МЕТОД", "gradient": "linear-gradient(145deg, #071738 0%, #15459b 50%, #030b1c 100%)", "border": "#60a5fa", "spine": "#2563eb", "accent": "#60a5fa", "thought": "Системное выявление скрытых потребностей через 4 типа вопросов (ситуационные, проблемные, извлекающие, направляющие). Клиент сам осознает масштаб проблемы и ценность решения без нажима.", "quote": "«Успешные продавцы не уговаривают, они помогают клиенту самому осознать ценность решения.»"}, {"id": 8, "title": "Обгоняя конкурентов", "author": "Ден Кеннеди", "category": "Маркетинг", "badge": "ДИФФЕРЕНЦИАЦИЯ", "gradient": "linear-gradient(145deg, #06212b 0%, #0f627f 50%, #021219 100%)", "border": "#38bdf8", "spine": "#0d9488", "accent": "#38bdf8", "thought": "Создание неоспоримой ценности, за которую клиенты платят максимальный чек без сравнения с конкурентами. Мгновенная реакция закрывает сделку до того, как опомнятся соперники.", "quote": "«Побеждает не тот, у кого дешевле, а тот, кто первым и лучше всех доносит ценность.»"}, {"id": 9, "title": "Искренний сервис", "author": "Игорь Манн, Никита Рождественский", "category": "Российский опыт", "badge": "ВАУ-СЕРВИС", "gradient": "linear-gradient(145deg, #052422 0%, #0c6a64 50%, #021514 100%)", "border": "#2dd4bf", "spine": "#0e7490", "accent": "#2dd4bf", "thought": "Превосходить ожидания в каждой мелочи: моментальная отправка презентации в мессенджер, персональный контекст и решение задач клиента еще до того, как он их озвучил.", "quote": "«Искренний сервис невозможно автоматизировать плохо — но можно возвести в абсолют с помощью передового AI.»"}];
+        const books = [
+          {
+            "id": 1,
+            "title": "Удовлетворение гарантировано",
+            "author": "Хорст Шульце",
+            "category": "Премиальный сервис",
+            "badge": "СТАНДАРТЫ СЕРВИСА",
+            "gradient": "linear-gradient(145deg, #091a28 0%, #03456b 50%, #011624 100%)",
+            "border": "#38bdf8",
+            "spine": "#0284c7",
+            "accent": "#38bdf8",
+            "essence": "Создание безупречного сервиса через самоуважение сотрудников и абсолютные стандарты качества. Учит вести бизнес без лакейства, суеты и заискивания, выстраивая подлинное гостеприимство.",
+            "quote": "«Мы — дамы и господа к услугам дам и господ.»",
+            "thought": "В диалоге исключены робость и подобострастие. Агент держит благородную осанку, соблюдает эталонный деловой этикет и обращается к собеседнику с равным достоинством."
+          },
+          {
+            "id": 2,
+            "title": "Никогда не идите на компромисс",
+            "author": "Крис Восс",
+            "category": "Тактика диалога",
+            "badge": "ЭМОЦИОНАЛЬНЫЙ ИНТЕЛЛЕКТ",
+            "gradient": "linear-gradient(145deg, #130f30 0%, #3e338c 50%, #0a071d 100%)",
+            "border": "#c084fc",
+            "spine": "#7c3aed",
+            "accent": "#c084fc",
+            "essence": "Применение протоколов тактического эмоционального интеллекта переговорщиков ФБР в бизнесе. Помогает сохранять хладнокровие под давлением, снимать агрессию и слышать истинные страхи оппонента.",
+            "quote": "«Компромисс в переговорах часто оказывается худшим решением, вскрывайте скрытые мотивы через тактическую эмпатию.»",
+            "thought": "Алгоритм анализирует тональность реплик, мягко зеркалит фразы клиента и задает калиброванные вопросы. Он сохраняет ледяное спокойствие в конфликтных ситуациях и не идет на глупые скидки."
+          },
+          {
+            "id": 3,
+            "title": "Сначала скажите „нет“",
+            "author": "Джим Кэмп",
+            "category": "Переговоры",
+            "badge": "ПЕРЕГОВОРЫ",
+            "gradient": "linear-gradient(145deg, #270611 0%, #6d1030 50%, #170208 100%)",
+            "border": "#fb7185",
+            "spine": "#e11d48",
+            "accent": "#fb7185",
+            "essence": "Стратегия ведения переговоров без нужды, манипуляций и погони за сиюминутным согласием. Устраняет страх отказа, сохраняет маржинальность сделки и избавляет от унизительной роли просителя.",
+            "quote": "«Предоставьте клиенту полное право сказать „нет“, чтобы освободить диалог от давления и лицемерия.»",
+            "thought": "Способность спокойно принимать сомнения клиента, твердо держать границы компании и вести конструктивный диалог исключительно с позиции внутренней силы."
+          },
+          {
+            "id": 4,
+            "title": "СПИН-продажи",
+            "author": "Нил Рэкхэм",
+            "category": "B2B-методология",
+            "badge": "СПИН МЕТОД",
+            "gradient": "linear-gradient(145deg, #071738 0%, #15459b 50%, #030b1c 100%)",
+            "border": "#60a5fa",
+            "spine": "#2563eb",
+            "accent": "#60a5fa",
+            "essence": "Научно обоснованная методология ведения крупных B2B-сделок через продуманную цепочку вопросов. Предотвращает преждевременные презентации и защищает от типичных возражений.",
+            "quote": "«Профессионалы высшей лиги задают точные вопросы, заставляя клиента самостоятельно осознать масштаб своей боли.»",
+            "thought": "Структура диалога по системе СПИН (ситуационные, проблемные, извлекающие и направляющие вопросы). Агент сначала оцифровывает проблему клиента и только затем презентует решение."
+          },
+          {
+            "id": 5,
+            "title": "Чемпионы продаж",
+            "author": "Мэттью Диксон, Брент Адамсон",
+            "category": "Коммерческое обучение",
+            "badge": "CHALLENGER SALE",
+            "gradient": "linear-gradient(145deg, #1b0a2a 0%, #4a154b 50%, #13051e 100%)",
+            "border": "#e879f9",
+            "spine": "#a21caf",
+            "accent": "#e879f9",
+            "essence": "Исследование эффективности продавцов, доказывающее превосходство интеллектуального вызова над банальным выстраиванием отношений. Дает схему коммерческого обучения, позволяющую бросить вызов привычкам покупателя.",
+            "quote": "«Современные клиенты платят за новое видение своего бизнеса, а не за дружеские беседы.»",
+            "thought": "Способность выступать сильным экспертом, адаптировать предложение под разные уровни лиц, принимающих решения, и держать инициативу в диалоге."
+          },
+          {
+            "id": 6,
+            "title": "Психология влияния",
+            "author": "Роберт Чалдини",
+            "category": "Психология решений",
+            "badge": "ТРИГГЕРЫ ВЛИЯНИЯ",
+            "gradient": "linear-gradient(145deg, #241403 0%, #683a06 50%, #150a01 100%)",
+            "border": "#fbbf24",
+            "spine": "#d97706",
+            "accent": "#fbbf24",
+            "essence": "Фундаментальный разбор психологических законов, побуждающих человека согласиться на предложение. Помогает экологично подвести собеседника к целевому действию и защищает от манипуляций.",
+            "quote": "«Человеческое мышление использует универсальные триггеры, понимание которых позволяет этично направлять выбор.»",
+            "thought": "Точное встраивание в реплики социальных доказательств, принципа взаимного обмена и дефицита времени без ощущения давления на собеседника."
+          },
+          {
+            "id": 7,
+            "title": "Жесткий менеджмент",
+            "author": "Ден Кеннеди",
+            "category": "Управление прибылью",
+            "badge": "КОНТРОЛЬ ПРИБЫЛИ",
+            "gradient": "linear-gradient(145deg, #261605 0%, #78350f 50%, #170c02 100%)",
+            "border": "#f59e0b",
+            "spine": "#b45309",
+            "accent": "#f59e0b",
+            "essence": "Циничный, прагматичный подход к коммерции, ориентированный на чистую прибыль и пресечение потерь. Истребляет жалость к упущенным лидам, дисциплинирует финансовую сторону переговоров.",
+            "quote": "«Бизнес существует ради извлечения прибыли, любая мягкость в воронке продаж оплачивается из кармана собственника.»",
+            "thought": "Железобетонный фокус на закрытие сделки. Агент не разводит пустые беседы ради бесед, оперативно отсекает нецелевую аудиторию и ведет контакт строго по маршруту окупаемости."
+          },
+          {
+            "id": 8,
+            "title": "Клиенты на всю жизнь",
+            "author": "Карл Сьюэлл",
+            "category": "Клиентский сервис",
+            "badge": "LTV & СЕРВИС",
+            "gradient": "linear-gradient(145deg, #06221c 0%, #0d5f4c 50%, #021712 100%)",
+            "border": "#34d399",
+            "spine": "#059669",
+            "accent": "#34d399",
+            "essence": "Пошаговая система превращения случайного покупателя в постоянный источник дохода на десятилетия вперед. Чистота процессов и внимание к деталям гарантируют повторные продажи.",
+            "quote": "«Рассматривайте каждого обратившегося человека через призму пожизненной ценности клиента (LTV).»",
+            "thought": "Агент фиксирует в CRM мельчайшие детали о клиенте, помнит контекст прошлых встреч и общается с прицелом на долгосрочное партнерство, а не на разовый куш."
+          },
+          {
+            "id": 9,
+            "title": "Доставляя счастье",
+            "author": "Тони Шей",
+            "category": "Бизнес-культура",
+            "badge": "ЛОЯЛЬНОСТЬ & КУЛЬТУРА",
+            "gradient": "linear-gradient(145deg, #052422 0%, #0c6a64 50%, #021514 100%)",
+            "border": "#2dd4bf",
+            "spine": "#0e7490",
+            "accent": "#2dd4bf",
+            "essence": "Опыт создания многомиллиардного бизнеса через искреннюю культуру заботы о покупателе. Учит выстраивать доверительную человеческую связь поверх сухого прайс-листа.",
+            "quote": "«Искренний сервис — это не строка расходов, а главный двигатель органического роста компании.»",
+            "thought": "Естественный, живой язык диалога без шаблонных канцеляризмов. Агент вникает в ситуацию гостя и искренне подбирает решение под реальную задачу."
+          },
+          {
+            "id": 10,
+            "title": "Первоклассный сервис",
+            "author": "Джон Шоул",
+            "category": "Системный сервис",
+            "badge": "СКОРОСТЬ & СЕРВИС",
+            "gradient": "linear-gradient(145deg, #061e2c 0%, #0c567a 50%, #02131e 100%)",
+            "border": "#22d3ee",
+            "spine": "#0891b2",
+            "accent": "#22d3ee",
+            "essence": "Технология преобразования клиентского сервиса в измеримую корпоративную стратегию. Помогает ликвидировать внутреннюю бюрократию и ускорить прохождение клиента по воронке.",
+            "quote": "«Скорость реакции и полномочия персонала решать вопрос здесь и сейчас побеждают любые рекламные бюджеты.»",
+            "thought": "Мгновенный отклик на запрос в течение трех секунд и готовность предоставить исчерпывающий ответ без бесконечных перенаправлений к другим сотрудникам."
+          },
+          {
+            "id": 11,
+            "title": "Переговоры без поражений",
+            "author": "Роджер Фишер, Уильям Юри",
+            "category": "Гарвардский метод",
+            "badge": "WIN-WIN ПЕРЕГОВОРЫ",
+            "gradient": "linear-gradient(145deg, #06212b 0%, #0f627f 50%, #021219 100%)",
+            "border": "#38bdf8",
+            "spine": "#0284c7",
+            "accent": "#38bdf8",
+            "essence": "Классическая гарвардская методика принципиальных переговоров на основе взаимных интересов. Учит сохранять партнерские отношения даже в условиях жестких разногласий.",
+            "quote": "«Отделите человека от проблемы и ищите взаимную выгоду вместо позиционной борьбы.»",
+            "thought": "Способность выявлять реальные бизнес-цели клиента, обходить ультиматумы и предлагать взаимовыгодные сценарии сотрудничества."
+          }
+        ];
 
         let activeIndex = 0;
         let autoRotateTimer = null;
@@ -3923,6 +4114,7 @@
         const catEl = document.getElementById("activeBookCategory");
         const badgeEl = document.getElementById("activeBookBadge");
         const quoteEl = document.getElementById("activeBookQuote");
+        const essenceEl = document.getElementById("activeBookEssence");
         const thoughtEl = document.getElementById("activeBookThought");
         const downloadBtn = document.getElementById("downloadBookBtn");
 
@@ -4012,7 +4204,7 @@
           });
         }
 
-        // Построение быстрой навигации (9 плашек)
+        // Построение быстрой навигации
         if (quickNavContainer) {
           quickNavContainer.innerHTML = "";
           books.forEach((b, i) => {
@@ -4142,6 +4334,7 @@
             if (catEl) catEl.textContent = b.category;
             if (badgeEl) badgeEl.textContent = b.badge;
             if (quoteEl) quoteEl.textContent = b.quote;
+            if (essenceEl) essenceEl.textContent = b.essence;
             if (thoughtEl) thoughtEl.textContent = b.thought;
             if (section) section.classList.remove("opacity-50");
             subparts.forEach(el => el.classList.remove("opacity-50"));
