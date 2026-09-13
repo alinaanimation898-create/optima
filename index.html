@@ -4745,7 +4745,7 @@
 
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: СИНЯЯ СТРЕЛКА К CRM -->
     <div class="flex flex-col items-center justify-center pt-6 sm:pt-10 pb-3 sm:pb-5 relative z-20">
-      <a href="#pipeline" class="blue-path-track block cursor-pointer" title="Менеджер видит суть • Интеграция с CRM">
+      <a href="#pipeline" class="blue-path-track block cursor-pointer" title="Все четко • Интеграция с CRM">
         <div class="blue-path-arrow text-sky-500">
           <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
@@ -4758,29 +4758,34 @@
     <section id="pipeline" class="relative z-20 py-10 sm:py-12 lg:py-16 xl:py-20">
       <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
-        <!-- ЛЕВАЯ КОЛОНКА: МЕНЕДЖЕР ВИДИТ СУТЬ, ЗАЧЕРКНУТАЯ БОЛЬ И ОПИСАНИЕ -->
+        <!-- ЛЕВАЯ КОЛОНКА: ВСЕ ЧЕТКО, ЗАЧЕРКНУТАЯ БОЛЬ И 3-СТРОЧНОЕ ОПИСАНИЕ -->
         <div class="lg:col-span-6 space-y-4 sm:space-y-6">
           
-          <!-- ГЛАВНЫЙ ЗАГОЛОВОК -->
+          <!-- ГЛАВНЫЙ ЗАГОЛОВОК: ВСЕ ЧЕТКО (ПЕРВЫМ, ПОСЕРЕДИНЕ НА МОБИЛКЕ, КРУПНЫЙ ШРИФТ) -->
           <div class="text-center lg:text-left">
-            <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[44px] xl:text-[50px] leading-[1.15] inline-block" style="background: linear-gradient(135deg, #0284c7 0%, #0369a1 40%, #059669 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 6px 18px rgba(2, 132, 199, 0.16));">
-              МЕНЕДЖЕР ВИДИТ СУТЬ, А&nbsp;НЕ&nbsp;ПУСТУЮ ПЕРЕПИСКУ
+            <h2 class="font-benzin uppercase tracking-tight font-black text-5xl sm:text-6xl md:text-6xl lg:text-[66px] xl:text-[74px] leading-none inline-block" style="background: linear-gradient(135deg, #0284c7 0%, #0369a1 40%, #059669 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 6px 18px rgba(2, 132, 199, 0.16));">
+              ВСЕ ЧЕТКО
             </h2>
           </div>
 
-          <!-- ТЕКСТ ПРО РУТИНУ ЗАПОЛНЕНИЯ (ЗАЧЕРКИВАЕТСЯ КРАСНОЙ ЛИНИЕЙ) -->
+          <!-- ТЕКСТ ПРО ЛЕНЬ МЕНЕДЖЕРОВ (В 2 СТРОЧКИ, ЗАЧЕРКИВАЕТСЯ КРАСНОЙ ЛИНИЕЙ) -->
           <div class="py-1 text-center lg:text-left">
             <div class="inline-flex flex-col items-center lg:items-start space-y-1 text-slate-900 font-bold text-base sm:text-lg md:text-xl font-inter leading-snug">
-              <span class="crm-pain-strikethrough">Пока продавцы тратят силы</span>
-              <span class="crm-pain-strikethrough">на заполнение полей и рутину</span>
+              <span class="crm-pain-strikethrough">Пока менеджеры ленятся</span>
+              <span class="crm-pain-strikethrough">и забывают вести CRM</span>
             </div>
           </div>
 
-          <!-- ОПИСАНИЕ: УМНЫЙ ПОМОЩНИК СОБИРАЕТ ДАННЫЕ -->
-          <div class="font-inter text-slate-700 text-base sm:text-lg md:text-xl leading-relaxed text-center lg:text-left">
-            <p class="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed">
-              Пока продавцы тратят силы на заполнение полей, умный помощник собирает ключевые данные за них: бюджет, сроки, объект и контактное лицо.
-            </p>
+          <!-- ОПИСАНИЕ: ПО ЦЕНТРУ НА МОБИЛКЕ, СЛЕВА НА ДЕСКТОПЕ -->
+          <div class="font-inter text-slate-700 text-base sm:text-lg md:text-xl leading-snug text-center lg:text-left">
+            <div class="space-y-0.5">
+              <span class="crm-headline-gradient font-black text-xl sm:text-2xl md:text-[25px] leading-tight block">
+                <span class="whitespace-nowrap inline-block">ИИ&#8209;продавец</span> автоматически
+              </span>
+              <span class="crm-headline-gradient font-black text-xl sm:text-2xl md:text-[25px] leading-tight block">
+                фиксирует всю информацию
+              </span>
+            </div>
           </div>
 
         </div>
@@ -6776,7 +6781,7 @@
             if (statusEl) {
               statusEl.innerHTML = `
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span class="text-emerald-700 font-bold">ЛИД ОТФИЛЬТРОВАН • БЮДЖЕТ ПОДТВЕРЖДЕН • ПЕРЕДАНО В РАБОТУ</span>
+                <span class="text-emerald-700 font-bold">КП отправлено • Ждем оплату</span>
               `;
             }
             if (checkIcon) {
