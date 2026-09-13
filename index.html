@@ -5802,162 +5802,79 @@
         </p>
       </div>
 
-      <!-- АККОРДЕОН С ЗАКРЫТИЕМ СТРАХОВ (КОМПАКТНЫЙ СТИЛЬНЫЙ ВИД БЕЗ ДЛИННОГО ПОЛОТНА) -->
-      <div class="max-w-4xl mx-auto space-y-3 sm:space-y-3.5" id="faqAccordionContainer">
+      <!-- 5 КАРТОЧЕК С ЗАКРЫТИЕМ СТРАХОВ (3 В СТРОКУ + 2 ГОРИЗОНТАЛЬНЫЕ) -->
+      <div class="space-y-4 sm:space-y-5">
         
-        <!-- АККОРДЕОН 1: ЦЕНЫ И СКИДКИ (ОТКРЫТ ПО УМОЛЧАНИЮ) -->
-        <div class="faq-accordion-item is-open bg-white/95 backdrop-blur-xl rounded-2xl border border-sky-300 shadow-[0_4px_25px_rgba(2,132,199,0.08)] transition-all duration-300 overflow-hidden">
-          <button type="button" class="faq-accordion-header w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 sm:gap-4 cursor-pointer select-none group" aria-expanded="true">
-            <div class="space-y-1.5 flex-1 min-w-0">
-              <div class="flex items-center gap-2">
-                <span class="text-[10px] font-mono font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200/60">01 // МАРЖА И ЦЕНЫ</span>
-                <span class="text-[10px] text-slate-400 font-mono">Guardrails</span>
-              </div>
-              <h3 class="text-sm sm:text-base font-bold text-slate-950 leading-snug font-sans group-hover:text-sky-900 transition-colors">
-                «Вдруг помощник назовет неверную цену или пообещает скидку в минус марже?»
-              </h3>
-            </div>
-            <div class="faq-accordion-icon w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-sky-500 text-white border border-sky-400/30 flex items-center justify-center shrink-0 shadow-sm transition-all duration-300 group-hover:scale-105">
-              <svg class="w-4 h-4 transition-transform duration-300 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </div>
-          </button>
-          <div class="faq-accordion-content overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out opacity-100" style="max-height: 500px;">
-            <div class="p-4 sm:p-5 pt-1 sm:pt-1 space-y-2.5 border-t border-sky-100/70">
-              <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-50/80 border border-sky-200/60 text-sky-900 text-xs font-semibold leading-snug w-full">
-                <svg class="w-3.5 h-3.5 text-sky-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-                <span><strong>Решение:</strong> программные ограничения (Guardrails) и работа строго по регламенту.</span>
-              </div>
-              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
-                Ассистент не импровизирует и не сочиняет условия на ходу. Ему системно запрещено называть цены, сроки или условия, которых нет в утвержденной базе знаний вашей компании. Если клиент запрашивает сложный нестандартный расчет или настойчиво просит скидку, алгоритм вежливо отвечает: <span class="text-slate-900 font-medium italic">«Передаю задачу нашему ведущему специалисту»</span> и мгновенно ставит задачу в CRM. Ваша маржа и репутация защищены на 100%.
-              </p>
-            </div>
+        <!-- ВЕРХНИЙ РЯД: 3 КАРТОЧКИ С ВНУТРЕННИМИ ОТВЕТАМИ В ОДНУ СТРОЧКУ -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 items-stretch">
+          
+          <!-- КАРТОЧКА 1: ЦЕНЫ И СКИДКИ -->
+          <div class="bg-white/95 backdrop-blur-xl rounded-2xl p-5 sm:p-6 border border-sky-100/90 shadow-[0_4px_20px_rgba(2,132,199,0.05)] hover:shadow-[0_8px_30px_rgba(2,132,199,0.1)] transition-all duration-300 flex flex-col justify-start space-y-3 group">
+            <h3 class="text-sm sm:text-base font-bold text-slate-950 leading-snug font-sans group-hover:text-sky-950 transition-colors">
+              «Вдруг помощник назовет неверную цену или пообещает скидку в минус марже?»
+            </h3>
+            <p class="text-slate-600 text-xs sm:text-[13px] leading-relaxed font-normal">
+              Ассистент не импровизирует и не сочиняет условия на ходу. Ему системно запрещено называть цены, сроки или условия, которых нет в утвержденной базе знаний вашей компании. Если клиент запрашивает сложный нестандартный расчет или настойчиво просит скидку, алгоритм вежливо отвечает: <span class="text-slate-900 font-medium italic">«Передаю задачу нашему ведущему специалисту»</span> и мгновенно ставит задачу в CRM. Ваша маржа и репутация защищены на 100%.
+            </p>
           </div>
+
+          <!-- КАРТОЧКА 2: ОБНОВЛЕНИЯ МЕССЕНДЖЕРОВ И СТАБИЛЬНОСТЬ -->
+          <div class="bg-white/95 backdrop-blur-xl rounded-2xl p-5 sm:p-6 border border-sky-100/90 shadow-[0_4px_20px_rgba(2,132,199,0.05)] hover:shadow-[0_8px_30px_rgba(2,132,199,0.1)] transition-all duration-300 flex flex-col justify-start space-y-3 group">
+            <h3 class="text-sm sm:text-base font-bold text-slate-950 leading-snug font-sans group-hover:text-sky-950 transition-colors">
+              «Что будет, если мессенджер обновится или зависнет интеграция?»
+            </h3>
+            <p class="text-slate-600 text-xs sm:text-[13px] leading-relaxed font-normal">
+              Интеграция работает через официальные шлюзы и стабильные протоколы. Доступность каналов отслеживается каждую секунду. Если на стороне мессенджера случается сбой, дежурный чат моментально получает технический алерт, а входящие перехватываются резервным контуром. В абонентскую плату 27 000 ₽ уже включено техническое сопровождение и бесперебойная работа всех коннекторов.
+            </p>
+          </div>
+
+          <!-- КАРТОЧКА 3: ОЩУЩЕНИЕ РОБОТА И КАЧЕСТВО ОБЩЕНИЯ -->
+          <div class="bg-white/95 backdrop-blur-xl rounded-2xl p-5 sm:p-6 border border-sky-100/90 shadow-[0_4px_20px_rgba(2,132,199,0.05)] hover:shadow-[0_8px_30px_rgba(2,132,199,0.1)] transition-all duration-300 flex flex-col justify-start space-y-3 group">
+            <h3 class="text-sm sm:text-base font-bold text-slate-950 leading-snug font-sans group-hover:text-sky-950 transition-colors">
+              «Клиенты сразу поймут, что с ними общается робот, и уйдут?»
+            </h3>
+            <p class="text-slate-600 text-xs sm:text-[13px] leading-relaxed font-normal">
+              Интеллект нашего ассистента выстроен на принципах мировых бестселлеров по сервису и переговорам. Ассистент общается с клиентом так чутко, внимательно и предупредительно, как не всегда умеют живые сотрудники: без шаблонных скриптов, без хамства, без эмоционального выгорания к концу дня. Клиент окружен искренней заботой с первой секунды диалога и уверен, что ведет переписку с лучшим менеджером компании.
+            </p>
+          </div>
+
         </div>
 
-        <!-- АККОРДЕОН 2: ОБНОВЛЕНИЯ МЕССЕНДЖЕРОВ И СТАБИЛЬНОСТЬ -->
-        <div class="faq-accordion-item bg-white/95 backdrop-blur-xl rounded-2xl border border-sky-100/90 shadow-[0_4px_20px_rgba(2,132,199,0.04)] hover:shadow-[0_8px_30px_rgba(2,132,199,0.08)] transition-all duration-300 overflow-hidden">
-          <button type="button" class="faq-accordion-header w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 sm:gap-4 cursor-pointer select-none group" aria-expanded="false">
-            <div class="space-y-1.5 flex-1 min-w-0">
-              <div class="flex items-center gap-2">
-                <span class="text-[10px] font-mono font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200/60">02 // СТАБИЛЬНОСТЬ СЕТИ</span>
-                <span class="text-[10px] text-slate-400 font-mono">Uptime 99.9%</span>
+        <!-- НИЖНИЙ РЯД: 2 КАРТОЧКИ С ВОПРОСАМИ ГОРИЗОНТАЛЬНО В 2 СТРОЧКИ -->
+        <div class="space-y-4 sm:space-y-5">
+          
+          <!-- КАРТОЧКА 4: 152-ФЗ И БЕЗОПАСНОСТЬ ДАННЫХ -->
+          <div class="bg-white/95 backdrop-blur-xl rounded-2xl p-5 sm:p-6 border border-sky-100/90 shadow-[0_4px_20px_rgba(2,132,199,0.05)] hover:shadow-[0_8px_30px_rgba(2,132,199,0.1)] transition-all duration-300 group">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-6 md:items-center">
+              <div class="md:col-span-5">
+                <h3 class="text-sm sm:text-base font-bold text-slate-950 leading-snug font-sans group-hover:text-sky-950 transition-colors">
+                  «Куда уходят персональные данные клиентов и соблюдается ли 152-ФЗ?»
+                </h3>
               </div>
-              <h3 class="text-sm sm:text-base font-bold text-slate-950 leading-snug font-sans group-hover:text-sky-900 transition-colors">
-                «Что будет, если мессенджер обновится или зависнет интеграция?»
-              </h3>
-            </div>
-            <div class="faq-accordion-icon w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-sky-50 text-sky-600 border border-sky-200/60 flex items-center justify-center shrink-0 shadow-sm transition-all duration-300 group-hover:bg-sky-500 group-hover:text-white group-hover:scale-105">
-              <svg class="w-4 h-4 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </div>
-          </button>
-          <div class="faq-accordion-content overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out max-h-0 opacity-0">
-            <div class="p-4 sm:p-5 pt-1 sm:pt-1 space-y-2.5 border-t border-sky-100/70">
-              <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-50/80 border border-sky-200/60 text-sky-900 text-xs font-semibold leading-snug w-full">
-                <svg class="w-3.5 h-3.5 text-sky-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                <span><strong>Решение:</strong> официальные API, дублирование каналов и круглосуточный мониторинг.</span>
+              <div class="md:col-span-7 md:border-l md:border-slate-100 md:pl-6">
+                <p class="text-slate-600 text-xs sm:text-[13px] leading-relaxed font-normal">
+                  Клиентские базы, переписки и номера телефонов хранятся исключительно на защищенных серверах на территории Российской Федерации в строгом соответствии с 152-ФЗ. В языковую модель уходит только обезличенный контекст для генерации ответа. Ваши данные защищены NDA, не передаются сторонним организациям и не используются для публичного обучения чужих нейросетей.
+                </p>
               </div>
-              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
-                Интеграция работает через официальные шлюзы и стабильные протоколы. Доступность каналов отслеживается каждую секунду. Если на стороне мессенджера случается сбой, дежурный чат моментально получает технический алерт, а входящие перехватываются резервным контуром. В абонентскую плату 27 000 ₽ уже включено техническое сопровождение и бесперебойная работа всех коннекторов.
-              </p>
             </div>
           </div>
-        </div>
 
-        <!-- АККОРДЕОН 3: ОЩУЩЕНИЕ РОБОТА И КАЧЕСТВО ОБЩЕНИЯ -->
-        <div class="faq-accordion-item bg-white/95 backdrop-blur-xl rounded-2xl border border-sky-100/90 shadow-[0_4px_20px_rgba(2,132,199,0.04)] hover:shadow-[0_8px_30px_rgba(2,132,199,0.08)] transition-all duration-300 overflow-hidden">
-          <button type="button" class="faq-accordion-header w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 sm:gap-4 cursor-pointer select-none group" aria-expanded="false">
-            <div class="space-y-1.5 flex-1 min-w-0">
-              <div class="flex items-center gap-2">
-                <span class="text-[10px] font-mono font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200/60">03 // ЧЕЛОВЕЧНОСТЬ И СЕРВИС</span>
-                <span class="text-[10px] text-slate-400 font-mono">Психология диалога</span>
+          <!-- КАРТОЧКА 5: ОБНОВЛЕНИЕ БАЗЫ ЗНАНИЙ -->
+          <div class="bg-white/95 backdrop-blur-xl rounded-2xl p-5 sm:p-6 border border-sky-100/90 shadow-[0_4px_20px_rgba(2,132,199,0.05)] hover:shadow-[0_8px_30px_rgba(2,132,199,0.1)] transition-all duration-300 group">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-6 md:items-center">
+              <div class="md:col-span-5">
+                <h3 class="text-sm sm:text-base font-bold text-slate-950 leading-snug font-sans group-hover:text-sky-950 transition-colors">
+                  «У нас поменялись цены или правила: кто и как обновляет базу знаний?»
+                </h3>
               </div>
-              <h3 class="text-sm sm:text-base font-bold text-slate-950 leading-snug font-sans group-hover:text-sky-900 transition-colors">
-                «Клиенты сразу поймут, что с ними общается робот, и уйдут?»
-              </h3>
-            </div>
-            <div class="faq-accordion-icon w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-sky-50 text-sky-600 border border-sky-200/60 flex items-center justify-center shrink-0 shadow-sm transition-all duration-300 group-hover:bg-sky-500 group-hover:text-white group-hover:scale-105">
-              <svg class="w-4 h-4 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </div>
-          </button>
-          <div class="faq-accordion-content overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out max-h-0 opacity-0">
-            <div class="p-4 sm:p-5 pt-1 sm:pt-1 space-y-2.5 border-t border-sky-100/70">
-              <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-50/80 border border-sky-200/60 text-sky-900 text-xs font-semibold leading-snug w-full">
-                <svg class="w-3.5 h-3.5 text-sky-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
-                <span><strong>Решение:</strong> фундаментальная библиотека сервиса и психология общения без механических фраз.</span>
+              <div class="md:col-span-7 md:border-l md:border-slate-100 md:pl-6">
+                <p class="text-slate-600 text-xs sm:text-[13px] leading-relaxed font-normal">
+                  Вы не остаетесь один на один с алгоритмами после внедрения. В ежемесячную подписку 27 000 ₽ входит постоянная поддержка: изменился прайс, запустилась акция или скорректировались условия доставки — вы просто присылаете новый файл в рабочий чат. Инженер Altai Optima обновляет базу знаний в течение нескольких часов.
+                </p>
               </div>
-              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
-                Интеллект нашего ассистента выстроен на принципах мировых бестселлеров по сервису и переговорам. Ассистент общается с клиентом так чутко, внимательно и предупредительно, как не всегда умеют живые сотрудники: без шаблонных скриптов, без хамства, без эмоционального выгорания к концу дня. Клиент окружен искренней заботой с первой секунды диалога и уверен, что ведет переписку с лучшим менеджером компании.
-              </p>
             </div>
           </div>
-        </div>
 
-        <!-- АККОРДЕОН 4: 152-ФЗ И БЕЗОПАСНОСТЬ ДАННЫХ -->
-        <div class="faq-accordion-item bg-white/95 backdrop-blur-xl rounded-2xl border border-sky-100/90 shadow-[0_4px_20px_rgba(2,132,199,0.04)] hover:shadow-[0_8px_30px_rgba(2,132,199,0.08)] transition-all duration-300 overflow-hidden">
-          <button type="button" class="faq-accordion-header w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 sm:gap-4 cursor-pointer select-none group" aria-expanded="false">
-            <div class="space-y-1.5 flex-1 min-w-0">
-              <div class="flex items-center gap-2">
-                <span class="text-[10px] font-mono font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200/60">04 // КОНФИДЕНЦИАЛЬНОСТЬ</span>
-                <span class="text-[10px] text-slate-400 font-mono">152-ФЗ РФ</span>
-              </div>
-              <h3 class="text-sm sm:text-base font-bold text-slate-950 leading-snug font-sans group-hover:text-sky-900 transition-colors">
-                «Куда уходят персональные данные клиентов и соблюдается ли 152-ФЗ?»
-              </h3>
-            </div>
-            <div class="faq-accordion-icon w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-sky-50 text-sky-600 border border-sky-200/60 flex items-center justify-center shrink-0 shadow-sm transition-all duration-300 group-hover:bg-sky-500 group-hover:text-white group-hover:scale-105">
-              <svg class="w-4 h-4 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </div>
-          </button>
-          <div class="faq-accordion-content overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out max-h-0 opacity-0">
-            <div class="p-4 sm:p-5 pt-1 sm:pt-1 space-y-2.5 border-t border-sky-100/70">
-              <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-50/80 border border-sky-200/60 text-sky-900 text-xs font-semibold leading-snug w-full">
-                <svg class="w-3.5 h-3.5 text-sky-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
-                <span><strong>Решение:</strong> хранение данных строго в контуре РФ.</span>
-              </div>
-              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
-                Клиентские базы, переписки и номера телефонов хранятся исключительно на защищенных серверах на территории Российской Федерации в строгом соответствии с 152-ФЗ. В языковую модель уходит только обезличенный контекст для генерации ответа. Ваши данные защищены NDA, не передаются сторонним организациям и не используются для публичного обучения чужих нейросетей.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- АККОРДЕОН 5: ОБНОВЛЕНИЕ БАЗЫ ЗНАНИЙ -->
-        <div class="faq-accordion-item bg-white/95 backdrop-blur-xl rounded-2xl border border-sky-100/90 shadow-[0_4px_20px_rgba(2,132,199,0.04)] hover:shadow-[0_8px_30px_rgba(2,132,199,0.08)] transition-all duration-300 overflow-hidden">
-          <button type="button" class="faq-accordion-header w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 sm:gap-4 cursor-pointer select-none group" aria-expanded="false">
-            <div class="space-y-1.5 flex-1 min-w-0">
-              <div class="flex items-center gap-2">
-                <span class="text-[10px] font-mono font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200/60">05 // АКТУАЛИЗАЦИЯ БАЗЫ</span>
-                <span class="text-[10px] text-slate-400 font-mono">Поддержка 24/7</span>
-              </div>
-              <h3 class="text-sm sm:text-base font-bold text-slate-950 leading-snug font-sans group-hover:text-sky-900 transition-colors">
-                «У нас поменялись цены или правила: кто и как обновляет базу знаний?»
-              </h3>
-            </div>
-            <div class="faq-accordion-icon w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-sky-50 text-sky-600 border border-sky-200/60 flex items-center justify-center shrink-0 shadow-sm transition-all duration-300 group-hover:bg-sky-500 group-hover:text-white group-hover:scale-105">
-              <svg class="w-4 h-4 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
-            </div>
-          </button>
-          <div class="faq-accordion-content overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out max-h-0 opacity-0">
-            <div class="p-4 sm:p-5 pt-1 sm:pt-1 space-y-2.5 border-t border-sky-100/70">
-              <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-50/80 border border-sky-200/60 text-sky-900 text-xs font-semibold leading-snug w-full">
-                <svg class="w-3.5 h-3.5 text-sky-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
-                <span><strong>Решение:</strong> персональное ведение и актуализация без доплат.</span>
-              </div>
-              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
-                Вы не остаетесь один на один с алгоритмами после внедрения. В ежемесячную подписку 27 000 ₽ входит постоянная поддержка: изменился прайс, запустилась акция или скорректировались условия доставки — вы просто присылаете новый файл в рабочий чат. Инженер Altai Optima обновляет базу знаний в течение нескольких часов.
-              </p>
-            </div>
-          </div>
         </div>
 
       </div>
@@ -8370,89 +8287,6 @@
           readingVid.play().catch(() => {});
         }
       }
-
-      // FAQ Accordion Initialization
-      function initFaqAccordion() {
-        const accordionItems = document.querySelectorAll('.faq-accordion-item');
-        if (!accordionItems.length) return;
-
-        const initialOpen = document.querySelector('.faq-accordion-item.is-open');
-        if (initialOpen) {
-          const initialContent = initialOpen.querySelector('.faq-accordion-content');
-          if (initialContent) {
-            initialContent.style.maxHeight = initialContent.scrollHeight + 'px';
-          }
-        }
-
-        accordionItems.forEach(item => {
-          const header = item.querySelector('.faq-accordion-header');
-          const content = item.querySelector('.faq-accordion-content');
-          const icon = item.querySelector('.faq-accordion-icon svg');
-          const iconWrap = item.querySelector('.faq-accordion-icon');
-          
-          if (!header || !content) return;
-          
-          header.addEventListener('click', () => {
-            const isOpen = item.classList.contains('is-open');
-            
-            accordionItems.forEach(other => {
-              if (other !== item && other.classList.contains('is-open')) {
-                other.classList.remove('is-open', 'border-sky-300', 'shadow-[0_4px_25px_rgba(2,132,199,0.08)]');
-                other.classList.add('border-sky-100/90', 'shadow-[0_4px_20px_rgba(2,132,199,0.04)]');
-                const oBtn = other.querySelector('.faq-accordion-header');
-                if (oBtn) oBtn.setAttribute('aria-expanded', 'false');
-                const oContent = other.querySelector('.faq-accordion-content');
-                if (oContent) {
-                  oContent.style.maxHeight = '0px';
-                  oContent.classList.remove('opacity-100');
-                  oContent.classList.add('opacity-0');
-                }
-                const oIcon = other.querySelector('.faq-accordion-icon svg');
-                if (oIcon) oIcon.classList.remove('rotate-180');
-                const oWrap = other.querySelector('.faq-accordion-icon');
-                if (oWrap) {
-                  oWrap.classList.remove('bg-sky-500', 'text-white');
-                  oWrap.classList.add('bg-sky-50', 'text-sky-600');
-                }
-              }
-            });
-            
-            if (isOpen) {
-              item.classList.remove('is-open', 'border-sky-300', 'shadow-[0_4px_25px_rgba(2,132,199,0.08)]');
-              item.classList.add('border-sky-100/90', 'shadow-[0_4px_20px_rgba(2,132,199,0.04)]');
-              header.setAttribute('aria-expanded', 'false');
-              content.style.maxHeight = '0px';
-              content.classList.remove('opacity-100');
-              content.classList.add('opacity-0');
-              if (icon) icon.classList.remove('rotate-180');
-              if (iconWrap) {
-                iconWrap.classList.remove('bg-sky-500', 'text-white');
-                iconWrap.classList.add('bg-sky-50', 'text-sky-600');
-              }
-            } else {
-              item.classList.add('is-open', 'border-sky-300', 'shadow-[0_4px_25px_rgba(2,132,199,0.08)]');
-              item.classList.remove('border-sky-100/90', 'shadow-[0_4px_20px_rgba(2,132,199,0.04)]');
-              header.setAttribute('aria-expanded', 'true');
-              content.style.maxHeight = content.scrollHeight + 'px';
-              content.classList.remove('opacity-0');
-              content.classList.add('opacity-100');
-              if (icon) icon.classList.add('rotate-180');
-              if (iconWrap) {
-                iconWrap.classList.add('bg-sky-500', 'text-white');
-                iconWrap.classList.remove('bg-sky-50', 'text-sky-600');
-              }
-            }
-          });
-        });
-
-        window.addEventListener('resize', () => {
-          const openContent = document.querySelector('.faq-accordion-item.is-open .faq-accordion-content');
-          if (openContent) {
-            openContent.style.maxHeight = openContent.scrollHeight + 'px';
-          }
-        }, { passive: true });
-      }
-      initFaqAccordion();
 
       // АВТОМАТИЧЕСКИЙ ПОП-АП С ПОДАРКОМ ЧЕРЕЗ 15 СЕКУНД (1 РАЗ ЗА СЕССИЮ)
       excelGiftTimer = setTimeout(() => {
