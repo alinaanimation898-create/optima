@@ -5613,119 +5613,170 @@
     <section id="faq" class="max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 font-inter space-y-7 sm:space-y-9 py-10 sm:py-12 lg:py-14">
       
       
-      <div class="text-center max-w-4xl mx-auto space-y-2.5 pb-1">
+      <div class="text-center max-w-3xl mx-auto space-y-2 pb-1">
         <div class="py-0.5">
-          <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[42px] leading-[1.18] text-slate-950 break-words" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 8px 24px rgba(2, 132, 199, 0.18));">
+          <h2 class="font-benzin uppercase tracking-tight font-black text-xl sm:text-2xl md:text-3xl lg:text-[32px] leading-[1.22] text-slate-950 break-words" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 6px 18px rgba(2, 132, 199, 0.15));">
             <span class="block">İşletme Sahiplerinin Bize</span>
             <span class="block">En Sık Sorduğu Sorular</span>
           </h2>
         </div>
-        <p class="text-slate-600 text-sm sm:text-base md:text-lg max-w-3xl mx-auto leading-relaxed font-normal">
+        <p class="text-slate-600 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed font-normal">
           Açık ve net yanıtlar: kâr marjı koruması, fiyat kontrolü, veri güvenliği ve iletişim kalitesi
         </p>
       </div>
 
       
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 items-stretch">
+      <div class="max-w-4xl mx-auto space-y-3 sm:space-y-3.5" id="faqAccordionContainer">
         
         
-        <div class="bg-white/95 backdrop-blur-xl rounded-2xl p-4 sm:p-5 border border-sky-100/90 shadow-[0_4px_20px_rgba(2,132,199,0.05)] hover:shadow-[0_8px_30px_rgba(2,132,199,0.1)] transition-all duration-300 flex flex-col justify-between space-y-3 group">
-          <div class="space-y-2.5">
-            <div class="flex items-center justify-between gap-2">
-              <span class="text-[10px] font-mono font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200/60">01 // MARJ VE FİYATLANDIRMA</span>
-              <span class="text-[10px] text-slate-400 font-mono">Guardrails</span>
+        <div class="faq-accordion-item is-open bg-white/95 backdrop-blur-xl rounded-2xl border border-sky-300 shadow-[0_4px_25px_rgba(2,132,199,0.08)] transition-all duration-300 overflow-hidden">
+          <button type="button" class="faq-accordion-header w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 sm:gap-4 cursor-pointer select-none group" aria-expanded="true">
+            <div class="space-y-1.5 flex-1 min-w-0">
+              <div class="flex items-center gap-2">
+                <span class="text-[10px] font-mono font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200/60">01 // MARJ VE FİYATLANDIRMA</span>
+                <span class="text-[10px] text-slate-400 font-mono">Guardrails</span>
+              </div>
+              <h3 class="text-sm sm:text-base font-bold text-slate-950 leading-snug font-sans group-hover:text-sky-900 transition-colors">
+                “Ya asistan yanlış bir fiyat söyler veya kâr marjını eritecek bir indirim vaat ederse?”
+              </h3>
             </div>
-            <h3 class="text-sm sm:text-base font-bold text-slate-950 leading-snug font-sans group-hover:text-sky-950 transition-colors">
-              “Ya asistan yanlış bir fiyat söyler veya kâr marjını eritecek bir indirim vaat ederse?”
-            </h3>
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-sky-50/80 border border-sky-200/60 text-sky-900 text-xs font-semibold leading-snug w-full">
-              <svg class="w-3.5 h-3.5 text-sky-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-              <span><strong>Çözüm:</strong> sistemsel korumalar (Guardrails) ve kurallara tavizsiz uyum.</span>
+            <div class="faq-accordion-icon w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-sky-500 text-white border border-sky-400/30 flex items-center justify-center shrink-0 shadow-sm transition-all duration-300 group-hover:scale-105">
+              <svg class="w-4 h-4 transition-transform duration-300 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
             </div>
-            <p class="text-slate-600 text-xs sm:text-[13px] leading-relaxed font-normal">
-              Asistan asla doğaçlama yapmaz ve koşulları uydurmaz. Şirketinizin onaylı bilgi tabanında bulunmayan fiyat, teslim süresi veya şartları belirtmesi sistemsel olarak kesinlikle engellenmiştir. Müşteri özel karmaşık bir hesaplama isterse veya indirim konusunda ısrar ederse, algoritma nazikçe şu yanıtı verir: <span class="text-slate-900 font-medium italic">“Talebinizi kıdemli uzmanımıza aktarıyorum”</span> ve anında CRM'de görev oluşturur. Kâr marjınız ve itibarınız %100 koruma altındadır.
-            </p>
+          </button>
+          <div class="faq-accordion-content overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out opacity-100" style="max-height: 500px;">
+            <div class="p-4 sm:p-5 pt-1 sm:pt-1 space-y-2.5 border-t border-sky-100/70">
+              <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-50/80 border border-sky-200/60 text-sky-900 text-xs font-semibold leading-snug w-full">
+                <svg class="w-3.5 h-3.5 text-sky-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                <span><strong>Çözüm:</strong> sistemsel korumalar (Guardrails) ve kurallara tavizsiz uyum.</span>
+              </div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+                Asistan asla doğaçlama yapmaz ve koşulları uydurmaz. Şirketinizin onaylı bilgi tabanında bulunmayan fiyat, teslim süresi veya şartları belirtmesi sistemsel olarak kesinlikle engellenmiştir. Müşteri özel karmaşık bir hesaplama isterse veya indirim konusunda ısrar ederse, algoritma nazikçe şu yanıtı verir: <span class="text-slate-900 font-medium italic">“Talebinizi kıdemli uzmanımıza aktarıyorum”</span> ve anında CRM'de görev oluşturur. Kâr marjınız ve itibarınız %100 koruma altındadır.
+              </p>
+            </div>
           </div>
         </div>
 
         
-        <div class="bg-white/95 backdrop-blur-xl rounded-2xl p-4 sm:p-5 border border-sky-100/90 shadow-[0_4px_20px_rgba(2,132,199,0.05)] hover:shadow-[0_8px_30px_rgba(2,132,199,0.1)] transition-all duration-300 flex flex-col justify-between space-y-3 group">
-          <div class="space-y-2.5">
-            <div class="flex items-center justify-between gap-2">
-              <span class="text-[10px] font-mono font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200/60">02 // AĞ VE BAĞLANTI KARARLILIĞI</span>
-              <span class="text-[10px] text-slate-400 font-mono">Uptime 99.9%</span>
+        <div class="faq-accordion-item bg-white/95 backdrop-blur-xl rounded-2xl border border-sky-100/90 shadow-[0_4px_20px_rgba(2,132,199,0.04)] hover:shadow-[0_8px_30px_rgba(2,132,199,0.08)] transition-all duration-300 overflow-hidden">
+          <button type="button" class="faq-accordion-header w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 sm:gap-4 cursor-pointer select-none group" aria-expanded="false">
+            <div class="space-y-1.5 flex-1 min-w-0">
+              <div class="flex items-center gap-2">
+                <span class="text-[10px] font-mono font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200/60">02 // AĞ VE BAĞLANTI KARARLILIĞI</span>
+                <span class="text-[10px] text-slate-400 font-mono">Uptime 99.9%</span>
+              </div>
+              <h3 class="text-sm sm:text-base font-bold text-slate-950 leading-snug font-sans group-hover:text-sky-900 transition-colors">
+                “Mesajlaşma uygulaması güncellenirse veya entegrasyon donarsa ne olur?”
+              </h3>
             </div>
-            <h3 class="text-sm sm:text-base font-bold text-slate-950 leading-snug font-sans group-hover:text-sky-950 transition-colors">
-              “Mesajlaşma uygulaması güncellenirse veya entegrasyon donarsa ne olur?”
-            </h3>
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-sky-50/80 border border-sky-200/60 text-sky-900 text-xs font-semibold leading-snug w-full">
-              <svg class="w-3.5 h-3.5 text-sky-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-              <span><strong>Çözüm:</strong> resmi API'ler, yedekli kanallar ve 7/24 kesintisiz izleme.</span>
+            <div class="faq-accordion-icon w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-sky-50 text-sky-600 border border-sky-200/60 flex items-center justify-center shrink-0 shadow-sm transition-all duration-300 group-hover:bg-sky-500 group-hover:text-white group-hover:scale-105">
+              <svg class="w-4 h-4 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
             </div>
-            <p class="text-slate-600 text-xs sm:text-[13px] leading-relaxed font-normal">
-              Entegrasyon, resmi kurumsal ağ geçitleri ve kararlı protokoller üzerinden çalışır. Kanal erişilebilirliği her saniye izlenir. Mesajlaşma platformu tarafında bir kesinti yaşanırsa teknik ekip anında uyarı alır ve gelen mesajlar yedek hat tarafından karşılanır. Tüm bağlantıların kesintisiz çalışması ve teknik destek aylık abonelik ücretine halihazırda dahildir.
-            </p>
+          </button>
+          <div class="faq-accordion-content overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out max-h-0 opacity-0">
+            <div class="p-4 sm:p-5 pt-1 sm:pt-1 space-y-2.5 border-t border-sky-100/70">
+              <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-50/80 border border-sky-200/60 text-sky-900 text-xs font-semibold leading-snug w-full">
+                <svg class="w-3.5 h-3.5 text-sky-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                <span><strong>Çözüm:</strong> resmi API'ler, yedekli kanallar ve 7/24 kesintisiz izleme.</span>
+              </div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+                Entegrasyon, resmi kurumsal ağ geçitleri ve kararlı protokoller üzerinden çalışır. Kanal erişilebilirliği her saniye izlenir. Mesajlaşma platformu tarafında bir kesinti yaşanırsa teknik ekip anında uyarı alır ve gelen mesajlar yedek hat tarafından karşılanır. Tüm bağlantıların kesintisiz çalışması ve teknik destek aylık abonelik ücretine halihazırda dahildir.
+              </p>
+            </div>
           </div>
         </div>
 
         
-        <div class="bg-white/95 backdrop-blur-xl rounded-2xl p-4 sm:p-5 border border-sky-100/90 shadow-[0_4px_20px_rgba(2,132,199,0.05)] hover:shadow-[0_8px_30px_rgba(2,132,199,0.1)] transition-all duration-300 flex flex-col justify-between space-y-3 group">
-          <div class="space-y-2.5">
-            <div class="flex items-center justify-between gap-2">
-              <span class="text-[10px] font-mono font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200/60">03 // İNSANİ DİYALOG VE HİZMET KALİTESİ</span>
-              <span class="text-[10px] text-slate-400 font-mono">Diyalog Psikolojisi</span>
+        <div class="faq-accordion-item bg-white/95 backdrop-blur-xl rounded-2xl border border-sky-100/90 shadow-[0_4px_20px_rgba(2,132,199,0.04)] hover:shadow-[0_8px_30px_rgba(2,132,199,0.08)] transition-all duration-300 overflow-hidden">
+          <button type="button" class="faq-accordion-header w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 sm:gap-4 cursor-pointer select-none group" aria-expanded="false">
+            <div class="space-y-1.5 flex-1 min-w-0">
+              <div class="flex items-center gap-2">
+                <span class="text-[10px] font-mono font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200/60">03 // İNSANİ DİYALOG VE HİZMET KALİTESİ</span>
+                <span class="text-[10px] text-slate-400 font-mono">Diyalog Psikolojisi</span>
+              </div>
+              <h3 class="text-sm sm:text-base font-bold text-slate-950 leading-snug font-sans group-hover:text-sky-900 transition-colors">
+                “Müşteriler robotla konuştuklarını hemen anlar ve iletişimi keser mi?”
+              </h3>
             </div>
-            <h3 class="text-sm sm:text-base font-bold text-slate-950 leading-snug font-sans group-hover:text-sky-950 transition-colors">
-              “Müşteriler robotla konuştuklarını hemen anlar ve iletişimi keser mi?”
-            </h3>
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-sky-50/80 border border-sky-200/60 text-sky-900 text-xs font-semibold leading-snug w-full">
-              <svg class="w-3.5 h-3.5 text-sky-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
-              <span><strong>Çözüm:</strong> temel hizmet kütüphanesi ve mekanik kalıplardan uzak diyalog psikolojisi.</span>
+            <div class="faq-accordion-icon w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-sky-50 text-sky-600 border border-sky-200/60 flex items-center justify-center shrink-0 shadow-sm transition-all duration-300 group-hover:bg-sky-500 group-hover:text-white group-hover:scale-105">
+              <svg class="w-4 h-4 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
             </div>
-            <p class="text-slate-600 text-xs sm:text-[13px] leading-relaxed font-normal">
-              Asistanımızın zekası, müzakere ve lüks hizmet alanındaki dünya başyapıtlarının ilkeleri üzerine kuruludur. Asistan müşteriyle o kadar duyarlı, dikkatli ve saygılı iletişim kurar ki canlı personelin çoğunu geride bırakır: basmakalıp şablonlar yok, kabalık yok, mesai sonu tükenmişliği yok. Müşteri ilk saniyeden itibaren samimi bir ilgiyle karşılanır ve şirketin en iyi yöneticisiyle konuştuğundan emin olur.
-            </p>
+          </button>
+          <div class="faq-accordion-content overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out max-h-0 opacity-0">
+            <div class="p-4 sm:p-5 pt-1 sm:pt-1 space-y-2.5 border-t border-sky-100/70">
+              <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-50/80 border border-sky-200/60 text-sky-900 text-xs font-semibold leading-snug w-full">
+                <svg class="w-3.5 h-3.5 text-sky-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+                <span><strong>Çözüm:</strong> temel hizmet kütüphanesi ve mekanik kalıplardan uzak diyalog psikolojisi.</span>
+              </div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+                Asistanımızın zekası, müzakere ve lüks hizmet alanındaki dünya başyapıtlarının ilkeleri üzerine kuruludur. Asistan müşteriyle o kadar duyarlı, dikkatli ve saygılı iletişim kurar ki canlı personelin çoğunu geride bırakır: basmakalıp şablonlar yok, kabalık yok, mesai sonu tükenmişliği yok. Müşteri ilk saniyeden itibaren samimi bir ilgiyle karşılanır ve şirketin en iyi yöneticisiyle konuştuğundan emin olur.
+              </p>
+            </div>
           </div>
         </div>
 
         
-        <div class="bg-white/95 backdrop-blur-xl rounded-2xl p-4 sm:p-5 border border-sky-100/90 shadow-[0_4px_20px_rgba(2,132,199,0.05)] hover:shadow-[0_8px_30px_rgba(2,132,199,0.1)] transition-all duration-300 flex flex-col justify-between space-y-3 group">
-          <div class="space-y-2.5">
-            <div class="flex items-center justify-between gap-2">
-              <span class="text-[10px] font-mono font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200/60">04 // VERİ GİZLİLİĞİ</span>
-              <span class="text-[10px] text-slate-400 font-mono">KVKK / 152-FZ</span>
+        <div class="faq-accordion-item bg-white/95 backdrop-blur-xl rounded-2xl border border-sky-100/90 shadow-[0_4px_20px_rgba(2,132,199,0.04)] hover:shadow-[0_8px_30px_rgba(2,132,199,0.08)] transition-all duration-300 overflow-hidden">
+          <button type="button" class="faq-accordion-header w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 sm:gap-4 cursor-pointer select-none group" aria-expanded="false">
+            <div class="space-y-1.5 flex-1 min-w-0">
+              <div class="flex items-center gap-2">
+                <span class="text-[10px] font-mono font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200/60">04 // VERİ GİZLİLİĞİ</span>
+                <span class="text-[10px] text-slate-400 font-mono">KVKK / 152-FZ</span>
+              </div>
+              <h3 class="text-sm sm:text-base font-bold text-slate-950 leading-snug font-sans group-hover:text-sky-900 transition-colors">
+                “Müşterilerin kişisel verileri nereye gidiyor ve veri güvenliği nasıl sağlanıyor?”
+              </h3>
             </div>
-            <h3 class="text-sm sm:text-base font-bold text-slate-950 leading-snug font-sans group-hover:text-sky-950 transition-colors">
-              “Müşterilerin kişisel verileri nereye gidiyor ve veri güvenliği nasıl sağlanıyor?”
-            </h3>
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-sky-50/80 border border-sky-200/60 text-sky-900 text-xs font-semibold leading-snug w-full">
-              <svg class="w-3.5 h-3.5 text-sky-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
-              <span><strong>Çözüm:</strong> yüksek güvenlikli altyapı ve yasal standartlara tam uyum.</span>
+            <div class="faq-accordion-icon w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-sky-50 text-sky-600 border border-sky-200/60 flex items-center justify-center shrink-0 shadow-sm transition-all duration-300 group-hover:bg-sky-500 group-hover:text-white group-hover:scale-105">
+              <svg class="w-4 h-4 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
             </div>
-            <p class="text-slate-600 text-xs sm:text-[13px] leading-relaxed font-normal">
-              Müşteri veri tabanları, yazışmalar ve telefon numaraları yalnızca yüksek güvenlikli ve şifrelenmiş sunucularda yasal mevzuata tam uyumla saklanır. Dil modeline yanıt üretimi için yalnızca anonimleştirilmiş bağlam iletilir. Verileriniz gizlilik sözleşmesi (NDA) ile korunur, üçüncü taraflarla paylaşılmaz ve harici yapay zeka modellerini eğitmek için kullanılmaz.
-            </p>
+          </button>
+          <div class="faq-accordion-content overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out max-h-0 opacity-0">
+            <div class="p-4 sm:p-5 pt-1 sm:pt-1 space-y-2.5 border-t border-sky-100/70">
+              <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-50/80 border border-sky-200/60 text-sky-900 text-xs font-semibold leading-snug w-full">
+                <svg class="w-3.5 h-3.5 text-sky-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                <span><strong>Çözüm:</strong> yüksek güvenlikli altyapı ve yasal standartlara tam uyum.</span>
+              </div>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+                Müşteri veri tabanları, yazışmalar ve telefon numaraları yalnızca yüksek güvenlikli ve şifrelenmiş sunucularda yasal mevzuata tam uyumla saklanır. Dil modeline yanıt üretimi için yalnızca anonimleştirilmiş bağlam iletilir. Verileriniz gizlilik sözleşmesi (NDA) ile korunur, üçüncü taraflarla paylaşılmaz ve harici yapay zeka modellerini eğitmek için kullanılmaz.
+              </p>
+            </div>
           </div>
         </div>
 
         
-        <div class="md:col-span-2 bg-white/95 backdrop-blur-xl rounded-2xl p-4 sm:p-5 border border-sky-100/90 shadow-[0_4px_20px_rgba(2,132,199,0.05)] hover:shadow-[0_8px_30px_rgba(2,132,199,0.1)] transition-all duration-300 group">
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 md:items-center">
-            <div class="md:col-span-5 space-y-2">
-              <div class="flex items-center justify-between gap-2">
+        <div class="faq-accordion-item bg-white/95 backdrop-blur-xl rounded-2xl border border-sky-100/90 shadow-[0_4px_20px_rgba(2,132,199,0.04)] hover:shadow-[0_8px_30px_rgba(2,132,199,0.08)] transition-all duration-300 overflow-hidden">
+          <button type="button" class="faq-accordion-header w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 sm:gap-4 cursor-pointer select-none group" aria-expanded="false">
+            <div class="space-y-1.5 flex-1 min-w-0">
+              <div class="flex items-center gap-2">
                 <span class="text-[10px] font-mono font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded border border-sky-200/60">05 // BİLGİ TABANI GÜNCELLEMESİ</span>
                 <span class="text-[10px] text-slate-400 font-mono">7/24 Destek</span>
               </div>
-              <h3 class="text-sm sm:text-base font-bold text-slate-950 leading-snug font-sans group-hover:text-sky-950 transition-colors">
+              <h3 class="text-sm sm:text-base font-bold text-slate-950 leading-snug font-sans group-hover:text-sky-900 transition-colors">
                 “Fiyatlarımız veya kurallarımız değiştiğinde bilgi tabanını kim ve nasıl günceller?”
               </h3>
-              <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-sky-50/80 border border-sky-200/60 text-sky-900 text-xs font-semibold leading-snug w-full">
+            </div>
+            <div class="faq-accordion-icon w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-sky-50 text-sky-600 border border-sky-200/60 flex items-center justify-center shrink-0 shadow-sm transition-all duration-300 group-hover:bg-sky-500 group-hover:text-white group-hover:scale-105">
+              <svg class="w-4 h-4 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </button>
+          <div class="faq-accordion-content overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out max-h-0 opacity-0">
+            <div class="p-4 sm:p-5 pt-1 sm:pt-1 space-y-2.5 border-t border-sky-100/70">
+              <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-50/80 border border-sky-200/60 text-sky-900 text-xs font-semibold leading-snug w-full">
                 <svg class="w-3.5 h-3.5 text-sky-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
                 <span><strong>Çözüm:</strong> birebir yönetim ve ek ücretsiz sürekli güncelleme.</span>
               </div>
-            </div>
-            <div class="md:col-span-7 md:border-l md:border-slate-100 md:pl-5">
-              <p class="text-slate-600 text-xs sm:text-[13px] leading-relaxed font-normal">
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
                 Kurulum sonrasında algoritmalarla baş başa kalmazsınız. Aylık aboneliğe sürekli teknik destek dahildir: fiyat listeniz değiştiğinde, kampanya başladığında veya teslimat şartları güncellendiğinde yeni dosyayı çalışma grubuna iletmeniz yeterlidir. Altai Optima mühendisi bilgi tabanını birkaç saat içinde günceller.
               </p>
             </div>
@@ -8107,6 +8158,88 @@
           readingVid.play().catch(() => {});
         }
       }
+
+      function initFaqAccordion() {
+        const accordionItems = document.querySelectorAll('.faq-accordion-item');
+        if (!accordionItems.length) return;
+
+        const initialOpen = document.querySelector('.faq-accordion-item.is-open');
+        if (initialOpen) {
+          const initialContent = initialOpen.querySelector('.faq-accordion-content');
+          if (initialContent) {
+            initialContent.style.maxHeight = initialContent.scrollHeight + 'px';
+          }
+        }
+
+        accordionItems.forEach(item => {
+          const header = item.querySelector('.faq-accordion-header');
+          const content = item.querySelector('.faq-accordion-content');
+          const icon = item.querySelector('.faq-accordion-icon svg');
+          const iconWrap = item.querySelector('.faq-accordion-icon');
+          
+          if (!header || !content) return;
+          
+          header.addEventListener('click', () => {
+            const isOpen = item.classList.contains('is-open');
+            
+            accordionItems.forEach(other => {
+              if (other !== item && other.classList.contains('is-open')) {
+                other.classList.remove('is-open', 'border-sky-300', 'shadow-[0_4px_25px_rgba(2,132,199,0.08)]');
+                other.classList.add('border-sky-100/90', 'shadow-[0_4px_20px_rgba(2,132,199,0.04)]');
+                const oBtn = other.querySelector('.faq-accordion-header');
+                if (oBtn) oBtn.setAttribute('aria-expanded', 'false');
+                const oContent = other.querySelector('.faq-accordion-content');
+                if (oContent) {
+                  oContent.style.maxHeight = '0px';
+                  oContent.classList.remove('opacity-100');
+                  oContent.classList.add('opacity-0');
+                }
+                const oIcon = other.querySelector('.faq-accordion-icon svg');
+                if (oIcon) oIcon.classList.remove('rotate-180');
+                const oWrap = other.querySelector('.faq-accordion-icon');
+                if (oWrap) {
+                  oWrap.classList.remove('bg-sky-500', 'text-white');
+                  oWrap.classList.add('bg-sky-50', 'text-sky-600');
+                }
+              }
+            });
+            
+            if (isOpen) {
+              item.classList.remove('is-open', 'border-sky-300', 'shadow-[0_4px_25px_rgba(2,132,199,0.08)]');
+              item.classList.add('border-sky-100/90', 'shadow-[0_4px_20px_rgba(2,132,199,0.04)]');
+              header.setAttribute('aria-expanded', 'false');
+              content.style.maxHeight = '0px';
+              content.classList.remove('opacity-100');
+              content.classList.add('opacity-0');
+              if (icon) icon.classList.remove('rotate-180');
+              if (iconWrap) {
+                iconWrap.classList.remove('bg-sky-500', 'text-white');
+                iconWrap.classList.add('bg-sky-50', 'text-sky-600');
+              }
+            } else {
+              item.classList.add('is-open', 'border-sky-300', 'shadow-[0_4px_25px_rgba(2,132,199,0.08)]');
+              item.classList.remove('border-sky-100/90', 'shadow-[0_4px_20px_rgba(2,132,199,0.04)]');
+              header.setAttribute('aria-expanded', 'true');
+              content.style.maxHeight = content.scrollHeight + 'px';
+              content.classList.remove('opacity-0');
+              content.classList.add('opacity-100');
+              if (icon) icon.classList.add('rotate-180');
+              if (iconWrap) {
+                iconWrap.classList.add('bg-sky-500', 'text-white');
+                iconWrap.classList.remove('bg-sky-50', 'text-sky-600');
+              }
+            }
+          });
+        });
+
+        window.addEventListener('resize', () => {
+          const openContent = document.querySelector('.faq-accordion-item.is-open .faq-accordion-content');
+          if (openContent) {
+            openContent.style.maxHeight = openContent.scrollHeight + 'px';
+          }
+        }, { passive: true });
+      }
+      initFaqAccordion();
 
       excelGiftTimer = setTimeout(() => {
         openExcelGiftModal(true);
