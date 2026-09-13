@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="50%" stop-color="#0ea5e9" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020817" />
+      <stop offset="100%" stop-color="#0b1e36" />
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="128" fill="url(#bgGrad)" stroke="#38bdf8" stroke-opacity="0.3" stroke-width="12" />
+
+  <!-- Center brand mark with "AI" -->
+  <g transform="translate(0, 0)">
+    <!-- Cyan glow -->
+    <circle cx="256" cy="235" r="140" fill="#0284c7" opacity="0.25" filter="blur(20px)" />
+
+    <!-- ALTAI OPTIMA Monogram / AI Focus -->
+    <text x="256" y="280" text-anchor="middle" font-family="'Inter', 'Benzin', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="180" letter-spacing="4" fill="url(#aiGrad)">AI</text>
+
+    <!-- Subtitle ALTAI OPTIMA -->
+    <text x="256" y="385" text-anchor="middle" font-family="'Inter', 'Benzin', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="38" letter-spacing="8" fill="#ffffff">ALTAI OPTIMA</text>
+  </g>
+</svg>
