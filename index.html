@@ -1250,26 +1250,43 @@
       }
     }
     #constructor .cfg-card {
-      background: #FFFFFF;
-      border: 1px solid #E2E8F0;
       border-radius: 20px;
-      padding: 18px 20px;
+      padding: 20px 22px;
       margin-bottom: 0;
-      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
-      transition: all 0.2s ease;
+      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       display: flex;
       flex-direction: column;
     }
     #constructor .cfg-card:hover {
-      box-shadow: 0 10px 25px -4px rgba(2, 132, 199, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
-      border-color: #CBD5E1;
+      box-shadow: 0 12px 28px -4px rgba(2, 132, 199, 0.12), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+      transform: translateY(-2px);
     }
+    
+    /* Карточки с деликатными градиентами от белого к оттенкам голубого/синего */
+    #constructor .cfg-card-channels {
+      background: linear-gradient(145deg, #FFFFFF 0%, #F0F9FF 60%, #E0F2FE 100%);
+      border: 1.5px solid #BAE6FD;
+    }
+    #constructor .cfg-card-crms {
+      background: linear-gradient(145deg, #FFFFFF 0%, #EFF6FF 60%, #DBEAFE 100%);
+      border: 1.5px solid #BFDBFE;
+    }
+    #constructor .cfg-card-extras {
+      background: linear-gradient(145deg, #FFFFFF 0%, #ECFEFF 60%, #CFFAFE 100%);
+      border: 1.5px solid #A5F3FC;
+    }
+    #constructor .cfg-card-volume {
+      background: linear-gradient(145deg, #FFFFFF 0%, #F0FDFA 60%, #E0F2FE 100%);
+      border: 1.5px solid #BAE6FD;
+    }
+
     #constructor .cfg-card h3 {
-      font-size: 12.5px;
+      font-size: 13px;
       text-transform: uppercase;
       letter-spacing: .06em;
-      color: #0284c7;
-      margin: 0 0 12px;
+      color: #0369a1;
+      margin: 0 0 14px;
       font-weight: 800;
       display: flex;
       align-items: center;
@@ -1280,7 +1297,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 10px 0;
-      border-bottom: 1px solid #F1F5F9;
+      border-bottom: 1px solid rgba(226, 232, 240, 0.7);
     }
     #constructor .cfg-row:last-child {
       border-bottom: none;
@@ -1296,19 +1313,20 @@
     #constructor .cfg-row-sub {
       color: #64748B;
       font-size: 12px;
-      margin-top: 1px;
+      margin-top: 2px;
     }
     #constructor .cfg-row-price {
       color: #0284c7;
-      background: #F0F9FF;
+      background: #FFFFFF;
       border: 1px solid #BAE6FD;
-      padding: 2.5px 7px;
-      border-radius: 6px;
-      font-size: 11.5px;
+      padding: 3px 8px;
+      border-radius: 8px;
+      font-size: 12px;
       white-space: nowrap;
       margin-left: 8px;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       font-weight: 700;
+      box-shadow: 0 1px 3px rgba(2, 132, 199, 0.06);
     }
     #constructor .cfg-badge-locked {
       font-size: 10px;
@@ -1341,7 +1359,7 @@
     #constructor .cfg-track {
       position: absolute;
       inset: 0;
-      background: #E2E8F0;
+      background: #CBD5E1;
       border-radius: 999px;
       transition: .18s ease;
     }
@@ -1375,9 +1393,9 @@
       flex-wrap: wrap;
     }
     #constructor .cfg-pill {
-      border: 1px solid #E2E8F0;
-      background: #F8FAFC;
-      color: #475569;
+      border: 1px solid #CBD5E1;
+      background: #FFFFFF;
+      color: #334155;
       padding: 8px 16px;
       border-radius: 999px;
       font-size: 13.5px;
@@ -1385,6 +1403,7 @@
       cursor: pointer;
       transition: .15s ease;
       user-select: none;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
     }
     #constructor .cfg-pill:hover {
       border-color: #0284c7;
@@ -1413,30 +1432,32 @@
       color: #FFFFFF;
       box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35);
     }
+
+    /* ВЫДЕЛЕННАЯ КАРТОЧКА: ВАШ РАСЧЕТ */
     #constructor .cfg-summary {
       position: sticky;
       top: 90px;
-      background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
-      border: 1.5px solid #BAE6FD;
-      border-radius: 22px;
-      padding: 24px;
+      background: linear-gradient(160deg, #FFFFFF 0%, #F0F9FF 35%, #E0F2FE 80%, #BAE6FD 100%);
+      border: 2px solid #38BDF8;
+      border-radius: 24px;
+      padding: 26px 24px;
       height: fit-content;
-      box-shadow: 0 20px 50px -10px rgba(2, 132, 199, 0.12), 0 8px 20px -4px rgba(15, 23, 42, 0.05);
+      box-shadow: 0 20px 45px -8px rgba(2, 132, 199, 0.22), 0 0 0 1px rgba(56, 189, 248, 0.35), 0 8px 16px -4px rgba(15, 23, 42, 0.06);
     }
     #constructor .cfg-summary h3 {
-      font-size: 13px;
+      font-size: 14px;
       text-transform: uppercase;
       letter-spacing: .06em;
-      color: #0284c7;
-      margin: 0 0 18px;
-      font-weight: 800;
+      color: #0369a1;
+      margin: 0;
+      font-weight: 900;
     }
     #constructor .cfg-sum-line {
       display: flex;
       justify-content: space-between;
-      font-size: 13.5px;
-      color: #475569;
-      padding: 6px 0;
+      font-size: 13px;
+      color: #334155;
+      padding: 5px 0;
     }
     #constructor .cfg-sum-line span:last-child {
       color: #0284c7;
@@ -1444,24 +1465,23 @@
       font-weight: 700;
     }
     #constructor .cfg-divider {
-      height: 1px;
-      background: #E2E8F0;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.5), transparent);
       margin: 16px 0;
     }
     #constructor .cfg-total-block {
-      margin-bottom: 14px;
-      padding: 12px 16px;
-      border-radius: 16px;
-      background: #FFFFFF;
-      border: 1.5px solid #E0F2FE;
-      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.04);
+      margin-bottom: 12px;
+      padding: 4px 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
     }
     #constructor .cfg-total-label {
       font-size: 11px;
-      color: #64748B;
+      color: #0369a1;
       text-transform: uppercase;
       letter-spacing: .06em;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
       font-weight: 800;
       font-family: 'Inter', sans-serif;
     }
@@ -1490,27 +1510,29 @@
       display: block;
       width: 100%;
       text-align: center;
-      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #075985 100%);
       color: #fff;
       border: none;
-      border-radius: 12px;
-      padding: 14px;
-      font-size: 15px;
-      font-weight: 700;
+      border-radius: 14px;
+      padding: 15px;
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
       cursor: pointer;
       margin-top: 18px;
       text-decoration: none;
       transition: all .25s ease;
-      box-shadow: 0 10px 25px rgba(2, 132, 199, 0.28);
+      box-shadow: 0 10px 25px rgba(2, 132, 199, 0.35);
     }
     #constructor .cfg-cta:hover {
       background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
-      box-shadow: 0 15px 35px rgba(2, 132, 199, 0.4);
-      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(2, 132, 199, 0.45);
+      transform: translateY(-2px);
     }
     #constructor .cfg-note {
-      font-size: 11.5px;
-      color: #64748B;
+      font-size: 11px;
+      color: #475569;
       margin-top: 14px;
       line-height: 1.5;
       text-align: center;
@@ -6022,7 +6044,7 @@
           <div class="cfg-cards-grid">
 
             <!-- КАРТОЧКА 1: КАНАЛЫ СВЯЗИ -->
-            <div class="cfg-card">
+            <div class="cfg-card cfg-card-channels">
               <h3>Каналы связи</h3>
               <div class="cfg-row">
                 <div>
@@ -6033,7 +6055,6 @@
                   <div class="cfg-row-sub">входит в базовый пакет</div>
                 </div>
                 <div style="display:flex;align-items:center;gap:12px;">
-                  <div class="cfg-row-price text-emerald-700 bg-emerald-50 border-emerald-200 font-bold">база</div>
                   <label class="cfg-switch cfg-locked" title="Входит в базовый тариф (нельзя отключить)">
                     <input type="checkbox" checked disabled>
                     <span class="cfg-track"></span>
@@ -6044,7 +6065,7 @@
             </div>
 
             <!-- КАРТОЧКА 2: CRM-ИНТЕГРАЦИЯ -->
-            <div class="cfg-card">
+            <div class="cfg-card cfg-card-crms">
               <h3>CRM-интеграция</h3>
               <div class="cfg-row">
                 <div>
@@ -6055,7 +6076,6 @@
                   <div class="cfg-row-sub">входит в базовый пакет</div>
                 </div>
                 <div style="display:flex;align-items:center;gap:12px;">
-                  <div class="cfg-row-price text-emerald-700 bg-emerald-50 border-emerald-200 font-bold">база</div>
                   <label class="cfg-switch cfg-locked" title="Входит в базовый тариф (нельзя отключить)">
                     <input type="checkbox" checked disabled>
                     <span class="cfg-track"></span>
@@ -6066,13 +6086,13 @@
             </div>
 
             <!-- КАРТОЧКА 3: ДОПОЛНИТЕЛЬНО -->
-            <div class="cfg-card">
+            <div class="cfg-card cfg-card-extras">
               <h3>Дополнительно</h3>
               <div id="extras"></div>
             </div>
 
             <!-- КАРТОЧКА 4: ОБЪЕМ ЗАЯВОК -->
-            <div class="cfg-card">
+            <div class="cfg-card cfg-card-volume">
               <h3>Объём заявок в месяц</h3>
               <div class="cfg-pill-group" id="volume"></div>
               <div class="cfg-row-sub" style="margin-top:14px; line-height: 1.5;">
@@ -6084,7 +6104,13 @@
 
           <!-- ИТОГОВЫЙ БЛОК РАСЧЕТА (STICKY) -->
           <div class="cfg-summary">
-            <h3>Ваш расчёт</h3>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <h3 class="!m-0 flex items-center gap-1.5">
+                <span class="text-sky-500">⚡</span>
+                <span>Ваш расчёт</span>
+              </h3>
+              <span class="text-[10px] uppercase font-black tracking-wider px-2.5 py-0.5 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 text-white shadow-sm">Калькулятор</span>
+            </div>
 
             <div class="cfg-total-block">
               <div class="cfg-total-label">Настройка, единоразово</div>
@@ -8797,24 +8823,24 @@
         const loc = (isEn || isTr) ? 'en-US' : 'ru-RU';
 
         const CHANNELS = [
-          {id:'tg', label:'Telegram', setup:10000, monthly:2000},
-          {id:'inst', label:'Instagram*', setup:10000, monthly:2000},
-          {id:'avito', label: isEn ? 'Classifieds / Avito' : (isTr ? 'İlan Portalları' : 'Авито'), setup:10000, monthly:2000},
-          {id:'max', label:'MAX', setup:10000, monthly:2000},
-          {id:'mail', label: isEn ? 'Email' : (isTr ? 'E-posta' : 'Email'), setup:10000, monthly:2000},
+          {id:'tg', label:'Telegram', setup:10000, monthly:0},
+          {id:'inst', label:'Instagram*', setup:10000, monthly:0},
+          {id:'avito', label: isEn ? 'Classifieds / Avito' : (isTr ? 'İlan Portalları' : 'Авито'), setup:10000, monthly:0},
+          {id:'max', label:'MAX', setup:10000, monthly:0},
+          {id:'mail', label: isEn ? 'Email' : (isTr ? 'E-posta' : 'Email'), setup:10000, monthly:0},
         ];
         const CRMS = [
-          {id:'amo', label: (isEn || isTr) ? 'amoCRM / HubSpot' : 'amoCRM', setup:20000, monthly:5000},
-          {id:'bitrix', label: (isEn || isTr) ? 'Bitrix24 / Salesforce' : 'Битрикс24', setup:20000, monthly:5000},
-          {id:'1c', label: (isEn || isTr) ? '1C:Enterprise / ERP' : '1С:Предприятие', setup:20000, monthly:5000},
-          {id:'moysklad', label: (isEn || isTr) ? 'MoySklad / Inventory' : 'МойСклад', setup:20000, monthly:5000},
+          {id:'amo', label: (isEn || isTr) ? 'amoCRM / HubSpot' : 'amoCRM', setup:20000, monthly:0},
+          {id:'bitrix', label: (isEn || isTr) ? 'Bitrix24 / Salesforce' : 'Битрикс24', setup:20000, monthly:0},
+          {id:'1c', label: (isEn || isTr) ? '1C:Enterprise / ERP' : '1С:Предприятие', setup:20000, monthly:0},
+          {id:'moysklad', label: (isEn || isTr) ? 'MoySklad / Inventory' : 'МойСклад', setup:20000, monthly:0},
         ];
         const EXTRAS = [
           {
             id:'voice',
             label: isEn ? 'Voice message transcription' : (isTr ? 'Sesli mesaj tanıma' : 'Распознавание голосовых'),
             sub: isEn ? 'audio → text in any channel' : (isTr ? 'tüm kanallarda ses → metin' : 'аудио → текст в любом канале'),
-            setup:10000, monthly:3000
+            setup:10000, monthly:0
           },
           {
             id:'kb',
@@ -8841,7 +8867,7 @@
                 ${it.sub ? `<div class="cfg-row-sub">${it.sub}</div>` : ''}
               </div>
               <div style="display:flex;align-items:center;gap:12px;">
-                <div class="cfg-row-price">${it.setup ? '+'+it.setup.toLocaleString(loc)+' '+curSym : ''}${it.monthly ? ' · +'+it.monthly.toLocaleString(loc)+' '+curSym+perMo : ''}</div>
+                <div class="cfg-row-price">+${it.setup.toLocaleString(loc)} ${curSym}</div>
                 <label class="cfg-switch">
                   <input type="checkbox" data-group="${group}" data-id="${it.id}">
                   <span class="cfg-track"></span>
@@ -8895,9 +8921,9 @@
           let monthly = BASE_MONTHLY;
           let lines = [];
 
-          CHANNELS.forEach(c => { if(state.channels[c.id]){ setup += c.setup; monthly += c.monthly; lines.push([c.label, c.setup, c.monthly]); }});
-          CRMS.forEach(c => { if(state.crms[c.id]){ setup += c.setup; monthly += c.monthly; lines.push([c.label, c.setup, c.monthly]); }});
-          EXTRAS.forEach(c => { if(state.extras[c.id]){ setup += c.setup; monthly += c.monthly; lines.push([c.label, c.setup, c.monthly]); }});
+          CHANNELS.forEach(c => { if(state.channels[c.id]){ setup += c.setup; if (c.monthly) monthly += c.monthly; lines.push([c.label, c.setup, c.monthly || 0]); }});
+          CRMS.forEach(c => { if(state.crms[c.id]){ setup += c.setup; if (c.monthly) monthly += c.monthly; lines.push([c.label, c.setup, c.monthly || 0]); }});
+          EXTRAS.forEach(c => { if(state.extras[c.id]){ setup += c.setup; if (c.monthly) monthly += c.monthly; lines.push([c.label, c.setup, c.monthly || 0]); }});
 
           const vol = VOLUMES.find(v => v.id === state.volume);
           const volPrefix = isEn ? 'Lead volume ' : (isTr ? 'Talep hacmi ' : 'Объём заявок ');
