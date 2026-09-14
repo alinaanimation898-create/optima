@@ -1259,26 +1259,26 @@
       flex-direction: column;
     }
     #constructor .cfg-card:hover {
-      box-shadow: 0 12px 28px -4px rgba(2, 132, 199, 0.12), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+      box-shadow: 0 12px 28px -4px rgba(2, 132, 199, 0.14), 0 4px 10px -2px rgba(15, 23, 42, 0.05);
       transform: translateY(-2px);
     }
     
     
     #constructor .cfg-card-channels {
-      background: linear-gradient(145deg, #FFFFFF 0%, #F0F9FF 60%, #E0F2FE 100%);
-      border: 1.5px solid #BAE6FD;
+      background: linear-gradient(150deg, #FFFFFF 0%, #F0F9FF 50%, #E0F2FE 100%);
+      border: 1.5px solid #7DD3FC;
     }
     #constructor .cfg-card-crms {
-      background: linear-gradient(145deg, #FFFFFF 0%, #EFF6FF 60%, #DBEAFE 100%);
-      border: 1.5px solid #BFDBFE;
+      background: linear-gradient(150deg, #FFFFFF 0%, #EEF2FF 50%, #E0E7FF 100%);
+      border: 1.5px solid #A5B4FC;
     }
     #constructor .cfg-card-extras {
-      background: linear-gradient(145deg, #FFFFFF 0%, #ECFEFF 60%, #CFFAFE 100%);
-      border: 1.5px solid #A5F3FC;
+      background: linear-gradient(150deg, #FFFFFF 0%, #F0FDFA 50%, #CCFBF1 100%);
+      border: 1.5px solid #5EEAD4;
     }
     #constructor .cfg-card-volume {
-      background: linear-gradient(145deg, #FFFFFF 0%, #F0FDFA 60%, #E0F2FE 100%);
-      border: 1.5px solid #BAE6FD;
+      background: linear-gradient(150deg, #FFFFFF 0%, #FEFCE8 50%, #FEF08A 100%);
+      border: 1.5px solid #FDE047;
     }
 
     #constructor .cfg-card h3 {
@@ -1292,6 +1292,10 @@
       align-items: center;
       gap: 8px;
     }
+    #constructor .cfg-card-crms h3 { color: #4338CA; }
+    #constructor .cfg-card-extras h3 { color: #0F766E; }
+    #constructor .cfg-card-volume h3 { color: #A16207; }
+
     #constructor .cfg-row {
       display: flex;
       align-items: center;
@@ -1315,18 +1319,19 @@
       font-size: 12px;
       margin-top: 2px;
     }
+    
     #constructor .cfg-row-price {
-      color: #0284c7;
-      background: #FFFFFF;
-      border: 1px solid #BAE6FD;
-      padding: 3px 8px;
-      border-radius: 8px;
-      font-size: 12px;
+      color: #059669;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      padding: 0 4px;
+      font-size: 13px;
       white-space: nowrap;
       margin-left: 8px;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      font-weight: 700;
-      box-shadow: 0 1px 3px rgba(2, 132, 199, 0.06);
+      font-weight: 800;
+      letter-spacing: -0.01em;
     }
     #constructor .cfg-badge-locked {
       font-size: 10px;
@@ -1375,13 +1380,14 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
       transition: .18s cubic-bezier(0.4, 0, 0.2, 1);
     }
+    
     #constructor input:checked + .cfg-track {
-      background: linear-gradient(135deg, #0284c7, #0ea5e9);
-      box-shadow: 0 0 12px rgba(14, 165, 233, 0.35);
+      background: linear-gradient(135deg, #059669, #10b981);
+      box-shadow: 0 0 12px rgba(16, 185, 129, 0.45);
     }
     #constructor .cfg-switch.cfg-locked input:checked + .cfg-track {
       background: linear-gradient(135deg, #059669, #10b981);
-      box-shadow: 0 0 12px rgba(16, 185, 129, 0.35);
+      box-shadow: 0 0 12px rgba(16, 185, 129, 0.45);
     }
     #constructor input:checked + .cfg-track:before {
       transform: translateX(18px);
@@ -1406,15 +1412,15 @@
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
     }
     #constructor .cfg-pill:hover {
-      border-color: #0284c7;
-      color: #0284c7;
-      background: #F0F9FF;
+      border-color: #059669;
+      color: #059669;
+      background: #F0FDF4;
     }
     #constructor .cfg-pill.active {
-      border-color: #0284c7;
+      border-color: #059669;
       color: #FFFFFF;
-      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
     }
     #constructor .cfg-pill.cfg-pill-vip {
       border-color: #FDE047;
@@ -1434,15 +1440,50 @@
     }
 
     
-    #constructor .cfg-summary {
+    @keyframes neonRotateBorder {
+      0% { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(360deg); }
+    }
+    @keyframes cfgSummaryGlare {
+      0%, 65% { transform: rotate(30deg) translateY(-140%); opacity: 0; }
+      75% { opacity: 0.65; }
+      85%, 100% { transform: rotate(30deg) translateY(140%); opacity: 0; }
+    }
+
+    #constructor .cfg-summary-outer {
       position: sticky;
       top: 90px;
-      background: linear-gradient(160deg, #FFFFFF 0%, #F0F9FF 35%, #E0F2FE 80%, #BAE6FD 100%);
-      border: 2px solid #38BDF8;
-      border-radius: 24px;
-      padding: 26px 24px;
+      padding: 3px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, #0284c7, #10b981, #38bdf8, #059669, #0284c7);
+      background-size: 300% 300%;
+      animation: neonBorderFlow 4s ease infinite;
+      box-shadow: 0 20px 50px -10px rgba(16, 185, 129, 0.25), 0 0 30px rgba(2, 132, 199, 0.25);
+    }
+    @keyframes neonBorderFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    #constructor .cfg-summary {
+      position: relative;
+      background: linear-gradient(170deg, #FFFFFF 0%, #F0FDF4 35%, #F0F9FF 75%, #E0F2FE 100%);
+      border-radius: 23px;
+      padding: 24px 22px;
       height: fit-content;
-      box-shadow: 0 20px 45px -8px rgba(2, 132, 199, 0.22), 0 0 0 1px rgba(56, 189, 248, 0.35), 0 8px 16px -4px rgba(15, 23, 42, 0.06);
+      overflow: hidden;
+    }
+    #constructor .cfg-summary::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(60deg, transparent 40%, rgba(255, 255, 255, 0.8) 50%, transparent 60%);
+      transform: rotate(30deg) translateY(-140%);
+      animation: cfgSummaryGlare 5s ease-in-out infinite;
+      pointer-events-none;
     }
     #constructor .cfg-summary h3 {
       font-size: 14px;
@@ -1460,13 +1501,13 @@
       padding: 5px 0;
     }
     #constructor .cfg-sum-line span:last-child {
-      color: #0284c7;
+      color: #059669;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       font-weight: 700;
     }
     #constructor .cfg-divider {
       height: 1.5px;
-      background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.5), transparent);
+      background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.4), transparent);
       margin: 16px 0;
     }
     #constructor .cfg-total-block {
@@ -1478,25 +1519,27 @@
     }
     #constructor .cfg-total-label {
       font-size: 11px;
-      color: #0369a1;
+      color: #047857;
       text-transform: uppercase;
       letter-spacing: .06em;
       margin-bottom: 2px;
       font-weight: 800;
       font-family: 'Inter', sans-serif;
     }
+    
     #constructor .cfg-total-value {
       font-size: 34px;
       font-weight: 900;
       letter-spacing: -0.02em;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.05;
+      color: #059669;
     }
     #constructor .cfg-total-setup {
-      color: #0284c7;
+      color: #059669;
     }
     #constructor .cfg-total-setup .cur {
-      color: #0284c7;
+      color: #059669;
       font-weight: 800;
     }
     #constructor .cfg-total-monthly {
@@ -5926,29 +5969,30 @@
           </div>
 
           
-          <div class="cfg-summary">
-            <div class="flex items-center justify-between gap-2 mb-4">
-              <h3 class="!m-0 flex items-center gap-1.5">
-                <span class="text-sky-500">⚡</span>
-                <span>Tahmini Maliyetiniz</span>
-              </h3>
-              <span class="text-[10px] uppercase font-black tracking-wider px-2.5 py-0.5 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 text-white shadow-sm">Hesaplayıcı</span>
-            </div>
+          <div class="cfg-summary-outer">
+            <div class="cfg-summary">
+              <div class="flex items-center justify-between gap-2 mb-4">
+                <h3 class="!m-0 flex items-center gap-1.5">
+                  <span class="text-emerald-500">⚡</span>
+                  <span class="text-slate-900 font-extrabold tracking-wide">Tahmini Maliyetiniz</span>
+                </h3>
+              </div>
 
-            <div class="cfg-total-block">
-              <div class="cfg-total-label">Tek Seferlik Kurulum</div>
-              <div class="cfg-total-value cfg-total-setup"><span id="setupTotal">50 000</span> <span class="cur">$</span></div>
-            </div>
-            <div class="cfg-total-block">
-              <div class="cfg-total-label">Aylık Teknik Destek</div>
-              <div class="cfg-total-value cfg-total-monthly"><span id="monthlyTotal">15 000</span> <span class="cur">$</span></div>
-            </div>
+              <div class="cfg-total-block">
+                <div class="cfg-total-label">Tek Seferlik Kurulum</div>
+                <div class="cfg-total-value cfg-total-setup"><span id="setupTotal">50 000</span> <span class="cur">$</span></div>
+              </div>
+              <div class="cfg-total-block">
+                <div class="cfg-total-label">2. Aydan İtibaren Destek</div>
+                <div class="cfg-total-value cfg-total-monthly"><span id="monthlyTotal">15 000</span> <span class="cur">$</span></div>
+              </div>
 
-            <div class="cfg-divider"></div>
-            <div id="breakdown"></div>
+              <div class="cfg-divider"></div>
+              <div id="breakdown"></div>
 
-            <a class="cfg-cta" href="https://t.me/altaioptima" id="ctaBtn" target="_blank">Telegram'da Görüşün</a>
-            <div class="cfg-note">Hesaplama tahminidir. Kesin maliyet, süreç analizi ve ön görüşmenin ardından netleştirilir.</div>
+              <a class="cfg-cta" href="https://t.me/altaioptima" id="ctaBtn" target="_blank">Telegram'da Görüşün</a>
+              <div class="cfg-note">Hesaplama tahminidir. Kesin maliyet, süreç analizi ve ön görüşmenin ardından netleştirilir.</div>
+            </div>
           </div>
         </div>
       </div>
@@ -8640,36 +8684,36 @@
         const loc = (isEn || isTr) ? 'en-US' : 'ru-RU';
 
         const CHANNELS = [
-          {id:'tg', label:'Telegram', setup:10000, monthly:0},
-          {id:'inst', label:'Instagram*', setup:10000, monthly:0},
-          {id:'avito', label: isEn ? 'Classifieds / Avito' : (isTr ? 'İlan Portalları' : 'Canlı Chat'), setup:10000, monthly:0},
-          {id:'max', label:'MAX', setup:10000, monthly:0},
-          {id:'mail', label: isEn ? 'Email' : (isTr ? 'E-posta' : 'Email'), setup:10000, monthly:0},
+          {id:'tg', label:'Telegram', setup:10000, monthly:2000},
+          {id:'inst', label:'Instagram*', setup:10000, monthly:2000},
+          {id:'avito', label: isEn ? 'Classifieds / Avito' : (isTr ? 'İlan Portalları' : 'Canlı Chat'), setup:10000, monthly:2000},
+          {id:'max', label:'MAX', setup:10000, monthly:2000},
+          {id:'mail', label: isEn ? 'Email' : (isTr ? 'E-posta' : 'Email'), setup:10000, monthly:2000},
         ];
         const CRMS = [
-          {id:'amo', label: (isEn || isTr) ? 'amoCRM / HubSpot' : 'amoCRM', setup:20000, monthly:0},
-          {id:'bitrix', label: (isEn || isTr) ? 'Bitrix24 / Salesforce' : 'Bitrix24', setup:20000, monthly:0},
-          {id:'1c', label: (isEn || isTr) ? '1C:Enterprise / ERP' : '1С:Предприятие', setup:20000, monthly:0},
-          {id:'moysklad', label: (isEn || isTr) ? 'MoySklad / Inventory' : 'МойСклад', setup:20000, monthly:0},
+          {id:'amo', label: (isEn || isTr) ? 'amoCRM / HubSpot' : 'amoCRM', setup:20000, monthly:5000},
+          {id:'bitrix', label: (isEn || isTr) ? 'Bitrix24 / Salesforce' : 'Bitrix24', setup:20000, monthly:5000},
+          {id:'1c', label: (isEn || isTr) ? '1C:Enterprise / ERP' : '1С:Предприятие', setup:20000, monthly:5000},
+          {id:'moysklad', label: (isEn || isTr) ? 'MoySklad / Inventory' : 'МойСклад', setup:20000, monthly:5000},
         ];
         const EXTRAS = [
           {
             id:'voice',
             label: isEn ? 'Voice message transcription' : (isTr ? 'Sesli mesaj tanıma' : 'Sesli Mesaj Transkripsiyonu'),
             sub: isEn ? 'audio → text in any channel' : (isTr ? 'tüm kanallarda ses → metin' : 'tüm kanallarda ses → metin dönüşümü'),
-            setup:10000, monthly:0
+            setup:10000, monthly:3000
           },
           {
             id:'kb',
             label: isEn ? 'Knowledge base creation from scratch' : (isTr ? 'Sıfırdan bilgi tabanı oluşturma' : 'Sıfırdan Bilgi Bankası Oluşturma'),
             sub: isEn ? 'if you do not have scripts / FAQ / pricing ready' : (isTr ? 'fiyat listesi / senaryo / SSS henüz yoksa' : 'henüz hazır fiyat listesi / senaryo / SSS yoksa'),
-            setup:15000, monthly:0
+            setup:30000, monthly:0
           },
         ];
         const VOLUMES = [
           {id:'v1', label: isEn ? 'up to 100' : (isTr ? "100'e kadar" : '100'e kadar'), setupAdd:0, monthlyAdd:0},
-          {id:'v2', label:'100–300', setupAdd:0, monthlyAdd:3000},
-          {id:'v3', label: isEn ? '300–1,000' : (isTr ? '300–1.000' : '300–1.000'), setupAdd:0, monthlyAdd:7000},
+          {id:'v2', label:'100–500', setupAdd:0, monthlyAdd:3000},
+          {id:'v3', label: isEn ? '500–1,000' : (isTr ? '500–1.000' : '500–1.000'), setupAdd:0, monthlyAdd:7000},
           {id:'v4', label: isEn ? '1,000+ (Empire)' : (isTr ? '1.000+ (İmparatorluk)' : '1.000+ (İmparatorluk)'), isVip: true, setupAdd:0, monthlyAdd:15000},
         ];
 
@@ -8680,7 +8724,7 @@
           container.innerHTML = items.map(it => `
             <div class="cfg-row" data-row="${it.id}">
               <div>
-                <div class="cfg-row-label">${it.label}</div>
+                <div class="cfg-row-label ${it.id==='kb' ? 'whitespace-nowrap' : ''}">${it.label}</div>
                 ${it.sub ? `<div class="cfg-row-sub">${it.sub}</div>` : ''}
               </div>
               <div style="display:flex;align-items:center;gap:12px;">
