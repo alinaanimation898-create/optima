@@ -1227,6 +1227,227 @@
     }
 
     
+    #constructor {
+      --cfg-bg: #0A0F1A;
+      --cfg-panel: #11182A;
+      --cfg-panel-2: #161E33;
+      --cfg-line: #232D45;
+      --cfg-text: #E8ECF4;
+      --cfg-muted: #8993AC;
+      --cfg-accent: #0284c7;
+      --cfg-accent-2: #10b981;
+    }
+    #constructor .cfg-wrap {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    #constructor .cfg-grid {
+      display: grid;
+      grid-template-columns: 1fr 350px;
+      gap: 24px;
+      align-items: start;
+    }
+    @media (max-width: 840px) {
+      #constructor .cfg-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    #constructor .cfg-card {
+      background: #11182A;
+      border: 1px solid #232D45;
+      border-radius: 20px;
+      padding: 22px 24px;
+      margin-bottom: 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+    #constructor .cfg-card h3 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: #8993AC;
+      margin: 0 0 16px;
+      font-weight: 700;
+    }
+    #constructor .cfg-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #232D45;
+    }
+    #constructor .cfg-row:last-child {
+      border-bottom: none;
+    }
+    #constructor .cfg-row-label {
+      font-size: 15px;
+      color: #E8ECF4;
+      font-weight: 600;
+    }
+    #constructor .cfg-row-sub {
+      color: #8993AC;
+      font-size: 12.5px;
+      margin-top: 2px;
+    }
+    #constructor .cfg-row-price {
+      color: #8993AC;
+      font-size: 13px;
+      white-space: nowrap;
+      margin-left: 12px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    #constructor .cfg-switch {
+      position: relative;
+      width: 44px;
+      height: 24px;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    #constructor .cfg-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      position: absolute;
+    }
+    #constructor .cfg-track {
+      position: absolute;
+      inset: 0;
+      background: #26304A;
+      border-radius: 999px;
+      transition: .18s ease;
+    }
+    #constructor .cfg-track:before {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      left: 3px;
+      top: 3px;
+      background: #C7CEE0;
+      border-radius: 50%;
+      transition: .18s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #constructor input:checked + .cfg-track {
+      background: linear-gradient(135deg, #0284c7, #0ea5e9);
+      box-shadow: 0 0 14px rgba(14, 165, 233, 0.45);
+    }
+    #constructor input:checked + .cfg-track:before {
+      transform: translateX(20px);
+      background: #fff;
+    }
+    #constructor .cfg-pill-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    #constructor .cfg-pill {
+      border: 1px solid #232D45;
+      background: #161E33;
+      color: #8993AC;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: .15s ease;
+      user-select: none;
+    }
+    #constructor .cfg-pill:hover {
+      border-color: #0284c7;
+      color: #E8ECF4;
+    }
+    #constructor .cfg-pill.active {
+      border-color: #0284c7;
+      color: #fff;
+      background: rgba(2, 132, 199, 0.25);
+      box-shadow: 0 0 16px rgba(2, 132, 199, 0.35);
+    }
+    #constructor .cfg-summary {
+      position: sticky;
+      top: 90px;
+      background: linear-gradient(180deg, #161E33, #11182A);
+      border: 1px solid #232D45;
+      border-radius: 22px;
+      padding: 24px;
+      height: fit-content;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    }
+    #constructor .cfg-summary h3 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: #8993AC;
+      margin: 0 0 18px;
+      font-weight: 700;
+    }
+    #constructor .cfg-sum-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13.5px;
+      color: #8993AC;
+      padding: 6px 0;
+    }
+    #constructor .cfg-sum-line span:last-child {
+      color: #E8ECF4;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+    }
+    #constructor .cfg-divider {
+      height: 1px;
+      background: #232D45;
+      margin: 16px 0;
+    }
+    #constructor .cfg-total-block {
+      margin-bottom: 16px;
+    }
+    #constructor .cfg-total-label {
+      font-size: 11.5px;
+      color: #8993AC;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+    #constructor .cfg-total-value {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: #E8ECF4;
+    }
+    #constructor .cfg-total-value .cur {
+      color: #10b981;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    #constructor .cfg-cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 18px;
+      text-decoration: none;
+      transition: all .25s ease;
+      box-shadow: 0 10px 25px rgba(2, 132, 199, 0.35);
+    }
+    #constructor .cfg-cta:hover {
+      background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+      box-shadow: 0 15px 35px rgba(2, 132, 199, 0.5);
+      transform: translateY(-1px);
+    }
+    #constructor .cfg-note {
+      font-size: 11.5px;
+      color: #8993AC;
+      margin-top: 14px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    
     #scrollProblemTitle {
       overflow: visible !important;
       line-height: 1.06 !important;
@@ -4788,7 +5009,7 @@
                 <th class="py-4 sm:py-5 px-4 sm:px-6 text-xs sm:text-sm font-bold text-slate-700 uppercase tracking-wider w-[35%] bg-slate-50/90 border-r-2 border-slate-200">
                   <div class="flex items-center gap-2">
                     <span class="w-2.5 h-2.5 rounded-full bg-slate-400"></span>
-                    <span class="text-slate-800 font-extrabold text-sm sm:text-base">1 штатный сотрудник</span>
+                    <span class="text-slate-800 font-extrabold text-sm sm:text-base">1 Kadrolu Personel</span>
                   </div>
                 </th>
                 
@@ -5646,6 +5867,125 @@
               </a>
             </div>
 
+          </div>
+        </div>
+
+        
+        <div class="col-span-1 md:col-span-2 text-center pt-2">
+          <a href="#constructor" class="group inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-sky-500/10 hover:bg-sky-500/20 border border-sky-400/30 text-sky-700 hover:text-sky-800 text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 shadow-xs hover:shadow-md">
+            <span class="w-2 h-2 rounded-full bg-sky-500 animate-pulse"></span>
+            <span>Özel bir paket mi gerekiyor? Tarife sihirbazında kendiniz oluşturun</span>
+            <svg class="w-4 h-4 text-sky-600 transition-transform duration-200 group-hover:translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
+        </div>
+
+      </div>
+
+    </section>
+
+    
+    <div class="flex flex-col items-center justify-center pt-6 sm:pt-10 pb-3 sm:pb-5 relative z-20">
+      <a href="#constructor" class="blue-path-track block cursor-pointer" title="Tarife Sihirbazı">
+        <div class="blue-path-arrow text-sky-500">
+          <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </div>
+      </a>
+    </div>
+
+    
+    <section id="constructor" class="max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 font-inter space-y-8 sm:space-y-10 py-12 sm:py-16">
+      
+      
+      <div class="text-center max-w-4xl mx-auto space-y-2.5 pb-2">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-400/30 text-sky-700 text-xs font-mono font-bold tracking-wider uppercase backdrop-blur-md mb-1">
+          <span class="w-2 h-2 rounded-full bg-sky-500 animate-pulse"></span>
+          <span>İNTERAKTİF TARİFE SİHİRBAZI</span>
+        </div>
+        <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[44px] leading-[1.15]" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 12px 30px rgba(2, 132, 199, 0.22));">
+          İşletmenize Özel Paketi Kendiniz Oluşturun
+        </h2>
+        <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
+          Fiyat iletişim kanallarına, CRM entegrasyonuna ve aylık talep hacmine bağlıdır. İhtiyaçlarınızı seçin — maliyet anında hesaplansın.
+        </p>
+      </div>
+
+      
+      <div class="relative p-5 sm:p-8 md:p-10 rounded-[28px] sm:rounded-[36px] bg-[#0A0F1A] text-[#E8ECF4] border border-[#232D45] shadow-[0_25px_70px_rgba(2,132,199,0.18),0_0_35px_rgba(56,189,248,0.1)] overflow-hidden">
+        
+        
+        <div class="absolute -top-32 -left-32 w-80 h-80 bg-sky-500/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="cfg-wrap relative z-10">
+          <div class="cfg-grid">
+            <div>
+
+              
+              <div class="cfg-card">
+                <h3>İletişim Kanalları</h3>
+                <div class="cfg-row">
+                  <div>
+                    <div class="cfg-row-label">WhatsApp</div>
+                    <div class="cfg-row-sub">temel pakete dahildir</div>
+                  </div>
+                  <div class="cfg-row-price text-emerald-400 font-semibold">dahil</div>
+                </div>
+                <div id="channels"></div>
+              </div>
+
+              
+              <div class="cfg-card">
+                <h3>CRM Entegrasyonu</h3>
+                <div class="cfg-row">
+                  <div>
+                    <div class="cfg-row-label">Entegrasyonsuz</div>
+                    <div class="cfg-row-sub">talepler tabloda / mesajlaşma uygulamasında — temel pakete dahil</div>
+                  </div>
+                  <div class="cfg-row-price text-emerald-400 font-semibold">dahil</div>
+                </div>
+                <div id="crms"></div>
+              </div>
+
+              
+              <div class="cfg-card">
+                <h3>Ek Özellikler</h3>
+                <div id="extras"></div>
+              </div>
+
+              
+              <div class="cfg-card">
+                <h3>Aylık Talep Hacmi</h3>
+                <div class="cfg-pill-group" id="volume"></div>
+                <div class="cfg-row-sub" style="margin-top:14px; line-height: 1.5;">
+                  1.000'den fazla talep veya birden fazla yapay zeka satıcısı — "İmparatorluk" paketi kapsamında özel fiyatlandırılır
+                </div>
+              </div>
+
+            </div>
+
+            
+            <div class="cfg-summary">
+              <h3>Tahmini Maliyetiniz</h3>
+
+              <div class="cfg-total-block">
+                <div class="cfg-total-label">Tek Seferlik Kurulum</div>
+                <div class="cfg-total-value"><span id="setupTotal">50 000</span> <span class="cur">$</span></div>
+              </div>
+              <div class="cfg-total-block">
+                <div class="cfg-total-label">Aylık Teknik Destek</div>
+                <div class="cfg-total-value"><span id="monthlyTotal">15 000</span> <span class="cur">$</span></div>
+              </div>
+
+              <div class="cfg-divider"></div>
+              <div id="breakdown"></div>
+
+              <a class="cfg-cta" href="https://t.me/altaioptima" id="ctaBtn" target="_blank">Telegram'da Görüşün</a>
+              <div class="cfg-note">Hesaplama tahminidir. Kesin maliyet, süreç analizi ve ön görüşmenin ardından netleştirilir.</div>
+            </div>
           </div>
         </div>
 
@@ -8029,6 +8369,153 @@
       excelGiftTimer = setTimeout(() => {
         openExcelGiftModal(true);
       }, 15000);
+
+      (function initTariffConstructor() {
+        const lang = (document.documentElement.lang || 'ru').toLowerCase();
+        const isEn = lang.startsWith('en');
+        const isTr = lang.startsWith('tr');
+        const curSym = (isEn || isTr) ? '$' : '\u20bd';
+        const perMo = isEn ? '/mo' : (isTr ? '/ay' : '/\u043c\u0435\u0441');
+        const loc = (isEn || isTr) ? 'en-US' : 'ru-RU';
+
+        const CHANNELS = [
+          {id:'tg', label:'Telegram', setup:10000, monthly:2000},
+          {id:'inst', label:'Instagram*', setup:10000, monthly:2000},
+          {id:'avito', label: isEn ? 'Classifieds / Avito' : (isTr ? 'İlan Portalları' : '\u0410\u0432\u0438\u0442\u043e'), setup:10000, monthly:2000},
+          {id:'max', label:'MAX', setup:10000, monthly:2000},
+          {id:'mail', label: isEn ? 'Email' : (isTr ? 'E-posta' : 'Email'), setup:10000, monthly:2000},
+        ];
+        const CRMS = [
+          {id:'amo', label: (isEn || isTr) ? 'amoCRM / HubSpot' : 'amoCRM', setup:20000, monthly:5000},
+          {id:'bitrix', label: (isEn || isTr) ? 'Bitrix24 / Salesforce' : '\u0411\u0438\u0442\u0440\u0438\u043a\u044124', setup:20000, monthly:5000},
+          {id:'1c', label: (isEn || isTr) ? 'ERP / Inventory' : '1\u0421 / \u041c\u043e\u0439\u0421\u043a\u043b\u0430\u0434', setup:20000, monthly:5000},
+        ];
+        const EXTRAS = [
+          {
+            id:'voice',
+            label: isEn ? 'Voice message transcription' : (isTr ? 'Sesli mesaj tanıma' : '\u0420\u0430\u0441\u043f\u043e\u0437\u043d\u0430\u0432\u0430\u043d\u0438\u0435 \u0433\u043e\u043b\u043e\u0441\u043e\u0432\u044b\u0445'),
+            sub: isEn ? 'audio → text in any channel' : (isTr ? 'tüm kanallarda ses → metin' : '\u0430\u0443\u0434\u0438\u043e \u2192 \u0442\u0435\u043a\u0441\u0442 \u0432 \u043b\u044e\u0431\u043e\u043c \u043a\u0430\u043d\u0430\u043b\u0435'),
+            setup:10000, monthly:3000
+          },
+          {
+            id:'kb',
+            label: isEn ? 'Knowledge base creation from scratch' : (isTr ? 'Sıfırdan bilgi tabanı oluşturma' : '\u0421\u0431\u043e\u0440 \u0431\u0430\u0437\u044b \u0437\u043d\u0430\u043d\u0438\u0439 \u0441 \u043d\u0443\u043b\u044f'),
+            sub: isEn ? 'if you do not have scripts / FAQ / pricing ready' : (isTr ? 'fiyat listesi / senaryo / SSS henüz yoksa' : '\u0435\u0441\u043b\u0438 \u043f\u043e\u043a\u0430 \u043d\u0435\u0442 \u043f\u0440\u0430\u0439\u0441\u0430 / \u0441\u043a\u0440\u0438\u043f\u0442\u043e\u0432 / FAQ'),
+            setup:15000, monthly:0
+          },
+        ];
+        const VOLUMES = [
+          {id:'v1', label: isEn ? 'up to 100' : (isTr ? "100'e kadar" : '\u0434\u043e 100'), setupAdd:0, monthlyAdd:0},
+          {id:'v2', label:'100–300', setupAdd:0, monthlyAdd:3000},
+          {id:'v3', label: isEn ? '300–1,000' : (isTr ? '300–1.000' : '300–1.000'), setupAdd:0, monthlyAdd:7000},
+        ];
+
+        const state = { channels:{}, crms:{}, extras:{}, volume:'v1' };
+
+        function renderToggleList(container, items, group){
+          if (!container) return;
+          container.innerHTML = items.map(it => `
+            <div class="cfg-row" data-row="${it.id}">
+              <div>
+                <div class="cfg-row-label">${it.label}</div>
+                ${it.sub ? `<div class="cfg-row-sub">${it.sub}</div>` : ''}
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div class="cfg-row-price">${it.setup ? '+'+it.setup.toLocaleString(loc)+' '+curSym : ''}${it.monthly ? ' · +'+it.monthly.toLocaleString(loc)+' '+curSym+perMo : ''}</div>
+                <label class="cfg-switch">
+                  <input type="checkbox" data-group="${group}" data-id="${it.id}">
+                  <span class="cfg-track"></span>
+                </label>
+              </div>
+            </div>
+          `).join('');
+        }
+
+        const channelsEl = document.getElementById('channels');
+        const crmsEl = document.getElementById('crms');
+        const extrasEl = document.getElementById('extras');
+        const volumeEl = document.getElementById('volume');
+
+        if (channelsEl) renderToggleList(channelsEl, CHANNELS, 'channels');
+        if (crmsEl) renderToggleList(crmsEl, CRMS, 'crms');
+        if (extrasEl) renderToggleList(extrasEl, EXTRAS, 'extras');
+
+        if (volumeEl) {
+          volumeEl.innerHTML = VOLUMES.map(v =>
+            `<div class="cfg-pill ${v.id==='v1'?'active':''}" data-volume="${v.id}">${v.label}</div>`
+          ).join('');
+
+          volumeEl.addEventListener('click', e => {
+            const pill = e.target.closest('.cfg-pill');
+            if(!pill) return;
+            volumeEl.querySelectorAll('.cfg-pill').forEach(p=>p.classList.remove('active'));
+            pill.classList.add('active');
+            state.volume = pill.dataset.volume;
+            recalc();
+          });
+        }
+
+        const constructorSec = document.getElementById('constructor');
+        if (constructorSec) {
+          constructorSec.addEventListener('change', e => {
+            if(e.target.matches('input[type=checkbox]')){
+              const {group, id} = e.target.dataset;
+              if (group && state[group]) {
+                state[group][id] = e.target.checked;
+                recalc();
+              }
+            }
+          });
+        }
+
+        function recalc(){
+          const BASE_SETUP = 50000;
+          const BASE_MONTHLY = 15000;
+          let setup = BASE_SETUP;
+          let monthly = BASE_MONTHLY;
+          let lines = [];
+
+          CHANNELS.forEach(c => { if(state.channels[c.id]){ setup += c.setup; monthly += c.monthly; lines.push([c.label, c.setup, c.monthly]); }});
+          CRMS.forEach(c => { if(state.crms[c.id]){ setup += c.setup; monthly += c.monthly; lines.push([c.label, c.setup, c.monthly]); }});
+          EXTRAS.forEach(c => { if(state.extras[c.id]){ setup += c.setup; monthly += c.monthly; lines.push([c.label, c.setup, c.monthly]); }});
+
+          const vol = VOLUMES.find(v => v.id === state.volume);
+          const volPrefix = isEn ? 'Lead volume ' : (isTr ? 'Talep hacmi ' : '\u041e\u0431\u044a\u0451\u043c \u0437\u0430\u044f\u0432\u043e\u043a ');
+          if(vol && vol.monthlyAdd){ monthly += vol.monthlyAdd; lines.push([volPrefix+vol.label, 0, vol.monthlyAdd]); }
+
+          const setupTotalEl = document.getElementById('setupTotal');
+          const monthlyTotalEl = document.getElementById('monthlyTotal');
+          const breakdownEl = document.getElementById('breakdown');
+          const ctaBtn = document.getElementById('ctaBtn');
+
+          if (setupTotalEl) setupTotalEl.textContent = setup.toLocaleString(loc);
+          if (monthlyTotalEl) monthlyTotalEl.textContent = monthly.toLocaleString(loc);
+
+          const defaultBaseLabel = isEn ? 'Base Package' : (isTr ? 'Temel Paket' : '\u0411\u0430\u0437\u043e\u0432\u044b\u0439 \u043f\u0430\u043a\u0435\u0442');
+          const defaultBaseDesc = isEn ? 'WhatsApp + Spreadsheet CRM' : (isTr ? 'WhatsApp + Tablo CRM' : 'WhatsApp + CRM \u0432 \u0442\u0430\u0431\u043b\u0438\u0446\u0435');
+
+          if (breakdownEl) {
+            breakdownEl.innerHTML = lines.length
+              ? lines.map(l => `<div class="cfg-sum-line"><span>${l[0]}</span><span>${l[1]?('+'+l[1].toLocaleString(loc)+' '+curSym):''}${l[2]?(' / +'+l[2].toLocaleString(loc)+' '+curSym+perMo):''}</span></div>`).join('')
+              : `<div class="cfg-sum-line"><span>${defaultBaseLabel}</span><span>${defaultBaseDesc}</span></div>`;
+          }
+
+          if (ctaBtn) {
+            const selectedSummary = lines.length ? lines.map(l => l[0]).join(', ') : defaultBaseLabel;
+            let msg = '';
+            if (isEn) {
+              msg = `Hello! I configured a custom plan in Altai Optima:\n• Setup: ${setup.toLocaleString(loc)} $\n• SLA Support: ${monthly.toLocaleString(loc)} $/mo\n• Options: ${selectedSummary}\n\nI would like to discuss launching!`;
+            } else if (isTr) {
+              msg = `Merhaba! Altai Optima yapılandırıcısında özel bir tarife oluşturdum:\n• Kurulum: ${setup.toLocaleString(loc)} $\n• Teknik Destek: ${monthly.toLocaleString(loc)} $/ay\n• Seçenekler: ${selectedSummary}\n\nBaşlatmayı görüşmek istiyorum!`;
+            } else {
+              msg = '\u0417\u0434\u0440\u0430\u0432\u0441\u0442\u0432\u0443\u0439\u0442\u0435! \u0421\u043e\u0431\u0440\u0430\u043b \u0442\u0430\u0440\u0438\u0444 \u0432 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0435 Altai Optima:\n\u2022 \u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0430: ' + setup.toLocaleString(loc) + ' \u20bd\n\u2022 \u0422\u0435\u0445\u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0430: ' + monthly.toLocaleString(loc) + ' \u20bd/\u043c\u0435\u0441\n\u2022 \u041e\u043f\u0446\u0438\u0438: ' + selectedSummary + '\n\n\u0425\u043e\u0447\u0443 \u043e\u0431\u0441\u0443\u0434\u0438\u0442\u044c \u0437\u0430\u043f\u0443\u0441\u043a!';
+            }
+            ctaBtn.href = `https://t.me/altaioptima?text=${encodeURIComponent(msg)}`;
+          }
+        }
+
+        recalc();
+      })();
     });
   </script>
 </body>
