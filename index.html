@@ -1225,17 +1225,27 @@
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
     #constructor .cfg-wrap {
-      max-width: 1060px;
+      max-width: 1140px;
       margin: 0 auto;
     }
     #constructor .cfg-grid {
       display: grid;
-      grid-template-columns: 1fr 360px;
-      gap: 24px;
+      grid-template-columns: 1fr 340px;
+      gap: 20px;
       align-items: start;
     }
-    @media (max-width: 860px) {
+    #constructor .cfg-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    @media (max-width: 960px) {
       #constructor .cfg-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 640px) {
+      #constructor .cfg-cards-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -1243,21 +1253,23 @@
       background: #FFFFFF;
       border: 1px solid #E2E8F0;
       border-radius: 20px;
-      padding: 22px 24px;
-      margin-bottom: 18px;
+      padding: 18px 20px;
+      margin-bottom: 0;
       box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
       transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
     }
     #constructor .cfg-card:hover {
       box-shadow: 0 10px 25px -4px rgba(2, 132, 199, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
       border-color: #CBD5E1;
     }
     #constructor .cfg-card h3 {
-      font-size: 13px;
+      font-size: 12.5px;
       text-transform: uppercase;
       letter-spacing: .06em;
       color: #0284c7;
-      margin: 0 0 16px;
+      margin: 0 0 12px;
       font-weight: 800;
       display: flex;
       align-items: center;
@@ -1267,14 +1279,14 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 13px 0;
+      padding: 10px 0;
       border-bottom: 1px solid #F1F5F9;
     }
     #constructor .cfg-row:last-child {
       border-bottom: none;
     }
     #constructor .cfg-row-label {
-      font-size: 15px;
+      font-size: 14px;
       color: #0F172A;
       font-weight: 600;
       display: flex;
@@ -1283,25 +1295,25 @@
     }
     #constructor .cfg-row-sub {
       color: #64748B;
-      font-size: 12.5px;
-      margin-top: 2px;
+      font-size: 12px;
+      margin-top: 1px;
     }
     #constructor .cfg-row-price {
       color: #0284c7;
       background: #F0F9FF;
       border: 1px solid #BAE6FD;
-      padding: 3px 8px;
-      border-radius: 8px;
-      font-size: 12.5px;
+      padding: 2.5px 7px;
+      border-radius: 6px;
+      font-size: 11.5px;
       white-space: nowrap;
-      margin-left: 12px;
+      margin-left: 8px;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       font-weight: 700;
     }
     #constructor .cfg-badge-locked {
-      font-size: 11px;
-      padding: 2px 7px;
-      border-radius: 6px;
+      font-size: 10px;
+      padding: 1.5px 6px;
+      border-radius: 5px;
       background: #ECFDF5;
       color: #059669;
       font-weight: 700;
@@ -1311,8 +1323,8 @@
     }
     #constructor .cfg-switch {
       position: relative;
-      width: 44px;
-      height: 24px;
+      width: 40px;
+      height: 22px;
       flex-shrink: 0;
       cursor: pointer;
     }
@@ -1336,8 +1348,8 @@
     #constructor .cfg-track:before {
       content: "";
       position: absolute;
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
       left: 3px;
       top: 3px;
       background: #FFFFFF;
@@ -1354,7 +1366,7 @@
       box-shadow: 0 0 12px rgba(16, 185, 129, 0.35);
     }
     #constructor input:checked + .cfg-track:before {
-      transform: translateX(20px);
+      transform: translateX(18px);
       background: #fff;
     }
     #constructor .cfg-pill-group {
@@ -6033,7 +6045,8 @@
       <!-- Конструктор тарифа -->
       <div class="cfg-wrap relative z-10">
         <div class="cfg-grid">
-          <div>
+          <!-- СЕТКА 2x2 КАРТОЧЕК ОПЦИЙ -->
+          <div class="cfg-cards-grid">
 
             <!-- КАРТОЧКА 1: КАНАЛЫ СВЯЗИ -->
             <div class="cfg-card">
