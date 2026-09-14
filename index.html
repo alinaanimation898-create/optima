@@ -3690,8 +3690,8 @@
         </div>
         <div class="max-w-3xl mx-auto font-inter mt-6 sm:mt-4 pt-2 sm:pt-0">
           <p class="text-slate-800 text-base sm:text-lg md:text-xl font-medium leading-snug sm:leading-relaxed">
-            <span class="sm:block">ИИ-продавец отвечает на каждое обращение в первую минуту, отсеивает спам</span>
-            <span class="sm:block">и передаёт вашим менеджерам готовых клиентов даже ночью и в выходные</span>
+            <span class="block">ИИ-продавец отвечает на каждое обращение в первую минуту, отсеивает спам</span>
+            <span class="block">и передаёт вашим менеджерам готовых клиентов даже ночью и в выходные</span>
           </p>
         </div>
       </div>
@@ -5310,265 +5310,6 @@
       </div>
     </section>
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: СИНЯЯ СТРЕЛКА К ЮНИТ-ЭКОНОМИКЕ -->
-    <div class="flex flex-col items-center justify-center pt-6 sm:pt-10 pb-3 sm:pb-5 relative z-20">
-      <a href="#unit-economics" class="blue-path-track block cursor-pointer" title="1 сотрудник или ИИ-продавец">
-        <div class="blue-path-arrow text-sky-500">
-          <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
-        </div>
-      </a>
-    </div>
-
-    <!-- 8.5 БЛОК: СРАВНИТЕЛЬНЫЙ АНАЛИЗ (1 СОТРУДНИК ИЛИ ИИ-ПРОДАВЕЦ) -->
-    <section id="unit-economics" class="max-w-5xl xl:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 font-inter space-y-6 sm:space-y-8 py-10 sm:py-12 lg:py-16">
-      
-      <!-- ЗАГОЛОВОК И ПОДЗАГОЛОВОК СЕКЦИИ (ШРИФТ INTER, БЕЗ ТОЧКИ, СТРОГО 1 СТРОКА) -->
-      <div class="text-center max-w-4xl mx-auto space-y-2.5">
-        <h2 class="font-inter uppercase tracking-tight font-black text-lg xs:text-xl sm:text-3xl md:text-4xl lg:text-[42px] leading-tight whitespace-nowrap select-none" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 10px 25px rgba(2, 132, 199, 0.18)); overflow: visible;">
-          1 СОТРУДНИК ИЛИ ИИ-ПРОДАВЕЦ?
-        </h2>
-        <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
-          Баттл расходов с учетом реальных окладов, налогов и графика работы в 2026 году.
-        </p>
-      </div>
-
-      <!-- ЕДИНЫЙ БЛОК СРАВНИТЕЛЬНОГО АНАЛИЗА -->
-      <div class="relative w-full rounded-3xl bg-white border border-slate-200/90 shadow-[0_20px_50px_rgba(15,23,42,0.08)] overflow-hidden">
-        
-        <!-- МОБИЛЬНЫЙ ИНДИКАТОР ПРОКРУТКИ ВПРАВО (ВИДЕН ТОЛЬКО НА МОБИЛЬНЫХ) -->
-        <div class="sm:hidden flex items-center justify-between px-4 py-2.5 bg-gradient-to-r from-emerald-50 via-sky-50 to-emerald-50 border-b border-slate-200/80 text-[11px] text-slate-700 font-medium">
-          <span class="flex items-center gap-1.5 font-semibold text-emerald-900">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>Таблица свайпается</span>
-          </span>
-          <span class="flex items-center gap-1 font-bold text-emerald-700 animate-bounce-x">
-            <span>вправо к ИИ-продавцу</span>
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-          </span>
-        </div>
-
-        <!-- МОБИЛЬНЫЕ КНОПКИ БЫСТРОГО ПЕРЕКЛЮЧЕНИЯ КОЛОНОК -->
-        <div class="sm:hidden flex items-center justify-center gap-2 py-2 px-3 bg-slate-50/90 border-b border-slate-200">
-          <button type="button" id="colTabHuman" onclick="scrollTableToCol(0)" class="text-xs px-3.5 py-1 rounded-full font-bold border border-slate-300 bg-white text-slate-700 transition-all active:scale-95 shadow-2xs">
-            1 Сотрудник
-          </button>
-          <button type="button" id="colTabAI" onclick="scrollTableToCol(1)" class="text-xs px-3.5 py-1 rounded-full font-black border border-emerald-400 bg-emerald-100 text-emerald-950 transition-all active:scale-95 shadow-xs flex items-center gap-1">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
-            <span>ИИ-Продавец →</span>
-          </button>
-        </div>
-
-        <div id="unitEconTableScroll" class="overflow-x-auto relative scroll-smooth">
-          <!-- Градиентная тень справа на мобильных, показывающая продолжение таблицы -->
-          <div class="sm:hidden pointer-events-none sticky right-0 float-right top-0 w-6 h-full bg-gradient-to-l from-slate-900/10 to-transparent z-10"></div>
-
-          <table class="w-full text-left border-collapse min-w-[620px] sm:min-w-full">
-            <thead>
-              <tr class="border-b-2 border-slate-200">
-                <!-- СТОЛБЕЦ 1: КРИТЕРИИ И УСЛОВИЯ (НЕЙТРАЛЬНЫЙ СЕРЫЙ) -->
-                <th class="py-4 sm:py-5 px-4 sm:px-6 text-xs sm:text-sm font-bold text-slate-700 uppercase tracking-wider w-[30%] bg-slate-100/80 border-r border-slate-200">
-                  Статья расходов и условия
-                </th>
-                <!-- СТОЛБЕЦ 2: 1 ШТАТНЫЙ СОТРУДНИК (БЕЛЫЙ С ЧЕТКОЙ ГРАНИЦЕЙ) -->
-                <th class="py-4 sm:py-5 px-4 sm:px-6 text-xs sm:text-sm font-bold text-slate-700 uppercase tracking-wider w-[35%] bg-slate-50/90 border-r-2 border-slate-200">
-                  <div class="flex items-center gap-2">
-                    <span class="w-2.5 h-2.5 rounded-full bg-slate-400"></span>
-                    <span class="text-slate-800 font-extrabold text-sm sm:text-base">1 штатный сотрудник</span>
-                  </div>
-                </th>
-                <!-- СТОЛБЕЦ 3: ИИ-ПРОДАВЕЦ (ВЫДЕЛЕН ЗЕЛЕНЫМ, НЕОНОВАЯ ПОДСВЕТКА И АНИМАЦИЯ) -->
-                <th class="py-4 sm:py-5 px-4 sm:px-6 text-xs sm:text-sm font-black uppercase tracking-wider w-[35%] bg-gradient-to-r from-emerald-100/90 via-emerald-50 to-emerald-100/90 border-l-2 border-emerald-400 shadow-[inset_0_0_20px_rgba(16,185,129,0.15)] relative">
-                  <div class="flex items-center gap-2">
-                    <span class="relative flex h-3 w-3">
-                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                      <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.9)]"></span>
-                    </span>
-                    <span class="text-emerald-950 font-black text-sm sm:text-base">ИИ-ПРОДАВЕЦ</span>
-                  </div>
-                </th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-100 text-xs sm:text-sm font-inter">
-              
-              <!-- 1. Ежемесячный расход -->
-              <tr class="hover:bg-slate-50/40 transition-colors">
-                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
-                  Ежемесячный расход со 2-го месяца
-                </td>
-                <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-rose-700 font-bold bg-white border-r-2 border-slate-200">
-                  от 78 000 ₽ / мес <span class="text-[11px] text-slate-500 font-normal block">(оклад 50 000 ₽ на руки + налоги + софт)</span>
-                </td>
-                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-black text-emerald-700 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  от 15 000 ₽ / мес <span class="text-[11px] text-emerald-800 font-medium block">(со 2-го месяца — техподдержка и обслуживание)</span>
-                </td>
-              </tr>
-
-              <!-- 2. Налоги и взносы с ФОТ -->
-              <tr class="hover:bg-slate-50/40 transition-colors">
-                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
-                  Налоги и взносы с ФОТ
-                </td>
-                <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-700 bg-white border-r-2 border-slate-200">
-                  от 15 000 ₽ ежемесячно <span class="text-[11px] text-slate-500 block">(СФР, травматизм, отчетность)</span>
-                </td>
-                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-black text-emerald-700 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  0 ₽ <span class="text-[11px] text-emerald-800 font-medium block">(100% официальные B2B-расходы, уменьшающие налог)</span>
-                </td>
-              </tr>
-
-              <!-- 3. Реальный график работы -->
-              <tr class="hover:bg-slate-50/40 transition-colors">
-                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
-                  Реальный график работы
-                </td>
-                <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-700 bg-white border-r-2 border-slate-200">
-                  40 часов в неделю <span class="text-[11px] text-slate-500 block">(около 24% общего времени бизнеса)</span>
-                </td>
-                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-black text-emerald-700 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  168 часов в неделю <span class="text-[11px] text-emerald-800 font-semibold block">(24/7/365 без пауз, обедов и сна)</span>
-                </td>
-              </tr>
-
-              <!-- 4. Ночь, выходные и праздники -->
-              <tr class="hover:bg-slate-50/40 transition-colors">
-                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
-                  Ночь, выходные и праздники
-                </td>
-                <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-rose-700 font-medium bg-white border-r-2 border-slate-200">
-                  Лиды ждут до утра понедельника и уходят к конкурентам
-                </td>
-                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-emerald-800 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  Мгновенный ответ за 30–60 секунд в любой день года
-                </td>
-              </tr>
-
-              <!-- 5. Ведение CRM -->
-              <tr class="hover:bg-slate-50/40 transition-colors">
-                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
-                  Ведение CRM
-                </td>
-                <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-600 bg-white border-r-2 border-slate-200">
-                  Человеческий фактор <span class="text-[11px] text-rose-600 block">(забыл внести, опечатался в телефоне)</span>
-                </td>
-                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-emerald-950 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  100% заполнение обязательных полей по регламенту (CRM в Excel, amoCRM, 1С)
-                </td>
-              </tr>
-
-              <!-- 6. Больничные, отпуска, увольнения -->
-              <tr class="hover:bg-slate-50/40 transition-colors">
-                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
-                  Больничные, отпуска, увольнения
-                </td>
-                <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-600 bg-white border-r-2 border-slate-200">
-                  Оплачиваются из кармана бизнеса + простой при замене
-                </td>
-                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-emerald-950 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  Не болеет, не увольняется, не требует повторного онбординга
-                </td>
-              </tr>
-
-              <!-- 7. Разовый запуск и настройка -->
-              <tr class="hover:bg-slate-50/40 transition-colors">
-                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
-                  Разовый запуск и настройка
-                </td>
-                <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-600 bg-white border-r-2 border-slate-200">
-                  от 25 000 ₽ <span class="text-[11px] text-slate-500 block">(поиск на hh, отбор, стажировка, время РОПа)</span>
-                </td>
-                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-emerald-950 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  от 50 000 ₽ <span class="text-[11px] text-emerald-800 font-semibold block">(настройка ИИ-продавца от 50 000 ₽ единоразово + 15 000 ₽ со 2-го месяца)</span>
-                </td>
-              </tr>
-
-              <!-- 8. Итого затраты за 12 месяцев -->
-              <tr class="hover:bg-slate-50/40 transition-colors bg-slate-50/40">
-                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-black text-slate-950 bg-slate-100/70 border-r border-slate-200">
-                  Итого затраты за 12 месяцев
-                </td>
-                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-800 bg-white border-r-2 border-slate-200">
-                  ~960 000 ₽ <span class="text-[11px] text-slate-500 font-normal block">(найм 25 000 ₽ + 12 месяцев содержания по 78 000 ₽)</span>
-                </td>
-                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-black text-emerald-700 bg-emerald-100/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  215 000 ₽ <span class="text-[11px] text-emerald-900 font-semibold block">(настройка от 50 000 ₽ единоразово + 11 × 15 000 ₽ со 2-го месяца)</span>
-                </td>
-              </tr>
-
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- ЧИСТАЯ ЭКОНОМИЯ КОМПАНИИ: АБСОЛЮТНО БЕЗ ПОДЛОЖКИ И РАМКИ -->
-      <div class="relative max-w-3xl mx-auto pt-6 pb-2 font-inter text-center">
-        <div class="text-center font-mono font-extrabold uppercase tracking-widest text-emerald-700 text-xs sm:text-sm md:text-base pb-3">
-          ЧИСТАЯ ЭКОНОМИЯ КОМПАНИИ
-        </div>
-
-        <!-- Зеленая стрелка с рублем и рассыпающимися веером монетами-рублями -->
-        <div class="green-path-track block relative mx-auto" style="height: 80px;">
-          <div class="green-ruble-arrow flex flex-col items-center">
-            <div class="w-7 h-7 rounded-full bg-gradient-to-b from-emerald-600 to-emerald-900 text-white flex items-center justify-center font-bold text-xs shadow-[0_0_16px_rgba(4,120,87,0.7)] border border-white/90 font-inter">
-              ₽
-            </div>
-            <svg class="w-4 h-4 text-emerald-800 -mt-1 drop-shadow-[0_0_6px_rgba(4,120,87,0.8)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </div>
-
-          <!-- Рассыпающиеся веером рубли, падающие на цифру чистой экономии -->
-          <div class="ruble-scatter-field" style="height: 340px;">
-            <!-- Левый каскад -->
-            <div class="scatter-coin w-6 h-6 text-[10px]" style="--cx: -240px; --cy: 140px; --cr: -55deg; --sway: -15px; animation-delay: 0.05s;">₽</div>
-            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: -180px; --cy: 165px; --cr: -40deg; --sway: 18px; animation-delay: 0.25s;">₽</div>
-            <div class="scatter-coin w-6 h-6 text-[11px]" style="--cx: -130px; --cy: 145px; --cr: -30deg; --sway: -12px; animation-delay: 0.45s;">₽</div>
-            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: -80px; --cy: 175px; --cr: -20deg; --sway: 15px; animation-delay: 0.65s;">₽</div>
-            <div class="scatter-coin w-6 h-6 text-[10px]" style="--cx: -210px; --cy: 195px; --cr: -60deg; --sway: 20px; animation-delay: 1.05s;">₽</div>
-            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: -120px; --cy: 185px; --cr: -35deg; --sway: -16px; animation-delay: 0.35s;">₽</div>
-
-            <!-- Центральный каскад (падает прямо на цифру от 745 000 ₽) -->
-            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: -35px; --cy: 145px; --cr: -10deg; --sway: -12px; animation-delay: 0.15s;">₽</div>
-            <div class="scatter-coin w-8 h-8 text-sm" style="--cx: 30px; --cy: 155px; --cr: 10deg; --sway: 14px; animation-delay: 0.4s;">₽</div>
-            <div class="scatter-coin w-6 h-6 text-[11px]" style="--cx: -15px; --cy: 175px; --cr: -8deg; --sway: 10px; animation-delay: 0.6s;">₽</div>
-            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: 18px; --cy: 185px; --cr: 8deg; --sway: -12px; animation-delay: 0.85s;">₽</div>
-            <div class="scatter-coin w-8 h-8 text-sm" style="--cx: 0px; --cy: 195px; --cr: 0deg; --sway: 8px; animation-delay: 1.1s;">₽</div>
-
-            <!-- Правый каскад -->
-            <div class="scatter-coin w-6 h-6 text-[10px]" style="--cx: 80px; --cy: 145px; --cr: 20deg; --sway: 14px; animation-delay: 0.1s;">₽</div>
-            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: 130px; --cy: 170px; --cr: 30deg; --sway: -15px; animation-delay: 0.3s;">₽</div>
-            <div class="scatter-coin w-8 h-8 text-sm" style="--cx: 180px; --cy: 155px; --cr: 40deg; --sway: 18px; animation-delay: 0.5s;">₽</div>
-            <div class="scatter-coin w-6 h-6 text-[11px]" style="--cx: 230px; --cy: 175px; --cr: 55deg; --sway: -12px; animation-delay: 0.7s;">₽</div>
-            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: 110px; --cy: 195px; --cr: 25deg; --sway: -10px; animation-delay: 0.45s;">₽</div>
-            <div class="scatter-coin w-8 h-8 text-sm" style="--cx: 205px; --cy: 190px; --cr: 50deg; --sway: 15px; animation-delay: 0.8s;">₽</div>
-
-            <!-- Искры и мерцания -->
-            <div class="scatter-sparkle" style="--sx: -120px; --sy: 150px; animation-delay: 0.3s;">✦</div>
-            <div class="scatter-sparkle" style="--sx: 130px; --sy: 160px; animation-delay: 0.6s;">✦</div>
-            <div class="scatter-sparkle" style="--sx: -50px; --sy: 175px; animation-delay: 0.9s;">✦</div>
-            <div class="scatter-sparkle" style="--sx: 60px; --sy: 185px; animation-delay: 1.1s;">✦</div>
-          </div>
-        </div>
-
-        <!-- ТЕКСТ И ЦИФРА ЭКОНОМИИ: АБСОЛЮТНО БЕЗ ПОДЛОЖКИ -->
-        <div class="relative z-10 flex flex-col items-center justify-center space-y-3 pt-3">
-          <!-- ПУЛЬСИРУЮЩАЯ ВЫДЕЛЕННАЯ ЦИФРА ЭКОНОМИИ -->
-          <div class="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black font-inter tracking-tight leading-none">
-            <span class="inline-block animate-scale-pulse font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-400 filter drop-shadow-[0_6px_28px_rgba(16,185,129,0.5)]">
-              от 745 000 ₽
-            </span>
-            <span class="text-slate-900 font-black text-2xl sm:text-3xl md:text-4xl tracking-normal"> / ГОД</span>
-          </div>
-          
-          <p class="text-xs sm:text-sm md:text-base text-slate-700 max-w-xl mx-auto leading-relaxed font-normal pt-1">
-            Со второго месяца вы платите фиксированные от 15 000 ₽ вместо 78 000+ ₽ реальной зарплатной нагрузки. Внедрение окупается уже в первый месяц за счет мгновенного отклика и чистой разницы в расходах.
-          </p>
-        </div>
-      </div>
-
-    </section>
-
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: СИНЯЯ СТРЕЛКА К КЕЙСАМ -->
     <div class="flex flex-col items-center justify-center pt-6 sm:pt-10 pb-3 sm:pb-5 relative z-20">
       <a href="#cases" class="blue-path-track block cursor-pointer" title="Кейсы внедрения">
@@ -6056,6 +5797,263 @@
       </div>
     </section>
 
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: СИНЯЯ СТРЕЛКА К ЮНИТ-ЭКОНОМИКЕ -->
+    <div class="flex flex-col items-center justify-center pt-6 sm:pt-10 pb-3 sm:pb-5 relative z-20">
+      <a href="#unit-economics" class="blue-path-track block cursor-pointer" title="1 сотрудник или ИИ-продавец">
+        <div class="blue-path-arrow text-sky-500">
+          <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </div>
+      </a>
+    </div>
+
+    <!-- 8.5 БЛОК: СРАВНИТЕЛЬНЫЙ АНАЛИЗ (1 СОТРУДНИК ИЛИ ИИ-ПРОДАВЕЦ) -->
+    <section id="unit-economics" class="max-w-5xl xl:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 font-inter space-y-6 sm:space-y-8 py-10 sm:py-12 lg:py-16">
+      
+      <!-- ЗАГОЛОВОК И ПОДЗАГОЛОВОК СЕКЦИИ (ШРИФТ INTER, БЕЗ ТОЧКИ, СТРОГО 1 СТРОКА) -->
+      <div class="text-center max-w-4xl mx-auto space-y-2.5">
+        <h2 class="font-inter uppercase tracking-tight font-black text-lg xs:text-xl sm:text-3xl md:text-4xl lg:text-[42px] leading-tight whitespace-nowrap select-none" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 10px 25px rgba(2, 132, 199, 0.18)); overflow: visible;">
+          1 СОТРУДНИК ИЛИ ИИ-ПРОДАВЕЦ?
+        </h2>
+        <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
+          Баттл расходов с учетом реальных окладов, налогов и графика работы в 2026 году
+        </p>
+      </div>
+
+      <!-- ЕДИНЫЙ БЛОК СРАВНИТЕЛЬНОГО АНАЛИЗА -->
+      <div class="relative w-full rounded-3xl bg-white border border-slate-200/90 shadow-[0_20px_50px_rgba(15,23,42,0.08)] overflow-hidden">
+        
+        <!-- МОБИЛЬНЫЙ ИНДИКАТОР ПРОКРУТКИ ВПРАВО (ВИДЕН ТОЛЬКО НА МОБИЛЬНЫХ) -->
+        <div class="sm:hidden flex items-center justify-between px-4 py-2.5 bg-gradient-to-r from-emerald-50 via-sky-50 to-emerald-50 border-b border-slate-200/80 text-[11px] text-slate-700 font-medium">
+          <span class="flex items-center gap-1.5 font-semibold text-emerald-900">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Таблица свайпается</span>
+          </span>
+          <span class="flex items-center gap-1 font-bold text-emerald-700 animate-bounce-x">
+            <span>вправо к ИИ-продавцу</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </span>
+        </div>
+
+        <!-- МОБИЛЬНЫЕ КНОПКИ БЫСТРОГО ПЕРЕКЛЮЧЕНИЯ КОЛОНОК -->
+        <div class="sm:hidden flex items-center justify-center gap-2 py-2 px-3 bg-slate-50/90 border-b border-slate-200">
+          <button type="button" id="colTabHuman" onclick="scrollTableToCol(0)" class="text-xs px-3.5 py-1 rounded-full font-bold border border-slate-300 bg-white text-slate-700 transition-all active:scale-95 shadow-2xs">
+            1 Сотрудник
+          </button>
+          <button type="button" id="colTabAI" onclick="scrollTableToCol(1)" class="text-xs px-3.5 py-1 rounded-full font-black border border-emerald-400 bg-emerald-100 text-emerald-950 transition-all active:scale-95 shadow-xs flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+            <span>ИИ-Продавец →</span>
+          </button>
+        </div>
+
+        <div id="unitEconTableScroll" class="overflow-x-auto relative scroll-smooth">
+          <!-- Градиентная тень справа на мобильных, показывающая продолжение таблицы -->
+          <div class="sm:hidden pointer-events-none sticky right-0 float-right top-0 w-6 h-full bg-gradient-to-l from-slate-900/10 to-transparent z-10"></div>
+
+          <table class="w-full text-left border-collapse min-w-[620px] sm:min-w-full">
+            <thead>
+              <tr class="border-b-2 border-slate-200">
+                <!-- СТОЛБЕЦ 1: КРИТЕРИИ И УСЛОВИЯ (НЕЙТРАЛЬНЫЙ СЕРЫЙ) -->
+                <th class="py-4 sm:py-5 px-4 sm:px-6 text-xs sm:text-sm font-bold text-slate-700 uppercase tracking-wider w-[30%] bg-slate-100/80 border-r border-slate-200">
+                  Статья расходов и условия
+                </th>
+                <!-- СТОЛБЕЦ 2: 1 ШТАТНЫЙ СОТРУДНИК (БЕЛЫЙ С ЧЕТКОЙ ГРАНИЦЕЙ) -->
+                <th class="py-4 sm:py-5 px-4 sm:px-6 text-xs sm:text-sm font-bold text-slate-700 uppercase tracking-wider w-[35%] bg-slate-50/90 border-r-2 border-slate-200">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-slate-400"></span>
+                    <span class="text-slate-800 font-extrabold text-sm sm:text-base">1 штатный сотрудник</span>
+                  </div>
+                </th>
+                <!-- СТОЛБЕЦ 3: ИИ-ПРОДАВЕЦ (ВЫДЕЛЕН ЗЕЛЕНЫМ, НЕОНОВАЯ ПОДСВЕТКА И АНИМАЦИЯ) -->
+                <th class="py-4 sm:py-5 px-4 sm:px-6 text-xs sm:text-sm font-black uppercase tracking-wider w-[35%] bg-gradient-to-r from-emerald-100/90 via-emerald-50 to-emerald-100/90 border-l-2 border-emerald-400 shadow-[inset_0_0_20px_rgba(16,185,129,0.15)] relative">
+                  <div class="flex items-center gap-2">
+                    <span class="relative flex h-3 w-3">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.9)]"></span>
+                    </span>
+                    <span class="text-emerald-950 font-black text-sm sm:text-base">ИИ-ПРОДАВЕЦ</span>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 text-xs sm:text-sm font-inter">
+              
+              <!-- 1. Ежемесячный расход -->
+              <tr class="hover:bg-slate-50/40 transition-colors">
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
+                  Ежемесячный расход со 2-го месяца
+                </td>
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-rose-700 font-bold bg-white border-r-2 border-slate-200">
+                  от 78 000 ₽ / мес <span class="text-[11px] text-slate-500 font-normal block">(оклад 50 000 ₽ на руки + налоги + софт)</span>
+                </td>
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-black text-emerald-700 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
+                  от 15 000 ₽ / мес <span class="text-[11px] text-emerald-800 font-medium block">(со 2-го месяца — техподдержка и обслуживание)</span>
+                </td>
+              </tr>
+
+              <!-- 2. Налоги и взносы с ФОТ -->
+              <tr class="hover:bg-slate-50/40 transition-colors">
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
+                  Налоги и взносы с ФОТ
+                </td>
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-700 bg-white border-r-2 border-slate-200">
+                  от 15 000 ₽ ежемесячно <span class="text-[11px] text-slate-500 block">(СФР, травматизм, отчетность)</span>
+                </td>
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-black text-emerald-700 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
+                  0 ₽ <span class="text-[11px] text-emerald-800 font-medium block">(100% официальные B2B-расходы, уменьшающие налог)</span>
+                </td>
+              </tr>
+
+              <!-- 3. Реальный график работы -->
+              <tr class="hover:bg-slate-50/40 transition-colors">
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
+                  Реальный график работы
+                </td>
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-700 bg-white border-r-2 border-slate-200">
+                  40 часов в неделю <span class="text-[11px] text-slate-500 block">(около 24% общего времени бизнеса)</span>
+                </td>
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-black text-emerald-700 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
+                  168 часов в неделю <span class="text-[11px] text-emerald-800 font-semibold block">(24/7/365 без пауз, обедов и сна)</span>
+                </td>
+              </tr>
+
+              <!-- 4. Ночь, выходные и праздники -->
+              <tr class="hover:bg-slate-50/40 transition-colors">
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
+                  Ночь, выходные и праздники
+                </td>
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-rose-700 font-medium bg-white border-r-2 border-slate-200">
+                  Лиды ждут до утра понедельника и уходят к конкурентам
+                </td>
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-emerald-800 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
+                  Мгновенный ответ за 30–60 секунд в любой день года
+                </td>
+              </tr>
+
+              <!-- 5. Ведение CRM -->
+              <tr class="hover:bg-slate-50/40 transition-colors">
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
+                  Ведение CRM
+                </td>
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-600 bg-white border-r-2 border-slate-200">
+                  Человеческий фактор <span class="text-[11px] text-rose-600 block">(забыл внести, опечатался в телефоне)</span>
+                </td>
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-emerald-950 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
+                  100% заполнение обязательных полей по регламенту (CRM в Excel, amoCRM, 1С)
+                </td>
+              </tr>
+
+              <!-- 6. Больничные, отпуска, увольнения -->
+              <tr class="hover:bg-slate-50/40 transition-colors">
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
+                  Больничные, отпуска, увольнения
+                </td>
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-600 bg-white border-r-2 border-slate-200">
+                  Оплачиваются из кармана бизнеса + простой при замене
+                </td>
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-emerald-950 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
+                  Не болеет, не увольняется, не требует повторного онбординга
+                </td>
+              </tr>
+
+              <!-- 7. Разовый запуск и настройка -->
+              <tr class="hover:bg-slate-50/40 transition-colors">
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
+                  Разовый запуск и настройка
+                </td>
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-600 bg-white border-r-2 border-slate-200">
+                  от 25 000 ₽ <span class="text-[11px] text-slate-500 block">(поиск на hh, отбор, стажировка, время РОПа)</span>
+                </td>
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-emerald-950 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
+                  от 50 000 ₽ <span class="text-[11px] text-emerald-800 font-semibold block">(настройка ИИ-продавца от 50 000 ₽ единоразово + 15 000 ₽ со 2-го месяца)</span>
+                </td>
+              </tr>
+
+              <!-- 8. Итого затраты за 12 месяцев -->
+              <tr class="hover:bg-slate-50/40 transition-colors bg-slate-50/40">
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-black text-slate-950 bg-slate-100/70 border-r border-slate-200">
+                  Итого затраты за 12 месяцев
+                </td>
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-800 bg-white border-r-2 border-slate-200">
+                  ~960 000 ₽ <span class="text-[11px] text-slate-500 font-normal block">(найм 25 000 ₽ + 12 месяцев содержания по 78 000 ₽)</span>
+                </td>
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-black text-emerald-700 bg-emerald-100/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
+                  215 000 ₽ <span class="text-[11px] text-emerald-900 font-semibold block">(настройка от 50 000 ₽ единоразово + 11 × 15 000 ₽ со 2-го месяца)</span>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ЧИСТАЯ ЭКОНОМИЯ КОМПАНИИ: АБСОЛЮТНО БЕЗ ПОДЛОЖКИ И РАМКИ -->
+      <div class="relative max-w-3xl mx-auto pt-6 pb-2 font-inter text-center">
+        <div class="text-center font-mono font-extrabold uppercase tracking-widest text-emerald-700 text-xs sm:text-sm md:text-base pb-3">
+          ЧИСТАЯ ЭКОНОМИЯ КОМПАНИИ
+        </div>
+
+        <!-- Зеленая стрелка с рублем и рассыпающимися веером монетами-рублями -->
+        <div class="green-path-track block relative mx-auto" style="height: 80px;">
+          <div class="green-ruble-arrow flex flex-col items-center">
+            <div class="w-7 h-7 rounded-full bg-gradient-to-b from-emerald-600 to-emerald-900 text-white flex items-center justify-center font-bold text-xs shadow-[0_0_16px_rgba(4,120,87,0.7)] border border-white/90 font-inter">
+              ₽
+            </div>
+            <svg class="w-4 h-4 text-emerald-800 -mt-1 drop-shadow-[0_0_6px_rgba(4,120,87,0.8)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+
+          <!-- Рассыпающиеся веером рубли, падающие на цифру чистой экономии -->
+          <div class="ruble-scatter-field" style="height: 340px;">
+            <!-- Левый каскад -->
+            <div class="scatter-coin w-6 h-6 text-[10px]" style="--cx: -240px; --cy: 140px; --cr: -55deg; --sway: -15px; animation-delay: 0.05s;">₽</div>
+            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: -180px; --cy: 165px; --cr: -40deg; --sway: 18px; animation-delay: 0.25s;">₽</div>
+            <div class="scatter-coin w-6 h-6 text-[11px]" style="--cx: -130px; --cy: 145px; --cr: -30deg; --sway: -12px; animation-delay: 0.45s;">₽</div>
+            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: -80px; --cy: 175px; --cr: -20deg; --sway: 15px; animation-delay: 0.65s;">₽</div>
+            <div class="scatter-coin w-6 h-6 text-[10px]" style="--cx: -210px; --cy: 195px; --cr: -60deg; --sway: 20px; animation-delay: 1.05s;">₽</div>
+            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: -120px; --cy: 185px; --cr: -35deg; --sway: -16px; animation-delay: 0.35s;">₽</div>
+
+            <!-- Центральный каскад (падает прямо на цифру от 745 000 ₽) -->
+            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: -35px; --cy: 145px; --cr: -10deg; --sway: -12px; animation-delay: 0.15s;">₽</div>
+            <div class="scatter-coin w-8 h-8 text-sm" style="--cx: 30px; --cy: 155px; --cr: 10deg; --sway: 14px; animation-delay: 0.4s;">₽</div>
+            <div class="scatter-coin w-6 h-6 text-[11px]" style="--cx: -15px; --cy: 175px; --cr: -8deg; --sway: 10px; animation-delay: 0.6s;">₽</div>
+            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: 18px; --cy: 185px; --cr: 8deg; --sway: -12px; animation-delay: 0.85s;">₽</div>
+            <div class="scatter-coin w-8 h-8 text-sm" style="--cx: 0px; --cy: 195px; --cr: 0deg; --sway: 8px; animation-delay: 1.1s;">₽</div>
+
+            <!-- Правый каскад -->
+            <div class="scatter-coin w-6 h-6 text-[10px]" style="--cx: 80px; --cy: 145px; --cr: 20deg; --sway: 14px; animation-delay: 0.1s;">₽</div>
+            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: 130px; --cy: 170px; --cr: 30deg; --sway: -15px; animation-delay: 0.3s;">₽</div>
+            <div class="scatter-coin w-8 h-8 text-sm" style="--cx: 180px; --cy: 155px; --cr: 40deg; --sway: 18px; animation-delay: 0.5s;">₽</div>
+            <div class="scatter-coin w-6 h-6 text-[11px]" style="--cx: 230px; --cy: 175px; --cr: 55deg; --sway: -12px; animation-delay: 0.7s;">₽</div>
+            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: 110px; --cy: 195px; --cr: 25deg; --sway: -10px; animation-delay: 0.45s;">₽</div>
+            <div class="scatter-coin w-8 h-8 text-sm" style="--cx: 205px; --cy: 190px; --cr: 50deg; --sway: 15px; animation-delay: 0.8s;">₽</div>
+
+            <!-- Искры и мерцания -->
+            <div class="scatter-sparkle" style="--sx: -120px; --sy: 150px; animation-delay: 0.3s;">✦</div>
+            <div class="scatter-sparkle" style="--sx: 130px; --sy: 160px; animation-delay: 0.6s;">✦</div>
+            <div class="scatter-sparkle" style="--sx: -50px; --sy: 175px; animation-delay: 0.9s;">✦</div>
+            <div class="scatter-sparkle" style="--sx: 60px; --sy: 185px; animation-delay: 1.1s;">✦</div>
+          </div>
+        </div>
+
+        <!-- ТЕКСТ И ЦИФРА ЭКОНОМИИ: АБСОЛЮТНО БЕЗ ПОДЛОЖКИ -->
+        <div class="relative z-10 flex flex-col items-center justify-center space-y-3 pt-3">
+          <!-- ПУЛЬСИРУЮЩАЯ ВЫДЕЛЕННАЯ ЦИФРА ЭКОНОМИИ -->
+          <div class="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black font-inter tracking-tight leading-none">
+            <span class="inline-block animate-scale-pulse font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-400 filter drop-shadow-[0_6px_28px_rgba(16,185,129,0.5)]">
+              от 745 000 ₽
+            </span>
+            <span class="text-slate-900 font-black text-2xl sm:text-3xl md:text-4xl tracking-normal"> / ГОД</span>
+          </div>
+          
+
+        </div>
+      </div>
+
+    </section>
+
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: СИНЯЯ СТРЕЛКА К КОНСТРУКТОРУ ТАРИФА -->
     <div class="flex flex-col items-center justify-center pt-6 sm:pt-10 pb-3 sm:pb-5 relative z-20">
       <a href="#constructor" class="blue-path-track block cursor-pointer" title="Конструктор тарифа">
@@ -6073,7 +6071,7 @@
       <!-- Заголовок секции -->
       <div class="text-center max-w-4xl mx-auto space-y-2.5 pb-2">
         <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[44px] leading-[1.15]" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 12px 30px rgba(2, 132, 199, 0.15));">
-          Соберите тариф под вашу задачу
+          Рассчитайте стоимость оптимизации вашего бизнеса
         </h2>
         <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
           Стоимость зависит от каналов, CRM и объёма заявок. Отметьте, что уже есть и что нужно подключить — расчёт обновится сразу
@@ -6189,13 +6187,11 @@
 
     <!-- 9. ФИНАЛЬНЫЙ БЛОК: ПОРА ЗАБИРАТЬ СВОИ ДЕНЬГИ -->
     <section id="cta-final" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-20 pt-12 pb-16 sm:pt-16 sm:pb-24 space-y-6 sm:space-y-8 font-inter">
-      <div class="space-y-4">
-        <h2 class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-5xl md:text-6xl select-none" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 12px 30px rgba(2, 132, 199, 0.18));">
-          НАСТАЛО ВРЕМЯ ПОЛУЧИТЬ МАКСИМУМ ПРИБЫЛИ
+      <div>
+        <h2 class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-5xl md:text-6xl select-none leading-[1.15]" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 12px 30px rgba(2, 132, 199, 0.18));">
+          <span class="block">НАСТАЛО ВРЕМЯ ПОЛУЧИТЬ</span>
+          <span class="block">МАКСИМУМ ПРИБЫЛИ</span>
         </h2>
-        <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-xl mx-auto leading-relaxed font-normal">
-          Подключите автономного ИИ-продавца: удерживайте каждого клиента и превращайте входящий трафик в прибыль
-        </p>
       </div>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
