@@ -1214,72 +1214,96 @@
 
     
     #constructor {
-      --cfg-bg: #0A0F1A;
-      --cfg-panel: #11182A;
-      --cfg-panel-2: #161E33;
-      --cfg-line: #232D45;
-      --cfg-text: #E8ECF4;
-      --cfg-muted: #8993AC;
+      --cfg-bg: #FFFFFF;
+      --cfg-panel: #FFFFFF;
+      --cfg-panel-2: #F8FAFC;
+      --cfg-line: #E2E8F0;
+      --cfg-text: #0F172A;
+      --cfg-muted: #64748B;
       --cfg-accent: #0284c7;
       --cfg-accent-2: #10b981;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
     #constructor .cfg-wrap {
-      max-width: 1040px;
+      max-width: 1060px;
       margin: 0 auto;
     }
     #constructor .cfg-grid {
       display: grid;
-      grid-template-columns: 1fr 350px;
+      grid-template-columns: 1fr 360px;
       gap: 24px;
       align-items: start;
     }
-    @media (max-width: 840px) {
+    @media (max-width: 860px) {
       #constructor .cfg-grid {
         grid-template-columns: 1fr;
       }
     }
     #constructor .cfg-card {
-      background: #11182A;
-      border: 1px solid #232D45;
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
       border-radius: 20px;
       padding: 22px 24px;
       margin-bottom: 18px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+      transition: all 0.2s ease;
+    }
+    #constructor .cfg-card:hover {
+      box-shadow: 0 10px 25px -4px rgba(2, 132, 199, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+      border-color: #CBD5E1;
     }
     #constructor .cfg-card h3 {
       font-size: 13px;
       text-transform: uppercase;
       letter-spacing: .06em;
-      color: #8993AC;
+      color: #0284c7;
       margin: 0 0 16px;
-      font-weight: 700;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
     #constructor .cfg-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 0;
-      border-bottom: 1px solid #232D45;
+      padding: 13px 0;
+      border-bottom: 1px solid #F1F5F9;
     }
     #constructor .cfg-row:last-child {
       border-bottom: none;
     }
     #constructor .cfg-row-label {
       font-size: 15px;
-      color: #E8ECF4;
+      color: #0F172A;
       font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
     #constructor .cfg-row-sub {
-      color: #8993AC;
+      color: #64748B;
       font-size: 12.5px;
       margin-top: 2px;
     }
     #constructor .cfg-row-price {
-      color: #8993AC;
+      color: #64748B;
       font-size: 13px;
       white-space: nowrap;
       margin-left: 12px;
       font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+    }
+    #constructor .cfg-badge-locked {
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: #ECFDF5;
+      color: #059669;
+      font-weight: 700;
+      border: 1px solid #A7F3D0;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
     }
     #constructor .cfg-switch {
       position: relative;
@@ -1287,6 +1311,10 @@
       height: 24px;
       flex-shrink: 0;
       cursor: pointer;
+    }
+    #constructor .cfg-switch.cfg-locked {
+      cursor: not-allowed;
+      opacity: 0.95;
     }
     #constructor .cfg-switch input {
       opacity: 0;
@@ -1297,7 +1325,7 @@
     #constructor .cfg-track {
       position: absolute;
       inset: 0;
-      background: #26304A;
+      background: #E2E8F0;
       border-radius: 999px;
       transition: .18s ease;
     }
@@ -1308,13 +1336,18 @@
       height: 18px;
       left: 3px;
       top: 3px;
-      background: #C7CEE0;
+      background: #FFFFFF;
       border-radius: 50%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
       transition: .18s cubic-bezier(0.4, 0, 0.2, 1);
     }
     #constructor input:checked + .cfg-track {
       background: linear-gradient(135deg, #0284c7, #0ea5e9);
-      box-shadow: 0 0 14px rgba(14, 165, 233, 0.45);
+      box-shadow: 0 0 12px rgba(14, 165, 233, 0.35);
+    }
+    #constructor .cfg-switch.cfg-locked input:checked + .cfg-track {
+      background: linear-gradient(135deg, #059669, #10b981);
+      box-shadow: 0 0 12px rgba(16, 185, 129, 0.35);
     }
     #constructor input:checked + .cfg-track:before {
       transform: translateX(20px);
@@ -1326,9 +1359,9 @@
       flex-wrap: wrap;
     }
     #constructor .cfg-pill {
-      border: 1px solid #232D45;
-      background: #161E33;
-      color: #8993AC;
+      border: 1px solid #E2E8F0;
+      background: #F8FAFC;
+      color: #475569;
       padding: 8px 16px;
       border-radius: 999px;
       font-size: 13.5px;
@@ -1339,47 +1372,64 @@
     }
     #constructor .cfg-pill:hover {
       border-color: #0284c7;
-      color: #E8ECF4;
+      color: #0284c7;
+      background: #F0F9FF;
     }
     #constructor .cfg-pill.active {
       border-color: #0284c7;
-      color: #fff;
-      background: rgba(2, 132, 199, 0.25);
-      box-shadow: 0 0 16px rgba(2, 132, 199, 0.35);
+      color: #FFFFFF;
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
+    }
+    #constructor .cfg-pill.cfg-pill-vip {
+      border-color: #FDE047;
+      background: #FEFCE8;
+      color: #854D0E;
+    }
+    #constructor .cfg-pill.cfg-pill-vip:hover {
+      border-color: #EAB308;
+      background: #FEF08A;
+      color: #713F12;
+    }
+    #constructor .cfg-pill.cfg-pill-vip.active {
+      border-color: #EAB308;
+      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35);
     }
     #constructor .cfg-summary {
       position: sticky;
       top: 90px;
-      background: linear-gradient(180deg, #161E33, #11182A);
-      border: 1px solid #232D45;
+      background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+      border: 1.5px solid #BAE6FD;
       border-radius: 22px;
       padding: 24px;
       height: fit-content;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 20px 50px -10px rgba(2, 132, 199, 0.12), 0 8px 20px -4px rgba(15, 23, 42, 0.05);
     }
     #constructor .cfg-summary h3 {
       font-size: 13px;
       text-transform: uppercase;
       letter-spacing: .06em;
-      color: #8993AC;
+      color: #0284c7;
       margin: 0 0 18px;
-      font-weight: 700;
+      font-weight: 800;
     }
     #constructor .cfg-sum-line {
       display: flex;
       justify-content: space-between;
       font-size: 13.5px;
-      color: #8993AC;
+      color: #475569;
       padding: 6px 0;
     }
     #constructor .cfg-sum-line span:last-child {
-      color: #E8ECF4;
+      color: #0F172A;
       font-family: 'JetBrains Mono', monospace;
       font-weight: 600;
     }
     #constructor .cfg-divider {
       height: 1px;
-      background: #232D45;
+      background: #E2E8F0;
       margin: 16px 0;
     }
     #constructor .cfg-total-block {
@@ -1387,20 +1437,20 @@
     }
     #constructor .cfg-total-label {
       font-size: 11.5px;
-      color: #8993AC;
+      color: #64748B;
       text-transform: uppercase;
       letter-spacing: .05em;
       margin-bottom: 4px;
-      font-weight: 600;
+      font-weight: 700;
     }
     #constructor .cfg-total-value {
       font-size: 32px;
-      font-weight: 800;
-      letter-spacing: -0.01em;
-      color: #E8ECF4;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: #0F172A;
     }
     #constructor .cfg-total-value .cur {
-      color: #10b981;
+      color: #059669;
       font-family: 'JetBrains Mono', monospace;
     }
     #constructor .cfg-cta {
@@ -1418,16 +1468,16 @@
       margin-top: 18px;
       text-decoration: none;
       transition: all .25s ease;
-      box-shadow: 0 10px 25px rgba(2, 132, 199, 0.35);
+      box-shadow: 0 10px 25px rgba(2, 132, 199, 0.28);
     }
     #constructor .cfg-cta:hover {
       background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
-      box-shadow: 0 15px 35px rgba(2, 132, 199, 0.5);
+      box-shadow: 0 15px 35px rgba(2, 132, 199, 0.4);
       transform: translateY(-1px);
     }
     #constructor .cfg-note {
       font-size: 11.5px;
-      color: #8993AC;
+      color: #64748B;
       margin-top: 14px;
       line-height: 1.5;
       text-align: center;
@@ -5719,11 +5769,7 @@
       
       
       <div class="text-center max-w-4xl mx-auto space-y-2.5 pb-2">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-400/30 text-sky-700 text-xs font-mono font-bold tracking-wider uppercase backdrop-blur-md mb-1">
-          <span class="w-2 h-2 rounded-full bg-sky-500 animate-pulse"></span>
-          <span>İNTERAKTİF TARİFE SİHİRBAZI</span>
-        </div>
-        <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[44px] leading-[1.15]" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 12px 30px rgba(2, 132, 199, 0.22));">
+        <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[44px] leading-[1.15]" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 12px 30px rgba(2, 132, 199, 0.15));">
           İşletmenize Özel Paketi Kendiniz Oluşturun
         </h2>
         <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
@@ -5732,11 +5778,11 @@
       </div>
 
       
-      <div class="relative p-5 sm:p-8 md:p-10 rounded-[28px] sm:rounded-[36px] bg-[#0A0F1A] text-[#E8ECF4] border border-[#232D45] shadow-[0_25px_70px_rgba(2,132,199,0.18),0_0_35px_rgba(56,189,248,0.1)] overflow-hidden">
+      <div class="relative p-5 sm:p-8 md:p-10 rounded-[28px] sm:rounded-[36px] bg-gradient-to-b from-white/95 via-sky-50/30 to-slate-50/70 border border-sky-200/80 shadow-[0_20px_60px_rgba(2,132,199,0.08),0_4px_20px_rgba(15,23,42,0.03)] backdrop-blur-xl overflow-hidden">
         
         
-        <div class="absolute -top-32 -left-32 w-80 h-80 bg-sky-500/15 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -top-32 -left-32 w-80 h-80 bg-sky-200/40 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-emerald-200/40 rounded-full blur-3xl pointer-events-none"></div>
 
         <div class="cfg-wrap relative z-10">
           <div class="cfg-grid">
@@ -5747,10 +5793,19 @@
                 <h3>İletişim Kanalları</h3>
                 <div class="cfg-row">
                   <div>
-                    <div class="cfg-row-label">WhatsApp</div>
+                    <div class="cfg-row-label">
+                      WhatsApp
+                      <span class="cfg-badge-locked">dahil</span>
+                    </div>
                     <div class="cfg-row-sub">temel pakete dahildir</div>
                   </div>
-                  <div class="cfg-row-price text-emerald-400 font-semibold">dahil</div>
+                  <div style="display:flex;align-items:center;gap:12px;">
+                    <div class="cfg-row-price text-emerald-600 font-semibold">temel</div>
+                    <label class="cfg-switch cfg-locked" title="Temel pakete dahildir (kapatılamaz)">
+                      <input type="checkbox" checked disabled>
+                      <span class="cfg-track"></span>
+                    </label>
+                  </div>
                 </div>
                 <div id="channels"></div>
               </div>
@@ -5760,10 +5815,19 @@
                 <h3>CRM Entegrasyonu</h3>
                 <div class="cfg-row">
                   <div>
-                    <div class="cfg-row-label">Entegrasyonsuz</div>
-                    <div class="cfg-row-sub">talepler tabloda / mesajlaşma uygulamasında — temel pakete dahil</div>
+                    <div class="cfg-row-label">
+                      Excel Tablosu
+                      <span class="cfg-badge-locked">dahil</span>
+                    </div>
+                    <div class="cfg-row-sub">temel pakete dahildir</div>
                   </div>
-                  <div class="cfg-row-price text-emerald-400 font-semibold">dahil</div>
+                  <div style="display:flex;align-items:center;gap:12px;">
+                    <div class="cfg-row-price text-emerald-600 font-semibold">temel</div>
+                    <label class="cfg-switch cfg-locked" title="Temel pakete dahildir (kapatılamaz)">
+                      <input type="checkbox" checked disabled>
+                      <span class="cfg-track"></span>
+                    </label>
+                  </div>
                 </div>
                 <div id="crms"></div>
               </div>
@@ -8257,40 +8321,42 @@
         const lang = (document.documentElement.lang || 'ru').toLowerCase();
         const isEn = lang.startsWith('en');
         const isTr = lang.startsWith('tr');
-        const curSym = (isEn || isTr) ? '$' : '\u20bd';
-        const perMo = isEn ? '/mo' : (isTr ? '/ay' : '/\u043c\u0435\u0441');
+        const curSym = (isEn || isTr) ? '$' : '$';
+        const perMo = isEn ? '/mo' : (isTr ? '/ay' : '/мес');
         const loc = (isEn || isTr) ? 'en-US' : 'ru-RU';
 
         const CHANNELS = [
           {id:'tg', label:'Telegram', setup:10000, monthly:2000},
           {id:'inst', label:'Instagram*', setup:10000, monthly:2000},
-          {id:'avito', label: isEn ? 'Classifieds / Avito' : (isTr ? 'İlan Portalları' : '\u0410\u0432\u0438\u0442\u043e'), setup:10000, monthly:2000},
+          {id:'avito', label: isEn ? 'Classifieds / Avito' : (isTr ? 'İlan Portalları' : 'Canlı Chat'), setup:10000, monthly:2000},
           {id:'max', label:'MAX', setup:10000, monthly:2000},
           {id:'mail', label: isEn ? 'Email' : (isTr ? 'E-posta' : 'Email'), setup:10000, monthly:2000},
         ];
         const CRMS = [
           {id:'amo', label: (isEn || isTr) ? 'amoCRM / HubSpot' : 'amoCRM', setup:20000, monthly:5000},
-          {id:'bitrix', label: (isEn || isTr) ? 'Bitrix24 / Salesforce' : '\u0411\u0438\u0442\u0440\u0438\u043a\u044124', setup:20000, monthly:5000},
-          {id:'1c', label: (isEn || isTr) ? 'ERP / Inventory' : '1\u0421 / \u041c\u043e\u0439\u0421\u043a\u043b\u0430\u0434', setup:20000, monthly:5000},
+          {id:'bitrix', label: (isEn || isTr) ? 'Bitrix24 / Salesforce' : 'Bitrix24', setup:20000, monthly:5000},
+          {id:'1c', label: (isEn || isTr) ? '1C:Enterprise / ERP' : '1С:Предприятие', setup:20000, monthly:5000},
+          {id:'moysklad', label: (isEn || isTr) ? 'MoySklad / Inventory' : 'МойСклад', setup:20000, monthly:5000},
         ];
         const EXTRAS = [
           {
             id:'voice',
-            label: isEn ? 'Voice message transcription' : (isTr ? 'Sesli mesaj tanıma' : '\u0420\u0430\u0441\u043f\u043e\u0437\u043d\u0430\u0432\u0430\u043d\u0438\u0435 \u0433\u043e\u043b\u043e\u0441\u043e\u0432\u044b\u0445'),
-            sub: isEn ? 'audio → text in any channel' : (isTr ? 'tüm kanallarda ses → metin' : '\u0430\u0443\u0434\u0438\u043e \u2192 \u0442\u0435\u043a\u0441\u0442 \u0432 \u043b\u044e\u0431\u043e\u043c \u043a\u0430\u043d\u0430\u043b\u0435'),
+            label: isEn ? 'Voice message transcription' : (isTr ? 'Sesli mesaj tanıma' : 'Sesli Mesaj Transkripsiyonu'),
+            sub: isEn ? 'audio → text in any channel' : (isTr ? 'tüm kanallarda ses → metin' : 'tüm kanallarda ses → metin dönüşümü'),
             setup:10000, monthly:3000
           },
           {
             id:'kb',
-            label: isEn ? 'Knowledge base creation from scratch' : (isTr ? 'Sıfırdan bilgi tabanı oluşturma' : '\u0421\u0431\u043e\u0440 \u0431\u0430\u0437\u044b \u0437\u043d\u0430\u043d\u0438\u0439 \u0441 \u043d\u0443\u043b\u044f'),
-            sub: isEn ? 'if you do not have scripts / FAQ / pricing ready' : (isTr ? 'fiyat listesi / senaryo / SSS henüz yoksa' : '\u0435\u0441\u043b\u0438 \u043f\u043e\u043a\u0430 \u043d\u0435\u0442 \u043f\u0440\u0430\u0439\u0441\u0430 / \u0441\u043a\u0440\u0438\u043f\u0442\u043e\u0432 / FAQ'),
+            label: isEn ? 'Knowledge base creation from scratch' : (isTr ? 'Sıfırdan bilgi tabanı oluşturma' : 'Sıfırdan Bilgi Bankası Oluşturma'),
+            sub: isEn ? 'if you do not have scripts / FAQ / pricing ready' : (isTr ? 'fiyat listesi / senaryo / SSS henüz yoksa' : 'henüz hazır fiyat listesi / senaryo / SSS yoksa'),
             setup:15000, monthly:0
           },
         ];
         const VOLUMES = [
-          {id:'v1', label: isEn ? 'up to 100' : (isTr ? "100'e kadar" : '\u0434\u043e 100'), setupAdd:0, monthlyAdd:0},
+          {id:'v1', label: isEn ? 'up to 100' : (isTr ? "100'e kadar" : '100'e kadar'), setupAdd:0, monthlyAdd:0},
           {id:'v2', label:'100–300', setupAdd:0, monthlyAdd:3000},
           {id:'v3', label: isEn ? '300–1,000' : (isTr ? '300–1.000' : '300–1.000'), setupAdd:0, monthlyAdd:7000},
+          {id:'v4', label: isEn ? '1,000+ (Empire)' : (isTr ? '1.000+ (İmparatorluk)' : '1.000+ (İmparatorluk)'), isVip: true, setupAdd:0, monthlyAdd:15000},
         ];
 
         const state = { channels:{}, crms:{}, extras:{}, volume:'v1' };
@@ -8325,7 +8391,7 @@
 
         if (volumeEl) {
           volumeEl.innerHTML = VOLUMES.map(v =>
-            `<div class="cfg-pill ${v.id==='v1'?'active':''}" data-volume="${v.id}">${v.label}</div>`
+            `<div class="cfg-pill ${v.isVip ? 'cfg-pill-vip' : ''} ${v.id==='v1'?'active':''}" data-volume="${v.id}">${v.label}</div>`
           ).join('');
 
           volumeEl.addEventListener('click', e => {
@@ -8363,7 +8429,7 @@
           EXTRAS.forEach(c => { if(state.extras[c.id]){ setup += c.setup; monthly += c.monthly; lines.push([c.label, c.setup, c.monthly]); }});
 
           const vol = VOLUMES.find(v => v.id === state.volume);
-          const volPrefix = isEn ? 'Lead volume ' : (isTr ? 'Talep hacmi ' : '\u041e\u0431\u044a\u0451\u043c \u0437\u0430\u044f\u0432\u043e\u043a ');
+          const volPrefix = isEn ? 'Lead volume ' : (isTr ? 'Talep hacmi ' : 'Объём talep ');
           if(vol && vol.monthlyAdd){ monthly += vol.monthlyAdd; lines.push([volPrefix+vol.label, 0, vol.monthlyAdd]); }
 
           const setupTotalEl = document.getElementById('setupTotal');
@@ -8374,8 +8440,8 @@
           if (setupTotalEl) setupTotalEl.textContent = setup.toLocaleString(loc);
           if (monthlyTotalEl) monthlyTotalEl.textContent = monthly.toLocaleString(loc);
 
-          const defaultBaseLabel = isEn ? 'Base Package' : (isTr ? 'Temel Paket' : '\u0411\u0430\u0437\u043e\u0432\u044b\u0439 \u043f\u0430\u043a\u0435\u0442');
-          const defaultBaseDesc = isEn ? 'WhatsApp + Spreadsheet CRM' : (isTr ? 'WhatsApp + Tablo CRM' : 'WhatsApp + CRM \u0432 \u0442\u0430\u0431\u043b\u0438\u0446\u0435');
+          const defaultBaseLabel = isEn ? 'Base Package' : (isTr ? 'Temel Paket' : 'Temel Paket');
+          const defaultBaseDesc = isEn ? 'WhatsApp + Spreadsheet CRM' : (isTr ? 'WhatsApp + Tablo CRM' : 'WhatsApp + Tablo CRM');
 
           if (breakdownEl) {
             breakdownEl.innerHTML = lines.length
@@ -8391,7 +8457,7 @@
             } else if (isTr) {
               msg = `Merhaba! Altai Optima yapılandırıcısında özel bir tarife oluşturdum:\n• Kurulum: ${setup.toLocaleString(loc)} $\n• Teknik Destek: ${monthly.toLocaleString(loc)} $/ay\n• Seçenekler: ${selectedSummary}\n\nBaşlatmayı görüşmek istiyorum!`;
             } else {
-              msg = '\u0417\u0434\u0440\u0430\u0432\u0441\u0442\u0432\u0443\u0439\u0442\u0435! \u0421\u043e\u0431\u0440\u0430\u043b \u0442\u0430\u0440\u0438\u0444 \u0432 \u043a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440\u0435 Altai Optima:\n\u2022 \u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0430: ' + setup.toLocaleString(loc) + ' \u20bd\n\u2022 \u0422\u0435\u0445\u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0430: ' + monthly.toLocaleString(loc) + ' \u20bd/\u043c\u0435\u0441\n\u2022 \u041e\u043f\u0446\u0438\u0438: ' + selectedSummary + '\n\n\u0425\u043e\u0447\u0443 \u043e\u0431\u0441\u0443\u0434\u0438\u0442\u044c \u0437\u0430\u043f\u0443\u0441\u043a!';
+              msg = 'Здравствуйте! Собрал тариф в конструкторе Altai Optima:\n• Настройка: ' + setup.toLocaleString(loc) + ' $\n• Техподдержка: ' + monthly.toLocaleString(loc) + ' $/ay\n• Опции: ' + selectedSummary + '\n\nХочу обсудить запуск!';
             }
             ctaBtn.href = `https://t.me/altaioptima?text=${encodeURIComponent(msg)}`;
           }
