@@ -1264,21 +1264,17 @@
     }
     
     
-    #constructor .cfg-card-channels {
-      background: linear-gradient(150deg, #FFFFFF 0%, #F0F9FF 50%, #E0F2FE 100%);
-      border: 1.5px solid #7DD3FC;
-    }
-    #constructor .cfg-card-crms {
-      background: linear-gradient(150deg, #FFFFFF 0%, #EEF2FF 50%, #E0E7FF 100%);
-      border: 1.5px solid #A5B4FC;
-    }
-    #constructor .cfg-card-extras {
-      background: linear-gradient(150deg, #FFFFFF 0%, #F0FDFA 50%, #CCFBF1 100%);
-      border: 1.5px solid #5EEAD4;
-    }
+    #constructor .cfg-card-channels,
+    #constructor .cfg-card-crms,
+    #constructor .cfg-card-extras,
     #constructor .cfg-card-volume {
-      background: linear-gradient(150deg, #FFFFFF 0%, #FEFCE8 50%, #FEF08A 100%);
-      border: 1.5px solid #FDE047;
+      background: linear-gradient(160deg, #FFFFFF 0%, #F8FAFC 100%);
+      border: 1.5px solid #E2E8F0;
+    }
+    #constructor .cfg-card:hover {
+      border-color: #BAE6FD;
+      box-shadow: 0 12px 28px -4px rgba(2, 132, 199, 0.12), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+      transform: translateY(-2px);
     }
 
     #constructor .cfg-card h3 {
@@ -1292,9 +1288,11 @@
       align-items: center;
       gap: 8px;
     }
-    #constructor .cfg-card-crms h3 { color: #4338CA; }
-    #constructor .cfg-card-extras h3 { color: #0F766E; }
-    #constructor .cfg-card-volume h3 { color: #A16207; }
+    #constructor .cfg-card-crms h3,
+    #constructor .cfg-card-extras h3,
+    #constructor .cfg-card-volume h3 {
+      color: #0369a1;
+    }
 
     #constructor .cfg-row {
       display: flex;
@@ -1318,15 +1316,16 @@
       color: #64748B;
       font-size: 12px;
       margin-top: 2px;
+      line-height: 1.4;
     }
     
     #constructor .cfg-row-price {
-      color: #059669;
+      color: #0284c7;
       background: transparent;
       border: none;
       box-shadow: none;
-      padding: 0 4px;
-      font-size: 13px;
+      padding: 0;
+      font-size: 13.5px;
       white-space: nowrap;
       margin-left: 8px;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -1337,10 +1336,10 @@
       font-size: 10px;
       padding: 1.5px 6px;
       border-radius: 5px;
-      background: #ECFDF5;
-      color: #059669;
+      background: #F0F9FF;
+      color: #0284c7;
       font-weight: 700;
-      border: 1px solid #A7F3D0;
+      border: 1px solid #BAE6FD;
       text-transform: uppercase;
       letter-spacing: 0.03em;
     }
@@ -1381,13 +1380,10 @@
       transition: .18s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
-    #constructor input:checked + .cfg-track {
-      background: linear-gradient(135deg, #059669, #10b981);
-      box-shadow: 0 0 12px rgba(16, 185, 129, 0.45);
-    }
+    #constructor input:checked + .cfg-track,
     #constructor .cfg-switch.cfg-locked input:checked + .cfg-track {
-      background: linear-gradient(135deg, #059669, #10b981);
-      box-shadow: 0 0 12px rgba(16, 185, 129, 0.45);
+      background: linear-gradient(135deg, #0284c7, #0ea5e9);
+      box-shadow: 0 0 10px rgba(2, 132, 199, 0.35);
     }
     #constructor input:checked + .cfg-track:before {
       transform: translateX(18px);
@@ -1412,66 +1408,64 @@
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
     }
     #constructor .cfg-pill:hover {
-      border-color: #059669;
-      color: #059669;
-      background: #F0FDF4;
+      border-color: #0284c7;
+      color: #0284c7;
+      background: #F0F9FF;
     }
     #constructor .cfg-pill.active {
-      border-color: #059669;
+      border-color: #0284c7;
       color: #FFFFFF;
-      background: linear-gradient(135deg, #059669 0%, #047857 100%);
-      box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
     }
     #constructor .cfg-pill.cfg-pill-vip {
-      border-color: #FDE047;
-      background: #FEFCE8;
-      color: #854D0E;
+      border-color: #BAE6FD;
+      background: #F0F9FF;
+      color: #0369a1;
     }
     #constructor .cfg-pill.cfg-pill-vip:hover {
-      border-color: #EAB308;
-      background: #FEF08A;
-      color: #713F12;
+      border-color: #0284c7;
+      background: #E0F2FE;
+      color: #075985;
     }
     #constructor .cfg-pill.cfg-pill-vip.active {
-      border-color: #EAB308;
-      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+      border-color: #0284c7;
+      background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
       color: #FFFFFF;
-      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35);
+      box-shadow: 0 4px 14px rgba(7, 89, 133, 0.35);
     }
 
     
-    @keyframes neonRotateBorder {
-      0% { filter: hue-rotate(0deg); }
-      100% { filter: hue-rotate(360deg); }
+    @keyframes neonBorderFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
     @keyframes cfgSummaryGlare {
       0%, 65% { transform: rotate(30deg) translateY(-140%); opacity: 0; }
-      75% { opacity: 0.65; }
+      75% { opacity: 0.45; }
       85%, 100% { transform: rotate(30deg) translateY(140%); opacity: 0; }
     }
 
     #constructor .cfg-summary-outer {
       position: sticky;
       top: 90px;
-      padding: 3px;
+      padding: 2.5px;
       border-radius: 26px;
-      background: linear-gradient(135deg, #0284c7, #10b981, #38bdf8, #059669, #0284c7);
+      background: linear-gradient(135deg, #0284c7, #38bdf8, #0369a1, #38bdf8, #0284c7);
       background-size: 300% 300%;
       animation: neonBorderFlow 4s ease infinite;
-      box-shadow: 0 20px 50px -10px rgba(16, 185, 129, 0.25), 0 0 30px rgba(2, 132, 199, 0.25);
-    }
-    @keyframes neonBorderFlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      box-shadow: 0 20px 50px -10px rgba(2, 132, 199, 0.35), 0 0 30px rgba(56, 189, 248, 0.2);
     }
     #constructor .cfg-summary {
       position: relative;
-      background: linear-gradient(170deg, #FFFFFF 0%, #F0FDF4 35%, #F0F9FF 75%, #E0F2FE 100%);
+      background: linear-gradient(165deg, #0b1928 0%, #0f2438 50%, #071320 100%);
+      border: 1px solid rgba(56, 189, 248, 0.25);
       border-radius: 23px;
       padding: 24px 22px;
       height: fit-content;
       overflow: hidden;
+      color: #F8FAFC;
     }
     #constructor .cfg-summary::after {
       content: '';
@@ -1480,16 +1474,16 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: linear-gradient(60deg, transparent 40%, rgba(255, 255, 255, 0.8) 50%, transparent 60%);
+      background: linear-gradient(60deg, transparent 40%, rgba(56, 189, 248, 0.15) 50%, transparent 60%);
       transform: rotate(30deg) translateY(-140%);
       animation: cfgSummaryGlare 5s ease-in-out infinite;
       pointer-events-none;
     }
-    #constructor .cfg-summary h3 {
-      font-size: 14px;
+    #constructor .cfg-summary-title {
+      font-size: 15px;
       text-transform: uppercase;
       letter-spacing: .06em;
-      color: #0369a1;
+      color: #FFFFFF;
       margin: 0;
       font-weight: 900;
     }
@@ -1497,17 +1491,17 @@
       display: flex;
       justify-content: space-between;
       font-size: 13px;
-      color: #334155;
+      color: #CBD5E1;
       padding: 5px 0;
     }
     #constructor .cfg-sum-line span:last-child {
-      color: #059669;
+      color: #38BDF8;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       font-weight: 700;
     }
     #constructor .cfg-divider {
-      height: 1.5px;
-      background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.4), transparent);
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.35), transparent);
       margin: 16px 0;
     }
     #constructor .cfg-total-block {
@@ -1519,41 +1513,40 @@
     }
     #constructor .cfg-total-label {
       font-size: 11px;
-      color: #047857;
+      color: #38BDF8;
       text-transform: uppercase;
       letter-spacing: .06em;
       margin-bottom: 2px;
       font-weight: 800;
       font-family: 'Inter', sans-serif;
     }
-    
     #constructor .cfg-total-value {
       font-size: 34px;
       font-weight: 900;
       letter-spacing: -0.02em;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.05;
-      color: #059669;
+      color: #FFFFFF;
     }
     #constructor .cfg-total-setup {
-      color: #059669;
+      color: #FFFFFF;
     }
     #constructor .cfg-total-setup .cur {
-      color: #059669;
+      color: #38BDF8;
       font-weight: 800;
     }
     #constructor .cfg-total-monthly {
-      color: #059669;
+      color: #FFFFFF;
     }
     #constructor .cfg-total-monthly .cur {
-      color: #059669;
+      color: #38BDF8;
       font-weight: 800;
     }
     #constructor .cfg-cta {
       display: block;
       width: 100%;
       text-align: center;
-      background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #075985 100%);
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
       color: #fff;
       border: none;
       border-radius: 14px;
@@ -1566,16 +1559,16 @@
       margin-top: 18px;
       text-decoration: none;
       transition: all .25s ease;
-      box-shadow: 0 10px 25px rgba(2, 132, 199, 0.35);
+      box-shadow: 0 10px 25px rgba(2, 132, 199, 0.4);
     }
     #constructor .cfg-cta:hover {
       background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
-      box-shadow: 0 14px 32px rgba(2, 132, 199, 0.45);
+      box-shadow: 0 14px 32px rgba(2, 132, 199, 0.55);
       transform: translateY(-2px);
     }
     #constructor .cfg-note {
       font-size: 11px;
-      color: #475569;
+      color: #94A3B8;
       margin-top: 14px;
       line-height: 1.5;
       text-align: center;
@@ -5917,6 +5910,7 @@
                     <span class="cfg-badge-locked">dahil</span>
                   </div>
                   <div class="cfg-row-sub">temel pakete dahildir</div>
+                  <div class="cfg-row-sub text-slate-500">Teknik destek: temel pakete dahil</div>
                 </div>
                 <div style="display:flex;align-items:center;gap:12px;">
                   <label class="cfg-switch cfg-locked" title="Temel pakete dahildir (kapatılamaz)">
@@ -5938,6 +5932,7 @@
                     <span class="cfg-badge-locked">dahil</span>
                   </div>
                   <div class="cfg-row-sub">temel pakete dahildir</div>
+                  <div class="cfg-row-sub text-slate-500">Teknik destek: temel pakete dahil</div>
                 </div>
                 <div style="display:flex;align-items:center;gap:12px;">
                   <label class="cfg-switch cfg-locked" title="Temel pakete dahildir (kapatılamaz)">
@@ -5959,7 +5954,10 @@
             <div class="cfg-card cfg-card-volume">
               <h3>Aylık Talep Hacmi</h3>
               <div class="cfg-pill-group" id="volume"></div>
-              <div class="cfg-row-sub" style="margin-top:14px; line-height: 1.5;">
+              <div class="cfg-row-sub text-slate-500" style="margin-top:10px;">
+                <span id="volSupportText">2. aydan itibaren destek: 100 talebe kadar (temel pakete dahil)</span>
+              </div>
+              <div class="cfg-row-sub" style="margin-top:8px; line-height: 1.5;">
                 1.000'den fazla talep veya birden fazla yapay zeka satıcısı — "İmparatorluk" paketi kapsamında özel fiyatlandırılır
               </div>
             </div>
@@ -5970,9 +5968,8 @@
           <div class="cfg-summary-outer">
             <div class="cfg-summary">
               <div class="flex items-center justify-between gap-2 mb-4">
-                <h3 class="!m-0 flex items-center gap-1.5">
-                  <span class="text-emerald-500">⚡</span>
-                  <span class="text-slate-900 font-extrabold tracking-wide">Tahmini Maliyetiniz</span>
+                <h3 class="!m-0">
+                  <span class="cfg-summary-title">Tahmini Maliyetiniz</span>
                 </h3>
               </div>
 
@@ -8668,7 +8665,7 @@
 
         const CHANNELS = [
           {id:'tg', label:'Telegram', setup:10000, monthly:2000},
-          {id:'inst', label:'Instagram*', setup:10000, monthly:2000},
+          {id:'inst', label:'Instagram', setup:10000, monthly:2000},
           {id:'avito', label: isEn ? 'Classifieds / Avito' : (isTr ? 'İlan Portalları' : 'Canlı Chat'), setup:10000, monthly:2000},
           {id:'max', label:'MAX', setup:10000, monthly:2000},
           {id:'mail', label: isEn ? 'Email' : (isTr ? 'E-posta' : 'Email'), setup:10000, monthly:2000},
@@ -8704,11 +8701,13 @@
 
         function renderToggleList(container, items, group){
           if (!container) return;
+          const supLabel = isEn ? 'Support' : (isTr ? 'Teknik destek' : 'Техподдержка');
           container.innerHTML = items.map(it => `
             <div class="cfg-row" data-row="${it.id}">
               <div>
                 <div class="cfg-row-label ${it.id==='kb' ? 'whitespace-nowrap' : ''}">${it.label}</div>
                 ${it.sub ? `<div class="cfg-row-sub">${it.sub}</div>` : ''}
+                ${it.monthly ? `<div class="cfg-row-sub text-slate-500">${supLabel}: +${it.monthly.toLocaleString(loc)} ${curSym}${perMo}</div>` : ''}
               </div>
               <div style="display:flex;align-items:center;gap:12px;">
                 <div class="cfg-row-price">+${it.setup.toLocaleString(loc)} ${curSym}</div>
@@ -8772,6 +8771,16 @@
           const vol = VOLUMES.find(v => v.id === state.volume);
           const volPrefix = isEn ? 'Lead volume ' : (isTr ? 'Talep hacmi ' : 'Объём talep ');
           if(vol && vol.monthlyAdd){ monthly += vol.monthlyAdd; lines.push([volPrefix+vol.label, 0, vol.monthlyAdd]); }
+
+          const volSupportEl = document.getElementById('volSupportText');
+          if (volSupportEl) {
+            const volSupportPrefix = isEn ? 'SLA Support from mo 2: ' : (isTr ? '2. aydan itibaren destek: ' : 'Техподдержка со 2-го месяца: ');
+            if (vol && vol.monthlyAdd) {
+              volSupportEl.textContent = volSupportPrefix + '+' + vol.monthlyAdd.toLocaleString(loc) + ' ' + curSym + perMo;
+            } else {
+              volSupportEl.textContent = volSupportPrefix + (isEn ? 'up to 100 (included in base)' : (isTr ? "100'e kadar (temel pakete dahil)" : 'входящий объем 100'e kadar (входит в базовый)'));
+            }
+          }
 
           const setupTotalEl = document.getElementById('setupTotal');
           const monthlyTotalEl = document.getElementById('monthlyTotal');
