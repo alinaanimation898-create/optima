@@ -6132,13 +6132,43 @@
 
     </section>
 
-    <!-- Тонкий неоновый световой разделитель перед футером с большим количеством воздуха -->
-    <div class="section-neon-divider max-w-5xl mx-auto opacity-75 my-12 sm:my-16">
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: СИНЯЯ СТРЕЛКА К ЗАГОЛОВКУ «ПОРА ЗАБИРАТЬ СВОИ ДЕНЬГИ» -->
+    <div class="flex flex-col items-center justify-center pt-8 sm:pt-12 pb-4 relative z-20">
+      <a href="#cta-final" class="blue-path-track block cursor-pointer" title="Пора забирать свои деньги">
+        <div class="blue-path-arrow text-sky-500">
+          <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </div>
+      </a>
+    </div>
+
+    <!-- 9. ФИНАЛЬНЫЙ БЛОК: ПОРА ЗАБИРАТЬ СВОИ ДЕНЬГИ -->
+    <section id="cta-final" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-20 py-10 sm:py-14 space-y-6 sm:space-y-8 font-inter">
+      <div class="space-y-4">
+        <h2 class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-5xl md:text-6xl select-none" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 12px 30px rgba(2, 132, 199, 0.18));">
+          ПОРА ЗАБИРАТЬ СВОИ ДЕНЬГИ
+        </h2>
+        <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-xl mx-auto leading-relaxed font-normal">
+          Подключите автономного ИИ-продавца и перестаньте терять прибыль на пропущенных заявках и рутине
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+        <a href="https://t.me/altaioptima?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D0%98%D0%98-%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B2%D1%86%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0" target="_blank" class="btn-optic group shadow-xl py-4 px-8 text-sm sm:text-base font-extrabold uppercase tracking-wider rounded-2xl inline-flex items-center justify-center gap-2">
+          <span>НАСТРОИТЬ ИИ-ПРОДАВЦА</span>
+          <span class="text-lg">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Тонкий неоновый световой разделитель перед футером -->
+    <div class="section-neon-divider max-w-5xl mx-auto opacity-75 my-10 sm:my-14">
       <div class="section-neon-beam" style="--divider-duration: 9s; --divider-delay: 2s;"></div>
     </div>
 
-    <!-- 10. ФУТЕР -->
-    <footer class="pt-14 pb-16 sm:pt-18 sm:pb-20 text-slate-600 relative overflow-hidden z-20 border-t border-sky-200/70 mt-16 sm:mt-24 font-inter bg-slate-50/50 backdrop-blur-xs">
+    <!-- 10. ФУТЕР (ПОЛНОСТЬЮ ПРОЗРАЧНЫЙ, БЕЗ ДРУГОЙ ПОДЛОЖКИ) -->
+    <footer class="pt-12 pb-16 sm:pt-16 sm:pb-20 text-slate-600 relative overflow-hidden z-20 border-t border-sky-200/50 font-inter bg-transparent">
       
       <!-- ДЕЛИКАТНЫЙ АБРИС АЛТАЙСКИХ ГОР НА ФОНЕ ФУТЕРА -->
       <div class="absolute inset-0 pointer-events-none opacity-25 -z-10 flex items-end">
