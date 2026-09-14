@@ -1291,8 +1291,8 @@
       font-size: 13px;
       white-space: nowrap;
       margin-left: 12px;
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 500;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 600;
     }
     #constructor .cfg-badge-locked {
       font-size: 11px;
@@ -1424,7 +1424,7 @@
     }
     #constructor .cfg-sum-line span:last-child {
       color: #0F172A;
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       font-weight: 600;
     }
     #constructor .cfg-divider {
@@ -1442,16 +1442,19 @@
       letter-spacing: .05em;
       margin-bottom: 4px;
       font-weight: 700;
+      font-family: 'Inter', sans-serif;
     }
     #constructor .cfg-total-value {
       font-size: 32px;
       font-weight: 900;
       letter-spacing: -0.02em;
       color: #0F172A;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
     #constructor .cfg-total-value .cur {
       color: #059669;
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 700;
     }
     #constructor .cfg-cta {
       display: block;
@@ -5950,104 +5953,96 @@
           Соберите тариф под вашу задачу
         </h2>
         <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
-          Стоимость зависит от каналов, CRM и объёма заявок. Отметьте, что уже есть и что нужно подключить — расчёт обновится сразу.
+          Стоимость зависит от каналов, CRM и объёма заявок. Отметьте, что уже есть и что нужно подключить — расчёт обновится сразу
         </p>
       </div>
 
-      <!-- Контейнер конструктора (светлый с мягким градиентом) -->
-      <div class="relative p-5 sm:p-8 md:p-10 rounded-[28px] sm:rounded-[36px] bg-gradient-to-b from-white/95 via-sky-50/30 to-slate-50/70 border border-sky-200/80 shadow-[0_20px_60px_rgba(2,132,199,0.08),0_4px_20px_rgba(15,23,42,0.03)] backdrop-blur-xl overflow-hidden">
-        
-        <!-- Декоративные мягкие градиентные акценты -->
-        <div class="absolute -top-32 -left-32 w-80 h-80 bg-sky-200/40 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-emerald-200/40 rounded-full blur-3xl pointer-events-none"></div>
+      <!-- Конструктор тарифа -->
+      <div class="cfg-wrap relative z-10">
+        <div class="cfg-grid">
+          <div>
 
-        <div class="cfg-wrap relative z-10">
-          <div class="cfg-grid">
-            <div>
-
-              <!-- КАРТОЧКА 1: КАНАЛЫ СВЯЗИ -->
-              <div class="cfg-card">
-                <h3>Каналы связи</h3>
-                <div class="cfg-row">
-                  <div>
-                    <div class="cfg-row-label">
-                      WhatsApp
-                      <span class="cfg-badge-locked">включено</span>
-                    </div>
-                    <div class="cfg-row-sub">входит в базовый пакет</div>
+            <!-- КАРТОЧКА 1: КАНАЛЫ СВЯЗИ -->
+            <div class="cfg-card">
+              <h3>Каналы связи</h3>
+              <div class="cfg-row">
+                <div>
+                  <div class="cfg-row-label">
+                    WhatsApp
+                    <span class="cfg-badge-locked">включено</span>
                   </div>
-                  <div style="display:flex;align-items:center;gap:12px;">
-                    <div class="cfg-row-price text-emerald-600 font-semibold">база</div>
-                    <label class="cfg-switch cfg-locked" title="Входит в базовый тариф (нельзя отключить)">
-                      <input type="checkbox" checked disabled>
-                      <span class="cfg-track"></span>
-                    </label>
-                  </div>
+                  <div class="cfg-row-sub">входит в базовый пакет</div>
                 </div>
-                <div id="channels"></div>
-              </div>
-
-              <!-- КАРТОЧКА 2: CRM-ИНТЕГРАЦИЯ -->
-              <div class="cfg-card">
-                <h3>CRM-интеграция</h3>
-                <div class="cfg-row">
-                  <div>
-                    <div class="cfg-row-label">
-                      Excel таблица
-                      <span class="cfg-badge-locked">включено</span>
-                    </div>
-                    <div class="cfg-row-sub">входит в базовый пакет</div>
-                  </div>
-                  <div style="display:flex;align-items:center;gap:12px;">
-                    <div class="cfg-row-price text-emerald-600 font-semibold">база</div>
-                    <label class="cfg-switch cfg-locked" title="Входит в базовый тариф (нельзя отключить)">
-                      <input type="checkbox" checked disabled>
-                      <span class="cfg-track"></span>
-                    </label>
-                  </div>
-                </div>
-                <div id="crms"></div>
-              </div>
-
-              <!-- КАРТОЧКА 3: ДОПОЛНИТЕЛЬНО -->
-              <div class="cfg-card">
-                <h3>Дополнительно</h3>
-                <div id="extras"></div>
-              </div>
-
-              <!-- КАРТОЧКА 4: ОБЪЕМ ЗАЯВОК -->
-              <div class="cfg-card">
-                <h3>Объём заявок в месяц</h3>
-                <div class="cfg-pill-group" id="volume"></div>
-                <div class="cfg-row-sub" style="margin-top:14px; line-height: 1.5;">
-                  Больше 1000 заявок / несколько ИИ-продавцов — считаем индивидуально, тариф «Империя»
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <div class="cfg-row-price text-emerald-600 font-semibold">база</div>
+                  <label class="cfg-switch cfg-locked" title="Входит в базовый тариф (нельзя отключить)">
+                    <input type="checkbox" checked disabled>
+                    <span class="cfg-track"></span>
+                  </label>
                 </div>
               </div>
-
+              <div id="channels"></div>
             </div>
 
-            <!-- ИТОГОВЫЙ БЛОК РАСЧЕТА (STICKY) -->
-            <div class="cfg-summary">
-              <h3>Ваш расчёт</h3>
-
-              <div class="cfg-total-block">
-                <div class="cfg-total-label">Настройка, единоразово</div>
-                <div class="cfg-total-value"><span id="setupTotal">50 000</span> <span class="cur">₽</span></div>
+            <!-- КАРТОЧКА 2: CRM-ИНТЕГРАЦИЯ -->
+            <div class="cfg-card">
+              <h3>CRM-интеграция</h3>
+              <div class="cfg-row">
+                <div>
+                  <div class="cfg-row-label">
+                    Excel таблица
+                    <span class="cfg-badge-locked">включено</span>
+                  </div>
+                  <div class="cfg-row-sub">входит в базовый пакет</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <div class="cfg-row-price text-emerald-600 font-semibold">база</div>
+                  <label class="cfg-switch cfg-locked" title="Входит в базовый тариф (нельзя отключить)">
+                    <input type="checkbox" checked disabled>
+                    <span class="cfg-track"></span>
+                  </label>
+                </div>
               </div>
-              <div class="cfg-total-block">
-                <div class="cfg-total-label">Техподдержка, в месяц</div>
-                <div class="cfg-total-value"><span id="monthlyTotal">15 000</span> <span class="cur">₽</span></div>
-              </div>
-
-              <div class="cfg-divider"></div>
-              <div id="breakdown"></div>
-
-              <a class="cfg-cta" href="https://t.me/altaioptima" id="ctaBtn" target="_blank">Обсудить в Telegram</a>
-              <div class="cfg-note">Расчёт ориентировочный. Точная стоимость фиксируется после брифа и аудита текущих процессов.</div>
+              <div id="crms"></div>
             </div>
+
+            <!-- КАРТОЧКА 3: ДОПОЛНИТЕЛЬНО -->
+            <div class="cfg-card">
+              <h3>Дополнительно</h3>
+              <div id="extras"></div>
+            </div>
+
+            <!-- КАРТОЧКА 4: ОБЪЕМ ЗАЯВОК -->
+            <div class="cfg-card">
+              <h3>Объём заявок в месяц</h3>
+              <div class="cfg-pill-group" id="volume"></div>
+              <div class="cfg-row-sub" style="margin-top:14px; line-height: 1.5;">
+                Больше 1000 заявок / несколько ИИ-продавцов — считаем индивидуально, тариф «Империя»
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ИТОГОВЫЙ БЛОК РАСЧЕТА (STICKY) -->
+          <div class="cfg-summary">
+            <h3>Ваш расчёт</h3>
+
+            <div class="cfg-total-block">
+              <div class="cfg-total-label">Настройка, единоразово</div>
+              <div class="cfg-total-value"><span id="setupTotal">50 000</span> <span class="cur">₽</span></div>
+            </div>
+            <div class="cfg-total-block">
+              <div class="cfg-total-label">Техподдержка, в месяц</div>
+              <div class="cfg-total-value"><span id="monthlyTotal">15 000</span> <span class="cur">₽</span></div>
+            </div>
+
+            <div class="cfg-divider"></div>
+            <div id="breakdown"></div>
+
+            <a class="cfg-cta" href="https://t.me/altaioptima" id="ctaBtn" target="_blank">Обсудить в Telegram</a>
+            <div class="cfg-note">Расчёт ориентировочный. Точная стоимость фиксируется после брифа и аудита текущих процессов.</div>
           </div>
         </div>
-
       </div>
 
     </section>
@@ -8663,7 +8658,7 @@
           if (monthlyTotalEl) monthlyTotalEl.textContent = monthly.toLocaleString(loc);
 
           const defaultBaseLabel = isEn ? 'Base Package' : (isTr ? 'Temel Paket' : 'Базовый пакет');
-          const defaultBaseDesc = isEn ? 'WhatsApp + Spreadsheet CRM' : (isTr ? 'WhatsApp + Tablo CRM' : 'WhatsApp + CRM в таблице');
+          const defaultBaseDesc = isEn ? 'WhatsApp + Excel CRM' : (isTr ? 'WhatsApp + Excel CRM' : 'WhatsApp + CRM в Excel');
 
           if (breakdownEl) {
             breakdownEl.innerHTML = lines.length

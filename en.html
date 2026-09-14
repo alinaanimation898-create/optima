@@ -1291,8 +1291,8 @@
       font-size: 13px;
       white-space: nowrap;
       margin-left: 12px;
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 500;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 600;
     }
     #constructor .cfg-badge-locked {
       font-size: 11px;
@@ -1424,7 +1424,7 @@
     }
     #constructor .cfg-sum-line span:last-child {
       color: #0F172A;
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       font-weight: 600;
     }
     #constructor .cfg-divider {
@@ -1442,16 +1442,19 @@
       letter-spacing: .05em;
       margin-bottom: 4px;
       font-weight: 700;
+      font-family: 'Inter', sans-serif;
     }
     #constructor .cfg-total-value {
       font-size: 32px;
       font-weight: 900;
       letter-spacing: -0.02em;
       color: #0F172A;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
     #constructor .cfg-total-value .cur {
       color: #059669;
-      font-family: 'JetBrains Mono', monospace;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 700;
     }
     #constructor .cfg-cta {
       display: block;
@@ -5773,104 +5776,96 @@
           Build a Custom Plan for Your Business
         </h2>
         <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
-          Pricing depends on communication channels, CRM, and monthly lead volume. Select what you need — the estimate updates instantly.
+          Стоимость зависит от каналов, CRM и объёма leads. Отметьте, что уже есть и что нужно подключить — расчёт обновится сразу
         </p>
       </div>
 
       
-      <div class="relative p-5 sm:p-8 md:p-10 rounded-[28px] sm:rounded-[36px] bg-gradient-to-b from-white/95 via-sky-50/30 to-slate-50/70 border border-sky-200/80 shadow-[0_20px_60px_rgba(2,132,199,0.08),0_4px_20px_rgba(15,23,42,0.03)] backdrop-blur-xl overflow-hidden">
-        
-        
-        <div class="absolute -top-32 -left-32 w-80 h-80 bg-sky-200/40 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-emerald-200/40 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="cfg-wrap relative z-10">
+        <div class="cfg-grid">
+          <div>
 
-        <div class="cfg-wrap relative z-10">
-          <div class="cfg-grid">
-            <div>
-
-              
-              <div class="cfg-card">
-                <h3>Communication Channels</h3>
-                <div class="cfg-row">
-                  <div>
-                    <div class="cfg-row-label">
-                      WhatsApp
-                      <span class="cfg-badge-locked">included</span>
-                    </div>
-                    <div class="cfg-row-sub">included in base plan</div>
+            
+            <div class="cfg-card">
+              <h3>Communication Channels</h3>
+              <div class="cfg-row">
+                <div>
+                  <div class="cfg-row-label">
+                    WhatsApp
+                    <span class="cfg-badge-locked">included</span>
                   </div>
-                  <div style="display:flex;align-items:center;gap:12px;">
-                    <div class="cfg-row-price text-emerald-600 font-semibold">base</div>
-                    <label class="cfg-switch cfg-locked" title="Included in base plan (cannot be disabled)">
-                      <input type="checkbox" checked disabled>
-                      <span class="cfg-track"></span>
-                    </label>
-                  </div>
+                  <div class="cfg-row-sub">included in base plan</div>
                 </div>
-                <div id="channels"></div>
-              </div>
-
-              
-              <div class="cfg-card">
-                <h3>CRM Integration</h3>
-                <div class="cfg-row">
-                  <div>
-                    <div class="cfg-row-label">
-                      Excel Spreadsheet
-                      <span class="cfg-badge-locked">included</span>
-                    </div>
-                    <div class="cfg-row-sub">included in base plan</div>
-                  </div>
-                  <div style="display:flex;align-items:center;gap:12px;">
-                    <div class="cfg-row-price text-emerald-600 font-semibold">base</div>
-                    <label class="cfg-switch cfg-locked" title="Included in base plan (cannot be disabled)">
-                      <input type="checkbox" checked disabled>
-                      <span class="cfg-track"></span>
-                    </label>
-                  </div>
-                </div>
-                <div id="crms"></div>
-              </div>
-
-              
-              <div class="cfg-card">
-                <h3>Add-ons & Extras</h3>
-                <div id="extras"></div>
-              </div>
-
-              
-              <div class="cfg-card">
-                <h3>Monthly Lead Volume</h3>
-                <div class="cfg-pill-group" id="volume"></div>
-                <div class="cfg-row-sub" style="margin-top:14px; line-height: 1.5;">
-                  Over 1,000 leads / multiple AI Closers — custom quote under Enterprise plan
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <div class="cfg-row-price text-emerald-600 font-semibold">base</div>
+                  <label class="cfg-switch cfg-locked" title="Included in base plan (cannot be disabled)">
+                    <input type="checkbox" checked disabled>
+                    <span class="cfg-track"></span>
+                  </label>
                 </div>
               </div>
-
+              <div id="channels"></div>
             </div>
 
             
-            <div class="cfg-summary">
-              <h3>Your Estimate</h3>
-
-              <div class="cfg-total-block">
-                <div class="cfg-total-label">One-time Turnkey Setup</div>
-                <div class="cfg-total-value"><span id="setupTotal">50 000</span> <span class="cur">$</span></div>
+            <div class="cfg-card">
+              <h3>CRM Integration</h3>
+              <div class="cfg-row">
+                <div>
+                  <div class="cfg-row-label">
+                    Excel Spreadsheet
+                    <span class="cfg-badge-locked">included</span>
+                  </div>
+                  <div class="cfg-row-sub">included in base plan</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <div class="cfg-row-price text-emerald-600 font-semibold">base</div>
+                  <label class="cfg-switch cfg-locked" title="Included in base plan (cannot be disabled)">
+                    <input type="checkbox" checked disabled>
+                    <span class="cfg-track"></span>
+                  </label>
+                </div>
               </div>
-              <div class="cfg-total-block">
-                <div class="cfg-total-label">Monthly SLA Support</div>
-                <div class="cfg-total-value"><span id="monthlyTotal">15 000</span> <span class="cur">$</span></div>
-              </div>
-
-              <div class="cfg-divider"></div>
-              <div id="breakdown"></div>
-
-              <a class="cfg-cta" href="https://t.me/altaioptima" id="ctaBtn" target="_blank">Discuss in Telegram</a>
-              <div class="cfg-note">Estimate is indicative. Exact cost is confirmed after the discovery brief and workflow audit.</div>
+              <div id="crms"></div>
             </div>
+
+            
+            <div class="cfg-card">
+              <h3>Add-ons & Extras</h3>
+              <div id="extras"></div>
+            </div>
+
+            
+            <div class="cfg-card">
+              <h3>Monthly Lead Volume</h3>
+              <div class="cfg-pill-group" id="volume"></div>
+              <div class="cfg-row-sub" style="margin-top:14px; line-height: 1.5;">
+                Over 1,000 leads / multiple AI Closers — custom quote under Enterprise plan
+              </div>
+            </div>
+
+          </div>
+
+          
+          <div class="cfg-summary">
+            <h3>Your Estimate</h3>
+
+            <div class="cfg-total-block">
+              <div class="cfg-total-label">One-time Turnkey Setup</div>
+              <div class="cfg-total-value"><span id="setupTotal">50 000</span> <span class="cur">$</span></div>
+            </div>
+            <div class="cfg-total-block">
+              <div class="cfg-total-label">Monthly SLA Support</div>
+              <div class="cfg-total-value"><span id="monthlyTotal">15 000</span> <span class="cur">$</span></div>
+            </div>
+
+            <div class="cfg-divider"></div>
+            <div id="breakdown"></div>
+
+            <a class="cfg-cta" href="https://t.me/altaioptima" id="ctaBtn" target="_blank">Discuss in Telegram</a>
+            <div class="cfg-note">Estimate is indicative. Exact cost is confirmed after the discovery brief and workflow audit.</div>
           </div>
         </div>
-
       </div>
 
     </section>
@@ -8448,7 +8443,7 @@
           if (monthlyTotalEl) monthlyTotalEl.textContent = monthly.toLocaleString(loc);
 
           const defaultBaseLabel = isEn ? 'Base Package' : (isTr ? 'Temel Paket' : 'Base Plan');
-          const defaultBaseDesc = isEn ? 'WhatsApp + Spreadsheet CRM' : (isTr ? 'WhatsApp + Tablo CRM' : 'WhatsApp + Spreadsheet CRM');
+          const defaultBaseDesc = isEn ? 'WhatsApp + Excel CRM' : (isTr ? 'WhatsApp + Excel CRM' : 'WhatsApp + Excel CRM');
 
           if (breakdownEl) {
             breakdownEl.innerHTML = lines.length
