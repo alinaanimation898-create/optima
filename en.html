@@ -4141,6 +4141,22 @@
                 </div>
               </button>
 
+              
+              <button type="button" onclick="selectBranch('live_chat', this)" class="branch-btn branch-btn-live flex items-center gap-2.5 sm:gap-3.5 text-left cursor-pointer group py-1.5 px-0.5 whitespace-nowrap col-span-2 sm:col-span-1 lg:col-span-1">
+                <div class="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-110">
+                  <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-gradient-to-tr from-sky-500 to-indigo-600 text-white flex items-center justify-center text-xs font-bold shadow-xs">
+                    ⚡
+                  </div>
+                </div>
+                <div class="flex flex-col">
+                  <div class="flex items-center gap-1.5">
+                    <span class="font-extrabold text-[13.5px] sm:text-base lg:text-lg tracking-tight group-hover:brightness-110 transition-colors" style="background: linear-gradient(135deg, #0284c7 0%, #4f46e5 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Live AI Test-Drive</span>
+                    <span class="px-1.5 py-0.2 rounded-full bg-emerald-500 text-white font-bold text-[8px] sm:text-[9px] font-mono uppercase tracking-wider animate-pulse">LIVE</span>
+                  </div>
+                  <span class="text-[10px] sm:text-xs text-sky-600 font-normal leading-tight">Ask any question</span>
+                </div>
+              </button>
+
             </div>
           </div>
 
@@ -4181,12 +4197,51 @@
               </div>
 
               
-              <div id="chatFooter" class="p-3 bg-[#f0f2f5] border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
-                <span class="text-[11px] font-medium text-slate-600 flex items-center gap-1.5">
+              <div class="p-2.5 bg-white border-t border-slate-200/90 flex flex-col gap-2 z-10 shrink-0 shadow-xs">
+                
+                <div class="flex items-center gap-1.5 overflow-x-auto pb-0.5 no-scrollbar text-[11px]">
+                  <button type="button" onclick="sendQuickPrompt('How much does implementation cost?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-100 hover:bg-sky-50 text-slate-700 hover:text-sky-700 border border-slate-200/80 transition-colors font-medium cursor-pointer shrink-0 text-[10.5px]">
+                    💰 Pricing details?
+                  </button>
+                  <button type="button" onclick="sendQuickPrompt('What if the client asks for a discount?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-100 hover:bg-sky-50 text-slate-700 hover:text-sky-700 border border-slate-200/80 transition-colors font-medium cursor-pointer shrink-0 text-[10.5px]">
+                    ⚡ Client asks discount
+                  </button>
+                  <button type="button" onclick="sendQuickPrompt('Do you integrate with amoCRM and 1C?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-100 hover:bg-sky-50 text-slate-700 hover:text-sky-700 border border-slate-200/80 transition-colors font-medium cursor-pointer shrink-0 text-[10.5px]">
+                    🔄 amoCRM & ERP
+                  </button>
+                  <button type="button" onclick="sendQuickPrompt('How are you better than basic chatbots?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-100 hover:bg-sky-50 text-slate-700 hover:text-sky-700 border border-slate-200/80 transition-colors font-medium cursor-pointer shrink-0 text-[10.5px]">
+                    🤖 AI vs basic bots
+                  </button>
+                </div>
+                
+                <form id="liveChatForm" onsubmit="handleLiveChatSubmit(event)" class="flex items-center gap-2">
+                  <input 
+                    id="liveChatInput" 
+                    type="text" 
+                    placeholder="Type any question or objection..." 
+                    autocomplete="off"
+                    class="flex-1 bg-slate-50 border border-slate-200/90 text-slate-800 placeholder:text-slate-400 text-xs rounded-xl px-3 py-2 outline-none focus:border-sky-500 focus:bg-white focus:ring-2 focus:ring-sky-100 transition-all font-inter"
+                  />
+                  <button 
+                    id="liveChatSubmitBtn"
+                    type="submit" 
+                    class="w-8 h-8 rounded-xl bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-500 hover:to-blue-500 active:scale-95 text-white flex items-center justify-center shrink-0 shadow-sm transition-transform cursor-pointer"
+                    title="Отправить"
+                  >
+                    <svg class="w-4 h-4 fill-current rotate-45 -mr-0.5" viewBox="0 0 24 24">
+                      <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                    </svg>
+                  </button>
+                </form>
+              </div>
+
+              
+              <div id="chatFooter" class="p-2.5 bg-[#f0f2f5] border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-500">
+                <span class="text-[10.5px] font-medium text-slate-600 flex items-center gap-1.5 truncate">
                   <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
-                  <span id="chatFooterStatus">✓ Needs identified • Viewing set for Saturday 14:00 • Broker assigned</span>
+                  <span id="chatFooterStatus" class="truncate">✓ Потребность выявлена • Встреча назначена на субботу 14:00 • Брокер подключен</span>
                 </span>
-                <span class="text-[10px] font-mono text-slate-400 shrink-0 ml-2">24/7/365</span>
+                <span class="text-[10px] font-mono text-slate-400 shrink-0 ml-2">24/7</span>
               </div>
             </div>
           </div>
@@ -6320,6 +6375,53 @@
             </div>
           </div>
         `
+      },
+      live_chat: {
+        channel: 'AI LIVE TEST',
+        badge: 'Живой диалог',
+        assistantName: 'Alex // AI Seller Altai Optima',
+        avatarLetter: '⚡',
+        headerBg: 'bg-gradient-to-r from-[#0f172a] via-[#0369a1] to-[#0284c7]',
+        headerSubText: 'text-sky-200',
+        statusText: 'online • responds instantly',
+        bottomStatus: '⚡ Live Test-Drive Mode • Type any question or objection',
+        verifiedIcon: '✓',
+        verifiedColor: 'text-sky-300',
+        chatBg: 'bg-[#f8fafc]',
+        avatarBg: 'bg-gradient-to-tr from-sky-400 to-indigo-600 text-white',
+        avatarBorder: 'border-white/90',
+        footerBg: 'bg-[#ffffff]',
+        actionBtnBg: 'bg-gradient-to-r from-sky-600 to-indigo-600',
+        actionIcon: '➤',
+        btnBorderClass: 'border-sky-500',
+        btnHoverClass: 'hover:border-sky-400',
+        renderAiBubble: (msg) => `
+          <div class="flex justify-start items-end gap-2 animate-fade-in">
+            <div class="bg-white text-slate-900 p-3.5 rounded-2xl rounded-bl-xs max-w-[88%] shadow-sm border border-sky-100">
+              <div class="text-[9px] font-code font-bold text-[#0284c7] uppercase mb-0.5 flex items-center gap-1">
+                <span>${msg.author}</span>
+                <span class="text-[8px] bg-sky-100 text-sky-800 px-1 rounded font-normal">AI Seller ✓</span>
+              </div>
+              <p class="leading-relaxed font-normal text-[12px] text-slate-800">${msg.text}</p>
+              <div class="text-[9px] text-slate-400 text-right mt-1 font-code flex items-center justify-end gap-1">
+                <span>${msg.time}</span>
+                <span class="text-[#0284c7] font-bold">✓✓</span>
+              </div>
+            </div>
+          </div>
+        `,
+        renderUserBubble: (msg) => `
+          <div class="flex justify-end items-end gap-2 animate-fade-in">
+            <div class="bg-gradient-to-br from-sky-500 to-blue-600 text-white p-3 rounded-2xl rounded-br-xs max-w-[85%] shadow-sm">
+              <div class="text-[9px] font-code font-bold text-sky-100 uppercase mb-0.5">${msg.author}</div>
+              <p class="leading-relaxed font-normal text-[12px] text-white">${msg.text}</p>
+              <div class="text-[9px] text-sky-200 text-right mt-1 font-code flex items-center justify-end gap-1">
+                <span>${msg.time}</span>
+                <span>✓✓</span>
+              </div>
+            </div>
+          </div>
+        `
       }
     };
 
@@ -6427,6 +6529,14 @@
           text: 'Perfect, ready walls make for precise installation.<br><br>Passing parameters to designer Pavel. He will join this chat, provide layout options for your appliances, and schedule a free in-home measurement visit with material samples.', 
           time: '16:42' 
         }
+      ],
+      live_chat: [
+        { 
+          sender: 'ai', 
+          author: 'Alex // AI Seller Altai Optima', 
+          text: 'Hello! I am the live Altai Optima AI Seller.<br><br>You can test me right now in real time: ask about pricing and ROI, test difficult objections (“too expensive”, “give me a discount”), ask about CRM integrations, or pick a quick prompt below 👇', 
+          time: 'now' 
+        }
       ]
     };
 
@@ -6475,7 +6585,7 @@
         messagesContainer.className = `p-4 space-y-3 flex-grow overflow-y-auto text-xs transition-colors duration-300 ${cfg.chatBg}`;
       }
       if (chatFooter) {
-        chatFooter.className = `p-3 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500 transition-colors duration-300 ${cfg.footerBg}`;
+        chatFooter.className = `p-2.5 border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-500 transition-colors duration-300 ${cfg.footerBg}`;
       }
       if (chatFooterStatus) {
         chatFooterStatus.textContent = cfg.bottomStatus || '';
@@ -6604,6 +6714,134 @@
       currentKey = key;
       applyMessengerTheme(key);
       renderFullBranch(key, true);
+    }
+
+    function sendQuickPrompt(text) {
+      const input = document.getElementById('liveChatInput');
+      if (input) {
+        input.value = text;
+        handleLiveChatSubmit();
+      }
+    }
+
+    function generateAiSellerResponse(userText, channelKey) {
+      const raw = (userText || '').toLowerCase().trim();
+      const timeStr = new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
+
+      let aiName = 'Alex // AI Seller Altai Optima';
+      if (channelKey === 'full_deal') aiName = 'Эва 
+      else if (channelKey === 'price_objection') aiName = 'Михаил 
+      else if (channelKey === 'reanimate') aiName = 'Софья 
+      else if (channelKey === 'avito_deal') aiName = 'Константин 
+
+      let reply = '';
+
+      if (raw.includes('скольк') || raw.includes('стоимост') || raw.includes('цена') || raw.includes('прайс') || raw.includes('тариф') || (raw.includes('внедрен') && raw.includes('стоит'))) {
+        reply = `Базовое внедрение ИИ-продавца под ключ — from $1,100 / mo (с интеграцией в WhatsApp и CRM в Excel/Google) плюс сервисная подписка от 27 000 $/mo. Комплексное внедрение со сложными CRM (amoCRM, Битрикс24, 1С) — от 140 000 $.<br><br>В стоимость входит оцифровка регламентов, разработка уникального системного промпта по методологии СПИН и юридическая гарантия окупаемости в договоре.<br><br>Подскажите, в какой нише ваш бизнес и сколько входящих обращений per month вы получаете?`;
+      }
+
+      else if (raw.includes('скидк') || raw.includes('дорог') || raw.includes('дешевл') || raw.includes('уступ') || raw.includes('30%') || raw.includes('50%')) {
+        reply = `Понимаю ваше желание оптимизировать инвестиции. При этом мы не режем цену за счет упрощения нейросети — ведь a single сорванный крупный клиент стоит дороже всего внедрения.<br><br>Мы можем зафиксировать для вас спец-условия: скидка 50% на настройку второго мессенджера (например, Telegram + WhatsApp) либо 2 месяца бесплатного расширенного аудита диалогов при оплате полуyrsовой подписки.<br><br>Сколько менеджеров сейчас обрабатывают входящий поток?`;
+      }
+
+      else if (raw.includes('crm') || raw.includes('amocrm') || raw.includes('амо') || raw.includes('битрикс') || raw.includes('bitrix') || raw.includes('1с') || raw.includes('1c') || raw.includes('склад') || raw.includes('интеграц') || raw.includes('api')) {
+        reply = `Да, мы бесшовно интегрируемся с amoCRM, Битрикс24, 1С, МойСклад, Yclients, PlanFix, а также кастомными базами через REST API и Webhooks.<br><br>ИИ-продавец не просто переписывается: он сам создает лид, двигает сделку по этапам воронки, проставляет теги, заполняет кастомные поля (бюджет, параметры запроса) и ставит задачи менеджерам в момент готовности к сделке.`;
+      }
+
+      else if (raw.includes('бот') || raw.includes('отличи') || raw.includes('разниц') || raw.includes('лучше') || raw.includes('кноп')) {
+        reply = `Разница принципиальная:<br>❌ <b>Обычный чат-бот</b> работает по жестким кнопкам и ломается от любой нестандартной фразы («Я вас не понял, нажмите 1»).<br>✅ <b>ИИ-продавец Altai Optima</b> обучен на базе переговорных методик (СПИН, Крис Восс, Роберт Чалдини). Он понимает контекст, считывает скрытые возражения, распознает голосовые сообщения и ведет живой диалог на уровне топ-1% менеджеров вашей компании.`;
+      }
+
+      else if (raw.includes('окупаем') || raw.includes('гарант') || raw.includes('риск') || raw.includes('roi') || raw.includes('договор')) {
+        reply = `Мы юридически фиксируем гарантию в договоре: если конверсия воронки не вырастет минимум на 20%, мы дорабатываем и оптимизируем логику за свой счет.<br><br>На практике при среднем чеке от 20 000 $ система окупается за первые 14–28 дней за счет мгновенного отклика (до 30 сек) 24/7 и возврата «уснувших» клиентов из базы.`;
+      }
+
+      else if (raw.includes('срок') || raw.includes('когда') || raw.includes('быстро') || raw.includes('дней') || raw.includes('недел')) {
+        reply = `Полный цикл внедрения занимает от 7 до 14 рабочих дней под ключ:<br>1. Оцифровка базы знаний и лучших диалогов.<br>2. Программирование системных промптов и стресс-тестирование.<br>3. Подключение мессенджеров и CRM.<br>4. Запуск и сопровождение с ежедневным контролем качества.`;
+      }
+
+      else if (raw.includes('голос') || raw.includes('аудио') || raw.includes('voice') || raw.includes('кружочк')) {
+        reply = `Да! ИИ-продавец распознает голосовые сообщения любой длительности через Whisper AI с точностью 99%, извлекает суть, фиксирует договоренности в CRM и отвечает клиенту текстом или реалистичным синтезированным голосом с правильными интонациями.`;
+      }
+
+      else if (raw.includes('привет') || raw.includes('здравствуй') || raw.includes('добрый') || raw.includes('хай') || raw.includes('hello') || raw.includes('салам') || raw.includes('кто ты') || raw.includes('тест')) {
+        reply = `Здравствуйте! Рад приветствовать вас. Я живой демонстрационный ИИ-продавец Altai Optima.<br><br>Вы можете проверить мои навыки: задайте сложный вопрос по вашему бизнесу, сымитируйте сложное возражение или спросите про детали окупаемости. Готов к проверке! 🚀`;
+      }
+
+      else if (raw.includes('недвижим') || raw.includes('стройк') || raw.includes('мебел') || raw.includes('авто') || raw.includes('клиник') || raw.includes('медицин') || raw.includes('юрист') || raw.includes('b2b') || raw.includes('услуг') || raw.includes('производств')) {
+        reply = `В этой нише у нас уже есть проверенные рабочие связки. ИИ-продавец моментально квалифицирует параметры заказа, выявляет бюджет и дедлайн, отвечает на технические нюансы из вашей базы знаний и передает «горячего» клиента эксперту на замер/консультацию/расчет сметы.<br><br>Хотите, рассчитаем финансовую модель внедрения под ваши текущие показатели?`;
+      }
+
+      else {
+        reply = `Отличный вопрос! Наш ИИ-продавец обучается на специфике вашей компании: регламентах, прайсах, частых вопросах и успешных диалогах лучших менеджеров.<br><br>Блаyrsря этому в реальном проекте он отвечает со 100% точностью и ведет клиента к целевому действию — записи на встречу, звонку эксперта или оплате счета.<br><br>Подскажите, какую главную задачу вы хотите решить внедрением ИИ-продавца?`;
+      }
+
+      return {
+        sender: 'ai',
+        author: aiName,
+        text: reply,
+        time: timeStr
+      };
+    }
+
+    function handleLiveChatSubmit(event) {
+      if (event) event.preventDefault();
+      const input = document.getElementById('liveChatInput');
+      if (!input) return;
+      const text = input.value.trim();
+      if (!text) return;
+
+      const box = document.getElementById('messagesContainer');
+      const agentStatus = document.getElementById('agentStatus');
+      const footerStatus = document.getElementById('chatFooterStatus');
+      if (!box) return;
+
+      const cfg = channelsConfig[currentKey] || channelsConfig.live_chat;
+      const timeStr = new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
+
+      const userMsg = {
+        sender: 'user',
+        author: 'Вы (Тест)',
+        text: text,
+        time: timeStr
+      };
+
+      const userHtml = cfg.renderUserBubble(userMsg);
+      box.insertAdjacentHTML('beforeend', userHtml);
+      box.scrollTop = box.scrollHeight;
+      input.value = '';
+
+      if (agentStatus) agentStatus.textContent = 'печатает ответ...';
+      const existingTyping = document.getElementById('chatTypingIndicator');
+      if (existingTyping) existingTyping.remove();
+
+      const typingHtml = `
+        <div id="chatTypingIndicator" class="flex justify-start items-end gap-2 animate-fade-in transition-all">
+          <div class="bg-white text-slate-800 px-3 py-2 rounded-2xl rounded-bl-xs shadow-xs border border-slate-200/80 flex items-center gap-2">
+            <span class="text-[10px] font-bold text-slate-500">ИИ-продавец печатает</span>
+            <div class="flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-bounce" style="animation-delay: 0ms; animation-duration: 0.8s;"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-bounce" style="animation-delay: 180ms; animation-duration: 0.8s;"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-bounce" style="animation-delay: 360ms; animation-duration: 0.8s;"></span>
+            </div>
+          </div>
+        </div>
+      `;
+      box.insertAdjacentHTML('beforeend', typingHtml);
+      box.scrollTop = box.scrollHeight;
+
+      setTimeout(() => {
+        const typingEl = document.getElementById('chatTypingIndicator');
+        if (typingEl) typingEl.remove();
+
+        const aiMsg = generateAiSellerResponse(text, currentKey);
+        const aiHtml = cfg.renderAiBubble(aiMsg);
+        box.insertAdjacentHTML('beforeend', aiHtml);
+        box.scrollTop = box.scrollHeight;
+
+        if (agentStatus) agentStatus.textContent = cfg.statusText || 'online';
+        if (footerStatus) footerStatus.textContent = '✓ Диалог активен • ИИ-продавец квалифицирует запрос в реальном времени';
+      }, 800);
     }
 
     const lR = document.getElementById('leadsRange');
