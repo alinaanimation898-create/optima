@@ -143,7 +143,7 @@
     /* КИБЕРНЕТИЧЕСКАЯ ФОНОВАЯ СЕТКА */
     .bg-grid-cyber {
       background-image: 
-        radial-gradient(circle at 50% 50%, rgba(2, 132, 199, 0.08) 1.2px, transparent 1.2px),
+        radial-gradient(circle at 50% 50%, rgba(106, 155, 194, 0.20) 1.2px, transparent 1.2px),
         linear-gradient(to right, rgba(14, 165, 233, 0.04) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(14, 165, 233, 0.04) 1px, transparent 1px);
       background-size: 32px 32px, 64px 64px, 64px 64px;
@@ -154,21 +154,20 @@
       position: relative;
       width: 100%;
       height: 1px;
-      background: linear-gradient(90deg, transparent 0%, rgba(14, 165, 233, 0.25) 20%, rgba(56, 189, 248, 0.5) 50%, rgba(14, 165, 233, 0.25) 80%, transparent 100%);
-      overflow: visible;
-      margin-top: 3rem;
-      margin-bottom: 3rem;
+      background: linear-gradient(90deg, transparent, rgba(201, 223, 235, 0.4) 20%, rgba(106, 155, 194, 0.6) 50%, rgba(201, 223, 235, 0.4) 80%, transparent);
+      overflow: hidden;
+      margin: 1.15rem 0;
+      pointer-events: none;
     }
     .section-neon-divider .section-neon-beam {
       position: absolute;
-      top: -1.5px;
-      left: -180px;
-      width: 180px;
-      height: 4px;
-      border-radius: 9999px;
-      background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.85), #ffffff, rgba(56, 189, 248, 0.85), transparent);
-      filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.95)) drop-shadow(0 0 16px rgba(14, 165, 233, 0.7));
+      top: 0;
+      height: 100%;
+      width: 200px;
+      background: linear-gradient(90deg, transparent, rgba(201, 223, 235, 0.6), #C9DFEB, #FFFFFF, #6A9BC2, transparent);
+      box-shadow: 0 0 12px #C9DFEB, 0 0 24px rgba(106, 155, 194, 0.5);
       animation: sectionNeonGlide var(--divider-duration, 8s) ease-in-out infinite;
+      animation-delay: var(--divider-delay, 0s);
     }
     @keyframes sectionNeonGlide {
       0% { left: -180px; opacity: 0; }
@@ -187,7 +186,7 @@
       transition: all 0.35s var(--ease-fluid);
     }
     .liquid-crystal-panel:hover {
-      box-shadow: 0 24px 50px -4px rgba(2, 132, 199, 0.16), 0 8px 24px -2px rgba(15, 23, 42, 0.05);
+      box-shadow: 0 24px 50px -4px rgba(106, 155, 194, 0.25), 0 8px 24px -2px rgba(15, 23, 42, 0.05);
       border-color: rgba(56, 189, 248, 0.6);
       transform: translateY(-2px);
     }
@@ -300,7 +299,7 @@
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid rgba(224, 242, 254, 0.9);
       border-top: 2px solid rgba(56, 189, 248, 0.7);
-      box-shadow: 0 14px 34px -4px rgba(2, 132, 199, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.03);
+      box-shadow: 0 14px 34px -4px rgba(106, 155, 194, 0.20), 0 4px 12px -2px rgba(15, 23, 42, 0.03);
       border-radius: 24px;
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       overflow: hidden;
@@ -308,7 +307,7 @@
     .usp-glass-card:hover {
       transform: translateY(-4px);
       border-color: rgba(56, 189, 248, 0.9);
-      box-shadow: 0 24px 50px -6px rgba(2, 132, 199, 0.2), 0 0 25px rgba(56, 189, 248, 0.22);
+      box-shadow: 0 24px 50px -6px rgba(2, 132, 199, 0.2), 0 0 25px rgba(201, 223, 235, 0.65);
     }
 
     /* МОБИЛЬНАЯ КАРУСЕЛЬ УТП */
@@ -617,8 +616,8 @@
       justify-content: center;
       gap: 12px;
       padding: 16px 36px;
-      background: linear-gradient(135deg, #0284c7 0%, #0369a1 40%, #082f49 100%);
-      color: #ffffff;
+      background: linear-gradient(135deg, #2F4F3F 0%, #3D6451 45%, #243D31 100%);
+      color: #FFFFFF;
       font-family: var(--font-sans);
       font-weight: 800;
       text-transform: uppercase;
@@ -629,8 +628,8 @@
         14px 0%, calc(100% - 14px) 0%, 100% 14px, 100% calc(100% - 14px),
         calc(100% - 14px) 100%, 14px 100%, 0% calc(100% - 14px), 0% 14px
       );
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.45), inset 0 -2px 4px rgba(0, 0, 0, 0.5);
-      filter: drop-shadow(0 8px 24px rgba(2, 132, 199, 0.35)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.18));
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.45), inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+      filter: drop-shadow(0 10px 24px rgba(47, 79, 63, 0.3)) drop-shadow(0 2px 4px rgba(36, 61, 49, 0.2));
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, filter 0.3s ease;
       overflow: hidden;
       cursor: pointer;
@@ -661,7 +660,8 @@
     }
     .btn-optic:hover {
       transform: translateY(-2px) scale(1.02);
-      filter: drop-shadow(0 12px 30px rgba(2, 132, 199, 0.5)) drop-shadow(0 0 20px rgba(56, 189, 248, 0.7));
+      background: linear-gradient(135deg, #3D6451 0%, #2F4F3F 55%, #1F362A 100%);
+      filter: drop-shadow(0 14px 32px rgba(47, 79, 63, 0.45)) drop-shadow(0 0 18px rgba(201, 223, 235, 0.4));
     }
     .btn-optic:hover::before {
       animation-duration: 1.6s;
@@ -855,7 +855,7 @@
     }
   </style>
 </head>
-<body class="bg-[#f1f5fa] text-[#061224] antialiased overflow-x-hidden selection:bg-sky-500 selection:text-white relative">
+<body class="bg-[#f1f5fa] text-[#061224] antialiased overflow-x-hidden selection:bg-[#F2F3F5]0 selection:text-white relative">
 
   <!-- ЖИВОЙ АНИМИРОВАННЫЙ НЕОНОВЫЙ БЭКГРАУНД -->
   <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
@@ -880,20 +880,20 @@
       <!-- Логотип + PARTNER (с градиентом без плашки) -->
       <a href="./index.html" class="flex items-center gap-2.5 group shrink-0" title="На главную ALTAI OPTIMA">
         <img src="brand_logo.png" alt="ALTAI OPTIMA" class="h-5 sm:h-6 w-auto object-contain transition-transform duration-200 group-hover:scale-105" loading="lazy">
-        <span class="hidden sm:inline-block text-[11px] sm:text-xs font-black uppercase tracking-widest bg-gradient-to-r from-sky-500 via-blue-600 to-sky-700 bg-clip-text text-transparent select-none">
+        <span class="hidden sm:inline-block text-[11px] sm:text-xs font-black uppercase tracking-widest bg-gradient-to-r from-[#6A9BC2] via-[#2F4F3F] to-[#7D7063] bg-clip-text text-transparent select-none">
           PARTNER
         </span>
       </a>
 
       <!-- Десктоп-навигация -->
       <nav class="hidden md:flex items-center space-x-1 lg:space-x-3 text-[11px] lg:text-xs font-bold tracking-wider uppercase text-slate-700 whitespace-nowrap">
-        <a href="#product-summary" class="px-2.5 py-1 hover:text-sky-600 hover:bg-sky-50 rounded-full transition-colors whitespace-nowrap">О ПРОДУКТЕ</a>
+        <a href="#product-summary" class="px-2.5 py-1 hover:text-[#6A9BC2] hover:bg-[#F2F3F5] rounded-full transition-colors whitespace-nowrap">О ПРОДУКТЕ</a>
         <span class="text-slate-300">•</span>
-        <a href="#commission" class="px-2.5 py-1 hover:text-sky-600 hover:bg-sky-50 rounded-full transition-colors whitespace-nowrap">ВЫГОДА</a>
+        <a href="#commission" class="px-2.5 py-1 hover:text-[#6A9BC2] hover:bg-[#F2F3F5] rounded-full transition-colors whitespace-nowrap">ВЫГОДА</a>
         <span class="text-slate-300">•</span>
-        <a href="#partner-calc" class="px-2.5 py-1 hover:text-sky-600 hover:bg-sky-50 rounded-full transition-colors whitespace-nowrap">КАЛЬКУЛЯТОР</a>
+        <a href="#partner-calc" class="px-2.5 py-1 hover:text-[#6A9BC2] hover:bg-[#F2F3F5] rounded-full transition-colors whitespace-nowrap">КАЛЬКУЛЯТОР</a>
         <span class="text-slate-300">•</span>
-        <a href="#partner-contact" class="px-2.5 py-1 hover:text-sky-600 hover:bg-sky-50 rounded-full transition-colors whitespace-nowrap">КОНТАКТЫ</a>
+        <a href="#partner-contact" class="px-2.5 py-1 hover:text-[#6A9BC2] hover:bg-[#F2F3F5] rounded-full transition-colors whitespace-nowrap">КОНТАКТЫ</a>
       </nav>
 
       <!-- Правый блок кнопок -->
@@ -911,7 +911,7 @@
         </a>
 
         <!-- CTA Кнопка -->
-        <a href="#partner-contact" class="px-3.5 sm:px-5 py-2 rounded-full bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-extrabold text-[10px] sm:text-xs uppercase tracking-wider transition-transform duration-200 hover:scale-105 shadow-md shrink-0 whitespace-nowrap">
+        <a href="#partner-contact" class="px-3.5 sm:px-5 py-2 rounded-full bg-gradient-to-r from-[#6A9BC2] via-[#5283AA] to-[#2F4F3F] hover:from-sky-400 hover:to-blue-500 text-white font-extrabold text-[10px] sm:text-xs uppercase tracking-wider transition-transform duration-200 hover:scale-105 shadow-md shrink-0 whitespace-nowrap">
           <span>СТАТЬ ПАРТНЕРОМ</span>
         </a>
 
@@ -930,21 +930,21 @@
       <div class="absolute top-0 inset-x-6 h-[1.5px] bg-gradient-to-r from-transparent via-sky-400 to-transparent opacity-90 pointer-events-none"></div>
       <div class="absolute -top-8 left-1/2 -translate-x-1/2 w-36 h-10 bg-sky-400/20 rounded-full blur-xl pointer-events-none"></div>
 
-      <a href="#product-summary" onclick="toggleMobileMenu()" class="py-2 px-3 rounded-lg hover:bg-sky-50/80 font-semibold text-slate-800 transition">О продукте</a>
-      <a href="#commission" onclick="toggleMobileMenu()" class="py-2 px-3 rounded-lg hover:bg-sky-50/80 font-semibold text-slate-800 transition">Вознаграждение партнера</a>
-      <a href="#partner-calc" onclick="toggleMobileMenu()" class="py-2 px-3 rounded-lg hover:bg-sky-50/80 font-semibold text-slate-800 transition">Посчитайте свой доход</a>
-      <a href="#partner-contact" onclick="toggleMobileMenu()" class="py-2 px-3 rounded-lg hover:bg-sky-50/80 font-semibold text-slate-800 transition">Стать партнером</a>
+      <a href="#product-summary" onclick="toggleMobileMenu()" class="py-2 px-3 rounded-lg hover:bg-[#F2F3F5]/80 font-semibold text-slate-800 transition">О продукте</a>
+      <a href="#commission" onclick="toggleMobileMenu()" class="py-2 px-3 rounded-lg hover:bg-[#F2F3F5]/80 font-semibold text-slate-800 transition">Вознаграждение партнера</a>
+      <a href="#partner-calc" onclick="toggleMobileMenu()" class="py-2 px-3 rounded-lg hover:bg-[#F2F3F5]/80 font-semibold text-slate-800 transition">Посчитайте свой доход</a>
+      <a href="#partner-contact" onclick="toggleMobileMenu()" class="py-2 px-3 rounded-lg hover:bg-[#F2F3F5]/80 font-semibold text-slate-800 transition">Стать партнером</a>
       
       <!-- Тонкий анимированный разделитель -->
-      <div class="relative w-full h-[1px] bg-sky-100 overflow-hidden my-1">
+      <div class="relative w-full h-[1px] bg-[#E8EFF5] overflow-hidden my-1">
         <div class="absolute inset-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent w-full animate-[menuDividerScan_3s_ease-in-out_infinite]"></div>
       </div>
 
       <div class="pt-1 flex items-center justify-between">
-        <a href="./index.html" class="inline-flex items-center gap-1.5 text-xs text-slate-600 font-semibold hover:text-sky-600 transition">
+        <a href="./index.html" class="inline-flex items-center gap-1.5 text-xs text-slate-600 font-semibold hover:text-[#6A9BC2] transition">
           <i data-lucide="arrow-left" class="w-4 h-4"></i> Главный сайт
         </a>
-        <a href="https://t.me/altaioptima" target="_blank" class="px-4 py-2 rounded-full bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs transition">
+        <a href="https://t.me/altaioptima" target="_blank" class="px-4 py-2 rounded-full bg-[#2F4F3F] hover:bg-[#F2F3F5]0 text-white font-bold text-xs transition">
           Написать в TG
         </a>
       </div>
@@ -1073,13 +1073,13 @@
       <div id="productUspCarouselWrapper" class="block md:hidden mb-6">
 
         <!-- ОКНО СЛАЙДЕРА -->
-        <div class="relative overflow-hidden rounded-[26px] p-0.5 border border-sky-200/80 shadow-[0_16px_40px_rgba(2,132,199,0.12)] bg-gradient-to-b from-white via-sky-50/20 to-white">
+        <div class="relative overflow-hidden rounded-[26px] p-0.5 border border-[#C9DFEB]/80 shadow-[0_16px_40px_rgba(2,132,199,0.12)] bg-gradient-to-b from-white via-sky-50/20 to-white">
           <div id="uspSliderTrack" class="flex transition-transform duration-500 ease-out" style="touch-action: pan-y;">
             
             <!-- СЛАЙД 1: < 60 СЕК -->
             <div class="w-full min-w-full p-5 sm:p-6 flex flex-col justify-between min-h-[200px] bg-white rounded-[24px]">
               <div>
-                <h3 class="font-inter text-lg sm:text-xl font-bold text-sky-700 leading-snug mb-2">
+                <h3 class="font-inter text-lg sm:text-xl font-bold text-[#4A5568] leading-snug mb-2">
                   Мгновенный захват горячего клиента
                 </h3>
                 <div class="font-inter text-3xl font-black text-sky-500 tracking-tight py-1">
@@ -1094,16 +1094,16 @@
             <!-- СЛАЙД 2: БАЗА ЗНАНИЙ -->
             <div class="w-full min-w-full p-5 sm:p-6 flex flex-col justify-between min-h-[200px] bg-white rounded-[24px]">
               <div>
-                <h3 class="font-inter text-lg sm:text-xl font-bold text-sky-700 leading-snug mb-2">
+                <h3 class="font-inter text-lg sm:text-xl font-bold text-[#4A5568] leading-snug mb-2">
                   Знает всё о продукте и компании
                 </h3>
                 <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal mb-3">
                   ИИ-продавец мгновенно отвечает на уточняющие вопросы, проводит квалификацию и уверенно доводит до сделки
                 </p>
                 <div class="flex flex-wrap gap-1.5 pt-1">
-                  <span class="text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-sky-50 border border-sky-100 text-sky-700">Скрипты</span>
-                  <span class="text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-sky-50 border border-sky-100 text-sky-700">Прайс-листы</span>
-                  <span class="text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-sky-50 border border-sky-100 text-sky-700">Регламенты</span>
+                  <span class="text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-[#F2F3F5] border border-[#C9DFEB] text-[#4A5568]">Скрипты</span>
+                  <span class="text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-[#F2F3F5] border border-[#C9DFEB] text-[#4A5568]">Прайс-листы</span>
+                  <span class="text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-[#F2F3F5] border border-[#C9DFEB] text-[#4A5568]">Регламенты</span>
                 </div>
               </div>
             </div>
@@ -1111,7 +1111,7 @@
             <!-- СЛАЙД 3: 24/7/365 -->
             <div class="w-full min-w-full p-5 sm:p-6 flex flex-col justify-between min-h-[200px] bg-white rounded-[24px]">
               <div>
-                <h3 class="font-inter text-lg sm:text-xl font-bold text-sky-700 leading-snug mb-2">
+                <h3 class="font-inter text-lg sm:text-xl font-bold text-[#4A5568] leading-snug mb-2">
                   Всегда на связи круглосуточно
                 </h3>
                 <div class="font-inter text-3xl font-black text-emerald-600 tracking-tight py-1">
@@ -1126,7 +1126,7 @@
             <!-- СЛАЙД 4: ЖИВОЙ ГОЛОС -->
             <div class="w-full min-w-full p-5 sm:p-6 flex flex-col justify-between min-h-[200px] bg-white rounded-[24px]">
               <div>
-                <h3 class="font-inter text-lg sm:text-xl font-bold text-sky-700 leading-snug mb-2">
+                <h3 class="font-inter text-lg sm:text-xl font-bold text-[#4A5568] leading-snug mb-2">
                   Безупречная дикция и уверенный голос
                 </h3>
                 <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
@@ -1138,7 +1138,7 @@
             <!-- СЛАЙД 5: CRM ИНТЕГРАЦИЯ -->
             <div class="w-full min-w-full p-5 sm:p-6 flex flex-col justify-between min-h-[200px] bg-white rounded-[24px]">
               <div>
-                <h3 class="font-inter text-lg sm:text-xl font-bold text-sky-700 leading-snug mb-2">
+                <h3 class="font-inter text-lg sm:text-xl font-bold text-[#4A5568] leading-snug mb-2">
                   ИИ-продавец работает с вашей CRM
                 </h3>
                 <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal mb-3">
@@ -1155,7 +1155,7 @@
             <!-- СЛАЙД 6: ВСЕ МЕССЕНДЖЕРЫ -->
             <div class="w-full min-w-full p-5 sm:p-6 flex flex-col justify-between min-h-[200px] bg-white rounded-[24px]">
               <div>
-                <h3 class="font-inter text-lg sm:text-xl font-bold text-sky-700 leading-snug mb-2">
+                <h3 class="font-inter text-lg sm:text-xl font-bold text-[#4A5568] leading-snug mb-2">
                   Коммуникация во всех мессенджерах
                 </h3>
                 <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal mb-3">
@@ -1176,7 +1176,7 @@
         <!-- ПАНЕЛЬ УПРАВЛЕНИЯ КАРУСЕЛЬЮ (СТРЕЛКИ, ИНДИКАТОРЫ, СЧЕТЧИК) -->
         <div class="flex items-center justify-between mt-3 px-2">
           <!-- Левая стрелка -->
-          <button type="button" id="uspPrevBtn" class="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-700 hover:text-sky-600 hover:border-sky-300 active:scale-95 transition-all text-sm font-bold">
+          <button type="button" id="uspPrevBtn" class="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-700 hover:text-[#6A9BC2] hover:border-[#C9DFEB] active:scale-95 transition-all text-sm font-bold">
             ←
           </button>
 
@@ -1193,7 +1193,7 @@
           <!-- Правая стрелка и счетчик -->
           <div class="flex items-center gap-2">
             <span id="uspSlideCounter" class="text-[11px] font-bold text-slate-400 font-mono">1 / 6</span>
-            <button type="button" id="uspNextBtn" class="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-700 hover:text-sky-600 hover:border-sky-300 active:scale-95 transition-all text-sm font-bold">
+            <button type="button" id="uspNextBtn" class="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-700 hover:text-[#6A9BC2] hover:border-[#C9DFEB] active:scale-95 transition-all text-sm font-bold">
               →
             </button>
           </div>
@@ -1211,7 +1211,7 @@
           <div class="usp-glass-card p-6 flex flex-col justify-between group">
             <div class="absolute -top-10 -right-10 w-28 h-28 bg-sky-400/15 rounded-full blur-2xl pointer-events-none"></div>
             <div>
-              <h3 class="font-inter text-base font-bold text-sky-700 leading-snug mb-2">
+              <h3 class="font-inter text-base font-bold text-[#4A5568] leading-snug mb-2">
                 Мгновенный захват горячего клиента
               </h3>
               <div class="font-inter text-3xl font-black text-sky-500 tracking-tight py-1">
@@ -1227,7 +1227,7 @@
           <div class="usp-glass-card p-6 flex flex-col justify-between group">
             <div class="absolute -top-10 -right-10 w-28 h-28 bg-indigo-400/15 rounded-full blur-2xl pointer-events-none"></div>
             <div>
-              <h3 class="font-inter text-base font-bold text-sky-700 leading-snug mb-2">
+              <h3 class="font-inter text-base font-bold text-[#4A5568] leading-snug mb-2">
                 Знает всё о продукте и компании
               </h3>
               <p class="text-xs text-slate-600 leading-relaxed font-normal mb-3">
@@ -1245,7 +1245,7 @@
           <div class="usp-glass-card p-6 flex flex-col justify-between group">
             <div class="absolute -top-10 -right-10 w-28 h-28 bg-emerald-400/15 rounded-full blur-2xl pointer-events-none"></div>
             <div>
-              <h3 class="font-inter text-base font-bold text-sky-700 leading-snug mb-2">
+              <h3 class="font-inter text-base font-bold text-[#4A5568] leading-snug mb-2">
                 Всегда на связи круглосуточно
               </h3>
               <div class="font-inter text-2xl font-black text-emerald-600 tracking-tight py-1">
@@ -1267,7 +1267,7 @@
             
             <!-- Карточка 4: Голос -->
             <div class="usp-glass-card p-6 group">
-              <h3 class="font-inter text-base font-bold text-sky-700 leading-snug mb-2">
+              <h3 class="font-inter text-base font-bold text-[#4A5568] leading-snug mb-2">
                 Безупречная дикция и уверенный голос
               </h3>
               <p class="text-xs text-slate-600 leading-relaxed font-normal">
@@ -1277,7 +1277,7 @@
 
             <!-- Карточка 5: CRM -->
             <div class="usp-glass-card p-6 group">
-              <h3 class="font-inter text-base font-bold text-sky-700 leading-snug mb-2">
+              <h3 class="font-inter text-base font-bold text-[#4A5568] leading-snug mb-2">
                 ИИ-продавец работает с вашей CRM
               </h3>
               <p class="text-xs text-slate-600 leading-relaxed font-normal mb-3">
@@ -1296,7 +1296,7 @@
           <!-- ПРАВАЯ КОЛОНКА: МЕССЕНДЖЕРЫ (5 КОЛОНОК) -->
           <div class="md:col-span-5 usp-glass-card p-6 flex flex-col justify-between group">
             <div>
-              <h3 class="font-inter text-base font-bold text-sky-700 leading-snug mb-2">
+              <h3 class="font-inter text-base font-bold text-[#4A5568] leading-snug mb-2">
                 Коммуникация во всех мессенджерах
               </h3>
               <p class="text-xs text-slate-600 leading-relaxed font-normal mb-4">
@@ -1342,7 +1342,7 @@
                 <span class="truncate">Avito</span>
               </div>
               <div class="flex items-center gap-2">
-                <div class="w-5 h-5 text-sky-600 flex items-center justify-center shrink-0 font-black text-[9px]">
+                <div class="w-5 h-5 text-[#6A9BC2] flex items-center justify-center shrink-0 font-black text-[9px]">
                   <span>MAX</span>
                 </div>
                 <span class="truncate">MAX</span>
@@ -1383,9 +1383,9 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto items-stretch">
         
         <!-- Разовый бонус -->
-        <div class="p-6 sm:p-7 rounded-2xl border border-sky-200/80 bg-white/70 backdrop-blur-sm flex flex-col justify-between transition-all hover:border-sky-400 hover:shadow-md">
+        <div class="p-6 sm:p-7 rounded-2xl border border-[#C9DFEB]/80 bg-white/70 backdrop-blur-sm flex flex-col justify-between transition-all hover:border-[#6A9BC2] hover:shadow-md">
           <div>
-            <div class="text-xs font-bold text-sky-600 uppercase tracking-wider mb-2">Разовый бонус</div>
+            <div class="text-xs font-bold text-[#6A9BC2] uppercase tracking-wider mb-2">Разовый бонус</div>
             <div class="font-inter text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 mb-2 tracking-tight">
               <span id="stat-num-20k">20 000 ₽</span>
             </div>
@@ -1533,7 +1533,7 @@
         <div class="pipeline-card-wrapper flow-card-1 group">
           <div class="pipeline-card-inner">
             <div class="flex items-center justify-between mb-3">
-              <span class="text-[11px] font-black text-sky-600 tracking-wider uppercase">КОНТАКТ</span>
+              <span class="text-[11px] font-black text-[#6A9BC2] tracking-wider uppercase">КОНТАКТ</span>
             </div>
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
               Отправляете контакт ЛПР (собственник или РОП) через личного менеджера в Telegram
@@ -1545,7 +1545,7 @@
         <div class="pipeline-card-wrapper flow-card-2 group">
           <div class="pipeline-card-inner">
             <div class="flex items-center justify-between mb-3">
-              <span class="text-[11px] font-black text-sky-600 tracking-wider uppercase">СДЕЛКА</span>
+              <span class="text-[11px] font-black text-[#6A9BC2] tracking-wider uppercase">СДЕЛКА</span>
             </div>
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
               Проводим экспертную демонстрацию, рассчитываем окупаемость и подписываем официальный договор
@@ -1557,7 +1557,7 @@
         <div class="pipeline-card-wrapper flow-card-3 group">
           <div class="pipeline-card-inner">
             <div class="flex items-center justify-between mb-3">
-              <span class="text-[11px] font-black text-sky-600 tracking-wider uppercase">ЗАПУСК</span>
+              <span class="text-[11px] font-black text-[#6A9BC2] tracking-wider uppercase">ЗАПУСК</span>
             </div>
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
               Инженеры настраивают нейросеть, подключают CRM, телефонию и запускают автономные продажи
@@ -1651,23 +1651,23 @@
 
   </main>
 
-  <footer class="pt-12 pb-16 sm:pt-16 sm:pb-20 text-slate-600 relative overflow-hidden z-20 border-t border-sky-200/50 mt-16 sm:mt-24 font-inter bg-transparent">
+  <footer class="pt-12 pb-16 sm:pt-16 sm:pb-20 text-slate-600 relative overflow-hidden z-20 border-t border-[#C9DFEB] mt-16 sm:mt-24 font-inter bg-transparent">
     
     <!-- ДЕЛИКАТНЫЙ АБРИС АЛТАЙСКИХ ГОР НА ФОНЕ ФУТЕРА -->
     <div class="absolute inset-0 pointer-events-none opacity-25 -z-10 flex items-end">
       <svg class="w-full h-44 sm:h-56" viewBox="0 0 1400 300" preserveAspectRatio="none" fill="none">
         <defs>
           <linearGradient id="partnerFooterMountainGrad" x1="0%" y1="0%" x2="0%" y2="1">
-            <stop offset="0%" stop-color="#0284c7" stop-opacity="0.18" />
+            <stop offset="0%" stop-color="#6A9BC2" stop-opacity="0.16" />
             <stop offset="100%" stop-color="#0284c7" stop-opacity="0.0" />
           </linearGradient>
         </defs>
         <!-- Дальний абрис -->
         <path d="M 0 300 L 0 200 L 140 120 L 290 180 L 450 80 L 620 160 L 780 50 L 920 140 L 1080 70 L 1240 150 L 1400 90 L 1400 300 Z" fill="url(#partnerFooterMountainGrad)" />
-        <path d="M 0 200 L 140 120 L 290 180 L 450 80 L 620 160 L 780 50 L 920 140 L 1080 70 L 1240 150 L 1400 90" stroke="#0284c7" stroke-width="1.2" stroke-dasharray="4 3" stroke-opacity="0.35" />
+        <path d="M 0 200 L 140 120 L 290 180 L 450 80 L 620 160 L 780 50 L 920 140 L 1080 70 L 1240 150 L 1400 90" stroke="#6A9BC2" stroke-width="1.2" stroke-dasharray="4 3" stroke-opacity="0.35" />
         <!-- Ближний четкий абрис -->
         <path d="M 0 300 L 0 230 L 180 150 L 350 210 L 530 110 L 700 190 L 890 90 L 1050 170 L 1220 110 L 1400 180 L 1400 300 Z" fill="url(#partnerFooterMountainGrad)" />
-        <path d="M 0 230 L 180 150 L 350 210 L 530 110 L 700 190 L 890 90 L 1050 170 L 1220 110 L 1400 180" stroke="#0369a1" stroke-width="1.5" stroke-opacity="0.45" />
+        <path d="M 0 230 L 180 150 L 350 210 L 530 110 L 700 190 L 890 90 L 1050 170 L 1220 110 L 1400 180" stroke="#4A5568" stroke-width="1.5" stroke-opacity="0.45" />
       </svg>
     </div>
 
@@ -1680,7 +1680,7 @@
         <div class="lg:col-span-5 space-y-3 flex flex-col items-center md:items-start text-center md:text-left">
           <a href="./index.html" class="inline-flex items-center gap-2 group py-1" title="ALTAI OPTIMA">
             <img src="brand_logo.png" alt="ALTAI OPTIMA" class="h-8 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105 mx-auto md:mx-0" loading="lazy">
-            <span class="text-[10px] font-black uppercase tracking-wider bg-gradient-to-r from-sky-500 via-blue-600 to-sky-700 bg-clip-text text-transparent select-none">
+            <span class="text-[10px] font-black uppercase tracking-wider bg-gradient-to-r from-[#6A9BC2] via-[#2F4F3F] to-[#7D7063] bg-clip-text text-transparent select-none">
               PARTNER
             </span>
           </a>
@@ -1691,7 +1691,7 @@
 
         <!-- КОЛОНКА 2: СВЯЗЬ И КАНАЛЫ (4 колонки, иконки без подложек) -->
         <div class="lg:col-span-4 space-y-3.5 flex flex-col items-center md:items-start text-center md:text-left">
-          <div class="text-[11px] uppercase tracking-wider font-extrabold text-sky-950 font-mono">
+          <div class="text-[11px] uppercase tracking-wider font-extrabold text-[#2D3748] font-mono">
             Связь и контакты
           </div>
           <ul class="space-y-2.5 text-xs flex flex-col items-center md:items-start">
@@ -1704,8 +1704,8 @@
               </a>
             </li>
             <li>
-              <a href="mailto:optima@altaiweb.online" class="inline-flex items-center gap-2 text-slate-700 hover:text-sky-700 transition-colors py-0.5 font-mono group">
-                <svg class="w-4 h-4 text-sky-600 stroke-current group-hover:scale-110 transition-transform shrink-0" fill="none" viewBox="0 0 24 24">
+              <a href="mailto:optima@altaiweb.online" class="inline-flex items-center gap-2 text-slate-700 hover:text-[#4A5568] transition-colors py-0.5 font-mono group">
+                <svg class="w-4 h-4 text-[#6A9BC2] stroke-current group-hover:scale-110 transition-transform shrink-0" fill="none" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                 </svg>
                 <span>optima@altaiweb.online</span>
@@ -1713,7 +1713,7 @@
             </li>
           </ul>
           <div class="pt-2 flex justify-center md:justify-start w-full md:w-auto">
-            <a href="./index.html" class="inline-flex items-center gap-2 text-xs font-bold text-sky-800 bg-sky-50 hover:bg-sky-100 border border-sky-200/80 px-4 py-2 rounded-full transition-all duration-200 hover:scale-105 active:scale-95" title="На главную">
+            <a href="./index.html" class="inline-flex items-center gap-2 text-xs font-bold text-[#2F4F3F] bg-[#F2F3F5] hover:bg-[#E8EFF5] border border-[#C9DFEB]/80 px-4 py-2 rounded-full transition-all duration-200 hover:scale-105 active:scale-95" title="На главную">
               <span>← На главную страницу</span>
             </a>
           </div>
@@ -1761,7 +1761,7 @@
       </div>
 
       <!-- НИЖНЯЯ ПАНЕЛЬ ФУТЕРА: КОПИРАЙТ, НАВЕРХ ПОСЕРЕДИНЕ, РЕКВИЗИТЫ СПРАВА -->
-      <div class="pt-8 mt-12 border-t border-sky-200/60 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400 text-center md:text-left">
+      <div class="pt-8 mt-12 border-t border-[#C9DFEB] flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400 text-center md:text-left">
         <!-- Левая часть: копирайт -->
         <div class="text-center md:text-left">
           © 2026 Altai Optima. Партнерская программа. Все права защищены.
@@ -1769,7 +1769,7 @@
 
         <!-- Центральная часть: Наверх -->
         <div class="text-center">
-          <a href="#" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;" class="inline-flex items-center gap-1.5 text-slate-400 hover:text-sky-600 font-medium transition-colors" title="Вернуться к началу страницы">
+          <a href="#" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;" class="inline-flex items-center gap-1.5 text-slate-400 hover:text-[#6A9BC2] font-medium transition-colors" title="Вернуться к началу страницы">
             <span>Наверх</span>
             <span class="text-[10px]">↑</span>
           </a>
