@@ -4415,11 +4415,12 @@
       <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center text-left">
         
         
-        <div class="lg:col-span-6 space-y-6 sm:space-y-8 lg:pl-16 xl:pl-24 2xl:pl-28">
+        <!-- LEFT COLUMN: TITLE + SUBTITLE + 4 MESSENGER BUTTONS -->
+        <div class="lg:col-span-6 space-y-6 sm:space-y-8 lg:pl-4 xl:pl-6 2xl:pl-8">
           
-                    <!-- ЗАГОЛОВОК + ПОДЗАГОЛОВОК -->
+          <!-- TITLE + SUBTITLE -->
           <div class="space-y-2 sm:space-y-2.5 text-center lg:text-left">
-            <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-3xl lg:text-[34px] xl:text-[40px] leading-[1.15] hyphens-none" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 8px 20px rgba(2, 132, 199, 0.16)); overflow: visible;">
+            <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-3xl lg:text-[28px] xl:text-[34px] 2xl:text-[38px] leading-[1.15] hyphens-none overflow-visible" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 8px 20px rgba(2, 132, 199, 0.16));">
               <span class="block whitespace-nowrap">Psychology</span>
               <span class="block whitespace-nowrap">of communication</span>
               <span class="block whitespace-nowrap">in action</span>
@@ -4539,21 +4540,6 @@
 
               <!-- INPUT PANEL -->
               <div class="p-2.5 bg-white border-t border-slate-200/90 flex flex-col gap-2 z-10 shrink-0 shadow-xs">
-                
-                <div id="chatQuickPrompts" class="flex items-center gap-1.5 overflow-x-auto pb-0.5 no-scrollbar text-[11px]">
-                  <button type="button" onclick="sendQuickPrompt('How much does implementation cost?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-100 hover:bg-sky-50 text-slate-700 hover:text-sky-700 border border-slate-200/80 transition-colors font-medium cursor-pointer shrink-0 text-[10.5px]">
-                    💰 Pricing details?
-                  </button>
-                  <button type="button" onclick="sendQuickPrompt('What if the client asks for a discount?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-100 hover:bg-sky-50 text-slate-700 hover:text-sky-700 border border-slate-200/80 transition-colors font-medium cursor-pointer shrink-0 text-[10.5px]">
-                    ⚡ Client asks discount
-                  </button>
-                  <button type="button" onclick="sendQuickPrompt('Do you integrate with amoCRM and 1C?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-100 hover:bg-sky-50 text-slate-700 hover:text-sky-700 border border-slate-200/80 transition-colors font-medium cursor-pointer shrink-0 text-[10.5px]">
-                    🔄 amoCRM & ERP
-                  </button>
-                  <button type="button" onclick="sendQuickPrompt('How are you better than basic chatbots?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-100 hover:bg-sky-50 text-slate-700 hover:text-sky-700 border border-slate-200/80 transition-colors font-medium cursor-pointer shrink-0 text-[10.5px]">
-                    🤖 AI vs basic bots
-                  </button>
-                </div>
                 
                 <form id="liveChatForm" onsubmit="handleLiveChatSubmit(event)" class="flex items-center gap-2">
                   <input 
@@ -6865,29 +6851,7 @@
     }
 
     function updateQuickPrompts() {
-      const container = document.getElementById('chatQuickPrompts');
-      if (!container) return;
-      demoChatClient.getConfig().then(config => {
-        const questions = (config && config.suggested_questions && config.suggested_questions.length) 
-          ? config.suggested_questions 
-          : [
-              "How much does turnkey setup cost?",
-              "What if the client asks for a discount?",
-              "Do you integrate with amoCRM and ERP?",
-              "Why is this better than basic chatbots?"
-            ];
-
-        container.innerHTML = questions.map((q, idx) => {
-          const icons = ['💰', '⚡', '🔄', '🤖', '💬'];
-          const icon = icons[idx % icons.length];
-          const shortLabel = q.length > 28 ? q.slice(0, 26) + '…' : q;
-          return `
-            <button type="button" onclick="sendQuickPrompt(${JSON.stringify(q)})" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-100 hover:bg-sky-50 text-slate-700 hover:text-sky-700 border border-slate-200/80 transition-colors font-medium cursor-pointer shrink-0 text-[10.5px]" title="${q}">
-              ${icon} ${shortLabel}
-            </button>
-          `;
-        }).join('');
-      });
+      // Quick prompts removed
     }
 
     function resetLiveChatDialogue() {

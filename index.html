@@ -4418,12 +4418,12 @@
       
       <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center text-left">
         
-        <!-- ЛЕВАЯ КОЛОНКА: ЗАГОЛОВОК + ПОДЗАГОЛОВОК + 4 КНОПКИ МЕССЕНДЖЕРОВ (СДВИНУТЫ ЧУТЬ ПРАВЕЕ НА ДЕСКТОПЕ, ПО ЦЕНТРУ НА МОБИЛКЕ) -->
-        <div class="lg:col-span-6 space-y-6 sm:space-y-8 lg:pl-16 xl:pl-24 2xl:pl-28">
+        <!-- ЛЕВАЯ КОЛОНКА: ЗАГОЛОВОК + ПОДЗАГОЛОВОК + 4 КНОПКИ МЕССЕНДЖЕРОВ -->
+        <div class="lg:col-span-6 space-y-6 sm:space-y-8 lg:pl-4 xl:pl-6 2xl:pl-8">
           
           <!-- ЗАГОЛОВОК + ПОДЗАГОЛОВОК -->
           <div class="space-y-2 sm:space-y-2.5 text-center lg:text-left">
-            <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-3xl lg:text-[34px] xl:text-[40px] leading-[1.15] hyphens-none" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 8px 20px rgba(2, 132, 199, 0.16)); overflow: visible;">
+            <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-3xl lg:text-[28px] xl:text-[34px] 2xl:text-[38px] leading-[1.15] hyphens-none overflow-visible" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 8px 20px rgba(2, 132, 199, 0.16));">
               <span class="block whitespace-nowrap">Психология</span>
               <span class="block whitespace-nowrap">коммуникации</span>
               <span class="block whitespace-nowrap">в действии</span>
@@ -4542,21 +4542,6 @@
 
               <!-- ИНТЕРАКТИВНАЯ ПАНЕЛЬ ВВОДА (ЖИВОЙ ДИАЛОГ С ИИ-ПРОДАВЦОМ) -->
               <div class="p-2.5 bg-white border-t border-slate-200/90 flex flex-col gap-2 z-10 shrink-0 shadow-xs">
-                <!-- Быстрые подсказки -->
-                <div id="chatQuickPrompts" class="flex items-center gap-1.5 overflow-x-auto pb-0.5 no-scrollbar text-[11px]">
-                  <button type="button" onclick="sendQuickPrompt('Сколько стоит внедрение?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-100 hover:bg-sky-50 text-slate-700 hover:text-sky-700 border border-slate-200/80 transition-colors font-medium cursor-pointer shrink-0 text-[10.5px]">
-                    💰 Сколько стоит?
-                  </button>
-                  <button type="button" onclick="sendQuickPrompt('А если клиент просит скидку?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-100 hover:bg-sky-50 text-slate-700 hover:text-sky-700 border border-slate-200/80 transition-colors font-medium cursor-pointer shrink-0 text-[10.5px]">
-                    ⚡ Клиент просит скидку
-                  </button>
-                  <button type="button" onclick="sendQuickPrompt('Работаете с amoCRM и 1С?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-100 hover:bg-sky-50 text-slate-700 hover:text-sky-700 border border-slate-200/80 transition-colors font-medium cursor-pointer shrink-0 text-[10.5px]">
-                    🔄 amoCRM и 1С
-                  </button>
-                  <button type="button" onclick="sendQuickPrompt('Чем вы лучше обычного чат-бота?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-100 hover:bg-sky-50 text-slate-700 hover:text-sky-700 border border-slate-200/80 transition-colors font-medium cursor-pointer shrink-0 text-[10.5px]">
-                    🤖 Отличие от ботов
-                  </button>
-                </div>
                 <!-- Поле ввода + Кнопка отправки -->
                 <form id="liveChatForm" onsubmit="handleLiveChatSubmit(event)" class="flex items-center gap-2">
                   <input 
@@ -7050,29 +7035,7 @@
     }
 
     function updateQuickPrompts() {
-      const container = document.getElementById('chatQuickPrompts');
-      if (!container) return;
-      demoChatClient.getConfig().then(config => {
-        const questions = (config && config.suggested_questions && config.suggested_questions.length) 
-          ? config.suggested_questions 
-          : [
-              "Сколько стоит внедрение под ключ?",
-              "А если клиент просит скидку?",
-              "Работаете с amoCRM и 1С?",
-              "Чем вы лучше обычного чат-бота?"
-            ];
-
-        container.innerHTML = questions.map((q, idx) => {
-          const icons = ['💰', '⚡', '🔄', '🤖', '💬'];
-          const icon = icons[idx % icons.length];
-          const shortLabel = q.length > 28 ? q.slice(0, 26) + '…' : q;
-          return `
-            <button type="button" onclick="sendQuickPrompt(${JSON.stringify(q)})" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-100 hover:bg-sky-50 text-slate-700 hover:text-sky-700 border border-slate-200/80 transition-colors font-medium cursor-pointer shrink-0 text-[10.5px]" title="${q}">
-              ${icon} ${shortLabel}
-            </button>
-          `;
-        }).join('');
-      });
+      // Quick prompts removed
     }
 
     function resetLiveChatDialogue() {
