@@ -1251,64 +1251,148 @@
     }
 
     #constructor .cfg-card {
-      background: #FFFFFF;
-      border: 1px solid #E2E8F0;
-      border-radius: 20px;
-      padding: 18px 20px;
-      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
-      transition: all 0.25s ease;
       position: relative;
+      background: #ffffff;
+      border-radius: 24px;
       overflow: hidden;
       z-index: 1;
+      isolation: isolate;
+      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 0 0 1px rgba(226, 232, 240, 0.7);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 20px 22px;
     }
     #constructor .cfg-card > * {
       position: relative;
       z-index: 2;
     }
-    #constructor .cfg-card:hover {
-      box-shadow: 0 12px 30px -4px rgba(2, 132, 199, 0.12), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
-      transform: translateY(-2px);
+    #constructor .cfg-card::before {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: -100%;
+      width: 300%;
+      height: 300%;
+      animation: borderBeamRotate 6s linear infinite;
+      z-index: -2;
     }
     #constructor .cfg-card::after {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(240, 249, 255, 0.3) 100%);
-      pointer-events: none;
-      z-index: 1;
-      opacity: 0.6;
-      transition: opacity 0.3s ease;
+      inset: 2px;
+      background: #ffffff;
+      border-radius: 22px;
+      z-index: -1;
+      transition: background-color 0.3s ease;
     }
-    #constructor .cfg-card:hover::after {
-      opacity: 0.9;
+    #constructor .cfg-card:hover {
+      transform: translateY(-3px);
     }
 
-    #constructor .cfg-card-channels {
-      border-color: rgba(56, 189, 248, 0.4);
-      background-image: 
-        radial-gradient(ellipse at 15% 15%, rgba(240, 249, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 65%, rgba(224, 242, 254, 0.4) 100%),
-        linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(2, 132, 199, 0.04), rgba(125, 211, 252, 0.12));
+    /* 1. CHANNELS CARD (CYAN / SKY) */
+    #constructor .cfg-card-channels::before {
+      animation-duration: 6s;
+      background: conic-gradient(
+        from 0deg,
+        rgba(226, 232, 240, 0.5) 0deg,
+        rgba(226, 232, 240, 0.5) 220deg,
+        rgba(56, 189, 248, 0.2) 250deg,
+        rgba(14, 165, 233, 0.8) 290deg,
+        #38bdf8 335deg,
+        rgba(226, 232, 240, 0.5) 360deg
+      );
     }
-    #constructor .cfg-card-crms {
-      border-color: rgba(14, 165, 233, 0.4);
-      background-image: 
-        radial-gradient(ellipse at 85% 15%, rgba(240, 249, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 65%, rgba(186, 230, 253, 0.45) 100%),
-        linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(56, 189, 248, 0.04), rgba(3, 105, 161, 0.08));
+    #constructor .cfg-card-channels:hover {
+      box-shadow: 0 18px 38px -8px rgba(14, 165, 233, 0.18), 0 0 22px 0 rgba(56, 189, 248, 0.25);
     }
-    #constructor .cfg-card-extras {
-      border-color: rgba(2, 132, 199, 0.4);
-      background-image: 
-        radial-gradient(ellipse at 15% 85%, rgba(240, 249, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 65%, rgba(224, 242, 254, 0.4) 100%),
-        linear-gradient(135deg, rgba(2, 132, 199, 0.1), rgba(14, 165, 233, 0.04), rgba(56, 189, 248, 0.12));
+    #constructor .cfg-card-channels h3 {
+      background: linear-gradient(135deg, #075985 0%, #0284c7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    #constructor .cfg-card-volume {
-      border-color: rgba(3, 105, 161, 0.4);
-      background-image: 
-        radial-gradient(ellipse at 85% 85%, rgba(240, 249, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 65%, rgba(186, 230, 253, 0.45) 100%),
-        linear-gradient(135deg, rgba(3, 105, 161, 0.1), rgba(2, 132, 199, 0.04), rgba(14, 165, 233, 0.1));
+    #constructor .cfg-card-channels h3::before {
+      background: #0284c7;
+      box-shadow: 0 0 8px rgba(2, 132, 199, 0.7);
+    }
+
+    /* 2. CRM CARD (EMERALD) */
+    #constructor .cfg-card-crms::before {
+      animation-duration: 6.5s;
+      animation-delay: -2.2s;
+      background: conic-gradient(
+        from 0deg,
+        rgba(226, 232, 240, 0.5) 0deg,
+        rgba(226, 232, 240, 0.5) 220deg,
+        rgba(52, 211, 153, 0.2) 250deg,
+        rgba(16, 185, 129, 0.8) 290deg,
+        #34d399 335deg,
+        rgba(226, 232, 240, 0.5) 360deg
+      );
+    }
+    #constructor .cfg-card-crms:hover {
+      box-shadow: 0 18px 38px -8px rgba(16, 185, 129, 0.18), 0 0 22px 0 rgba(52, 211, 153, 0.25);
+    }
+    #constructor .cfg-card-crms h3 {
+      background: linear-gradient(135deg, #065f46 0%, #059669 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    #constructor .cfg-card-crms h3::before {
+      background: #10b981;
+      box-shadow: 0 0 8px rgba(16, 185, 129, 0.7);
+    }
+
+    /* 3. EXTRAS CARD (VIOLET / PURPLE) */
+    #constructor .cfg-card-extras::before {
+      animation-duration: 7s;
+      animation-delay: -3.8s;
+      background: conic-gradient(
+        from 0deg,
+        rgba(226, 232, 240, 0.5) 0deg,
+        rgba(226, 232, 240, 0.5) 220deg,
+        rgba(168, 85, 247, 0.2) 250deg,
+        rgba(139, 92, 246, 0.8) 290deg,
+        #c084fc 335deg,
+        rgba(226, 232, 240, 0.5) 360deg
+      );
+    }
+    #constructor .cfg-card-extras:hover {
+      box-shadow: 0 18px 38px -8px rgba(139, 92, 246, 0.18), 0 0 22px 0 rgba(168, 85, 247, 0.25);
+    }
+    #constructor .cfg-card-extras h3 {
+      background: linear-gradient(135deg, #581c87 0%, #7c3aed 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    #constructor .cfg-card-extras h3::before {
+      background: #8b5cf6;
+      box-shadow: 0 0 8px rgba(139, 92, 246, 0.7);
+    }
+
+    /* 4. VOLUME CARD (AMBER / ORANGE) */
+    #constructor .cfg-card-volume::before {
+      animation-duration: 7.5s;
+      animation-delay: -5.2s;
+      background: conic-gradient(
+        from 0deg,
+        rgba(226, 232, 240, 0.5) 0deg,
+        rgba(226, 232, 240, 0.5) 220deg,
+        rgba(245, 158, 11, 0.2) 250deg,
+        rgba(234, 88, 12, 0.8) 290deg,
+        #f59e0b 335deg,
+        rgba(226, 232, 240, 0.5) 360deg
+      );
+    }
+    #constructor .cfg-card-volume:hover {
+      box-shadow: 0 18px 38px -8px rgba(245, 158, 11, 0.18), 0 0 22px 0 rgba(245, 158, 11, 0.25);
+    }
+    #constructor .cfg-card-volume h3 {
+      background: linear-gradient(135deg, #7c2d12 0%, #d97706 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    #constructor .cfg-card-volume h3::before {
+      background: #f59e0b;
+      box-shadow: 0 0 8px rgba(245, 158, 11, 0.7);
     }
 
     #constructor .cfg-card h3 {
@@ -1320,9 +1404,6 @@
       display: flex;
       align-items: center;
       gap: 7px;
-      background: linear-gradient(135deg, #075985 0%, #0284c7 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
     #constructor .cfg-card h3::before {
       content: '';
@@ -1330,8 +1411,6 @@
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: #0284c7;
-      box-shadow: 0 0 8px rgba(2, 132, 199, 0.6);
       flex-shrink: 0;
     }
 
@@ -1528,14 +1607,18 @@
 
     /* СТИЛИ КОМПАКТНОЙ КАРТОЧКИ «ВАШ РАСЧЕТ» */
     #constructor .cfg-summary-outer {
+      position: -webkit-sticky;
       position: sticky;
-      top: 90px;
+      top: 96px;
+      z-index: 30;
+      align-self: start;
       padding: 2.5px;
       border-radius: 24px;
       background: linear-gradient(135deg, #0284c7, #38bdf8, #0369a1, #38bdf8, #0284c7);
       background-size: 300% 300%;
       animation: neonBorderFlow 4s ease infinite;
       box-shadow: 0 20px 45px -10px rgba(2, 132, 199, 0.3), 0 0 25px rgba(56, 189, 248, 0.15);
+      will-change: transform;
     }
     #constructor .cfg-summary {
       position: relative;
@@ -5996,14 +6079,14 @@
     </div>
 
     
-                <section id="constructor" class="max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 font-inter space-y-6 sm:space-y-8 py-10 sm:py-14">
+    <section id="constructor" class="max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 font-inter space-y-8 sm:space-y-10 lg:space-y-12 py-10 sm:py-14">
       
-      <!-- Bölüm Başlığı: tek satır açıklama -->
-      <div class="text-center max-w-4xl mx-auto space-y-2 pb-1">
+      <!-- Bölüm Başlığı: kartlardan geniş aralık -->
+      <div class="text-center max-w-4xl mx-auto space-y-3 pb-2 sm:pb-4 mb-6 sm:mb-8 lg:mb-10">
         <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[40px] leading-[1.15]" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 12px 30px rgba(2, 132, 199, 0.15));">
           İŞLETMENİZ İÇİN YAPAY ZEKA SATICISI MALİYETİ
         </h2>
-        <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+        <p class="text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed font-normal pt-1">
           İletişim kanallarınızı ve veritabanınızı seçin, hesaplama anında güncellenir
         </p>
       </div>
@@ -6176,19 +6259,7 @@
             <span id="mobSetupTotal">20.000</span> ₺ + <span id="mobMonthlyTotal">6.000</span> ₺/ay
           </div>
           
-<div class="text-[9.5px] text-sky-400 font-bold uppercase tracking-wider">Hesaplamanız</div>
-        </div>
-        <a href="#ctaBtn" onclick="document.getElementById('ctaBtn')?.scrollIntoView({behavior:'smooth'})" class="shrink-0 text-xs font-black text-white bg-gradient-to-r from-sky-500 to-blue-600 px-3.5 py-2 rounded-xl shadow-md uppercase tracking-wider">
-          Teklif Alın
-        </a>
-      </div>
-    </div>
-
-
-    <!-- MOBİL SABİT ALT PANEL -->
-    
-          
-<div class="text-[9.5px] text-sky-400 font-bold uppercase tracking-wider">Hesaplamanız</div>
+          <div class="text-[9.5px] text-sky-400 font-bold uppercase tracking-wider">Hesaplamanız</div>
         </div>
         <a href="#ctaBtn" onclick="document.getElementById('ctaBtn')?.scrollIntoView({behavior:'smooth'})" class="shrink-0 text-xs font-black text-white bg-gradient-to-r from-sky-500 to-blue-600 px-3.5 py-2 rounded-xl shadow-md uppercase tracking-wider">
           Teklif Alın
