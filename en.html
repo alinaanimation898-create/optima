@@ -1580,23 +1580,101 @@
       box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
     }
 
-    /* ЕДИНЫЙ БЛОК «НЕ НАШЛИ СВОЙ ВАРИАНТ?» */
+    /* АНИМИРОВАННЫЙ ПЕРЛАМУТРОВЫЙ ИРИДИСЦЕНТНЫЙ ГРАДИЕНТ (MOTHER-OF-PEARL SHIMMER) */
+    @keyframes pearlHoloShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes pearlSheenShimmer {
+      0% {
+        transform: translateX(-150%) rotate(25deg);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.6;
+      }
+      50% {
+        opacity: 0.95;
+      }
+      80% {
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateX(250%) rotate(25deg);
+        opacity: 0;
+      }
+    }
+
     #constructor .cfg-card-custom {
       grid-column: 1 / -1;
-      background-image: 
-        radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.98) 0%, rgba(240, 249, 255, 0.7) 100%),
-        linear-gradient(135deg, #0284c7, #38bdf8, #0ea5e9, #7dd3fc, #0284c7);
-      background-size: 100% 100%, 300% 300%;
-      animation: neonBorderFlow 7s ease infinite;
-      padding: 16px 20px;
-      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      border-radius: 24px;
+      padding: 20px 24px;
+      border: 1px solid rgba(186, 230, 253, 0.85);
+      background: linear-gradient(
+        125deg,
+        #e0f2fe 0%,
+        #fce7f3 22%,
+        #fef3c7 42%,
+        #ede9fe 62%,
+        #cffafe 82%,
+        #fce7f3 100%
+      );
+      background-size: 260% 260%;
+      animation: pearlHoloShift 8s ease-in-out infinite;
+      box-shadow: 
+        0 14px 36px -6px rgba(186, 230, 253, 0.5),
+        0 4px 18px -2px rgba(244, 114, 182, 0.18),
+        0 0 0 1.5px rgba(255, 255, 255, 0.95) inset;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
+    #constructor .cfg-card-custom::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.25) 38%,
+        rgba(255, 255, 255, 0.85) 50%,
+        rgba(255, 255, 255, 0.25) 62%,
+        transparent 100%
+      );
+      animation: pearlSheenShimmer 6.5s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    #constructor .cfg-card-custom:hover {
+      transform: translateY(-3px);
+      box-shadow: 
+        0 20px 45px -6px rgba(186, 230, 253, 0.65),
+        0 8px 24px -2px rgba(244, 114, 182, 0.28),
+        0 0 24px 2px rgba(255, 255, 255, 1) inset;
+    }
+
     #constructor .cfg-card-custom-inner {
+      position: relative;
+      z-index: 2;
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 20px;
     }
     @media (max-width: 640px) {
       #constructor .cfg-card-custom-inner {
@@ -6231,10 +6309,10 @@
           <div class="cfg-card-custom-inner">
             <div class="space-y-1">
               <div class="text-slate-900 font-extrabold text-sm sm:text-base leading-snug">
-                Having a custom workflow or over 1,000 inquiries?
+                Didn't find your setup?
               </div>
               <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                We connect telephony, proprietary databases, multi-branch & multi-agent setups.
+                We can connect any channel, CRM, ERP or inventory system. Tell us how your sales process is structured, and we will propose the ideal solution.
               </p>
             </div>
             <div class="shrink-0 pt-2 sm:pt-0">
