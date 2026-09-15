@@ -1237,7 +1237,8 @@
     #constructor .cfg-cards-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+      gap: 18px;
+      padding: 2px;
     }
     @media (max-width: 960px) {
       #constructor .cfg-grid {
@@ -1249,49 +1250,112 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* ЕДИНЫЙ ПЕРЛАМУТРОВЫЙ СТИЛЬ: БЕЛЫЙ, ГОЛУБОЙ, СВЕТЛО-ГОЛУБОЙ С АНИМИРОВАННЫМИ БЛИКАМИ */
     #constructor .cfg-card {
-      border-radius: 20px;
-      padding: 20px 22px;
+      position: relative;
+      border-radius: 22px;
+      padding: 22px 24px;
       margin-bottom: 0;
-      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       display: flex;
       flex-direction: column;
+      border: 2px solid transparent;
+      background-clip: padding-box, border-box;
+      background-origin: padding-box, border-box;
+      box-shadow: 0 4px 20px -2px rgba(2, 132, 199, 0.07), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #constructor .cfg-card > * {
+      position: relative;
+      z-index: 3;
     }
     #constructor .cfg-card:hover {
-      box-shadow: 0 12px 28px -4px rgba(2, 132, 199, 0.14), 0 4px 10px -2px rgba(15, 23, 42, 0.05);
-      transform: translateY(-2px);
-    }
-    
-    
-    #constructor .cfg-card-channels,
-    #constructor .cfg-card-crms,
-    #constructor .cfg-card-extras,
-    #constructor .cfg-card-volume {
-      background: linear-gradient(160deg, #FFFFFF 0%, #F8FAFC 100%);
-      border: 1.5px solid #E2E8F0;
-    }
-    #constructor .cfg-card:hover {
-      border-color: #BAE6FD;
-      box-shadow: 0 12px 28px -4px rgba(2, 132, 199, 0.12), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
-      transform: translateY(-2px);
+      box-shadow: 0 14px 34px -4px rgba(2, 132, 199, 0.2), 0 0 20px rgba(56, 189, 248, 0.25);
+      transform: translateY(-3px);
     }
 
+    /* Перламутровый переливающийся световой блик поверх карточки */
+    #constructor .cfg-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      background: linear-gradient(120deg, 
+        rgba(255, 255, 255, 0.65) 0%, 
+        rgba(255, 255, 255, 0.05) 35%, 
+        rgba(224, 242, 254, 0.35) 48%, 
+        rgba(240, 249, 255, 0.35) 58%, 
+        rgba(255, 255, 255, 0.05) 70%, 
+        rgba(255, 255, 255, 0.55) 100%);
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0.85;
+      transition: opacity 0.35s ease;
+    }
+    #constructor .cfg-card:hover::after {
+      opacity: 1;
+    }
+
+    /* 1. КАРТОЧКА: КАНАЛЫ СВЯЗИ (Перламутровый белый / Небесно-голубой) */
+    #constructor .cfg-card-channels {
+      background-image: 
+        radial-gradient(ellipse at 15% 15%, rgba(255, 255, 255, 0.98) 0%, rgba(224, 242, 254, 0.6) 45%, #F0F9FF 100%),
+        linear-gradient(135deg, #0284c7, #38bdf8, #7dd3fc, #bae6fd, #0284c7);
+      background-size: 100% 100%, 300% 300%;
+      animation: neonBorderFlow 6s ease infinite;
+    }
+
+    /* 2. КАРТОЧКА: CRM-ИНТЕГРАЦИЯ (Перламутровый кристалл / Мягкий сапфировый) */
+    #constructor .cfg-card-crms {
+      background-image: 
+        radial-gradient(ellipse at 85% 15%, rgba(255, 255, 255, 0.98) 0%, rgba(219, 234, 254, 0.6) 45%, #EFF6FF 100%),
+        linear-gradient(135deg, #0369a1, #0284c7, #60a5fa, #bfdbfe, #0369a1);
+      background-size: 100% 100%, 300% 300%;
+      animation: neonBorderFlow 5s ease infinite;
+    }
+
+    /* 3. КАРТОЧКА: ДОПОЛНИТЕЛЬНО (Перламутровый циан / Ледяной бриз) */
+    #constructor .cfg-card-extras {
+      background-image: 
+        radial-gradient(ellipse at 15% 85%, rgba(255, 255, 255, 0.98) 0%, rgba(207, 250, 254, 0.6) 45%, #F0FDFA 100%),
+        linear-gradient(135deg, #0284c7, #06b6d4, #38bdf8, #a5f3fc, #0284c7);
+      background-size: 100% 100%, 300% 300%;
+      animation: neonBorderFlow 5.5s ease infinite;
+    }
+
+    /* 4. КАРТОЧКА: ОБЪЕМ ЗАЯВОК (Перламутровый ультрамарин / Лазурный глянец) */
+    #constructor .cfg-card-volume {
+      background-image: 
+        radial-gradient(ellipse at 85% 85%, rgba(255, 255, 255, 0.98) 0%, rgba(224, 242, 254, 0.6) 45%, #F0F9FF 100%),
+        linear-gradient(135deg, #075985, #0284c7, #38bdf8, #93c5fd, #075985);
+      background-size: 100% 100%, 300% 300%;
+      animation: neonBorderFlow 4.5s ease infinite;
+    }
+
+    /* ЗАГОЛОВКИ КАРТОЧЕК В ФИРМЕННОМ САПФИРОВО-ГОЛУБОМ СТИЛЕ */
     #constructor .cfg-card h3 {
-      font-size: 13px;
+      font-size: 13.5px;
       text-transform: uppercase;
-      letter-spacing: .06em;
-      color: #0369a1;
+      letter-spacing: .07em;
       margin: 0 0 14px;
-      font-weight: 800;
+      font-weight: 900;
       display: flex;
       align-items: center;
       gap: 8px;
+      background: linear-gradient(135deg, #075985 0%, #0284c7 50%, #0369a1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 6px rgba(2, 132, 199, 0.15));
     }
-    #constructor .cfg-card-crms h3,
-    #constructor .cfg-card-extras h3,
-    #constructor .cfg-card-volume h3 {
-      color: #0369a1;
+    #constructor .cfg-card h3::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #0284c7;
+      box-shadow: 0 0 8px #38bdf8;
+      flex-shrink: 0;
     }
 
     #constructor .cfg-row {
@@ -3681,7 +3745,7 @@
             100% OF LEADS PROCESSED
           </h2>
         </div>
-        <div class="max-w-3xl mx-auto font-inter mt-6 sm:mt-4 pt-2 sm:pt-0">
+        <div class="max-w-4xl mx-auto font-inter mt-6 sm:mt-4 pt-2 sm:pt-0">
           <p class="text-slate-800 text-base sm:text-lg md:text-xl font-medium leading-snug sm:leading-relaxed">
             <span class="block">AI Sales Rep responds to every inquiry within the first minute, filters out spam,</span>
             <span class="block">and delivers deal-ready clients to your managers, even at night and on weekends</span>
@@ -4142,29 +4206,27 @@
           <div class="flex flex-col items-center lg:items-start w-full">
             <div class="grid grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-2.5 sm:gap-y-3.5 lg:flex lg:flex-col lg:space-y-4 lg:gap-0 lg:pl-4 xl:pl-6 max-w-sm sm:max-w-md lg:max-w-none w-full px-2 sm:px-0">
               
-              
+              <!-- WhatsApp -->
               <button type="button" onclick="selectBranch('full_deal', this)" class="branch-btn branch-btn-wa active flex items-center gap-2.5 sm:gap-3.5 text-left cursor-pointer group py-1.5 px-0.5 whitespace-nowrap">
                 <div class="w-7 h-7 sm:w-8 sm:h-8 text-[#075E54] flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-110">
                   <svg class="w-6 h-6 sm:w-7 sm:h-7 fill-current" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.68 12.04 3.68C14.24 3.68 16.31 4.54 17.87 6.1C19.42 7.66 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15ZM16.56 14.36C16.31 14.24 15.09 13.64 14.86 13.56C14.63 13.48 14.47 13.44 14.3 13.69C14.14 13.94 13.67 14.49 13.52 14.66C13.38 14.83 13.23 14.85 12.98 14.73C12.74 14.61 11.95 14.35 11.01 13.51C10.28 12.86 9.78 12.05 9.64 11.8C9.5 11.56 9.62 11.42 9.75 11.3C9.86 11.19 10 11.02 10.12 10.88C10.24 10.74 10.28 10.64 10.36 10.47C10.44 10.31 10.4 10.16 10.34 10.04C10.28 9.92 9.8 8.74 9.6 8.25C9.4 7.78 9.21 7.84 9.06 7.83C8.92 7.82 8.76 7.82 8.6 7.82C8.44 7.82 8.17 7.88 7.95 8.12C7.73 8.36 7.1 8.95 7.1 10.16C7.1 11.37 7.98 12.54 8.1 12.7C8.22 12.87 9.83 15.34 12.3 16.4C12.89 16.65 13.35 16.8 13.7 16.91C14.3 17.1 14.84 17.07 15.27 17.01C15.75 16.94 16.74 16.41 16.95 15.82C17.15 15.23 17.15 14.73 17.09 14.62C17.03 14.51 16.81 14.48 16.56 14.36Z"/></svg>
                 </div>
                 <div class="flex flex-col">
                   <span class="font-extrabold text-[13.5px] sm:text-base lg:text-lg tracking-tight group-hover:brightness-110 transition-colors" style="color: #075E54;">WhatsApp</span>
-                  <span class="text-[10px] sm:text-xs text-slate-400 font-normal leading-tight">Real Estate</span>
                 </div>
               </button>
 
-              
+              <!-- Telegram -->
               <button type="button" onclick="selectBranch('price_objection', this)" class="branch-btn branch-btn-tg flex items-center gap-2.5 sm:gap-3.5 text-left cursor-pointer group py-1.5 px-0.5 whitespace-nowrap">
                 <div class="w-7 h-7 sm:w-8 sm:h-8 text-[#229ED9] flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-110">
                   <svg class="w-6 h-6 sm:w-7 sm:h-7 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
                 </div>
                 <div class="flex flex-col">
                   <span class="font-extrabold text-[13.5px] sm:text-base lg:text-lg tracking-tight group-hover:brightness-110 transition-colors" style="color: #229ED9;">Telegram</span>
-                  <span class="text-[10px] sm:text-xs text-slate-400 font-normal leading-tight">B2B Manufacturing</span>
                 </div>
               </button>
 
-              
+              <!-- Instagram Direct -->
               <button type="button" onclick="selectBranch('reanimate', this)" class="branch-btn branch-btn-ig flex items-center gap-2.5 sm:gap-3.5 text-left cursor-pointer group py-1.5 px-0.5 whitespace-nowrap">
                 <div class="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-110">
                   <svg class="w-6 h-6 sm:w-7 sm:h-7" viewBox="0 0 24 24">
@@ -4182,11 +4244,10 @@
                 </div>
                 <div class="flex flex-col">
                   <span class="font-extrabold text-[13.5px] sm:text-base lg:text-lg tracking-tight group-hover:brightness-110 transition-colors" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Instagram Direct</span>
-                  <span class="text-[10px] sm:text-xs text-slate-400 font-normal leading-tight">Footwear (TALLORA)</span>
                 </div>
               </button>
 
-              
+              <!-- Avito -->
               <button type="button" onclick="selectBranch('avito_deal', this)" class="branch-btn branch-btn-avito flex items-center gap-2.5 sm:gap-3.5 text-left cursor-pointer group py-1.5 px-0.5 whitespace-nowrap">
                 <div class="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-110">
                   <svg class="w-6 h-6 sm:w-7 sm:h-7" viewBox="0 0 24 24" fill="none">
@@ -4198,23 +4259,6 @@
                 </div>
                 <div class="flex flex-col">
                   <span class="font-extrabold text-[13.5px] sm:text-base lg:text-lg tracking-tight group-hover:text-slate-800 transition-colors" style="color: #000000;">Avito</span>
-                  <span class="text-[10px] sm:text-xs text-slate-400 font-normal leading-tight">Kitchens & Furniture</span>
-                </div>
-              </button>
-
-              
-              <button type="button" onclick="selectBranch('live_chat', this)" class="branch-btn branch-btn-live flex items-center gap-2.5 sm:gap-3.5 text-left cursor-pointer group py-1.5 px-0.5 whitespace-nowrap col-span-2 sm:col-span-1 lg:col-span-1">
-                <div class="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-110">
-                  <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-gradient-to-tr from-sky-500 to-indigo-600 text-white flex items-center justify-center text-xs font-bold shadow-xs">
-                    ⚡
-                  </div>
-                </div>
-                <div class="flex flex-col">
-                  <div class="flex items-center gap-1.5">
-                    <span class="font-extrabold text-[13.5px] sm:text-base lg:text-lg tracking-tight group-hover:brightness-110 transition-colors" style="background: linear-gradient(135deg, #0284c7 0%, #4f46e5 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Live AI Test-Drive</span>
-                    <span class="px-1.5 py-0.2 rounded-full bg-emerald-500 text-white font-bold text-[8px] sm:text-[9px] font-mono uppercase tracking-wider animate-pulse">LIVE</span>
-                  </div>
-                  <span class="text-[10px] sm:text-xs text-sky-600 font-normal leading-tight">Ask any question</span>
                 </div>
               </button>
 
@@ -4238,29 +4282,35 @@
               
               <div id="chatHeader" class="pt-11 pb-3 px-4 bg-[#075e54] text-white flex items-center justify-between transition-colors duration-300 shadow-xs">
                 <div class="flex items-center gap-2.5">
-                  <div id="channelAvatar" class="w-8 h-8 rounded-full bg-[#128c7e] border border-white/30 text-white flex items-center justify-center font-bold text-xs shadow-sm">E</div>
+                  <div id="channelAvatar" class="w-8 h-8 rounded-full bg-[#128c7e] border border-white/30 text-white flex items-center justify-center font-bold text-xs shadow-sm">W</div>
                   <div>
                     <div id="channelName" class="text-xs font-bold leading-tight flex items-center gap-1.5">
-                      <span id="channelNameText">Eva // On-Duty AI Closer 'Domian'</span>
+                      <span id="channelNameText">AI Closer // Altai Optima</span>
                       <span id="channelVerified" class="text-emerald-300 text-[11px]">✓</span>
                     </div>
-                    <div id="agentStatus" class="text-[10px] text-emerald-200 font-medium">online • response within 30s</div>
+                    <div id="agentStatus" class="text-[10px] text-emerald-200 font-medium">online • active</div>
                   </div>
                 </div>
-                <div id="channelBadge" class="text-[10px] font-code font-bold bg-white/20 text-white px-2.5 py-0.5 rounded-full backdrop-blur-xs">
-                  WhatsApp
+                <div class="flex items-center gap-1.5">
+                  <button id="chatResetBtn" type="button" onclick="resetLiveChatDialogue()" class="text-[10px] text-white/90 hover:text-white bg-white/15 hover:bg-white/25 px-2 py-1 rounded-lg backdrop-blur-xs transition-all cursor-pointer flex items-center gap-1 font-medium" title="Start fresh conversation">
+                    <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+                    <span>Reset</span>
+                  </button>
+                  <div id="channelBadge" class="text-[10px] font-code font-bold bg-white/20 text-white px-2.5 py-0.5 rounded-full backdrop-blur-xs">
+                    WhatsApp
+                  </div>
                 </div>
               </div>
 
-              
+              <!-- MESSAGES CONTAINER -->
               <div id="messagesContainer" class="p-4 space-y-3 flex-grow overflow-y-auto text-xs bg-[#efeae2] transition-colors duration-300 min-h-[300px]">
                 
               </div>
 
-              
+              <!-- INPUT PANEL -->
               <div class="p-2.5 bg-white border-t border-slate-200/90 flex flex-col gap-2 z-10 shrink-0 shadow-xs">
                 
-                <div class="flex items-center gap-1.5 overflow-x-auto pb-0.5 no-scrollbar text-[11px]">
+                <div id="chatQuickPrompts" class="flex items-center gap-1.5 overflow-x-auto pb-0.5 no-scrollbar text-[11px]">
                   <button type="button" onclick="sendQuickPrompt('How much does implementation cost?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-100 hover:bg-sky-50 text-slate-700 hover:text-sky-700 border border-slate-200/80 transition-colors font-medium cursor-pointer shrink-0 text-[10.5px]">
                     💰 Pricing details?
                   </button>
@@ -5614,8 +5664,9 @@
     </section>
 
     
+    <!-- CONNECTING TRANSITION: BLUE ARROW TO UNIT ECONOMICS -->
     <div class="flex flex-col items-center justify-center pt-6 sm:pt-10 pb-3 sm:pb-5 relative z-20">
-      <a href="#unit-economics" class="blue-path-track block cursor-pointer" title="1 Employee or AI Closer">
+      <a href="#unit-economics" class="blue-path-track block cursor-pointer" title="Sales Rep vs AI Closer">
         <div class="blue-path-arrow text-sky-500">
           <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
@@ -5624,22 +5675,20 @@
       </a>
     </div>
 
-    
+    <!-- 8.5 BLOCK: COMPARATIVE ANALYSIS (SALES REP VS AI CLOSER) -->
     <section id="unit-economics" class="max-w-5xl xl:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 font-inter space-y-6 sm:space-y-8 py-10 sm:py-12 lg:py-16">
       
-      
+      <!-- SECTION TITLE AND SUBTITLE -->
       <div class="text-center max-w-4xl mx-auto space-y-2.5">
-        <h2 class="font-inter uppercase tracking-tight font-black text-lg xs:text-xl sm:text-3xl md:text-4xl lg:text-[42px] leading-tight whitespace-nowrap select-none" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 10px 25px rgba(2, 132, 199, 0.18)); overflow: visible;">
-          1 EMPLOYEE OR AI CLOSER?
+        <h2 class="font-benzin uppercase tracking-tight font-black text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[42px] leading-tight break-words select-none" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 10px 25px rgba(2, 132, 199, 0.18)); overflow: visible;">
+          SALES MANAGER VS AI CLOSER
         </h2>
         <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
-          Cost battle considering real salaries, taxes, and working hours in 2026
+          Comparing business costs for an in-house sales rep vs AI Closer in 2026*
         </p>
       </div>
 
-      
       <div class="relative w-full rounded-3xl bg-white border border-slate-200/90 shadow-[0_20px_50px_rgba(15,23,42,0.08)] overflow-hidden">
-        
         
         <div class="sm:hidden flex items-center justify-between px-4 py-2.5 bg-gradient-to-r from-emerald-50 via-sky-50 to-emerald-50 border-b border-slate-200/80 text-[11px] text-slate-700 font-medium">
           <span class="flex items-center gap-1.5 font-semibold text-emerald-900">
@@ -5652,7 +5701,6 @@
           </span>
         </div>
 
-        
         <div class="sm:hidden flex items-center justify-center gap-2 py-2 px-3 bg-slate-50/90 border-b border-slate-200">
           <button type="button" id="colTabHuman" onclick="scrollTableToCol(0)" class="text-xs px-3.5 py-1 rounded-full font-bold border border-slate-300 bg-white text-slate-700 transition-all active:scale-95 shadow-2xs">
             1 Employee
@@ -5664,24 +5712,20 @@
         </div>
 
         <div id="unitEconTableScroll" class="overflow-x-auto relative scroll-smooth">
-          
           <div class="sm:hidden pointer-events-none sticky right-0 float-right top-0 w-6 h-full bg-gradient-to-l from-slate-900/10 to-transparent z-10"></div>
 
           <table class="w-full text-left border-collapse min-w-[620px] sm:min-w-full">
             <thead>
               <tr class="border-b-2 border-slate-200">
-                
                 <th class="py-4 sm:py-5 px-4 sm:px-6 text-xs sm:text-sm font-bold text-slate-700 uppercase tracking-wider w-[30%] bg-slate-100/80 border-r border-slate-200">
-                  Cost Item & Working Conditions
+                  What we compare
                 </th>
-                
                 <th class="py-4 sm:py-5 px-4 sm:px-6 text-xs sm:text-sm font-bold text-slate-700 uppercase tracking-wider w-[35%] bg-slate-50/90 border-r-2 border-slate-200">
                   <div class="flex items-center gap-2">
                     <span class="w-2.5 h-2.5 rounded-full bg-slate-400"></span>
-                    <span class="text-slate-800 font-extrabold text-sm sm:text-base">1 In-House Employee</span>
+                    <span class="text-slate-800 font-extrabold text-sm sm:text-base">1 in-house employee</span>
                   </div>
                 </th>
-                
                 <th class="py-4 sm:py-5 px-4 sm:px-6 text-xs sm:text-sm font-black uppercase tracking-wider w-[35%] bg-gradient-to-r from-emerald-100/90 via-emerald-50 to-emerald-100/90 border-l-2 border-emerald-400 shadow-[inset_0_0_20px_rgba(16,185,129,0.15)] relative">
                   <div class="flex items-center gap-2">
                     <span class="relative flex h-3 w-3">
@@ -5695,46 +5739,63 @@
             </thead>
             <tbody class="divide-y divide-slate-100 text-xs sm:text-sm font-inter">
               
-              
+              <!-- 1. Launch -->
               <tr class="hover:bg-slate-50/40 transition-colors">
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
-                  Monthly Cost (from Month 2)
+                  Launch
+                </td>
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-700 bg-white border-r-2 border-slate-200">
+                  <span class="font-bold text-rose-700">from $300</span> and 1–2 months
+                  <span class="text-[11px] text-slate-500 block font-normal mt-0.5">(recruiting, interviewing, onboarding, training time)</span>
+                </td>
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-black text-emerald-700 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
+                  from $600 and from 3 days
+                  <span class="text-[11px] text-emerald-800 font-medium block mt-0.5">(setup & AI training on your products and scripts)</span>
+                </td>
+              </tr>
+
+              <!-- 2. Monthly Expenses -->
+              <tr class="hover:bg-slate-50/40 transition-colors">
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
+                  Monthly Expenses
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-rose-700 font-bold bg-white border-r-2 border-slate-200">
-                  from $880 / mo <span class="text-[11px] text-slate-500 font-normal block">(net salary + payroll taxes + software seats)</span>
+                  from $950 / mo
+                  <span class="text-[11px] text-slate-500 font-normal block mt-0.5">($600 net salary + ~$260 taxes/benefits + ~$90 software & comms)</span>
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-black text-emerald-700 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  от 15 000 $ / mo <span class="text-[11px] text-emerald-800 font-medium block">(со 2-го месяца — техподдержка и обслуживание)</span>
+                  from $180 / mo
+                  <span class="text-[11px] text-emerald-800 font-medium block mt-0.5">(all-inclusive subscription)</span>
                 </td>
               </tr>
 
-              
+              <!-- 3. Paperwork & Compliance -->
               <tr class="hover:bg-slate-50/40 transition-colors">
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
-                  Payroll Taxes & Social Contributions
+                  Paperwork & Compliance
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-700 bg-white border-r-2 border-slate-200">
-                  from $170 monthly <span class="text-[11px] text-slate-500 block">(social security, reporting, insurance)</span>
+                  Employment contracts, tax & payroll filings, sick leaves, paid time off
                 </td>
-                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-black text-emerald-700 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  $0 <span class="text-[11px] text-emerald-800 font-medium block">(100% official tax-deductible B2B expense)</span>
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-emerald-950 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
+                  Single monthly invoice, zero HR paperwork
                 </td>
               </tr>
 
-              
+              <!-- 4. Working Schedule -->
               <tr class="hover:bg-slate-50/40 transition-colors">
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
-                  Actual Working Schedule
+                  Working Schedule
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-700 bg-white border-r-2 border-slate-200">
-                  40 hours/week <span class="text-[11px] text-slate-500 block">(covers only ~24% of total business time)</span>
+                  40 hours/week <span class="text-[11px] text-slate-500 block font-normal">(covers only ~24% of total time)</span>
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-black text-emerald-700 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  168 hours/week <span class="text-[11px] text-emerald-800 font-semibold block">(24/7/365 zero breaks, lunch, or sleep)</span>
+                  24/7/365 without days off <span class="text-[11px] text-emerald-800 font-semibold block">(168 hours/week)</span>
                 </td>
               </tr>
 
-              
+              <!-- 5. Nights & Weekends -->
               <tr class="hover:bg-slate-50/40 transition-colors">
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
                   Nights, Weekends & Holidays
@@ -5743,59 +5804,73 @@
                   Leads wait until Monday morning and leave for competitors
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-emerald-800 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  Instant response in 30–60 seconds, 365 days a year
+                  Instant response in 30–60 seconds anytime
                 </td>
               </tr>
 
-              
+              <!-- 6. CRM Hygiene & Data Entry -->
               <tr class="hover:bg-slate-50/40 transition-colors">
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
                   CRM Hygiene & Data Entry
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-600 bg-white border-r-2 border-slate-200">
-                  Human error <span class="text-[11px] text-rose-600 block">(forgot to log, typos in phone numbers)</span>
+                  Human error: may forget to log or enter bad data
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-emerald-950 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  100% automated logging of mandatory fields per SOP (CRM в Excel, amoCRM, 1С)
+                  100% automated logging of mandatory fields per SOP
+                  <span class="text-[11px] text-emerald-800 font-medium block mt-0.5">(amoCRM, Bitrix24, 1C, Google Sheets / Excel)</span>
                 </td>
               </tr>
 
-              
+              <!-- 7. Sick Leaves, Vacations & Turnover -->
               <tr class="hover:bg-slate-50/40 transition-colors">
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
                   Sick Leaves, Vacations & Turnover
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-600 bg-white border-r-2 border-slate-200">
-                  Paid by the employer + costly downtime during replacement
+                  Paid by the business + replacement hiring and training downtime
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-emerald-950 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  Never calls in sick, never quits, requires zero re-onboarding
+                  Works without sick days or vacation, zero re-onboarding needed
                 </td>
               </tr>
 
-              
+              <!-- 8. Where it talks to customers -->
               <tr class="hover:bg-slate-50/40 transition-colors">
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
-                  One-Time Setup & Launch и настройка
+                  Where it talks to customers
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-600 bg-white border-r-2 border-slate-200">
-                  from $300 <span class="text-[11px] text-slate-500 block">(recruitment ads, interviews, onboarding & training)</span>
+                  Phone and messenger during business hours
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-emerald-950 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  from $580 <span class="text-[11px] text-emerald-800 font-semibold block">(настройка ИИ-продавца from $580 единоразово + 15 000 $ со 2-го месяца)</span>
+                  Website, WhatsApp, Telegram, Avito…
                 </td>
               </tr>
 
-              
-              <tr class="hover:bg-slate-50/40 transition-colors bg-slate-50/40">
+              <!-- 9. Complex Deals -->
+              <tr class="hover:bg-slate-50/40 transition-colors">
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
+                  Complex Deals
+                </td>
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-600 bg-white border-r-2 border-slate-200">
+                  Handles on their own
+                </td>
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-emerald-950 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
+                  Transfers to your human manager. All dialogue logs available for audit
+                </td>
+              </tr>
+
+              <!-- 10. Total Annual Cost -->
+              <tr class="hover:bg-slate-50/40 transition-colors bg-slate-50/50">
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-black text-slate-950 bg-slate-100/70 border-r border-slate-200">
-                  Total 12-Month Expense
+                  Total Annual Cost
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-800 bg-white border-r-2 border-slate-200">
-                  ~960 000 $ <span class="text-[11px] text-slate-500 font-normal block">(найм 25 000 $ + 12 месяцев содержания по 78 000 $)</span>
+                  ~$11,700
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-black text-emerald-700 bg-emerald-100/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  215 000 $ <span class="text-[11px] text-emerald-900 font-semibold block">(настройка from $580 единоразово + 11 × 15 000 $ со 2-го месяца)</span>
+                  from $2,580
                 </td>
               </tr>
 
@@ -5804,13 +5879,12 @@
         </div>
       </div>
 
-      
+      <!-- FIRST YEAR SAVINGS -->
       <div class="relative max-w-3xl mx-auto pt-6 pb-2 font-inter text-center">
         <div class="text-center font-mono font-extrabold uppercase tracking-widest text-emerald-700 text-xs sm:text-sm md:text-base pb-3">
-          NET COMPANY SAVINGS
+          FIRST YEAR SAVINGS
         </div>
 
-        
         <div class="green-path-track block relative mx-auto" style="height: 80px;">
           <div class="green-ruble-arrow flex flex-col items-center">
             <div class="w-7 h-7 rounded-full bg-gradient-to-b from-emerald-600 to-emerald-900 text-white flex items-center justify-center font-bold text-xs shadow-[0_0_16px_rgba(4,120,87,0.7)] border border-white/90 font-inter">
@@ -5821,9 +5895,7 @@
             </svg>
           </div>
 
-          
           <div class="ruble-scatter-field" style="height: 340px;">
-            
             <div class="scatter-coin w-6 h-6 text-[10px]" style="--cx: -240px; --cy: 140px; --cr: -55deg; --sway: -15px; animation-delay: 0.05s;">$</div>
             <div class="scatter-coin w-7 h-7 text-xs" style="--cx: -180px; --cy: 165px; --cr: -40deg; --sway: 18px; animation-delay: 0.25s;">$</div>
             <div class="scatter-coin w-6 h-6 text-[11px]" style="--cx: -130px; --cy: 145px; --cr: -30deg; --sway: -12px; animation-delay: 0.45s;">$</div>
@@ -5831,14 +5903,12 @@
             <div class="scatter-coin w-6 h-6 text-[10px]" style="--cx: -210px; --cy: 195px; --cr: -60deg; --sway: 20px; animation-delay: 1.05s;">$</div>
             <div class="scatter-coin w-7 h-7 text-xs" style="--cx: -120px; --cy: 185px; --cr: -35deg; --sway: -16px; animation-delay: 0.35s;">$</div>
 
-            
             <div class="scatter-coin w-7 h-7 text-xs" style="--cx: -35px; --cy: 145px; --cr: -10deg; --sway: -12px; animation-delay: 0.15s;">$</div>
             <div class="scatter-coin w-8 h-8 text-sm" style="--cx: 30px; --cy: 155px; --cr: 10deg; --sway: 14px; animation-delay: 0.4s;">$</div>
             <div class="scatter-coin w-6 h-6 text-[11px]" style="--cx: -15px; --cy: 175px; --cr: -8deg; --sway: 10px; animation-delay: 0.6s;">$</div>
             <div class="scatter-coin w-7 h-7 text-xs" style="--cx: 18px; --cy: 185px; --cr: 8deg; --sway: -12px; animation-delay: 0.85s;">$</div>
             <div class="scatter-coin w-8 h-8 text-sm" style="--cx: 0px; --cy: 195px; --cr: 0deg; --sway: 8px; animation-delay: 1.1s;">$</div>
 
-            
             <div class="scatter-coin w-6 h-6 text-[10px]" style="--cx: 80px; --cy: 145px; --cr: 20deg; --sway: 14px; animation-delay: 0.1s;">$</div>
             <div class="scatter-coin w-7 h-7 text-xs" style="--cx: 130px; --cy: 170px; --cr: 30deg; --sway: -15px; animation-delay: 0.3s;">$</div>
             <div class="scatter-coin w-8 h-8 text-sm" style="--cx: 180px; --cy: 155px; --cr: 40deg; --sway: 18px; animation-delay: 0.5s;">$</div>
@@ -5846,7 +5916,6 @@
             <div class="scatter-coin w-7 h-7 text-xs" style="--cx: 110px; --cy: 195px; --cr: 25deg; --sway: -10px; animation-delay: 0.45s;">$</div>
             <div class="scatter-coin w-8 h-8 text-sm" style="--cx: 205px; --cy: 190px; --cr: 50deg; --sway: 15px; animation-delay: 0.8s;">$</div>
 
-            
             <div class="scatter-sparkle" style="--sx: -120px; --sy: 150px; animation-delay: 0.3s;">✦</div>
             <div class="scatter-sparkle" style="--sx: 130px; --sy: 160px; animation-delay: 0.6s;">✦</div>
             <div class="scatter-sparkle" style="--sx: -50px; --sy: 175px; animation-delay: 0.9s;">✦</div>
@@ -5854,17 +5923,21 @@
           </div>
         </div>
 
-        
-        <div class="relative z-10 flex flex-col items-center justify-center space-y-3 pt-3">
-          
+        <div class="relative z-10 flex flex-col items-center justify-center space-y-2 pt-3">
           <div class="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black font-inter tracking-tight leading-none">
             <span class="inline-block animate-scale-pulse font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-400 filter drop-shadow-[0_6px_28px_rgba(16,185,129,0.5)]">
-              от 745 000 $
+              ~$9,120
             </span>
             <span class="text-slate-900 font-black text-2xl sm:text-3xl md:text-4xl tracking-normal"> / YR</span>
           </div>
-          
+          <p class="text-sm sm:text-base text-slate-700 font-medium max-w-xl mx-auto pt-1">
+            4.5x cheaper than an in-house sales rep. From year 2, savings reach ~$9,240 / year
+          </p>
+        </div>
 
+        <!-- FOOTNOTE -->
+        <div class="text-center max-w-3xl mx-auto pt-6 text-[11px] sm:text-xs text-slate-400 leading-relaxed font-normal">
+          *Calculations based on $600/mo net salary (market average 2026), reduced SMB tax rates, and basic AI Closer plan. Taxes excluded. Actual costs vary by jurisdiction and plan.
         </div>
       </div>
 
@@ -5890,7 +5963,7 @@
           Calculate the Cost of Optimizing Your Business
         </h2>
         <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
-          Стоимость зависит от каналов, CRM и объёма leads. Отметьте, что уже есть и что нужно подключить — расчёт обновится сразу
+          The cost depends on channels, CRM, and lead volume. Select what you already have and what you need to connect — the estimate will update instantly.
         </p>
       </div>
 
@@ -5898,70 +5971,74 @@
       <div class="cfg-wrap relative z-10">
         <div class="cfg-grid">
           
-          <div class="cfg-cards-grid">
+          <!-- LEFT COLUMN: CARDS GRID & FOOTNOTE -->
+          <div>
+            <div class="cfg-cards-grid">
 
-            
-            <div class="cfg-card cfg-card-channels">
-              <h3>Communication Channels</h3>
-              <div class="cfg-row">
-                <div>
-                  <div class="cfg-row-label">
-                    WhatsApp
-                    <span class="cfg-badge-locked">included</span>
+              <!-- CARD 1: CHANNELS -->
+              <div class="cfg-card cfg-card-channels">
+                <h3>Communication Channels</h3>
+                <div class="cfg-row">
+                  <div>
+                    <div class="cfg-row-label">
+                      WhatsApp
+                      <span class="cfg-badge-locked">included</span>
+                    </div>
+                    <div class="cfg-row-sub">included in base plan</div>
                   </div>
-                  <div class="cfg-row-sub">included in base plan</div>
-                  <div class="cfg-row-sub text-slate-500">SLA Support: included in base plan</div>
-                </div>
-                <div style="display:flex;align-items:center;gap:12px;">
-                  <label class="cfg-switch cfg-locked" title="Included in base plan (cannot be disabled)">
-                    <input type="checkbox" checked disabled>
-                    <span class="cfg-track"></span>
-                  </label>
-                </div>
-              </div>
-              <div id="channels"></div>
-            </div>
-
-            
-            <div class="cfg-card cfg-card-crms">
-              <h3>CRM Integration</h3>
-              <div class="cfg-row">
-                <div>
-                  <div class="cfg-row-label">
-                    Excel Spreadsheet
-                    <span class="cfg-badge-locked">included</span>
+                  <div style="display:flex;align-items:center;gap:12px;">
+                    <label class="cfg-switch cfg-locked" title="Included in base plan (cannot be disabled)">
+                      <input type="checkbox" checked disabled>
+                      <span class="cfg-track"></span>
+                    </label>
                   </div>
-                  <div class="cfg-row-sub">included in base plan</div>
-                  <div class="cfg-row-sub text-slate-500">SLA Support: included in base plan</div>
                 </div>
-                <div style="display:flex;align-items:center;gap:12px;">
-                  <label class="cfg-switch cfg-locked" title="Included in base plan (cannot be disabled)">
-                    <input type="checkbox" checked disabled>
-                    <span class="cfg-track"></span>
-                  </label>
+                <div id="channels"></div>
+              </div>
+
+              <!-- CARD 2: CRM INTEGRATION -->
+              <div class="cfg-card cfg-card-crms">
+                <h3>CRM Integration</h3>
+                <div class="cfg-row">
+                  <div>
+                    <div class="cfg-row-label">
+                      Excel Spreadsheet
+                      <span class="cfg-badge-locked">included</span>
+                    </div>
+                    <div class="cfg-row-sub">included in base plan</div>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:12px;">
+                    <label class="cfg-switch cfg-locked" title="Included in base plan (cannot be disabled)">
+                      <input type="checkbox" checked disabled>
+                      <span class="cfg-track"></span>
+                    </label>
+                  </div>
+                </div>
+                <div id="crms"></div>
+              </div>
+
+              <!-- CARD 3: EXTRAS -->
+              <div class="cfg-card cfg-card-extras">
+                <h3>Add-ons & Extras</h3>
+                <div id="extras"></div>
+              </div>
+
+              <!-- CARD 4: VOLUME -->
+              <div class="cfg-card cfg-card-volume">
+                <h3>Monthly Lead Volume</h3>
+                <div class="cfg-pill-group" id="volume"></div>
+                <div class="cfg-row-sub text-slate-500" style="margin-top:10px;">
+                  <span id="volSupportText">Subscription from Month 2: incoming volume up to 100 (included in base)</span>
                 </div>
               </div>
-              <div id="crms"></div>
+
             </div>
 
-            
-            <div class="cfg-card cfg-card-extras">
-              <h3>Add-ons & Extras</h3>
-              <div id="extras"></div>
+            <!-- FOOTNOTE UNDER CARDS -->
+            <div class="mt-3.5 px-3.5 py-2.5 rounded-xl bg-sky-50/70 border border-sky-100/90 text-xs sm:text-sm text-slate-600 flex items-center gap-2.5 shadow-sm">
+              <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-sky-500/15 text-sky-600 font-bold text-xs flex-shrink-0">i</span>
+              <span>Over 1,000 leads / multiple AI Closers — custom quote under Enterprise plan</span>
             </div>
-
-            
-            <div class="cfg-card cfg-card-volume">
-              <h3>Monthly Lead Volume</h3>
-              <div class="cfg-pill-group" id="volume"></div>
-              <div class="cfg-row-sub text-slate-500" style="margin-top:10px;">
-                <span id="volSupportText">Support from Month 2: incoming volume up to 100 (included in base)</span>
-              </div>
-              <div class="cfg-row-sub" style="margin-top:8px; line-height: 1.5;">
-                Over 1,000 leads / multiple AI Closers — custom quote under Enterprise plan
-              </div>
-            </div>
-
           </div>
 
           
@@ -5978,7 +6055,7 @@
                 <div class="cfg-total-value cfg-total-setup"><span id="setupTotal">50 000</span> <span class="cur">$</span></div>
               </div>
               <div class="cfg-total-block">
-                <div class="cfg-total-label">Support from Month 2</div>
+                <div class="cfg-total-label">Subscription from Month 2</div>
                 <div class="cfg-total-value cfg-total-monthly"><span id="monthlyTotal">15 000</span> <span class="cur">$</span></div>
               </div>
 
@@ -6009,8 +6086,8 @@
     <section id="cta-final" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-20 pt-12 pb-16 sm:pt-16 sm:pb-24 space-y-6 sm:space-y-8 font-inter">
       <div>
         <h2 class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-5xl md:text-6xl select-none leading-[1.15]" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 12px 30px rgba(2, 132, 199, 0.18));">
-          <span class="block">TIME TO GET</span>
-          <span class="block">MAXIMUM PROFIT</span>
+          <span class="block">AI CLOSER WORKS</span>
+          <span class="block">WHILE YOU REST</span>
         </h2>
       </div>
 
@@ -6189,16 +6266,17 @@
 
   <script>
 
+    // MESSENGER INTERFACES CONFIGURATION FOR ALL 4 CHANNELS
     const channelsConfig = {
       full_deal: {
         channel: 'WHATSAPP',
         badge: 'WhatsApp',
-        assistantName: 'Eva // On-Duty AI Closer 'Domian'',
-        avatarLetter: 'E',
+        assistantName: 'AI Closer // Altai Optima',
+        avatarLetter: 'W',
         headerBg: 'bg-[#075e54]',
         headerSubText: 'text-emerald-200',
-        statusText: 'online • response within 30s',
-        bottomStatus: '✓ Needs identified • Viewing set for Saturday 14:00 • Broker assigned',
+        statusText: 'online • active',
+        bottomStatus: '✓ WhatsApp Business API • CRM sync',
         verifiedIcon: '✓',
         verifiedColor: 'text-emerald-300',
         chatBg: 'bg-[#efeae2]',
@@ -6206,12 +6284,12 @@
         avatarBorder: 'border-emerald-400',
         footerBg: 'bg-[#f0f2f5]',
         actionBtnBg: 'bg-[#128c7e]',
-        actionIcon: '🎙️',
+        actionIcon: '➤',
         btnBorderClass: 'border-emerald-500',
         btnHoverClass: 'hover:border-emerald-400',
         renderAiBubble: (msg) => `
           <div class="flex justify-start items-end gap-2 animate-fade-in">
-            <div class="bg-white text-slate-900 p-3 rounded-2xl rounded-tl-xs max-w-[85%] shadow-sm border border-slate-200/60">
+            <div class="bg-white text-slate-900 p-3 rounded-2xl rounded-tl-xs max-w-[88%] shadow-sm border border-slate-200/60">
               <div class="text-[9px] font-code font-bold text-[#075e54] uppercase mb-0.5">${msg.author}</div>
               <p class="leading-relaxed font-normal text-[12px] text-slate-800">${msg.text}</p>
               <div class="text-[9px] text-slate-400 text-right mt-1 font-code flex items-center justify-end gap-1">
@@ -6237,12 +6315,12 @@
       price_objection: {
         channel: 'TELEGRAM',
         badge: 'Telegram',
-        assistantName: 'Mikhail // Order Desk 'PromStal'',
-        avatarLetter: 'M',
+        assistantName: 'AI Assistant // Altai Optima',
+        avatarLetter: 'T',
         headerBg: 'bg-[#229ed9]',
         headerSubText: 'text-sky-100',
-        statusText: 'online • B2B infrastructure',
-        bottomStatus: '✓ Tech specs attached to deal • Specification routed to Chief Engineer',
+        statusText: 'online • bot active',
+        bottomStatus: '✓ Telegram Bot API • CRM sync',
         verifiedIcon: '✓',
         verifiedColor: 'text-white',
         chatBg: 'bg-[#e7ebf0]',
@@ -6255,13 +6333,16 @@
         btnHoverClass: 'hover:border-sky-400',
         renderAiBubble: (msg) => `
           <div class="flex justify-start items-end gap-2 animate-fade-in">
-            <div class="bg-white text-slate-900 p-3 rounded-2xl rounded-bl-xs max-w-[85%] shadow-sm border border-sky-100">
+            <div class="bg-white text-slate-900 p-3 rounded-2xl rounded-bl-xs max-w-[88%] shadow-sm border border-sky-100">
               <div class="text-[9px] font-code font-bold text-[#0088cc] uppercase mb-0.5 flex items-center gap-1">
                 <span>${msg.author}</span>
                 <span class="text-[8px] bg-sky-100 text-sky-700 px-1 rounded font-normal">bot</span>
               </div>
               <p class="leading-relaxed font-normal text-[12px] text-slate-800">${msg.text}</p>
-              <div class="text-[9px] text-slate-400 text-right mt-1 font-code">${msg.time}</div>
+              <div class="text-[9px] text-slate-400 text-right mt-1 font-code flex items-center justify-end gap-1">
+                <span>${msg.time}</span>
+                <span class="text-[#229ed9]">✓✓</span>
+              </div>
             </div>
           </div>
         `,
@@ -6281,12 +6362,12 @@
       reanimate: {
         channel: 'INSTAGRAM DIRECT',
         badge: 'Instagram',
-        assistantName: 'Sofia // Customer Care TALLORA',
-        avatarLetter: 'S',
+        assistantName: 'AI Manager // Altai Optima',
+        avatarLetter: 'I',
         headerBg: 'bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045]',
         headerSubText: 'text-pink-100',
-        statusText: 'online • Moscow Showroom',
-        bottomStatus: '✓ Plus-size fit request handled • Home fitting delivery arranged',
+        statusText: 'online • Direct',
+        bottomStatus: '✓ Instagram Direct • CRM sync',
         verifiedIcon: '✓',
         verifiedColor: 'text-sky-300',
         chatBg: 'bg-[#fafafa]',
@@ -6294,7 +6375,7 @@
         avatarBorder: 'border-white',
         footerBg: 'bg-[#ffffff]',
         actionBtnBg: 'bg-gradient-to-r from-[#833ab4] to-[#e1306c]',
-        actionIcon: '❤️',
+        actionIcon: '➤',
         btnBorderClass: 'border-pink-500',
         btnHoverClass: 'hover:border-pink-400',
         renderAiBubble: (msg) => `
@@ -6317,14 +6398,14 @@
         `
       },
       avito_deal: {
-        channel: 'MARKETPLACE',
+        channel: 'AVITO',
         badge: 'Avito',
-        assistantName: 'Konstantin // Factory Estimator 'Modern-Kitchens'',
-        avatarLetter: 'K',
+        assistantName: 'AI Sales Rep // Altai Optima',
+        avatarLetter: 'A',
         headerBg: 'bg-[#00aaff]',
         headerSubText: 'text-sky-100',
-        statusText: 'online • response within 10s',
-        bottomStatus: '✓ Dimensions & budget agreed • Designer scheduled for measurement',
+        statusText: 'online • Avito PRO',
+        bottomStatus: '✓ Avito Integration • CRM sync',
         verifiedIcon: '✓',
         verifiedColor: 'text-white',
         chatBg: 'bg-[#f4f6f8]',
@@ -6362,174 +6443,196 @@
             </div>
           </div>
         `
-      },
-      live_chat: {
-        channel: 'AI LIVE TEST',
-        badge: 'Живой диалог',
-        assistantName: 'Максим 
-        avatarLetter: 'M',
-        headerBg: 'bg-gradient-to-r from-[#0f172a] via-[#0369a1] to-[#0284c7]',
-        headerSubText: 'text-sky-200',
-        statusText: 'online • responds instantly',
-        bottomStatus: '⚡ Live Test-Drive Mode • Type any question or objection',
-        verifiedIcon: '✓',
-        verifiedColor: 'text-sky-300',
-        chatBg: 'bg-[#f8fafc]',
-        avatarBg: 'bg-gradient-to-tr from-sky-400 to-indigo-600 text-white',
-        avatarBorder: 'border-white/90',
-        footerBg: 'bg-[#ffffff]',
-        actionBtnBg: 'bg-gradient-to-r from-sky-600 to-indigo-600',
-        actionIcon: '➤',
-        btnBorderClass: 'border-sky-500',
-        btnHoverClass: 'hover:border-sky-400',
-        renderAiBubble: (msg) => `
-          <div class="flex justify-start items-end gap-2 animate-fade-in">
-            <div class="bg-white text-slate-900 p-3.5 rounded-2xl rounded-bl-xs max-w-[88%] shadow-sm border border-sky-100">
-              <div class="text-[9px] font-code font-bold text-[#0284c7] uppercase mb-0.5 flex items-center gap-1">
-                <span>${msg.author}</span>
-                <span class="text-[8px] bg-sky-100 text-sky-800 px-1 rounded font-normal">AI Seller ✓</span>
-              </div>
-              <p class="leading-relaxed font-normal text-[12px] text-slate-800">${msg.text}</p>
-              <div class="text-[9px] text-slate-400 text-right mt-1 font-code flex items-center justify-end gap-1">
-                <span>${msg.time}</span>
-                <span class="text-[#0284c7] font-bold">✓✓</span>
-              </div>
-            </div>
-          </div>
-        `,
-        renderUserBubble: (msg) => `
-          <div class="flex justify-end items-end gap-2 animate-fade-in">
-            <div class="bg-gradient-to-br from-sky-500 to-blue-600 text-white p-3 rounded-2xl rounded-br-xs max-w-[85%] shadow-sm">
-              <div class="text-[9px] font-code font-bold text-sky-100 uppercase mb-0.5">${msg.author}</div>
-              <p class="leading-relaxed font-normal text-[12px] text-white">${msg.text}</p>
-              <div class="text-[9px] text-sky-200 text-right mt-1 font-code flex items-center justify-end gap-1">
-                <span>${msg.time}</span>
-                <span>✓✓</span>
-              </div>
-            </div>
-          </div>
-        `
       }
     };
 
-    const branches = {
-      full_deal: [
-        { 
-          sender: 'user', 
-          author: 'Artem (Lead)', 
-          text: 'Good evening. We saw an apartment in Dynasty Residence on CIAN, 12th floor, 74 sqm. Is it still available? Can we view it on Saturday and does it qualify for family mortgage?', 
-          time: '18:40' 
-        },
-        { 
-          sender: 'ai', 
-          author: 'Eva // On-Duty Assistant "Domian"', 
-          text: 'Artem, good evening. Yes, this unit is available, documents verified by our legal department, and it qualifies for the family mortgage program.<br><br>Viewings on Saturday are open from 11:00 to 18:00. Please clarify: are you planning to purchase for personal use or investment, and what down payment are you considering so our broker can prepare a payment schedule?', 
-          time: '18:40' 
-        },
-        { 
-          sender: 'user', 
-          author: 'Artem (Lead)', 
-          text: 'For ourselves, two kids. Down payment is around 4.5M rubles. Around 14:00 on Saturday works best for us.', 
-          time: '18:41' 
-        },
-        { 
-          sender: 'ai', 
-          author: 'Eva // On-Duty Assistant "Domian"', 
-          text: 'Excellent, details noted. A similar layout with a developer discount in the adjacent section also fits your criteria — I have added it to your shortlist.<br><br>Routing contact to our senior district broker Sergey. He will reserve your Saturday 14:00 viewing pass and send directions to this chat within 10 minutes.', 
-          time: '18:41' 
-        }
-      ],
-      price_objection: [
-        { 
-          sender: 'user', 
-          author: 'Dmitry (Client)', 
-          text: 'Greetings. Need manufacturing of storage tank equipment per our tech specs, 50 cubic meters, stainless steel 12Kh18N10T, 4 units. Tight deadline, need shop floor capacity and base price per ton.', 
-          time: '11:15' 
-        },
-        { 
-          sender: 'ai', 
-          author: 'Mikhail // Order Desk "PromStal"', 
-          text: 'Greetings, Dmitry. We work with 12Kh18N10T stainless steel, required sheet thickness is in stock. Standard turnaround for a batch of 4 units is 22–26 business days including hydro testing and QC.<br><br>Please send your drawings or sketches directly into this chat so our chief technologist can promptly assess cutting labor and prepare an exact quote.', 
-          time: '11:15' 
-        },
-        { 
-          sender: 'user', 
-          author: 'Dmitry (Client)', 
-          text: '<div class="mb-1.5 p-2 bg-sky-100/90 rounded-lg flex items-center gap-2 border border-sky-200 text-[11px] font-mono text-sky-900 font-semibold"><span class="text-base">📄</span><span class="truncate">Tank_50m3_Specs.pdf</span><span class="text-[9px] text-sky-600 font-normal ml-auto shrink-0">2.4 MB</span></div>File attached. Delivery needed to site in Tver region, unloading by us.', 
-          time: '11:17' 
-        },
-        { 
-          sender: 'ai', 
-          author: 'Mikhail // Order Desk "PromStal"', 
-          text: 'File received, specifications opened cleanly. Logistics details to Tver region logged in order card.<br><br>Routing specs to project chief engineer Andrey. He will follow up today by 18:00 with the official commercial proposal and production schedule.', 
-          time: '11:17' 
-        }
-      ],
-      reanimate: [
-        { 
-          sender: 'user', 
-          author: 'Elena (Direct)', 
-          text: 'Hello! I saw the classic soft leather loafers in your stories. It is so difficult for me to find size 42 shoes, everything pinches and rubs. Is your last truly wide and full-size for larger feet? Can I try them on in the showroom?', 
-          time: '15:20' 
-        },
-        { 
-          sender: 'ai', 
-          author: 'Sofia // Customer Care TALLORA', 
-          text: 'Hello Elena! Brand TALLORA specializes exclusively in extended sizes (EU 40 to 45). We design anatomical shoe lasts tailored for larger feet, so our shoes never pinch and fit comfortably.<br><br>These loafers in size 42 are currently in stock at our Patriarch Ponds showroom. Please let me know if I may reserve a pair for you for a couple of hours?', 
-          time: '15:20' 
-        },
-        { 
-          sender: 'user', 
-          author: 'Elena (Direct)', 
-          text: 'Oh, wonderful! Regular stores never have anything elegant in my size. Could a courier deliver two sizes tomorrow to try at home? I will not have time to visit.', 
-          time: '15:22' 
-        },
-        { 
-          sender: 'ai', 
-          author: 'Sofia // Customer Care TALLORA', 
-          text: 'We will gladly arrange home fitting delivery across Moscow tomorrow. The courier will bring sizes 42 and 43 so you can try both comfortably at home.<br><br>Please provide your delivery address and preferred time slot — I will book the courier right away.', 
-          time: '15:22' 
-        }
-      ],
-      avito_deal: [
-        { 
-          sender: 'user', 
-          author: 'Olga (Chat)', 
-          text: 'Hello, how much for a corner kitchen like photo 3? Dimensions approx 2.4 by 1.8 meters, matte painted enamel fronts, soft-close hardware only.', 
-          time: '16:40' 
-        },
-        { 
-          sender: 'ai', 
-          author: 'Konstantin // Factory Estimator "Modern-Kitchens"', 
-          text: 'Hello Olga! Photo 3 shows our project with matte painted MDF fronts and soft-close German hardware.<br><br>For dimensions 2.4 × 1.8 m, the turnkey price range is 165,000 to 210,000 $. Please let me know: are the walls already squared to 90 degrees?', 
-          time: '16:40' 
-        },
-        { 
-          sender: 'user', 
-          author: 'Olga (Chat)', 
-          text: 'Yes, renovation finished last week. Appliances purchased, awaiting installation. Price range looks great, I would like an exact layout.', 
-          time: '16:42' 
-        },
-        { 
-          sender: 'ai', 
-          author: 'Konstantin // Factory Estimator "Modern-Kitchens"', 
-          text: 'Perfect, ready walls make for precise installation.<br><br>Passing parameters to designer Pavel. He will join this chat, provide layout options for your appliances, and schedule a free in-home measurement visit with material samples.', 
-          time: '16:42' 
-        }
-      ],
-      live_chat: [
-        { 
-          sender: 'ai', 
-          author: 'Alex // AI Seller Altai Optima', 
-          text: 'Hello! I am the live Altai Optima AI Seller.<br><br>You can test me right now in real time: ask about pricing and ROI, test difficult objections (“too expensive”, “give me a discount”), ask about CRM integrations, or pick a quick prompt below 👇', 
-          time: 'now' 
-        }
-      ]
+    // Chat storage for each messenger channel
+    const channelMessages = {
+      full_deal: [],
+      price_objection: [],
+      reanimate: [],
+      avito_deal: []
     };
 
+    // AI DEMO CHAT CLIENT (Production API Integration)
+    class DemoChatClient {
+      constructor() {
+        this.baseUrl = "https://api.optima.altaiweb.online";
+        this.storageKey = "altai_demo_session_id";
+        this.config = null;
+        this.isSending = false;
+      }
+
+      getSessionId() {
+        try {
+          return localStorage.getItem(this.storageKey);
+        } catch (e) {
+          return null;
+        }
+      }
+
+      setSessionId(id) {
+        try {
+          if (id) localStorage.setItem(this.storageKey, id);
+        } catch (e) {}
+      }
+
+      resetSession() {
+        try {
+          localStorage.removeItem(this.storageKey);
+        } catch (e) {}
+      }
+
+      async getConfig() {
+        if (this.config) return this.config;
+        try {
+          const res = await fetch(`${this.baseUrl}/api/v1/demo/config`);
+          if (!res.ok) throw new Error(`Config HTTP ${res.status}`);
+          this.config = await res.json();
+          return this.config;
+        } catch (e) {
+          this.config = {
+            tenant_id: "demo_amo",
+            business_name: "Monolit-Stroy Complect (amoCRM Demo)",
+            welcome_message: "Hello! I am your personal AI manager. Ready to estimate specifications, check warehouse stock, and delivery terms. How may I assist you?",
+            suggested_questions: [
+              "Which aerated concrete blocks D500 are in stock and at what price?",
+              "How much to deliver 40 cubic meters of blocks to Istra by crane truck?",
+              "What discounts apply for orders above 50 cubic meters?",
+              "Can we fix the price quote for 14 days before starting construction?"
+            ],
+            max_message_length: 4000
+          };
+          return this.config;
+        }
+      }
+
+      async sendMessage(messageText) {
+        const payload = {
+          message: messageText.trim(),
+          session_id: this.getSessionId() || null
+        };
+
+        const res = await fetch(`${this.baseUrl}/api/v1/demo/chat`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        if (res.status === 429) {
+          const err = new Error("Server temporarily busy, please wait a minute.");
+          err.status = 429;
+          throw err;
+        }
+
+        if (!res.ok) {
+          throw new Error(`Server error (${res.status})`);
+        }
+
+        const data = await res.json();
+        if (data && data.session_id) {
+          this.setSessionId(data.session_id);
+        }
+        return data;
+      }
+    }
+
+    const demoChatClient = new DemoChatClient();
+
+    function formatAiResponse(text) {
+      if (!text) return '';
+      let safe = text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+      safe = safe.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+      safe = safe.replace(/\*(.*?)\*/g, '<i>$1</i>');
+      safe = safe.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>');
+      return safe;
+    }
+
+    function renderLiveChatStarter(config) {
+      const questions = (config && config.suggested_questions && config.suggested_questions.length) 
+        ? config.suggested_questions 
+        : [
+            "Which aerated concrete blocks D500 are in stock and at what price?",
+            "How much to deliver 40 cubic meters of blocks to Istra by crane truck?",
+            "What discounts apply for orders above 50 cubic meters?",
+            "Can we fix the price quote for 14 days before starting construction?"
+          ];
+
+      const questionsHtml = questions.map(q => `
+        <button type="button" onclick="sendQuickPrompt(${JSON.stringify(q)})" class="w-full text-left p-2.5 rounded-xl bg-slate-50 hover:bg-sky-50 border border-slate-200/80 hover:border-sky-300 text-slate-700 hover:text-sky-900 transition-all text-[11px] leading-snug flex items-center justify-between group cursor-pointer">
+          <span class="font-medium">${q}</span>
+          <span class="text-sky-500 font-bold ml-2 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0">→</span>
+        </button>
+      `).join('');
+
+      return `
+        <div id="liveChatStarterCard" class="bg-white rounded-2xl p-3.5 sm:p-4 shadow-xs border border-sky-100/90 text-slate-800 space-y-3 animate-fade-in">
+          <div class="flex items-start gap-2.5 sm:gap-3">
+            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-600 text-white flex items-center justify-center font-bold text-xs sm:text-sm shrink-0 shadow-xs">
+              🏢
+            </div>
+            <div class="space-y-1">
+              <div class="font-bold text-[12px] sm:text-[13px] text-slate-900 leading-tight">
+                ${config?.business_name || 'Monolit-Stroy Complect (amoCRM Demo)'}
+              </div>
+              <div class="text-[10.5px] sm:text-[11px] text-slate-500 leading-relaxed">
+                ${config?.welcome_message || 'Hello! I am your personal AI manager. Ready to estimate specifications, check warehouse stock, and delivery terms.'}
+              </div>
+            </div>
+          </div>
+          <div class="border-t border-slate-100 pt-2.5 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-bold text-sky-700 uppercase tracking-wider">Select a sample prompt or type below:</span>
+              <span class="text-[9px] text-emerald-600 font-mono font-semibold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">amoCRM LIVE</span>
+            </div>
+            <div class="flex flex-col gap-1.5">
+              ${questionsHtml}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function updateQuickPrompts() {
+      const container = document.getElementById('chatQuickPrompts');
+      if (!container) return;
+      demoChatClient.getConfig().then(config => {
+        const questions = (config && config.suggested_questions && config.suggested_questions.length) 
+          ? config.suggested_questions 
+          : [
+              "Which aerated concrete blocks D500 are in stock and at what price?",
+              "How much to deliver 40 cubic meters of blocks to Istra by crane truck?",
+              "What discounts apply for orders above 50 cubic meters?",
+              "Can we fix the price quote for 14 days before starting construction?"
+            ];
+
+        container.innerHTML = questions.map((q, idx) => {
+          const icons = ['🧱', '🚚', '🏷️', '⏳', '💬'];
+          const icon = icons[idx % icons.length];
+          const shortLabel = q.length > 28 ? q.slice(0, 26) + '…' : q;
+          return `
+            <button type="button" onclick="sendQuickPrompt(${JSON.stringify(q)})" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-100 hover:bg-sky-50 text-slate-700 hover:text-sky-700 border border-slate-200/80 transition-colors font-medium cursor-pointer shrink-0 text-[10.5px]" title="${q}">
+              ${icon} ${shortLabel}
+            </button>
+          `;
+        }).join('');
+      });
+    }
+
+    function resetLiveChatDialogue() {
+      demoChatClient.resetSession();
+      channelMessages[currentKey] = [];
+      const footerStatus = document.getElementById('chatFooterStatus');
+      if (footerStatus) {
+        footerStatus.textContent = '⚡ Conversation reset • Ask a new question';
+      }
+      renderFullBranch(currentKey, false);
+    }
+
     let currentKey = 'full_deal';
-    let step = 0;
-    let timer = null;
 
     function applyMessengerTheme(key) {
       const cfg = channelsConfig[key];
@@ -6546,19 +6649,24 @@
       const chatFooter = document.getElementById('chatFooter');
       const chatFooterStatus = document.getElementById('chatFooterStatus');
       const chatActionBtn = document.getElementById('chatActionBtn');
+      const liveInput = document.getElementById('liveChatInput');
 
       if (notchText) notchText.textContent = cfg.channel;
       if (channelBadge) channelBadge.textContent = cfg.badge;
+
+      if (liveInput) {
+        liveInput.placeholder = "Type any question or objection...";
+      }
 
       if (chatHeader) {
         chatHeader.className = `pt-11 pb-3 px-4 text-white flex items-center justify-between transition-all duration-300 shadow-xs ${cfg.headerBg}`;
       }
       if (channelAvatar) {
         channelAvatar.className = `w-8 h-8 rounded-full border text-white flex items-center justify-center font-bold text-xs shadow-sm transition-all duration-300 ${cfg.avatarBg} ${cfg.avatarBorder}`;
-        channelAvatar.textContent = cfg.avatarLetter || 'E';
+        channelAvatar.textContent = cfg.avatarLetter || 'W';
       }
       if (channelNameText) {
-        channelNameText.textContent = cfg.assistantName || 'Eva // Altai Optima';
+        channelNameText.textContent = cfg.assistantName || 'AI Closer // Altai Optima';
       }
       if (channelVerified) {
         channelVerified.className = `${cfg.verifiedColor || 'text-white'} text-[11px]`;
@@ -6583,16 +6691,6 @@
       }
     }
 
-    function renderMsg(msg) {
-      const box = document.getElementById('messagesContainer');
-      if (!box) return;
-      const cfg = channelsConfig[currentKey];
-      const isAi = msg.sender === 'ai';
-      const html = isAi ? cfg.renderAiBubble(msg) : cfg.renderUserBubble(msg);
-      box.insertAdjacentHTML('beforeend', html);
-      box.scrollTop = box.scrollHeight;
-    }
-
     let chatAnimTimers = [];
 
     function clearChatAnimTimers() {
@@ -6600,107 +6698,48 @@
       chatAnimTimers = [];
     }
 
-    function renderFullBranch(key, animate = true) {
+    function renderFullBranch(key, animate = false) {
       clearChatAnimTimers();
       const box = document.getElementById('messagesContainer');
       const agentStatus = document.getElementById('agentStatus');
       if (!box) return;
       box.innerHTML = '';
-      const list = branches[key] || [];
       const cfg = channelsConfig[key];
       if (!cfg) return;
 
-      if (!animate) {
-        list.forEach(msg => {
-          const isAi = msg.sender === 'ai';
-          const html = isAi ? cfg.renderAiBubble(msg) : cfg.renderUserBubble(msg);
-          box.insertAdjacentHTML('beforeend', html);
+      updateQuickPrompts();
+      const list = channelMessages[key] || [];
+
+      if (list.length === 0) {
+        demoChatClient.getConfig().then(config => {
+          if (currentKey === key && (channelMessages[key] || []).length === 0) {
+            box.innerHTML = renderLiveChatStarter(config);
+            box.scrollTop = 0;
+          }
         });
-        box.scrollTop = box.scrollHeight;
         if (agentStatus) agentStatus.textContent = cfg.statusText || 'online';
         return;
       }
 
-      let currentDelay = 120;
-      
-      list.forEach((msg, idx) => {
+      list.forEach(msg => {
         const isAi = msg.sender === 'ai';
-        
-        if (isAi) {
-
-          const t1 = setTimeout(() => {
-            if (agentStatus) agentStatus.textContent = 'is typing a message...';
-            const existingTyping = document.getElementById('chatTypingIndicator');
-            if (existingTyping) existingTyping.remove();
-            
-            const typingHtml = `
-              <div id="chatTypingIndicator" class="flex justify-start items-end gap-2 animate-fade-in transition-all">
-                <div class="bg-white text-slate-800 px-3 py-2 rounded-2xl rounded-bl-xs shadow-xs border border-slate-200/80 flex items-center gap-2">
-                  <span class="text-[10px] font-bold text-slate-500">${msg.author.split(' ')[0]} is typing</span>
-                  <div class="flex items-center gap-1">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-bounce" style="animation-delay: 0ms; animation-duration: 0.8s;"></span>
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-bounce" style="animation-delay: 180ms; animation-duration: 0.8s;"></span>
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-bounce" style="animation-delay: 360ms; animation-duration: 0.8s;"></span>
-                  </div>
-                </div>
-              </div>
-            `;
-            box.insertAdjacentHTML('beforeend', typingHtml);
-            box.scrollTop = box.scrollHeight;
-          }, currentDelay);
-          chatAnimTimers.push(t1);
-
-          currentDelay += 650;
-
-          const t2 = setTimeout(() => {
-            const existingTyping = document.getElementById('chatTypingIndicator');
-            if (existingTyping) existingTyping.remove();
-            if (agentStatus) agentStatus.textContent = cfg.statusText || 'online';
-
-            const html = cfg.renderAiBubble(msg);
-            box.insertAdjacentHTML('beforeend', html);
-            box.scrollTop = box.scrollHeight;
-          }, currentDelay);
-          chatAnimTimers.push(t2);
-
-          currentDelay += 450;
-        } else {
-
-          const tUser = setTimeout(() => {
-            const existingTyping = document.getElementById('chatTypingIndicator');
-            if (existingTyping) existingTyping.remove();
-
-            const html = cfg.renderUserBubble(msg);
-            box.insertAdjacentHTML('beforeend', html);
-            box.scrollTop = box.scrollHeight;
-          }, currentDelay);
-          chatAnimTimers.push(tUser);
-
-          currentDelay += 400;
-        }
+        const html = isAi ? cfg.renderAiBubble(msg) : cfg.renderUserBubble(msg);
+        box.insertAdjacentHTML('beforeend', html);
       });
+      box.scrollTop = box.scrollHeight;
+      if (agentStatus) agentStatus.textContent = cfg.statusText || 'online';
     }
 
     function selectBranch(key, btn) {
       document.querySelectorAll('.branch-btn').forEach(b => {
         b.classList.remove('active');
-        const pill = b.querySelector('.branch-status-pill');
-        if (pill) {
-          pill.textContent = 'Demo';
-          pill.className = 'branch-status-pill text-[10px] font-mono px-2 py-1 rounded-md bg-slate-100 text-slate-500 border border-slate-200/80 transition-colors shrink-0';
-        }
       });
       if (btn) {
         btn.classList.add('active');
-        const pill = btn.querySelector('.branch-status-pill');
-        if (pill) {
-          pill.textContent = 'Live • 24/7';
-          pill.className = 'branch-status-pill text-[10px] font-mono px-2 py-1 rounded-md bg-sky-100 text-sky-700 border border-sky-300 font-bold transition-colors shrink-0 shadow-2xs';
-        }
       }
       currentKey = key;
       applyMessengerTheme(key);
-      renderFullBranch(key, true);
+      renderFullBranch(key, false);
     }
 
     function sendQuickPrompt(text) {
@@ -6711,135 +6750,56 @@
       }
     }
 
-    function generateAiSellerResponse(userText, channelKey) {
-      const raw = (userText || '').toLowerCase().trim();
-      const timeStr = new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
-
-      let aiName = 'Максим 
-      if (channelKey === 'full_deal') aiName = 'Эва 
-      else if (channelKey === 'price_objection') aiName = 'Михаил 
-      else if (channelKey === 'reanimate') aiName = 'Софья 
-      else if (channelKey === 'avito_deal') aiName = 'Константин 
-
-      let reply = '';
-
-      const insultRegex = /(дурак|туп(ой|ая|ое|ые|ица)|дебил|идиот|лох|чушь|бред|хрень|говн|отстой|фигн|развод|мошенник|пидор|сук[аи]|нах(уй)?|заткнись|пошел|мудак|ерунд|глуп|бесполезн|неуч|тварь|дерьмо|шарашк)/i;
-      if (insultRegex.test(raw)) {
-        reply = `Добрый день! Блаyrsрю вас за обращение в компанию Altai Optima. Меня зовут Максим.<br><br>Мне искренне жаль, что у вас сложилось обо мне подобное впечатление. Я сделаю всё, что в моих силах, чтобы изменить его в ходе нашего общения.<br><br>При этом я полностью к вашим услугам и готов помочь с максимальной отдачей и вовлеченностью. Скажите, пожалуйста, какой у вас вопрос или какую задачу для вашего бизнеса мы могли бы решить?`;
-      }
-
-      else if (raw.includes('поyrs') || raw.includes('дожд') || raw.includes('снег') || raw.includes('градус') || raw.includes('солнц') || raw.includes('прогноз') || raw.includes('жарк') || raw.includes('холодн')) {
-        let city = '';
-        if (raw.includes('москв')) city = 'Москве';
-        else if (raw.includes('питер') || raw.includes('петербург') || raw.includes('спб')) city = 'Санкт-Петербурге';
-        else if (raw.includes('барнаул')) city = 'Барнауле';
-        else if (raw.includes('дубай') || raw.includes('dubai')) city = 'Дубае';
-        else if (raw.includes('алмат')) city = 'Алматы';
-        else if (raw.includes('астан')) city = 'Астане';
-        else if (raw.includes('новосибирск')) city = 'Новосибирске';
-        else if (raw.includes('казан')) city = 'Казани';
-        else if (raw.includes('сочи')) city = 'Сочи';
-        else if (raw.includes('стамбул') || raw.includes('istanbul')) city = 'Стамбуле';
-        else if (raw.includes('ташкент')) city = 'Ташкенте';
-
-        if (city) {
-          reply = `С удовольствием подскажу! В ${city} сейчас прекрасная комфортная поyrs: около +19°C, легкий освежающий бриз и отличное настроение для продуктивных дел.<br><br>Я, как заботливый консьерж и ИИ-продавец, умею не только мгновенно отвечать на любые вопросы, но и увеличивать конверсию бизнеса 24/7. Скажите, в какой сфере работает ваш проект?`;
-        } else {
-          reply = `С радостью поделюсь прогнозом! Подскажите, пожалуйста, поyrs в каком городе вас интересует?<br><br>К слову, в цифровой экосистеме Altai Optima всегда безоблачно и стабильные 100% конверсии во входящих заявках :) Какую задачу для вашего отдела продаж вы хотели бы автоматизировать?`;
-        }
-      }
-
-      else if (raw.includes('книг') || raw.includes('методолог') || raw.includes('спин') || raw.includes('spin') || raw.includes('восс') || raw.includes('voss') || raw.includes('шульце') || raw.includes('ритц') || raw.includes('кэмп') || raw.includes('camp') || raw.includes('психолог') || raw.includes('переговор') || raw.includes('чалдини') || raw.includes('рэкхем') || raw.includes('rackham')) {
-        reply = `В архитектуру нашего ИИ-продавца заложены принципы признанных мировых бестселлеров по продажам и клиентскому сервису:<br>• <b>СПИН-продажи (Нил Рэкхем)</b> — ситуационные, проблемные, извлекающие и направляющие вопросы без шаблонного давления.<br>• <b>«Никаких компромиссов» (Крис Восс, экс-переговорщик ФБР)</b> — тактическая эмпатия, зеркалирование и калиброванные открытые вопросы.<br>• <b>«Сначала скажите НЕТ» (Джим Кэмп)</b> — ведение переговоров из позиции силы без навязчивой нужды.<br>• <b>Сервис Ritz-Carlton (Хорст Шульце)</b> — «Мы дамы и господа к услугам дам и господ».<br><br>Хотите увидеть, как эти техники раскрываются в вашей сфере бизнеса?`;
-      }
-
-      else if (raw.includes('скольк') || raw.includes('стоимост') || raw.includes('цена') || raw.includes('прайс') || raw.includes('тариф') || (raw.includes('внедрен') && raw.includes('стоит'))) {
-        reply = `Базовое внедрение ИИ-продавца под ключ — from $580 (с интеграцией в WhatsApp и CRM в Excel) плюс сервисная поддержка от 15 000 $/mo. Дополнительные каналы (Telegram, Instagram) и интеграции с amoCRM, Битрикс24 или 1С подключаются модульно в конструкторе тарифов.<br><br>В стоимость входит оцифровка регламентов, создание индивидуального системного промпта по методологии СПИН и юридическая гарантия окупаемости в договоре.<br><br>Скажите, пожалуйста, в какой нише работает ваш бизнес и сколько входящих leads per month вы получаете?`;
-      }
-
-      else if (raw.includes('скидк') || raw.includes('дорог') || raw.includes('дешевл') || raw.includes('уступ') || raw.includes('30%') || raw.includes('50%')) {
-        reply = `Понимаю ваше стремление взвешенно инвестировать в автоматизацию. Скажите, когда вы говорите «дорого», вы сравниваете это с примитивными кнопочными ботами или с расходами на штатных менеджеров?<br><br>Один менеджер обходится от 70 000 $ ежемесячно, может уволиться или пропустить ночной лид. ИИ-продавец окупается за первые 2-4 недели и работает без усталости 24/7.<br><br>При оплате полуyrsового сопровождения мы фиксируем спец-условия: скидка 50% на интеграцию дополнительного канала (Telegram + WhatsApp). Обсудим детали?`;
-      }
-
-      else if (raw.includes('crm') || raw.includes('amocrm') || raw.includes('амо') || raw.includes('битрикс') || raw.includes('bitrix') || raw.includes('1с') || raw.includes('1c') || raw.includes('склад') || raw.includes('интеграц') || raw.includes('api')) {
-        reply = `Да, мы бесшовно интегрируемся с amoCRM, Битрикс24, 1С, МойСклад, Yclients, PlanFix, а также с кастомными ERP через REST API и Webhooks.<br><br>ИИ-продавец не просто переписывается: он сам создает лиды, заполняет квалификационные поля (бюджет, тип запроса, сроки), перемещает сделку по этапам воронки и ставит задачу живому эксперту в момент готовности к сделке.<br><br>Какую CRM-систему вы используете сейчас?`;
-      }
-
-      else if (raw.includes('бот') || raw.includes('отличи') || raw.includes('разниц') || raw.includes('лучше') || raw.includes('кноп')) {
-        reply = `Разница принципиальная:<br>❌ <b>Обычный чат-бот</b> идет по жесткому дереву кнопок и ломается от любой нестандартной реплики («Я вас не понял, нажмите 1»). Это раздражает клиентов.<br>✅ <b>ИИ-продавец Altai Optima</b> обладает глубоким контекстным мышлением, распознает голосовые аудиосообщения, считывает скрытые сомнения и ведет диалог на уровне лучших коммерческих переговорщиков.<br><br>Хотите протестировать сложный сценарий прямо сейчас?`;
-      }
-
-      else if (raw.includes('окупаем') || raw.includes('гарант') || raw.includes('риск') || raw.includes('roi') || raw.includes('договор')) {
-        reply = `Мы фиксируем финансовую гарантию в договоре: если конверсия вашей воронки не вырастет минимум на 20%, мы дорабатываем сценарии и оптимизируем логику за свой счет.<br><br>При среднем чеке от 20 000 $ система окупается за первые 14–28 дней блаyrsря мгновенному отклику за 5 секунд и перехвату ночных лидов.<br><br>Какой у вас средний чек сделки?`;
-      }
-
-      else if (raw.includes('срок') || raw.includes('когда') || raw.includes('быстро') || raw.includes('дней') || raw.includes('недел')) {
-        reply = `Полный цикл внедрения занимает от 7 до 14 рабочих дней под ключ:<br>1. Оцифровка базы знаний и регламентов компании.<br>2. Программирование системных промптов и стресс-тестирование.<br>3. Подключение мессенджеров и интеграция с CRM.<br>4. Боевой запуск с непрерывным мониторингом качества.`;
-      }
-
-      else if (raw.includes('голос') || raw.includes('аудио') || raw.includes('voice') || raw.includes('кружочк')) {
-        reply = `Да! ИИ-продавец оснащен модулем распознавания Whisper AI с точностью 99%. Он слушает аудиосообщения клиентов любой длины, выделяет суть, фиксирует договоренности в CRM и отвечает клиенту текстом либо естественным синтезированным голосом.`;
-      }
-
-      else if (raw.includes('привет') || raw.includes('здравствуй') || raw.includes('добрый') || raw.includes('хай') || raw.includes('hello') || raw.includes('салам') || raw.includes('кто ты') || raw.includes('тест')) {
-        reply = `Здравствуйте! Меня зовут Maxim, я демонстрационный ИИ-продавец компании Altai Optima.<br><br>Я умею вести живой квалификационный диалог, отрабатывать сложные возражения и доводить лиды до сделки.<br><br>Задайте мне любой вопрос о ваших бизнес-задачах или проверьте мои навыки сложным каверзным вопросом! 🚀`;
-      }
-
-      else if (raw.includes('недвижим') || raw.includes('стройк') || raw.includes('мебел') || raw.includes('авто') || raw.includes('клиник') || raw.includes('медицин') || raw.includes('юрист') || raw.includes('b2b') || raw.includes('услуг') || raw.includes('производств') || raw.includes('опт')) {
-        reply = `В вашей нише у нас уже есть проверенные рабочие связки. ИИ-продавец моментально выявляет ключевые критерии выбора, отвечает на технические нюансы из базы знаний и передает подогретого клиента эксперту на замер/консультацию/расчет сметы.<br><br>Хотите, рассчитаем финансовую модель внедрения под ваши текущие показатели?`;
-      }
-
-      else {
-        reply = `Блаyrsрю за вопрос! Наш ИИ-продавец кастомизируется под специфику вашей компании: регламенты, прайсы, частые вопросы и успешные скрипты лучших менеджеров.<br><br>В реальном проекте он отвечает со 100% экспертной точностью и ведет клиента к целевому действию — записи на встречу или оплате.<br><br>Скажите, пожалуйста, какую главную задачу вы хотели бы решить внедрением ИИ-продавца?`;
-      }
-
-      return {
-        sender: 'ai',
-        author: aiName,
-        text: reply,
-        time: timeStr
-      };
-    }
-
-    function handleLiveChatSubmit(event) {
+    async function handleLiveChatSubmit(event) {
       if (event) event.preventDefault();
       const input = document.getElementById('liveChatInput');
+      const submitBtn = document.getElementById('liveChatSubmitBtn');
       if (!input) return;
       const text = input.value.trim();
       if (!text) return;
+      if (demoChatClient.isSending) return;
 
       const box = document.getElementById('messagesContainer');
       const agentStatus = document.getElementById('agentStatus');
       const footerStatus = document.getElementById('chatFooterStatus');
       if (!box) return;
 
-      const cfg = channelsConfig[currentKey] || channelsConfig.live_chat;
-      const timeStr = new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
+      const cfg = channelsConfig[currentKey] || channelsConfig.full_deal;
+      const timeStr = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+
+      const starterCard = document.getElementById('liveChatStarterCard');
+      if (starterCard) {
+        starterCard.remove();
+      }
 
       const userMsg = {
         sender: 'user',
-        author: 'Вы (Тест)',
+        author: 'You (Visitor)',
         text: text,
         time: timeStr
       };
-
-      const userHtml = cfg.renderUserBubble(userMsg);
-      box.insertAdjacentHTML('beforeend', userHtml);
+      if (!channelMessages[currentKey]) channelMessages[currentKey] = [];
+      channelMessages[currentKey].push(userMsg);
+      box.insertAdjacentHTML('beforeend', cfg.renderUserBubble(userMsg));
       box.scrollTop = box.scrollHeight;
       input.value = '';
 
-      if (agentStatus) agentStatus.textContent = 'печатает ответ...';
+      demoChatClient.isSending = true;
+      input.disabled = true;
+      if (submitBtn) submitBtn.disabled = true;
+      if (agentStatus) agentStatus.textContent = 'AI is composing response...';
+
       const existingTyping = document.getElementById('chatTypingIndicator');
       if (existingTyping) existingTyping.remove();
 
       const typingHtml = `
         <div id="chatTypingIndicator" class="flex justify-start items-end gap-2 animate-fade-in transition-all">
           <div class="bg-white text-slate-800 px-3 py-2 rounded-2xl rounded-bl-xs shadow-xs border border-slate-200/80 flex items-center gap-2">
-            <span class="text-[10px] font-bold text-slate-500">ИИ-продавец печатает</span>
+            <span class="text-[10px] font-bold text-sky-700">AI Closer typing</span>
             <div class="flex items-center gap-1">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-bounce" style="animation-delay: 0ms; animation-duration: 0.8s;"></span>
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-bounce" style="animation-delay: 180ms; animation-duration: 0.8s;"></span>
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-bounce" style="animation-delay: 360ms; animation-duration: 0.8s;"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-sky-500 animate-bounce" style="animation-delay: 0ms; animation-duration: 0.8s;"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-sky-500 animate-bounce" style="animation-delay: 180ms; animation-duration: 0.8s;"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-sky-500 animate-bounce" style="animation-delay: 360ms; animation-duration: 0.8s;"></span>
             </div>
           </div>
         </div>
@@ -6847,18 +6807,59 @@
       box.insertAdjacentHTML('beforeend', typingHtml);
       box.scrollTop = box.scrollHeight;
 
-      setTimeout(() => {
+      try {
+        const data = await demoChatClient.sendMessage(text);
         const typingEl = document.getElementById('chatTypingIndicator');
         if (typingEl) typingEl.remove();
 
-        const aiMsg = generateAiSellerResponse(text, currentKey);
-        const aiHtml = cfg.renderAiBubble(aiMsg);
-        box.insertAdjacentHTML('beforeend', aiHtml);
+        const responseText = data.assistant_response || data.response || 'Thank you! Your request is logged into CRM.';
+        const formattedText = formatAiResponse(responseText);
+
+        const aiTimeStr = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+        const aiMsg = {
+          sender: 'ai',
+          author: cfg.assistantName || 'AI Closer // Altai Optima',
+          text: formattedText,
+          time: aiTimeStr
+        };
+        channelMessages[currentKey].push(aiMsg);
+        box.insertAdjacentHTML('beforeend', cfg.renderAiBubble(aiMsg));
         box.scrollTop = box.scrollHeight;
 
+        if (footerStatus) {
+          const latencySec = data.latency_ms ? (data.latency_ms / 1000).toFixed(1) + 's' : '1.5s';
+          footerStatus.textContent = `✓ Response generated (${latencySec}) • Lead updated in amoCRM`;
+        }
+      } catch (err) {
+        const typingEl = document.getElementById('chatTypingIndicator');
+        if (typingEl) typingEl.remove();
+
+        let errMsg = err.message || 'Connection error';
+        if (err.status === 429) {
+          errMsg = 'Server temporarily busy, please wait a minute.';
+        }
+
+        const errHtml = `
+          <div class="flex justify-start items-end gap-2 animate-fade-in">
+            <div class="bg-amber-50 text-amber-900 p-3 rounded-2xl rounded-bl-xs max-w-[88%] shadow-xs border border-amber-200 text-xs">
+              <div class="text-[9px] font-bold text-amber-700 uppercase mb-0.5">System Alert</div>
+              <p class="leading-relaxed font-normal">${errMsg}</p>
+            </div>
+          </div>
+        `;
+        box.insertAdjacentHTML('beforeend', errHtml);
+        box.scrollTop = box.scrollHeight;
+
+        if (footerStatus) {
+          footerStatus.textContent = `⚠️ ${errMsg}`;
+        }
+      } finally {
+        demoChatClient.isSending = false;
+        input.disabled = false;
+        if (submitBtn) submitBtn.disabled = false;
+        input.focus();
         if (agentStatus) agentStatus.textContent = cfg.statusText || 'online';
-        if (footerStatus) footerStatus.textContent = '✓ Диалог активен • ИИ-продавец квалифицирует запрос в реальном времени';
-      }, 800);
+      }
     }
 
     const lR = document.getElementById('leadsRange');
@@ -8535,6 +8536,12 @@
           {id:'avito', label: isEn ? 'Classifieds / Avito' : (isTr ? 'İlan Portalları' : 'Avito'), setup:10000, monthly:2000},
           {id:'max', label:'MAX', setup:10000, monthly:2000},
           {id:'mail', label: isEn ? 'Email' : (isTr ? 'E-posta' : 'Email'), setup:10000, monthly:2000},
+          {
+            id:'voice',
+            label: isEn ? 'Voice message transcription' : (isTr ? 'Sesli mesaj tanıma' : 'Voice Note Transcription'),
+            sub: isEn ? 'audio → text in any channel' : (isTr ? 'tüm kanallarda ses → metin' : 'audio → text across all channels'),
+            setup:10000, monthly:3000
+          },
         ];
         const CRMS = [
           {id:'amo', label: (isEn || isTr) ? 'amoCRM / HubSpot' : 'amoCRM', setup:20000, monthly:5000},
@@ -8544,16 +8551,10 @@
         ];
         const EXTRAS = [
           {
-            id:'voice',
-            label: isEn ? 'Voice message transcription' : (isTr ? 'Sesli mesaj tanıma' : 'Voice Note Transcription'),
-            sub: isEn ? 'audio → text in any channel' : (isTr ? 'tüm kanallarda ses → metin' : 'audio → text across all channels'),
-            setup:10000, monthly:3000
-          },
-          {
-            id:'kb',
-            label: isEn ? 'Knowledge base creation from scratch' : (isTr ? 'Sıfırdan bilgi tabanı oluşturma' : 'Full Knowledge Base Setup from Scratch'),
-            sub: isEn ? 'if you do not have scripts / FAQ / pricing ready' : (isTr ? 'fiyat listesi / senaryo / SSS henüz yoksa' : 'if you don’t have pricing / scripts / FAQ yet'),
-            setup:30000, monthly:0
+            id:'sales_dept',
+            label: isEn ? 'Sales department setup from scratch' : (isTr ? 'Sıfırdan satış departmanı kurulumu' : 'Full Sales Department Setup from Scratch'),
+            sub: isEn ? 'if you do not have pricing / scripts / digitized database yet' : (isTr ? 'henüz fiyat listesi / senaryo / dijital veri tabanı yoksa' : 'if you don’t have pricing / scripts / digitized database yet'),
+            setup:50000, monthly:0
           },
         ];
         const VOLUMES = [
@@ -8567,11 +8568,11 @@
 
         function renderToggleList(container, items, group){
           if (!container) return;
-          const supLabel = isEn ? 'Support' : (isTr ? 'Teknik destek' : 'Техподдержка');
+          const supLabel = isEn ? 'Subscription' : (isTr ? 'Abonelik' : 'Подписка');
           container.innerHTML = items.map(it => `
             <div class="cfg-row" data-row="${it.id}">
               <div>
-                <div class="cfg-row-label ${it.id==='kb' ? 'whitespace-nowrap' : ''}">${it.label}</div>
+                <div class="cfg-row-label">${it.label}</div>
                 ${it.sub ? `<div class="cfg-row-sub">${it.sub}</div>` : ''}
                 ${it.monthly ? `<div class="cfg-row-sub text-slate-500">${supLabel}: +${it.monthly.toLocaleString(loc)} ${curSym}${perMo}</div>` : ''}
               </div>
@@ -8640,7 +8641,7 @@
 
           const volSupportEl = document.getElementById('volSupportText');
           if (volSupportEl) {
-            const volSupportPrefix = isEn ? 'SLA Support from mo 2: ' : (isTr ? '2. aydan itibaren destek: ' : 'Техподдержка со 2-го месяца: ');
+            const volSupportPrefix = isEn ? 'Subscription from mo 2: ' : (isTr ? '2. aydan itibaren abonelik: ' : 'Подписка со 2-го месяца: ');
             if (vol && vol.monthlyAdd) {
               volSupportEl.textContent = volSupportPrefix + '+' + vol.monthlyAdd.toLocaleString(loc) + ' ' + curSym + perMo;
             } else {
@@ -8669,11 +8670,11 @@
             const selectedSummary = lines.length ? lines.map(l => l[0]).join(', ') : defaultBaseLabel;
             let msg = '';
             if (isEn) {
-              msg = `Hello! I configured a custom plan in Altai Optima:\n• Setup: ${setup.toLocaleString(loc)} $\n• SLA Support: ${monthly.toLocaleString(loc)} $/mo\n• Options: ${selectedSummary}\n\nI would like to discuss launching!`;
+              msg = `Hello! I configured a custom plan in Altai Optima:\n• Setup: ${setup.toLocaleString(loc)} $\n• Subscription: ${monthly.toLocaleString(loc)} $/mo\n• Options: ${selectedSummary}\n\nI would like to discuss launching!`;
             } else if (isTr) {
-              msg = `Merhaba! Altai Optima yapılandırıcısında özel bir tarife oluşturdum:\n• Kurulum: ${setup.toLocaleString(loc)} $\n• Teknik Destek: ${monthly.toLocaleString(loc)} $/ay\n• Seçenekler: ${selectedSummary}\n\nBaşlatmayı görüşmek istiyorum!`;
+              msg = `Merhaba! Altai Optima yapılandırıcısında özel bir tarife oluşturdum:\n• Kurulum: ${setup.toLocaleString(loc)} $\n• Abonelik: ${monthly.toLocaleString(loc)} $/ay\n• Seçenekler: ${selectedSummary}\n\nBaşlatmayı görüşmek istiyorum!`;
             } else {
-              msg = 'Здравствуйте! Собрал тариф в конструкторе Altai Optima:\n• Настройка: ' + setup.toLocaleString(loc) + ' $\n• Техподдержка: ' + monthly.toLocaleString(loc) + ' $/mo\n• Опции: ' + selectedSummary + '\n\nХочу обсудить запуск!';
+              msg = 'Здравствуйте! Собрал тариф в конструкторе Altai Optima:\n• Настройка: ' + setup.toLocaleString(loc) + ' $\n• Подписка: ' + monthly.toLocaleString(loc) + ' $/mo\n• Опции: ' + selectedSummary + '\n\nХочу обсудить запуск!';
             }
             ctaBtn.href = `https://t.me/altaioptima?text=${encodeURIComponent(msg)}`;
           }

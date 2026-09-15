@@ -1237,7 +1237,8 @@
     #constructor .cfg-cards-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+      gap: 18px;
+      padding: 2px;
     }
     @media (max-width: 960px) {
       #constructor .cfg-grid {
@@ -1249,49 +1250,112 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* ЕДИНЫЙ ПЕРЛАМУТРОВЫЙ СТИЛЬ: БЕЛЫЙ, ГОЛУБОЙ, СВЕТЛО-ГОЛУБОЙ С АНИМИРОВАННЫМИ БЛИКАМИ */
     #constructor .cfg-card {
-      border-radius: 20px;
-      padding: 20px 22px;
+      position: relative;
+      border-radius: 22px;
+      padding: 22px 24px;
       margin-bottom: 0;
-      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       display: flex;
       flex-direction: column;
+      border: 2px solid transparent;
+      background-clip: padding-box, border-box;
+      background-origin: padding-box, border-box;
+      box-shadow: 0 4px 20px -2px rgba(2, 132, 199, 0.07), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #constructor .cfg-card > * {
+      position: relative;
+      z-index: 3;
     }
     #constructor .cfg-card:hover {
-      box-shadow: 0 12px 28px -4px rgba(2, 132, 199, 0.14), 0 4px 10px -2px rgba(15, 23, 42, 0.05);
-      transform: translateY(-2px);
-    }
-    
-    /* 4 КАРТОЧКИ: ЭЛЕГАНТНЫЙ СТИЛЬ БЕЗ КОНФЕТНЫХ ЦВЕТОВ */
-    #constructor .cfg-card-channels,
-    #constructor .cfg-card-crms,
-    #constructor .cfg-card-extras,
-    #constructor .cfg-card-volume {
-      background: linear-gradient(160deg, #FFFFFF 0%, #F8FAFC 100%);
-      border: 1.5px solid #E2E8F0;
-    }
-    #constructor .cfg-card:hover {
-      border-color: #BAE6FD;
-      box-shadow: 0 12px 28px -4px rgba(2, 132, 199, 0.12), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
-      transform: translateY(-2px);
+      box-shadow: 0 14px 34px -4px rgba(2, 132, 199, 0.2), 0 0 20px rgba(56, 189, 248, 0.25);
+      transform: translateY(-3px);
     }
 
+    /* Перламутровый переливающийся световой блик поверх карточки */
+    #constructor .cfg-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      background: linear-gradient(120deg, 
+        rgba(255, 255, 255, 0.65) 0%, 
+        rgba(255, 255, 255, 0.05) 35%, 
+        rgba(224, 242, 254, 0.35) 48%, 
+        rgba(240, 249, 255, 0.35) 58%, 
+        rgba(255, 255, 255, 0.05) 70%, 
+        rgba(255, 255, 255, 0.55) 100%);
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0.85;
+      transition: opacity 0.35s ease;
+    }
+    #constructor .cfg-card:hover::after {
+      opacity: 1;
+    }
+
+    /* 1. КАРТОЧКА: КАНАЛЫ СВЯЗИ (Перламутровый белый / Небесно-голубой) */
+    #constructor .cfg-card-channels {
+      background-image: 
+        radial-gradient(ellipse at 15% 15%, rgba(255, 255, 255, 0.98) 0%, rgba(224, 242, 254, 0.6) 45%, #F0F9FF 100%),
+        linear-gradient(135deg, #0284c7, #38bdf8, #7dd3fc, #bae6fd, #0284c7);
+      background-size: 100% 100%, 300% 300%;
+      animation: neonBorderFlow 6s ease infinite;
+    }
+
+    /* 2. КАРТОЧКА: CRM-ИНТЕГРАЦИЯ (Перламутровый кристалл / Мягкий сапфировый) */
+    #constructor .cfg-card-crms {
+      background-image: 
+        radial-gradient(ellipse at 85% 15%, rgba(255, 255, 255, 0.98) 0%, rgba(219, 234, 254, 0.6) 45%, #EFF6FF 100%),
+        linear-gradient(135deg, #0369a1, #0284c7, #60a5fa, #bfdbfe, #0369a1);
+      background-size: 100% 100%, 300% 300%;
+      animation: neonBorderFlow 5s ease infinite;
+    }
+
+    /* 3. КАРТОЧКА: ДОПОЛНИТЕЛЬНО (Перламутровый циан / Ледяной бриз) */
+    #constructor .cfg-card-extras {
+      background-image: 
+        radial-gradient(ellipse at 15% 85%, rgba(255, 255, 255, 0.98) 0%, rgba(207, 250, 254, 0.6) 45%, #F0FDFA 100%),
+        linear-gradient(135deg, #0284c7, #06b6d4, #38bdf8, #a5f3fc, #0284c7);
+      background-size: 100% 100%, 300% 300%;
+      animation: neonBorderFlow 5.5s ease infinite;
+    }
+
+    /* 4. КАРТОЧКА: ОБЪЕМ ЗАЯВОК (Перламутровый ультрамарин / Лазурный глянец) */
+    #constructor .cfg-card-volume {
+      background-image: 
+        radial-gradient(ellipse at 85% 85%, rgba(255, 255, 255, 0.98) 0%, rgba(224, 242, 254, 0.6) 45%, #F0F9FF 100%),
+        linear-gradient(135deg, #075985, #0284c7, #38bdf8, #93c5fd, #075985);
+      background-size: 100% 100%, 300% 300%;
+      animation: neonBorderFlow 4.5s ease infinite;
+    }
+
+    /* ЗАГОЛОВКИ КАРТОЧЕК В ФИРМЕННОМ САПФИРОВО-ГОЛУБОМ СТИЛЕ */
     #constructor .cfg-card h3 {
-      font-size: 13px;
+      font-size: 13.5px;
       text-transform: uppercase;
-      letter-spacing: .06em;
-      color: #0369a1;
+      letter-spacing: .07em;
       margin: 0 0 14px;
-      font-weight: 800;
+      font-weight: 900;
       display: flex;
       align-items: center;
       gap: 8px;
+      background: linear-gradient(135deg, #075985 0%, #0284c7 50%, #0369a1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 6px rgba(2, 132, 199, 0.15));
     }
-    #constructor .cfg-card-crms h3,
-    #constructor .cfg-card-extras h3,
-    #constructor .cfg-card-volume h3 {
-      color: #0369a1;
+    #constructor .cfg-card h3::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #0284c7;
+      box-shadow: 0 0 8px #38bdf8;
+      flex-shrink: 0;
     }
 
     #constructor .cfg-row {
@@ -3681,7 +3745,7 @@
             100% ОБРАБОТАННЫХ ЗАЯВОК
           </h2>
         </div>
-        <div class="max-w-3xl mx-auto font-inter mt-6 sm:mt-4 pt-2 sm:pt-0">
+        <div class="max-w-4xl mx-auto font-inter mt-6 sm:mt-4 pt-2 sm:pt-0">
           <p class="text-slate-800 text-base sm:text-lg md:text-xl font-medium leading-snug sm:leading-relaxed">
             <span class="block">ИИ-продавец отвечает на каждое обращение в первую минуту, отсеивает спам</span>
             <span class="block">и передаёт вашим менеджерам готовых клиентов даже ночью и в выходные</span>
@@ -4144,18 +4208,17 @@
             </p>
           </div>
 
-          <!-- 5 КНОПОК СОЦСЕТЕЙ И ЖИВОГО ТЕСТ-ДРАЙВА -->
+          <!-- 4 КНОПКИ СОЦСЕТЕЙ -->
           <div class="flex flex-col items-center lg:items-start w-full">
             <div class="grid grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-2.5 sm:gap-y-3.5 lg:flex lg:flex-col lg:space-y-4 lg:gap-0 lg:pl-4 xl:pl-6 max-w-sm sm:max-w-md lg:max-w-none w-full px-2 sm:px-0">
               
               <!-- WhatsApp -->
               <button type="button" onclick="selectBranch('full_deal', this)" class="branch-btn branch-btn-wa active flex items-center gap-2.5 sm:gap-3.5 text-left cursor-pointer group py-1.5 px-0.5 whitespace-nowrap">
                 <div class="w-7 h-7 sm:w-8 sm:h-8 text-[#075E54] flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-110">
-                  <svg class="w-6 h-6 sm:w-7 sm:h-7 fill-current" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.68 12.04 3.68C14.24 3.68 16.31 4.54 17.87 6.1C19.42 7.66 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15ZM16.56 14.36C16.31 14.24 15.09 13.64 14.86 13.56C14.63 13.48 14.47 13.44 14.3 13.69C14.14 13.94 13.67 14.49 13.52 14.66C13.38 14.83 13.23 14.85 12.98 14.73C12.74 14.61 11.95 14.35 11.01 13.51C10.28 12.86 9.78 12.05 9.64 11.8C9.5 11.56 9.62 11.42 9.75 11.3C9.86 11.19 10 11.02 10.12 10.88C10.24 10.74 10.28 10.64 10.36 10.47C10.44 10.31 10.4 10.16 10.34 10.04C10.28 9.92 9.8 8.74 9.6 8.25C9.4 7.78 9.21 7.84 9.06 7.83C8.92 7.82 8.76 7.82 8.6 7.82C8.44 7.82 8.17 7.88 7.95 8.12C7.73 8.36 7.1 8.95 7.1 10.16C7.1 11.37 7.98 12.54 8.1 12.7C8.22 12.87 9.83 15.34 12.3 16.4C12.89 16.65 13.35 16.8 13.7 16.91C14.3 17.1 14.84 17.07 15.27 17.01C15.75 16.94 16.74 16.41 16.95 15.82C17.15 15.23 17.15 14.73 17.09 14.62C17.03 14.51 16.81 14.48 16.56 14.36Z"/></svg>
+                  <svg class="w-6 h-6 sm:w-7 sm:h-7 fill-current" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.68 12.04 3.68C14.24 3.68 16.31 4.54 17.87 6.1C19.42 7.66 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15ZM16.56 14.36C16.31 14.24 15.09 13.64 14.86 13.56C14.63 13.48 14.47 13.44 14.3 13.69C14.14 13.94 13.67 14.49 13.52 14.66C13.38 14.83 13.23 14.85 12.98 14.73C12.74 14.61 11.95 14.35 11.01 13.51C10.28 12.86 9.78 12.05 9.64 11.8C9.5 11.56 9.62 11.42 9.75 11.3C9.86 11.02 10 11.02 10.12 10.88C10.24 10.74 10.28 10.64 10.36 10.47C10.44 10.31 10.4 10.16 10.34 10.04C10.28 9.92 9.8 8.74 9.6 8.25C9.4 7.78 9.21 7.84 9.06 7.83C8.92 7.82 8.76 7.82 8.6 7.82C8.44 7.82 8.17 7.88 7.95 8.12C7.73 8.36 7.1 8.95 7.1 10.16C7.1 11.37 7.98 12.54 8.1 12.7C8.22 12.87 9.83 15.34 12.3 16.4C12.89 16.65 13.35 16.8 13.7 16.91C14.3 17.1 14.84 17.07 15.27 17.01C15.75 16.94 16.74 16.41 16.95 15.82C17.15 15.23 17.15 14.73 17.09 14.62C17.03 14.51 16.81 14.48 16.56 14.36Z"/></svg>
                 </div>
                 <div class="flex flex-col">
                   <span class="font-extrabold text-[13.5px] sm:text-base lg:text-lg tracking-tight group-hover:brightness-110 transition-colors" style="color: #075E54;">WhatsApp</span>
-                  <span class="text-[10px] sm:text-xs text-slate-400 font-normal leading-tight">Недвижимость</span>
                 </div>
               </button>
 
@@ -4166,7 +4229,6 @@
                 </div>
                 <div class="flex flex-col">
                   <span class="font-extrabold text-[13.5px] sm:text-base lg:text-lg tracking-tight group-hover:brightness-110 transition-colors" style="color: #229ED9;">Telegram</span>
-                  <span class="text-[10px] sm:text-xs text-slate-400 font-normal leading-tight">B2B Производство</span>
                 </div>
               </button>
 
@@ -4188,7 +4250,6 @@
                 </div>
                 <div class="flex flex-col">
                   <span class="font-extrabold text-[13.5px] sm:text-base lg:text-lg tracking-tight group-hover:brightness-110 transition-colors" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Instagram Direct</span>
-                  <span class="text-[10px] sm:text-xs text-slate-400 font-normal leading-tight">Обувь (TALLORA)</span>
                 </div>
               </button>
 
@@ -4204,23 +4265,6 @@
                 </div>
                 <div class="flex flex-col">
                   <span class="font-extrabold text-[13.5px] sm:text-base lg:text-lg tracking-tight group-hover:text-slate-800 transition-colors" style="color: #000000;">Авито</span>
-                  <span class="text-[10px] sm:text-xs text-slate-400 font-normal leading-tight">Кухни и мебель</span>
-                </div>
-              </button>
-
-              <!-- Живой тест-драйв / Свой диалог -->
-              <button type="button" onclick="selectBranch('live_chat', this)" class="branch-btn branch-btn-live flex items-center gap-2.5 sm:gap-3.5 text-left cursor-pointer group py-1.5 px-0.5 whitespace-nowrap col-span-2 sm:col-span-1 lg:col-span-1">
-                <div class="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-110">
-                  <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-gradient-to-tr from-sky-500 to-indigo-600 text-white flex items-center justify-center text-xs font-bold shadow-xs">
-                    ⚡
-                  </div>
-                </div>
-                <div class="flex flex-col">
-                  <div class="flex items-center gap-1.5">
-                    <span class="font-extrabold text-[13.5px] sm:text-base lg:text-lg tracking-tight group-hover:brightness-110 transition-colors" style="background: linear-gradient(135deg, #0284c7 0%, #4f46e5 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Живой тест-драйв</span>
-                    <span class="px-1.5 py-0.2 rounded-full bg-emerald-500 text-white font-bold text-[8px] sm:text-[9px] font-mono uppercase tracking-wider animate-pulse">LIVE</span>
-                  </div>
-                  <span class="text-[10px] sm:text-xs text-sky-600 font-normal leading-tight">Задать любой вопрос</span>
                 </div>
               </button>
 
@@ -4255,8 +4299,14 @@
                     <div id="agentStatus" class="text-[10px] text-emerald-200 font-medium">в сети • отклик до 30 сек</div>
                   </div>
                 </div>
-                <div id="channelBadge" class="text-[10px] font-code font-bold bg-white/20 text-white px-2.5 py-0.5 rounded-full backdrop-blur-xs">
-                  WhatsApp
+                <div class="flex items-center gap-1.5">
+                  <button id="chatResetBtn" type="button" onclick="resetLiveChatDialogue()" class="text-[10px] text-white/90 hover:text-white bg-white/15 hover:bg-white/25 px-2 py-1 rounded-lg backdrop-blur-xs transition-all cursor-pointer flex items-center gap-1 font-medium" title="Начать диалог с чистого листа">
+                    <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+                    <span>Сбросить</span>
+                  </button>
+                  <div id="channelBadge" class="text-[10px] font-code font-bold bg-white/20 text-white px-2.5 py-0.5 rounded-full backdrop-blur-xs">
+                    WhatsApp
+                  </div>
                 </div>
               </div>
 
@@ -4268,7 +4318,7 @@
               <!-- ИНТЕРАКТИВНАЯ ПАНЕЛЬ ВВОДА (ЖИВОЙ ДИАЛОГ С ИИ-ПРОДАВЦОМ) -->
               <div class="p-2.5 bg-white border-t border-slate-200/90 flex flex-col gap-2 z-10 shrink-0 shadow-xs">
                 <!-- Быстрые подсказки -->
-                <div class="flex items-center gap-1.5 overflow-x-auto pb-0.5 no-scrollbar text-[11px]">
+                <div id="chatQuickPrompts" class="flex items-center gap-1.5 overflow-x-auto pb-0.5 no-scrollbar text-[11px]">
                   <button type="button" onclick="sendQuickPrompt('Сколько стоит внедрение?')" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-100 hover:bg-sky-50 text-slate-700 hover:text-sky-700 border border-slate-200/80 transition-colors font-medium cursor-pointer shrink-0 text-[10.5px]">
                     💰 Сколько стоит?
                   </button>
@@ -5792,7 +5842,7 @@
 
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: СИНЯЯ СТРЕЛКА К ЮНИТ-ЭКОНОМИКЕ -->
     <div class="flex flex-col items-center justify-center pt-6 sm:pt-10 pb-3 sm:pb-5 relative z-20">
-      <a href="#unit-economics" class="blue-path-track block cursor-pointer" title="1 сотрудник или ИИ-продавец">
+      <a href="#unit-economics" class="blue-path-track block cursor-pointer" title="Менеджер по продажам vs ИИ-продавец">
         <div class="blue-path-arrow text-sky-500">
           <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
@@ -5801,16 +5851,16 @@
       </a>
     </div>
 
-    <!-- 8.5 БЛОК: СРАВНИТЕЛЬНЫЙ АНАЛИЗ (1 СОТРУДНИК ИЛИ ИИ-ПРОДАВЕЦ) -->
+    <!-- 8.5 БЛОК: СРАВНИТЕЛЬНЫЙ АНАЛИЗ (МЕНЕДЖЕР ПО ПРОДАЖАМ VS ИИ-ПРОДАВЕЦ) -->
     <section id="unit-economics" class="max-w-5xl xl:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 font-inter space-y-6 sm:space-y-8 py-10 sm:py-12 lg:py-16">
       
-      <!-- ЗАГОЛОВОК И ПОДЗАГОЛОВОК СЕКЦИИ (ШРИФТ INTER, БЕЗ ТОЧКИ, СТРОГО 1 СТРОКА) -->
+      <!-- ЗАГОЛОВОК И ПОДЗАГОЛОВОК СЕКЦИИ -->
       <div class="text-center max-w-4xl mx-auto space-y-2.5">
-        <h2 class="font-inter uppercase tracking-tight font-black text-lg xs:text-xl sm:text-3xl md:text-4xl lg:text-[42px] leading-tight whitespace-nowrap select-none" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 10px 25px rgba(2, 132, 199, 0.18)); overflow: visible;">
-          1 СОТРУДНИК ИЛИ ИИ-ПРОДАВЕЦ?
+        <h2 class="font-benzin uppercase tracking-tight font-black text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[42px] leading-tight break-words select-none" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 10px 25px rgba(2, 132, 199, 0.18)); overflow: visible;">
+          МЕНЕДЖЕР ПО ПРОДАЖАМ VS ИИ-ПРОДАВЕЦ
         </h2>
         <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
-          Баттл расходов с учетом реальных окладов, налогов и графика работы в 2026 году
+          Сравниваем, во что обходится бизнесу штатный менеджер и ИИ-продавец в 2026 году*
         </p>
       </div>
 
@@ -5847,18 +5897,18 @@
           <table class="w-full text-left border-collapse min-w-[620px] sm:min-w-full">
             <thead>
               <tr class="border-b-2 border-slate-200">
-                <!-- СТОЛБЕЦ 1: КРИТЕРИИ И УСЛОВИЯ (НЕЙТРАЛЬНЫЙ СЕРЫЙ) -->
+                <!-- СТОЛБЕЦ 1: ЧТО СРАВНИВАЕМ -->
                 <th class="py-4 sm:py-5 px-4 sm:px-6 text-xs sm:text-sm font-bold text-slate-700 uppercase tracking-wider w-[30%] bg-slate-100/80 border-r border-slate-200">
-                  Статья расходов и условия
+                  Что сравниваем
                 </th>
-                <!-- СТОЛБЕЦ 2: 1 ШТАТНЫЙ СОТРУДНИК (БЕЛЫЙ С ЧЕТКОЙ ГРАНИЦЕЙ) -->
+                <!-- СТОЛБЕЦ 2: 1 ШТАТНЫЙ СОТРУДНИК -->
                 <th class="py-4 sm:py-5 px-4 sm:px-6 text-xs sm:text-sm font-bold text-slate-700 uppercase tracking-wider w-[35%] bg-slate-50/90 border-r-2 border-slate-200">
                   <div class="flex items-center gap-2">
                     <span class="w-2.5 h-2.5 rounded-full bg-slate-400"></span>
                     <span class="text-slate-800 font-extrabold text-sm sm:text-base">1 штатный сотрудник</span>
                   </div>
                 </th>
-                <!-- СТОЛБЕЦ 3: ИИ-ПРОДАВЕЦ (ВЫДЕЛЕН ЗЕЛЕНЫМ, НЕОНОВАЯ ПОДСВЕТКА И АНИМАЦИЯ) -->
+                <!-- СТОЛБЕЦ 3: ИИ-ПРОДАВЕЦ -->
                 <th class="py-4 sm:py-5 px-4 sm:px-6 text-xs sm:text-sm font-black uppercase tracking-wider w-[35%] bg-gradient-to-r from-emerald-100/90 via-emerald-50 to-emerald-100/90 border-l-2 border-emerald-400 shadow-[inset_0_0_20px_rgba(16,185,129,0.15)] relative">
                   <div class="flex items-center gap-2">
                     <span class="relative flex h-3 w-3">
@@ -5872,107 +5922,138 @@
             </thead>
             <tbody class="divide-y divide-slate-100 text-xs sm:text-sm font-inter">
               
-              <!-- 1. Ежемесячный расход -->
+              <!-- 1. Запуск (Разовый запуск и настройка) -->
               <tr class="hover:bg-slate-50/40 transition-colors">
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
-                  Ежемесячный расход со 2-го месяца
+                  Запуск
+                </td>
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-700 bg-white border-r-2 border-slate-200">
+                  <span class="font-bold text-rose-700">от 25 000 ₽</span> и 1–2 месяца
+                  <span class="text-[11px] text-slate-500 block font-normal mt-0.5">(поиск, собеседования, стажировка, ваше время на обучение)</span>
+                </td>
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-black text-emerald-700 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
+                  от 50 000 ₽ и от 3 дней
+                  <span class="text-[11px] text-emerald-800 font-medium block mt-0.5">(настройка и обучение на ваших товарах и скриптах)</span>
+                </td>
+              </tr>
+
+              <!-- 2. Сколько платите каждый месяц (Ежемесячный расход со 2-го месяца) -->
+              <tr class="hover:bg-slate-50/40 transition-colors">
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
+                  Сколько платите каждый месяц
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-rose-700 font-bold bg-white border-r-2 border-slate-200">
-                  от 78 000 ₽ / мес <span class="text-[11px] text-slate-500 font-normal block">(оклад 50 000 ₽ на руки + налоги + софт)</span>
+                  от 78 000 ₽
+                  <span class="text-[11px] text-slate-500 font-normal block mt-0.5">(50 000 ₽ зарплата на руки + ~22 000 ₽ налоги и взносы + ~6 000 ₽ программы и связь)</span>
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-black text-emerald-700 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  от 15 000 ₽ / мес <span class="text-[11px] text-emerald-800 font-medium block">(со 2-го месяца — техподдержка и обслуживание)</span>
+                  от 15 000 ₽
+                  <span class="text-[11px] text-emerald-800 font-medium block mt-0.5">(подписка, всё включено)</span>
                 </td>
               </tr>
 
-              <!-- 2. Налоги и взносы с ФОТ -->
+              <!-- 3. Бумаги и отчёты -->
               <tr class="hover:bg-slate-50/40 transition-colors">
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
-                  Налоги и взносы с ФОТ
+                  Бумаги и отчёты
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-700 bg-white border-r-2 border-slate-200">
-                  от 15 000 ₽ ежемесячно <span class="text-[11px] text-slate-500 block">(СФР, травматизм, отчетность)</span>
+                  Трудовой договор, отчёты в налоговую и фонды, больничные, отпускные
                 </td>
-                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-black text-emerald-700 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  0 ₽ <span class="text-[11px] text-emerald-800 font-medium block">(100% официальные B2B-расходы, уменьшающие налог)</span>
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-emerald-950 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
+                  Один счёт в месяц, без кадровых документов
                 </td>
               </tr>
 
-              <!-- 3. Реальный график работы -->
+              <!-- 4. Сколько часов работает -->
               <tr class="hover:bg-slate-50/40 transition-colors">
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
-                  Реальный график работы
+                  Сколько часов работает
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-700 bg-white border-r-2 border-slate-200">
-                  40 часов в неделю <span class="text-[11px] text-slate-500 block">(около 24% общего времени бизнеса)</span>
+                  40 часов в неделю <span class="text-[11px] text-slate-500 block font-normal">(около 24% времени)</span>
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-black text-emerald-700 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  168 часов в неделю <span class="text-[11px] text-emerald-800 font-semibold block">(24/7/365 без пауз, обедов и сна)</span>
+                  Круглосуточно, без выходных <span class="text-[11px] text-emerald-800 font-semibold block">(168 часов в неделю)</span>
                 </td>
               </tr>
 
-              <!-- 4. Ночь, выходные и праздники -->
+              <!-- 5. Ночь, выходные и праздники -->
               <tr class="hover:bg-slate-50/40 transition-colors">
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
                   Ночь, выходные и праздники
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-rose-700 font-medium bg-white border-r-2 border-slate-200">
-                  Лиды ждут до утра понедельника и уходят к конкурентам
+                  Заявки ждут рабочего дня, часть клиентов уходит к конкурентам
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-emerald-800 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  Мгновенный ответ за 30–60 секунд в любой день года
+                  Отвечает за 30–60 секунд в любое время
                 </td>
               </tr>
 
-              <!-- 5. Ведение CRM -->
+              <!-- 6. Учёт клиентов и сделок (CRM) -->
               <tr class="hover:bg-slate-50/40 transition-colors">
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
-                  Ведение CRM
+                  Учёт клиентов и сделок (CRM)
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-600 bg-white border-r-2 border-slate-200">
-                  Человеческий фактор <span class="text-[11px] text-rose-600 block">(забыл внести, опечатался в телефоне)</span>
+                  Зависит от человека: может забыть внести данные или ошибиться
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-emerald-950 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  100% заполнение обязательных полей по регламенту (CRM в Excel, amoCRM, 1С)
+                  Заполняет нужные поля по вашим правилам в каждой сделке
+                  <span class="text-[11px] text-emerald-800 font-medium block mt-0.5">(amoCRM, Битрикс24, 1С, Google Таблицы / Excel)</span>
                 </td>
               </tr>
 
-              <!-- 6. Больничные, отпуска, увольнения -->
+              <!-- 7. Больничные, отпуска, увольнения -->
               <tr class="hover:bg-slate-50/40 transition-colors">
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
                   Больничные, отпуска, увольнения
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-600 bg-white border-r-2 border-slate-200">
-                  Оплачиваются из кармана бизнеса + простой при замене
+                  Оплачиваете вы, а при увольнении ищете и обучаете нового человека
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-emerald-950 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  Не болеет, не увольняется, не требует повторного онбординга
+                  Работает без больничных и отпусков, искать замену не нужно
                 </td>
               </tr>
 
-              <!-- 7. Разовый запуск и настройка -->
+              <!-- 8. Где общается с клиентами -->
               <tr class="hover:bg-slate-50/40 transition-colors">
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
-                  Разовый запуск и настройка
+                  Где общается с клиентами
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-600 bg-white border-r-2 border-slate-200">
-                  от 25 000 ₽ <span class="text-[11px] text-slate-500 block">(поиск на hh, отбор, стажировка, время РОПа)</span>
+                  Телефон и мессенджеры в рабочее время
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-emerald-950 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  от 50 000 ₽ <span class="text-[11px] text-emerald-800 font-semibold block">(настройка ИИ-продавца от 50 000 ₽ единоразово + 15 000 ₽ со 2-го месяца)</span>
+                  Сайт, WhatsApp, Telegram, Avito…
                 </td>
               </tr>
 
-              <!-- 8. Итого затраты за 12 месяцев -->
-              <tr class="hover:bg-slate-50/40 transition-colors bg-slate-50/40">
+              <!-- 9. Сложные сделки -->
+              <tr class="hover:bg-slate-50/40 transition-colors">
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
+                  Сложные сделки
+                </td>
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-600 bg-white border-r-2 border-slate-200">
+                  Ведёт сам
+                </td>
+                <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-emerald-950 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
+                  Передаёт вашему менеджеру. Все переписки доступны вам для проверки
+                </td>
+              </tr>
+
+              <!-- 10. Итого за год -->
+              <tr class="hover:bg-slate-50/40 transition-colors bg-slate-50/50">
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-black text-slate-950 bg-slate-100/70 border-r border-slate-200">
-                  Итого затраты за 12 месяцев
+                  Итого за год
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-800 bg-white border-r-2 border-slate-200">
-                  ~960 000 ₽ <span class="text-[11px] text-slate-500 font-normal block">(найм 25 000 ₽ + 12 месяцев содержания по 78 000 ₽)</span>
+                  ~960 000 ₽
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-black text-emerald-700 bg-emerald-100/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  215 000 ₽ <span class="text-[11px] text-emerald-900 font-semibold block">(настройка от 50 000 ₽ единоразово + 11 × 15 000 ₽ со 2-го месяца)</span>
+                  от 215 000 ₽
                 </td>
               </tr>
 
@@ -5981,10 +6062,10 @@
         </div>
       </div>
 
-      <!-- ЧИСТАЯ ЭКОНОМИЯ КОМПАНИИ: АБСОЛЮТНО БЕЗ ПОДЛОЖКИ И РАМКИ -->
+      <!-- ЭКОНОМИЯ ЗА ПЕРВЫЙ ГОД -->
       <div class="relative max-w-3xl mx-auto pt-6 pb-2 font-inter text-center">
         <div class="text-center font-mono font-extrabold uppercase tracking-widest text-emerald-700 text-xs sm:text-sm md:text-base pb-3">
-          ЧИСТАЯ ЭКОНОМИЯ КОМПАНИИ
+          ЭКОНОМИЯ ЗА ПЕРВЫЙ ГОД
         </div>
 
         <!-- Зеленая стрелка с рублем и рассыпающимися веером монетами-рублями -->
@@ -6008,7 +6089,7 @@
             <div class="scatter-coin w-6 h-6 text-[10px]" style="--cx: -210px; --cy: 195px; --cr: -60deg; --sway: 20px; animation-delay: 1.05s;">₽</div>
             <div class="scatter-coin w-7 h-7 text-xs" style="--cx: -120px; --cy: 185px; --cr: -35deg; --sway: -16px; animation-delay: 0.35s;">₽</div>
 
-            <!-- Центральный каскад (падает прямо на цифру от 745 000 ₽) -->
+            <!-- Центральный каскад (падает прямо на цифру ~745 000 ₽) -->
             <div class="scatter-coin w-7 h-7 text-xs" style="--cx: -35px; --cy: 145px; --cr: -10deg; --sway: -12px; animation-delay: 0.15s;">₽</div>
             <div class="scatter-coin w-8 h-8 text-sm" style="--cx: 30px; --cy: 155px; --cr: 10deg; --sway: 14px; animation-delay: 0.4s;">₽</div>
             <div class="scatter-coin w-6 h-6 text-[11px]" style="--cx: -15px; --cy: 175px; --cr: -8deg; --sway: 10px; animation-delay: 0.6s;">₽</div>
@@ -6031,17 +6112,23 @@
           </div>
         </div>
 
-        <!-- ТЕКСТ И ЦИФРА ЭКОНОМИИ: АБСОЛЮТНО БЕЗ ПОДЛОЖКИ -->
-        <div class="relative z-10 flex flex-col items-center justify-center space-y-3 pt-3">
+        <!-- ТЕКСТ И ЦИФРА ЭКОНОМИИ -->
+        <div class="relative z-10 flex flex-col items-center justify-center space-y-2 pt-3">
           <!-- ПУЛЬСИРУЮЩАЯ ВЫДЕЛЕННАЯ ЦИФРА ЭКОНОМИИ -->
           <div class="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black font-inter tracking-tight leading-none">
             <span class="inline-block animate-scale-pulse font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-400 filter drop-shadow-[0_6px_28px_rgba(16,185,129,0.5)]">
-              от 745 000 ₽
+              ~745 000 ₽
             </span>
             <span class="text-slate-900 font-black text-2xl sm:text-3xl md:text-4xl tracking-normal"> / ГОД</span>
           </div>
-          
+          <p class="text-sm sm:text-base text-slate-700 font-medium max-w-xl mx-auto pt-1">
+            В 4,5 раза дешевле штатного менеджера. Со второго года экономия около 756 000 ₽ в год
+          </p>
+        </div>
 
+        <!-- СНОСКА -->
+        <div class="text-center max-w-3xl mx-auto pt-6 text-[11px] sm:text-xs text-slate-400 leading-relaxed font-normal">
+          *Расчёт при зарплате 50 000 ₽ на руки (по данным hh.ru, Россия, 2026), сниженном тарифе страховых взносов для малого бизнеса и базовом тарифе ИИ-продавца. Цены указаны без НДС. Фактические расходы зависят от региона, системы налогообложения и выбранного тарифа.
         </div>
       </div>
 
@@ -6074,71 +6161,74 @@
       <!-- Конструктор тарифа -->
       <div class="cfg-wrap relative z-10">
         <div class="cfg-grid">
-          <!-- СЕТКА 2x2 КАРТОЧЕК ОПЦИЙ -->
-          <div class="cfg-cards-grid">
+          <!-- ЛЕВАЯ КОЛОНКА: СЕТКА КАРТОЧЕК И СНОСКА -->
+          <div>
+            <div class="cfg-cards-grid">
 
-            <!-- КАРТОЧКА 1: КАНАЛЫ СВЯЗИ -->
-            <div class="cfg-card cfg-card-channels">
-              <h3>Каналы связи</h3>
-              <div class="cfg-row">
-                <div>
-                  <div class="cfg-row-label">
-                    WhatsApp
-                    <span class="cfg-badge-locked">включено</span>
+              <!-- КАРТОЧКА 1: КАНАЛЫ СВЯЗИ -->
+              <div class="cfg-card cfg-card-channels">
+                <h3>Каналы связи</h3>
+                <div class="cfg-row">
+                  <div>
+                    <div class="cfg-row-label">
+                      WhatsApp
+                      <span class="cfg-badge-locked">включено</span>
+                    </div>
+                    <div class="cfg-row-sub">входит в базовый пакет</div>
                   </div>
-                  <div class="cfg-row-sub">входит в базовый пакет</div>
-                  <div class="cfg-row-sub text-slate-500">Техподдержка: входит в базовый тариф</div>
-                </div>
-                <div style="display:flex;align-items:center;gap:12px;">
-                  <label class="cfg-switch cfg-locked" title="Входит в базовый тариф (нельзя отключить)">
-                    <input type="checkbox" checked disabled>
-                    <span class="cfg-track"></span>
-                  </label>
-                </div>
-              </div>
-              <div id="channels"></div>
-            </div>
-
-            <!-- КАРТОЧКА 2: CRM-ИНТЕГРАЦИЯ -->
-            <div class="cfg-card cfg-card-crms">
-              <h3>CRM-интеграция</h3>
-              <div class="cfg-row">
-                <div>
-                  <div class="cfg-row-label">
-                    Excel таблица
-                    <span class="cfg-badge-locked">включено</span>
+                  <div style="display:flex;align-items:center;gap:12px;">
+                    <label class="cfg-switch cfg-locked" title="Входит в базовый тариф (нельзя отключить)">
+                      <input type="checkbox" checked disabled>
+                      <span class="cfg-track"></span>
+                    </label>
                   </div>
-                  <div class="cfg-row-sub">входит в базовый пакет</div>
-                  <div class="cfg-row-sub text-slate-500">Техподдержка: входит в базовый тариф</div>
                 </div>
-                <div style="display:flex;align-items:center;gap:12px;">
-                  <label class="cfg-switch cfg-locked" title="Входит в базовый тариф (нельзя отключить)">
-                    <input type="checkbox" checked disabled>
-                    <span class="cfg-track"></span>
-                  </label>
+                <div id="channels"></div>
+              </div>
+
+              <!-- КАРТОЧКА 2: CRM-ИНТЕГРАЦИЯ -->
+              <div class="cfg-card cfg-card-crms">
+                <h3>CRM-интеграция</h3>
+                <div class="cfg-row">
+                  <div>
+                    <div class="cfg-row-label">
+                      Excel таблица
+                      <span class="cfg-badge-locked">включено</span>
+                    </div>
+                    <div class="cfg-row-sub">входит в базовый пакет</div>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:12px;">
+                    <label class="cfg-switch cfg-locked" title="Входит в базовый тариф (нельзя отключить)">
+                      <input type="checkbox" checked disabled>
+                      <span class="cfg-track"></span>
+                    </label>
+                  </div>
+                </div>
+                <div id="crms"></div>
+              </div>
+
+              <!-- КАРТОЧКА 3: ДОПОЛНИТЕЛЬНО -->
+              <div class="cfg-card cfg-card-extras">
+                <h3>Дополнительно</h3>
+                <div id="extras"></div>
+              </div>
+
+              <!-- КАРТОЧКА 4: ОБЪЕМ ЗАЯВОК -->
+              <div class="cfg-card cfg-card-volume">
+                <h3>Объём заявок в месяц</h3>
+                <div class="cfg-pill-group" id="volume"></div>
+                <div class="cfg-row-sub text-slate-500" style="margin-top:10px;">
+                  <span id="volSupportText">Подписка со 2-го месяца: входящий объем до 100 (входит в базовый)</span>
                 </div>
               </div>
-              <div id="crms"></div>
+
             </div>
 
-            <!-- КАРТОЧКА 3: ДОПОЛНИТЕЛЬНО -->
-            <div class="cfg-card cfg-card-extras">
-              <h3>Дополнительно</h3>
-              <div id="extras"></div>
+            <!-- СНОСКА ПОД КАРТОЧКАМИ -->
+            <div class="mt-3.5 px-3.5 py-2.5 rounded-xl bg-sky-50/70 border border-sky-100/90 text-xs sm:text-sm text-slate-600 flex items-center gap-2.5 shadow-sm">
+              <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-sky-500/15 text-sky-600 font-bold text-xs flex-shrink-0">i</span>
+              <span>Больше 1000 заявок / несколько ИИ-продавцов — считаем индивидуально, тариф «Империя»</span>
             </div>
-
-            <!-- КАРТОЧКА 4: ОБЪЕМ ЗАЯВОК -->
-            <div class="cfg-card cfg-card-volume">
-              <h3>Объём заявок в месяц</h3>
-              <div class="cfg-pill-group" id="volume"></div>
-              <div class="cfg-row-sub text-slate-500" style="margin-top:10px;">
-                <span id="volSupportText">Техподдержка со 2-го месяца: входящий объем до 100 (входит в базовый)</span>
-              </div>
-              <div class="cfg-row-sub" style="margin-top:8px; line-height: 1.5;">
-                Больше 1000 заявок / несколько ИИ-продавцов — считаем индивидуально, тариф «Империя»
-              </div>
-            </div>
-
           </div>
 
           <!-- ИТОГОВЫЙ БЛОК РАСЧЕТА (STICKY С АНИМИРОВАННОЙ НЕОНОВОЙ ГРАНИЦЕЙ) -->
@@ -6155,7 +6245,7 @@
                 <div class="cfg-total-value cfg-total-setup"><span id="setupTotal">50 000</span> <span class="cur">₽</span></div>
               </div>
               <div class="cfg-total-block">
-                <div class="cfg-total-label">Техподдержка, со 2-го месяца</div>
+                <div class="cfg-total-label">Подписка, со 2-го месяца</div>
                 <div class="cfg-total-value cfg-total-monthly"><span id="monthlyTotal">15 000</span> <span class="cur">₽</span></div>
               </div>
 
@@ -6186,8 +6276,8 @@
     <section id="cta-final" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-20 pt-12 pb-16 sm:pt-16 sm:pb-24 space-y-6 sm:space-y-8 font-inter">
       <div>
         <h2 class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-5xl md:text-6xl select-none leading-[1.15]" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 12px 30px rgba(2, 132, 199, 0.18));">
-          <span class="block">НАСТАЛО ВРЕМЯ ПОЛУЧИТЬ</span>
-          <span class="block">МАКСИМУМ ПРИБЫЛИ</span>
+          <span class="block">ИИ-ПРОДАВЕЦ РАБОТАЕТ,</span>
+          <span class="block">ПОКА ВЫ ОТДЫХАЕТЕ</span>
         </h2>
       </div>
 
@@ -6365,17 +6455,17 @@
   </div>
 
   <script>
-    // КОНФИГУРАЦИЯ ИНТЕРФЕЙСОВ МЕССЕНДЖЕРОВ ДЛЯ РАЗНЫХ СЦЕНАРИЕВ
+    // КОНФИГУРАЦИЯ ИНТЕРФЕЙСОВ МЕССЕНДЖЕРОВ ДЛЯ РАЗНЫХ КАНАЛОВ
     const channelsConfig = {
       full_deal: {
         channel: 'WHATSAPP',
         badge: 'WhatsApp',
-        assistantName: 'Эва // Дежурный ИИ-продавец «Домиан»',
-        avatarLetter: 'Э',
+        assistantName: 'AI-консультант // Altai Optima',
+        avatarLetter: 'W',
         headerBg: 'bg-[#075e54]',
         headerSubText: 'text-emerald-200',
-        statusText: 'в сети • отклик до 30 сек',
-        bottomStatus: '✓ Потребность выявлена • Встреча назначена на субботу 14:00 • Брокер подключен',
+        statusText: 'в сети • онлайн',
+        bottomStatus: '✓ WhatsApp Business API • Синхронизация с CRM',
         verifiedIcon: '✓',
         verifiedColor: 'text-emerald-300',
         chatBg: 'bg-[#efeae2]',
@@ -6383,12 +6473,12 @@
         avatarBorder: 'border-emerald-400',
         footerBg: 'bg-[#f0f2f5]',
         actionBtnBg: 'bg-[#128c7e]',
-        actionIcon: '🎙️',
+        actionIcon: '➤',
         btnBorderClass: 'border-emerald-500',
         btnHoverClass: 'hover:border-emerald-400',
         renderAiBubble: (msg) => `
           <div class="flex justify-start items-end gap-2 animate-fade-in">
-            <div class="bg-white text-slate-900 p-3 rounded-2xl rounded-tl-xs max-w-[85%] shadow-sm border border-slate-200/60">
+            <div class="bg-white text-slate-900 p-3 rounded-2xl rounded-tl-xs max-w-[88%] shadow-sm border border-slate-200/60">
               <div class="text-[9px] font-code font-bold text-[#075e54] uppercase mb-0.5">${msg.author}</div>
               <p class="leading-relaxed font-normal text-[12px] text-slate-800">${msg.text}</p>
               <div class="text-[9px] text-slate-400 text-right mt-1 font-code flex items-center justify-end gap-1">
@@ -6414,12 +6504,12 @@
       price_objection: {
         channel: 'TELEGRAM',
         badge: 'Telegram',
-        assistantName: 'Михаил // Прием заказов «ПромСталь»',
-        avatarLetter: 'М',
+        assistantName: 'AI-ассистент // Altai Optima',
+        avatarLetter: 'T',
         headerBg: 'bg-[#229ed9]',
         headerSubText: 'text-sky-100',
-        statusText: 'в сети • B2B-инфраструктура',
-        bottomStatus: '✓ ТЗ прикреплено к сделке • Спецификация передана главному инженеру',
+        statusText: 'в сети • бот онлайн',
+        bottomStatus: '✓ Telegram Bot API • Синхронизация с CRM',
         verifiedIcon: '✓',
         verifiedColor: 'text-white',
         chatBg: 'bg-[#e7ebf0]',
@@ -6432,13 +6522,16 @@
         btnHoverClass: 'hover:border-sky-400',
         renderAiBubble: (msg) => `
           <div class="flex justify-start items-end gap-2 animate-fade-in">
-            <div class="bg-white text-slate-900 p-3 rounded-2xl rounded-bl-xs max-w-[85%] shadow-sm border border-sky-100">
+            <div class="bg-white text-slate-900 p-3 rounded-2xl rounded-bl-xs max-w-[88%] shadow-sm border border-sky-100">
               <div class="text-[9px] font-code font-bold text-[#0088cc] uppercase mb-0.5 flex items-center gap-1">
                 <span>${msg.author}</span>
                 <span class="text-[8px] bg-sky-100 text-sky-700 px-1 rounded font-normal">bot</span>
               </div>
               <p class="leading-relaxed font-normal text-[12px] text-slate-800">${msg.text}</p>
-              <div class="text-[9px] text-slate-400 text-right mt-1 font-code">${msg.time}</div>
+              <div class="text-[9px] text-slate-400 text-right mt-1 font-code flex items-center justify-end gap-1">
+                <span>${msg.time}</span>
+                <span class="text-[#229ed9]">✓✓</span>
+              </div>
             </div>
           </div>
         `,
@@ -6458,12 +6551,12 @@
       reanimate: {
         channel: 'INSTAGRAM DIRECT',
         badge: 'Instagram',
-        assistantName: 'Софья // Забота о клиентах TALLORA',
-        avatarLetter: 'С',
+        assistantName: 'AI-менеджер // Altai Optima',
+        avatarLetter: 'I',
         headerBg: 'bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045]',
         headerSubText: 'text-pink-100',
-        statusText: 'в сети • Шоурум Москва',
-        bottomStatus: '✓ Запрос по большой колодке обработан • Доставка с примеркой оформлена',
+        statusText: 'в сети • Direct',
+        bottomStatus: '✓ Instagram Direct • Синхронизация с CRM',
         verifiedIcon: '✓',
         verifiedColor: 'text-sky-300',
         chatBg: 'bg-[#fafafa]',
@@ -6471,7 +6564,7 @@
         avatarBorder: 'border-white',
         footerBg: 'bg-[#ffffff]',
         actionBtnBg: 'bg-gradient-to-r from-[#833ab4] to-[#e1306c]',
-        actionIcon: '❤️',
+        actionIcon: '➤',
         btnBorderClass: 'border-pink-500',
         btnHoverClass: 'hover:border-pink-400',
         renderAiBubble: (msg) => `
@@ -6496,12 +6589,12 @@
       avito_deal: {
         channel: 'AVITO',
         badge: 'Авито',
-        assistantName: 'Константин // Расчет фабрики «Модерн-Кухни»',
-        avatarLetter: 'К',
+        assistantName: 'AI-продавец // Altai Optima',
+        avatarLetter: 'А',
         headerBg: 'bg-[#00aaff]',
         headerSubText: 'text-sky-100',
-        statusText: 'в сети • отклик 10 сек',
-        bottomStatus: '✓ Размеры и вилка бюджета согласованы • Проектировщик вызван на замер',
+        statusText: 'в сети • Авито PRO',
+        bottomStatus: '✓ Интеграция с Авито • Синхронизация с CRM',
         verifiedIcon: '✓',
         verifiedColor: 'text-white',
         chatBg: 'bg-[#f4f6f8]',
@@ -6539,167 +6632,196 @@
             </div>
           </div>
         `
-      },
-      live_chat: {
-        channel: 'AI LIVE TEST',
-        badge: 'Живой диалог',
-        assistantName: 'Максим // ИИ-продавец Altai Optima',
-        avatarLetter: 'М',
-        headerBg: 'bg-gradient-to-r from-[#0f172a] via-[#0369a1] to-[#0284c7]',
-        headerSubText: 'text-sky-200',
-        statusText: 'онлайн • отвечает моментально',
-        bottomStatus: '⚡ Режим живого тест-драйва • Напишите любой вопрос или возражение',
-        verifiedIcon: '✓',
-        verifiedColor: 'text-sky-300',
-        chatBg: 'bg-[#f8fafc]',
-        avatarBg: 'bg-gradient-to-tr from-sky-400 to-indigo-600 text-white',
-        avatarBorder: 'border-white/90',
-        footerBg: 'bg-[#ffffff]',
-        actionBtnBg: 'bg-gradient-to-r from-sky-600 to-indigo-600',
-        actionIcon: '➤',
-        btnBorderClass: 'border-sky-500',
-        btnHoverClass: 'hover:border-sky-400',
-        renderAiBubble: (msg) => `
-          <div class="flex justify-start items-end gap-2 animate-fade-in">
-            <div class="bg-white text-slate-900 p-3.5 rounded-2xl rounded-bl-xs max-w-[88%] shadow-sm border border-sky-100">
-              <div class="text-[9px] font-code font-bold text-[#0284c7] uppercase mb-0.5 flex items-center gap-1">
-                <span>${msg.author}</span>
-                <span class="text-[8px] bg-sky-100 text-sky-800 px-1 rounded font-normal">AI Seller ✓</span>
-              </div>
-              <p class="leading-relaxed font-normal text-[12px] text-slate-800">${msg.text}</p>
-              <div class="text-[9px] text-slate-400 text-right mt-1 font-code flex items-center justify-end gap-1">
-                <span>${msg.time}</span>
-                <span class="text-[#0284c7] font-bold">✓✓</span>
-              </div>
-            </div>
-          </div>
-        `,
-        renderUserBubble: (msg) => `
-          <div class="flex justify-end items-end gap-2 animate-fade-in">
-            <div class="bg-gradient-to-br from-sky-500 to-blue-600 text-white p-3 rounded-2xl rounded-br-xs max-w-[85%] shadow-sm">
-              <div class="text-[9px] font-code font-bold text-sky-100 uppercase mb-0.5">${msg.author}</div>
-              <p class="leading-relaxed font-normal text-[12px] text-white">${msg.text}</p>
-              <div class="text-[9px] text-sky-200 text-right mt-1 font-code flex items-center justify-end gap-1">
-                <span>${msg.time}</span>
-                <span>✓✓</span>
-              </div>
-            </div>
-          </div>
-        `
       }
     };
 
-    const branches = {
-      full_deal: [
-        { 
-          sender: 'user', 
-          author: 'Артем (Лид)', 
-          text: 'Добрый вечер. Увидели на ЦИАН квартиру в ЖК &quot;Династия&quot; на 12 этаже, 74 метра. Она еще актуальна? Можно ли посмотреть в субботу и проходит ли по семейной ипотеке?', 
-          time: '18:40' 
-        },
-        { 
-          sender: 'ai', 
-          author: 'Эва // Дежурный ИИ-продавец «Домиан»', 
-          text: 'Артем, добрый вечер. Да, этот лот в наличии, документы проверены юридической службой, объект подходит под семейную ипотеку.<br><br>В субботу показы открыты с 11:00 до 18:00. Пожалуйста, уточните: планируете покупку для себя или под инвестиции, и какой первоначальный взнос рассматриваете, чтобы брокер подготовил для вас расчет платежей?', 
-          time: '18:40' 
-        },
-        { 
-          sender: 'user', 
-          author: 'Артем (Лид)', 
-          text: 'Для себя, двое детей. Первоначальный взнос около 4.5 млн рублей. Удобнее всего в субботу в районе 14:00.', 
-          time: '18:41' 
-        },
-        { 
-          sender: 'ai', 
-          author: 'Эва // Дежурный ИИ-продавец «Домиан»', 
-          text: 'Отлично, параметры зафиксировала. Под ваш запрос также подходит аналогичная планировка в соседней секции со скидкой от застройщика — добавила ее в общий список.<br><br>Передаю контакт нашему ведущему брокеру по району Сергею. Он забронирует пропуск на субботу на 14:00 и в течение 10 минут пришлет точную схему проезда в этот чат.', 
-          time: '18:41' 
-        }
-      ],
-      price_objection: [
-        { 
-          sender: 'user', 
-          author: 'Дмитрий (Заказчик)', 
-          text: 'Приветствую. Требуется изготовление емкостного оборудования по нашему ТЗ, объем 50 кубов, нержавейка 12Х18Н10Т, 4 штуки. Сроки горят, нужно понимание по загрузке цеха и базовой стоимости за тонну.', 
-          time: '11:15' 
-        },
-        { 
-          sender: 'ai', 
-          author: 'Михаил // Прием заказов «ПромСталь»', 
-          text: 'Дмитрий, приветствую. По марке стали 12Х18Н10Т работаем, металл требуемой толщины есть в наличии на складе. Базовый срок изготовления серии из 4 единиц такого объема — 22-26 рабочих дней с учетом гидроиспытаний и ОТК.<br><br>Пожалуйста, отправьте файл с чертежами марки КМД или эскизом прямо сюда в чат, чтобы главный технолог мог оперативно оценить трудоемкость раскроя и назвать точную смету.', 
-          time: '11:15' 
-        },
-        { 
-          sender: 'user', 
-          author: 'Дмитрий (Заказчик)', 
-          text: '<div class="mb-1.5 p-2 bg-sky-100/90 rounded-lg flex items-center gap-2 border border-sky-200 text-[11px] font-mono text-sky-900 font-semibold"><span class="text-base">📄</span><span class="truncate">Резервуар_50м3_КМД.pdf</span><span class="text-[9px] text-sky-600 font-normal ml-auto shrink-0">2.4 МБ</span></div>Файл прикрепил. Доставка нужна на объект в Тверскую область, разгрузка наша.', 
-          time: '11:17' 
-        },
-        { 
-          sender: 'ai', 
-          author: 'Михаил // Прием заказов «ПромСталь»', 
-          text: 'Файл принят, ТЗ открывается корректно. Параметры по логистике в Тверскую область зафиксировал в карточке заказа.<br><br>Передаю спецификацию главному инженеру проекта Андрею. Он свяжется с вами сегодня до 18:00 с официальным коммерческим предложением и графиком загрузки цеха.', 
-          time: '11:17' 
-        }
-      ],
-      reanimate: [
-        { 
-          sender: 'user', 
-          author: 'Елена (Direct)', 
-          text: 'Здравствуйте! У вас в сторис были базовые лоферы из мягкой кожи. Мне очень сложно найти обувь на 42 размер, вечно всё жмет и натирает. Скажите, у вас действительно полноразмерная колодка для большой стопы? И можно ли примерить в шоуруме?', 
-          time: '15:20' 
-        },
-        { 
-          sender: 'ai', 
-          author: 'Софья // Забота о клиентах TALLORA', 
-          text: 'Елена, здравствуйте! Бренд TALLORA специализируется именно на обуви больших размеров (с 40 по 45). Мы разрабатываем анатомическую колодку с учетом особенностей большой стопы, поэтому наши модели не жмут и обеспечивают комфортную посадку.<br><br>Эти лоферы в 42 размере сейчас есть в наличии в шоуруме на Патриарших. Пожалуйста, подскажите, могу ли я забронировать за вами пару на пару часов?', 
-          time: '15:20' 
-        },
-        { 
-          sender: 'user', 
-          author: 'Елена (Direct)', 
-          text: 'Ой, как здорово! А то в обычных магазинах на мой размер вообще ничего элегантного нет. Слушайте, а у вас завтра курьер по Москве сможет привезти две пары на выбор? А то выезжать из дома некогда.', 
-          time: '15:22' 
-        },
-        { 
-          sender: 'ai', 
-          author: 'Софья // Забота о клиентах TALLORA', 
-          text: 'С удовольствием организуем для вас доставку с примеркой по Москве на завтра. Курьер привезет нужную модель в 42 и 43 размерах, чтобы вы спокойно примерили их дома.<br><br>Пожалуйста, напишите ваш точный адрес и удобный интервал времени — я оформлю заявку нашему курьеру.', 
-          time: '15:22' 
-        }
-      ],
-      avito_deal: [
-        { 
-          sender: 'user', 
-          author: 'Ольга (Авито)', 
-          text: 'Здравствуйте, сколько будет стоить угловая кухня как на фото 3? Размеры примерно 2.4 на 1.8 метра, фасады эмаль матовая, фурнитура только с доводчиками.', 
-          time: '16:40' 
-        },
-        { 
-          sender: 'ai', 
-          author: 'Константин // Расчет фабрики «Модерн-Кухни»', 
-          text: 'Ольга, здравствуйте! На фото 3 представлена наша работа с матовыми крашеными фасадами МДФ и петлями с доводчиками.<br><br>В габаритах 2.4 × 1.8 м предварительная вилка стоимости под ключ составляет от 165 000 до 210 000 ₽. Пожалуйста, подскажите: стены под гарнитур уже выровнены под 90 градусов?', 
-          time: '16:40' 
-        },
-        { 
-          sender: 'user', 
-          author: 'Ольга (Авито)', 
-          text: 'Да, ремонт закончили на прошлой неделе. Техника уже куплена, ждет установки. Цена устраивает, хотелось бы точный проект.', 
-          time: '16:42' 
-        },
-        { 
-          sender: 'ai', 
-          author: 'Константин // Расчет фабрики «Модерн-Кухни»', 
-          text: 'Отлично, новостройка с готовой геометрией стен — идеальный вариант для точного монтажа.<br><br>Передаю параметры дизайнеру Павлу. Он подключится в чат, пришлет варианты внутренней эргономики под вашу технику и согласует время бесплатного замера с образцами материалов.', 
-          time: '16:42' 
-        }
-      ],
-      live_chat: []
+    // Хранилище сообщений для каждого мессенджера
+    const channelMessages = {
+      full_deal: [],
+      price_objection: [],
+      reanimate: [],
+      avito_deal: []
     };
 
+    // AI DEMO CHAT CLIENT (Интеграция с Production API)
+    class DemoChatClient {
+      constructor() {
+        this.baseUrl = "https://api.optima.altaiweb.online";
+        this.storageKey = "altai_demo_session_id";
+        this.config = null;
+        this.isSending = false;
+      }
+
+      getSessionId() {
+        try {
+          return localStorage.getItem(this.storageKey);
+        } catch (e) {
+          return null;
+        }
+      }
+
+      setSessionId(id) {
+        try {
+          if (id) localStorage.setItem(this.storageKey, id);
+        } catch (e) {}
+      }
+
+      resetSession() {
+        try {
+          localStorage.removeItem(this.storageKey);
+        } catch (e) {}
+      }
+
+      async getConfig() {
+        if (this.config) return this.config;
+        try {
+          const res = await fetch(`${this.baseUrl}/api/v1/demo/config`);
+          if (!res.ok) throw new Error(`Config HTTP ${res.status}`);
+          this.config = await res.json();
+          return this.config;
+        } catch (e) {
+          this.config = {
+            tenant_id: "demo_amo",
+            business_name: "Монолит-Строй Комплект (amoCRM Demo)",
+            welcome_message: "Здравствуйте! Я ваш персональный AI-менеджер. Готов рассчитать спецификацию, подсказать цены со склада и условия доставки. Чем могу помочь?",
+            suggested_questions: [
+              "Какой газобетон D500 есть в наличии и по какой цене?",
+              "Сколько стоит доставка 40 кубов блоков в Истру манипулятором?",
+              "Какие скидки предусмотрены при заказе от 50 кубов?",
+              "Можно ли зафиксировать цену на 14 дней перед началом стройки?"
+            ],
+            max_message_length: 4000
+          };
+          return this.config;
+        }
+      }
+
+      async sendMessage(messageText) {
+        const payload = {
+          message: messageText.trim(),
+          session_id: this.getSessionId() || null
+        };
+
+        const res = await fetch(`${this.baseUrl}/api/v1/demo/chat`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        if (res.status === 429) {
+          const err = new Error("Сервер временно перегружен, пожалуйста, подождите минуту.");
+          err.status = 429;
+          throw err;
+        }
+
+        if (!res.ok) {
+          throw new Error(`Ошибка сервера (${res.status})`);
+        }
+
+        const data = await res.json();
+        if (data && data.session_id) {
+          this.setSessionId(data.session_id);
+        }
+        return data;
+      }
+    }
+
+    const demoChatClient = new DemoChatClient();
+
+    function formatAiResponse(text) {
+      if (!text) return '';
+      let safe = text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+      safe = safe.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+      safe = safe.replace(/\*(.*?)\*/g, '<i>$1</i>');
+      safe = safe.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>');
+      return safe;
+    }
+
+    function renderLiveChatStarter(config) {
+      const questions = (config && config.suggested_questions && config.suggested_questions.length) 
+        ? config.suggested_questions 
+        : [
+            "Какой газобетон D500 есть в наличии и по какой цене?",
+            "Сколько стоит доставка 40 кубов блоков в Истру манипулятором?",
+            "Какие скидки предусмотрены при заказе от 50 кубов?",
+            "Можно ли зафиксировать цену на 14 дней перед началом стройки?"
+          ];
+
+      const questionsHtml = questions.map(q => `
+        <button type="button" onclick="sendQuickPrompt(${JSON.stringify(q)})" class="w-full text-left p-2.5 rounded-xl bg-slate-50 hover:bg-sky-50 border border-slate-200/80 hover:border-sky-300 text-slate-700 hover:text-sky-900 transition-all text-[11px] leading-snug flex items-center justify-between group cursor-pointer">
+          <span class="font-medium">${q}</span>
+          <span class="text-sky-500 font-bold ml-2 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0">→</span>
+        </button>
+      `).join('');
+
+      return `
+        <div id="liveChatStarterCard" class="bg-white rounded-2xl p-3.5 sm:p-4 shadow-xs border border-sky-100/90 text-slate-800 space-y-3 animate-fade-in">
+          <div class="flex items-start gap-2.5 sm:gap-3">
+            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-600 text-white flex items-center justify-center font-bold text-xs sm:text-sm shrink-0 shadow-xs">
+              🏢
+            </div>
+            <div class="space-y-1">
+              <div class="font-bold text-[12px] sm:text-[13px] text-slate-900 leading-tight">
+                ${config?.business_name || 'Монолит-Строй Комплект (amoCRM Demo)'}
+              </div>
+              <div class="text-[10.5px] sm:text-[11px] text-slate-500 leading-relaxed">
+                ${config?.welcome_message || 'Здравствуйте! Я ваш персональный AI-менеджер. Готов рассчитать спецификацию, подсказать цены со склада и условия доставки. Чем могу помочь?'}
+              </div>
+            </div>
+          </div>
+          <div class="border-t border-slate-100 pt-2.5 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-bold text-sky-700 uppercase tracking-wider">Выберите вопрос или напишите свой:</span>
+              <span class="text-[9px] text-emerald-600 font-mono font-semibold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">amoCRM LIVE</span>
+            </div>
+            <div class="flex flex-col gap-1.5">
+              ${questionsHtml}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function updateQuickPrompts() {
+      const container = document.getElementById('chatQuickPrompts');
+      if (!container) return;
+      demoChatClient.getConfig().then(config => {
+        const questions = (config && config.suggested_questions && config.suggested_questions.length) 
+          ? config.suggested_questions 
+          : [
+              "Какой газобетон D500 есть в наличии и по какой цене?",
+              "Сколько стоит доставка 40 кубов блоков в Истру манипулятором?",
+              "Какие скидки предусмотрены при заказе от 50 кубов?",
+              "Можно ли зафиксировать цену на 14 дней перед началом стройки?"
+            ];
+
+        container.innerHTML = questions.map((q, idx) => {
+          const icons = ['🧱', '🚚', '🏷️', '⏳', '💬'];
+          const icon = icons[idx % icons.length];
+          const shortLabel = q.length > 28 ? q.slice(0, 26) + '…' : q;
+          return `
+            <button type="button" onclick="sendQuickPrompt(${JSON.stringify(q)})" class="whitespace-nowrap px-2.5 py-1 rounded-full bg-slate-100 hover:bg-sky-50 text-slate-700 hover:text-sky-700 border border-slate-200/80 transition-colors font-medium cursor-pointer shrink-0 text-[10.5px]" title="${q}">
+              ${icon} ${shortLabel}
+            </button>
+          `;
+        }).join('');
+      });
+    }
+
+    function resetLiveChatDialogue() {
+      demoChatClient.resetSession();
+      channelMessages[currentKey] = [];
+      const footerStatus = document.getElementById('chatFooterStatus');
+      if (footerStatus) {
+        footerStatus.textContent = '⚡ Диалог сброшен • Задайте новый вопрос';
+      }
+      renderFullBranch(currentKey, false);
+    }
+
     let currentKey = 'full_deal';
-    let step = 0;
-    let timer = null;
 
     function applyMessengerTheme(key) {
       const cfg = channelsConfig[key];
@@ -6716,20 +6838,24 @@
       const chatFooter = document.getElementById('chatFooter');
       const chatFooterStatus = document.getElementById('chatFooterStatus');
       const chatActionBtn = document.getElementById('chatActionBtn');
+      const liveInput = document.getElementById('liveChatInput');
 
       if (notchText) notchText.textContent = cfg.channel;
       if (channelBadge) channelBadge.textContent = cfg.badge;
 
-      // Сброс и применение классов для хедера
+      if (liveInput) {
+        liveInput.placeholder = "Напишите вопрос или возражение...";
+      }
+
       if (chatHeader) {
         chatHeader.className = `pt-11 pb-3 px-4 text-white flex items-center justify-between transition-all duration-300 shadow-xs ${cfg.headerBg}`;
       }
       if (channelAvatar) {
         channelAvatar.className = `w-8 h-8 rounded-full border text-white flex items-center justify-center font-bold text-xs shadow-sm transition-all duration-300 ${cfg.avatarBg} ${cfg.avatarBorder}`;
-        channelAvatar.textContent = cfg.avatarLetter || 'Э';
+        channelAvatar.textContent = cfg.avatarLetter || 'W';
       }
       if (channelNameText) {
-        channelNameText.textContent = cfg.assistantName || 'Эва // Altai Optima';
+        channelNameText.textContent = cfg.assistantName || 'AI-консультант // Altai Optima';
       }
       if (channelVerified) {
         channelVerified.className = `${cfg.verifiedColor || 'text-white'} text-[11px]`;
@@ -6754,16 +6880,6 @@
       }
     }
 
-    function renderMsg(msg) {
-      const box = document.getElementById('messagesContainer');
-      if (!box) return;
-      const cfg = channelsConfig[currentKey];
-      const isAi = msg.sender === 'ai';
-      const html = isAi ? cfg.renderAiBubble(msg) : cfg.renderUserBubble(msg);
-      box.insertAdjacentHTML('beforeend', html);
-      box.scrollTop = box.scrollHeight;
-    }
-
     let chatAnimTimers = [];
 
     function clearChatAnimTimers() {
@@ -6771,108 +6887,48 @@
       chatAnimTimers = [];
     }
 
-    function renderFullBranch(key, animate = true) {
+    function renderFullBranch(key, animate = false) {
       clearChatAnimTimers();
       const box = document.getElementById('messagesContainer');
       const agentStatus = document.getElementById('agentStatus');
       if (!box) return;
       box.innerHTML = '';
-      const list = branches[key] || [];
       const cfg = channelsConfig[key];
       if (!cfg) return;
 
-      if (!animate) {
-        list.forEach(msg => {
-          const isAi = msg.sender === 'ai';
-          const html = isAi ? cfg.renderAiBubble(msg) : cfg.renderUserBubble(msg);
-          box.insertAdjacentHTML('beforeend', html);
+      updateQuickPrompts();
+      const list = channelMessages[key] || [];
+
+      if (list.length === 0) {
+        demoChatClient.getConfig().then(config => {
+          if (currentKey === key && (channelMessages[key] || []).length === 0) {
+            box.innerHTML = renderLiveChatStarter(config);
+            box.scrollTop = 0;
+          }
         });
-        box.scrollTop = box.scrollHeight;
         if (agentStatus) agentStatus.textContent = cfg.statusText || 'в сети';
         return;
       }
 
-      let currentDelay = 120;
-      
-      list.forEach((msg, idx) => {
+      list.forEach(msg => {
         const isAi = msg.sender === 'ai';
-        
-        if (isAi) {
-          // 1. Показываем индикатор набора сообщения
-          const t1 = setTimeout(() => {
-            if (agentStatus) agentStatus.textContent = 'печатает сообщение...';
-            const existingTyping = document.getElementById('chatTypingIndicator');
-            if (existingTyping) existingTyping.remove();
-            
-            const typingHtml = `
-              <div id="chatTypingIndicator" class="flex justify-start items-end gap-2 animate-fade-in transition-all">
-                <div class="bg-white text-slate-800 px-3 py-2 rounded-2xl rounded-bl-xs shadow-xs border border-slate-200/80 flex items-center gap-2">
-                  <span class="text-[10px] font-bold text-slate-500">${msg.author.split(' ')[0]} печатает</span>
-                  <div class="flex items-center gap-1">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-bounce" style="animation-delay: 0ms; animation-duration: 0.8s;"></span>
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-bounce" style="animation-delay: 180ms; animation-duration: 0.8s;"></span>
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-bounce" style="animation-delay: 360ms; animation-duration: 0.8s;"></span>
-                  </div>
-                </div>
-              </div>
-            `;
-            box.insertAdjacentHTML('beforeend', typingHtml);
-            box.scrollTop = box.scrollHeight;
-          }, currentDelay);
-          chatAnimTimers.push(t1);
-
-          currentDelay += 650;
-
-          // 2. Отправляем готовое сообщение AI
-          const t2 = setTimeout(() => {
-            const existingTyping = document.getElementById('chatTypingIndicator');
-            if (existingTyping) existingTyping.remove();
-            if (agentStatus) agentStatus.textContent = cfg.statusText || 'в сети';
-
-            const html = cfg.renderAiBubble(msg);
-            box.insertAdjacentHTML('beforeend', html);
-            box.scrollTop = box.scrollHeight;
-          }, currentDelay);
-          chatAnimTimers.push(t2);
-
-          currentDelay += 450;
-        } else {
-          // Сообщение пользователя
-          const tUser = setTimeout(() => {
-            const existingTyping = document.getElementById('chatTypingIndicator');
-            if (existingTyping) existingTyping.remove();
-
-            const html = cfg.renderUserBubble(msg);
-            box.insertAdjacentHTML('beforeend', html);
-            box.scrollTop = box.scrollHeight;
-          }, currentDelay);
-          chatAnimTimers.push(tUser);
-
-          currentDelay += 400;
-        }
+        const html = isAi ? cfg.renderAiBubble(msg) : cfg.renderUserBubble(msg);
+        box.insertAdjacentHTML('beforeend', html);
       });
+      box.scrollTop = box.scrollHeight;
+      if (agentStatus) agentStatus.textContent = cfg.statusText || 'в сети';
     }
 
     function selectBranch(key, btn) {
       document.querySelectorAll('.branch-btn').forEach(b => {
         b.classList.remove('active');
-        const pill = b.querySelector('.branch-status-pill');
-        if (pill) {
-          pill.textContent = 'Демонстрация';
-          pill.className = 'branch-status-pill text-[10px] font-mono px-2 py-1 rounded-md bg-slate-100 text-slate-500 border border-slate-200/80 transition-colors shrink-0';
-        }
       });
       if (btn) {
         btn.classList.add('active');
-        const pill = btn.querySelector('.branch-status-pill');
-        if (pill) {
-          pill.textContent = 'В эфире • 24/7';
-          pill.className = 'branch-status-pill text-[10px] font-mono px-2 py-1 rounded-md bg-sky-100 text-sky-700 border border-sky-300 font-bold transition-colors shrink-0 shadow-2xs';
-        }
       }
       currentKey = key;
       applyMessengerTheme(key);
-      renderFullBranch(key, true);
+      renderFullBranch(key, false);
     }
 
     // ДИАЛОГОВЫЙ ДВИЖОК ЖИВОГО ОБЩЕНИЯ С ИИ-ПРОДАВЦОМ
@@ -6884,138 +6940,59 @@
       }
     }
 
-    function generateAiSellerResponse(userText, channelKey) {
-      const raw = (userText || '').toLowerCase().trim();
-      const timeStr = new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
-
-      let aiName = 'Максим // ИИ-продавец Altai Optima';
-      if (channelKey === 'full_deal') aiName = 'Эва // Дежурный ИИ-продавец «Домиан»';
-      else if (channelKey === 'price_objection') aiName = 'Михаил // Прием заказов «ПромСталь»';
-      else if (channelKey === 'reanimate') aiName = 'Софья // Забота о клиентах TALLORA';
-      else if (channelKey === 'avito_deal') aiName = 'Константин // Расчет фабрики «Модерн-Кухни»';
-
-      let reply = '';
-
-      // 1. ОСКОРБЛЕНИЯ / ГРУБОСТЬ / ТРОЛЛИНГ / ПРОВОКАЦИИ (Сервис 5 звезд Ritz-Carlton & Horst Schulze)
-      const insultRegex = /(дурак|туп(ой|ая|ое|ые|ица)|дебил|идиот|лох|чушь|бред|хрень|говн|отстой|фигн|развод|мошенник|пидор|сук[аи]|нах(уй)?|заткнись|пошел|мудак|ерунд|глуп|бесполезн|неуч|тварь|дерьмо|шарашк)/i;
-      if (insultRegex.test(raw)) {
-        reply = `Добрый день! Благодарю вас за обращение в компанию Altai Optima. Меня зовут Максим.<br><br>Мне искренне жаль, что у вас сложилось обо мне подобное впечатление. Я сделаю всё, что в моих силах, чтобы изменить его в ходе нашего общения.<br><br>При этом я полностью к вашим услугам и готов помочь с максимальной отдачей и вовлеченностью. Скажите, пожалуйста, какой у вас вопрос или какую задачу для вашего бизнеса мы могли бы решить?`;
-      }
-      // 2. ПОГОДА / CONCIERGE / ГОРОДА
-      else if (raw.includes('погод') || raw.includes('дожд') || raw.includes('снег') || raw.includes('градус') || raw.includes('солнц') || raw.includes('прогноз') || raw.includes('жарк') || raw.includes('холодн')) {
-        let city = '';
-        if (raw.includes('москв')) city = 'Москве';
-        else if (raw.includes('питер') || raw.includes('петербург') || raw.includes('спб')) city = 'Санкт-Петербурге';
-        else if (raw.includes('барнаул')) city = 'Барнауле';
-        else if (raw.includes('дубай') || raw.includes('dubai')) city = 'Дубае';
-        else if (raw.includes('алмат')) city = 'Алматы';
-        else if (raw.includes('астан')) city = 'Астане';
-        else if (raw.includes('новосибирск')) city = 'Новосибирске';
-        else if (raw.includes('казан')) city = 'Казани';
-        else if (raw.includes('сочи')) city = 'Сочи';
-        else if (raw.includes('стамбул') || raw.includes('istanbul')) city = 'Стамбуле';
-        else if (raw.includes('ташкент')) city = 'Ташкенте';
-
-        if (city) {
-          reply = `С удовольствием подскажу! В ${city} сейчас прекрасная комфортная погода: около +19°C, легкий освежающий бриз и отличное настроение для продуктивных дел.<br><br>Я, как заботливый консьерж и ИИ-продавец, умею не только мгновенно отвечать на любые вопросы, но и увеличивать конверсию бизнеса 24/7. Скажите, в какой сфере работает ваш проект?`;
-        } else {
-          reply = `С радостью поделюсь прогнозом! Подскажите, пожалуйста, погода в каком городе вас интересует?<br><br>К слову, в цифровой экосистеме Altai Optima всегда безоблачно и стабильные 100% конверсии во входящих заявках :) Какую задачу для вашего отдела продаж вы хотели бы автоматизировать?`;
-        }
-      }
-      // 3. КНИГИ ПО ПРОДАЖАМ / МЕТОДОЛОГИИ / ПСИХОЛОГИЯ
-      else if (raw.includes('книг') || raw.includes('методолог') || raw.includes('спин') || raw.includes('spin') || raw.includes('восс') || raw.includes('voss') || raw.includes('шульце') || raw.includes('ритц') || raw.includes('кэмп') || raw.includes('camp') || raw.includes('психолог') || raw.includes('переговор') || raw.includes('чалдини') || raw.includes('рэкхем') || raw.includes('rackham')) {
-        reply = `В архитектуру нашего ИИ-продавца заложены принципы признанных мировых бестселлеров по продажам и клиентскому сервису:<br>• <b>СПИН-продажи (Нил Рэкхем)</b> — ситуационные, проблемные, извлекающие и направляющие вопросы без шаблонного давления.<br>• <b>«Никаких компромиссов» (Крис Восс, экс-переговорщик ФБР)</b> — тактическая эмпатия, зеркалирование и калиброванные открытые вопросы.<br>• <b>«Сначала скажите НЕТ» (Джим Кэмп)</b> — ведение переговоров из позиции силы без навязчивой нужды.<br>• <b>Сервис Ritz-Carlton (Хорст Шульце)</b> — «Мы дамы и господа к услугам дам и господ».<br><br>Хотите увидеть, как эти техники раскрываются в вашей сфере бизнеса?`;
-      }
-      // 4. ЦЕНА / СТОИМОСТЬ / ТАРИФЫ / СКОЛЬКО СТОИТ
-      else if (raw.includes('скольк') || raw.includes('стоимост') || raw.includes('цена') || raw.includes('прайс') || raw.includes('тариф') || (raw.includes('внедрен') && raw.includes('стоит'))) {
-        reply = `Базовое внедрение ИИ-продавца под ключ — от 50 000 ₽ (с интеграцией в WhatsApp и CRM в Excel) плюс сервисная поддержка от 15 000 ₽/мес. Дополнительные каналы (Telegram, Instagram) и интеграции с amoCRM, Битрикс24 или 1С подключаются модульно в конструкторе тарифов.<br><br>В стоимость входит оцифровка регламентов, создание индивидуального системного промпта по методологии СПИН и юридическая гарантия окупаемости в договоре.<br><br>Скажите, пожалуйста, в какой нише работает ваш бизнес и сколько входящих заявок в месяц вы получаете?`;
-      }
-      // 5. СКИДКА / ДОРОГО / ДЕШЕВЛЕ / УСТУПИТЕ / 30%
-      else if (raw.includes('скидк') || raw.includes('дорог') || raw.includes('дешевл') || raw.includes('уступ') || raw.includes('30%') || raw.includes('50%')) {
-        reply = `Понимаю ваше стремление взвешенно инвестировать в автоматизацию. Скажите, когда вы говорите «дорого», вы сравниваете это с примитивными кнопочными ботами или с расходами на штатных менеджеров?<br><br>Один менеджер обходится от 70 000 ₽ ежемесячно, может уволиться или пропустить ночной лид. ИИ-продавец окупается за первые 2-4 недели и работает без усталости 24/7.<br><br>При оплате полугодового сопровождения мы фиксируем спец-условия: скидка 50% на интеграцию дополнительного канала (Telegram + WhatsApp). Обсудим детали?`;
-      }
-      // 6. CRM / ИНТЕГРАЦИИ / AMOCRM / БИТРИКС24 / 1C / МОЙСКЛАД
-      else if (raw.includes('crm') || raw.includes('amocrm') || raw.includes('амо') || raw.includes('битрикс') || raw.includes('bitrix') || raw.includes('1с') || raw.includes('1c') || raw.includes('склад') || raw.includes('интеграц') || raw.includes('api')) {
-        reply = `Да, мы бесшовно интегрируемся с amoCRM, Битрикс24, 1С, МойСклад, Yclients, PlanFix, а также с кастомными ERP через REST API и Webhooks.<br><br>ИИ-продавец не просто переписывается: он сам создает лиды, заполняет квалификационные поля (бюджет, тип запроса, сроки), перемещает сделку по этапам воронки и ставит задачу живому эксперту в момент готовности к сделке.<br><br>Какую CRM-систему вы используете сейчас?`;
-      }
-      // 7. ОТЛИЧИЕ ОТ ЧАТ-БОТОВ / КНОПОЧНЫХ БОТОВ
-      else if (raw.includes('бот') || raw.includes('отличи') || raw.includes('разниц') || raw.includes('лучше') || raw.includes('кноп')) {
-        reply = `Разница принципиальная:<br>❌ <b>Обычный чат-бот</b> идет по жесткому дереву кнопок и ломается от любой нестандартной реплики («Я вас не понял, нажмите 1»). Это раздражает клиентов.<br>✅ <b>ИИ-продавец Altai Optima</b> обладает глубоким контекстным мышлением, распознает голосовые аудиосообщения, считывает скрытые сомнения и ведет диалог на уровне лучших коммерческих переговорщиков.<br><br>Хотите протестировать сложный сценарий прямо сейчас?`;
-      }
-      // 8. ОКУПАЕМОСТЬ / ГАРАНТИЯ / РИСКИ / ROI
-      else if (raw.includes('окупаем') || raw.includes('гарант') || raw.includes('риск') || raw.includes('roi') || raw.includes('договор')) {
-        reply = `Мы фиксируем финансовую гарантию в договоре: если конверсия вашей воронки не вырастет минимум на 20%, мы дорабатываем сценарии и оптимизируем логику за свой счет.<br><br>При среднем чеке от 20 000 ₽ система окупается за первые 14–28 дней благодаря мгновенному отклику за 5 секунд и перехвату ночных лидов.<br><br>Какой у вас средний чек сделки?`;
-      }
-      // 9. СРОКИ / ВРЕМЯ ВНЕДРЕНИЯ
-      else if (raw.includes('срок') || raw.includes('когда') || raw.includes('быстро') || raw.includes('дней') || raw.includes('недел')) {
-        reply = `Полный цикл внедрения занимает от 7 до 14 рабочих дней под ключ:<br>1. Оцифровка базы знаний и регламентов компании.<br>2. Программирование системных промптов и стресс-тестирование.<br>3. Подключение мессенджеров и интеграция с CRM.<br>4. Боевой запуск с непрерывным мониторингом качества.`;
-      }
-      // 10. ГОЛОСОВЫЕ СООБЩЕНИЯ / АУДИО
-      else if (raw.includes('голос') || raw.includes('аудио') || raw.includes('voice') || raw.includes('кружочк')) {
-        reply = `Да! ИИ-продавец оснащен модулем распознавания Whisper AI с точностью 99%. Он слушает аудиосообщения клиентов любой длины, выделяет суть, фиксирует договоренности в CRM и отвечает клиенту текстом либо естественным синтезированным голосом.`;
-      }
-      // 11. ПРИВЕТСТВИЕ / ТЕСТ / КТО ТЫ
-      else if (raw.includes('привет') || raw.includes('здравствуй') || raw.includes('добрый') || raw.includes('хай') || raw.includes('hello') || raw.includes('салам') || raw.includes('кто ты') || raw.includes('тест')) {
-        reply = `Здравствуйте! Меня зовут Максим, я демонстрационный ИИ-продавец компании Altai Optima.<br><br>Я умею вести живой квалификационный диалог, отрабатывать сложные возражения и доводить лиды до сделки.<br><br>Задайте мне любой вопрос о ваших бизнес-задачах или проверьте мои навыки сложным каверзным вопросом! 🚀`;
-      }
-      // 12. СПЕЦИФИКА НИШИ
-      else if (raw.includes('недвижим') || raw.includes('стройк') || raw.includes('мебел') || raw.includes('авто') || raw.includes('клиник') || raw.includes('медицин') || raw.includes('юрист') || raw.includes('b2b') || raw.includes('услуг') || raw.includes('производств') || raw.includes('опт')) {
-        reply = `В вашей нише у нас уже есть проверенные рабочие связки. ИИ-продавец моментально выявляет ключевые критерии выбора, отвечает на технические нюансы из базы знаний и передает подогретого клиента эксперту на замер/консультацию/расчет сметы.<br><br>Хотите, рассчитаем финансовую модель внедрения под ваши текущие показатели?`;
-      }
-      // 13. ОБОБЩЕННЫЙ УНИВЕРСАЛЬНЫЙ ОТВЕТ (УМНЫЙ AI-СЕЙЛЗ)
-      else {
-        reply = `Благодарю за вопрос! Наш ИИ-продавец кастомизируется под специфику вашей компании: регламенты, прайсы, частые вопросы и успешные скрипты лучших менеджеров.<br><br>В реальном проекте он отвечает со 100% экспертной точностью и ведет клиента к целевому действию — записи на встречу или оплате.<br><br>Скажите, пожалуйста, какую главную задачу вы хотели бы решить внедрением ИИ-продавца?`;
-      }
-
-      return {
-        sender: 'ai',
-        author: aiName,
-        text: reply,
-        time: timeStr
-      };
-    }
-
-    function handleLiveChatSubmit(event) {
+    async function handleLiveChatSubmit(event) {
       if (event) event.preventDefault();
       const input = document.getElementById('liveChatInput');
+      const submitBtn = document.getElementById('liveChatSubmitBtn');
       if (!input) return;
       const text = input.value.trim();
       if (!text) return;
+      if (demoChatClient.isSending) return;
 
       const box = document.getElementById('messagesContainer');
       const agentStatus = document.getElementById('agentStatus');
       const footerStatus = document.getElementById('chatFooterStatus');
       if (!box) return;
 
-      const cfg = channelsConfig[currentKey] || channelsConfig.live_chat;
+      const cfg = channelsConfig[currentKey] || channelsConfig.full_deal;
       const timeStr = new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
+
+      // Удаляем стартовую карточку при первом вопросе
+      const starterCard = document.getElementById('liveChatStarterCard');
+      if (starterCard) {
+        starterCard.remove();
+      }
 
       // Рендерим сообщение пользователя
       const userMsg = {
         sender: 'user',
-        author: 'Вы (Тест)',
+        author: 'Вы (Посетитель)',
         text: text,
         time: timeStr
       };
-
-      const userHtml = cfg.renderUserBubble(userMsg);
-      box.insertAdjacentHTML('beforeend', userHtml);
+      if (!channelMessages[currentKey]) channelMessages[currentKey] = [];
+      channelMessages[currentKey].push(userMsg);
+      box.insertAdjacentHTML('beforeend', cfg.renderUserBubble(userMsg));
       box.scrollTop = box.scrollHeight;
       input.value = '';
 
-      // Показываем индикатор набора
-      if (agentStatus) agentStatus.textContent = 'печатает ответ...';
+      // Блокируем ввод и показываем индикатор набора
+      demoChatClient.isSending = true;
+      input.disabled = true;
+      if (submitBtn) submitBtn.disabled = true;
+      if (agentStatus) agentStatus.textContent = 'ИИ формулирует ответ...';
+
       const existingTyping = document.getElementById('chatTypingIndicator');
       if (existingTyping) existingTyping.remove();
 
       const typingHtml = `
         <div id="chatTypingIndicator" class="flex justify-start items-end gap-2 animate-fade-in transition-all">
           <div class="bg-white text-slate-800 px-3 py-2 rounded-2xl rounded-bl-xs shadow-xs border border-slate-200/80 flex items-center gap-2">
-            <span class="text-[10px] font-bold text-slate-500">ИИ-продавец печатает</span>
+            <span class="text-[10px] font-bold text-sky-700">AI-ассистент печатает</span>
             <div class="flex items-center gap-1">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-bounce" style="animation-delay: 0ms; animation-duration: 0.8s;"></span>
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-bounce" style="animation-delay: 180ms; animation-duration: 0.8s;"></span>
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-bounce" style="animation-delay: 360ms; animation-duration: 0.8s;"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-sky-500 animate-bounce" style="animation-delay: 0ms; animation-duration: 0.8s;"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-sky-500 animate-bounce" style="animation-delay: 180ms; animation-duration: 0.8s;"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-sky-500 animate-bounce" style="animation-delay: 360ms; animation-duration: 0.8s;"></span>
             </div>
           </div>
         </div>
@@ -7023,19 +7000,59 @@
       box.insertAdjacentHTML('beforeend', typingHtml);
       box.scrollTop = box.scrollHeight;
 
-      // Генерируем и отправляем ответ через 800мс
-      setTimeout(() => {
+      try {
+        const data = await demoChatClient.sendMessage(text);
         const typingEl = document.getElementById('chatTypingIndicator');
         if (typingEl) typingEl.remove();
 
-        const aiMsg = generateAiSellerResponse(text, currentKey);
-        const aiHtml = cfg.renderAiBubble(aiMsg);
-        box.insertAdjacentHTML('beforeend', aiHtml);
+        const responseText = data.assistant_response || data.response || 'Спасибо за обращение! Запрос зафиксирован в CRM.';
+        const formattedText = formatAiResponse(responseText);
+
+        const aiTimeStr = new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
+        const aiMsg = {
+          sender: 'ai',
+          author: cfg.assistantName || 'AI-консультант // Altai Optima',
+          text: formattedText,
+          time: aiTimeStr
+        };
+        channelMessages[currentKey].push(aiMsg);
+        box.insertAdjacentHTML('beforeend', cfg.renderAiBubble(aiMsg));
         box.scrollTop = box.scrollHeight;
 
+        if (footerStatus) {
+          const latencySec = data.latency_ms ? (data.latency_ms / 1000).toFixed(1) + 'с' : '1.5с';
+          footerStatus.textContent = `✓ Ответ сгенерирован (${latencySec}) • Сделка обновлена в amoCRM`;
+        }
+      } catch (err) {
+        const typingEl = document.getElementById('chatTypingIndicator');
+        if (typingEl) typingEl.remove();
+
+        let errMsg = err.message || 'Ошибка связи с сервером';
+        if (err.status === 429) {
+          errMsg = 'Сервер временно перегружен, пожалуйста, подождите минуту.';
+        }
+
+        const errHtml = `
+          <div class="flex justify-start items-end gap-2 animate-fade-in">
+            <div class="bg-amber-50 text-amber-900 p-3 rounded-2xl rounded-bl-xs max-w-[88%] shadow-xs border border-amber-200 text-xs">
+              <div class="text-[9px] font-bold text-amber-700 uppercase mb-0.5">Системное уведомление</div>
+              <p class="leading-relaxed font-normal">${errMsg}</p>
+            </div>
+          </div>
+        `;
+        box.insertAdjacentHTML('beforeend', errHtml);
+        box.scrollTop = box.scrollHeight;
+
+        if (footerStatus) {
+          footerStatus.textContent = `⚠️ ${errMsg}`;
+        }
+      } finally {
+        demoChatClient.isSending = false;
+        input.disabled = false;
+        if (submitBtn) submitBtn.disabled = false;
+        input.focus();
         if (agentStatus) agentStatus.textContent = cfg.statusText || 'в сети';
-        if (footerStatus) footerStatus.textContent = '✓ Диалог активен • ИИ-продавец квалифицирует запрос в реальном времени';
-      }, 800);
+      }
     }
 
     const lR = document.getElementById('leadsRange');
@@ -8752,6 +8769,12 @@
           {id:'avito', label: isEn ? 'Classifieds / Avito' : (isTr ? 'İlan Portalları' : 'Авито'), setup:10000, monthly:2000},
           {id:'max', label:'MAX', setup:10000, monthly:2000},
           {id:'mail', label: isEn ? 'Email' : (isTr ? 'E-posta' : 'Email'), setup:10000, monthly:2000},
+          {
+            id:'voice',
+            label: isEn ? 'Voice message transcription' : (isTr ? 'Sesli mesaj tanıma' : 'Распознавание голосовых'),
+            sub: isEn ? 'audio → text in any channel' : (isTr ? 'tüm kanallarda ses → metin' : 'аудио → текст в любом канале'),
+            setup:10000, monthly:3000
+          },
         ];
         const CRMS = [
           {id:'amo', label: (isEn || isTr) ? 'amoCRM / HubSpot' : 'amoCRM', setup:20000, monthly:5000},
@@ -8761,16 +8784,10 @@
         ];
         const EXTRAS = [
           {
-            id:'voice',
-            label: isEn ? 'Voice message transcription' : (isTr ? 'Sesli mesaj tanıma' : 'Распознавание голосовых'),
-            sub: isEn ? 'audio → text in any channel' : (isTr ? 'tüm kanallarda ses → metin' : 'аудио → текст в любом канале'),
-            setup:10000, monthly:3000
-          },
-          {
-            id:'kb',
-            label: isEn ? 'Knowledge base creation from scratch' : (isTr ? 'Sıfırdan bilgi tabanı oluşturma' : 'Сбор базы знаний с нуля'),
-            sub: isEn ? 'if you do not have scripts / FAQ / pricing ready' : (isTr ? 'fiyat listesi / senaryo / SSS henüz yoksa' : 'если пока нет прайса / скриптов / FAQ'),
-            setup:30000, monthly:0
+            id:'sales_dept',
+            label: isEn ? 'Sales department setup from scratch' : (isTr ? 'Sıfırdan satış departmanı kurulumu' : 'Сбор отдела продаж с нуля'),
+            sub: isEn ? 'if you do not have pricing / scripts / digitized database yet' : (isTr ? 'henüz fiyat listesi / senaryo / dijital veri tabanı yoksa' : 'если пока нет прайса / скриптов / оцифрованной базы'),
+            setup:50000, monthly:0
           },
         ];
         const VOLUMES = [
@@ -8784,11 +8801,11 @@
 
         function renderToggleList(container, items, group){
           if (!container) return;
-          const supLabel = isEn ? 'Support' : (isTr ? 'Teknik destek' : 'Техподдержка');
+          const supLabel = isEn ? 'Subscription' : (isTr ? 'Abonelik' : 'Подписка');
           container.innerHTML = items.map(it => `
             <div class="cfg-row" data-row="${it.id}">
               <div>
-                <div class="cfg-row-label ${it.id==='kb' ? 'whitespace-nowrap' : ''}">${it.label}</div>
+                <div class="cfg-row-label">${it.label}</div>
                 ${it.sub ? `<div class="cfg-row-sub">${it.sub}</div>` : ''}
                 ${it.monthly ? `<div class="cfg-row-sub text-slate-500">${supLabel}: +${it.monthly.toLocaleString(loc)} ${curSym}${perMo}</div>` : ''}
               </div>
@@ -8857,7 +8874,7 @@
 
           const volSupportEl = document.getElementById('volSupportText');
           if (volSupportEl) {
-            const volSupportPrefix = isEn ? 'SLA Support from mo 2: ' : (isTr ? '2. aydan itibaren destek: ' : 'Техподдержка со 2-го месяца: ');
+            const volSupportPrefix = isEn ? 'Subscription from mo 2: ' : (isTr ? '2. aydan itibaren abonelik: ' : 'Подписка со 2-го месяца: ');
             if (vol && vol.monthlyAdd) {
               volSupportEl.textContent = volSupportPrefix + '+' + vol.monthlyAdd.toLocaleString(loc) + ' ' + curSym + perMo;
             } else {
@@ -8886,11 +8903,11 @@
             const selectedSummary = lines.length ? lines.map(l => l[0]).join(', ') : defaultBaseLabel;
             let msg = '';
             if (isEn) {
-              msg = `Hello! I configured a custom plan in Altai Optima:\n• Setup: ${setup.toLocaleString(loc)} $\n• SLA Support: ${monthly.toLocaleString(loc)} $/mo\n• Options: ${selectedSummary}\n\nI would like to discuss launching!`;
+              msg = `Hello! I configured a custom plan in Altai Optima:\n• Setup: ${setup.toLocaleString(loc)} $\n• Subscription: ${monthly.toLocaleString(loc)} $/mo\n• Options: ${selectedSummary}\n\nI would like to discuss launching!`;
             } else if (isTr) {
-              msg = `Merhaba! Altai Optima yapılandırıcısında özel bir tarife oluşturdum:\n• Kurulum: ${setup.toLocaleString(loc)} $\n• Teknik Destek: ${monthly.toLocaleString(loc)} $/ay\n• Seçenekler: ${selectedSummary}\n\nBaşlatmayı görüşmek istiyorum!`;
+              msg = `Merhaba! Altai Optima yapılandırıcısında özel bir tarife oluşturdum:\n• Kurulum: ${setup.toLocaleString(loc)} $\n• Abonelik: ${monthly.toLocaleString(loc)} $/ay\n• Seçenekler: ${selectedSummary}\n\nBaşlatmayı görüşmek istiyorum!`;
             } else {
-              msg = 'Здравствуйте! Собрал тариф в конструкторе Altai Optima:\n• Настройка: ' + setup.toLocaleString(loc) + ' ₽\n• Техподдержка: ' + monthly.toLocaleString(loc) + ' ₽/мес\n• Опции: ' + selectedSummary + '\n\nХочу обсудить запуск!';
+              msg = 'Здравствуйте! Собрал тариф в конструкторе Altai Optima:\n• Настройка: ' + setup.toLocaleString(loc) + ' ₽\n• Подписка: ' + monthly.toLocaleString(loc) + ' ₽/мес\n• Опции: ' + selectedSummary + '\n\nХочу обсудить запуск!';
             }
             ctaBtn.href = `https://t.me/altaioptima?text=${encodeURIComponent(msg)}`;
           }
