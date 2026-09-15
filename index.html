@@ -2867,20 +2867,31 @@
       animation: ctaBgShift 12s ease infinite !important;
     }
 
-    /* ПУЛЬСИРУЮЩАЯ ЦИФРА ЧИСТОЙ ЭКОНОМИИ */
-    @keyframes scalePulseGlow {
-      0%, 100% {
+    /* ОДНОЦВЕТНАЯ СМЕНА ЦВЕТА ПРИ КАСАНИИ ЗНАЧКА РУБЛЯ (БЕЗ СВЕЧЕНИЯ: ИЗ ЧЕРНОГО В ЗЕЛЕНЫЙ) */
+    @keyframes rubleTouchColorShift {
+      0%, 65% {
+        color: #0f172a;
         transform: scale(1);
-        filter: drop-shadow(0 4px 16px rgba(16, 185, 129, 0.35));
       }
-      50% {
-        transform: scale(1.05);
-        filter: drop-shadow(0 6px 26px rgba(16, 185, 129, 0.65));
+      72% {
+        color: #059669;
+        transform: scale(1.035);
+      }
+      85% {
+        color: #10b981;
+        transform: scale(1.02);
+      }
+      96%, 100% {
+        color: #0f172a;
+        transform: scale(1);
       }
     }
-    .animate-scale-pulse {
+    .savings-touch-text {
       display: inline-block;
-      animation: scalePulseGlow 2.6s ease-in-out infinite;
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      color: #0f172a;
+      animation: rubleTouchColorShift 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     }
 
     /* АКЦЕНТНЫЙ ВЫДЕЛЕННЫЙ ЦВЕТОМ ТЕКСТ ДЛЯ HERO (БЕЗ ОБРЕЗАНИЯ ГЛИФОВ) */
@@ -6371,15 +6382,13 @@
 
         <!-- ТЕКСТ И ЦИФРА ЭКОНОМИИ -->
         <div class="relative z-10 flex flex-col items-center justify-center space-y-2 pt-3">
-          <!-- ПУЛЬСИРУЮЩАЯ ВЫДЕЛЕННАЯ ЦИФРА ЭКОНОМИИ -->
-          <div class="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black font-inter tracking-tight leading-none">
-            <span class="inline-block animate-scale-pulse font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-400 filter drop-shadow-[0_6px_28px_rgba(16,185,129,0.5)]">
+          <div class="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black font-inter tracking-tight leading-none">
+            <span class="savings-touch-text">
               ~745 000 ₽
             </span>
-            <span class="text-slate-900 font-black text-2xl sm:text-3xl md:text-4xl tracking-normal"> / ГОД</span>
           </div>
           <p class="text-sm sm:text-base text-slate-700 font-medium max-w-xl mx-auto pt-1">
-            В 4,5 раза дешевле штатного менеджера. Со второго года экономия около 756 000 ₽ в год
+            В 4,5 раза дешевле штатного менеджера.
           </p>
         </div>
 
