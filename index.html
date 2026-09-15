@@ -6122,7 +6122,7 @@
     </div>
 
     <!-- 8.9 СЕКЦИЯ: КОНСТРУКТОР ТАРИФА -->
-        <section id="constructor" class="max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 font-inter space-y-6 sm:space-y-8 py-10 sm:py-14">
+            <section id="constructor" class="max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 font-inter space-y-6 sm:space-y-8 py-10 sm:py-14">
       
       <!-- Заголовок секции: одна строка описания -->
       <div class="text-center max-w-4xl mx-auto space-y-2 pb-1">
@@ -6136,121 +6136,74 @@
 
       <!-- Конструктор тарифа -->
       <div class="cfg-wrap relative z-10">
-
-        <!-- БЫСТРЫЙ СТАРТ ЧИПЫ -->
-        <div class="cfg-quick-presets flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 mb-5 text-xs sm:text-sm">
-          <span class="font-extrabold text-slate-500 uppercase tracking-wider text-[11px] sm:text-xs mr-1">Быстрый старт:</span>
-          <button type="button" class="cfg-preset-chip" data-preset="social" onclick="window.applyPreset('social')">
-            <span>Соцсети</span>
-          </button>
-          <span class="text-slate-300">·</span>
-          <button type="button" class="cfg-preset-chip" data-preset="shop" onclick="window.applyPreset('shop')">
-            <span>Магазин</span>
-          </button>
-          <span class="text-slate-300">·</span>
-          <button type="button" class="cfg-preset-chip" data-preset="corp" onclick="window.applyPreset('corp')">
-            <span>Отдел продаж</span>
-          </button>
-        </div>
-
         <div class="cfg-grid">
-          <!-- ЛЕВАЯ КОЛОНКА: СЕТКА КАРТОЧЕК -->
-          <div>
-            <div class="cfg-cards-grid">
+          
+          <!-- ЛЕВАЯ КОЛОНКА: СЕТКА КАРТОЧЕК ВЫБОРА (1-4) -->
+          <div class="cfg-cards-grid">
 
-              <!-- КАРТОЧКА 1: КАНАЛЫ СВЯЗИ -->
-              <div class="cfg-card cfg-card-channels">
-                <h3>ГДЕ ВАШИ КЛИЕНТЫ ПИШУТ</h3>
-                <div class="text-xs text-slate-500 -mt-2 mb-3 leading-relaxed">
-                  Первый канал в базе, каждый следующий +10 000 ₽ и +2 000 ₽/мес
-                </div>
-                <div id="channels"></div>
+            <!-- КАРТОЧКА 1: КАНАЛЫ СВЯЗИ -->
+            <div class="cfg-card cfg-card-channels">
+              <h3>ГДЕ ВЫ ОБЩАЕТЕСЬ С КЛИЕНТАМИ</h3>
+              <div class="text-xs text-slate-500 -mt-2 mb-3 leading-relaxed">
+                Один канал связи входит в базовый тариф
               </div>
-
-              <!-- КАРТОЧКА 2: CRM-ИНТЕГРАЦИЯ -->
-              <div class="cfg-card cfg-card-crms">
-                <h3>ГДЕ ВЕСТИ БАЗУ КЛИЕНТОВ</h3>
-                <div class="text-xs text-slate-500 -mt-2 mb-3 leading-relaxed">
-                  Каждая система +20 000 ₽ и +5 000 ₽/мес
-                </div>
-                
-                <!-- Таблица (заблокирована и включена) -->
-                <div class="cfg-row">
-                  <div>
-                    <div class="cfg-row-label">
-                      <span>Таблица (Google / Excel Online)</span>
-                      <span class="cfg-badge-locked">в базе</span>
-                    </div>
-                    <div class="cfg-row-sub">Заявки записываются сами</div>
-                  </div>
-                  <div style="display:flex;align-items:center;gap:12px;">
-                    <label class="cfg-switch cfg-locked" title="Входит в базу (всегда включено)">
-                      <input type="checkbox" checked disabled>
-                      <span class="cfg-track"></span>
-                    </label>
-                  </div>
-                </div>
-
-                <div id="crms"></div>
-
-                <!-- Подсказка под списком CRM -->
-                <div class="text-[11.5px] text-slate-500 pt-2.5 border-t border-slate-200/70 leading-relaxed mt-2 flex items-center gap-1.5">
-                  <span class="text-sky-600 font-bold">ℹ️</span>
-                  <span>Начните с таблицы, а когда бизнес вырастет — подключим CRM и перенесём базу.</span>
-                </div>
-
-                <!-- Предупреждение если выбраны amoCRM + Битрикс24 -->
-                <div id="crmDualNotice" class="hidden mt-2 p-2 rounded-xl bg-amber-50/90 border border-amber-200 text-xs text-amber-800 flex items-center gap-2">
-                  <span>ℹ️</span>
-                  <span>Обычно достаточно одной CRM. Если у вас обе, уточним на брифе.</span>
-                </div>
-              </div>
-
-              <!-- КАРТОЧКА 3: ДОПОЛНИТЕЛЬНО -->
-              <div class="cfg-card cfg-card-extras">
-                <h3>ДОПОЛНИТЕЛЬНО</h3>
-                <div id="extras"></div>
-              </div>
-
-              <!-- КАРТОЧКА 4: ОБЪЕМ ЗАЯВОК -->
-              <div class="cfg-card cfg-card-volume">
-                <h3>СКОЛЬКО ОБРАЩЕНИЙ В МЕСЯЦ</h3>
-                <div class="text-xs text-slate-500 -mt-2 mb-3 leading-relaxed">
-                  Считаем новых клиентов, которые вам пишут
-                </div>
-                <div class="cfg-pill-group" id="volume"></div>
-              </div>
-
-              <!-- ЕДИНЫЙ БЛОК: НЕ НАШЛИ СВОЙ ВАРИАНТ ИЛИ БОЛЬШЕ 1000 ОБРАЩЕНИЙ -->
-              <div class="cfg-card cfg-card-custom">
-                <div class="cfg-card-custom-inner">
-                  <div class="space-y-1">
-                    <div class="text-slate-900 font-extrabold text-sm sm:text-base leading-snug">
-                      Не нашли свой вариант или больше 1000 обращений?
-                    </div>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      Подключим любой канал или систему, настроим несколько ИИ-продавцов и филиалов.
-                    </p>
-                  </div>
-                  <div class="shrink-0 pt-2 sm:pt-0">
-                    <a href="https://t.me/altaioptima?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B8%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%20%D0%98%D0%98-%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B2%D1%86%D0%B0" target="_blank" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-sky-600 via-sky-500 to-blue-600 hover:from-sky-500 hover:to-blue-500 px-4 py-2 rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 whitespace-nowrap">
-                      <span>Обсудить задачу</span>
-                      <span>→</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
+              <div id="channels"></div>
             </div>
 
-            <!-- СНОСКИ ВНИЗУ БЛОКА -->
-            <div class="mt-3 text-[11px] text-slate-400 space-y-1 leading-relaxed px-1">
-              <p>*Instagram принадлежит компании Meta, признанной экстремистской организацией и запрещённой в РФ.</p>
-              <p>Переписки клиентов обрабатываются в соответствии с 152-ФЗ и <a href="документы/3.%20Политика%20обработки%20персональных%20данных.docx" download class="underline hover:text-slate-600">политикой обработки персональных данных</a>.</p>
+            <!-- КАРТОЧКА 2: CRM-ИНТЕГРАЦИЯ -->
+            <div class="cfg-card cfg-card-crms">
+              <h3>ГДЕ ВЫ ВЕДЁТЕ БАЗУ КЛИЕНТОВ</h3>
+              <div class="text-xs text-slate-500 -mt-2 mb-3 leading-relaxed">
+                Онлайн-таблицы входят в базовый тариф
+              </div>
+              
+              <!-- Таблица (заблокирована и включена) -->
+              <div class="cfg-row">
+                <div class="cfg-row-label">
+                  <span>Таблица (Google / Excel Online)</span>
+                  <span class="cfg-badge-locked">в базе</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <label class="cfg-switch cfg-locked" title="Входит в базовый тариф (всегда включено)">
+                    <input type="checkbox" checked disabled>
+                    <span class="cfg-track"></span>
+                  </label>
+                </div>
+              </div>
+
+              <div id="crms"></div>
+
+              <!-- Подсказка под списком CRM -->
+              <div class="text-[11.5px] text-slate-500 pt-2.5 border-t border-slate-200/70 leading-relaxed mt-2 flex items-center gap-1.5">
+                <span class="text-sky-600 font-bold">ℹ️</span>
+                <span>Начните с таблицы, а когда бизнес вырастет — подключим CRM и перенесём базу</span>
+              </div>
+
+              <!-- Предупреждение если выбраны amoCRM + Битрикс24 -->
+              <div id="crmDualNotice" class="hidden mt-2 p-2 rounded-xl bg-amber-50/90 border border-amber-200 text-xs text-amber-800 flex items-center gap-2">
+                <span>ℹ️</span>
+                <span>Обычно достаточно одной CRM. Если у вас обе, уточним на брифе.</span>
+              </div>
             </div>
+
+            <!-- КАРТОЧКА 3: ДОПОЛНИТЕЛЬНО -->
+            <div class="cfg-card cfg-card-extras">
+              <h3>ДОПОЛНИТЕЛЬНО</h3>
+              <div id="extras"></div>
+            </div>
+
+            <!-- КАРТОЧКА 4: ОБЪЕМ ЗАЯВОК -->
+            <div class="cfg-card cfg-card-volume">
+              <h3>ПОТОК КЛИЕНТОВ В МЕСЯЦ</h3>
+              <div class="text-xs text-slate-500 -mt-2 mb-3 leading-relaxed">
+                Примерное количество входящих обращений
+              </div>
+              <div class="cfg-pill-group" id="volume"></div>
+            </div>
+
           </div>
 
-          <!-- ИТОГОВЫЙ БЛОК РАСЧЕТА (STICKY) -->
+          <!-- ПРАВАЯ КОЛОНКА: ИТОГОВЫЙ БЛОК РАСЧЕТА (STICKY) -->
           <div class="cfg-summary-outer" id="cfgSummaryOuter">
             <div class="cfg-summary">
               <div class="flex items-center justify-between gap-2 mb-3">
@@ -6315,9 +6268,31 @@
             </div>
           </div>
         </div>
+
+        <!-- ЕДИНЫЙ БЛОК ПОД КОНСТРУКТОРОМ: НЕ НАШЛИ СВОЙ ВАРИАНТ (НА МОБИЛЬНЫХ ИДЕТ ПОСЛЕ КАРТОЧКИ РАСЧЕТА) -->
+        <div class="cfg-card cfg-card-custom mt-5 sm:mt-6">
+          <div class="cfg-card-custom-inner">
+            <div class="space-y-1">
+              <div class="text-slate-900 font-extrabold text-sm sm:text-base leading-snug">
+                Не нашли свой вариант или больше 1000 обращений?
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Подключим любой канал или систему, настроим несколько ИИ-продавцов и филиалов.
+              </p>
+            </div>
+            <div class="shrink-0 pt-2 sm:pt-0">
+              <a href="https://t.me/altaioptima?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B8%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%20%D0%98%D0%98-%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B2%D1%86%D0%B0" target="_blank" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-sky-600 via-sky-500 to-blue-600 hover:from-sky-500 hover:to-blue-500 px-4 py-2 rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 whitespace-nowrap">
+                <span>Обсудить задачу</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </section>
+
 
     <!-- МОБИЛЬНАЯ ЗАКРЕПЛЕННАЯ НИЖНЯЯ ПАНЕЛЬ РАСЧЕТА -->
     <div id="cfgMobileBottomBar" class="fixed bottom-0 inset-x-0 z-50 p-3 bg-[#0b1928]/95 backdrop-blur-md border-t border-sky-400/30 shadow-[0_-8px_25px_rgba(0,0,0,0.4)] transition-all duration-300 translate-y-full sm:hidden">
@@ -6326,7 +6301,20 @@
           <div class="text-xs font-black text-white whitespace-nowrap">
             <span id="mobSetupTotal">50 000</span> ₽ + <span id="mobMonthlyTotal">15 000</span> ₽/мес
           </div>
-          <div class="text-[9.5px] text-sky-400 font-bold uppercase tracking-wider">Ваш расчёт</div>
+          
+<div class="text-[9.5px] text-sky-400 font-bold uppercase tracking-wider">Ваш расчёт</div>
+        </div>
+        <a href="#ctaBtn" onclick="document.getElementById('ctaBtn')?.scrollIntoView({behavior:'smooth'})" class="shrink-0 text-xs font-black text-white bg-gradient-to-r from-sky-500 to-blue-600 px-3.5 py-2 rounded-xl shadow-md uppercase tracking-wider">
+          Получить расчёт
+        </a>
+      </div>
+    </div>
+
+
+    <!-- МОБИЛЬНАЯ ЗАКРЕПЛЕННАЯ НИЖНЯЯ ПАНЕЛЬ РАСЧЕТА -->
+    
+          
+<div class="text-[9.5px] text-sky-400 font-bold uppercase tracking-wider">Ваш расчёт</div>
         </div>
         <a href="#ctaBtn" onclick="document.getElementById('ctaBtn')?.scrollIntoView({behavior:'smooth'})" class="shrink-0 text-xs font-black text-white bg-gradient-to-r from-sky-500 to-blue-600 px-3.5 py-2 rounded-xl shadow-md uppercase tracking-wider">
           Получить расчёт
@@ -8829,6 +8817,7 @@
 
       // КОНСТРУКТОР ТАРИФА
             // Toggle details in summary
+            // Toggle details in summary
       window.toggleCfgDetails = function() {
         const table = document.getElementById('cfgDetailsTable');
         const arrow = document.getElementById('cfgDetailsArrow');
@@ -8854,37 +8843,37 @@
           {id:'tg', label:'Telegram', setup:10000, monthly:2000},
           {id:'inst', label:'Instagram*', setup:10000, monthly:2000},
           {id:'avito', label:'Авито', setup:10000, monthly:2000},
-          {id:'max', label:'MAX', sub:'российский мессенджер', setup:10000, monthly:2000},
+          {id:'max', label:'MAX (российский мессенджер)', setup:10000, monthly:2000},
           {id:'mail', label:'Email', setup:10000, monthly:2000},
         ];
 
         const CRMS = [
-          {id:'amo', label:'amoCRM', sub:'CRM для сделок', setup:20000, monthly:5000},
-          {id:'bitrix', label:'Битрикс24', sub:'CRM для сделок', setup:20000, monthly:5000},
-          {id:'1c', label:'1С:Предприятие', sub:'учёт товаров, остатков и счетов', setup:20000, monthly:5000},
-          {id:'moysklad', label:'МойСклад', sub:'учёт товаров, остатков и счетов', setup:20000, monthly:5000},
+          {id:'amo', label:'amoCRM', setup:20000, monthly:5000},
+          {id:'bitrix', label:'Битрикс24', setup:20000, monthly:5000},
+          {id:'1c', label:'1С:Предприятие', setup:20000, monthly:5000},
+          {id:'moysklad', label:'МойСклад', setup:20000, monthly:5000},
         ];
 
         const EXTRAS = [
           {
             id:'voice',
             label:'Понимает голосовые сообщения',
-            sub:'переводит аудио в текст и отвечает в любом канале · +3 000 ₽/мес',
+            sub:'переводит аудио в текст и отвечает в любом канале',
             setup:10000, monthly:3000
           },
           {
             id:'scratch',
             label:'Подготовка с нуля',
-            sub:'составим скрипты продаж, прайс и базу знаний, если пока всё «в голове»',
+            sub:'составим скрипты продаж, прайс и базу знаний',
             setup:50000, monthly:0
           },
         ];
 
         const VOLUMES = [
-          {id:'v1', label:'до 100 · входит в базу', shortLabel:'до 100', setupAdd:0, monthlyAdd:0},
-          {id:'v2', label:'100–500 · +3 000 ₽/мес', shortLabel:'100–500', setupAdd:0, monthlyAdd:3000},
-          {id:'v3', label:'500–1000 · +7 000 ₽/мес', shortLabel:'500–1000', setupAdd:0, monthlyAdd:7000},
-          {id:'v4', label:'от 1000 · индивидуально', shortLabel:'от 1000', isVip: true, setupAdd:0, monthlyAdd:15000},
+          {id:'v1', label:'до 100', shortLabel:'до 100', setupAdd:0, monthlyAdd:0},
+          {id:'v2', label:'100–500', shortLabel:'100–500', setupAdd:0, monthlyAdd:3000},
+          {id:'v3', label:'500–1000', shortLabel:'500–1000', setupAdd:0, monthlyAdd:7000},
+          {id:'v4', label:'от 1000', shortLabel:'от 1000', isVip: true, setupAdd:0, monthlyAdd:15000},
         ];
 
         const state = {
@@ -8972,7 +8961,6 @@
             volumeEl.querySelectorAll('.cfg-pill').forEach(p=>p.classList.remove('active'));
             pill.classList.add('active');
             state.volume = pill.dataset.volume;
-            clearPresetActive();
             recalc();
           });
         }
@@ -8984,7 +8972,6 @@
               const {group, id} = e.target.dataset;
               if (group && state[group]) {
                 state[group][id] = e.target.checked;
-                clearPresetActive();
                 if (group === 'channels') {
                   renderChannels();
                 }
@@ -8993,45 +8980,6 @@
             }
           });
         }
-
-        function clearPresetActive() {
-          const chips = document.querySelectorAll('.cfg-preset-chip');
-          chips.forEach(c => c.classList.remove('active'));
-        }
-
-        window.applyPreset = function(presetKey) {
-          clearPresetActive();
-          const targetChip = document.querySelector(`.cfg-preset-chip[data-preset="${presetKey}"]`);
-          if (targetChip) targetChip.classList.add('active');
-
-          if (presetKey === 'social') {
-            state.channels = { tg: true, inst: false, wa: false, avito: false, max: false, mail: false };
-            state.crms = {};
-            state.extras = {};
-            state.volume = 'v1';
-          } else if (presetKey === 'shop') {
-            state.channels = { wa: true, tg: true, inst: false, avito: false, max: false, mail: false };
-            state.crms = {};
-            state.extras = {};
-            state.volume = 'v1';
-          } else if (presetKey === 'corp') {
-            state.channels = { wa: true, tg: true, inst: true, avito: false, max: false, mail: false };
-            state.crms = { amo: true, '1c': true, bitrix: false, moysklad: false };
-            state.extras = { voice: true, scratch: false };
-            state.volume = 'v1';
-          }
-
-          renderChannels();
-          if (crmsEl) renderToggleList(crmsEl, CRMS, 'crms');
-          if (extrasEl) renderToggleList(extrasEl, EXTRAS, 'extras');
-          if (volumeEl) {
-            volumeEl.querySelectorAll('.cfg-pill').forEach(p => {
-              p.classList.toggle('active', p.dataset.volume === state.volume);
-            });
-          }
-
-          recalc();
-        };
 
         function recalc(){
           let setup = BASE_SETUP;
@@ -9110,19 +9058,11 @@
           const cfgDetailsRowsEl = document.getElementById('cfgDetailsRows');
           const ctaBtn = document.getElementById('ctaBtn');
 
-          if (setupTotalEl) {
-            setupTotalEl.textContent = setup.toLocaleString(loc);
-          }
-          if (mobSetupTotalEl) {
-            mobSetupTotalEl.textContent = setup.toLocaleString(loc);
-          }
+          if (setupTotalEl) setupTotalEl.textContent = setup.toLocaleString(loc);
+          if (mobSetupTotalEl) mobSetupTotalEl.textContent = setup.toLocaleString(loc);
 
-          if (monthlyTotalEl) {
-            monthlyTotalEl.textContent = monthly.toLocaleString(loc);
-          }
-          if (mobMonthlyTotalEl) {
-            mobMonthlyTotalEl.textContent = monthly.toLocaleString(loc);
-          }
+          if (monthlyTotalEl) monthlyTotalEl.textContent = monthly.toLocaleString(loc);
+          if (mobMonthlyTotalEl) mobMonthlyTotalEl.textContent = monthly.toLocaleString(loc);
 
           if (cfgDetailsRowsEl) {
             cfgDetailsRowsEl.innerHTML = tableRows.map(r => `

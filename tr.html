@@ -5932,7 +5932,7 @@
     </div>
 
     
-            <section id="constructor" class="max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 font-inter space-y-6 sm:space-y-8 py-10 sm:py-14">
+                <section id="constructor" class="max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 font-inter space-y-6 sm:space-y-8 py-10 sm:py-14">
       
       <!-- Bölüm Başlığı: tek satır açıklama -->
       <div class="text-center max-w-4xl mx-auto space-y-2 pb-1">
@@ -5946,121 +5946,74 @@
 
       <!-- Konfigüratör -->
       <div class="cfg-wrap relative z-10">
-
-        <!-- HIZLI BAŞLANGIÇ ÇİPLERİ -->
-        <div class="cfg-quick-presets flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 mb-5 text-xs sm:text-sm">
-          <span class="font-extrabold text-slate-500 uppercase tracking-wider text-[11px] sm:text-xs mr-1">Hızlı Başlangıç:</span>
-          <button type="button" class="cfg-preset-chip" data-preset="social" onclick="window.applyPreset('social')">
-            <span>Sosyal Medya</span>
-          </button>
-          <span class="text-slate-300">·</span>
-          <button type="button" class="cfg-preset-chip" data-preset="shop" onclick="window.applyPreset('shop')">
-            <span>Mağaza / Hizmet</span>
-          </button>
-          <span class="text-slate-300">·</span>
-          <button type="button" class="cfg-preset-chip" data-preset="corp" onclick="window.applyPreset('corp')">
-            <span>Satış Ekibi</span>
-          </button>
-        </div>
-
         <div class="cfg-grid">
-          <!-- SOL KOLON: KARTLAR -->
-          <div>
-            <div class="cfg-cards-grid">
+          
+          <!-- SOL KOLON: KARTLAR 1-4 -->
+          <div class="cfg-cards-grid">
 
-              <!-- KART 1: KANALLAR -->
-              <div class="cfg-card cfg-card-channels">
-                <h3>MÜŞTERİLERİNİZ NEREDEN YAZIYOR</h3>
-                <div class="text-xs text-slate-500 -mt-2 mb-3 leading-relaxed">
-                  1. kanal temel pakete dahil, her ek kanal +4.000 ₺ ve +800 ₺/ay
-                </div>
-                <div id="channels"></div>
+            <!-- KART 1: KANALLAR -->
+            <div class="cfg-card cfg-card-channels">
+              <h3>MÜŞTERİLERİNİZLE NEREDE İLETİŞİMDESİNİZ</h3>
+              <div class="text-xs text-slate-500 -mt-2 mb-3 leading-relaxed">
+                1 iletişim kanalı temel pakete dahildir
               </div>
-
-              <!-- KART 2: CRM ENTEGRASYONU -->
-              <div class="cfg-card cfg-card-crms">
-                <h3>MÜŞTERİ VERİTABANI</h3>
-                <div class="text-xs text-slate-500 -mt-2 mb-3 leading-relaxed">
-                  Her CRM sistemi +8.000 ₺ ve +2.000 ₺/ay
-                </div>
-                
-                <!-- Tablo (kilitli) -->
-                <div class="cfg-row">
-                  <div>
-                    <div class="cfg-row-label">
-                      <span>E-Tablo (Google E-Tablolar / Excel Online)</span>
-                      <span class="cfg-badge-locked">temele dahil</span>
-                    </div>
-                    <div class="cfg-row-sub">Talepler otomatik kaydedilir</div>
-                  </div>
-                  <div style="display:flex;align-items:center;gap:12px;">
-                    <label class="cfg-switch cfg-locked" title="Temel pakete dahil (sürekli aktif)">
-                      <input type="checkbox" checked disabled>
-                      <span class="cfg-track"></span>
-                    </label>
-                  </div>
-                </div>
-
-                <div id="crms"></div>
-
-                <!-- CRM altı ipucu -->
-                <div class="text-[11.5px] text-slate-500 pt-2.5 border-t border-slate-200/70 leading-relaxed mt-2 flex items-center gap-1.5">
-                  <span class="text-sky-600 font-bold">ℹ️</span>
-                  <span>E-tablo ile başlayın, işiniz büyüdükçe dilediğiniz CRM sistemini bağlayıp tüm veriyi aktarırız.</span>
-                </div>
-
-                <!-- İkili CRM uyarısı -->
-                <div id="crmDualNotice" class="hidden mt-2 p-2 rounded-xl bg-amber-50/90 border border-amber-200 text-xs text-amber-800 flex items-center gap-2">
-                  <span>ℹ️</span>
-                  <span>Genellikle tek bir CRM yeterlidir. İkisini de kullanıyorsanız brief sırasında detaylandırırız.</span>
-                </div>
-              </div>
-
-              <!-- KART 3: EK ÖZELLİKLER -->
-              <div class="cfg-card cfg-card-extras">
-                <h3>EK ÖZELLİKLER</h3>
-                <div id="extras"></div>
-              </div>
-
-              <!-- KART 4: TALEP HACMİ -->
-              <div class="cfg-card cfg-card-volume">
-                <h3>AYLIK GELEN TALEP SAYISI</h3>
-                <div class="text-xs text-slate-500 -mt-2 mb-3 leading-relaxed">
-                  Size mesaj atan yeni müşteri adaylarını sayarız
-                </div>
-                <div class="cfg-pill-group" id="volume"></div>
-              </div>
-
-              <!-- KART 5: ÖZEL ÇÖZÜM -->
-              <div class="cfg-card cfg-card-custom">
-                <div class="cfg-card-custom-inner">
-                  <div class="space-y-1">
-                    <div class="text-slate-900 font-extrabold text-sm sm:text-base leading-snug">
-                      Özel bir yapınız veya 1.000'den fazla talebiniz mi var?
-                    </div>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      IP santral, özel veritabanları, çoklu şube ve temsilci yönlendirmesi kurarız.
-                    </p>
-                  </div>
-                  <div class="shrink-0 pt-2 sm:pt-0">
-                    <a href="https://t.me/altaioptima?text=Merhaba!%20Yapay%20Zeka%20Sat%C4%B1c%C4%B1s%C4%B1%20i%C3%A7in%20%C3%B6zel%20entegrasyon%20iste%C4%9Fim%20var.%20G%C3%B6r%C3%BC%C5%9Fmek%20istiyorum." target="_blank" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-sky-600 via-sky-500 to-blue-600 hover:from-sky-500 hover:to-blue-500 px-4 py-2 rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 whitespace-nowrap">
-                      <span>Görevi Görüş</span>
-                      <span>→</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
+              <div id="channels"></div>
             </div>
 
-            <!-- YASAL BİLGİLENDİRME -->
-            <div class="mt-3 text-[11px] text-slate-400 space-y-1 leading-relaxed px-1">
-              <p>*Instagram ve WhatsApp, Meta Platforms, Inc. tescilli markalarıdır.</p>
-              <p>Müşteri yazışmaları KVKK ve <a href="документы/3.%20Политика%20обработки%20персональных%20данных.docx" download class="underline hover:text-slate-600">kişisel verilerin korunması politikasına</a> uygun olarak işlenir.</p>
+            <!-- KART 2: CRM ENTEGRASYONU -->
+            <div class="cfg-card cfg-card-crms">
+              <h3>MÜŞTERİ VERİTABANINIZ NEREDE</h3>
+              <div class="text-xs text-slate-500 -mt-2 mb-3 leading-relaxed">
+                Online e-tablolar temel pakete dahildir
+              </div>
+              
+              <!-- Tablo (kilitli) -->
+              <div class="cfg-row">
+                <div class="cfg-row-label">
+                  <span>E-Tablo (Google E-Tablolar / Excel Online)</span>
+                  <span class="cfg-badge-locked">temele dahil</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <label class="cfg-switch cfg-locked" title="Temel pakete dahil (sürekli aktif)">
+                    <input type="checkbox" checked disabled>
+                    <span class="cfg-track"></span>
+                  </label>
+                </div>
+              </div>
+
+              <div id="crms"></div>
+
+              <!-- CRM altı ipucu -->
+              <div class="text-[11.5px] text-slate-500 pt-2.5 border-t border-slate-200/70 leading-relaxed mt-2 flex items-center gap-1.5">
+                <span class="text-sky-600 font-bold">ℹ️</span>
+                <span>E-tablo ile başlayın, işiniz büyüdükçe dilediğiniz CRM sistemini bağlayıp tüm veriyi aktarırız.</span>
+              </div>
+
+              <!-- İkili CRM uyarısı -->
+              <div id="crmDualNotice" class="hidden mt-2 p-2 rounded-xl bg-amber-50/90 border border-amber-200 text-xs text-amber-800 flex items-center gap-2">
+                <span>ℹ️</span>
+                <span>Genellikle tek bir CRM yeterlidir. İkisini de kullanıyorsanız brief sırasında detaylandırırız.</span>
+              </div>
             </div>
+
+            <!-- KART 3: EK ÖZELLİKLER -->
+            <div class="cfg-card cfg-card-extras">
+              <h3>EK ÖZELLİKLER</h3>
+              <div id="extras"></div>
+            </div>
+
+            <!-- KART 4: TALEP HACMİ -->
+            <div class="cfg-card cfg-card-volume">
+              <h3>AYLIK MÜŞTERİ TALEBİ AKIŞI</h3>
+              <div class="text-xs text-slate-500 -mt-2 mb-3 leading-relaxed">
+                Tahmini aylık gelen müşteri diyaloğu sayısı
+              </div>
+              <div class="cfg-pill-group" id="volume"></div>
+            </div>
+
           </div>
 
-          <!-- SAĞ HESAPLAMA KARTI (STICKY) -->
+          <!-- SAĞ KOLON: HESAPLAMA KARTI (STICKY) -->
           <div class="cfg-summary-outer" id="cfgSummaryOuter">
             <div class="cfg-summary">
               <div class="flex items-center justify-between gap-2 mb-3">
@@ -6125,9 +6078,31 @@
             </div>
           </div>
         </div>
+
+        <!-- ÖZEL ÇÖZÜM KARTI -->
+        <div class="cfg-card cfg-card-custom mt-5 sm:mt-6">
+          <div class="cfg-card-custom-inner">
+            <div class="space-y-1">
+              <div class="text-slate-900 font-extrabold text-sm sm:text-base leading-snug">
+                Özel bir yapınız veya 1.000'den fazla talebiniz mi var?
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                IP santral, özel veritabanları, çoklu şube ve temsilci yönlendirmesi kurarız.
+              </p>
+            </div>
+            <div class="shrink-0 pt-2 sm:pt-0">
+              <a href="https://t.me/altaioptima?text=Merhaba!%20Yapay%20Zeka%20Sat%C4%B1c%C4%B1s%C4%B1%20i%C3%A7in%20%C3%B6zel%20entegrasyon%20iste%C4%9Fim%20var.%20G%C3%B6r%C3%BC%C5%9Fmek%20istiyorum." target="_blank" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-sky-600 via-sky-500 to-blue-600 hover:from-sky-500 hover:to-blue-500 px-4 py-2 rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 whitespace-nowrap">
+                <span>Görevi Görüş</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </section>
+
 
     <!-- MOBİL SABİT ALT PANEL -->
     <div id="cfgMobileBottomBar" class="fixed bottom-0 inset-x-0 z-50 p-3 bg-[#0b1928]/95 backdrop-blur-md border-t border-sky-400/30 shadow-[0_-8px_25px_rgba(0,0,0,0.4)] transition-all duration-300 translate-y-full sm:hidden">
@@ -6136,7 +6111,20 @@
           <div class="text-xs font-black text-white whitespace-nowrap">
             <span id="mobSetupTotal">20.000</span> ₺ + <span id="mobMonthlyTotal">6.000</span> ₺/ay
           </div>
-          <div class="text-[9.5px] text-sky-400 font-bold uppercase tracking-wider">Hesaplamanız</div>
+          
+<div class="text-[9.5px] text-sky-400 font-bold uppercase tracking-wider">Hesaplamanız</div>
+        </div>
+        <a href="#ctaBtn" onclick="document.getElementById('ctaBtn')?.scrollIntoView({behavior:'smooth'})" class="shrink-0 text-xs font-black text-white bg-gradient-to-r from-sky-500 to-blue-600 px-3.5 py-2 rounded-xl shadow-md uppercase tracking-wider">
+          Teklif Alın
+        </a>
+      </div>
+    </div>
+
+
+    <!-- MOBİL SABİT ALT PANEL -->
+    
+          
+<div class="text-[9.5px] text-sky-400 font-bold uppercase tracking-wider">Hesaplamanız</div>
         </div>
         <a href="#ctaBtn" onclick="document.getElementById('ctaBtn')?.scrollIntoView({behavior:'smooth'})" class="shrink-0 text-xs font-black text-white bg-gradient-to-r from-sky-500 to-blue-600 px-3.5 py-2 rounded-xl shadow-md uppercase tracking-wider">
           Teklif Alın
@@ -8600,6 +8588,7 @@
       })();
 
                   // Toggle details in summary
+            // Toggle details in summary
       window.toggleCfgDetails = function() {
         const table = document.getElementById('cfgDetailsTable');
         const arrow = document.getElementById('cfgDetailsArrow');
@@ -8628,32 +8617,32 @@
         ];
 
         const CRMS = [
-          {id:'amo', label:'amoCRM / HubSpot', sub:'Satış ve süreç CRM', setup:8000, monthly:2000},
-          {id:'bitrix', label:'Bitrix24 / Salesforce', sub:'Satış ve süreç CRM', setup:8000, monthly:2000},
-          {id:'1c', label:'1C:Enterprise / ERP', sub:'stok ve fatura takibi', setup:8000, monthly:2000},
-          {id:'moysklad', label:'MoySklad / Pipedrive', sub:'stok ve sipariş takibi', setup:8000, monthly:2000},
+          {id:'amo', label:'amoCRM / HubSpot', setup:8000, monthly:2000},
+          {id:'bitrix', label:'Bitrix24 / Salesforce', setup:8000, monthly:2000},
+          {id:'1c', label:'1C:Enterprise / ERP', setup:8000, monthly:2000},
+          {id:'moysklad', label:'MoySklad / Pipedrive', setup:8000, monthly:2000},
         ];
 
         const EXTRAS = [
           {
             id:'voice',
             label:'Sesli mesaj tanıma',
-            sub:'tüm kanallarda sesli mesajları metne çevirip yanıtlar · +1.200 ₺/ay',
+            sub:'tüm kanallarda sesli mesajları metne çevirip yanıtlar',
             setup:4000, monthly:1200
           },
           {
             id:'scratch',
             label:'Sıfırdan tam hazırlık',
-            sub:'satış senaryoları, fiyat listesi ve bilgi tabanı oluşturma',
+            sub:'satış senaryoları, fiyat listesi ve bilgi tabanı',
             setup:20000, monthly:0
           },
         ];
 
         const VOLUMES = [
-          {id:'v1', label:"100'e kadar · temele dahil", shortLabel:"100'e kadar", setupAdd:0, monthlyAdd:0},
-          {id:'v2', label:'100–500 · +1.200 ₺/ay', shortLabel:'100–500', setupAdd:0, monthlyAdd:1200},
-          {id:'v3', label:'500–1.000 · +2.800 ₺/ay', shortLabel:'500–1.000', setupAdd:0, monthlyAdd:2800},
-          {id:'v4', label:'1.000+ · özel', shortLabel:'1.000+', isVip: true, setupAdd:0, monthlyAdd:6000},
+          {id:'v1', label:"100'e kadar", shortLabel:"100'e kadar", setupAdd:0, monthlyAdd:0},
+          {id:'v2', label:'100–500', shortLabel:'100–500', setupAdd:0, monthlyAdd:1200},
+          {id:'v3', label:'500–1.000', shortLabel:'500–1.000', setupAdd:0, monthlyAdd:2800},
+          {id:'v4', label:'1.000+', shortLabel:'1.000+', isVip: true, setupAdd:0, monthlyAdd:6000},
         ];
 
         const state = {
@@ -8741,7 +8730,6 @@
             volumeEl.querySelectorAll('.cfg-pill').forEach(p=>p.classList.remove('active'));
             pill.classList.add('active');
             state.volume = pill.dataset.volume;
-            clearPresetActive();
             recalc();
           });
         }
@@ -8753,7 +8741,6 @@
               const {group, id} = e.target.dataset;
               if (group && state[group]) {
                 state[group][id] = e.target.checked;
-                clearPresetActive();
                 if (group === 'channels') {
                   renderChannels();
                 }
@@ -8762,45 +8749,6 @@
             }
           });
         }
-
-        function clearPresetActive() {
-          const chips = document.querySelectorAll('.cfg-preset-chip');
-          chips.forEach(c => c.classList.remove('active'));
-        }
-
-        window.applyPreset = function(presetKey) {
-          clearPresetActive();
-          const targetChip = document.querySelector(`.cfg-preset-chip[data-preset="${presetKey}"]`);
-          if (targetChip) targetChip.classList.add('active');
-
-          if (presetKey === 'social') {
-            state.channels = { tg: true, inst: false, wa: false, avito: false, max: false, mail: false };
-            state.crms = {};
-            state.extras = {};
-            state.volume = 'v1';
-          } else if (presetKey === 'shop') {
-            state.channels = { wa: true, tg: true, inst: false, avito: false, max: false, mail: false };
-            state.crms = {};
-            state.extras = {};
-            state.volume = 'v1';
-          } else if (presetKey === 'corp') {
-            state.channels = { wa: true, tg: true, inst: true, avito: false, max: false, mail: false };
-            state.crms = { amo: true, '1c': true, bitrix: false, moysklad: false };
-            state.extras = { voice: true, scratch: false };
-            state.volume = 'v1';
-          }
-
-          renderChannels();
-          if (crmsEl) renderToggleList(crmsEl, CRMS, 'crms');
-          if (extrasEl) renderToggleList(extrasEl, EXTRAS, 'extras');
-          if (volumeEl) {
-            volumeEl.querySelectorAll('.cfg-pill').forEach(p => {
-              p.classList.toggle('active', p.dataset.volume === state.volume);
-            });
-          }
-
-          recalc();
-        };
 
         function recalc(){
           let setup = BASE_SETUP;
