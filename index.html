@@ -6337,87 +6337,6 @@
     </footer>
   </div>
 
-  <!-- ПЛАВАЮЩАЯ КНОПКА ПОДАРКА: БЕЗ ПОДЛОЖКИ И ТЕКСТА С БЕГУЩЕЙ НЕОНОВОЙ СТРОКОЙ ПО КОНТУРУ -->
-  <div id="floatingGiftBtn" class="fixed bottom-5 right-5 z-40 transition-all duration-300">
-    <button type="button" onclick="openExcelGiftModal(false)" class="floating-neon-btn relative w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center cursor-pointer transition-transform duration-300 hover:scale-115 active:scale-95 group focus:outline-none bg-transparent" title="Подарок при подключении — выгода 45 000 ₽">
-      
-      <!-- SVG Контур с бегущей неоновой строкой/лучом -->
-      <svg class="absolute inset-0 w-full h-full pointer-events-none -rotate-90 overflow-visible" viewBox="0 0 56 56">
-        <defs>
-          <linearGradient id="neonGiftBeamGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#67e8f9" />
-            <stop offset="35%" stop-color="#38bdf8" />
-            <stop offset="70%" stop-color="#0284c7" />
-            <stop offset="100%" stop-color="#0369a1" />
-          </linearGradient>
-        </defs>
-        <!-- Тонкий фоновый полупрозрачный трек контура -->
-        <circle cx="28" cy="28" r="26" fill="none" stroke="rgba(2, 132, 199, 0.2)" stroke-width="1.5" />
-        <!-- Бегущий яркий неоновый луч -->
-        <circle cx="28" cy="28" r="26" fill="none" stroke="url(#neonGiftBeamGrad)" stroke-width="2.5" stroke-linecap="round" class="neon-running-stroke" />
-      </svg>
-      
-      <!-- Иконка подарка с анимацией и деликатным белым бликом -->
-      <span class="anim-gift-wobble text-2xl sm:text-3xl select-none relative z-10 leading-none">🎁</span>
-      <span class="absolute top-2.5 right-2.5 w-2 h-2 bg-white rounded-full blur-[0.5px] shadow-[0_0_8px_2px_rgba(255,255,255,0.95)] anim-gift-sparkle"></span>
-    </button>
-  </div>
-
-  <!-- МОДАЛЬНОЕ ОКНО: ПОДАРОК ПРИ ОПТИМИЗАЦИИ (ПЕРЕНОС БАЗЫ ИЗ EXCEL) -->
-  <div id="excelGiftModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300" onclick="closeExcelGiftModal()">
-    <div class="relative w-full max-w-2xl bg-white text-slate-950 rounded-[32px] border-2 border-rose-400 p-6 sm:p-8 md:p-9 shadow-2xl transform scale-95 transition-all duration-300 max-h-[92vh] overflow-y-auto no-scrollbar" onclick="event.stopPropagation()">
-      
-      <!-- Кнопка закрытия -->
-      <button type="button" onclick="closeExcelGiftModal()" class="absolute top-4 right-4 sm:top-6 sm:right-6 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 flex items-center justify-center text-lg font-bold transition cursor-pointer">
-        ✕
-      </button>
-
-      <div class="space-y-5">
-        <!-- Шапка модалки -->
-        <div class="space-y-3 pr-8">
-          <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-rose-50 border border-rose-200 text-rose-700 px-3 py-1 rounded-full">
-            <span>🎁 ПОДАРОК ПРИ ПОДКЛЮЧЕНИИ ИИ-ПРОДАВЦА</span>
-          </div>
-
-          <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-950 tracking-tight leading-tight">
-            Нет CRM?
-          </h3>
-
-          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-            Соберем базу с нуля: перенесем таблицы, удалим дубли и подготовим всё к запуску ИИ-продаж
-          </p>
-        </div>
-
-        <!-- Форма захвата заявки на подарок -->
-        <form onsubmit="handleExcelGiftSubmit(event)" class="space-y-3 pt-2">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div>
-              <label class="block text-[11px] font-mono text-slate-500 mb-1">Ваше имя</label>
-              <input type="text" id="giftModalName" placeholder="Александр" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 focus:border-slate-950 focus:bg-white text-xs text-slate-900 outline-none transition" />
-            </div>
-            <div>
-              <label class="block text-[11px] font-mono text-slate-500 mb-1">Телефон или Telegram *</label>
-              <input type="text" id="giftModalContact" required placeholder="+7 (999) 000-00-00 или @username" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 focus:border-slate-950 focus:bg-white text-xs text-slate-900 outline-none transition" />
-            </div>
-          </div>
-
-          <button type="submit" id="giftModalSubmitBtn" class="btn-optic w-full group">
-            <span>Забрать подарок и перенести базу</span>
-          </button>
-
-          <div id="giftModalSuccess" class="hidden text-center p-3 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-800 font-bold text-xs font-mono">
-            ✓ Заявка принята! Мы свяжемся с вами в течение 15 минут для согласования переноса базы.
-          </div>
-
-          <div class="text-[10px] text-center text-slate-500 flex items-center justify-center gap-1.5 pt-0.5">
-            <span>🔒 Конфиденциально • Подписываем NDA перед началом работ</span>
-          </div>
-        </form>
-      </div>
-
-    </div>
-  </div>
-
   <!-- МОДАЛЬНОЕ ОКНО ПОЛНОГО РАСКРЫТИЯ КЕЙСА (FULL-DISCLOSURE DOSSIER) -->
   <div id="caseDetailModal" class="fixed inset-0 z-[100] bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto opacity-0 pointer-events-none transition-all duration-300" onclick="if(event.target===this) closeCaseModal()">
     <div class="relative w-full max-w-5xl bg-white rounded-3xl border border-slate-200 shadow-2xl p-5 sm:p-8 md:p-10 my-auto max-h-[92vh] overflow-y-auto space-y-6 text-slate-900 font-inter">
@@ -8272,34 +8191,7 @@
       initCasesCarousel();
     }
 
-    // МОДАЛЬНОЕ ОКНО: ПОДАРОК ПРИ ОПТИМИЗАЦИИ (ПЕРЕНОС БАЗЫ ИЗ EXCEL)
-    let excelGiftTimer = null;
 
-    function openExcelGiftModal(isAuto = false) {
-      if (isAuto && sessionStorage.getItem('excelGiftModalInteracted')) return;
-      const modal = document.getElementById('excelGiftModal');
-      if (!modal) return;
-      sessionStorage.setItem('excelGiftModalInteracted', 'true');
-      modal.classList.remove('opacity-0', 'pointer-events-none');
-      const inner = modal.querySelector('div');
-      if (inner) {
-        inner.classList.remove('scale-95');
-        inner.classList.add('scale-100');
-      }
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeExcelGiftModal() {
-      const modal = document.getElementById('excelGiftModal');
-      if (!modal) return;
-      modal.classList.add('opacity-0', 'pointer-events-none');
-      const inner = modal.querySelector('div');
-      if (inner) {
-        inner.classList.remove('scale-100');
-        inner.classList.add('scale-95');
-      }
-      document.body.style.overflow = '';
-    }
 
     function handlePilotFormSubmit(e) {
       e.preventDefault();
@@ -8326,22 +8218,7 @@
       }, 500);
     }
 
-    function handleExcelGiftSubmit(e) {
-      e.preventDefault();
-      const contact = document.getElementById('giftModalContact');
-      if (!contact || !contact.value.trim()) return;
-      const success = document.getElementById('giftModalSuccess');
-      const submitBtn = document.getElementById('giftModalSubmitBtn');
-      if (submitBtn) submitBtn.style.display = 'none';
-      if (success) success.classList.remove('hidden');
 
-      setTimeout(() => {
-        closeExcelGiftModal();
-        if (success) success.classList.add('hidden');
-        if (submitBtn) submitBtn.style.display = 'flex';
-        e.target.reset();
-      }, 2500);
-    }
 
     // ИНТЕРАКТИВНОЕ ВОСПРОИЗВЕДЕНИЕ ГОЛОСОВОГО СООБЩЕНИЯ С ЖИВЫМ ЗВУКОМ И АНИМАЦИЕЙ
     let isWaVoicePlaying = false;
@@ -8407,11 +8284,7 @@
       }
     }
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closeExcelGiftModal();
-      }
-    });
+
 
     // ПЛАВАЮЩЕЕ МЕНЮ И СКРОЛЛ НАВЕРХ
     function handleStickyNavScroll() {
@@ -8796,10 +8669,7 @@
         }
       }
 
-      // АВТОМАТИЧЕСКИЙ ПОП-АП С ПОДАРКОМ ЧЕРЕЗ 15 СЕКУНД (1 РАЗ ЗА СЕССИЮ)
-      excelGiftTimer = setTimeout(() => {
-        openExcelGiftModal(true);
-      }, 15000);
+
 
       // МОБИЛЬНЫЙ СВАЙП И АВТО-СЛАЙД СРАВНИТЕЛЬНОЙ ТАБЛИЦЫ
       window.scrollTableToCol = function(colIndex) {
