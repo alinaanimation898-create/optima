@@ -2814,8 +2814,8 @@
       animation: heroCardNeonRun 4s linear infinite;
     }
 
-    /* АНИМИРОВАННЫЙ ГРАДИЕНТ ДЛЯ ЗАГОЛОВКА ХИРО (ИИ-ПРОДАВЕЦ ЗАРАБАТЫВАЕТ) */
-    @keyframes heroTextGradShift {
+    /* АНИМИРОВАННЫЙ ГРАДИЕНТ С БЛИКОМ ВНУТРИ БУКВ (БЕЗ ВНЕШНЕЙ ПОДСВЕТКИ) */
+    @keyframes heroTextFlareShimmer {
       0% {
         background-position: 0% 50%;
       }
@@ -2827,12 +2827,23 @@
       }
     }
     .anim-hero-text-grad {
-      background: linear-gradient(135deg, #38bdf8 0%, #22d3ee 25%, #5eead4 50%, #38bdf8 75%, #0ea5e9 100%) !important;
-      background-size: 250% 250% !important;
+      background: linear-gradient(
+        110deg,
+        #0284c7 0%,
+        #38bdf8 18%,
+        #22d3ee 32%,
+        #ffffff 46%,
+        #e0f7fa 52%,
+        #2dd4bf 66%,
+        #38bdf8 82%,
+        #0284c7 100%
+      ) !important;
+      background-size: 280% 280% !important;
       -webkit-background-clip: text !important;
       -webkit-text-fill-color: transparent !important;
-      animation: heroTextGradShift 6s ease infinite !important;
-      filter: drop-shadow(0 2px 12px rgba(56, 189, 248, 0.45));
+      animation: heroTextFlareShimmer 4.5s ease-in-out infinite !important;
+      filter: none !important;
+      text-shadow: none !important;
     }
 
     /* БЕГУЩИЙ НЕОНОВЫЙ ЛУЧ-РАЗДЕЛИТЕЛЬ В ПЛАШКЕ ХИРО */
@@ -3814,27 +3825,11 @@
 
       <!-- НИЖНЯЯ ЧАСТЬ: ПЛАШКА ОПИСАНИЯ И КНОПКИ ДЕЙСТВИЯ С МЯГКОЙ ПОСАДКОЙ СНИЗУ -->
       <div class="max-w-[780px] lg:max-w-[820px] w-full mt-auto pt-6 sm:pt-10 space-y-3.5 sm:space-y-4 relative z-20">
-        <!-- Стеклянная контрастная темная плашка описания с ярким бегущим неоновым лучом -->
+        <!-- Стеклянная контрастная темная плашка описания -->
         <div class="relative p-4 sm:p-6 rounded-2xl bg-slate-950/85 border border-white/20 backdrop-blur-2xl text-white shadow-[0_16px_48px_rgba(0,0,0,0.55)] overflow-hidden">
           
-          <!-- SVG Бегущий неоновый луч по контуру -->
-          <svg class="absolute inset-0 w-full h-full pointer-events-none overflow-visible rounded-2xl" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="heroCardNeonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#0284c7" />
-                <stop offset="35%" stop-color="#38bdf8" />
-                <stop offset="70%" stop-color="#22d3ee" />
-                <stop offset="100%" stop-color="#ffffff" />
-              </linearGradient>
-            </defs>
-            <!-- Мягкая полупрозрачная неоновая дорожка -->
-            <rect x="0.5" y="0.5" width="99" height="99" rx="4" ry="4" fill="none" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1.2" vector-effect="non-scaling-stroke" />
-            <!-- Яркий бегущий лазерный неоновый луч -->
-            <rect x="0.5" y="0.5" width="99" height="99" rx="4" ry="4" fill="none" stroke="url(#heroCardNeonGrad)" stroke-width="2.2" vector-effect="non-scaling-stroke" pathLength="100" class="hero-card-neon-stroke" />
-          </svg>
-
           <p class="relative z-10 text-xs sm:text-sm md:text-[15px] lg:text-[15.5px] leading-relaxed text-slate-100 font-medium font-inter drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
-            Круглосуточно общается с клиентами по эталонным стандартам сервиса: закрывает возражения, подбирает продукт и отправляет готового к покупке клиента в CRM.
+            Круглосуточно общается с клиентами по эталонным стандартам сервиса: закрывает возражения, подбирает продукт и отправляет готового к покупке клиента в CRM
           </p>
 
           <!-- Бегущий неоновый луч-разделитель -->
