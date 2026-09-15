@@ -1382,7 +1382,7 @@
       margin-top: 2px;
       line-height: 1.4;
     }
-    
+    /* ЦИФРЫ БЕЗ ПОДЛОЖКИ — ЧИСТЫЙ САПФИРОВЫЙ ЦВЕТ */
     #constructor .cfg-row-price {
       color: #0284c7;
       background: transparent;
@@ -1443,7 +1443,7 @@
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
       transition: .18s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    
+    /* БЕГУНКИ ПРИ ВКЛЮЧЕНИИ — ФИРМЕННЫЙ САПФИР */
     #constructor input:checked + .cfg-track,
     #constructor .cfg-switch.cfg-locked input:checked + .cfg-track {
       background: linear-gradient(135deg, #0284c7, #0ea5e9);
@@ -1499,7 +1499,185 @@
       box-shadow: 0 4px 14px rgba(7, 89, 133, 0.35);
     }
 
-    
+    /* ПРЕСЕТЫ ГОТОВЫХ ТАРИФОВ НАД КОНСТРУКТОРОМ */
+    #constructor .cfg-presets-wrap {
+      margin-bottom: 24px;
+    }
+    #constructor .cfg-presets-title {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #0369a1;
+      margin-bottom: 12px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    #constructor .cfg-presets-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    @media (max-width: 768px) {
+      #constructor .cfg-presets-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    #constructor .cfg-preset-card {
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 18px;
+      padding: 16px 18px;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      text-align: left;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    #constructor .cfg-preset-card:hover {
+      border-color: #38bdf8;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px -4px rgba(2, 132, 199, 0.15);
+    }
+    #constructor .cfg-preset-card.active {
+      border-color: #0284c7;
+      background: linear-gradient(145deg, #F0F9FF 0%, #FFFFFF 100%);
+      box-shadow: 0 0 0 2px #0284c7, 0 12px 28px -4px rgba(2, 132, 199, 0.25);
+    }
+    #constructor .cfg-preset-name {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #0F172A;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+    #constructor .cfg-preset-desc {
+      font-size: 12px;
+      color: #64748B;
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+    #constructor .cfg-preset-price {
+      font-size: 12.5px;
+      font-weight: 800;
+      color: #0284c7;
+      background: #E0F2FE;
+      padding: 4px 10px;
+      border-radius: 999px;
+      display: inline-block;
+      width: fit-content;
+    }
+    #constructor .cfg-preset-card.active .cfg-preset-price {
+      background: #0284c7;
+      color: #FFFFFF;
+    }
+
+    /* КАРТОЧКА «НЕ НАШЛИ СВОЙ ВАРИАНТ?» */
+    #constructor .cfg-card-custom {
+      grid-column: 1 / -1;
+      background-image: 
+        radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.98) 0%, rgba(240, 249, 255, 0.7) 100%),
+        linear-gradient(135deg, #0284c7, #38bdf8, #0ea5e9, #7dd3fc, #0284c7);
+      background-size: 100% 100%, 300% 300%;
+      animation: neonBorderFlow 7s ease infinite;
+      padding: 20px 24px;
+    }
+    #constructor .cfg-card-custom-inner {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    @media (max-width: 640px) {
+      #constructor .cfg-card-custom-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* СТИЛИ РАСШИРЕННОГО ИТОГОВОГО БЛОКА «ВАШ РАСЧЕТ» */
+    #constructor .cfg-breakdown-sublist {
+      font-size: 11.5px;
+      color: #94A3B8;
+      padding-left: 8px;
+      margin-top: 4px;
+      margin-bottom: 8px;
+      border-left: 2px solid rgba(56, 189, 248, 0.3);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    #constructor .cfg-breakdown-sublist-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+    #constructor .cfg-breakdown-sublist-item span:last-child {
+      color: #7DD3FC;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    #constructor .cfg-base-included-box {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 12px;
+      padding: 10px 12px;
+      margin: 12px 0;
+      font-size: 11px;
+      color: #CBD5E1;
+      line-height: 1.45;
+    }
+    #constructor .cfg-base-included-title {
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 9.5px;
+      letter-spacing: 0.06em;
+      color: #38BDF8;
+      margin-bottom: 4px;
+    }
+    #constructor .cfg-year-total-box {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.25) 0%, rgba(16, 185, 129, 0.15) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-top: 14px;
+    }
+    #constructor .cfg-year-total-val {
+      font-size: 15px;
+      font-weight: 900;
+      color: #38BDF8;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #constructor .cfg-year-total-compare {
+      font-size: 11px;
+      color: #94A3B8;
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #constructor .cfg-price-flash {
+      animation: priceFlash 0.6s ease-out;
+    }
+    @keyframes priceFlash {
+      0% { transform: scale(1.08); color: #38BDF8; text-shadow: 0 0 12px rgba(56, 189, 248, 0.8); }
+      100% { transform: scale(1); }
+    }
+
+    /* АНИМИРОВАННАЯ НЕОНОВАЯ БЕГУЩАЯ ГРАНИЦА И БЛИК ДЛЯ ТЕМНОЙ КАРТОЧКИ «ВАШ РАСЧЕТ» */
     @keyframes neonBorderFlow {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
@@ -1566,7 +1744,7 @@
     #constructor .cfg-divider {
       height: 1px;
       background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.35), transparent);
-      margin: 16px 0;
+      margin: 14px 0;
     }
     #constructor .cfg-total-block {
       margin-bottom: 12px;
@@ -1585,7 +1763,7 @@
       font-family: 'Inter', sans-serif;
     }
     #constructor .cfg-total-value {
-      font-size: 34px;
+      font-size: 32px;
       font-weight: 900;
       letter-spacing: -0.02em;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -1615,12 +1793,12 @@
       border: none;
       border-radius: 14px;
       padding: 15px;
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.04em;
       cursor: pointer;
-      margin-top: 18px;
+      margin-top: 16px;
       text-decoration: none;
       transition: all .25s ease;
       box-shadow: 0 10px 25px rgba(2, 132, 199, 0.4);
@@ -1631,14 +1809,14 @@
       transform: translateY(-2px);
     }
     #constructor .cfg-note {
-      font-size: 11px;
+      font-size: 10.5px;
       color: #94A3B8;
-      margin-top: 14px;
+      margin-top: 12px;
       line-height: 1.5;
       text-align: center;
     }
 
-    
+    /* СКРОЛЛ-АНИМАЦИЯ ДЕЛИКАТНОГО И ПЛАВНОГО ОКРАШИВАНИЯ ЗАГОЛОВКА СЛЕВА НАПРАВО */
     #scrollProblemTitle {
       overflow: visible !important;
       line-height: 1.06 !important;
@@ -5955,115 +6133,224 @@
     </div>
 
     
-    <section id="constructor" class="max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 font-inter space-y-8 sm:space-y-10 py-12 sm:py-16">
+        <section id="constructor" class="max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 font-inter space-y-8 sm:space-y-10 py-12 sm:py-16">
       
-      
-      <div class="text-center max-w-4xl mx-auto space-y-2.5 pb-2">
-        <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[44px] leading-[1.15]" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 12px 30px rgba(2, 132, 199, 0.15));">
-          Calculate the Cost of Optimizing Your Business
+      <!-- Section Title -->
+      <div class="text-center max-w-4xl mx-auto space-y-3 pb-2">
+        <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[42px] leading-[1.15]" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 12px 30px rgba(2, 132, 199, 0.15));">
+          HOW MUCH DOES AN AI CLOSER COST FOR YOUR BUSINESS
         </h2>
-        <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
-          The cost depends on channels, CRM, and lead volume. Select what you already have and what you need to connect — the estimate will update instantly.
-        </p>
+        <div class="space-y-2 max-w-3xl mx-auto text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed font-normal">
+          <p>Build your custom AI Closer: choose where your customers message you and where to store your leads. The estimate updates instantly.</p>
+          <p class="text-xs sm:text-sm text-slate-500 font-normal">This is an illustrative estimate so you understand pricing tiers. Every project is configured specifically for your business processes, channels, and workflows. We provide an exact turnkey quote after a short discovery brief.</p>
+        </div>
       </div>
 
-      
+      <!-- Configurator -->
       <div class="cfg-wrap relative z-10">
+
+        <!-- READY PRESETS ABOVE CONSTRUCTOR -->
+        <div class="cfg-presets-wrap">
+          <div class="cfg-presets-title">
+            <span>✨</span>
+            <span>Start with a ready preset and customize for yourself</span>
+          </div>
+          <div class="cfg-presets-grid" id="presetGrid">
+            
+            <!-- Preset 1 -->
+            <div class="cfg-preset-card" data-preset="social" onclick="window.applyPreset('social')">
+              <div>
+                <div class="cfg-preset-name">
+                  <span>Social Selling</span>
+                  <span class="text-sky-500 text-xs font-mono font-bold">01</span>
+                </div>
+                <div class="cfg-preset-desc">Instagram*, Telegram or Classifieds + Sheet database</div>
+              </div>
+              <div class="cfg-preset-price">from $600 & from $180/mo</div>
+            </div>
+
+            <!-- Preset 2 -->
+            <div class="cfg-preset-card" data-preset="shop" onclick="window.applyPreset('shop')">
+              <div>
+                <div class="cfg-preset-name">
+                  <span>Store or Service</span>
+                  <span class="text-sky-500 text-xs font-mono font-bold">02</span>
+                </div>
+                <div class="cfg-preset-desc">WhatsApp + Telegram + Sheet database</div>
+              </div>
+              <div class="cfg-preset-price">from $720 & from $205/mo</div>
+            </div>
+
+            <!-- Preset 3 -->
+            <div class="cfg-preset-card" data-preset="corp" onclick="window.applyPreset('corp')">
+              <div>
+                <div class="cfg-preset-name">
+                  <span>Company with Sales Team</span>
+                  <span class="text-sky-500 text-xs font-mono font-bold">03</span>
+                </div>
+                <div class="cfg-preset-desc">3 channels + HubSpot + ERP + Voice recognition</div>
+              </div>
+              <div class="cfg-preset-price">from $1,440 & from $385/mo</div>
+            </div>
+
+          </div>
+        </div>
+
         <div class="cfg-grid">
-          
           <!-- LEFT COLUMN: CARDS GRID & FOOTNOTE -->
           <div>
             <div class="cfg-cards-grid">
 
               <!-- CARD 1: CHANNELS -->
               <div class="cfg-card cfg-card-channels">
-                <h3>Communication Channels</h3>
-                <div class="cfg-row">
-                  <div>
-                    <div class="cfg-row-label">
-                      WhatsApp
-                      <span class="cfg-badge-locked">included</span>
-                    </div>
-                    <div class="cfg-row-sub">included in base plan</div>
-                  </div>
-                  <div style="display:flex;align-items:center;gap:12px;">
-                    <label class="cfg-switch cfg-locked" title="Included in base plan (cannot be disabled)">
-                      <input type="checkbox" checked disabled>
-                      <span class="cfg-track"></span>
-                    </label>
-                  </div>
+                <h3>WHERE YOUR CUSTOMERS WRITE</h3>
+                <div class="text-xs text-slate-500 -mt-2 mb-3 leading-relaxed">
+                  Select multiple channels. The 1st channel is included in the base package.
                 </div>
                 <div id="channels"></div>
               </div>
 
               <!-- CARD 2: CRM INTEGRATION -->
               <div class="cfg-card cfg-card-crms">
-                <h3>CRM Integration</h3>
+                <h3>WHERE TO KEEP YOUR LEADS</h3>
+                <div class="text-xs text-slate-500 -mt-2 mb-3 leading-relaxed">
+                  CRM is optional: AI Closer automatically logs every lead in a spreadsheet. You can connect multiple CRM systems.
+                </div>
+                
+                <!-- Table (locked ON) -->
                 <div class="cfg-row">
                   <div>
                     <div class="cfg-row-label">
-                      Excel Spreadsheet
-                      <span class="cfg-badge-locked">included</span>
+                      <span>Spreadsheet (Google Sheets / Excel Online)</span>
+                      <span class="cfg-badge-locked">in base</span>
                     </div>
-                    <div class="cfg-row-sub">included in base plan</div>
+                    <div class="cfg-row-sub">Every lead is automatically recorded: name, phone, channel source, query summary, date and status. Team access supported</div>
                   </div>
                   <div style="display:flex;align-items:center;gap:12px;">
-                    <label class="cfg-switch cfg-locked" title="Included in base plan (cannot be disabled)">
+                    <label class="cfg-switch cfg-locked" title="Included in base (always active)">
                       <input type="checkbox" checked disabled>
                       <span class="cfg-track"></span>
                     </label>
                   </div>
                 </div>
+
                 <div id="crms"></div>
+
+                <!-- Tip under CRM list -->
+                <div class="text-[11.5px] text-slate-500 pt-3 border-t border-slate-200/70 leading-relaxed mt-2">
+                  💡 Start with a spreadsheet, and as your business grows, we will connect a full CRM and migrate all data. If you connect a CRM, spreadsheets remain as an automated backup copy.
+                </div>
+
+                <!-- Dual CRM notice -->
+                <div id="crmDualNotice" class="hidden mt-2.5 p-2.5 rounded-xl bg-amber-50/90 border border-amber-200 text-xs text-amber-800 flex items-center gap-2">
+                  <span>ℹ️</span>
+                  <span>Usually one CRM system is sufficient. If you use both, we will configure routing during the discovery brief.</span>
+                </div>
               </div>
 
               <!-- CARD 3: EXTRAS -->
               <div class="cfg-card cfg-card-extras">
-                <h3>Add-ons & Extras</h3>
+                <h3>ADD-ONS & EXTRAS</h3>
                 <div id="extras"></div>
               </div>
 
               <!-- CARD 4: VOLUME -->
               <div class="cfg-card cfg-card-volume">
-                <h3>Monthly Lead Volume</h3>
+                <h3>MONTHLY INCOMING LEAD VOLUME</h3>
+                <div class="text-xs text-slate-500 -mt-2 mb-3 leading-relaxed">
+                  Select one tier. Count unique customers messaging your business.
+                </div>
                 <div class="cfg-pill-group" id="volume"></div>
                 <div class="cfg-row-sub text-slate-500" style="margin-top:10px;">
-                  <span id="volSupportText">Subscription from Month 2: incoming volume up to 100 (included in base)</span>
+                  <span id="volSupportText">Helps us prepare an accurate proposal, does not affect base cost</span>
+                </div>
+              </div>
+
+              <!-- CARD 5: CUSTOM WORKFLOW -->
+              <div class="cfg-card cfg-card-custom">
+                <div class="cfg-card-custom-inner">
+                  <div class="space-y-1.5">
+                    <h3 class="!mb-1">HAVING A CUSTOM WORKFLOW?</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      We connect IP telephony, website chat, marketplaces, HubSpot, Pipedrive, ERP or custom internal databases. Support for multi-branch, multi-language and team routing. Tell us how your sales work and we will craft a turnkey solution.
+                    </p>
+                  </div>
+                  <div class="shrink-0 pt-2 sm:pt-0">
+                    <a href="https://t.me/altaioptima?text=Hello!%20I%20have%20a%20custom%20AI%20Closer%20integration%20requirement.%20Let%27s%20discuss." target="_blank" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-sky-600 via-sky-500 to-blue-600 hover:from-sky-500 hover:to-blue-500 px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 whitespace-nowrap">
+                      <span>Discuss project</span>
+                      <span>→</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 
             </div>
 
             <!-- FOOTNOTE UNDER CARDS -->
-            <div class="mt-3.5 px-3.5 py-2.5 rounded-xl bg-sky-50/70 border border-sky-100/90 text-xs sm:text-sm text-slate-600 flex items-center gap-2.5 shadow-sm">
-              <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-sky-500/15 text-sky-600 font-bold text-xs flex-shrink-0">i</span>
-              <span>Over 1,000 leads / multiple AI Closers — custom quote under Enterprise plan</span>
+            <div class="mt-4 px-4 py-3 rounded-2xl bg-sky-50/80 border border-sky-200/90 text-xs sm:text-sm text-slate-700 flex items-center gap-3 shadow-xs">
+              <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-sky-500/20 text-sky-700 font-bold text-xs shrink-0">👑</span>
+              <span class="font-medium">Over 1,000 inquiries per month or need multiple AI Closers? We will tailor an individual Enterprise plan.</span>
+            </div>
+
+            <!-- LEGAL FOOTNOTES -->
+            <div class="mt-3 text-[11px] text-slate-400 space-y-1 leading-relaxed px-1">
+              <p>*Instagram and WhatsApp are trademarks of Meta Platforms, Inc.</p>
+              <p>Customer communications are processed with strict security and <a href="документы/3.%20Политика%20обработки%20персональных%20данных.docx" download class="underline hover:text-slate-600">privacy protection standards</a>.</p>
             </div>
           </div>
 
-          
+          <!-- SUMMARY CARD (STICKY) -->
           <div class="cfg-summary-outer">
             <div class="cfg-summary">
-              <div class="flex items-center justify-between gap-2 mb-4">
+              <div class="flex items-center justify-between gap-2 mb-3">
                 <h3 class="!m-0">
                   <span class="cfg-summary-title">Your Estimate</span>
                 </h3>
               </div>
 
+              <!-- Setup Total -->
               <div class="cfg-total-block">
-                <div class="cfg-total-label">One-time Turnkey Setup</div>
-                <div class="cfg-total-value cfg-total-setup"><span id="setupTotal">50 000</span> <span class="cur">$</span></div>
+                <div class="cfg-total-label">Turnkey Setup, one-time</div>
+                <div class="cfg-total-value cfg-total-setup" id="setupTotalVal"><span id="setupTotal">600</span> <span class="cur">$</span></div>
+                <div class="cfg-breakdown-sublist" id="setupSublist">
+                  <div class="cfg-breakdown-sublist-item"><span>Base (1 channel + spreadsheet)</span><span>$600</span></div>
+                </div>
               </div>
+
+              <!-- Monthly Total -->
               <div class="cfg-total-block">
                 <div class="cfg-total-label">Subscription from Month 2</div>
-                <div class="cfg-total-value cfg-total-monthly"><span id="monthlyTotal">15 000</span> <span class="cur">$</span></div>
+                <div class="cfg-total-value cfg-total-monthly" id="monthlyTotalVal"><span id="monthlyTotal">180</span> <span class="cur">$/mo</span></div>
+                <div class="cfg-breakdown-sublist" id="monthlySublist">
+                  <div class="cfg-breakdown-sublist-item"><span>Base package</span><span>$180/mo</span></div>
+                </div>
               </div>
 
-              <div class="cfg-divider"></div>
-              <div id="breakdown"></div>
+              <!-- Included in Base -->
+              <div class="cfg-base-included-box">
+                <div class="cfg-base-included-title">What is included in base:</div>
+                AI training on your product catalog & scripts · automated lead logging in spreadsheet · routing complex inquiries to human reps · full message audit logs
+              </div>
 
-              <a class="cfg-cta" href="https://t.me/altaioptima" id="ctaBtn" target="_blank">Discuss in Telegram</a>
-              <div class="cfg-note">Estimate is indicative. Exact cost is confirmed after the discovery brief and workflow audit.</div>
+              <!-- Year 1 Total -->
+              <div class="cfg-year-total-box">
+                <div class="cfg-year-total-val">
+                  <span>Year 1 total:</span>
+                  <span id="yearTotal">from $2,580</span>
+                </div>
+                <div class="cfg-year-total-compare" id="yearCompareBox">
+                  <span>In-house sales rep:</span>
+                  <span class="line-through text-slate-400">~$11,700</span>
+                </div>
+              </div>
+
+              <a class="cfg-cta" href="https://t.me/altaioptima" id="ctaBtn" target="_blank">GET ACCURATE ESTIMATE</a>
+              <div class="text-center text-[11px] text-sky-300 font-medium pt-2">
+                or message via <a href="https://t.me/altaioptima" target="_blank" class="underline hover:text-white">Telegram</a> / <a href="https://wa.me/79990000000" target="_blank" class="underline hover:text-white">WhatsApp</a>
+              </div>
+              <div class="cfg-note">
+                *Estimate is indicative. Exact cost is finalized after discovery brief and process mapping. Taxes excluded.
+              </div>
             </div>
           </div>
         </div>
@@ -8522,83 +8809,132 @@
         }
       })();
 
-      (function initTariffConstructor() {
-        const lang = (document.documentElement.lang || 'ru').toLowerCase();
-        const isEn = lang.startsWith('en');
-        const isTr = lang.startsWith('tr');
-        const curSym = (isEn || isTr) ? '$' : '$';
-        const perMo = isEn ? '/mo' : (isTr ? '/ay' : '/мес');
-        const loc = (isEn || isTr) ? 'en-US' : 'ru-RU';
+            (function initTariffConstructor() {
+        const lang = 'en';
+        const curSym = '$';
+        const perMo = '/mo';
+        const loc = 'en-US';
+
+        const BASE_SETUP = 600;
+        const BASE_MONTHLY = 180;
 
         const CHANNELS = [
-          {id:'tg', label:'Telegram', setup:10000, monthly:2000},
-          {id:'inst', label:'Instagram', setup:10000, monthly:2000},
-          {id:'avito', label: isEn ? 'Classifieds / Avito' : (isTr ? 'İlan Portalları' : 'Avito'), setup:10000, monthly:2000},
-          {id:'max', label:'MAX', setup:10000, monthly:2000},
-          {id:'mail', label: isEn ? 'Email' : (isTr ? 'E-posta' : 'Email'), setup:10000, monthly:2000},
-          {
-            id:'voice',
-            label: isEn ? 'Voice message transcription' : (isTr ? 'Sesli mesaj tanıma' : 'Voice Note Transcription'),
-            sub: isEn ? 'audio → text in any channel' : (isTr ? 'tüm kanallarda ses → metin' : 'audio → text across all channels'),
-            setup:10000, monthly:3000
-          },
+          {id:'wa', label:'WhatsApp', setup:120, monthly:25},
+          {id:'tg', label:'Telegram', setup:120, monthly:25},
+          {id:'inst', label:'Instagram*', setup:120, monthly:25},
+          {id:'avito', label:'Classifieds / Marketplaces', setup:120, monthly:25},
+          {id:'max', label:'MAX Messenger', setup:120, monthly:25},
+          {id:'mail', label:'Email', setup:120, monthly:25},
         ];
+
         const CRMS = [
-          {id:'amo', label: (isEn || isTr) ? 'amoCRM / HubSpot' : 'amoCRM', setup:20000, monthly:5000},
-          {id:'bitrix', label: (isEn || isTr) ? 'Bitrix24 / Salesforce' : 'Bitrix24', setup:20000, monthly:5000},
-          {id:'1c', label: (isEn || isTr) ? '1C:Enterprise / ERP' : '1С:Предприятие', setup:20000, monthly:5000},
-          {id:'moysklad', label: (isEn || isTr) ? 'MoySklad / Inventory' : 'МойСклад', setup:20000, monthly:5000},
+          {id:'amo', label:'HubSpot', sub:'CRM for deals & pipeline', setup:240, monthly:60},
+          {id:'bitrix', label:'Salesforce / Bitrix24', sub:'CRM for deals & pipeline', setup:240, monthly:60},
+          {id:'1c', label:'ERP / Inventory System', sub:'inventory, pricing & invoicing', setup:240, monthly:60},
+          {id:'moysklad', label:'Pipedrive / Zoho', sub:'sales pipeline & orders', setup:240, monthly:60},
         ];
+
         const EXTRAS = [
           {
-            id:'sales_dept',
-            label: isEn ? 'Sales department setup from scratch' : (isTr ? 'Sıfırdan satış departmanı kurulumu' : 'Full Sales Department Setup from Scratch'),
-            sub: isEn ? 'if you do not have pricing / scripts / digitized database yet' : (isTr ? 'henüz fiyat listesi / senaryo / dijital veri tabanı yoksa' : 'if you don’t have pricing / scripts / digitized database yet'),
-            setup:50000, monthly:0
+            id:'voice',
+            label:'Voice message transcription',
+            sub:'converts audio to text & responds in any channel',
+            setup:120, monthly:35
+          },
+          {
+            id:'scratch',
+            label:'Full setup from scratch',
+            sub:'sales scripts, product catalog & knowledge base creation',
+            setup:600, monthly:0
           },
         ];
+
         const VOLUMES = [
-          {id:'v1', label: isEn ? 'up to 100' : (isTr ? "100'e kadar" : 'up to 100'), setupAdd:0, monthlyAdd:0},
-          {id:'v2', label:'100–500', setupAdd:0, monthlyAdd:3000},
-          {id:'v3', label: isEn ? '500–1,000' : (isTr ? '500–1.000' : '500–1,000'), setupAdd:0, monthlyAdd:7000},
-          {id:'v4', label: isEn ? '1,000+ (Empire)' : (isTr ? '1.000+ (İmparatorluk)' : '1,000+ (Empire)'), isVip: true, setupAdd:0, monthlyAdd:15000},
+          {id:'v1', label:'up to 100 · included in base', shortLabel:'up to 100', setupAdd:0, monthlyAdd:0},
+          {id:'v2', label:'100–500 · +$40/mo', shortLabel:'100–500', setupAdd:0, monthlyAdd:40},
+          {id:'v3', label:'500–1,000 · +$90/mo', shortLabel:'500–1,000', setupAdd:0, monthlyAdd:90},
+          {id:'v4', label:'1,000+ · custom', shortLabel:'1,000+', isVip: true, setupAdd:0, monthlyAdd:180},
         ];
 
-        const state = { channels:{}, crms:{}, extras:{}, volume:'v1' };
-
-        function renderToggleList(container, items, group){
-          if (!container) return;
-          const supLabel = isEn ? 'Subscription' : (isTr ? 'Abonelik' : 'Подписка');
-          container.innerHTML = items.map(it => `
-            <div class="cfg-row" data-row="${it.id}">
-              <div>
-                <div class="cfg-row-label">${it.label}</div>
-                ${it.sub ? `<div class="cfg-row-sub">${it.sub}</div>` : ''}
-                ${it.monthly ? `<div class="cfg-row-sub text-slate-500">${supLabel}: +${it.monthly.toLocaleString(loc)} ${curSym}${perMo}</div>` : ''}
-              </div>
-              <div style="display:flex;align-items:center;gap:12px;">
-                <div class="cfg-row-price">+${it.setup.toLocaleString(loc)} ${curSym}</div>
-                <label class="cfg-switch">
-                  <input type="checkbox" data-group="${group}" data-id="${it.id}">
-                  <span class="cfg-track"></span>
-                </label>
-              </div>
-            </div>
-          `).join('');
-        }
+        const state = {
+          channels: { wa: true },
+          crms: {},
+          extras: {},
+          volume: 'v1'
+        };
 
         const channelsEl = document.getElementById('channels');
         const crmsEl = document.getElementById('crms');
         const extrasEl = document.getElementById('extras');
         const volumeEl = document.getElementById('volume');
 
-        if (channelsEl) renderToggleList(channelsEl, CHANNELS, 'channels');
+        function renderChannels() {
+          if (!channelsEl) return;
+          const activeChannels = CHANNELS.filter(c => state.channels[c.id]);
+          const firstActiveId = activeChannels.length > 0 ? activeChannels[0].id : null;
+
+          channelsEl.innerHTML = CHANNELS.map(c => {
+            const isChecked = !!state.channels[c.id];
+            const isBaseChannel = (c.id === firstActiveId);
+
+            let priceHtml = '';
+            if (isBaseChannel) {
+              priceHtml = `<span class="cfg-badge-locked" style="background:#E0F2FE;color:#0284c7;border-color:#BAE6FD;">in base</span>`;
+            } else {
+              priceHtml = `<div class="cfg-row-price">+$${c.setup.toLocaleString(loc)} <span class="text-[11px] text-slate-500 font-normal">· +$${c.monthly.toLocaleString(loc)}/mo</span></div>`;
+            }
+
+            return `
+              <div class="cfg-row" data-row="${c.id}">
+                <div>
+                  <div class="cfg-row-label">
+                    <span>${c.label}</span>
+                    ${isBaseChannel ? `<span class="cfg-badge-locked">1st channel</span>` : ''}
+                  </div>
+                  ${c.sub ? `<div class="cfg-row-sub">${c.sub}</div>` : ''}
+                </div>
+                <div style="display:flex;align-items:center;gap:12px;">
+                  ${priceHtml}
+                  <label class="cfg-switch">
+                    <input type="checkbox" data-group="channels" data-id="${c.id}" ${isChecked ? 'checked' : ''}>
+                    <span class="cfg-track"></span>
+                  </label>
+                </div>
+              </div>
+            `;
+          }).join('');
+        }
+
+        function renderToggleList(container, items, group) {
+          if (!container) return;
+          container.innerHTML = items.map(it => {
+            const isChecked = !!state[group][it.id];
+            return `
+              <div class="cfg-row" data-row="${it.id}">
+                <div>
+                  <div class="cfg-row-label">${it.label}</div>
+                  ${it.sub ? `<div class="cfg-row-sub">${it.sub}</div>` : ''}
+                  ${it.monthly ? `<div class="cfg-row-sub text-slate-500">Subscription: +$${it.monthly.toLocaleString(loc)}/mo</div>` : ''}
+                </div>
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <div class="cfg-row-price">+$${it.setup.toLocaleString(loc)}</div>
+                  <label class="cfg-switch">
+                    <input type="checkbox" data-group="${group}" data-id="${it.id}" ${isChecked ? 'checked' : ''}>
+                    <span class="cfg-track"></span>
+                  </label>
+                </div>
+              </div>
+            `;
+          }).join('');
+        }
+
+        renderChannels();
         if (crmsEl) renderToggleList(crmsEl, CRMS, 'crms');
         if (extrasEl) renderToggleList(extrasEl, EXTRAS, 'extras');
 
         if (volumeEl) {
           volumeEl.innerHTML = VOLUMES.map(v =>
-            `<div class="cfg-pill ${v.isVip ? 'cfg-pill-vip' : ''} ${v.id==='v1'?'active':''}" data-volume="${v.id}">${v.label}</div>`
+            `<div class="cfg-pill ${v.isVip ? 'cfg-pill-vip' : ''} ${v.id===state.volume?'active':''}" data-volume="${v.id}">${v.label}</div>`
           ).join('');
 
           volumeEl.addEventListener('click', e => {
@@ -8607,6 +8943,7 @@
             volumeEl.querySelectorAll('.cfg-pill').forEach(p=>p.classList.remove('active'));
             pill.classList.add('active');
             state.volume = pill.dataset.volume;
+            clearPresetActive();
             recalc();
           });
         }
@@ -8618,65 +8955,181 @@
               const {group, id} = e.target.dataset;
               if (group && state[group]) {
                 state[group][id] = e.target.checked;
+                clearPresetActive();
+                if (group === 'channels') {
+                  renderChannels();
+                }
                 recalc();
               }
             }
           });
         }
 
+        function clearPresetActive() {
+          const cards = document.querySelectorAll('.cfg-preset-card');
+          cards.forEach(c => c.classList.remove('active'));
+        }
+
+        window.applyPreset = function(presetKey) {
+          clearPresetActive();
+          const targetCard = document.querySelector(`.cfg-preset-card[data-preset="${presetKey}"]`);
+          if (targetCard) targetCard.classList.add('active');
+
+          if (presetKey === 'social') {
+            state.channels = { tg: true, inst: false, wa: false, avito: false, max: false, mail: false };
+            state.crms = {};
+            state.extras = {};
+            state.volume = 'v1';
+          } else if (presetKey === 'shop') {
+            state.channels = { wa: true, tg: true, inst: false, avito: false, max: false, mail: false };
+            state.crms = {};
+            state.extras = {};
+            state.volume = 'v1';
+          } else if (presetKey === 'corp') {
+            state.channels = { wa: true, tg: true, inst: true, avito: false, max: false, mail: false };
+            state.crms = { amo: true, '1c': true, bitrix: false, moysklad: false };
+            state.extras = { voice: true, scratch: false };
+            state.volume = 'v1';
+          }
+
+          renderChannels();
+          if (crmsEl) renderToggleList(crmsEl, CRMS, 'crms');
+          if (extrasEl) renderToggleList(extrasEl, EXTRAS, 'extras');
+          if (volumeEl) {
+            volumeEl.querySelectorAll('.cfg-pill').forEach(p => {
+              p.classList.toggle('active', p.dataset.volume === state.volume);
+            });
+          }
+
+          recalc();
+        };
+
         function recalc(){
-          const BASE_SETUP = 50000;
-          const BASE_MONTHLY = 15000;
           let setup = BASE_SETUP;
           let monthly = BASE_MONTHLY;
-          let lines = [];
+          
+          let setupItems = [];
+          let monthlyItems = [];
 
-          CHANNELS.forEach(c => { if(state.channels[c.id]){ setup += c.setup; if (c.monthly) monthly += c.monthly; lines.push([c.label, c.setup, c.monthly || 0]); }});
-          CRMS.forEach(c => { if(state.crms[c.id]){ setup += c.setup; if (c.monthly) monthly += c.monthly; lines.push([c.label, c.setup, c.monthly || 0]); }});
-          EXTRAS.forEach(c => { if(state.extras[c.id]){ setup += c.setup; if (c.monthly) monthly += c.monthly; lines.push([c.label, c.setup, c.monthly || 0]); }});
+          // Base included lines
+          setupItems.push(['Base (1 channel + spreadsheet)', BASE_SETUP]);
+          monthlyItems.push(['Base package', BASE_MONTHLY]);
 
+          // Channels: 1st is base, 2nd+ cost setup & monthly
+          const activeChannels = CHANNELS.filter(c => state.channels[c.id]);
+          if (activeChannels.length > 1) {
+            for (let i = 1; i < activeChannels.length; i++) {
+              const c = activeChannels[i];
+              setup += c.setup;
+              monthly += c.monthly;
+              setupItems.push([`${c.label} (additional)`, c.setup]);
+              monthlyItems.push([c.label, c.monthly]);
+            }
+          }
+
+          // CRMs
+          CRMS.forEach(c => {
+            if(state.crms[c.id]){
+              setup += c.setup;
+              monthly += c.monthly;
+              setupItems.push([c.label, c.setup]);
+              monthlyItems.push([c.label, c.monthly]);
+            }
+          });
+
+          // Check if both amoCRM & Bitrix24 are selected
+          const crmNotice = document.getElementById('crmDualNotice');
+          if (crmNotice) {
+            crmNotice.classList.toggle('hidden', !(state.crms['amo'] && state.crms['bitrix']));
+          }
+
+          // EXTRAS
+          EXTRAS.forEach(c => {
+            if(state.extras[c.id]){
+              setup += c.setup;
+              if (c.monthly) monthly += c.monthly;
+              setupItems.push([c.label, c.setup]);
+              if (c.monthly) monthlyItems.push([c.label, c.monthly]);
+            }
+          });
+
+          // Volume
           const vol = VOLUMES.find(v => v.id === state.volume);
-          const volPrefix = isEn ? 'Lead volume ' : (isTr ? 'Talep hacmi ' : 'Объём leads ');
-          if(vol && vol.monthlyAdd){ monthly += vol.monthlyAdd; lines.push([volPrefix+vol.label, 0, vol.monthlyAdd]); }
+          if(vol && vol.monthlyAdd){
+            monthly += vol.monthlyAdd;
+            monthlyItems.push(['Lead volume ' + vol.shortLabel, vol.monthlyAdd]);
+          }
 
           const volSupportEl = document.getElementById('volSupportText');
           if (volSupportEl) {
-            const volSupportPrefix = isEn ? 'Subscription from mo 2: ' : (isTr ? '2. aydan itibaren abonelik: ' : 'Подписка со 2-го месяца: ');
             if (vol && vol.monthlyAdd) {
-              volSupportEl.textContent = volSupportPrefix + '+' + vol.monthlyAdd.toLocaleString(loc) + ' ' + curSym + perMo;
+              volSupportEl.textContent = 'Subscription from mo 2: +$' + vol.monthlyAdd.toLocaleString(loc) + '/mo';
             } else {
-              volSupportEl.textContent = volSupportPrefix + (isEn ? 'up to 100 (included in base)' : (isTr ? "100'e kadar (temel pakete dahil)" : 'входящий объем up to 100 (входит в базовый)'));
+              volSupportEl.textContent = 'Helps us prepare an accurate proposal, does not affect base cost';
             }
           }
 
           const setupTotalEl = document.getElementById('setupTotal');
           const monthlyTotalEl = document.getElementById('monthlyTotal');
-          const breakdownEl = document.getElementById('breakdown');
+          const setupSublistEl = document.getElementById('setupSublist');
+          const monthlySublistEl = document.getElementById('monthlySublist');
+          const yearTotalEl = document.getElementById('yearTotal');
           const ctaBtn = document.getElementById('ctaBtn');
 
-          if (setupTotalEl) setupTotalEl.textContent = setup.toLocaleString(loc);
-          if (monthlyTotalEl) monthlyTotalEl.textContent = monthly.toLocaleString(loc);
-
-          const defaultBaseLabel = isEn ? 'Base Package' : (isTr ? 'Temel Paket' : 'Base Plan');
-          const defaultBaseDesc = isEn ? 'WhatsApp + Excel CRM' : (isTr ? 'WhatsApp + Excel CRM' : 'WhatsApp + Excel CRM');
-
-          if (breakdownEl) {
-            breakdownEl.innerHTML = lines.length
-              ? lines.map(l => `<div class="cfg-sum-line"><span>${l[0]}</span><span>${l[1]?('+'+l[1].toLocaleString(loc)+' '+curSym):''}${l[2]?(' / +'+l[2].toLocaleString(loc)+' '+curSym+perMo):''}</span></div>`).join('')
-              : `<div class="cfg-sum-line"><span>${defaultBaseLabel}</span><span>${defaultBaseDesc}</span></div>`;
+          if (setupTotalEl) {
+            setupTotalEl.textContent = setup.toLocaleString(loc);
+            const valBox = document.getElementById('setupTotalVal');
+            if (valBox) {
+              valBox.classList.remove('cfg-price-flash');
+              void valBox.offsetWidth;
+              valBox.classList.add('cfg-price-flash');
+            }
           }
 
-          if (ctaBtn) {
-            const selectedSummary = lines.length ? lines.map(l => l[0]).join(', ') : defaultBaseLabel;
-            let msg = '';
-            if (isEn) {
-              msg = `Hello! I configured a custom plan in Altai Optima:\n• Setup: ${setup.toLocaleString(loc)} $\n• Subscription: ${monthly.toLocaleString(loc)} $/mo\n• Options: ${selectedSummary}\n\nI would like to discuss launching!`;
-            } else if (isTr) {
-              msg = `Merhaba! Altai Optima yapılandırıcısında özel bir tarife oluşturdum:\n• Kurulum: ${setup.toLocaleString(loc)} $\n• Abonelik: ${monthly.toLocaleString(loc)} $/ay\n• Seçenekler: ${selectedSummary}\n\nBaşlatmayı görüşmek istiyorum!`;
-            } else {
-              msg = 'Здравствуйте! Собрал тариф в конструкторе Altai Optima:\n• Настройка: ' + setup.toLocaleString(loc) + ' $\n• Подписка: ' + monthly.toLocaleString(loc) + ' $/mo\n• Опции: ' + selectedSummary + '\n\nХочу обсудить запуск!';
+          if (monthlyTotalEl) {
+            monthlyTotalEl.textContent = monthly.toLocaleString(loc);
+            const valBox = document.getElementById('monthlyTotalVal');
+            if (valBox) {
+              valBox.classList.remove('cfg-price-flash');
+              void valBox.offsetWidth;
+              valBox.classList.add('cfg-price-flash');
             }
-            ctaBtn.href = `https://t.me/altaioptima?text=${encodeURIComponent(msg)}`;
+          }
+
+          if (setupSublistEl) {
+            setupSublistEl.innerHTML = setupItems.map(it =>
+              `<div class="cfg-breakdown-sublist-item"><span>${it[0]}</span><span>${it[1] === BASE_SETUP ? `$${it[1].toLocaleString(loc)}` : `+$${it[1].toLocaleString(loc)}`}</span></div>`
+            ).join('');
+          }
+
+          if (monthlySublistEl) {
+            monthlySublistEl.innerHTML = monthlyItems.map(it =>
+              `<div class="cfg-breakdown-sublist-item"><span>${it[0]}</span><span>${it[1] === BASE_MONTHLY ? `$${it[1].toLocaleString(loc)}/mo` : `+$${it[1].toLocaleString(loc)}/mo`}</span></div>`
+            ).join('');
+          }
+
+          // Year Total: Setup + 11 * Monthly
+          const yearTotalSum = setup + (11 * monthly);
+          if (yearTotalEl) {
+            yearTotalEl.textContent = 'from $' + yearTotalSum.toLocaleString(loc);
+          }
+
+          // Prefilled Telegram message link
+          if (ctaBtn) {
+            const activeChNames = activeChannels.map(c => c.label).join(', ') || 'Spreadsheet';
+            const activeCrmNames = CRMS.filter(c => state.crms[c.id]).map(c => c.label).join(', ') || 'Spreadsheet only';
+            const activeExtraNames = EXTRAS.filter(e => state.extras[e.id]).map(e => e.label).join(', ') || 'None';
+            const volLabel = vol ? vol.shortLabel : 'up to 100';
+
+            const tgMsg = `Hello! I calculated an estimate for an AI Closer on your website:
+• Channels: ${activeChNames}
+• Database / CRM: ${activeCrmNames}
+• Extras: ${activeExtraNames}
+• Lead volume: ${volLabel} leads/mo
+• Estimated total: $${setup.toLocaleString(loc)} setup + $${monthly.toLocaleString(loc)}/mo
+Let's discuss integration details!`;
+
+            ctaBtn.href = `https://t.me/altaioptima?text=${encodeURIComponent(tgMsg)}`;
           }
         }
 
