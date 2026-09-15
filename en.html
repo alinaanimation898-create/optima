@@ -4336,12 +4336,15 @@
               </div>
 
               
+              <!-- CHAT HEADER -->
               <div id="chatHeader" class="pt-11 pb-3 px-4 bg-[#075e54] text-white flex items-center justify-between transition-colors duration-300 shadow-xs">
                 <div class="flex items-center gap-2.5">
-                  <div id="channelAvatar" class="w-8 h-8 rounded-full bg-[#128c7e] border border-white/30 text-white flex items-center justify-center font-bold text-xs shadow-sm">W</div>
+                  <div id="channelAvatar" class="w-8 h-8 rounded-full border border-white/40 overflow-hidden shadow-sm shrink-0 bg-slate-800 flex items-center justify-center">
+                    <img src="avatar_eva.jpg" alt="Eva" class="w-full h-full object-cover" />
+                  </div>
                   <div>
                     <div id="channelName" class="text-xs font-bold leading-tight flex items-center gap-1.5">
-                      <span id="channelNameText">AI Closer // Altai Optima</span>
+                      <span id="channelNameText">AI CLOSER Altai Optima</span>
                       <span id="channelVerified" class="text-emerald-300 text-[11px]">✓</span>
                     </div>
                     <div id="agentStatus" class="text-[10px] text-emerald-200 font-medium">online • active</div>
@@ -4350,7 +4353,7 @@
                 <div class="flex items-center gap-1.5">
                   <button id="chatResetBtn" type="button" onclick="resetLiveChatDialogue()" class="text-[10px] text-white/90 hover:text-white bg-white/15 hover:bg-white/25 px-2 py-1 rounded-lg backdrop-blur-xs transition-all cursor-pointer flex items-center gap-1 font-medium" title="Start fresh conversation">
                     <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
-                    <span>Reset</span>
+                    <span>Clear</span>
                   </button>
                   <div id="channelBadge" class="text-[10px] font-code font-bold bg-white/20 text-white px-2.5 py-0.5 rounded-full backdrop-blur-xs">
                     WhatsApp
@@ -4385,7 +4388,7 @@
                   <input 
                     id="liveChatInput" 
                     type="text" 
-                    placeholder="Type any question or objection..." 
+                    placeholder="Type a message to the AI Closer..." 
                     autocomplete="off"
                     class="flex-1 bg-slate-50 border border-slate-200/90 text-slate-800 placeholder:text-slate-400 text-xs rounded-xl px-3 py-2 outline-none focus:border-sky-500 focus:bg-white focus:ring-2 focus:ring-sky-100 transition-all font-inter"
                   />
@@ -4393,22 +4396,13 @@
                     id="liveChatSubmitBtn"
                     type="submit" 
                     class="w-8 h-8 rounded-xl bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-500 hover:to-blue-500 active:scale-95 text-white flex items-center justify-center shrink-0 shadow-sm transition-transform cursor-pointer"
-                    title="Отправить"
+                    title="Send"
                   >
                     <svg class="w-4 h-4 fill-current rotate-45 -mr-0.5" viewBox="0 0 24 24">
                       <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
                     </svg>
                   </button>
                 </form>
-              </div>
-
-              
-              <div id="chatFooter" class="p-2.5 bg-[#f0f2f5] border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-500">
-                <span class="text-[10.5px] font-medium text-slate-600 flex items-center gap-1.5 truncate">
-                  <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
-                  <span id="chatFooterStatus" class="truncate">✓ Потребность выявлена • Встреча назначена на субботу 14:00 • Брокер подключен</span>
-                </span>
-                <span class="text-[10px] font-mono text-slate-400 shrink-0 ml-2">24/7</span>
               </div>
             </div>
           </div>
@@ -6404,12 +6398,11 @@
       full_deal: {
         channel: 'WHATSAPP',
         badge: 'WhatsApp',
-        assistantName: 'AI Closer // Altai Optima',
-        avatarLetter: 'W',
+        assistantName: 'AI CLOSER Altai Optima',
+        avatarLetter: 'E',
         headerBg: 'bg-[#075e54]',
         headerSubText: 'text-emerald-200',
         statusText: 'online • active',
-        bottomStatus: '✓ WhatsApp Business API • CRM sync',
         verifiedIcon: '✓',
         verifiedColor: 'text-emerald-300',
         chatBg: 'bg-[#efeae2]',
@@ -6448,12 +6441,11 @@
       price_objection: {
         channel: 'TELEGRAM',
         badge: 'Telegram',
-        assistantName: 'AI Assistant // Altai Optima',
-        avatarLetter: 'T',
+        assistantName: 'AI CLOSER Altai Optima',
+        avatarLetter: 'E',
         headerBg: 'bg-[#229ed9]',
         headerSubText: 'text-sky-100',
         statusText: 'online • bot active',
-        bottomStatus: '✓ Telegram Bot API • CRM sync',
         verifiedIcon: '✓',
         verifiedColor: 'text-white',
         chatBg: 'bg-[#e7ebf0]',
@@ -6495,12 +6487,11 @@
       reanimate: {
         channel: 'INSTAGRAM DIRECT',
         badge: 'Instagram',
-        assistantName: 'AI Manager // Altai Optima',
-        avatarLetter: 'I',
+        assistantName: 'AI CLOSER Altai Optima',
+        avatarLetter: 'E',
         headerBg: 'bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045]',
         headerSubText: 'text-pink-100',
         statusText: 'online • Direct',
-        bottomStatus: '✓ Instagram Direct • CRM sync',
         verifiedIcon: '✓',
         verifiedColor: 'text-sky-300',
         chatBg: 'bg-[#fafafa]',
@@ -6533,12 +6524,11 @@
       avito_deal: {
         channel: 'AVITO',
         badge: 'Avito',
-        assistantName: 'AI Sales Rep // Altai Optima',
-        avatarLetter: 'A',
+        assistantName: 'AI CLOSER Altai Optima',
+        avatarLetter: 'E',
         headerBg: 'bg-[#00aaff]',
         headerSubText: 'text-sky-100',
         statusText: 'online • Avito PRO',
-        bottomStatus: '✓ Avito Integration • CRM sync',
         verifiedIcon: '✓',
         verifiedColor: 'text-white',
         chatBg: 'bg-[#f4f6f8]',
@@ -6626,13 +6616,13 @@
         } catch (e) {
           this.config = {
             tenant_id: "demo_amo",
-            business_name: "Monolit-Stroy Complect (amoCRM Demo)",
-            welcome_message: "Hello! I am your personal AI manager. Ready to estimate specifications, check warehouse stock, and delivery terms. How may I assist you?",
+            business_name: "AI CLOSER Altai Optima",
+            welcome_message: "Hello! I am your personal AI closer. Ready to answer questions, quote pricing, and qualify your deal.",
             suggested_questions: [
-              "Which aerated concrete blocks D500 are in stock and at what price?",
-              "How much to deliver 40 cubic meters of blocks to Istra by crane truck?",
-              "What discounts apply for orders above 50 cubic meters?",
-              "Can we fix the price quote for 14 days before starting construction?"
+              "How much does turnkey setup cost?",
+              "What if the client asks for a discount?",
+              "Do you integrate with amoCRM, Bitrix24 and ERP?",
+              "Why is this better than basic chatbots?"
             ],
             max_message_length: 4000
           };
@@ -6684,45 +6674,30 @@
       return safe;
     }
 
-    function renderLiveChatStarter(config) {
-      const questions = (config && config.suggested_questions && config.suggested_questions.length) 
-        ? config.suggested_questions 
-        : [
-            "Which aerated concrete blocks D500 are in stock and at what price?",
-            "How much to deliver 40 cubic meters of blocks to Istra by crane truck?",
-            "What discounts apply for orders above 50 cubic meters?",
-            "Can we fix the price quote for 14 days before starting construction?"
-          ];
-
-      const questionsHtml = questions.map(q => `
-        <button type="button" onclick="sendQuickPrompt(${JSON.stringify(q)})" class="w-full text-left p-2.5 rounded-xl bg-slate-50 hover:bg-sky-50 border border-slate-200/80 hover:border-sky-300 text-slate-700 hover:text-sky-900 transition-all text-[11px] leading-snug flex items-center justify-between group cursor-pointer">
-          <span class="font-medium">${q}</span>
-          <span class="text-sky-500 font-bold ml-2 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0">→</span>
-        </button>
-      `).join('');
-
+    function renderLiveChatStarter() {
       return `
-        <div id="liveChatStarterCard" class="bg-white rounded-2xl p-3.5 sm:p-4 shadow-xs border border-sky-100/90 text-slate-800 space-y-3 animate-fade-in">
-          <div class="flex items-start gap-2.5 sm:gap-3">
-            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-600 text-white flex items-center justify-center font-bold text-xs sm:text-sm shrink-0 shadow-xs">
-              🏢
+        <div id="emptyChatPrompt" class="h-full min-h-[220px] flex flex-col items-center justify-center text-center p-4 my-auto select-none space-y-3 animate-fade-in">
+          <div class="relative flex items-center justify-center">
+            <div class="w-14 h-14 rounded-full border-2 border-sky-400 p-0.5 shadow-lg shadow-sky-500/25 overflow-hidden bg-slate-900 shrink-0">
+              <img src="avatar_eva.jpg" alt="Eva" class="w-full h-full object-cover rounded-full" />
             </div>
-            <div class="space-y-1">
-              <div class="font-bold text-[12px] sm:text-[13px] text-slate-900 leading-tight">
-                ${config?.business_name || 'Monolit-Stroy Complect (amoCRM Demo)'}
-              </div>
-              <div class="text-[10.5px] sm:text-[11px] text-slate-500 leading-relaxed">
-                ${config?.welcome_message || 'Hello! I am your personal AI manager. Ready to estimate specifications, check warehouse stock, and delivery terms.'}
-              </div>
-            </div>
+            <span class="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white shadow-xs"></span>
           </div>
-          <div class="border-t border-slate-100 pt-2.5 space-y-2">
-            <div class="flex items-center justify-between">
-              <span class="text-[10px] font-bold text-sky-700 uppercase tracking-wider">Select a sample prompt or type below:</span>
-              <span class="text-[9px] text-emerald-600 font-mono font-semibold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">amoCRM LIVE</span>
+
+          <div class="space-y-1">
+            <div class="text-[13px] sm:text-sm font-extrabold text-slate-800 font-inter">
+              AI Closer is ready to assist
             </div>
-            <div class="flex flex-col gap-1.5">
-              ${questionsHtml}
+            <p class="text-[11.5px] text-slate-500 max-w-[240px] leading-relaxed font-inter">
+              Ask any question or pick a prompt below to test conversational reasoning in real time
+            </p>
+          </div>
+
+          <!-- Animated arrow pointing down -->
+          <div class="pt-2 flex flex-col items-center text-sky-600">
+            <div class="px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200 text-[11px] font-bold tracking-wide uppercase flex items-center gap-1.5 shadow-xs">
+              <span>Type your message below</span>
+              <span class="text-sm animate-bounce">↓</span>
             </div>
           </div>
         </div>
@@ -6736,14 +6711,14 @@
         const questions = (config && config.suggested_questions && config.suggested_questions.length) 
           ? config.suggested_questions 
           : [
-              "Which aerated concrete blocks D500 are in stock and at what price?",
-              "How much to deliver 40 cubic meters of blocks to Istra by crane truck?",
-              "What discounts apply for orders above 50 cubic meters?",
-              "Can we fix the price quote for 14 days before starting construction?"
+              "How much does turnkey setup cost?",
+              "What if the client asks for a discount?",
+              "Do you integrate with amoCRM and ERP?",
+              "Why is this better than basic chatbots?"
             ];
 
         container.innerHTML = questions.map((q, idx) => {
-          const icons = ['🧱', '🚚', '🏷️', '⏳', '💬'];
+          const icons = ['💰', '⚡', '🔄', '🤖', '💬'];
           const icon = icons[idx % icons.length];
           const shortLabel = q.length > 28 ? q.slice(0, 26) + '…' : q;
           return `
@@ -6758,10 +6733,6 @@
     function resetLiveChatDialogue() {
       demoChatClient.resetSession();
       channelMessages[currentKey] = [];
-      const footerStatus = document.getElementById('chatFooterStatus');
-      if (footerStatus) {
-        footerStatus.textContent = '⚡ Conversation reset • Ask a new question';
-      }
       renderFullBranch(currentKey, false);
     }
 
@@ -6779,8 +6750,6 @@
       const channelVerified = document.getElementById('channelVerified');
       const agentStatus = document.getElementById('agentStatus');
       const messagesContainer = document.getElementById('messagesContainer');
-      const chatFooter = document.getElementById('chatFooter');
-      const chatFooterStatus = document.getElementById('chatFooterStatus');
       const chatActionBtn = document.getElementById('chatActionBtn');
       const liveInput = document.getElementById('liveChatInput');
 
@@ -6788,18 +6757,18 @@
       if (channelBadge) channelBadge.textContent = cfg.badge;
 
       if (liveInput) {
-        liveInput.placeholder = "Type any question or objection...";
+        liveInput.placeholder = "Type a message to the AI Closer...";
       }
 
       if (chatHeader) {
         chatHeader.className = `pt-11 pb-3 px-4 text-white flex items-center justify-between transition-all duration-300 shadow-xs ${cfg.headerBg}`;
       }
       if (channelAvatar) {
-        channelAvatar.className = `w-8 h-8 rounded-full border text-white flex items-center justify-center font-bold text-xs shadow-sm transition-all duration-300 ${cfg.avatarBg} ${cfg.avatarBorder}`;
-        channelAvatar.textContent = cfg.avatarLetter || 'W';
+        channelAvatar.className = "w-8 h-8 rounded-full border border-white/40 overflow-hidden shadow-sm shrink-0 bg-slate-800 flex items-center justify-center";
+        channelAvatar.innerHTML = '<img src="avatar_eva.jpg" alt="Eva" class="w-full h-full object-cover" />';
       }
       if (channelNameText) {
-        channelNameText.textContent = cfg.assistantName || 'AI Closer // Altai Optima';
+        channelNameText.textContent = cfg.assistantName || 'AI CLOSER Altai Optima';
       }
       if (channelVerified) {
         channelVerified.className = `${cfg.verifiedColor || 'text-white'} text-[11px]`;
@@ -6811,12 +6780,6 @@
       }
       if (messagesContainer) {
         messagesContainer.className = `p-4 space-y-3 flex-grow overflow-y-auto text-xs transition-colors duration-300 ${cfg.chatBg}`;
-      }
-      if (chatFooter) {
-        chatFooter.className = `p-2.5 border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-500 transition-colors duration-300 ${cfg.footerBg}`;
-      }
-      if (chatFooterStatus) {
-        chatFooterStatus.textContent = cfg.bottomStatus || '';
       }
       if (chatActionBtn) {
         chatActionBtn.className = `w-8 h-8 rounded-xl text-white flex items-center justify-center text-xs font-bold shadow-sm transition-all duration-300 ${cfg.actionBtnBg}`;
@@ -6844,12 +6807,8 @@
       const list = channelMessages[key] || [];
 
       if (list.length === 0) {
-        demoChatClient.getConfig().then(config => {
-          if (currentKey === key && (channelMessages[key] || []).length === 0) {
-            box.innerHTML = renderLiveChatStarter(config);
-            box.scrollTop = 0;
-          }
-        });
+        box.innerHTML = renderLiveChatStarter();
+        box.scrollTop = 0;
         if (agentStatus) agentStatus.textContent = cfg.statusText || 'online';
         return;
       }
@@ -6894,16 +6853,15 @@
 
       const box = document.getElementById('messagesContainer');
       const agentStatus = document.getElementById('agentStatus');
-      const footerStatus = document.getElementById('chatFooterStatus');
       if (!box) return;
 
       const cfg = channelsConfig[currentKey] || channelsConfig.full_deal;
       const timeStr = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
 
+      const emptyPrompt = document.getElementById('emptyChatPrompt');
+      if (emptyPrompt) emptyPrompt.remove();
       const starterCard = document.getElementById('liveChatStarterCard');
-      if (starterCard) {
-        starterCard.remove();
-      }
+      if (starterCard) starterCard.remove();
 
       const userMsg = {
         sender: 'user',
@@ -6951,7 +6909,7 @@
         const aiTimeStr = new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
         const aiMsg = {
           sender: 'ai',
-          author: cfg.assistantName || 'AI Closer // Altai Optima',
+          author: cfg.assistantName || 'AI CLOSER Altai Optima',
           text: formattedText,
           time: aiTimeStr
         };

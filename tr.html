@@ -4339,10 +4339,12 @@
               
               <div id="chatHeader" class="pt-11 pb-3 px-4 bg-[#075e54] text-white flex items-center justify-between transition-colors duration-300 shadow-xs">
                 <div class="flex items-center gap-2.5">
-                  <div id="channelAvatar" class="w-8 h-8 rounded-full bg-[#128c7e] border border-white/30 text-white flex items-center justify-center font-bold text-xs shadow-sm">W</div>
+                  <div id="channelAvatar" class="w-8 h-8 rounded-full border border-white/40 overflow-hidden shadow-sm shrink-0 bg-slate-800 flex items-center justify-center">
+                    <img src="avatar_eva.jpg" alt="Eva" class="w-full h-full object-cover" />
+                  </div>
                   <div>
                     <div id="channelName" class="text-xs font-bold leading-tight flex items-center gap-1.5">
-                      <span id="channelNameText">AI Danışmanı // Altai Optima</span>
+                      <span id="channelNameText">YAPAY ZEKA SATICISI Altai Optima</span>
                       <span id="channelVerified" class="text-emerald-300 text-[11px]">✓</span>
                     </div>
                     <div id="agentStatus" class="text-[10px] text-emerald-200 font-medium">çevrimiçi • aktif</div>
@@ -4386,7 +4388,7 @@
                   <input 
                     id="liveChatInput" 
                     type="text" 
-                    placeholder="Herhangi bir soru veya itiraz yazın..." 
+                    placeholder="Yapay Zeka Satıcısına bir mesaj yazın..." 
                     autocomplete="off"
                     class="flex-1 bg-slate-50 border border-slate-200/90 text-slate-800 placeholder:text-slate-400 text-xs rounded-xl px-3 py-2 outline-none focus:border-sky-500 focus:bg-white focus:ring-2 focus:ring-sky-100 transition-all font-inter"
                   />
@@ -4394,22 +4396,13 @@
                     id="liveChatSubmitBtn"
                     type="submit" 
                     class="w-8 h-8 rounded-xl bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-500 hover:to-blue-500 active:scale-95 text-white flex items-center justify-center shrink-0 shadow-sm transition-transform cursor-pointer"
-                    title="Отправить"
+                    title="Gönder"
                   >
                     <svg class="w-4 h-4 fill-current rotate-45 -mr-0.5" viewBox="0 0 24 24">
                       <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
                     </svg>
                   </button>
                 </form>
-              </div>
-
-              
-              <div id="chatFooter" class="p-2.5 bg-[#f0f2f5] border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-500">
-                <span class="text-[10.5px] font-medium text-slate-600 flex items-center gap-1.5 truncate">
-                  <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
-                  <span id="chatFooterStatus" class="truncate">✓ İhtiyaç belirlendi • Randevu Cumartesi 14:00 için oluşturuldu • Danışman bağlandı</span>
-                </span>
-                <span class="text-[10px] font-mono text-slate-400 shrink-0 ml-2">24/7</span>
               </div>
             </div>
           </div>
@@ -6405,8 +6398,8 @@
       full_deal: {
         channel: 'WHATSAPP',
         badge: 'WhatsApp',
-        assistantName: 'AI Danışmanı // Altai Optima',
-        avatarLetter: 'W',
+        assistantName: 'YAPAY ZEKA SATICISI Altai Optima',
+        avatarLetter: 'E',
         headerBg: 'bg-[#075e54]',
         headerSubText: 'text-emerald-200',
         statusText: 'çevrimiçi • aktif',
@@ -6449,8 +6442,8 @@
       price_objection: {
         channel: 'TELEGRAM',
         badge: 'Telegram',
-        assistantName: 'AI Asistanı // Altai Optima',
-        avatarLetter: 'T',
+        assistantName: 'YAPAY ZEKA SATICISI Altai Optima',
+        avatarLetter: 'E',
         headerBg: 'bg-[#229ed9]',
         headerSubText: 'text-sky-100',
         statusText: 'çevrimiçi • bot aktif',
@@ -6496,8 +6489,8 @@
       reanimate: {
         channel: 'INSTAGRAM DIRECT',
         badge: 'Instagram',
-        assistantName: 'AI Satış Yöneticisi // Altai Optima',
-        avatarLetter: 'I',
+        assistantName: 'YAPAY ZEKA SATICISI Altai Optima',
+        avatarLetter: 'E',
         headerBg: 'bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045]',
         headerSubText: 'text-pink-100',
         statusText: 'çevrimiçi • Direct',
@@ -6534,8 +6527,8 @@
       avito_deal: {
         channel: 'AVITO',
         badge: 'Avito',
-        assistantName: 'AI Satıcı // Altai Optima',
-        avatarLetter: 'A',
+        assistantName: 'YAPAY ZEKA SATICISI Altai Optima',
+        avatarLetter: 'E',
         headerBg: 'bg-[#00aaff]',
         headerSubText: 'text-sky-100',
         statusText: 'çevrimiçi • Canlı Chat',
@@ -6580,7 +6573,7 @@
       }
     };
 
-    // Her kanal için dinamik mesaj hafızası
+    // Mesaj geçmişi
     const channelMessages = {
       full_deal: [],
       price_objection: [],
@@ -6588,11 +6581,11 @@
       avito_deal: []
     };
 
-    // AI DEMO CHAT CLIENT (Canlı API Entegrasyonu)
+    // AI DEMO CHAT CLIENT
     class DemoChatClient {
       constructor() {
         this.baseUrl = "https://api.optima.altaiweb.online";
-        this.storageKey = "altai_demo_session_id";
+        this.storageKey = "altai_demo_session_id_tr";
         this.config = null;
         this.isSending = false;
       }
@@ -6627,13 +6620,13 @@
         } catch (e) {
           this.config = {
             tenant_id: "demo_amo",
-            business_name: "Monolit-Stroy Komplekt (amoCRM Demo)",
-            welcome_message: "Merhaba! Kişisel yapay zeka satış yöneticinizim. Özellikleri hesaplamaya, stok ve teslimat koşullarını kontrol etmeye hazırım. Size nasıl yardımcı olabilirim?",
+            business_name: "YAPAY ZEKA SATICISI Altai Optima",
+            welcome_message: "Merhaba! Kişisel yapay zeka satış yöneticinizim. Sorularınızı yanıtlamaya, maliyeti hesaplamaya ve sipariş oluşturmaya hazırım. Size nasıl yardımcı olabilirim?",
             suggested_questions: [
-              "Stokta hangi D500 gazbeton blokları var ve fiyatı nedir?",
-              "İstra'ya vinçli kamyonla 40 metreküp blok teslimatı ne kadar?",
-              "50 metreküp üzeri siparişlerde hangi indirimler uygulanır?",
-              "İnşaat başlamadan önce fiyat teklifini 14 gün sabitleyebilir miyiz?"
+              "Uygulama maliyeti ne kadar?",
+              "Müşteri indirim isterse ne yaparsınız?",
+              "amoCRM ve ERP ile entegre misiniz?",
+              "Klasik botlardan farkınız ne?"
             ],
             max_message_length: 4000
           };
@@ -6685,45 +6678,30 @@
       return safe;
     }
 
-    function renderLiveChatStarter(config) {
-      const questions = (config && config.suggested_questions && config.suggested_questions.length) 
-        ? config.suggested_questions 
-        : [
-            "Stokta hangi D500 gazbeton blokları var ve fiyatı nedir?",
-            "İstra'ya vinçli kamyonla 40 metreküp blok teslimatı ne kadar?",
-            "50 metreküp üzeri siparişlerde hangi indirimler uygulanır?",
-            "İnşaat başlamadan önce fiyat teklifini 14 gün sabitleyebilir miyiz?"
-          ];
-
-      const questionsHtml = questions.map(q => `
-        <button type="button" onclick="sendQuickPrompt(${JSON.stringify(q)})" class="w-full text-left p-2.5 rounded-xl bg-slate-50 hover:bg-sky-50 border border-slate-200/80 hover:border-sky-300 text-slate-700 hover:text-sky-900 transition-all text-[11px] leading-snug flex items-center justify-between group cursor-pointer">
-          <span class="font-medium">${q}</span>
-          <span class="text-sky-500 font-bold ml-2 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0">→</span>
-        </button>
-      `).join('');
-
+    function renderLiveChatStarter() {
       return `
-        <div id="liveChatStarterCard" class="bg-white rounded-2xl p-3.5 sm:p-4 shadow-xs border border-sky-100/90 text-slate-800 space-y-3 animate-fade-in">
-          <div class="flex items-start gap-2.5 sm:gap-3">
-            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-600 text-white flex items-center justify-center font-bold text-xs sm:text-sm shrink-0 shadow-xs">
-              🏢
+        <div id="emptyChatPrompt" class="h-full min-h-[220px] flex flex-col items-center justify-center text-center p-4 my-auto select-none space-y-3 animate-fade-in">
+          <div class="relative flex items-center justify-center">
+            <div class="w-14 h-14 rounded-full border-2 border-sky-400 p-0.5 shadow-lg shadow-sky-500/25 overflow-hidden bg-slate-900 shrink-0">
+              <img src="avatar_eva.jpg" alt="Eva" class="w-full h-full object-cover rounded-full" />
             </div>
-            <div class="space-y-1">
-              <div class="font-bold text-[12px] sm:text-[13px] text-slate-900 leading-tight">
-                ${config?.business_name || 'Monolit-Stroy Komplekt (amoCRM Demo)'}
-              </div>
-              <div class="text-[10.5px] sm:text-[11px] text-slate-500 leading-relaxed">
-                ${config?.welcome_message || 'Merhaba! Kişisel yapay zeka satış yöneticinizim. Şartname hesaplamaya, stok ve teslimat koşullarını kontrol etmeye hazırım.'}
-              </div>
-            </div>
+            <span class="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white shadow-xs"></span>
           </div>
-          <div class="border-t border-slate-100 pt-2.5 space-y-2">
-            <div class="flex items-center justify-between">
-              <span class="text-[10px] font-bold text-sky-700 uppercase tracking-wider">Bir örnek soru seçin veya aşağıya yazın:</span>
-              <span class="text-[9px] text-emerald-600 font-mono font-semibold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">amoCRM LIVE</span>
+
+          <div class="space-y-1">
+            <div class="text-[13px] sm:text-sm font-extrabold text-slate-800 font-inter">
+              Yapay Zeka Satıcısı Diyaloğa Hazır
             </div>
-            <div class="flex flex-col gap-1.5">
-              ${questionsHtml}
+            <p class="text-[11.5px] text-slate-500 max-w-[240px] leading-relaxed font-inter">
+              Cevap mantığını test etmek için herhangi bir soru yazın veya aşağıdaki hazır butonlardan birini seçin
+            </p>
+          </div>
+
+          <!-- Aşağıyı gösteren animasyonlu yönlendirme oku -->
+          <div class="pt-2 flex flex-col items-center text-sky-600">
+            <div class="px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200 text-[11px] font-bold tracking-wide uppercase flex items-center gap-1.5 shadow-xs">
+              <span>Aşağıya mesajınızı yazın</span>
+              <span class="text-sm animate-bounce">↓</span>
             </div>
           </div>
         </div>
@@ -6737,14 +6715,14 @@
         const questions = (config && config.suggested_questions && config.suggested_questions.length) 
           ? config.suggested_questions 
           : [
-              "Stokta hangi D500 gazbeton blokları var ve fiyatı nedir?",
-              "İstra'ya vinçli kamyonla 40 metreküp blok teslimatı ne kadar?",
-              "50 metreküp üzeri siparişlerde hangi indirimler uygulanır?",
-              "İnşaat başlamadan önce fiyat teklifini 14 gün sabitleyebilir miyiz?"
+              "Uygulama maliyeti ne kadar?",
+              "Müşteri indirim isterse ne yaparsınız?",
+              "amoCRM ve ERP ile entegre misiniz?",
+              "Klasik botlardan farkınız ne?"
             ];
 
         container.innerHTML = questions.map((q, idx) => {
-          const icons = ['🧱', '🚚', '🏷️', '⏳', '💬'];
+          const icons = ['💰', '⚡', '🔄', '🤖', '💬'];
           const icon = icons[idx % icons.length];
           const shortLabel = q.length > 28 ? q.slice(0, 26) + '…' : q;
           return `
@@ -6759,10 +6737,6 @@
     function resetLiveChatDialogue() {
       demoChatClient.resetSession();
       channelMessages[currentKey] = [];
-      const footerStatus = document.getElementById('chatFooterStatus');
-      if (footerStatus) {
-        footerStatus.textContent = '⚡ Diyalog sıfırlandı • Yeni soru yazın';
-      }
       renderFullBranch(currentKey, false);
     }
 
@@ -6780,8 +6754,6 @@
       const channelVerified = document.getElementById('channelVerified');
       const agentStatus = document.getElementById('agentStatus');
       const messagesContainer = document.getElementById('messagesContainer');
-      const chatFooter = document.getElementById('chatFooter');
-      const chatFooterStatus = document.getElementById('chatFooterStatus');
       const chatActionBtn = document.getElementById('chatActionBtn');
       const liveInput = document.getElementById('liveChatInput');
 
@@ -6789,18 +6761,18 @@
       if (channelBadge) channelBadge.textContent = cfg.badge;
 
       if (liveInput) {
-        liveInput.placeholder = "Soru veya itiraz yazın...";
+        liveInput.placeholder = "Yapay Zeka Satıcısına bir mesaj yazın...";
       }
 
       if (chatHeader) {
         chatHeader.className = `pt-11 pb-3 px-4 text-white flex items-center justify-between transition-all duration-300 shadow-xs ${cfg.headerBg}`;
       }
       if (channelAvatar) {
-        channelAvatar.className = `w-8 h-8 rounded-full border text-white flex items-center justify-center font-bold text-xs shadow-sm transition-all duration-300 ${cfg.avatarBg} ${cfg.avatarBorder}`;
-        channelAvatar.textContent = cfg.avatarLetter || 'W';
+        channelAvatar.className = "w-8 h-8 rounded-full border border-white/40 overflow-hidden shadow-sm shrink-0 bg-slate-800 flex items-center justify-center";
+        channelAvatar.innerHTML = '<img src="avatar_eva.jpg" alt="Eva" class="w-full h-full object-cover" />';
       }
       if (channelNameText) {
-        channelNameText.textContent = cfg.assistantName || 'AI Danışmanı // Altai Optima';
+        channelNameText.textContent = cfg.assistantName || 'YAPAY ZEKA SATICISI Altai Optima';
       }
       if (channelVerified) {
         channelVerified.className = `${cfg.verifiedColor || 'text-white'} text-[11px]`;
@@ -6812,12 +6784,6 @@
       }
       if (messagesContainer) {
         messagesContainer.className = `p-4 space-y-3 flex-grow overflow-y-auto text-xs transition-colors duration-300 ${cfg.chatBg}`;
-      }
-      if (chatFooter) {
-        chatFooter.className = `p-2.5 border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-500 transition-colors duration-300 ${cfg.footerBg}`;
-      }
-      if (chatFooterStatus) {
-        chatFooterStatus.textContent = cfg.bottomStatus || '';
       }
       if (chatActionBtn) {
         chatActionBtn.className = `w-8 h-8 rounded-xl text-white flex items-center justify-center text-xs font-bold shadow-sm transition-all duration-300 ${cfg.actionBtnBg}`;
@@ -6845,12 +6811,8 @@
       const list = channelMessages[key] || [];
 
       if (list.length === 0) {
-        demoChatClient.getConfig().then(config => {
-          if (currentKey === key && (channelMessages[key] || []).length === 0) {
-            box.innerHTML = renderLiveChatStarter(config);
-            box.scrollTop = 0;
-          }
-        });
+        box.innerHTML = renderLiveChatStarter();
+        box.scrollTop = 0;
         if (agentStatus) agentStatus.textContent = cfg.statusText || 'çevrimiçi';
         return;
       }
@@ -6896,17 +6858,15 @@
 
       const box = document.getElementById('messagesContainer');
       const agentStatus = document.getElementById('agentStatus');
-      const footerStatus = document.getElementById('chatFooterStatus');
       if (!box) return;
 
       const cfg = channelsConfig[currentKey] || channelsConfig.full_deal;
       const timeStr = new Date().toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
 
-      // İlk soruda başlangıç kartını kaldır
+      const emptyPrompt = document.getElementById('emptyChatPrompt');
+      if (emptyPrompt) emptyPrompt.remove();
       const starterCard = document.getElementById('liveChatStarterCard');
-      if (starterCard) {
-        starterCard.remove();
-      }
+      if (starterCard) starterCard.remove();
 
       // Kullanıcı mesajını ekle
       const userMsg = {
@@ -6933,7 +6893,7 @@
       const typingHtml = `
         <div id="chatTypingIndicator" class="flex justify-start items-end gap-2 animate-fade-in transition-all">
           <div class="bg-white text-slate-800 px-3 py-2 rounded-2xl rounded-bl-xs shadow-xs border border-slate-200/80 flex items-center gap-2">
-            <span class="text-[10px] font-bold text-sky-700">AI Asistanı yazıyor</span>
+            <span class="text-[10px] font-bold text-sky-700">Yapay Zeka Satıcısı yazıyor</span>
             <div class="flex items-center gap-1">
               <span class="w-1.5 h-1.5 rounded-full bg-sky-500 animate-bounce" style="animation-delay: 0ms; animation-duration: 0.8s;"></span>
               <span class="w-1.5 h-1.5 rounded-full bg-sky-500 animate-bounce" style="animation-delay: 180ms; animation-duration: 0.8s;"></span>
@@ -6956,18 +6916,13 @@
         const aiTimeStr = new Date().toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
         const aiMsg = {
           sender: 'ai',
-          author: cfg.assistantName || 'AI Danışmanı // Altai Optima',
+          author: cfg.assistantName || 'YAPAY ZEKA SATICISI Altai Optima',
           text: formattedText,
           time: aiTimeStr
         };
         channelMessages[currentKey].push(aiMsg);
         box.insertAdjacentHTML('beforeend', cfg.renderAiBubble(aiMsg));
         box.scrollTop = box.scrollHeight;
-
-        if (footerStatus) {
-          const latencySec = data.latency_ms ? (data.latency_ms / 1000).toFixed(1) + 'sn' : '1.5sn';
-          footerStatus.textContent = `✓ Yanıt oluşturuldu (${latencySec}) • amoCRM güncellendi`;
-        }
       } catch (err) {
         const typingEl = document.getElementById('chatTypingIndicator');
         if (typingEl) typingEl.remove();
