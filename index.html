@@ -1224,137 +1224,114 @@
       --cfg-accent-2: #10b981;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
-    #constructor .cfg-wrap {
-      max-width: 1140px;
+        #constructor .cfg-wrap {
+      max-width: 1100px;
       margin: 0 auto;
     }
     #constructor .cfg-grid {
       display: grid;
-      grid-template-columns: 1fr 340px;
-      gap: 20px;
+      grid-template-columns: 1.55fr 1fr;
+      gap: 28px;
       align-items: start;
     }
     #constructor .cfg-cards-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1fr;
       gap: 18px;
-      padding: 2px;
     }
-    @media (max-width: 960px) {
+    @media (max-width: 991px) {
       #constructor .cfg-grid {
         grid-template-columns: 1fr;
+        gap: 24px;
       }
-    }
-    @media (max-width: 640px) {
       #constructor .cfg-cards-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
       }
     }
 
-    /* ЕДИНЫЙ ПЕРЛАМУТРОВЫЙ СТИЛЬ: БЕЛЫЙ, ГОЛУБОЙ, СВЕТЛО-ГОЛУБОЙ С АНИМИРОВАННЫМИ БЛИКАМИ */
     #constructor .cfg-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 20px;
+      padding: 18px 20px;
+      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+      transition: all 0.25s ease;
       position: relative;
-      border-radius: 22px;
-      padding: 22px 24px;
-      margin-bottom: 0;
-      display: flex;
-      flex-direction: column;
-      border: 2px solid transparent;
-      background-clip: padding-box, border-box;
-      background-origin: padding-box, border-box;
-      box-shadow: 0 4px 20px -2px rgba(2, 132, 199, 0.07), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
-      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      z-index: 1;
     }
     #constructor .cfg-card > * {
       position: relative;
-      z-index: 3;
+      z-index: 2;
     }
     #constructor .cfg-card:hover {
-      box-shadow: 0 14px 34px -4px rgba(2, 132, 199, 0.2), 0 0 20px rgba(56, 189, 248, 0.25);
-      transform: translateY(-3px);
+      box-shadow: 0 12px 30px -4px rgba(2, 132, 199, 0.12), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+      transform: translateY(-2px);
     }
-
-    /* Перламутровый переливающийся световой блик поверх карточки */
     #constructor .cfg-card::after {
       content: '';
       position: absolute;
-      inset: 0;
-      border-radius: 20px;
-      background: linear-gradient(120deg, 
-        rgba(255, 255, 255, 0.65) 0%, 
-        rgba(255, 255, 255, 0.05) 35%, 
-        rgba(224, 242, 254, 0.35) 48%, 
-        rgba(240, 249, 255, 0.35) 58%, 
-        rgba(255, 255, 255, 0.05) 70%, 
-        rgba(255, 255, 255, 0.55) 100%);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(240, 249, 255, 0.3) 100%);
       pointer-events: none;
-      z-index: 2;
-      opacity: 0.85;
-      transition: opacity 0.35s ease;
+      z-index: 1;
+      opacity: 0.6;
+      transition: opacity 0.3s ease;
     }
     #constructor .cfg-card:hover::after {
-      opacity: 1;
+      opacity: 0.9;
     }
 
-    /* 1. КАРТОЧКА: КАНАЛЫ СВЯЗИ (Перламутровый белый / Небесно-голубой) */
     #constructor .cfg-card-channels {
+      border-color: rgba(56, 189, 248, 0.4);
       background-image: 
-        radial-gradient(ellipse at 15% 15%, rgba(255, 255, 255, 0.98) 0%, rgba(224, 242, 254, 0.6) 45%, #F0F9FF 100%),
-        linear-gradient(135deg, #0284c7, #38bdf8, #7dd3fc, #bae6fd, #0284c7);
-      background-size: 100% 100%, 300% 300%;
-      animation: neonBorderFlow 6s ease infinite;
+        radial-gradient(ellipse at 15% 15%, rgba(240, 249, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 65%, rgba(224, 242, 254, 0.4) 100%),
+        linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(2, 132, 199, 0.04), rgba(125, 211, 252, 0.12));
     }
-
-    /* 2. КАРТОЧКА: CRM-ИНТЕГРАЦИЯ (Перламутровый кристалл / Мягкий сапфировый) */
     #constructor .cfg-card-crms {
+      border-color: rgba(14, 165, 233, 0.4);
       background-image: 
-        radial-gradient(ellipse at 85% 15%, rgba(255, 255, 255, 0.98) 0%, rgba(219, 234, 254, 0.6) 45%, #EFF6FF 100%),
-        linear-gradient(135deg, #0369a1, #0284c7, #60a5fa, #bfdbfe, #0369a1);
-      background-size: 100% 100%, 300% 300%;
-      animation: neonBorderFlow 5s ease infinite;
+        radial-gradient(ellipse at 85% 15%, rgba(240, 249, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 65%, rgba(186, 230, 253, 0.45) 100%),
+        linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(56, 189, 248, 0.04), rgba(3, 105, 161, 0.08));
     }
-
-    /* 3. КАРТОЧКА: ДОПОЛНИТЕЛЬНО (Перламутровый циан / Ледяной бриз) */
     #constructor .cfg-card-extras {
+      border-color: rgba(2, 132, 199, 0.4);
       background-image: 
-        radial-gradient(ellipse at 15% 85%, rgba(255, 255, 255, 0.98) 0%, rgba(207, 250, 254, 0.6) 45%, #F0FDFA 100%),
-        linear-gradient(135deg, #0284c7, #06b6d4, #38bdf8, #a5f3fc, #0284c7);
-      background-size: 100% 100%, 300% 300%;
-      animation: neonBorderFlow 5.5s ease infinite;
+        radial-gradient(ellipse at 15% 85%, rgba(240, 249, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 65%, rgba(224, 242, 254, 0.4) 100%),
+        linear-gradient(135deg, rgba(2, 132, 199, 0.1), rgba(14, 165, 233, 0.04), rgba(56, 189, 248, 0.12));
     }
-
-    /* 4. КАРТОЧКА: ОБЪЕМ ЗАЯВОК (Перламутровый ультрамарин / Лазурный глянец) */
     #constructor .cfg-card-volume {
+      border-color: rgba(3, 105, 161, 0.4);
       background-image: 
-        radial-gradient(ellipse at 85% 85%, rgba(255, 255, 255, 0.98) 0%, rgba(224, 242, 254, 0.6) 45%, #F0F9FF 100%),
-        linear-gradient(135deg, #075985, #0284c7, #38bdf8, #93c5fd, #075985);
-      background-size: 100% 100%, 300% 300%;
-      animation: neonBorderFlow 4.5s ease infinite;
+        radial-gradient(ellipse at 85% 85%, rgba(240, 249, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 65%, rgba(186, 230, 253, 0.45) 100%),
+        linear-gradient(135deg, rgba(3, 105, 161, 0.1), rgba(2, 132, 199, 0.04), rgba(14, 165, 233, 0.1));
     }
 
-    /* ЗАГОЛОВКИ КАРТОЧЕК В ФИРМЕННОМ САПФИРОВО-ГОЛУБОМ СТИЛЕ */
     #constructor .cfg-card h3 {
       font-size: 13.5px;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: .07em;
-      margin: 0 0 14px;
-      font-weight: 900;
+      letter-spacing: .06em;
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
-      gap: 8px;
-      background: linear-gradient(135deg, #075985 0%, #0284c7 50%, #0369a1 100%);
+      gap: 7px;
+      background: linear-gradient(135deg, #075985 0%, #0284c7 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 2px 6px rgba(2, 132, 199, 0.15));
     }
     #constructor .cfg-card h3::before {
       content: '';
       display: inline-block;
-      width: 8px;
-      height: 8px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       background: #0284c7;
-      box-shadow: 0 0 8px #38bdf8;
+      box-shadow: 0 0 8px rgba(2, 132, 199, 0.6);
       flex-shrink: 0;
     }
 
@@ -1362,109 +1339,114 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(226, 232, 240, 0.7);
+      padding: 9px 0;
+      border-bottom: 1px solid #F1F5F9;
+      gap: 12px;
     }
     #constructor .cfg-row:last-child {
       border-bottom: none;
+      padding-bottom: 0;
     }
     #constructor .cfg-row-label {
-      font-size: 14px;
-      color: #0F172A;
+      font-size: 13px;
       font-weight: 600;
+      color: #0F172A;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 7px;
+      flex-wrap: wrap;
     }
     #constructor .cfg-row-sub {
+      font-size: 11px;
       color: #64748B;
-      font-size: 12px;
-      margin-top: 2px;
-      line-height: 1.4;
+      margin-top: 1px;
+      line-height: 1.35;
     }
-    /* ЦИФРЫ БЕЗ ПОДЛОЖКИ — ЧИСТЫЙ САПФИРОВЫЙ ЦВЕТ */
     #constructor .cfg-row-price {
+      font-size: 12px;
+      font-weight: 700;
       color: #0284c7;
-      background: transparent;
-      border: none;
-      box-shadow: none;
-      padding: 0;
-      font-size: 13.5px;
       white-space: nowrap;
-      margin-left: 8px;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      font-weight: 800;
-      letter-spacing: -0.01em;
     }
     #constructor .cfg-badge-locked {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
       font-size: 10px;
-      padding: 1.5px 6px;
-      border-radius: 5px;
-      background: #F0F9FF;
-      color: #0284c7;
       font-weight: 700;
-      border: 1px solid #BAE6FD;
       text-transform: uppercase;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.04em;
+      color: #0369a1;
+      background: #E0F2FE;
+      padding: 1px 7px;
+      border-radius: 6px;
+      border: 1px solid #BAE6FD;
+      white-space: nowrap;
     }
+
     #constructor .cfg-switch {
       position: relative;
-      width: 40px;
-      height: 22px;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
       flex-shrink: 0;
-      cursor: pointer;
     }
     #constructor .cfg-switch.cfg-locked {
+      opacity: 0.7;
       cursor: not-allowed;
-      opacity: 0.95;
     }
     #constructor .cfg-switch input {
       opacity: 0;
       width: 0;
       height: 0;
-      position: absolute;
     }
     #constructor .cfg-track {
       position: absolute;
+      cursor: pointer;
       inset: 0;
-      background: #CBD5E1;
+      background-color: #CBD5E1;
+      transition: .2s ease;
       border-radius: 999px;
-      transition: .18s ease;
     }
     #constructor .cfg-track:before {
-      content: "";
       position: absolute;
-      width: 16px;
-      height: 16px;
+      content: "";
+      height: 18px;
+      width: 18px;
       left: 3px;
-      top: 3px;
-      background: #FFFFFF;
+      bottom: 3px;
+      background-color: white;
+      transition: .2s cubic-bezier(0.4, 0, 0.2, 1);
       border-radius: 50%;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-      transition: .18s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     }
-    /* БЕГУНКИ ПРИ ВКЛЮЧЕНИИ — ФИРМЕННЫЙ САПФИР */
-    #constructor input:checked + .cfg-track,
-    #constructor .cfg-switch.cfg-locked input:checked + .cfg-track {
-      background: linear-gradient(135deg, #0284c7, #0ea5e9);
+    #constructor input:checked + .cfg-track {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
       box-shadow: 0 0 10px rgba(2, 132, 199, 0.35);
     }
+    #constructor .cfg-switch.cfg-locked input:checked + .cfg-track {
+      background: #0284c7;
+      opacity: 0.85;
+      cursor: not-allowed;
+    }
     #constructor input:checked + .cfg-track:before {
-      transform: translateX(18px);
+      transform: translateX(20px);
       background: #fff;
     }
+
     #constructor .cfg-pill-group {
       display: flex;
-      gap: 8px;
+      gap: 7px;
       flex-wrap: wrap;
     }
     #constructor .cfg-pill {
       border: 1px solid #CBD5E1;
       background: #FFFFFF;
       color: #334155;
-      padding: 8px 16px;
+      padding: 6px 13px;
       border-radius: 999px;
-      font-size: 13.5px;
+      font-size: 12.5px;
       font-weight: 600;
       cursor: pointer;
       transition: .15s ease;
@@ -1480,108 +1462,46 @@
       border-color: #0284c7;
       color: #FFFFFF;
       background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
+      box-shadow: 0 3px 10px rgba(2, 132, 199, 0.25);
     }
     #constructor .cfg-pill.cfg-pill-vip {
       border-color: #BAE6FD;
       background: #F0F9FF;
       color: #0369a1;
     }
-    #constructor .cfg-pill.cfg-pill-vip:hover {
-      border-color: #0284c7;
-      background: #E0F2FE;
-      color: #075985;
-    }
     #constructor .cfg-pill.cfg-pill-vip.active {
       border-color: #0284c7;
       background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
       color: #FFFFFF;
-      box-shadow: 0 4px 14px rgba(7, 89, 133, 0.35);
+      box-shadow: 0 3px 10px rgba(7, 89, 133, 0.3);
     }
 
-    /* ПРЕСЕТЫ ГОТОВЫХ ТАРИФОВ НАД КОНСТРУКТОРОМ */
-    #constructor .cfg-presets-wrap {
-      margin-bottom: 24px;
-    }
-    #constructor .cfg-presets-title {
-      font-size: 13px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #0369a1;
-      margin-bottom: 12px;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-    #constructor .cfg-presets-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-    @media (max-width: 768px) {
-      #constructor .cfg-presets-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    #constructor .cfg-preset-card {
+    /* БЫСТРЫЙ СТАРТ ЧИПЫ */
+    #constructor .cfg-preset-chip {
       background: #FFFFFF;
-      border: 1.5px solid #E2E8F0;
-      border-radius: 18px;
-      padding: 16px 18px;
-      cursor: pointer;
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      text-align: left;
-      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    #constructor .cfg-preset-card:hover {
-      border-color: #38bdf8;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 24px -4px rgba(2, 132, 199, 0.15);
-    }
-    #constructor .cfg-preset-card.active {
-      border-color: #0284c7;
-      background: linear-gradient(145deg, #F0F9FF 0%, #FFFFFF 100%);
-      box-shadow: 0 0 0 2px #0284c7, 0 12px 28px -4px rgba(2, 132, 199, 0.25);
-    }
-    #constructor .cfg-preset-name {
-      font-size: 14.5px;
-      font-weight: 800;
-      color: #0F172A;
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 6px;
-    }
-    #constructor .cfg-preset-desc {
-      font-size: 12px;
-      color: #64748B;
-      line-height: 1.4;
-      margin-bottom: 10px;
-    }
-    #constructor .cfg-preset-price {
-      font-size: 12.5px;
-      font-weight: 800;
-      color: #0284c7;
-      background: #E0F2FE;
-      padding: 4px 10px;
+      border: 1px solid #CBD5E1;
+      color: #334155;
+      padding: 5px 13px;
       border-radius: 999px;
-      display: inline-block;
-      width: fit-content;
+      font-weight: 700;
+      font-size: 12.5px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
     }
-    #constructor .cfg-preset-card.active .cfg-preset-price {
-      background: #0284c7;
+    #constructor .cfg-preset-chip:hover {
+      border-color: #0284c7;
+      color: #0284c7;
+      background: #F0F9FF;
+    }
+    #constructor .cfg-preset-chip.active {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      border-color: #0284c7;
       color: #FFFFFF;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
     }
 
-    /* КАРТОЧКА «НЕ НАШЛИ СВОЙ ВАРИАНТ?» */
+    /* ЕДИНЫЙ БЛОК «НЕ НАШЛИ СВОЙ ВАРИАНТ?» */
     #constructor .cfg-card-custom {
       grid-column: 1 / -1;
       background-image: 
@@ -1589,14 +1509,15 @@
         linear-gradient(135deg, #0284c7, #38bdf8, #0ea5e9, #7dd3fc, #0284c7);
       background-size: 100% 100%, 300% 300%;
       animation: neonBorderFlow 7s ease infinite;
-      padding: 20px 24px;
+      padding: 16px 20px;
+      border-radius: 20px;
     }
     #constructor .cfg-card-custom-inner {
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 16px;
     }
     @media (max-width: 640px) {
       #constructor .cfg-card-custom-inner {
@@ -1605,106 +1526,23 @@
       }
     }
 
-    /* СТИЛИ РАСШИРЕННОГО ИТОГОВОГО БЛОКА «ВАШ РАСЧЕТ» */
-    #constructor .cfg-breakdown-sublist {
-      font-size: 11.5px;
-      color: #94A3B8;
-      padding-left: 8px;
-      margin-top: 4px;
-      margin-bottom: 8px;
-      border-left: 2px solid rgba(56, 189, 248, 0.3);
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-    #constructor .cfg-breakdown-sublist-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-    }
-    #constructor .cfg-breakdown-sublist-item span:last-child {
-      color: #7DD3FC;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-    #constructor .cfg-base-included-box {
-      background: rgba(15, 23, 42, 0.6);
-      border: 1px solid rgba(56, 189, 248, 0.2);
-      border-radius: 12px;
-      padding: 10px 12px;
-      margin: 12px 0;
-      font-size: 11px;
-      color: #CBD5E1;
-      line-height: 1.45;
-    }
-    #constructor .cfg-base-included-title {
-      font-weight: 800;
-      text-transform: uppercase;
-      font-size: 9.5px;
-      letter-spacing: 0.06em;
-      color: #38BDF8;
-      margin-bottom: 4px;
-    }
-    #constructor .cfg-year-total-box {
-      background: linear-gradient(135deg, rgba(2, 132, 199, 0.25) 0%, rgba(16, 185, 129, 0.15) 100%);
-      border: 1px solid rgba(56, 189, 248, 0.35);
-      border-radius: 14px;
-      padding: 12px 14px;
-      margin-top: 14px;
-    }
-    #constructor .cfg-year-total-val {
-      font-size: 15px;
-      font-weight: 900;
-      color: #38BDF8;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    #constructor .cfg-year-total-compare {
-      font-size: 11px;
-      color: #94A3B8;
-      margin-top: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    #constructor .cfg-price-flash {
-      animation: priceFlash 0.6s ease-out;
-    }
-    @keyframes priceFlash {
-      0% { transform: scale(1.08); color: #38BDF8; text-shadow: 0 0 12px rgba(56, 189, 248, 0.8); }
-      100% { transform: scale(1); }
-    }
-
-    /* АНИМИРОВАННАЯ НЕОНОВАЯ БЕГУЩАЯ ГРАНИЦА И БЛИК ДЛЯ ТЕМНОЙ КАРТОЧКИ «ВАШ РАСЧЕТ» */
-    @keyframes neonBorderFlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    @keyframes cfgSummaryGlare {
-      0%, 65% { transform: rotate(30deg) translateY(-140%); opacity: 0; }
-      75% { opacity: 0.45; }
-      85%, 100% { transform: rotate(30deg) translateY(140%); opacity: 0; }
-    }
-
+    /* СТИЛИ КОМПАКТНОЙ КАРТОЧКИ «ВАШ РАСЧЕТ» */
     #constructor .cfg-summary-outer {
       position: sticky;
       top: 90px;
       padding: 2.5px;
-      border-radius: 26px;
+      border-radius: 24px;
       background: linear-gradient(135deg, #0284c7, #38bdf8, #0369a1, #38bdf8, #0284c7);
       background-size: 300% 300%;
       animation: neonBorderFlow 4s ease infinite;
-      box-shadow: 0 20px 50px -10px rgba(2, 132, 199, 0.35), 0 0 30px rgba(56, 189, 248, 0.2);
+      box-shadow: 0 20px 45px -10px rgba(2, 132, 199, 0.3), 0 0 25px rgba(56, 189, 248, 0.15);
     }
     #constructor .cfg-summary {
       position: relative;
       background: linear-gradient(165deg, #0b1928 0%, #0f2438 50%, #071320 100%);
       border: 1px solid rgba(56, 189, 248, 0.25);
-      border-radius: 23px;
-      padding: 24px 22px;
+      border-radius: 21.5px;
+      padding: 20px 18px;
       height: fit-content;
       overflow: hidden;
       color: #F8FAFC;
@@ -1716,73 +1554,38 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: linear-gradient(60deg, transparent 40%, rgba(56, 189, 248, 0.15) 50%, transparent 60%);
+      background: linear-gradient(60deg, transparent 40%, rgba(56, 189, 248, 0.12) 50%, transparent 60%);
       transform: rotate(30deg) translateY(-140%);
       animation: cfgSummaryGlare 5s ease-in-out infinite;
       pointer-events-none;
     }
     #constructor .cfg-summary-title {
-      font-size: 15px;
+      font-size: 14px;
       text-transform: uppercase;
       letter-spacing: .06em;
       color: #FFFFFF;
       margin: 0;
       font-weight: 900;
     }
-    #constructor .cfg-sum-line {
+    #constructor .cfg-year-total-box {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.2) 0%, rgba(16, 185, 129, 0.12) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 12px;
+      padding: 9px 11px;
+    }
+    #constructor .cfg-year-total-val {
+      font-weight: 800;
+      color: #38BDF8;
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      font-size: 13px;
-      color: #CBD5E1;
-      padding: 5px 0;
     }
-    #constructor .cfg-sum-line span:last-child {
-      color: #38BDF8;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      font-weight: 700;
-    }
-    #constructor .cfg-divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.35), transparent);
-      margin: 14px 0;
-    }
-    #constructor .cfg-total-block {
-      margin-bottom: 12px;
-      padding: 4px 0;
-      background: transparent;
-      border: none;
-      box-shadow: none;
-    }
-    #constructor .cfg-total-label {
-      font-size: 11px;
-      color: #38BDF8;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      margin-bottom: 2px;
-      font-weight: 800;
-      font-family: 'Inter', sans-serif;
-    }
-    #constructor .cfg-total-value {
-      font-size: 32px;
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      line-height: 1.05;
-      color: #FFFFFF;
-    }
-    #constructor .cfg-total-setup {
-      color: #FFFFFF;
-    }
-    #constructor .cfg-total-setup .cur {
-      color: #38BDF8;
-      font-weight: 800;
-    }
-    #constructor .cfg-total-monthly {
-      color: #FFFFFF;
-    }
-    #constructor .cfg-total-monthly .cur {
-      color: #38BDF8;
-      font-weight: 800;
+    #constructor .cfg-year-total-compare {
+      color: #94A3B8;
+      margin-top: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
     #constructor .cfg-cta {
       display: block;
@@ -1791,33 +1594,37 @@
       background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
       color: #fff;
       border: none;
-      border-radius: 14px;
-      padding: 15px;
+      border-radius: 13px;
+      padding: 12px;
       font-size: 13.5px;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.04em;
       cursor: pointer;
-      margin-top: 16px;
       text-decoration: none;
       transition: all .25s ease;
-      box-shadow: 0 10px 25px rgba(2, 132, 199, 0.4);
+      box-shadow: 0 8px 22px rgba(2, 132, 199, 0.35);
     }
     #constructor .cfg-cta:hover {
       background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
-      box-shadow: 0 14px 32px rgba(2, 132, 199, 0.55);
+      box-shadow: 0 12px 28px rgba(2, 132, 199, 0.5);
       transform: translateY(-2px);
     }
     #constructor .cfg-note {
-      font-size: 10.5px;
       color: #94A3B8;
-      margin-top: 12px;
-      line-height: 1.5;
+      line-height: 1.4;
       text-align: center;
     }
 
-    /* СКРОЛЛ-АНИМАЦИЯ ДЕЛИКАТНОГО И ПЛАВНОГО ОКРАШИВАНИЯ ЗАГОЛОВКА СЛЕВА НАПРАВО */
-    #scrollProblemTitle {
+    #constructor .cfg-price-flash {
+      animation: priceFlash 0.5s ease-out;
+    }
+    @keyframes priceFlash {
+      0% { transform: scale(1.06); color: #38BDF8; text-shadow: 0 0 10px rgba(56, 189, 248, 0.8); }
+      100% { transform: scale(1); }
+    }
+
+#scrollProblemTitle {
       overflow: visible !important;
       line-height: 1.06 !important;
     }
@@ -6315,71 +6122,39 @@
     </div>
 
     <!-- 8.9 СЕКЦИЯ: КОНСТРУКТОР ТАРИФА -->
-    <section id="constructor" class="max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 font-inter space-y-8 sm:space-y-10 py-12 sm:py-16">
+        <section id="constructor" class="max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 font-inter space-y-6 sm:space-y-8 py-10 sm:py-14">
       
-      <!-- Заголовок секции -->
-      <div class="text-center max-w-4xl mx-auto space-y-3 pb-2">
-        <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[42px] leading-[1.15]" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 12px 30px rgba(2, 132, 199, 0.15));">
+      <!-- Заголовок секции: одна строка описания -->
+      <div class="text-center max-w-4xl mx-auto space-y-2 pb-1">
+        <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[40px] leading-[1.15]" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 12px 30px rgba(2, 132, 199, 0.15));">
           СКОЛЬКО СТОИТ ИИ-ПРОДАВЕЦ ДЛЯ ВАШЕГО БИЗНЕСА
         </h2>
-        <div class="space-y-2 max-w-3xl mx-auto text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed font-normal">
-          <p>Соберите своего ИИ-продавца: выберите, где пишут ваши клиенты и где вести базу. Расчёт обновится сразу.</p>
-          <p class="text-xs sm:text-sm text-slate-500 font-normal">Это пример, чтобы вы понимали порядок цен. Каждый проект мы настраиваем под ваш бизнес и можем подключить любой канал, систему или сценарий. Точную стоимость назовём после короткого брифа.</p>
-        </div>
+        <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+          Выберите каналы и где вести базу, расчёт обновится сразу
+        </p>
       </div>
 
       <!-- Конструктор тарифа -->
       <div class="cfg-wrap relative z-10">
 
-        <!-- ГОТОВЫЕ ПРИМЕРЫ (ПРЕСЕТЫ НАД КОНСТРУКТОРОМ) -->
-        <div class="cfg-presets-wrap">
-          <div class="cfg-presets-title">
-            <span>✨</span>
-            <span>Начните с готового примера и поменяйте под себя</span>
-          </div>
-          <div class="cfg-presets-grid" id="presetGrid">
-            
-            <!-- Пресет 1 -->
-            <div class="cfg-preset-card" data-preset="social" onclick="window.applyPreset('social')">
-              <div>
-                <div class="cfg-preset-name">
-                  <span>Продаю в соцсетях</span>
-                  <span class="text-sky-500 text-xs font-mono font-bold">01</span>
-                </div>
-                <div class="cfg-preset-desc">Instagram*, Telegram или Авито + база в таблице</div>
-              </div>
-              <div class="cfg-preset-price">от 50 000 ₽ и от 15 000 ₽/мес</div>
-            </div>
-
-            <!-- Пресет 2 -->
-            <div class="cfg-preset-card" data-preset="shop" onclick="window.applyPreset('shop')">
-              <div>
-                <div class="cfg-preset-name">
-                  <span>Магазин или сервис</span>
-                  <span class="text-sky-500 text-xs font-mono font-bold">02</span>
-                </div>
-                <div class="cfg-preset-desc">WhatsApp + Telegram + база в таблице</div>
-              </div>
-              <div class="cfg-preset-price">от 60 000 ₽ и от 17 000 ₽/мес</div>
-            </div>
-
-            <!-- Пресет 3 -->
-            <div class="cfg-preset-card" data-preset="corp" onclick="window.applyPreset('corp')">
-              <div>
-                <div class="cfg-preset-name">
-                  <span>Компания с отделом продаж</span>
-                  <span class="text-sky-500 text-xs font-mono font-bold">03</span>
-                </div>
-                <div class="cfg-preset-desc">3 канала + amoCRM + 1С + голосовые сообщения</div>
-              </div>
-              <div class="cfg-preset-price">от 120 000 ₽ и от 32 000 ₽/мес</div>
-            </div>
-
-          </div>
+        <!-- БЫСТРЫЙ СТАРТ ЧИПЫ -->
+        <div class="cfg-quick-presets flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 mb-5 text-xs sm:text-sm">
+          <span class="font-extrabold text-slate-500 uppercase tracking-wider text-[11px] sm:text-xs mr-1">Быстрый старт:</span>
+          <button type="button" class="cfg-preset-chip" data-preset="social" onclick="window.applyPreset('social')">
+            <span>Соцсети</span>
+          </button>
+          <span class="text-slate-300">·</span>
+          <button type="button" class="cfg-preset-chip" data-preset="shop" onclick="window.applyPreset('shop')">
+            <span>Магазин</span>
+          </button>
+          <span class="text-slate-300">·</span>
+          <button type="button" class="cfg-preset-chip" data-preset="corp" onclick="window.applyPreset('corp')">
+            <span>Отдел продаж</span>
+          </button>
         </div>
 
         <div class="cfg-grid">
-          <!-- ЛЕВАЯ КОЛОНКА: СЕТКА КАРТОЧЕК И СНОСКА -->
+          <!-- ЛЕВАЯ КОЛОНКА: СЕТКА КАРТОЧЕК -->
           <div>
             <div class="cfg-cards-grid">
 
@@ -6387,7 +6162,7 @@
               <div class="cfg-card cfg-card-channels">
                 <h3>ГДЕ ВАШИ КЛИЕНТЫ ПИШУТ</h3>
                 <div class="text-xs text-slate-500 -mt-2 mb-3 leading-relaxed">
-                  Можно выбрать несколько. Первый канал входит в базовый пакет.
+                  Первый канал в базе, каждый следующий +10 000 ₽ и +2 000 ₽/мес
                 </div>
                 <div id="channels"></div>
               </div>
@@ -6396,17 +6171,17 @@
               <div class="cfg-card cfg-card-crms">
                 <h3>ГДЕ ВЕСТИ БАЗУ КЛИЕНТОВ</h3>
                 <div class="text-xs text-slate-500 -mt-2 mb-3 leading-relaxed">
-                  CRM не обязательна: ИИ-продавец сам запишет каждую заявку в таблицу. Системы можно выбрать несколько.
+                  Каждая система +20 000 ₽ и +5 000 ₽/мес
                 </div>
                 
                 <!-- Таблица (заблокирована и включена) -->
                 <div class="cfg-row">
                   <div>
                     <div class="cfg-row-label">
-                      <span>Таблица (Google Таблицы / Excel Online)</span>
-                      <span class="cfg-badge-locked">входит в базу</span>
+                      <span>Таблица (Google / Excel Online)</span>
+                      <span class="cfg-badge-locked">в базе</span>
                     </div>
-                    <div class="cfg-row-sub">Каждая заявка записывается сама: имя, телефон, откуда пришёл, что спросил, дата и статус. Доступ можно дать команде</div>
+                    <div class="cfg-row-sub">Заявки записываются сами</div>
                   </div>
                   <div style="display:flex;align-items:center;gap:12px;">
                     <label class="cfg-switch cfg-locked" title="Входит в базу (всегда включено)">
@@ -6419,12 +6194,13 @@
                 <div id="crms"></div>
 
                 <!-- Подсказка под списком CRM -->
-                <div class="text-[11.5px] text-slate-500 pt-3 border-t border-slate-200/70 leading-relaxed mt-2">
-                  💡 Начните с таблицы, а когда бизнес вырастет, подключим CRM и перенесём всю базу. Если подключите CRM, таблица останется резервной копией заявок.
+                <div class="text-[11.5px] text-slate-500 pt-2.5 border-t border-slate-200/70 leading-relaxed mt-2 flex items-center gap-1.5">
+                  <span class="text-sky-600 font-bold">ℹ️</span>
+                  <span>Начните с таблицы, а когда бизнес вырастет — подключим CRM и перенесём базу.</span>
                 </div>
 
                 <!-- Предупреждение если выбраны amoCRM + Битрикс24 -->
-                <div id="crmDualNotice" class="hidden mt-2.5 p-2.5 rounded-xl bg-amber-50/90 border border-amber-200 text-xs text-amber-800 flex items-center gap-2">
+                <div id="crmDualNotice" class="hidden mt-2 p-2 rounded-xl bg-amber-50/90 border border-amber-200 text-xs text-amber-800 flex items-center gap-2">
                   <span>ℹ️</span>
                   <span>Обычно достаточно одной CRM. Если у вас обе, уточним на брифе.</span>
                 </div>
@@ -6440,25 +6216,24 @@
               <div class="cfg-card cfg-card-volume">
                 <h3>СКОЛЬКО ОБРАЩЕНИЙ В МЕСЯЦ</h3>
                 <div class="text-xs text-slate-500 -mt-2 mb-3 leading-relaxed">
-                  Выберите один вариант. Считаем новых клиентов, которые вам пишут.
+                  Считаем новых клиентов, которые вам пишут
                 </div>
                 <div class="cfg-pill-group" id="volume"></div>
-                <div class="cfg-row-sub text-slate-500" style="margin-top:10px;">
-                  <span id="volSupportText">Помогает нам точнее подготовить расчёт, на сумму не влияет</span>
-                </div>
               </div>
 
-              <!-- КАРТОЧКА 5: НЕ НАШЛИ СВОЙ ВАРИАНТ? -->
+              <!-- ЕДИНЫЙ БЛОК: НЕ НАШЛИ СВОЙ ВАРИАНТ ИЛИ БОЛЬШЕ 1000 ОБРАЩЕНИЙ -->
               <div class="cfg-card cfg-card-custom">
                 <div class="cfg-card-custom-inner">
-                  <div class="space-y-1.5">
-                    <h3 class="!mb-1">НЕ НАШЛИ СВОЙ ВАРИАНТ?</h3>
+                  <div class="space-y-1">
+                    <div class="text-slate-900 font-extrabold text-sm sm:text-base leading-snug">
+                      Не нашли свой вариант или больше 1000 обращений?
+                    </div>
                     <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      Подключим телефонию, сайт, маркетплейсы, HubSpot, Pipedrive или вашу собственную систему. Настроим работу для нескольких филиалов, языков и менеджеров. Расскажите, как устроены ваши продажи, и мы предложим решение.
+                      Подключим любой канал или систему, настроим несколько ИИ-продавцов и филиалов.
                     </p>
                   </div>
                   <div class="shrink-0 pt-2 sm:pt-0">
-                    <a href="https://t.me/altaioptima?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A3%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%BD%D0%B5%D1%81%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D0%B0%D1%8F%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B0%20%D0%B8%D0%BD%D1%82%D0%B5%D0%B3%D1%80%D0%B0%D1%86%D0%B8%D0%B8%20%D0%98%D0%98-%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B2%D1%86%D0%B0.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C" target="_blank" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-sky-600 via-sky-500 to-blue-600 hover:from-sky-500 hover:to-blue-500 px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 whitespace-nowrap">
+                    <a href="https://t.me/altaioptima?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B8%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%20%D0%98%D0%98-%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B2%D1%86%D0%B0" target="_blank" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-sky-600 via-sky-500 to-blue-600 hover:from-sky-500 hover:to-blue-500 px-4 py-2 rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 whitespace-nowrap">
                       <span>Обсудить задачу</span>
                       <span>→</span>
                     </a>
@@ -6468,12 +6243,6 @@
 
             </div>
 
-            <!-- СНОСКА ПОД КАРТОЧКАМИ -->
-            <div class="mt-4 px-4 py-3 rounded-2xl bg-sky-50/80 border border-sky-200/90 text-xs sm:text-sm text-slate-700 flex items-center gap-3 shadow-xs">
-              <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-sky-500/20 text-sky-700 font-bold text-xs shrink-0">👑</span>
-              <span class="font-medium">Больше 1000 обращений в месяц или нужно несколько ИИ-продавцов? Подберём индивидуальный тариф «Империя».</span>
-            </div>
-
             <!-- СНОСКИ ВНИЗУ БЛОКА -->
             <div class="mt-3 text-[11px] text-slate-400 space-y-1 leading-relaxed px-1">
               <p>*Instagram принадлежит компании Meta, признанной экстремистской организацией и запрещённой в РФ.</p>
@@ -6481,57 +6250,67 @@
             </div>
           </div>
 
-          <!-- ИТОГОВЫЙ БЛОК РАСЧЕТА (STICKY С АНИМИРОВАННОЙ НЕОНОВОЙ ГРАНИЦЕЙ) -->
-          <div class="cfg-summary-outer">
+          <!-- ИТОГОВЫЙ БЛОК РАСЧЕТА (STICKY) -->
+          <div class="cfg-summary-outer" id="cfgSummaryOuter">
             <div class="cfg-summary">
               <div class="flex items-center justify-between gap-2 mb-3">
                 <h3 class="!m-0">
-                  <span class="cfg-summary-title">Ваш расчёт</span>
+                  <span class="cfg-summary-title">ВАШ РАСЧЁТ</span>
                 </h3>
               </div>
 
-              <!-- Настройка, единоразово -->
-              <div class="cfg-total-block">
-                <div class="cfg-total-label">Настройка, единоразово</div>
-                <div class="cfg-total-value cfg-total-setup" id="setupTotalVal"><span id="setupTotal">50 000</span> <span class="cur">₽</span></div>
-                <div class="cfg-breakdown-sublist" id="setupSublist">
-                  <div class="cfg-breakdown-sublist-item"><span>База (1 канал + таблица)</span><span>50 000 ₽</span></div>
+              <!-- Суммы настройки и подписки -->
+              <div class="space-y-1 pb-1">
+                <div class="flex items-baseline gap-1.5 text-xl sm:text-2xl font-black text-white font-inter">
+                  <span id="setupTotal">50 000</span> <span class="text-sky-400 font-bold text-sm">₽</span>
+                  <span class="text-xs text-slate-300 font-medium ml-1">настройка</span>
+                </div>
+                <div class="flex items-baseline gap-1.5 text-xl sm:text-2xl font-black text-emerald-400 font-inter">
+                  <span id="monthlyTotal">15 000</span> <span class="text-emerald-300 font-bold text-sm">₽/мес</span>
+                  <span class="text-xs text-slate-300 font-medium ml-1">со 2-го месяца</span>
                 </div>
               </div>
 
-              <!-- Подписка со 2-го месяца -->
-              <div class="cfg-total-block">
-                <div class="cfg-total-label">Подписка со 2-го месяца</div>
-                <div class="cfg-total-value cfg-total-monthly" id="monthlyTotalVal"><span id="monthlyTotal">15 000</span> <span class="cur">₽/мес</span></div>
-                <div class="cfg-breakdown-sublist" id="monthlySublist">
-                  <div class="cfg-breakdown-sublist-item"><span>База</span><span>15 000 ₽/мес</span></div>
+              <!-- Аккордеон «Подробнее ▾» со сворачиваемой таблицей -->
+              <div class="cfg-details-wrap my-2 border-t border-b border-sky-400/20 py-2">
+                <button type="button" id="cfgToggleDetailsBtn" onclick="toggleCfgDetails()" class="w-full flex items-center justify-between text-xs font-bold text-sky-300 hover:text-white transition-colors cursor-pointer py-0.5">
+                  <span id="cfgDetailsToggleLabel">Подробнее</span>
+                  <span id="cfgDetailsArrow" class="transition-transform duration-200">▾</span>
+                </button>
+                <div id="cfgDetailsTable" class="hidden mt-2 pt-1 font-mono text-[11px] text-slate-300 overflow-x-auto">
+                  <table class="w-full text-left">
+                    <thead>
+                      <tr class="text-[10px] uppercase text-sky-400/80 border-b border-sky-400/20">
+                        <th class="pb-1 font-bold"></th>
+                        <th class="pb-1 font-bold text-right pr-2">разово</th>
+                        <th class="pb-1 font-bold text-right">в месяц</th>
+                      </tr>
+                    </thead>
+                    <tbody id="cfgDetailsRows" class="divide-y divide-white/5 font-sans">
+                      <!-- Dynamic rows -->
+                    </tbody>
+                  </table>
                 </div>
-              </div>
-
-              <!-- Что входит в базу -->
-              <div class="cfg-base-included-box">
-                <div class="cfg-base-included-title">Что входит в базу:</div>
-                Обучение на ваших товарах и скриптах · запись заявок в таблицу · передача сложных клиентов вашему менеджеру · доступ ко всем перепискам
               </div>
 
               <!-- Итог за первый год -->
-              <div class="cfg-year-total-box">
-                <div class="cfg-year-total-val">
-                  <span>Итого за первый год:</span>
-                  <span id="yearTotal">от 215 000 ₽</span>
+              <div class="cfg-year-total-box !mt-2 !p-2.5">
+                <div class="cfg-year-total-val text-xs sm:text-sm">
+                  <span>За первый год:</span>
+                  <span id="yearTotal" class="font-black text-sky-300">215 000 ₽</span>
                 </div>
-                <div class="cfg-year-total-compare" id="yearCompareBox">
-                  <span>Штатный менеджер:</span>
-                  <span class="line-through text-slate-400">~960 000 ₽</span>
+                <div class="cfg-year-total-compare text-[11px]">
+                  <span>Штатный менеджер —</span>
+                  <span class="text-slate-300">~960 000 ₽</span>
                 </div>
               </div>
 
-              <a class="cfg-cta" href="https://t.me/altaioptima" id="ctaBtn" target="_blank">ПОЛУЧИТЬ ТОЧНЫЙ РАСЧЁТ</a>
-              <div class="text-center text-[11px] text-sky-300 font-medium pt-2">
+              <a class="cfg-cta !mt-3 !py-2.5 !text-xs sm:!text-sm" href="https://t.me/altaioptima" id="ctaBtn" target="_blank">ПОЛУЧИТЬ ТОЧНЫЙ РАСЧЁТ</a>
+              <div class="text-center text-[11px] text-sky-300 font-medium pt-1.5">
                 или напишите в <a href="https://t.me/altaioptima" target="_blank" class="underline hover:text-white">Telegram</a> / <a href="https://wa.me/79990000000" target="_blank" class="underline hover:text-white">WhatsApp</a>
               </div>
-              <div class="cfg-note">
-                *Расчёт ориентировочный. Точную стоимость зафиксируем после брифа и разбора ваших процессов. Цены указаны без НДС.
+              <div class="cfg-note !mt-2 text-[10.5px]">
+                *Цены ориентировочные, без НДС. Точную стоимость назовём после брифа.
               </div>
             </div>
           </div>
@@ -6539,6 +6318,21 @@
       </div>
 
     </section>
+
+    <!-- МОБИЛЬНАЯ ЗАКРЕПЛЕННАЯ НИЖНЯЯ ПАНЕЛЬ РАСЧЕТА -->
+    <div id="cfgMobileBottomBar" class="fixed bottom-0 inset-x-0 z-50 p-3 bg-[#0b1928]/95 backdrop-blur-md border-t border-sky-400/30 shadow-[0_-8px_25px_rgba(0,0,0,0.4)] transition-all duration-300 translate-y-full sm:hidden">
+      <div class="flex items-center justify-between gap-3 max-w-md mx-auto">
+        <div class="text-left font-inter">
+          <div class="text-xs font-black text-white whitespace-nowrap">
+            <span id="mobSetupTotal">50 000</span> ₽ + <span id="mobMonthlyTotal">15 000</span> ₽/мес
+          </div>
+          <div class="text-[9.5px] text-sky-400 font-bold uppercase tracking-wider">Ваш расчёт</div>
+        </div>
+        <a href="#ctaBtn" onclick="document.getElementById('ctaBtn')?.scrollIntoView({behavior:'smooth'})" class="shrink-0 text-xs font-black text-white bg-gradient-to-r from-sky-500 to-blue-600 px-3.5 py-2 rounded-xl shadow-md uppercase tracking-wider">
+          Получить расчёт
+        </a>
+      </div>
+    </div>
 
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: СИНЯЯ СТРЕЛКА К ЗАГОЛОВКУ «ПОРА ЗАБИРАТЬ СВОИ ДЕНЬГИ» -->
     <div class="flex flex-col items-center justify-center pt-8 sm:pt-12 pb-4 relative z-20">
@@ -9034,6 +8828,16 @@
       })();
 
       // КОНСТРУКТОР ТАРИФА
+            // Toggle details in summary
+      window.toggleCfgDetails = function() {
+        const table = document.getElementById('cfgDetailsTable');
+        const arrow = document.getElementById('cfgDetailsArrow');
+        if (!table) return;
+        const isHidden = table.classList.contains('hidden');
+        table.classList.toggle('hidden', !isHidden);
+        if (arrow) arrow.textContent = isHidden ? '▴' : '▾';
+      };
+
       (function initTariffConstructor() {
         const lang = (document.documentElement.lang || 'ru').toLowerCase();
         const isEn = lang.startsWith('en');
@@ -9049,38 +8853,38 @@
           {id:'wa', label:'WhatsApp', setup:10000, monthly:2000},
           {id:'tg', label:'Telegram', setup:10000, monthly:2000},
           {id:'inst', label:'Instagram*', setup:10000, monthly:2000},
-          {id:'avito', label: isEn ? 'Classifieds / Avito' : (isTr ? 'İlan Portalları' : 'Авито'), setup:10000, monthly:2000},
-          {id:'max', label:'MAX', sub: isEn ? 'Russian messenger' : (isTr ? 'Rus mesajlaşma' : 'российский мессенджер'), setup:10000, monthly:2000},
-          {id:'mail', label: isEn ? 'Email' : (isTr ? 'E-posta' : 'Email'), setup:10000, monthly:2000},
+          {id:'avito', label:'Авито', setup:10000, monthly:2000},
+          {id:'max', label:'MAX', sub:'российский мессенджер', setup:10000, monthly:2000},
+          {id:'mail', label:'Email', setup:10000, monthly:2000},
         ];
 
         const CRMS = [
-          {id:'amo', label: (isEn || isTr) ? 'amoCRM / HubSpot' : 'amoCRM', sub: isEn ? 'CRM for sales' : (isTr ? 'Satış CRM' : 'CRM для сделок'), setup:20000, monthly:5000},
-          {id:'bitrix', label: (isEn || isTr) ? 'Bitrix24 / Salesforce' : 'Битрикс24', sub: isEn ? 'CRM for sales' : (isTr ? 'Satış CRM' : 'CRM для сделок'), setup:20000, monthly:5000},
-          {id:'1c', label: (isEn || isTr) ? '1C:Enterprise / ERP' : '1С:Предприятие', sub: isEn ? 'inventory & invoicing' : (isTr ? 'stok ve fatura takibi' : 'учёт товаров, остатков и счетов'), setup:20000, monthly:5000},
-          {id:'moysklad', label: (isEn || isTr) ? 'MoySklad / Inventory' : 'МойСклад', sub: isEn ? 'inventory & invoicing' : (isTr ? 'stok ve fatura takibi' : 'учёт товаров, остатков и счетов'), setup:20000, monthly:5000},
+          {id:'amo', label:'amoCRM', sub:'CRM для сделок', setup:20000, monthly:5000},
+          {id:'bitrix', label:'Битрикс24', sub:'CRM для сделок', setup:20000, monthly:5000},
+          {id:'1c', label:'1С:Предприятие', sub:'учёт товаров, остатков и счетов', setup:20000, monthly:5000},
+          {id:'moysklad', label:'МойСклад', sub:'учёт товаров, остатков и счетов', setup:20000, monthly:5000},
         ];
 
         const EXTRAS = [
           {
             id:'voice',
-            label: isEn ? 'Voice message transcription' : (isTr ? 'Sesli mesaj tanıma' : 'Понимает голосовые сообщения'),
-            sub: isEn ? 'audio → text in any channel' : (isTr ? 'tüm kanallarda ses → metin' : 'переводит аудио в текст и отвечает в любом канале'),
+            label:'Понимает голосовые сообщения',
+            sub:'переводит аудио в текст и отвечает в любом канале · +3 000 ₽/мес',
             setup:10000, monthly:3000
           },
           {
             id:'scratch',
-            label: isEn ? 'Full setup from scratch' : (isTr ? 'Sıfırdan tam hazırlık' : 'Подготовка с нуля'),
-            sub: isEn ? 'sales scripts, pricing & knowledge base' : (isTr ? 'satış senaryoları, fiyat listesi ve bilgi tabanı' : 'составим скрипты продаж, прайс и базу знаний, если пока всё «в голове»'),
+            label:'Подготовка с нуля',
+            sub:'составим скрипты продаж, прайс и базу знаний, если пока всё «в голове»',
             setup:50000, monthly:0
           },
         ];
 
         const VOLUMES = [
-          {id:'v1', label: isEn ? 'up to 100 · included in base' : (isTr ? "100'e kadar · temele dahil" : 'до 100 · входит в базу'), shortLabel: isEn ? 'up to 100' : (isTr ? "100'e kadar" : 'до 100'), setupAdd:0, monthlyAdd:0},
-          {id:'v2', label: isEn ? '100–500 · +$40/mo' : (isTr ? '100–500 · +1.200 ₺/ay' : '100–500 · +3 000 ₽/мес'), shortLabel:'100–500', setupAdd:0, monthlyAdd:3000},
-          {id:'v3', label: isEn ? '500–1,000 · +$90/mo' : (isTr ? '500–1.000 · +2.800 ₺/ay' : '500–1000 · +7 000 ₽/мес'), shortLabel: isEn ? '500–1,000' : (isTr ? '500–1.000' : '500–1000'), setupAdd:0, monthlyAdd:7000},
-          {id:'v4', label: isEn ? '1,000+ · custom' : (isTr ? '1.000+ · özel' : 'от 1000 · индивидуально'), shortLabel: isEn ? '1,000+' : (isTr ? '1.000+' : 'от 1000'), isVip: true, setupAdd:0, monthlyAdd:15000},
+          {id:'v1', label:'до 100 · входит в базу', shortLabel:'до 100', setupAdd:0, monthlyAdd:0},
+          {id:'v2', label:'100–500 · +3 000 ₽/мес', shortLabel:'100–500', setupAdd:0, monthlyAdd:3000},
+          {id:'v3', label:'500–1000 · +7 000 ₽/мес', shortLabel:'500–1000', setupAdd:0, monthlyAdd:7000},
+          {id:'v4', label:'от 1000 · индивидуально', shortLabel:'от 1000', isVip: true, setupAdd:0, monthlyAdd:15000},
         ];
 
         const state = {
@@ -9103,13 +8907,12 @@
           channelsEl.innerHTML = CHANNELS.map(c => {
             const isChecked = !!state.channels[c.id];
             const isBaseChannel = (c.id === firstActiveId);
-            const supLabel = isEn ? 'Subscription' : (isTr ? 'Abonelik' : 'Подписка');
 
             let priceHtml = '';
             if (isBaseChannel) {
-              priceHtml = `<span class="cfg-badge-locked" style="background:#E0F2FE;color:#0284c7;border-color:#BAE6FD;">${isEn ? 'in base' : (isTr ? 'temele dahil' : 'входит в базу')}</span>`;
+              priceHtml = `<span class="cfg-badge-locked">в базе</span>`;
             } else {
-              priceHtml = `<div class="cfg-row-price">+${c.setup.toLocaleString(loc)} ${curSym} <span class="text-[11px] text-slate-500 font-normal">· +${c.monthly.toLocaleString(loc)} ${curSym}${perMo}</span></div>`;
+              priceHtml = `<div class="cfg-row-price">+${c.setup.toLocaleString(loc)} ₽</div>`;
             }
 
             return `
@@ -9117,7 +8920,6 @@
                 <div>
                   <div class="cfg-row-label">
                     <span>${c.label}</span>
-                    ${isBaseChannel ? `<span class="cfg-badge-locked">${isEn ? '1st channel' : (isTr ? '1. kanal' : '1-й канал')}</span>` : ''}
                   </div>
                   ${c.sub ? `<div class="cfg-row-sub">${c.sub}</div>` : ''}
                 </div>
@@ -9135,7 +8937,6 @@
 
         function renderToggleList(container, items, group) {
           if (!container) return;
-          const supLabel = isEn ? 'Subscription' : (isTr ? 'Abonelik' : 'Подписка');
           container.innerHTML = items.map(it => {
             const isChecked = !!state[group][it.id];
             return `
@@ -9143,10 +8944,9 @@
                 <div>
                   <div class="cfg-row-label">${it.label}</div>
                   ${it.sub ? `<div class="cfg-row-sub">${it.sub}</div>` : ''}
-                  ${it.monthly ? `<div class="cfg-row-sub text-slate-500">${supLabel}: +${it.monthly.toLocaleString(loc)} ${curSym}${perMo}</div>` : ''}
                 </div>
                 <div style="display:flex;align-items:center;gap:12px;">
-                  <div class="cfg-row-price">+${it.setup.toLocaleString(loc)} ${curSym}</div>
+                  <div class="cfg-row-price">+${it.setup.toLocaleString(loc)} ₽</div>
                   <label class="cfg-switch">
                     <input type="checkbox" data-group="${group}" data-id="${it.id}" ${isChecked ? 'checked' : ''}>
                     <span class="cfg-track"></span>
@@ -9195,14 +8995,14 @@
         }
 
         function clearPresetActive() {
-          const cards = document.querySelectorAll('.cfg-preset-card');
-          cards.forEach(c => c.classList.remove('active'));
+          const chips = document.querySelectorAll('.cfg-preset-chip');
+          chips.forEach(c => c.classList.remove('active'));
         }
 
         window.applyPreset = function(presetKey) {
           clearPresetActive();
-          const targetCard = document.querySelector(`.cfg-preset-card[data-preset="${presetKey}"]`);
-          if (targetCard) targetCard.classList.add('active');
+          const targetChip = document.querySelector(`.cfg-preset-chip[data-preset="${presetKey}"]`);
+          if (targetChip) targetChip.classList.add('active');
 
           if (presetKey === 'social') {
             state.channels = { tg: true, inst: false, wa: false, avito: false, max: false, mail: false };
@@ -9237,14 +9037,12 @@
           let setup = BASE_SETUP;
           let monthly = BASE_MONTHLY;
           
-          let setupItems = [];
-          let monthlyItems = [];
-
-          // Base included lines
-          const baseSetupTitle = isEn ? 'Base (1 channel + online sheet)' : (isTr ? 'Temel (1 kanal + e-tablo)' : 'База (1 канал + онлайн-таблица)');
-          const baseMonthlyTitle = isEn ? 'Base package' : (isTr ? 'Temel paket' : 'База');
-          setupItems.push([baseSetupTitle, BASE_SETUP]);
-          monthlyItems.push([baseMonthlyTitle, BASE_MONTHLY]);
+          let tableRows = [];
+          tableRows.push({
+            name: 'База (канал + таблица)',
+            setupStr: '50 000 ₽',
+            monthlyStr: '15 000 ₽/мес'
+          });
 
           // Channels: 1st is base, 2nd+ cost setup & monthly
           const activeChannels = CHANNELS.filter(c => state.channels[c.id]);
@@ -9253,9 +9051,11 @@
               const c = activeChannels[i];
               setup += c.setup;
               monthly += c.monthly;
-              const chLabel = isEn ? `${c.label} (additional)` : (isTr ? `${c.label} (ek kanal)` : `${c.label} (${i+1}-й канал)`);
-              setupItems.push([chLabel, c.setup]);
-              monthlyItems.push([c.label, c.monthly]);
+              tableRows.push({
+                name: c.label,
+                setupStr: `+${c.setup.toLocaleString(loc)} ₽`,
+                monthlyStr: `+${c.monthly.toLocaleString(loc)} ₽/мес`
+              });
             }
           }
 
@@ -9264,8 +9064,11 @@
             if(state.crms[c.id]){
               setup += c.setup;
               monthly += c.monthly;
-              setupItems.push([c.label, c.setup]);
-              monthlyItems.push([c.label, c.monthly]);
+              tableRows.push({
+                name: c.label,
+                setupStr: `+${c.setup.toLocaleString(loc)} ₽`,
+                monthlyStr: `+${c.monthly.toLocaleString(loc)} ₽/мес`
+              });
             }
           });
 
@@ -9280,105 +9083,99 @@
             if(state.extras[c.id]){
               setup += c.setup;
               if (c.monthly) monthly += c.monthly;
-              setupItems.push([c.label, c.setup]);
-              if (c.monthly) monthlyItems.push([c.label, c.monthly]);
+              tableRows.push({
+                name: c.id === 'voice' ? 'Голосовые' : 'Подготовка с нуля',
+                setupStr: `+${c.setup.toLocaleString(loc)} ₽`,
+                monthlyStr: c.monthly ? `+${c.monthly.toLocaleString(loc)} ₽/мес` : '—'
+              });
             }
           });
 
           // Volume
           const vol = VOLUMES.find(v => v.id === state.volume);
-          const volPrefix = isEn ? 'Lead volume ' : (isTr ? 'Talep hacmi ' : 'Объём заявок ');
           if(vol && vol.monthlyAdd){
             monthly += vol.monthlyAdd;
-            monthlyItems.push([volPrefix + vol.shortLabel, vol.monthlyAdd]);
-          }
-
-          const volSupportEl = document.getElementById('volSupportText');
-          if (volSupportEl) {
-            const volSupportPrefix = isEn ? 'Lead volume: ' : (isTr ? 'Talep hacmi: ' : 'Помогает нам точнее подготовить расчёт, ');
-            if (vol && vol.monthlyAdd) {
-              volSupportEl.textContent = (isEn ? 'Subscription from mo 2: ' : (isTr ? '2. aydan itibaren abonelik: ' : 'Подписка со 2-го месяца: ')) + '+' + vol.monthlyAdd.toLocaleString(loc) + ' ' + curSym + perMo;
-            } else {
-              volSupportEl.textContent = isEn ? 'Helps us prepare an accurate proposal, does not affect base cost' : (isTr ? 'Teklifi daha doğru hazırlamamıza yardımcı olur, fiyata etki etmez' : 'на базовую настройку не влияет');
-            }
+            tableRows.push({
+              name: `Заявки ${vol.shortLabel}`,
+              setupStr: '—',
+              monthlyStr: `+${vol.monthlyAdd.toLocaleString(loc)} ₽/мес`
+            });
           }
 
           const setupTotalEl = document.getElementById('setupTotal');
           const monthlyTotalEl = document.getElementById('monthlyTotal');
-          const setupSublistEl = document.getElementById('setupSublist');
-          const monthlySublistEl = document.getElementById('monthlySublist');
+          const mobSetupTotalEl = document.getElementById('mobSetupTotal');
+          const mobMonthlyTotalEl = document.getElementById('mobMonthlyTotal');
           const yearTotalEl = document.getElementById('yearTotal');
-          const yearCompareBox = document.getElementById('yearCompareBox');
+          const cfgDetailsRowsEl = document.getElementById('cfgDetailsRows');
           const ctaBtn = document.getElementById('ctaBtn');
 
           if (setupTotalEl) {
             setupTotalEl.textContent = setup.toLocaleString(loc);
-            const valBox = document.getElementById('setupTotalVal');
-            if (valBox) {
-              valBox.classList.remove('cfg-price-flash');
-              void valBox.offsetWidth;
-              valBox.classList.add('cfg-price-flash');
-            }
+          }
+          if (mobSetupTotalEl) {
+            mobSetupTotalEl.textContent = setup.toLocaleString(loc);
           }
 
           if (monthlyTotalEl) {
             monthlyTotalEl.textContent = monthly.toLocaleString(loc);
-            const valBox = document.getElementById('monthlyTotalVal');
-            if (valBox) {
-              valBox.classList.remove('cfg-price-flash');
-              void valBox.offsetWidth;
-              valBox.classList.add('cfg-price-flash');
-            }
+          }
+          if (mobMonthlyTotalEl) {
+            mobMonthlyTotalEl.textContent = monthly.toLocaleString(loc);
           }
 
-          if (setupSublistEl) {
-            setupSublistEl.innerHTML = setupItems.map(it =>
-              `<div class="cfg-breakdown-sublist-item"><span>${it[0]}</span><span>${it[1] === BASE_SETUP ? `${it[1].toLocaleString(loc)} ${curSym}` : `+${it[1].toLocaleString(loc)} ${curSym}`}</span></div>`
-            ).join('');
+          if (cfgDetailsRowsEl) {
+            cfgDetailsRowsEl.innerHTML = tableRows.map(r => `
+              <tr class="hover:bg-white/5 transition-colors">
+                <td class="py-1 pr-2 text-slate-200">${r.name}</td>
+                <td class="py-1 pr-2 text-right text-sky-300">${r.setupStr}</td>
+                <td class="py-1 text-right text-emerald-300">${r.monthlyStr}</td>
+              </tr>
+            `).join('');
           }
 
-          if (monthlySublistEl) {
-            monthlySublistEl.innerHTML = monthlyItems.map(it =>
-              `<div class="cfg-breakdown-sublist-item"><span>${it[0]}</span><span>${it[1] === BASE_MONTHLY ? `${it[1].toLocaleString(loc)} ${curSym}${perMo}` : `+${it[1].toLocaleString(loc)} ${curSym}${perMo}`}</span></div>`
-            ).join('');
-          }
-
-          // Year Total: Setup + 11 * Monthly
+          // Year Total: Setup + 11 * Monthly (without "от")
           const yearTotalSum = setup + (11 * monthly);
           if (yearTotalEl) {
-            yearTotalEl.textContent = (isEn ? 'from $' : (isTr ? '’den başlayan ' : 'от ')) + yearTotalSum.toLocaleString(loc) + ' ' + (isTr ? '₺' : curSym);
+            yearTotalEl.textContent = yearTotalSum.toLocaleString(loc) + ' ₽';
           }
 
-          const humanAnnual = (isEn || isTr) ? 11700 : 960000;
-          if (yearCompareBox) {
-            if (yearTotalSum < humanAnnual) {
-              yearCompareBox.style.display = 'flex';
-            } else {
-              yearCompareBox.style.display = 'none';
-            }
-          }
-
+          // Prefilled Telegram message link
           if (ctaBtn) {
-            const allSelectedNames = [];
-            activeChannels.forEach(c => allSelectedNames.push(c.label));
-            CRMS.forEach(c => { if(state.crms[c.id]) allSelectedNames.push(c.label); });
-            EXTRAS.forEach(c => { if(state.extras[c.id]) allSelectedNames.push(c.label); });
-            const optStr = allSelectedNames.length ? allSelectedNames.join(', ') : (isEn ? 'Base' : (isTr ? 'Temel' : 'База'));
-            const volStr = vol ? vol.shortLabel : 'до 100';
+            const activeChNames = activeChannels.map(c => c.label).join(', ') || 'Таблица';
+            const activeCrmNames = CRMS.filter(c => state.crms[c.id]).map(c => c.label).join(', ') || 'Только таблица';
+            const activeExtraNames = EXTRAS.filter(e => state.extras[e.id]).map(e => e.label).join(', ') || 'Нет';
+            const volLabel = vol ? vol.shortLabel : 'до 100';
 
-            let msg = '';
-            if (isEn) {
-              msg = `Hello! My calculation in Altai Optima:\n• Selected: ${optStr}, Volume: ${volStr}\n• Setup: ${setup.toLocaleString(loc)} $\n• Subscription: ${monthly.toLocaleString(loc)} $/mo\n• 1st Year Total: ${yearTotalSum.toLocaleString(loc)} $\n\nI want to discuss launching!`;
-            } else if (isTr) {
-              msg = `Merhaba! Altai Optima hesaplamam:\n• Seçilenler: ${optStr}, Hacim: ${volStr}\n• Kurulum: ${setup.toLocaleString(loc)} $\n• Abonelik: ${monthly.toLocaleString(loc)} $/ay\n• 1. Yıl Toplam: ${yearTotalSum.toLocaleString(loc)} $\n\nGörüşmek istiyorum!`;
-            } else {
-              msg = `Здравствуйте! Мой расчёт ИИ-продавца в Altai Optima:\n• Выбранные опции: ${optStr}\n• Объём: ${volStr}\n• Настройка: ${setup.toLocaleString(loc)} ₽\n• Подписка: ${monthly.toLocaleString(loc)} ₽/мес\n• Итого за первый год: от ${yearTotalSum.toLocaleString(loc)} ₽\n\nХочу обсудить запуск!`;
-            }
-            ctaBtn.href = `https://t.me/altaioptima?text=${encodeURIComponent(msg)}`;
+            const tgMsg = `Здравствуйте! Собрал расчёт ИИ-продавца на сайте:
+• Каналы: ${activeChNames}
+• База клиентов: ${activeCrmNames}
+• Дополнительно: ${activeExtraNames}
+• Объём обращений: ${volLabel} в мес
+• Итоговая оценка: ${setup.toLocaleString(loc)} ₽ настройка + ${monthly.toLocaleString(loc)} ₽/мес
+Хочу обсудить проект!`;
+
+            ctaBtn.href = `https://t.me/altaioptima?text=${encodeURIComponent(tgMsg)}`;
           }
         }
 
         recalc();
+
+        // Mobile Floating Bar observer
+        const mobileBar = document.getElementById('cfgMobileBottomBar');
+        const ctorSec = document.getElementById('constructor');
+        if (mobileBar && ctorSec && 'IntersectionObserver' in window) {
+          const obs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                mobileBar.classList.remove('translate-y-full');
+              } else {
+                mobileBar.classList.add('translate-y-full');
+              }
+            });
+          }, { threshold: 0.1 });
+          obs.observe(ctorSec);
+        }
       })();
     });
   </script>
