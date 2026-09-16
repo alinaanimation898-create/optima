@@ -1580,8 +1580,8 @@
       box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
     }
 
-    /* АНИМИРОВАННЫЙ ПЕРЛАМУТРОВЫЙ ИРИДИСЦЕНТНЫЙ ГРАДИЕНТ (MOTHER-OF-PEARL SHIMMER) */
-    @keyframes pearlHoloShift {
+    /* АНИМИРОВАННЫЙ ЭЛЕГАНТНЫЙ ПЛАВАЮЩИЙ ГРАДИЕНТ И ПОДСВЕТКА ДЛЯ ПЛАШКИ «НЕ НАШЛИ СВОЙ ВАРИАНТ?» */
+    @keyframes calmFloatingGradient {
       0% {
         background-position: 0% 50%;
       }
@@ -1593,22 +1593,37 @@
       }
     }
 
-    @keyframes pearlSheenShimmer {
+    @keyframes floatingAura {
       0% {
-        transform: translateX(-180%) rotate(22deg);
+        transform: translate(0%, 0%) scale(1);
+        opacity: 0.75;
+      }
+      50% {
+        transform: translate(-3%, 4%) scale(1.08);
+        opacity: 0.95;
+      }
+      100% {
+        transform: translate(3%, -3%) scale(0.96);
+        opacity: 0.75;
+      }
+    }
+
+    @keyframes subtleSheenGlide {
+      0% {
+        transform: translateX(-150%) rotate(20deg);
         opacity: 0;
       }
       20% {
         opacity: 0.35;
       }
       50% {
-        opacity: 0.6;
+        opacity: 0.55;
       }
       80% {
         opacity: 0.35;
       }
       100% {
-        transform: translateX(280%) rotate(22deg);
+        transform: translateX(300%) rotate(20deg);
         opacity: 0;
       }
     }
@@ -1616,63 +1631,79 @@
     #constructor .cfg-card-custom {
       grid-column: 1 / -1;
       position: relative;
+      margin-top: 36px !important;
       overflow: hidden;
       isolation: isolate;
       border-radius: 24px;
-      padding: 22px 26px;
-      border: 1.5px solid rgba(255, 255, 255, 0.95);
+      padding: 24px 28px;
       background: linear-gradient(
         135deg,
-        #ffffff 0%,
-        #e0f2fe 16%,
-        #ffffff 32%,
-        #bae6fd 48%,
-        #f8fafc 64%,
-        #fdf2f8 76%,
-        #e0f2fe 88%,
-        #ffffff 100%
+        #f0f7ff 0%,
+        #e0f2fe 22%,
+        #eff6ff 42%,
+        #e8f4fd 60%,
+        #f5f3ff 78%,
+        #e0f2fe 90%,
+        #f0f7ff 100%
       ) !important;
-      background-size: 250% 250% !important;
-      animation: pearlHoloShift 8s ease-in-out infinite !important;
+      background-size: 260% 260% !important;
+      animation: calmFloatingGradient 14s ease-in-out infinite !important;
+      border: 1.5px solid rgba(125, 211, 252, 0.55) !important;
       box-shadow: 
-        0 16px 40px -8px rgba(186, 230, 253, 0.65),
-        0 4px 18px -2px rgba(56, 189, 248, 0.2),
-        0 0 0 1px rgba(255, 255, 255, 0.9) inset !important;
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        0 14px 38px -6px rgba(14, 165, 233, 0.18),
+        0 4px 16px -2px rgba(56, 189, 248, 0.12),
+        inset 0 1px 1px rgba(255, 255, 255, 0.95),
+        inset 0 0 24px rgba(186, 230, 253, 0.3) !important;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
     }
 
-    #constructor .cfg-card-custom::after {
-      display: none !important;
-    }
-
+    /* Мягкая внутренняя плавающая световая аура */
     #constructor .cfg-card-custom::before {
       content: '' !important;
+      display: block !important;
+      position: absolute !important;
+      inset: -40% !important;
+      background: radial-gradient(circle at 25% 30%, rgba(56, 189, 248, 0.32), transparent 42%),
+                  radial-gradient(circle at 75% 70%, rgba(99, 102, 241, 0.2), transparent 48%),
+                  radial-gradient(circle at 50% 90%, rgba(14, 165, 233, 0.25), transparent 45%) !important;
+      filter: blur(28px) !important;
+      animation: floatingAura 12s ease-in-out infinite !important;
+      pointer-events: none !important;
+      z-index: 0 !important;
+    }
+
+    /* Элегантный деликатный блик света */
+    #constructor .cfg-card-custom::after {
+      content: '' !important;
+      display: block !important;
       position: absolute !important;
       top: -60% !important;
       left: -60% !important;
       width: 220% !important;
       height: 220% !important;
       background: linear-gradient(
-        105deg,
+        110deg,
         transparent 0%,
-        rgba(255, 255, 255, 0) 25%,
-        rgba(255, 255, 255, 0.2) 42%,
-        rgba(255, 255, 255, 0.45) 50%,
-        rgba(255, 255, 255, 0.2) 58%,
-        rgba(255, 255, 255, 0) 75%,
+        rgba(255, 255, 255, 0) 30%,
+        rgba(255, 255, 255, 0.25) 46%,
+        rgba(255, 255, 255, 0.6) 50%,
+        rgba(255, 255, 255, 0.25) 54%,
+        rgba(255, 255, 255, 0) 70%,
         transparent 100%
       ) !important;
-      animation: pearlSheenShimmer 7s ease-in-out infinite !important;
+      animation: subtleSheenGlide 9s ease-in-out infinite !important;
       pointer-events: none !important;
       z-index: 1 !important;
     }
 
     #constructor .cfg-card-custom:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
+      border-color: rgba(56, 189, 248, 0.8) !important;
       box-shadow: 
-        0 22px 50px -6px rgba(186, 230, 253, 0.8),
-        0 8px 24px -2px rgba(56, 189, 248, 0.28),
-        0 0 28px 4px rgba(255, 255, 255, 1) inset !important;
+        0 20px 48px -6px rgba(14, 165, 233, 0.28),
+        0 8px 24px -2px rgba(56, 189, 248, 0.2),
+        inset 0 1px 1px rgba(255, 255, 255, 1),
+        inset 0 0 28px rgba(186, 230, 253, 0.45) !important;
     }
 
     #constructor .cfg-card-custom-inner {
@@ -2894,15 +2925,318 @@
     }
 
     
-    @keyframes ctaBgShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    /* FINAL BLOCK: 2-COLUMN COMPOSITION (#cta-final) */
+    #cta-final {
+      background: transparent !important;
+      box-shadow: none !important;
+      border: none !important;
+      position: relative;
     }
-    .anim-cta-bg {
-      background: linear-gradient(-45deg, #020b18, #032b52, #0284c7, #064e3b, #032b52, #020b18) !important;
-      background-size: 300% 300% !important;
-      animation: ctaBgShift 12s ease infinite !important;
+
+    .cta-final-grid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 36px;
+    }
+
+    .cta-col-text-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+    }
+
+    .cta-col-visual {
+      width: 100%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cta-col-text-footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+    }
+
+    @media (min-width: 1024px) {
+      .cta-final-grid {
+        display: grid;
+        grid-template-columns: 45% calc(55% - 80px);
+        grid-template-rows: auto auto;
+        column-gap: 80px;
+        row-gap: 24px;
+        align-items: center;
+        text-align: left;
+      }
+      .cta-col-visual {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        align-self: center;
+        justify-content: flex-start;
+      }
+      .cta-col-text-header {
+        grid-column: 2;
+        grid-row: 1;
+        align-self: end;
+        align-items: flex-start;
+        text-align: left;
+      }
+      .cta-col-text-footer {
+        grid-column: 2;
+        grid-row: 2;
+        align-self: start;
+        align-items: flex-start;
+        text-align: left;
+      }
+    }
+
+    .cta-cards-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.3) 0%, rgba(2, 132, 199, 0.15) 42%, rgba(2, 132, 199, 0) 72%);
+      filter: blur(50px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .cta-cards-stage {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      height: 420px;
+      margin: 0 auto;
+      z-index: 1;
+    }
+
+    .cta-push-card {
+      position: absolute;
+      left: 50%;
+      width: 360px;
+      max-width: calc(100% - 20px);
+      border-radius: 20px;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 12px 32px rgba(15, 40, 80, 0.12);
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      text-align: left;
+      user-select: none;
+      opacity: 1;
+      pointer-events: auto;
+      cursor: pointer;
+      transform: translate(calc(-50% + var(--rest-x, 0px)), var(--rest-y, 0px)) scale(1) rotate(var(--rest-rot, 0deg));
+      will-change: transform, opacity, filter;
+      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
+    }
+
+    .cta-push-1 {
+      --rest-x: 0px;
+      --rest-y: 20px;
+      --rest-rot: -2deg;
+      z-index: 1;
+    }
+    .cta-push-2 {
+      --rest-x: 24px;
+      --rest-y: 90px;
+      --rest-rot: 1.5deg;
+      z-index: 2;
+    }
+    .cta-push-3 {
+      --rest-x: -12px;
+      --rest-y: 160px;
+      --rest-rot: -1deg;
+      z-index: 3;
+    }
+    .cta-push-4 {
+      --rest-x: 16px;
+      --rest-y: 230px;
+      --rest-rot: 2deg;
+      z-index: 4;
+    }
+
+    .cta-push-card.card-arrived {
+      transform: translate(calc(-50% + var(--rest-x)), var(--rest-y)) scale(1) rotate(var(--rest-rot));
+      opacity: 1;
+      pointer-events: auto;
+      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
+    }
+
+    @keyframes ctaAnxietyWobble {
+      0%, 100% {
+        transform: translate(calc(-50% + var(--rest-x)), var(--rest-y)) rotate(var(--rest-rot));
+      }
+      25% {
+        transform: translate(calc(-50% + var(--rest-x) + 1.2px), var(--rest-y)) rotate(calc(var(--rest-rot) - 0.5deg));
+      }
+      75% {
+        transform: translate(calc(-50% + var(--rest-x) - 1.2px), var(--rest-y)) rotate(calc(var(--rest-rot) + 0.5deg));
+      }
+    }
+    .cta-push-card.card-wobbling {
+      animation: ctaAnxietyWobble 0.35s ease-in-out infinite;
+    }
+
+    .cta-push-card.card-swiped {
+      transform: translate(calc(-50% - 130%), var(--rest-y)) rotate(-8deg) !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      transition: transform 0.45s cubic-bezier(0.4, 0, 1, 1), opacity 0.45s ease-in !important;
+    }
+
+    .cta-push-antidote {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 380px;
+      max-width: calc(100% - 20px);
+      border-radius: 20px;
+      padding: 15px 18px;
+      background: #ffffff;
+      border: 1.5px solid transparent;
+      background-image: linear-gradient(#ffffff, #ffffff), linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+      background-origin: padding-box, border-box;
+      background-clip: padding-box, border-box;
+      box-shadow: 0 16px 48px rgba(59, 130, 246, 0.25);
+      z-index: 10;
+      opacity: 0;
+      filter: blur(10px);
+      transform: translate(-50%, -50%) scale(0.9);
+      pointer-events: none;
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.7s ease, filter 0.7s ease;
+      will-change: transform, opacity, filter;
+    }
+    .cta-push-antidote.antidote-revealed {
+      opacity: 1;
+      filter: blur(0);
+      transform: translate(-50%, -50%) scale(1);
+      pointer-events: auto;
+    }
+    .cta-push-antidote.antidote-floating {
+      animation: antidoteFloating 3.6s ease-in-out infinite;
+    }
+    @keyframes antidoteFloating {
+      0%, 100% {
+        transform: translate(-50%, -50%) translateY(0);
+        box-shadow: 0 16px 48px rgba(59, 130, 246, 0.25);
+      }
+      50% {
+        transform: translate(-50%, -50%) translateY(-6px);
+        box-shadow: 0 22px 56px rgba(56, 189, 248, 0.38);
+      }
+    }
+
+    .cta-pretitle {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(2, 132, 199, 0.85);
+      margin-bottom: 12px;
+    }
+
+    .cta-gradient-glow {
+      display: inline-block;
+      background: linear-gradient(
+        110deg,
+        #0284c7 0%,
+        #0ea5e9 18%,
+        #38bdf8 32%,
+        #ffffff 46%,
+        #ffffff 52%,
+        #67e8f9 64%,
+        #0ea5e9 80%,
+        #0284c7 100%
+      );
+      background-size: 280% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 8px 24px rgba(14, 165, 233, 0.22));
+      will-change: background-position;
+      animation: ctaHeadlineShimmer 5s ease-in-out infinite;
+    }
+
+    @keyframes ctaHeadlineShimmer {
+      0% {
+        background-position: 100% 0%;
+      }
+      30% {
+        background-position: 0% 0%;
+      }
+      100% {
+        background-position: 0% 0%;
+      }
+    }
+
+    .cta-online-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      background: rgba(34, 197, 94, 0.08);
+      border: 1px solid rgba(34, 197, 94, 0.28);
+      box-shadow: 0 1px 4px rgba(34, 197, 94, 0.08);
+      user-select: none;
+    }
+
+    .cta-online-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 9999px;
+      background-color: #22c55e;
+      position: relative;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .cta-online-dot::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 9999px;
+      border: 1.5px solid #22c55e;
+      animation: ctaOnlineRing 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    }
+
+    @keyframes ctaOnlineRing {
+      0% {
+        transform: scale(0.7);
+        opacity: 0.9;
+      }
+      70% {
+        transform: scale(2.4);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(2.4);
+        opacity: 0;
+      }
+    }
+
+    .cta-online-text {
+      font-size: 12px;
+      font-weight: 600;
+      color: #22c55e;
+      line-height: 1;
+      font-family: 'Inter', sans-serif;
     }
 
     
@@ -3892,7 +4226,7 @@
           <a href="#constructor" class="btn-optic group shadow-xl flex-1 sm:flex-initial text-center justify-center">
             <span>FİYATI HESAPLA</span>
           </a>
-          <a href="https://t.me/altaioptima?text=Merhaba!%20Yapay%20Zeka%20Sat%C4%B1c%C4%B1s%C4%B1n%C4%B1%20test%20etmek%20istiyorum" target="_blank" class="btn-optic-outline group flex-1 sm:flex-initial text-center justify-center">
+          <a href="#psychology" class="btn-optic-outline group flex-1 sm:flex-initial text-center justify-center">
             <span>YAPAY ZEKA SATICISINA YAZIN</span>
           </a>
         </div>
@@ -6449,30 +6783,141 @@
     </div>
 
     
-    <section id="cta-final" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-20 pt-12 pb-16 sm:pt-16 sm:pb-24 space-y-6 sm:space-y-8 font-inter">
-      <div class="space-y-4">
-        <h2 class="font-benzin uppercase tracking-tight font-black text-3xl min-[380px]:text-[34px] sm:text-4xl md:text-5xl lg:text-[46px] select-none leading-[1.12]" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 12px 30px rgba(2, 132, 199, 0.18));">
-          ARTIK <br class="sm:hidden">DERİN BİR <br class="sm:hidden">NEFES ALABİLİRSİNİZ
-        </h2>
-        <p class="max-w-3xl lg:max-w-4xl mx-auto text-sm sm:text-base md:text-lg text-slate-600 font-medium leading-relaxed">
-          <span class="hidden sm:block space-y-1">
-            <span class="block whitespace-nowrap">Akşam yemeğinde, tatilde veya gece saat 2'de artık telefon kontrol etmeye son.</span>
-            <span class="block whitespace-nowrap">Yapay zeka satıcısı her müşteriye anında yanıt verir, size sadece satışı kapatmak kalır</span>
-          </span>
-          <span class="block sm:hidden">
-            <span class="block">Akşam yemeğinde, tatilde</span>
-            <span class="block">veya gece saat 2'de artık telefon kontrol etmeye son.</span>
-            <span class="block">Yapay zeka satıcısı her müşteriye anında yanıt verir,</span>
-            <span class="block">size sadece satışı kapatmak kalır</span>
-          </span>
-        </p>
-      </div>
+    <!-- 9. FİNAL CTA BÖLÜMÜ -->
+    <section id="cta-final" class="w-full relative z-20 font-inter py-[80px] lg:py-[140px]">
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="cta-final-grid">
+          
+          <!-- 1. METİN: BAŞLIK -->
+          <div class="cta-col-text-header">
+            <div class="cta-pretitle">TANIDIK GELDİ Mİ?</div>
+            <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[40px] xl:text-[46px] leading-[1.14]">
+              <span class="block" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 10px 24px rgba(2, 132, 199, 0.18));">
+                Siz dinleniyorsunuz.
+              </span>
+              <span class="block mt-1 sm:mt-2">
+                <span class="inline-flex items-center flex-wrap gap-x-3 gap-y-2">
+                  <span class="cta-gradient-glow">Yapay Zeka Satıcısı çalışıyor.</span>
+                  <span class="cta-online-badge align-middle">
+                    <span class="cta-online-dot"></span>
+                    <span class="cta-online-text">çevrimiçi</span>
+                  </span>
+                </span>
+              </span>
+            </h2>
+          </div>
 
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-        <a href="https://t.me/altaioptima?text=Merhaba!%20%C4%B0%C5%9Fletmem%20i%C3%A7in%20Yapay%20Zeka%20Sat%C4%B1c%C4%B1s%C4%B1n%C4%B1%20ba%C5%9Flatmak%20istiyorum" target="_blank" class="btn-optic group shadow-xl py-4 px-10 text-sm sm:text-base font-extrabold uppercase tracking-wider rounded-2xl inline-flex items-center justify-center gap-2">
-          <span>YAPAY ZEKA SATICISINI BAŞLAT</span>
-          <span class="text-lg">→</span>
-        </a>
+          <!-- 2. SOL KOLON: BİLDİRİM YIĞINI -->
+          <div class="cta-col-visual">
+            <div class="cta-cards-glow" aria-hidden="true"></div>
+
+            <div class="cta-cards-stage">
+              
+              <!-- Kart 1: WhatsApp -->
+              <div class="cta-push-card cta-push-1">
+                <div class="w-9 h-9 rounded-[9px] bg-[#25D366] flex items-center justify-center shrink-0 shadow-xs">
+                  <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.68 12.04 3.68C14.24 3.68 16.31 4.54 17.87 6.1C19.42 7.66 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15ZM16.56 14.36C16.31 14.24 15.09 13.64 14.86 13.56C14.63 13.48 14.47 13.44 14.3 13.69C14.14 13.94 13.67 14.49 13.52 14.66C13.38 14.83 13.23 14.85 12.98 14.73C12.74 14.61 11.95 14.35 11.01 13.51C10.28 12.86 9.78 12.05 9.64 11.8C9.5 11.56 9.62 11.42 9.75 11.3C9.86 11.02 10 11.02 10.12 10.88C10.24 10.74 10.28 10.64 10.36 10.47C10.44 10.31 10.4 10.16 10.34 10.04C10.28 9.92 9.8 8.74 9.6 8.25C9.4 7.78 9.21 7.84 9.06 7.83C8.92 7.82 8.76 7.82 8.6 7.82C8.44 7.82 8.17 7.88 7.95 8.12C7.73 8.36 7.1 8.95 7.1 10.16C7.1 11.37 7.98 12.54 8.1 12.7C8.22 12.87 9.83 15.34 12.3 16.4C12.89 16.65 13.35 16.8 13.7 16.91C14.3 17.1 14.84 17.07 15.27 17.01C15.75 16.94 16.74 16.41 16.95 15.82C17.15 15.23 17.15 14.73 17.09 14.62C17.03 14.51 16.81 14.48 16.56 14.36Z"/></svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center justify-between gap-2 mb-0.5">
+                    <span class="text-[13px] font-semibold text-[#1B2B40] leading-none">WhatsApp</span>
+                    <span class="text-[12px] text-slate-400 font-normal leading-none">23:47</span>
+                  </div>
+                  <p class="text-[14px] text-[#3A4A5E] leading-snug line-clamp-2">
+                    Müşteri: Merhaba, açık mısınız? Sipariş vermek istiyorum
+                  </p>
+                </div>
+              </div>
+
+              <!-- Kart 2: Satış Yöneticisi -->
+              <div class="cta-push-card cta-push-2">
+                <div class="w-9 h-9 rounded-[9px] bg-slate-200 border border-slate-300 flex items-center justify-center shrink-0">
+                  <span class="text-[15px] font-bold text-slate-700">C</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center justify-between gap-2 mb-0.5">
+                    <span class="text-[13px] font-semibold text-[#1B2B40] leading-none">Temsilci Can</span>
+                    <span class="text-[12px] text-slate-400 font-normal leading-none">23:52</span>
+                  </div>
+                  <p class="text-[14px] text-[#3A4A5E] leading-snug line-clamp-2">
+                    Müşteri indirim istiyor, ne cevap vermeliyim?
+                  </p>
+                </div>
+              </div>
+
+              <!-- Kart 3: CRM -->
+              <div class="cta-push-card cta-push-3">
+                <div class="w-9 h-9 rounded-[9px] bg-[#0284C7] flex items-center justify-center shrink-0 shadow-xs">
+                  <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"/></svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center justify-between gap-2 mb-0.5">
+                    <span class="text-[13px] font-semibold text-[#1B2B40] leading-none">CRM</span>
+                    <span class="text-[12px] text-slate-400 font-normal leading-none">00:15</span>
+                  </div>
+                  <p class="text-[14px] text-[#3A4A5E] leading-snug line-clamp-2">
+                    Sorumlusu atanmamış 4 yeni anlaşma
+                  </p>
+                </div>
+              </div>
+
+              <!-- Kart 4: Telegram -->
+              <div class="cta-push-card cta-push-4 relative overflow-hidden">
+                <span class="absolute left-0 top-3 bottom-3 w-[3px] bg-[#EF4444] rounded-r-full" aria-hidden="true"></span>
+                <div class="w-9 h-9 rounded-[9px] bg-[#2AABEE] flex items-center justify-center shrink-0 shadow-xs ml-1">
+                  <svg class="w-4 h-4 fill-white -translate-x-0.5 translate-y-0.5" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center justify-between gap-2 mb-0.5">
+                    <span class="text-[13px] font-semibold text-[#1B2B40] leading-none">Telegram</span>
+                    <span class="text-[12px] text-slate-400 font-normal leading-none">09:40</span>
+                  </div>
+                  <p class="text-[14px] text-[#3A4A5E] leading-snug line-clamp-2">
+                    Müşteri: Artık gerek kalmadı, başka yerden aldım
+                  </p>
+                </div>
+              </div>
+
+              <!-- Kart 5: Çözüm Kartı -->
+              <div id="ctaAntidoteCard" class="cta-push-antidote">
+                <div class="relative w-10 h-10 rounded-full shrink-0">
+                  <img src="avatar_eva.jpg" alt="Yapay Zeka Satıcısı" class="w-full h-full object-cover rounded-full ring-2 ring-sky-100" />
+                  <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-white"></span>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center justify-between gap-2 mb-1">
+                    <span class="text-[14px] font-bold text-[#0F172A] leading-none">Yapay Zeka Satıcısı</span>
+                    <div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-[11px] font-bold text-emerald-700">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" style="animation-duration: 2s;"></span>
+                      <span>çevrimiçi</span>
+                    </div>
+                  </div>
+                  <p class="text-[15px] font-medium text-[#1E293B] leading-snug">
+                    Gece boyunca 14 müşteriyi yanıtladı. 3 sıcak sipariş CRM'e aktarıldı
+                  </p>
+                  <div class="text-[12px] text-slate-500 font-normal mt-1 leading-none">
+                    07:00 · her şey kontrol altında
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- 3. METİN: ALT METİN VE BUTON -->
+          <div class="cta-col-text-footer space-y-6 sm:space-y-8">
+            <p class="text-base sm:text-[18px] lg:text-[19px] leading-relaxed font-normal text-[#3A4A5E] max-w-[580px]">
+              Her müşteriye 1 dakikada kusursuz yanıt verir, CRM'i unutmaz ve tatile çıkmaz. <strong class="font-bold text-slate-900">Siz ise sonunda telefonunuzu elinizden bırakırsınız.</strong>
+            </p>
+            <div class="pt-1">
+              <a href="https://t.me/altaioptima?text=Merhaba!%20%C4%B0%C5%9Fletmem%20i%C3%A7in%20Yapay%20Zeka%20Sat%C4%B1c%C4%B1s%C4%B1n%C4%B1%20ba%C5%9Flatmak%20istiyorum" target="_blank" class="btn-optic group shadow-xl py-4 px-8 sm:px-10 text-sm sm:text-base font-extrabold uppercase tracking-wider rounded-2xl inline-flex items-center justify-center gap-2 cursor-pointer">
+                <span>Kendinizi rutinden kurtarın</span>
+                <span class="text-lg">→</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
 
@@ -6745,7 +7190,7 @@
       price_objection: {
         channel: 'TELEGRAM',
         badge: 'Telegram',
-        assistantName: 'Altai Optima Bot',
+        assistantName: 'Altai Optima • Yapay Zeka Satıcısı',
         headerBg: 'bg-white/80 backdrop-blur-md border-b border-sky-100',
         headerSubText: 'text-slate-500',
         statusText: 'çevrimiçi',
@@ -6758,7 +7203,7 @@
             </div>
             <div class="px-3 py-0.5 rounded-full bg-white/90 shadow-2xs border border-sky-100 text-center">
               <div class="text-[11.5px] font-bold text-slate-900 leading-tight">Altai Optima</div>
-              <div class="text-[9.5px] text-slate-500 leading-tight">1 üye • bot</div>
+              <div class="text-[9.5px] text-emerald-600 font-medium leading-tight">çevrimiçi • online</div>
             </div>
             <div class="flex items-center gap-1.5">
               <button type="button" onclick="resetLiveChatDialogue()" class="text-[10px] text-sky-700 bg-sky-50 hover:bg-sky-100 px-2 py-1 rounded-md transition-all cursor-pointer font-semibold">
@@ -6790,7 +7235,7 @@
             <!-- Kullanıcı mesajı -->
             <div class="flex justify-end items-end gap-1.5">
               <div class="bg-[#eff7ff] text-slate-900 p-2.5 rounded-2xl rounded-tr-xs max-w-[85%] shadow-xs border border-sky-100">
-                <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">Merhaba! Piyasada ucuz botlar gördüm. Sizin farkınız nedir ve yatırım ne kadar sürede geri döner?</p>
+                <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">Merhaba! Standart otomatik yanıtlayıcılardan farkınız nedir ve yatırım ne kadar sürede geri döner?</p>
                 <div class="text-[9px] text-sky-600 text-right mt-0.5 font-sans flex items-center justify-end gap-1">
                   <span>14:20</span>
                   <span class="text-[#229ed9]">✓✓</span>
@@ -6802,9 +7247,9 @@
               <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs">
                 <div class="text-[9.5px] font-bold text-[#0088cc] mb-0.5 flex items-center gap-1">
                   <span>Altai Optima</span>
-                  <span class="text-[8px] bg-sky-100 text-sky-700 px-1 rounded font-normal">bot</span>
+                  <span class="text-[8px] bg-sky-100 text-sky-700 px-1 rounded font-normal">YZ</span>
                 </div>
-                <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">İyi günler! ☀️ Basit şablon butonlu botlar müşterileri menüde kaybettirir ve standart dışı sorularda potansiyel müşterilerin %60'ını kaçırır.<br><br>Bizim Yapay Zeka Satıcımız uzman düzeyinde canlı diyalog kurar, itirazları karşılar ve CRM'de anlaşmayı yönetir. Yatırım genellikle 2. kapatılan satışta kendini amorti eder. İşletmenizin hacmine göre kazancı hesaplayalım mı?</p>
+                <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">İyi günler! ☀️ Basit şablon menüler müşterileri kaybettirir ve standart dışı sorularda potansiyel müşterilerin %60'ını kaçırır.<br><br>Bizim Yapay Zeka Satıcımız uzman düzeyinde canlı diyalog kurar, itirazları karşılar ve CRM'de anlaşmayı yönetir. Yatırım genellikle 2. kapatılan satışta kendini amorti eder. İşletmenizin hacmine göre kazancı hesaplayalım mı?</p>
                 <div class="text-[9px] text-slate-400 text-right mt-0.5 font-sans flex items-center justify-end gap-1">
                   <span>14:20</span>
                 </div>
@@ -6817,7 +7262,7 @@
             <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs">
               <div class="text-[9.5px] font-bold text-[#0088cc] mb-0.5 flex items-center gap-1">
                 <span>${msg.author || 'Altai Optima'}</span>
-                <span class="text-[8px] bg-sky-100 text-sky-700 px-1 rounded font-normal">bot</span>
+                <span class="text-[8px] bg-sky-100 text-sky-700 px-1 rounded font-normal">YZ</span>
               </div>
               <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">${msg.text}</p>
               <div class="text-[9px] text-slate-400 text-right mt-0.5 font-sans flex items-center justify-end gap-1">
@@ -7098,7 +7543,8 @@
     class DemoChatClient {
       constructor() {
         this.baseUrl = "https://api.optima.altaiweb.online";
-        this.storageKey = "altai_demo_session_id_tr";
+        this.tenantId = "altai_optima";
+        this.storageKey = "altai_demo_session_id_altai_optima_tr";
         this.config = null;
         this.isSending = false;
       }
@@ -7126,20 +7572,20 @@
       async getConfig() {
         if (this.config) return this.config;
         try {
-          const res = await fetch(`${this.baseUrl}/api/v1/demo/config`);
+          const res = await fetch(`${this.baseUrl}/api/v1/demo/config?tenant_id=${encodeURIComponent(this.tenantId)}`);
           if (!res.ok) throw new Error(`Config HTTP ${res.status}`);
           this.config = await res.json();
           return this.config;
         } catch (e) {
           this.config = {
-            tenant_id: "demo_amo",
+            tenant_id: this.tenantId,
             business_name: "YAPAY ZEKA SATICISI Altai Optima",
             welcome_message: "Merhaba! Kişisel yapay zeka satış yöneticinizim. Sorularınızı yanıtlamaya, maliyeti hesaplamaya ve sipariş oluşturmaya hazırım. Size nasıl yardımcı olabilirim?",
             suggested_questions: [
               "Uygulama maliyeti ne kadar?",
               "Müşteri indirim isterse ne yaparsınız?",
               "amoCRM ve ERP ile entegre misiniz?",
-              "Klasik botlardan farkınız ne?"
+              "Standart otomatik yanıtlardan farkınız ne?"
             ],
             max_message_length: 4000
           };
@@ -7150,7 +7596,8 @@
       async sendMessage(messageText) {
         const payload = {
           message: messageText.trim(),
-          session_id: this.getSessionId() || null
+          session_id: this.getSessionId() || null,
+          tenant_id: this.tenantId
         };
 
         const res = await fetch(`${this.baseUrl}/api/v1/demo/chat`, {
@@ -8187,7 +8634,7 @@
         authorRole: 'Yönetici Ortak',
         review: '“Hukuki danışmanlıkta ortakların zamanı en değerli varlıktır. Eskiden keşif görüşmelerinin %40\'ı bütçe altı uygunsuz başvurularla harcanıyordu. Altai Optima yapay zekası Telegram ve web üzerinden ön değerlendirme yapar, dava parametrelerini toplar ve yalnızca nitelikli kurumsal karar vericilerle online randevu planlar. Bu sayede aylık sözleşme portföyümüz 20.000 $\'dan 38.000 $\'a yükseldi.”',
         nicheTag: 'SEKTÖR: HUKUKİ DANIŞMANLIK VE TAHKİM',
-        stackTag: 'ENTEGRASYON: TELEGRAM BOT + AMOCRM + CALENDAR',
+        stackTag: 'ENTEGRASYON: TELEGRAM + AMOCRM + CALENDAR',
         title: '“Lex Consulting” Hukuk Bürosu',
         subtitle: 'Otomatik başvuru değerlendirme ve uzman randevu ataması ile kapanan sözleşmelerde %92 artış',
         revenue: '+18.000 $',
@@ -9338,6 +9785,87 @@ Entegrasyon detaylarını görüşmek istiyorum!`;
         }
 
         recalc();
+
+        // FINAL BLOCK (#cta-final): NOTIFICATIONS CHOREOGRAPHY
+        (function initCtaFinalChoreography() {
+          const section = document.getElementById('cta-final');
+          if (!section) return;
+
+          const cards = [
+            section.querySelector('.cta-push-1'),
+            section.querySelector('.cta-push-2'),
+            section.querySelector('.cta-push-3'),
+            section.querySelector('.cta-push-4')
+          ];
+          const antidote = document.getElementById('ctaAntidoteCard');
+
+          let hasAnimated = false;
+
+          function triggerSwipe() {
+            if (cards[0] && cards[0].classList.contains('card-swiped')) return;
+            cards.forEach(c => c && c.classList.remove('card-wobbling'));
+            cards.forEach((card, idx) => {
+              if (!card) return;
+              setTimeout(() => {
+                card.classList.add('card-swiped');
+              }, idx * 100);
+            });
+            setTimeout(() => {
+              if (antidote) {
+                antidote.classList.add('antidote-revealed');
+              }
+            }, 550);
+            setTimeout(() => {
+              if (antidote) {
+                antidote.classList.add('antidote-floating');
+              }
+            }, 1250);
+          }
+
+          function runChoreography() {
+            if (hasAnimated) return;
+            hasAnimated = true;
+
+            setTimeout(() => {
+              cards.forEach(c => c && c.classList.add('card-wobbling'));
+            }, 500);
+
+            setTimeout(() => {
+              triggerSwipe();
+            }, 2000);
+          }
+
+          cards.forEach(card => {
+            if (card) {
+              card.addEventListener('click', () => {
+                hasAnimated = true;
+                triggerSwipe();
+              });
+            }
+          });
+
+          if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  runChoreography();
+                  observer.unobserve(section);
+                }
+              });
+            }, { threshold: 0.05 });
+            observer.observe(section);
+          }
+
+          function checkScrollFallback() {
+            const rect = section.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.92 && rect.bottom > 0) {
+              runChoreography();
+              window.removeEventListener('scroll', checkScrollFallback);
+            }
+          }
+          window.addEventListener('scroll', checkScrollFallback, { passive: true });
+          checkScrollFallback();
+        })();
 
         // Mobile Floating Bar observer
         const mobileBar = document.getElementById('cfgMobileBottomBar');

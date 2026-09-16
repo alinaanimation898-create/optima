@@ -1616,26 +1616,55 @@
       box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
     }
 
-    /* АНИМИРОВАННЫЙ ГРАДИЕНТ ПОВЕРХНОСТИ */
-    @keyframes subtleCardGlare {
+    /* АНИМИРОВАННЫЙ ЭЛЕГАНТНЫЙ ПЛАВАЮЩИЙ ГРАДИЕНТ И ПОДСВЕТКА ДЛЯ ПЛАШКИ «НЕ НАШЛИ СВОЙ ВАРИАНТ?» */
+    @keyframes calmFloatingGradient {
       0% {
-        transform: translateX(-150%) rotate(25deg);
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes floatingAura {
+      0% {
+        transform: translate(0%, 0%) scale(1);
+        opacity: 0.75;
+      }
+      50% {
+        transform: translate(-3%, 4%) scale(1.08);
+        opacity: 0.95;
+      }
+      100% {
+        transform: translate(3%, -3%) scale(0.96);
+        opacity: 0.75;
+      }
+    }
+
+    @keyframes subtleSheenGlide {
+      0% {
+        transform: translateX(-150%) rotate(20deg);
         opacity: 0;
       }
       20% {
+        opacity: 0.35;
+      }
+      50% {
         opacity: 0.55;
       }
-      40% {
-        transform: translateX(350%) rotate(25deg);
-        opacity: 0;
+      80% {
+        opacity: 0.35;
       }
       100% {
-        transform: translateX(350%) rotate(25deg);
+        transform: translateX(300%) rotate(20deg);
         opacity: 0;
       }
     }
 
-    /* ПЛАШКА «НЕ НАШЛИ СВОЙ ВАРИАНТ?» (ДЕЛИКАТНЫЙ ГРАДИЕНТ СО СПОКОЙНЫМ МИНИМАЛИСТИЧНЫМ БЛИКОМ) */
+    /* ПЛАШКА «НЕ НАШЛИ СВОЙ ВАРИАНТ?» */
     #constructor .cfg-card-custom {
       grid-column: 1 / -1;
       position: relative;
@@ -1645,44 +1674,74 @@
       overflow: hidden;
       isolation: isolate;
       z-index: 1;
-      background: linear-gradient(135deg, #ffffff 0%, #f7faff 50%, #eff6ff 100%) !important;
-      border: 1px solid rgba(224, 231, 255, 0.85) !important;
+      background: linear-gradient(
+        135deg,
+        #f0f7ff 0%,
+        #e0f2fe 22%,
+        #eff6ff 42%,
+        #e8f4fd 60%,
+        #f5f3ff 78%,
+        #e0f2fe 90%,
+        #f0f7ff 100%
+      ) !important;
+      background-size: 260% 260% !important;
+      animation: calmFloatingGradient 14s ease-in-out infinite !important;
+      border: 1.5px solid rgba(125, 211, 252, 0.55) !important;
       box-shadow: 
-        0 4px 20px -2px rgba(15, 23, 42, 0.04),
-        0 0 1px 1px rgba(186, 230, 253, 0.4) !important;
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        0 14px 38px -6px rgba(14, 165, 233, 0.18),
+        0 4px 16px -2px rgba(56, 189, 248, 0.12),
+        inset 0 1px 1px rgba(255, 255, 255, 0.95),
+        inset 0 0 24px rgba(186, 230, 253, 0.3) !important;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
     }
+
+    /* Мягкая внутренняя плавающая световая аура */
     #constructor .cfg-card-custom::before {
-      display: none !important;
+      content: '' !important;
+      display: block !important;
+      position: absolute !important;
+      inset: -40% !important;
+      background: radial-gradient(circle at 25% 30%, rgba(56, 189, 248, 0.32), transparent 42%),
+                  radial-gradient(circle at 75% 70%, rgba(99, 102, 241, 0.2), transparent 48%),
+                  radial-gradient(circle at 50% 90%, rgba(14, 165, 233, 0.25), transparent 45%) !important;
+      filter: blur(28px) !important;
+      animation: floatingAura 12s ease-in-out infinite !important;
+      pointer-events: none !important;
+      z-index: 0 !important;
     }
+
+    /* Элегантный деликатный блик света */
     #constructor .cfg-card-custom::after {
       content: '' !important;
       display: block !important;
       position: absolute !important;
-      top: -75% !important;
-      left: 0 !important;
-      width: 50% !important;
-      height: 250% !important;
+      top: -60% !important;
+      left: -60% !important;
+      width: 220% !important;
+      height: 220% !important;
       background: linear-gradient(
-        90deg,
+        110deg,
         transparent 0%,
-        rgba(255, 255, 255, 0) 25%,
-        rgba(255, 255, 255, 0.6) 48%,
-        rgba(255, 255, 255, 0.95) 50%,
-        rgba(255, 255, 255, 0.6) 52%,
-        rgba(255, 255, 255, 0) 75%,
+        rgba(255, 255, 255, 0) 30%,
+        rgba(255, 255, 255, 0.25) 46%,
+        rgba(255, 255, 255, 0.6) 50%,
+        rgba(255, 255, 255, 0.25) 54%,
+        rgba(255, 255, 255, 0) 70%,
         transparent 100%
       ) !important;
-      transform: translateX(-150%) rotate(25deg);
-      animation: subtleCardGlare 8s cubic-bezier(0.4, 0, 0.2, 1) infinite !important;
+      animation: subtleSheenGlide 9s ease-in-out infinite !important;
       pointer-events: none !important;
       z-index: 1 !important;
     }
+
     #constructor .cfg-card-custom:hover {
       transform: translateY(-2px);
+      border-color: rgba(56, 189, 248, 0.8) !important;
       box-shadow: 
-        0 12px 28px -4px rgba(14, 165, 233, 0.12),
-        0 0 1px 1px rgba(186, 230, 253, 0.7) !important;
+        0 20px 48px -6px rgba(14, 165, 233, 0.28),
+        0 8px 24px -2px rgba(56, 189, 248, 0.2),
+        inset 0 1px 1px rgba(255, 255, 255, 1),
+        inset 0 0 28px rgba(186, 230, 253, 0.45) !important;
     }
 
     #constructor .cfg-card-custom-inner {
@@ -2925,83 +2984,256 @@
       will-change: background-position;
     }
 
-    /* ФИНАЛЬНЫЙ БЛОК: НОВАЯ АНИМИРОВАННАЯ КОМПОЗИЦИЯ (#cta-final) */
+    /* ФИНАЛЬНЫЙ БЛОК: ДВУХКОЛОНОЧНАЯ КОМПОЗИЦИЯ (#cta-final) */
     #cta-final {
       background: transparent !important;
       box-shadow: none !important;
       border: none !important;
-    }
-
-    /* 2. «ЗНАКОМО?» */
-    .cta-pretitle {
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.4s ease-out, transform 0.4s ease-out;
-    }
-    .cta-pretitle.revealed {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* 3. СТРОКИ БОЛИ */
-    .cta-pain-row {
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .cta-pain-row.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .cta-pain-phrase {
-      display: inline-block;
       position: relative;
-      transition: opacity 0.4s ease, transform 0.4s ease;
-      transform-origin: center center;
     }
 
-    .cta-pain-phrase::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 52%;
-      transform: translateY(-50%);
-      width: 0%;
-      height: 3px;
-      border-radius: 9999px;
-      background: linear-gradient(90deg, #0284c7 0%, #38bdf8 100%);
-      transition: width 0.35s cubic-bezier(0, 0, 0.2, 1);
-      pointer-events: none;
+    .cta-final-grid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 36px;
     }
 
-    .cta-pain-phrase.struck::after {
+    .cta-col-text-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
       width: 100%;
     }
 
-    .cta-pain-phrase.struck {
-      opacity: 0.35;
-      transform: scale(0.97);
+    .cta-col-visual {
+      width: 100%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    /* 4. ЗАГОЛОВОК */
-    .cta-heading-line {
-      opacity: 0;
-      transform: translateY(24px);
-      filter: blur(8px);
-      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
-                  transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
-                  filter 0.6s ease-out;
-      will-change: opacity, transform, filter;
+    .cta-col-text-footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
     }
 
-    .cta-heading-line.revealed {
+    @media (min-width: 1024px) {
+      .cta-final-grid {
+        display: grid;
+        grid-template-columns: 45% calc(55% - 80px);
+        grid-template-rows: auto auto;
+        column-gap: 80px;
+        row-gap: 24px;
+        align-items: center;
+        text-align: left;
+      }
+      .cta-col-visual {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        align-self: center;
+        justify-content: flex-start;
+      }
+      .cta-col-text-header {
+        grid-column: 2;
+        grid-row: 1;
+        align-self: end;
+        align-items: flex-start;
+        text-align: left;
+      }
+      .cta-col-text-footer {
+        grid-column: 2;
+        grid-row: 2;
+        align-self: start;
+        align-items: flex-start;
+        text-align: left;
+      }
+    }
+
+    /* Радиальное голубое свечение за карточками */
+    .cta-cards-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.3) 0%, rgba(2, 132, 199, 0.15) 42%, rgba(2, 132, 199, 0) 72%);
+      filter: blur(50px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Контейнер стопки карточек (~420 px) */
+    .cta-cards-stage {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      height: 420px;
+      margin: 0 auto;
+      z-index: 1;
+    }
+
+    /* Стиль push-уведомлений iOS */
+    .cta-push-card {
+      position: absolute;
+      left: 50%;
+      width: 360px;
+      max-width: calc(100% - 20px);
+      border-radius: 20px;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 12px 32px rgba(15, 40, 80, 0.12);
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      text-align: left;
+      user-select: none;
       opacity: 1;
-      transform: translateY(0);
-      filter: blur(0);
+      pointer-events: auto;
+      cursor: pointer;
+      transform: translate(calc(-50% + var(--rest-x, 0px)), var(--rest-y, 0px)) scale(1) rotate(var(--rest-rot, 0deg));
+      will-change: transform, opacity, filter;
+      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
     }
 
-    /* Вторая строка заголовка: градиент + блик раз в 5с (длительность 1.5с) */
+    /* Координаты стопки с эффектом хаотичной кучи */
+    .cta-push-1 {
+      --rest-x: 0px;
+      --rest-y: 20px;
+      --rest-rot: -2deg;
+      z-index: 1;
+    }
+    .cta-push-2 {
+      --rest-x: 24px;
+      --rest-y: 90px;
+      --rest-rot: 1.5deg;
+      z-index: 2;
+    }
+    .cta-push-3 {
+      --rest-x: -12px;
+      --rest-y: 160px;
+      --rest-rot: -1deg;
+      z-index: 3;
+    }
+    .cta-push-4 {
+      --rest-x: 16px;
+      --rest-y: 230px;
+      --rest-rot: 2deg;
+      z-index: 4;
+    }
+
+    /* Этап 1: Прилёт карточки (cubic-bezier(0.34, 1.56, 0.64, 1)) */
+    .cta-push-card.card-arrived {
+      transform: translate(calc(-50% + var(--rest-x)), var(--rest-y)) scale(1) rotate(var(--rest-rot));
+      opacity: 1;
+      pointer-events: auto;
+      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
+    }
+
+    /* Вздрагивание предыдущих карточек (+4 px вниз и обратно) */
+    @keyframes ctaCardNudge {
+      0% {
+        transform: translate(calc(-50% + var(--rest-x)), var(--rest-y)) scale(1) rotate(var(--rest-rot));
+      }
+      50% {
+        transform: translate(calc(-50% + var(--rest-x)), calc(var(--rest-y) + 4px)) scale(1) rotate(var(--rest-rot));
+      }
+      100% {
+        transform: translate(calc(-50% + var(--rest-x)), var(--rest-y)) scale(1) rotate(var(--rest-rot));
+      }
+    }
+    .cta-push-card.card-nudging {
+      animation: ctaCardNudge 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /* Этап 2: Тревожное покачивание (rotate ±0.5°) */
+    @keyframes ctaAnxietyWobble {
+      0%, 100% {
+        transform: translate(calc(-50% + var(--rest-x)), var(--rest-y)) rotate(var(--rest-rot));
+      }
+      25% {
+        transform: translate(calc(-50% + var(--rest-x) + 1.2px), var(--rest-y)) rotate(calc(var(--rest-rot) - 0.5deg));
+      }
+      75% {
+        transform: translate(calc(-50% + var(--rest-x) - 1.2px), var(--rest-y)) rotate(calc(var(--rest-rot) + 0.5deg));
+      }
+    }
+    .cta-push-card.card-wobbling {
+      animation: ctaAnxietyWobble 0.35s ease-in-out infinite;
+    }
+
+    /* Этап 3: Смахивание карточек влево (translateX(-120%) rotate(-8deg)) */
+    .cta-push-card.card-swiped {
+      transform: translate(calc(-50% - 130%), var(--rest-y)) rotate(-8deg) !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      transition: transform 0.45s cubic-bezier(0.4, 0, 1, 1), opacity 0.45s ease-in !important;
+    }
+
+    /* Финальная карточка-противоядие */
+    .cta-push-antidote {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 380px;
+      max-width: calc(100% - 20px);
+      border-radius: 20px;
+      padding: 15px 18px;
+      background: #ffffff;
+      border: 1.5px solid transparent;
+      background-image: linear-gradient(#ffffff, #ffffff), linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+      background-origin: padding-box, border-box;
+      background-clip: padding-box, border-box;
+      box-shadow: 0 16px 48px rgba(59, 130, 246, 0.25);
+      z-index: 10;
+      opacity: 0;
+      filter: blur(10px);
+      transform: translate(-50%, -50%) scale(0.9);
+      pointer-events: none;
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.7s ease, filter 0.7s ease;
+      will-change: transform, opacity, filter;
+    }
+    .cta-push-antidote.antidote-revealed {
+      opacity: 1;
+      filter: blur(0);
+      transform: translate(-50%, -50%) scale(1);
+      pointer-events: auto;
+    }
+    .cta-push-antidote.antidote-floating {
+      animation: antidoteFloating 3.6s ease-in-out infinite;
+    }
+    @keyframes antidoteFloating {
+      0%, 100% {
+        transform: translate(-50%, -50%) translateY(0);
+        box-shadow: 0 16px 48px rgba(59, 130, 246, 0.25);
+      }
+      50% {
+        transform: translate(-50%, -50%) translateY(-6px);
+        box-shadow: 0 22px 56px rgba(56, 189, 248, 0.38);
+      }
+    }
+
+    /* Текстовые стили правой колонки */
+    .cta-pretitle {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(2, 132, 199, 0.85);
+      margin-bottom: 12px;
+    }
+
     .cta-gradient-glow {
       display: inline-block;
       background: linear-gradient(
@@ -3022,9 +3254,6 @@
       color: transparent;
       filter: drop-shadow(0 8px 24px rgba(14, 165, 233, 0.22));
       will-change: background-position;
-    }
-
-    .cta-gradient-glow.shimmer-active {
       animation: ctaHeadlineShimmer 5s ease-in-out infinite;
     }
 
@@ -3032,7 +3261,7 @@
       0% {
         background-position: 100% 0%;
       }
-      30% { /* 30% от 5 сек = 1.5 секунды */
+      30% {
         background-position: 0% 0%;
       }
       100% {
@@ -3040,7 +3269,7 @@
       }
     }
 
-    /* ИНДИКАТОР «В СЕТИ» */
+    /* Индикатор «в сети» */
     .cta-online-badge {
       display: inline-flex;
       align-items: center;
@@ -3093,18 +3322,6 @@
       color: #22c55e;
       line-height: 1;
       font-family: 'Inter', sans-serif;
-    }
-
-    /* 5. ПОДЗАГОЛОВОК И КНОПКА */
-    .cta-delayed-content {
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .cta-delayed-content.revealed {
-      opacity: 1;
-      transform: translateY(0);
     }
 
     /* БЕГУЩИЙ НЕОНОВЫЙ ЛУЧ-РАЗДЕЛИТЕЛЬ В ПЛАШКЕ ХИРО */
@@ -4124,7 +4341,7 @@
           <a href="#constructor" class="btn-optic group shadow-xl flex-1 sm:flex-initial text-center justify-center">
             <span>РАССЧИТАТЬ СТОИМОСТЬ</span>
           </a>
-          <a href="https://t.me/altaioptima?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D1%80%D0%BE%D1%82%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%98%D0%98-%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B2%D1%86%D0%B0" target="_blank" class="btn-optic-outline group flex-1 sm:flex-initial text-center justify-center">
+          <a href="#psychology" class="btn-optic-outline group flex-1 sm:flex-initial text-center justify-center">
             <span>НАПИСАТЬ ИИ-ПРОДАВЦУ</span>
           </a>
         </div>
@@ -6924,76 +7141,143 @@
     </div>
 
     <!-- 9. ФИНАЛЬНЫЙ БЛОК -->
-    <section id="cta-final" class="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8 text-center py-[72px] lg:py-[120px] relative z-20 font-inter">
-      
-      <!-- 2. «ЗНАКОМО?» -->
-      <div id="ctaPretitle" class="cta-pretitle text-[14px] font-bold uppercase tracking-[0.12em] mb-5 sm:mb-6" style="color: rgba(2, 132, 199, 0.7);">
-        ЗНАКОМО?
-      </div>
-
-      <!-- 3. СТРОКИ БОЛИ -->
-      <div id="ctaPainRows" class="space-y-[12px] mb-12 sm:mb-16">
-        <div class="cta-pain-row text-[18px] sm:text-[22px] md:text-[24px] font-normal leading-snug" style="color: #3A4A5E;">
-          <span class="cta-pain-phrase">Телефон в руке даже за ужином</span>
-        </div>
-        <div class="cta-pain-row text-[18px] sm:text-[22px] md:text-[24px] font-normal leading-snug" style="color: #3A4A5E;">
-          <span class="cta-pain-phrase">Проверяете, ответил ли менеджер клиенту</span>
-        </div>
-        <div class="cta-pain-row text-[18px] sm:text-[22px] md:text-[24px] font-normal leading-snug" style="color: #3A4A5E;">
-          <span class="cta-pain-phrase">Переписываете за ним кривые ответы</span>
-        </div>
-        <div class="cta-pain-row text-[18px] sm:text-[22px] md:text-[24px] font-normal leading-snug" style="color: #3A4A5E;">
-          <span class="cta-pain-phrase">Заявка сгорела, а в CRM пусто</span>
-        </div>
-      </div>
-
-      <!-- 4. ЗАГОЛОВОК С ИНДИКАТОРОМ «В СЕТИ» -->
-      <div id="ctaHeadlineWrap" class="space-y-2 sm:space-y-3">
-        
-        <!-- Индикатор «в сети» над заголовком на мобильном -->
-        <div class="flex sm:hidden justify-center mb-3">
-          <div class="cta-online-badge cta-heading-line" id="ctaOnlineBadgeMob">
-            <span class="cta-online-dot"></span>
-            <span class="cta-online-text">в сети</span>
-          </div>
-        </div>
-
-        <!-- Строка 1: «Вы отдыхаете.» -->
-        <h2 class="font-benzin uppercase tracking-tight font-black text-[26px] min-[390px]:text-[30px] sm:text-4xl md:text-5xl lg:text-[54px] select-none leading-[1.14]">
-          <span id="ctaHeadLine1" class="cta-heading-line block" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 10px 24px rgba(2, 132, 199, 0.18));">
-            Вы отдыхаете.
-          </span>
+    <section id="cta-final" class="w-full relative z-20 font-inter py-[80px] lg:py-[140px]">
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="cta-final-grid">
           
-          <!-- Строка 2: «ИИ‑продавец работает.» + Индикатор «в сети» на десктопе -->
-          <span id="ctaHeadLine2" class="cta-heading-line block mt-1 sm:mt-2">
-            <span class="inline-flex items-center justify-center flex-wrap gap-x-4 gap-y-2">
-              <span id="ctaGlowText" class="cta-gradient-glow">
-                ИИ&#8209;продавец работает.
+          <!-- 1. ТЕКСТ: ЗАГОЛОВОК (На мобильных идет 1-м, на десктопе — верх правой колонки) -->
+          <div class="cta-col-text-header">
+            <div class="cta-pretitle">ЗНАКОМО?</div>
+            <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[40px] xl:text-[46px] leading-[1.14]">
+              <span class="block" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 10px 24px rgba(2, 132, 199, 0.18));">
+                Вы отдыхаете.
               </span>
-              <span class="hidden sm:inline-flex cta-online-badge align-middle">
-                <span class="cta-online-dot"></span>
-                <span class="cta-online-text">в сети</span>
+              <span class="block mt-1 sm:mt-2">
+                <span class="inline-flex items-center flex-wrap gap-x-3 gap-y-2">
+                  <span class="cta-gradient-glow">ИИ&#8209;продавец работает.</span>
+                  <span class="cta-online-badge align-middle">
+                    <span class="cta-online-dot"></span>
+                    <span class="cta-online-text">в сети</span>
+                  </span>
+                </span>
               </span>
-            </span>
-          </span>
-        </h2>
-      </div>
+            </h2>
+          </div>
 
-      <!-- 5. ПОДЗАГОЛОВОК И КНОПКА ДЕЙСТВИЯ -->
-      <div id="ctaDelayedContent" class="cta-delayed-content space-y-8 sm:space-y-10 mt-6 sm:mt-8">
-        <p class="max-w-[720px] mx-auto text-base sm:text-[18px] md:text-[20px] leading-relaxed font-normal" style="color: #3A4A5E;">
-          Он отвечает каждому клиенту за минуту, не пишет криво, не забывает про CRM и не уходит в отпуск. <strong class="font-bold text-slate-900">А вы наконец выпускаете телефон из рук.</strong>
-        </p>
+          <!-- 2. ЛЕВАЯ КОЛОНКА: СТОПКА УВЕДОМЛЕНИЙ (На мобильных идет 2-й, на десктопе — левая колонка 45%) -->
+          <div class="cta-col-visual">
+            <!-- Мягкое радиальное голубое свечение за карточками -->
+            <div class="cta-cards-glow" aria-hidden="true"></div>
 
-        <!-- Кнопка действия -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-1">
-          <a href="https://t.me/altaioptima?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D1%82%D0%B8%D1%82%D1%8C%20%D0%98%D0%98-%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B2%D1%86%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0" target="_blank" class="btn-optic group shadow-xl py-4 px-8 sm:px-10 text-sm sm:text-base font-extrabold uppercase tracking-wider rounded-2xl inline-flex items-center justify-center gap-2">
-            <span>Освободить себя от рутины</span>
-            <span class="text-lg">→</span>
-          </a>
+            <!-- Контейнер карточек высотой ~420px -->
+            <div class="cta-cards-stage">
+              
+              <!-- Карточка 1: WhatsApp -->
+              <div class="cta-push-card cta-push-1">
+                <div class="w-9 h-9 rounded-[9px] bg-[#25D366] flex items-center justify-center shrink-0 shadow-xs">
+                  <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.68 12.04 3.68C14.24 3.68 16.31 4.54 17.87 6.1C19.42 7.66 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15ZM16.56 14.36C16.31 14.24 15.09 13.64 14.86 13.56C14.63 13.48 14.47 13.44 14.3 13.69C14.14 13.94 13.67 14.49 13.52 14.66C13.38 14.83 13.23 14.85 12.98 14.73C12.74 14.61 11.95 14.35 11.01 13.51C10.28 12.86 9.78 12.05 9.64 11.8C9.5 11.56 9.62 11.42 9.75 11.3C9.86 11.02 10 11.02 10.12 10.88C10.24 10.74 10.28 10.64 10.36 10.47C10.44 10.31 10.4 10.16 10.34 10.04C10.28 9.92 9.8 8.74 9.6 8.25C9.4 7.78 9.21 7.84 9.06 7.83C8.92 7.82 8.76 7.82 8.6 7.82C8.44 7.82 8.17 7.88 7.95 8.12C7.73 8.36 7.1 8.95 7.1 10.16C7.1 11.37 7.98 12.54 8.1 12.7C8.22 12.87 9.83 15.34 12.3 16.4C12.89 16.65 13.35 16.8 13.7 16.91C14.3 17.1 14.84 17.07 15.27 17.01C15.75 16.94 16.74 16.41 16.95 15.82C17.15 15.23 17.15 14.73 17.09 14.62C17.03 14.51 16.81 14.48 16.56 14.36Z"/></svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center justify-between gap-2 mb-0.5">
+                    <span class="text-[13px] font-semibold text-[#1B2B40] leading-none">WhatsApp</span>
+                    <span class="text-[12px] text-slate-400 font-normal leading-none">23:47</span>
+                  </div>
+                  <p class="text-[14px] text-[#3A4A5E] leading-snug line-clamp-2">
+                    Клиент: Здравствуйте, вы работаете? Хочу оформить заказ
+                  </p>
+                </div>
+              </div>
+
+              <!-- Карточка 2: Менеджер Олег -->
+              <div class="cta-push-card cta-push-2">
+                <div class="w-9 h-9 rounded-[9px] bg-slate-200 border border-slate-300 flex items-center justify-center shrink-0">
+                  <span class="text-[15px] font-bold text-slate-700">О</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center justify-between gap-2 mb-0.5">
+                    <span class="text-[13px] font-semibold text-[#1B2B40] leading-none">Менеджер Олег</span>
+                    <span class="text-[12px] text-slate-400 font-normal leading-none">23:52</span>
+                  </div>
+                  <p class="text-[14px] text-[#3A4A5E] leading-snug line-clamp-2">
+                    Клиент просит скидку, что ему ответить?
+                  </p>
+                </div>
+              </div>
+
+              <!-- Карточка 3: CRM -->
+              <div class="cta-push-card cta-push-3">
+                <div class="w-9 h-9 rounded-[9px] bg-[#0284C7] flex items-center justify-center shrink-0 shadow-xs">
+                  <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"/></svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center justify-between gap-2 mb-0.5">
+                    <span class="text-[13px] font-semibold text-[#1B2B40] leading-none">CRM</span>
+                    <span class="text-[12px] text-slate-400 font-normal leading-none">00:15</span>
+                  </div>
+                  <p class="text-[14px] text-[#3A4A5E] leading-snug line-clamp-2">
+                    4 сделки без ответственного
+                  </p>
+                </div>
+              </div>
+
+              <!-- Карточка 4: Telegram (с красной полоской 3px слева) -->
+              <div class="cta-push-card cta-push-4 relative overflow-hidden">
+                <span class="absolute left-0 top-3 bottom-3 w-[3px] bg-[#EF4444] rounded-r-full" aria-hidden="true"></span>
+                <div class="w-9 h-9 rounded-[9px] bg-[#2AABEE] flex items-center justify-center shrink-0 shadow-xs ml-1">
+                  <svg class="w-4 h-4 fill-white -translate-x-0.5 translate-y-0.5" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center justify-between gap-2 mb-0.5">
+                    <span class="text-[13px] font-semibold text-[#1B2B40] leading-none">Telegram</span>
+                    <span class="text-[12px] text-slate-400 font-normal leading-none">09:40</span>
+                  </div>
+                  <p class="text-[14px] text-[#3A4A5E] leading-snug line-clamp-2">
+                    Клиент: Уже не актуально, купил в другом месте
+                  </p>
+                </div>
+              </div>
+
+              <!-- Карточка 5: Финальная карточка-противоядие (изначально скрыта) -->
+              <div id="ctaAntidoteCard" class="cta-push-antidote">
+                <div class="relative w-10 h-10 rounded-full shrink-0">
+                  <img src="avatar_eva.jpg" alt="ИИ-продавец" class="w-full h-full object-cover rounded-full ring-2 ring-sky-100" />
+                  <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 ring-2 ring-white"></span>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center justify-between gap-2 mb-1">
+                    <span class="text-[14px] font-bold text-[#0F172A] leading-none">ИИ‑продавец</span>
+                    <div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-[11px] font-bold text-emerald-700">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" style="animation-duration: 2s;"></span>
+                      <span>в сети</span>
+                    </div>
+                  </div>
+                  <p class="text-[15px] font-medium text-[#1E293B] leading-snug">
+                    За ночь ответил 14 клиентам. 3 горячих заявки уже в CRM
+                  </p>
+                  <div class="text-[12px] text-slate-500 font-normal mt-1 leading-none">
+                    07:00 · всё под контролем
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- 3. ТЕКСТ: ПОДЗАГОЛОВОК И КНОПКА (На мобильных идет 3-м, на десктопе — низ правой колонки) -->
+          <div class="cta-col-text-footer space-y-6 sm:space-y-8">
+            <p class="text-base sm:text-[18px] lg:text-[19px] leading-relaxed font-normal text-[#3A4A5E] max-w-[580px]">
+              Он отвечает каждому клиенту за минуту, не пишет криво, не забывает про CRM и не уходит в отпуск. <strong class="font-bold text-slate-900">А вы наконец выпускаете телефон из рук.</strong>
+            </p>
+            <div class="pt-1">
+              <a href="https://t.me/altaioptima?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D1%82%D0%B8%D1%82%D1%8C%20%D0%98%D0%98-%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B2%D1%86%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0" target="_blank" class="btn-optic group shadow-xl py-4 px-8 sm:px-10 text-sm sm:text-base font-extrabold uppercase tracking-wider rounded-2xl inline-flex items-center justify-center gap-2 cursor-pointer">
+                <span>Освободить себя от рутины</span>
+                <span class="text-lg">→</span>
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
-
     </section>
 
     <!-- Тонкий неоновый световой разделитель перед футером (с достаточным воздухом) -->
@@ -7287,7 +7571,7 @@
       price_objection: {
         channel: 'TELEGRAM',
         badge: 'Telegram',
-        assistantName: 'Altai Optima Bot',
+        assistantName: 'Altai Optima • ИИ-Продавец',
         headerBg: 'bg-white/80 backdrop-blur-md border-b border-sky-100',
         headerSubText: 'text-slate-500',
         statusText: 'в сети',
@@ -7300,7 +7584,7 @@
             </div>
             <div class="px-3 py-0.5 rounded-full bg-white/90 shadow-2xs border border-sky-100 text-center">
               <div class="text-[11.5px] font-bold text-slate-900 leading-tight">Altai Optima</div>
-              <div class="text-[9.5px] text-slate-500 leading-tight">1 участник • бот</div>
+              <div class="text-[9.5px] text-emerald-600 font-medium leading-tight">в сети • онлайн</div>
             </div>
             <div class="flex items-center gap-1.5">
               <button type="button" onclick="resetLiveChatDialogue()" class="text-[10px] text-sky-700 bg-sky-50 hover:bg-sky-100 px-2 py-1 rounded-md transition-all cursor-pointer font-semibold">
@@ -7319,7 +7603,7 @@
                 <span class="bg-black/15 backdrop-blur-xs text-white text-[10px] font-medium px-2.5 py-0.5 rounded-full shadow-2xs">Сегодня</span>
               </div>
               <div class="mx-auto max-w-[94%] bg-[#6c8cf5]/25 border border-white/30 backdrop-blur-md rounded-xl p-2 text-center text-[10px] text-slate-800 leading-snug shadow-2xs">
-                <div class="font-bold text-[#0088cc]">Altai Optima Telegram Bot</div>
+                <div class="font-bold text-[#0088cc]">Altai Optima • ИИ-Продавец</div>
                 <div class="text-[9.5px] text-slate-600">Чат свободен · Напишите вопрос для теста</div>
               </div>
             </div>
@@ -7339,8 +7623,8 @@
                 </p>
               </div>
               <div class="flex flex-col gap-1.5 w-full max-w-[285px]">
-                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('В чем отличие от обычных чат-ботов?')" class="text-left text-[11px] font-medium bg-white/95 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#229ed9] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
-                  <span>«В чем отличие от обычных чат-ботов?»</span>
+                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('В чем отличие от шаблонных автоответчиков?')" class="text-left text-[11px] font-medium bg-white/95 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#229ed9] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
+                  <span>«В чем отличие от шаблонных автоответчиков?»</span>
                   <span class="text-sky-600 text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
                 </button>
                 <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Как быстро окупается внедрение?')" class="text-left text-[11px] font-medium bg-white/95 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#229ed9] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
@@ -7365,7 +7649,7 @@
             <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs">
               <div class="text-[9.5px] font-bold text-[#0088cc] mb-0.5 flex items-center gap-1">
                 <span>${msg.author || 'Altai Optima'}</span>
-                <span class="text-[8px] bg-sky-100 text-sky-700 px-1 rounded font-normal">bot</span>
+                <span class="text-[8px] bg-sky-100 text-sky-700 px-1 rounded font-normal">ИИ</span>
               </div>
               <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">${msg.text}</p>
               <div class="text-[9px] text-slate-400 text-right mt-0.5 font-sans flex items-center justify-end gap-1">
@@ -7463,8 +7747,8 @@
                   <span>«Как протестировать на наших товарах?»</span>
                   <span class="text-pink-600 text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
                 </button>
-                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Отвечает ли бот на реакции в Stories?')" class="text-left text-[11px] font-medium bg-slate-50 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-pink-500 active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
-                  <span>«Отвечает ли бот на реакции в Stories?»</span>
+                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Отвечаете ли на реакции в Stories?')" class="text-left text-[11px] font-medium bg-slate-50 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-pink-500 active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
+                  <span>«Отвечаете ли на реакции в Stories?»</span>
                   <span class="text-pink-600 text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
                 </button>
                 <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Как передаются лиды в отдел продаж?')" class="text-left text-[11px] font-medium bg-slate-50 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-pink-500 active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
@@ -7644,7 +7928,8 @@
     class DemoChatClient {
       constructor() {
         this.baseUrl = "https://api.optima.altaiweb.online";
-        this.storageKey = "altai_demo_session_id";
+        this.tenantId = "altai_optima";
+        this.storageKey = "altai_demo_session_id_altai_optima";
         this.config = null;
         this.isSending = false;
       }
@@ -7672,20 +7957,20 @@
       async getConfig() {
         if (this.config) return this.config;
         try {
-          const res = await fetch(`${this.baseUrl}/api/v1/demo/config`);
+          const res = await fetch(`${this.baseUrl}/api/v1/demo/config?tenant_id=${encodeURIComponent(this.tenantId)}`);
           if (!res.ok) throw new Error(`Config HTTP ${res.status}`);
           this.config = await res.json();
           return this.config;
         } catch (e) {
           this.config = {
-            tenant_id: "demo_amo",
+            tenant_id: this.tenantId,
             business_name: "ИИ-ПРОДАВЕЦ Altai Optima",
             welcome_message: "Здравствуйте! Я ваш персональный ИИ-продавец. Готов ответить на любые вопросы, рассчитать стоимость и оформить заказ. Чем могу помочь?",
             suggested_questions: [
               "Сколько стоит внедрение под ключ?",
               "А если клиент просит скидку?",
               "Работаете с amoCRM, Битрикс24 и 1С?",
-              "Чем вы лучше обычного чат-бота?"
+              "В чем отличие от шаблонных скриптов?"
             ],
             max_message_length: 4000
           };
@@ -7696,7 +7981,8 @@
       async sendMessage(messageText) {
         const payload = {
           message: messageText.trim(),
-          session_id: this.getSessionId() || null
+          session_id: this.getSessionId() || null,
+          tenant_id: this.tenantId
         };
 
         const res = await fetch(`${this.baseUrl}/api/v1/demo/chat`, {
@@ -8909,7 +9195,7 @@
         authorRole: 'Управляющий партнер',
         review: '«В юридическом консалтинге время партнеров - самый дорогой актив компании. Раньше до 40% консультаций тратилось на неквалифицированные лиды с чеками ниже минимального порога практики. AI Altai Optima проводит первичный скрининг входящих запросов в Telegram и на сайте, собирает вводные данные по спору или сделке и назначает онлайн-встречи только с лицами, принимающими решения в компаниях целевого сегмента. Это увеличило портфель контрактов практики с 1.8 до 3.45 млн ₽ в месяц.»',
         nicheTag: 'НИША: ЮРИДИЧЕСКИЙ КОНСАЛТИНГ И АРБИТРАЖ',
-        stackTag: 'ПОДКЛЮЧЕНИЕ: TELEGRAM BOT + AMOCRM + CALENDAR',
+        stackTag: 'ПОДКЛЮЧЕНИЕ: TELEGRAM + AMOCRM + CALENDAR',
         title: 'Юридическая фирма «Лекс Консалтинг»',
         subtitle: 'Рост объема закрытых контрактов на 92% за счет автоматической квалификации входящих запросов и назначения встреч',
         revenue: '+1.65 млн ₽',
@@ -8929,7 +9215,7 @@
         leftHtml: `
           <div class="rounded-2xl border border-purple-300 overflow-hidden shadow-sm flex flex-col font-sans bg-[#f4f1fa]">
             <div class="bg-[#582d8c] text-white px-3.5 py-2.5 flex items-center justify-between">
-              <span class="font-bold text-xs tracking-tight">«Лекс Консалтинг» • Правовой бот</span>
+              <span class="font-bold text-xs tracking-tight">«Лекс Консалтинг» • Правовой ИИ-консультант</span>
               <span class="text-[9px] font-sans text-purple-200">Квалификация ✓</span>
             </div>
             <div class="p-3.5 space-y-3 text-xs flex-1">
@@ -10196,87 +10482,90 @@
 
         recalc();
 
-        // ФИНАЛЬНЫЙ БЛОК (#cta-final): ИНТЕРАКТИВНАЯ АНИМАЦИЯ ПО ШАГАМ
-        (function initCtaFinalAnimation() {
+        // ФИНАЛЬНЫЙ БЛОК (#cta-final): ХОРЕОГРАФИЯ УВЕДОМЛЕНИЙ И КАРТОЧКИ-ПРОТИВОЯДИЯ
+        (function initCtaFinalChoreography() {
           const section = document.getElementById('cta-final');
           if (!section) return;
 
-          const pretitle = document.getElementById('ctaPretitle');
-          const painRows = section.querySelectorAll('.cta-pain-row');
-          const painPhrases = section.querySelectorAll('.cta-pain-phrase');
-          const headline1 = document.getElementById('ctaHeadLine1');
-          const headline2 = document.getElementById('ctaHeadLine2');
-          const onlineBadgeMob = document.getElementById('ctaOnlineBadgeMob');
-          const glowText = document.getElementById('ctaGlowText');
-          const delayedContent = document.getElementById('ctaDelayedContent');
+          const cards = [
+            section.querySelector('.cta-push-1'),
+            section.querySelector('.cta-push-2'),
+            section.querySelector('.cta-push-3'),
+            section.querySelector('.cta-push-4')
+          ];
+          const antidote = document.getElementById('ctaAntidoteCard');
 
           let hasAnimated = false;
 
-          function runAnimation() {
+          function triggerSwipe() {
+            if (cards[0] && cards[0].classList.contains('card-swiped')) return;
+            cards.forEach(c => c && c.classList.remove('card-wobbling'));
+            cards.forEach((card, idx) => {
+              if (!card) return;
+              setTimeout(() => {
+                card.classList.add('card-swiped');
+              }, idx * 100);
+            });
+            setTimeout(() => {
+              if (antidote) {
+                antidote.classList.add('antidote-revealed');
+              }
+            }, 550);
+            setTimeout(() => {
+              if (antidote) {
+                antidote.classList.add('antidote-floating');
+              }
+            }, 1250);
+          }
+
+          function runChoreography() {
             if (hasAnimated) return;
             hasAnimated = true;
 
-            // 2. «ЗНАКОМО?» (fade-in 0.4 с)
-            if (pretitle) pretitle.classList.add('revealed');
-
-            // 3. Этап А — появление строк боли (выезд снизу на 16px с fade-in, интервал 0.15 с)
-            painRows.forEach((row, i) => {
-              setTimeout(() => {
-                row.classList.add('visible');
-              }, i * 150);
-            });
-
-            // Появление строк заканчивается в: 3 * 150 + 400 = 850 мс
-            // Этап Б — пауза 0.6 с (850 + 600 = 1450 мс)
-            // Этап В — перечёркивание: по очереди, интервал 0.35 с (1450, 1800, 2150, 2500)
-            const strikeStartTime = 1450;
-            const strikeInterval = 350;
-
-            painPhrases.forEach((phrase, i) => {
-              setTimeout(() => {
-                phrase.classList.add('struck');
-              }, strikeStartTime + i * strikeInterval);
-            });
-
-            // Последняя 4-я строка начинает перечёркиваться в 2500 мс и завершает за 350 мс -> 2850 мс
-            // 4. ЗАГОЛОВОК: появляется через 0.3 с после последнего перечёркивания (2850 + 300 = 3150 мс)
-            const headlineStartTime = 3150;
-
-            // Строка 1 («Вы отдыхаете.»): fade-in + 24px + blur 8px -> 0, 0.6 с
+            // ЭТАП 1: Тревожное покачивание стопки (эффект сообщений в нерабочее время)
             setTimeout(() => {
-              if (headline1) headline1.classList.add('revealed');
-            }, headlineStartTime);
+              cards.forEach(c => c && c.classList.add('card-wobbling'));
+            }, 500);
 
-            // Строка 2 («ИИ‑продавец работает.») + индикатор: с задержкой 0.25 с (3150 + 250 = 3400 мс)
+            // ЭТАП 2: Карточки смахиваются влево, появляется карточка-противоядие
             setTimeout(() => {
-              if (headline2) headline2.classList.add('revealed');
-              if (onlineBadgeMob) onlineBadgeMob.classList.add('revealed');
-            }, headlineStartTime + 250);
-
-            // После завершения появления строки 2 (3400 + 600 = 4000 мс): включаем цикличный блик раз в 5с
-            setTimeout(() => {
-              if (glowText) glowText.classList.add('shimmer-active');
-            }, headlineStartTime + 850);
-
-            // 5. ПОДЗАГОЛОВОК И КНОПКА: fade-in через 0.3 с после заголовка (4000 + 300 = 4300 мс)
-            setTimeout(() => {
-              if (delayedContent) delayedContent.classList.add('revealed');
-            }, headlineStartTime + 1150);
+              triggerSwipe();
+            }, 2000);
           }
 
+          // Клик/тап по любой карточке сразу смахивает их и показывает противоядие
+          cards.forEach(card => {
+            if (card) {
+              card.addEventListener('click', () => {
+                hasAnimated = true;
+                triggerSwipe();
+              });
+            }
+          });
+
+          // IntersectionObserver с чувствительным порогом (0.05)
           if ('IntersectionObserver' in window) {
             const observer = new IntersectionObserver((entries) => {
               entries.forEach(entry => {
-                if (entry.isIntersecting && entry.intersectionRatio >= 0.38) {
-                  runAnimation();
+                if (entry.isIntersecting) {
+                  runChoreography();
                   observer.unobserve(section);
                 }
               });
-            }, { threshold: [0.2, 0.38, 0.4, 0.5] });
+            }, { threshold: 0.05 });
             observer.observe(section);
-          } else {
-            runAnimation();
           }
+
+          // Fallback при скролле
+          function checkScrollFallback() {
+            const rect = section.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.92 && rect.bottom > 0) {
+              runChoreography();
+              window.removeEventListener('scroll', checkScrollFallback);
+            }
+          }
+          window.addEventListener('scroll', checkScrollFallback, { passive: true });
+          checkScrollFallback();
         })();
 
         // Mobile Floating Bar observer
