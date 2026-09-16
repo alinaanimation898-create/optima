@@ -1249,6 +1249,11 @@
         gap: 16px;
       }
     }
+    @media (max-width: 640px) {
+      #constructor .cfg-card {
+        padding: 18px 16px;
+      }
+    }
 
     #constructor .cfg-card {
       position: relative;
@@ -1441,12 +1446,45 @@
       margin-top: 1px;
       line-height: 1.35;
     }
-    #constructor .cfg-row-price {
+    #constructor .cfg-row-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    #constructor .cfg-price-slot {
+      min-width: 108px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      text-align: right;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+    }
+    #constructor .cfg-price-slot.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #constructor .cfg-row-price,
+    #constructor .cfg-price-val {
       font-size: 12px;
       font-weight: 700;
       color: #0284c7;
       white-space: nowrap;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    #constructor .cfg-badge-included {
+      display: inline-flex;
+      align-items: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: #1e5e3a;
+      background: #eaf4ee;
+      padding: 1.5px 7px;
+      border-radius: 6px;
+      border: 1px solid #bce1cd;
+      white-space: nowrap;
     }
     #constructor .cfg-badge-locked {
       display: inline-flex;
@@ -1503,6 +1541,30 @@
     #constructor input:checked + .cfg-track {
       background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
       box-shadow: 0 0 10px rgba(2, 132, 199, 0.35);
+    }
+    #constructor input:checked + .cfg-track.cfg-track-wa {
+      background: #25D366 !important;
+      box-shadow: 0 0 10px rgba(37, 211, 102, 0.4) !important;
+    }
+    #constructor input:checked + .cfg-track.cfg-track-tg {
+      background: #2AABEE !important;
+      box-shadow: 0 0 10px rgba(42, 171, 238, 0.4) !important;
+    }
+    #constructor input:checked + .cfg-track.cfg-track-inst {
+      background: linear-gradient(135deg, #F58529 0%, #DD2A7B 50%, #8134AF 100%) !important;
+      box-shadow: 0 0 10px rgba(221, 42, 123, 0.4) !important;
+    }
+    #constructor input:checked + .cfg-track.cfg-track-avito {
+      background: #00AAFF !important;
+      box-shadow: 0 0 10px rgba(0, 170, 255, 0.4) !important;
+    }
+    #constructor input:checked + .cfg-track.cfg-track-max {
+      background: #0077FF !important;
+      box-shadow: 0 0 10px rgba(0, 119, 255, 0.4) !important;
+    }
+    #constructor input:checked + .cfg-track.cfg-track-mail {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
+      box-shadow: 0 0 10px rgba(2, 132, 199, 0.4) !important;
     }
     #constructor .cfg-switch.cfg-locked input:checked + .cfg-track {
       background: #0284c7;
@@ -1580,99 +1642,27 @@
       box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
     }
 
-    /* АНИМИРОВАННЫЙ ПЕРЛАМУТРОВЫЙ ИРИДИСЦЕНТНЫЙ ГРАДИЕНТ (MOTHER-OF-PEARL SHIMMER) */
-    @keyframes pearlHoloShift {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    @keyframes pearlSheenShimmer {
-      0% {
-        transform: translateX(-180%) rotate(22deg);
-        opacity: 0;
-      }
-      20% {
-        opacity: 0.35;
-      }
-      50% {
-        opacity: 0.6;
-      }
-      80% {
-        opacity: 0.35;
-      }
-      100% {
-        transform: translateX(280%) rotate(22deg);
-        opacity: 0;
-      }
-    }
-
+    /* ПЛАШКА «НЕ НАШЛИ СВОЙ ВАРИАНТ?» (ТЕМНАЯ С СИНЕ-ГОЛУБЫМ СВЕЧЕНИЕМ) */
     #constructor .cfg-card-custom {
       grid-column: 1 / -1;
       position: relative;
+      margin-top: 48px !important;
+      border-radius: 24px;
+      padding: 24px 28px;
+      background: linear-gradient(165deg, #0b1928 0%, #0f2438 50%, #071320 100%) !important;
+      border: 1.5px solid rgba(56, 189, 248, 0.35) !important;
+      box-shadow: 0 16px 40px -8px rgba(2, 132, 199, 0.35), 0 0 25px rgba(56, 189, 248, 0.15) !important;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       overflow: hidden;
       isolation: isolate;
-      border-radius: 24px;
-      padding: 22px 26px;
-      border: 1.5px solid rgba(255, 255, 255, 0.95);
-      background: linear-gradient(
-        135deg,
-        #ffffff 0%,
-        #e0f2fe 16%,
-        #ffffff 32%,
-        #bae6fd 48%,
-        #f8fafc 64%,
-        #fdf2f8 76%,
-        #e0f2fe 88%,
-        #ffffff 100%
-      ) !important;
-      background-size: 250% 250% !important;
-      animation: pearlHoloShift 8s ease-in-out infinite !important;
-      box-shadow: 
-        0 16px 40px -8px rgba(186, 230, 253, 0.65),
-        0 4px 18px -2px rgba(56, 189, 248, 0.2),
-        0 0 0 1px rgba(255, 255, 255, 0.9) inset !important;
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
-
+    #constructor .cfg-card-custom::before,
     #constructor .cfg-card-custom::after {
       display: none !important;
     }
-
-    #constructor .cfg-card-custom::before {
-      content: '' !important;
-      position: absolute !important;
-      top: -60% !important;
-      left: -60% !important;
-      width: 220% !important;
-      height: 220% !important;
-      background: linear-gradient(
-        105deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0) 25%,
-        rgba(255, 255, 255, 0.2) 42%,
-        rgba(255, 255, 255, 0.45) 50%,
-        rgba(255, 255, 255, 0.2) 58%,
-        rgba(255, 255, 255, 0) 75%,
-        transparent 100%
-      ) !important;
-      animation: pearlSheenShimmer 7s ease-in-out infinite !important;
-      pointer-events: none !important;
-      z-index: 1 !important;
-    }
-
     #constructor .cfg-card-custom:hover {
-      transform: translateY(-3px);
-      box-shadow: 
-        0 22px 50px -6px rgba(186, 230, 253, 0.8),
-        0 8px 24px -2px rgba(56, 189, 248, 0.28),
-        0 0 28px 4px rgba(255, 255, 255, 1) inset !important;
+      transform: translateY(-2px);
+      box-shadow: 0 22px 48px -6px rgba(2, 132, 199, 0.45), 0 0 32px rgba(56, 189, 248, 0.25) !important;
     }
 
     #constructor .cfg-card-custom-inner {
@@ -1687,8 +1677,22 @@
     @media (max-width: 640px) {
       #constructor .cfg-card-custom-inner {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
       }
+    }
+
+    /* ИНФО-ПЛАШКА VIP «ИМПЕРИЯ» */
+    #constructor #cfgVipNotice {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      margin-top: 0;
+      transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, margin-top 0.3s ease;
+    }
+    #constructor #cfgVipNotice.visible {
+      max-height: 240px;
+      opacity: 1;
+      margin-top: 14px;
     }
 
     /* СТИЛИ КОМПАКТНОЙ КАРТОЧКИ «ВАШ РАСЧЕТ» */
@@ -6542,6 +6546,22 @@
                 Примерное количество входящих обращений
               </div>
               <div class="cfg-pill-group" id="volume"></div>
+
+              <!-- Информационная плашка для тарифа «Империя» (от 1000) -->
+              <div id="cfgVipNotice">
+                <div class="p-3.5 sm:p-4 rounded-2xl bg-sky-50/95 border border-sky-200 text-sky-950 flex items-start gap-3">
+                  <span class="text-base sm:text-lg shrink-0 mt-0.5">ℹ️</span>
+                  <div class="space-y-2.5">
+                    <div class="text-xs sm:text-[13px] leading-relaxed text-slate-700 font-normal">
+                      От 1&nbsp;000 заявок в месяц — индивидуальный тариф „Империя“. Стоимость зависит от объёма и количества ИИ&#8209;продавцов. Свяжитесь с нами — рассчитаем под ваш бизнес.
+                    </div>
+                    <a href="https://t.me/altaioptima?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B8%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%20%D0%98%D0%98-%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B2%D1%86%D0%B0" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-500 hover:to-blue-500 active:scale-95 px-3.5 py-1.5 rounded-xl shadow-xs transition-all transform hover:-translate-y-0.5">
+                      <span>Получить индивидуальный расчёт</span>
+                      <span>→</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
 
           </div>
@@ -6555,20 +6575,30 @@
                 </h3>
               </div>
 
-              <!-- Суммы настройки и подписки -->
-              <div class="space-y-1 pb-1">
+              <!-- Суммы настройки и подписки (Стандарт) -->
+              <div id="cfgStandardPrices" class="space-y-1 pb-1 transition-all duration-200">
                 <div class="flex items-baseline gap-1.5 text-xl sm:text-2xl font-black text-white font-inter">
-                  <span id="setupTotal">50 000</span> <span class="text-sky-400 font-bold text-sm">₽</span>
+                  <span id="setupTotal">50&nbsp;000</span> <span class="text-sky-400 font-bold text-sm">₽</span>
                   <span class="text-xs text-slate-300 font-medium ml-1">настройка</span>
                 </div>
                 <div class="flex items-baseline gap-1.5 text-xl sm:text-2xl font-black text-emerald-400 font-inter">
-                  <span id="monthlyTotal">15 000</span> <span class="text-emerald-300 font-bold text-sm">₽/мес</span>
+                  <span id="monthlyTotal">15&nbsp;000</span> <span class="text-emerald-300 font-bold text-sm">₽/мес</span>
                   <span class="text-xs text-slate-300 font-medium ml-1">со 2-го месяца</span>
                 </div>
               </div>
 
+              <!-- Индивидуальный расчет (при "от 1000") -->
+              <div id="cfgCustomPrices" class="hidden space-y-1 pb-2 transition-all duration-200">
+                <div class="text-xl sm:text-2xl font-black text-white font-inter leading-snug">
+                  Индивидуальный расчёт
+                </div>
+                <div class="text-xs text-sky-300 font-medium">
+                  Стоимость зависит от объёма заявок
+                </div>
+              </div>
+
               <!-- Аккордеон «Подробнее ▾» со сворачиваемой таблицей -->
-              <div class="cfg-details-wrap my-2 border-t border-b border-sky-400/20 py-2">
+              <div class="cfg-details-wrap my-2 border-t border-b border-sky-400/20 py-2" id="cfgDetailsWrap">
                 <button type="button" id="cfgToggleDetailsBtn" onclick="toggleCfgDetails()" class="w-full flex items-center justify-between text-xs font-bold text-sky-300 hover:text-white transition-colors cursor-pointer py-0.5">
                   <span id="cfgDetailsToggleLabel">Подробнее</span>
                   <span id="cfgDetailsArrow" class="transition-transform duration-200">▾</span>
@@ -6590,14 +6620,14 @@
               </div>
 
               <!-- Итог за первый год -->
-              <div class="cfg-year-total-box !mt-2 !p-2.5">
+              <div class="cfg-year-total-box !mt-2 !p-2.5" id="cfgYearTotalBox">
                 <div class="cfg-year-total-val text-xs sm:text-sm">
                   <span>За первый год:</span>
-                  <span id="yearTotal" class="font-black text-sky-300">215 000 ₽</span>
+                  <span id="yearTotal" class="font-black text-sky-300">215&nbsp;000&nbsp;₽</span>
                 </div>
                 <div class="cfg-year-total-compare text-[11px]">
                   <span>Штатный менеджер —</span>
-                  <span class="text-slate-300">~960 000 ₽</span>
+                  <span class="text-slate-300">~960&nbsp;000&nbsp;₽</span>
                 </div>
               </div>
 
@@ -6613,23 +6643,38 @@
         </div>
 
         <!-- ЕДИНЫЙ БЛОК ПОД КОНСТРУКТОРОМ: НЕ НАШЛИ СВОЙ ВАРИАНТ (НА МОБИЛЬНЫХ ИДЕТ ПОСЛЕ КАРТОЧКИ РАСЧЕТА) -->
-        <div class="cfg-card-custom mt-5 sm:mt-6">
-          <div class="cfg-card-custom-inner">
-            <div class="space-y-1">
-              <div class="text-slate-900 font-extrabold text-sm sm:text-base leading-snug">
-                Не нашли свой вариант?
+        <div class="cfg-card-custom">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 sm:gap-6">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-sky-400 via-sky-500 to-blue-600 flex items-center justify-center shrink-0 shadow-lg shadow-sky-500/25 border border-sky-300/40">
+                <svg class="w-6 h-6 text-white fill-current" viewBox="0 0 24 24">
+                  <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/>
+                  <circle cx="8" cy="10" r="1.25"/>
+                  <circle cx="12" cy="10" r="1.25"/>
+                  <circle cx="16" cy="10" r="1.25"/>
+                </svg>
               </div>
-              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Подключим любой канал, CRM или учётную систему. Расскажите, как устроены ваши продажи, и мы предложим решение
-              </p>
+              <div class="space-y-1">
+                <div class="text-white font-black text-base sm:text-lg md:text-xl tracking-tight leading-snug">
+                  Не нашли свой вариант?
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl font-normal">
+                  Подключим любой канал, CRM или учётную систему. Расскажите о своих продажах — предложим решение.
+                </p>
+              </div>
             </div>
-            <div class="shrink-0 pt-2 sm:pt-0">
-              <a href="https://t.me/altaioptima?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B8%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%20%D0%98%D0%98-%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B2%D1%86%D0%B0" target="_blank" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-sky-600 via-sky-500 to-blue-600 hover:from-sky-500 hover:to-blue-500 px-4 py-2 rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 whitespace-nowrap">
+            <div class="w-full sm:w-auto shrink-0 pt-1 sm:pt-0">
+              <a href="https://t.me/altaioptima?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B8%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%20%D0%98%D0%98-%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B2%D1%86%D0%B0" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-black text-[#0b1928] bg-white hover:bg-sky-50 active:scale-95 px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 whitespace-nowrap">
                 <span>Обсудить задачу</span>
                 <span>→</span>
               </a>
             </div>
           </div>
+        </div>
+
+        <!-- Сноска Instagram* -->
+        <div class="text-center sm:text-left text-[11px] text-slate-400 mt-4 leading-relaxed">
+          *Instagram принадлежит компании Meta, деятельность которой признана экстремистской и запрещена в РФ
         </div>
 
       </div>
@@ -6641,8 +6686,8 @@
     <div id="cfgMobileBottomBar" class="fixed bottom-0 inset-x-0 z-50 p-3 bg-[#0b1928]/95 backdrop-blur-md border-t border-sky-400/30 shadow-[0_-8px_25px_rgba(0,0,0,0.4)] transition-all duration-300 translate-y-full lg:hidden">
       <div class="flex items-center justify-between gap-3 max-w-md mx-auto">
         <div class="text-left font-inter">
-          <div class="text-xs font-black text-white whitespace-nowrap">
-            <span id="mobSetupTotal">50 000</span> ₽ + <span id="mobMonthlyTotal">15 000</span> ₽/мес
+          <div class="text-xs font-black text-white whitespace-nowrap" id="mobPricesWrap">
+            <span id="mobSetupTotal">50&nbsp;000</span>&nbsp;₽ + <span id="mobMonthlyTotal">15&nbsp;000</span>&nbsp;₽/мес
           </div>
           
           <div class="text-[9.5px] text-sky-400 font-bold uppercase tracking-wider">Ваш расчёт</div>
@@ -9438,12 +9483,54 @@
         const BASE_MONTHLY = 15000;
 
         const CHANNELS = [
-          {id:'wa', label:'WhatsApp', setup:10000, monthly:2000},
-          {id:'tg', label:'Telegram', setup:10000, monthly:2000},
-          {id:'inst', label:'Instagram*', setup:10000, monthly:2000},
-          {id:'avito', label:'Авито', setup:10000, monthly:2000},
-          {id:'max', label:'MAX (российский мессенджер)', setup:10000, monthly:2000},
-          {id:'mail', label:'Email', setup:10000, monthly:2000},
+          {
+            id: 'wa',
+            label: 'WhatsApp',
+            trackClass: 'cfg-track-wa',
+            iconSvg: `<svg class="w-6 h-6 shrink-0 transition-opacity duration-200" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#25D366"/><path d="M12.04 4C7.6 4 4 7.6 4 12.04c0 1.5.42 2.92 1.15 4.16L4 20l3.9-1.12a8.03 8.03 0 004.14 1.16h.01c4.44 0 8.05-3.6 8.05-8.04 0-2.15-.84-4.17-2.36-5.69A8 8 0 0012.04 4zm4.7 11.4c-.2.55-1.14 1.07-1.58 1.13-.42.06-.96.08-1.55-.11-.36-.12-.83-.28-1.44-.54-2.54-1.1-4.2-3.66-4.32-3.83-.13-.17-1.03-1.37-1.03-2.61 0-1.24.65-1.85.88-2.1.23-.25.5-.31.67-.31.17 0 .34 0 .49.01.15.01.36-.06.56.43.2.49.69 1.68.75 1.8.06.13.1.27.02.44-.09.16-.13.26-.26.41-.13.15-.27.34-.38.45-.13.13-.27.27-.12.52.16.26.7 1.15 1.5 1.87 1.03.92 1.9 1.2 2.17 1.33.27.13.43.11.59-.07.16-.18.69-.8.88-1.08.18-.27.37-.23.62-.14.25.1 1.58.75 1.85.88.27.13.45.2.52.31.06.12.06.69-.14 1.24z" fill="#FFFFFF"/></svg>`,
+            setup: 10000,
+            monthly: 10000
+          },
+          {
+            id: 'tg',
+            label: 'Telegram',
+            trackClass: 'cfg-track-tg',
+            iconSvg: `<svg class="w-6 h-6 shrink-0 transition-opacity duration-200" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#2AABEE"/><path d="M5.5 11.9l11.6-4.8c.5-.2 1.1.1.9.7l-2 9.4c-.1.6-.7.8-1.1.5l-3.3-2.4-1.6 1.5c-.2.2-.4.4-.8.4l.2-3.3 6-5.4c.3-.2-.1-.4-.4-.2l-7.4 4.7-3.2-1c-.7-.2-.7-.7.1-1z" fill="#FFFFFF"/></svg>`,
+            setup: 10000,
+            monthly: 10000
+          },
+          {
+            id: 'inst',
+            label: 'Instagram*',
+            trackClass: 'cfg-track-inst',
+            iconSvg: `<svg class="w-6 h-6 shrink-0 transition-opacity duration-200" viewBox="0 0 24 24" fill="none"><defs><linearGradient id="instGradCtor" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#F58529"/><stop offset="50%" stop-color="#DD2A7B"/><stop offset="100%" stop-color="#8134AF"/></linearGradient></defs><rect width="24" height="24" rx="6" fill="url(#instGradCtor)"/><rect x="5.5" y="5.5" width="13" height="13" rx="3.8" stroke="#FFFFFF" stroke-width="1.6" fill="none"/><circle cx="12" cy="12" r="3.2" stroke="#FFFFFF" stroke-width="1.6" fill="none"/><circle cx="15.8" cy="8.2" r="0.9" fill="#FFFFFF"/></svg>`,
+            setup: 10000,
+            monthly: 10000
+          },
+          {
+            id: 'avito',
+            label: 'Авито',
+            trackClass: 'cfg-track-avito',
+            iconSvg: `<svg class="w-6 h-6 shrink-0 transition-opacity duration-200" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#F8FAFC"/><circle cx="8" cy="8.5" r="3.8" fill="#96CE00"/><circle cx="15.5" cy="7.5" r="2.8" fill="#A839EB"/><circle cx="15.5" cy="15" r="4.2" fill="#00AAFF"/><circle cx="8.5" cy="16.5" r="3" fill="#FF4053"/></svg>`,
+            setup: 10000,
+            monthly: 10000
+          },
+          {
+            id: 'max',
+            label: 'MAX',
+            trackClass: 'cfg-track-max',
+            iconSvg: `<svg class="w-6 h-6 shrink-0 transition-opacity duration-200" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#0077FF"/><path d="M6 16.5V7.5L10 13.5L12 10.5L14 13.5L18 7.5V16.5H15.5V11.5L13 15.2H11L8.5 11.5V16.5H6Z" fill="#FFFFFF"/></svg>`,
+            setup: 10000,
+            monthly: 10000
+          },
+          {
+            id: 'mail',
+            label: 'Email',
+            trackClass: 'cfg-track-mail',
+            iconSvg: `<svg class="w-6 h-6 shrink-0 transition-opacity duration-200" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#0284C7"/><path d="M5.5 8C5.5 7.17 6.17 6.5 7 6.5H17C17.83 6.5 18.5 7.17 18.5 8V16C18.5 16.83 17.83 17.5 17 17.5H7C6.17 17.5 5.5 16.83 5.5 16V8Z" stroke="#FFFFFF" stroke-width="1.3" fill="none"/><path d="M6 8L12 12.5L18 8" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+            setup: 10000,
+            monthly: 10000
+          },
         ];
 
         const CRMS = [
@@ -9455,16 +9542,18 @@
 
         const EXTRAS = [
           {
-            id:'voice',
-            label:'Понимает голосовые сообщения',
-            sub:'переводит аудио в текст и отвечает в любом канале',
-            setup:10000, monthly:3000
+            id: 'voice',
+            label: 'Отвечает на голосовые сообщения',
+            sub: '',
+            setup: 10000,
+            monthly: 3000
           },
           {
-            id:'scratch',
-            label:'Подготовка с нуля',
-            sub:'составим скрипты продаж, прайс и базу знаний',
-            setup:50000, monthly:0
+            id: 'scratch',
+            label: 'Нет скриптов и прайса? Подготовим сами',
+            sub: 'Напишем скрипты продаж и соберём всю информацию о вашем продукте',
+            setup: 50000,
+            monthly: 0
           },
         ];
 
@@ -9482,6 +9571,8 @@
           volume: 'v1'
         };
 
+        let activeChannelOrder = ['wa'];
+
         const channelsEl = document.getElementById('channels');
         const crmsEl = document.getElementById('crms');
         const extrasEl = document.getElementById('extras');
@@ -9491,33 +9582,41 @@
 
         function renderChannels() {
           if (!channelsEl) return;
-          const activeChannels = CHANNELS.filter(c => state.channels[c.id]);
-          const firstActiveId = activeChannels.length > 0 ? activeChannels[0].id : null;
-
           channelsEl.innerHTML = CHANNELS.map(c => {
-            const isChecked = !!state.channels[c.id];
-            const isBaseChannel = (c.id === firstActiveId);
+            const isChecked = activeChannelOrder.includes(c.id);
+            const isFirst = isChecked && (activeChannelOrder[0] === c.id);
+            const isExtraActive = isChecked && !isFirst;
 
-            let priceHtml = '';
-            if (isBaseChannel) {
-              priceHtml = `<span class="cfg-badge-locked">в базе</span>`;
+            let priceContent = '';
+            let priceClass = 'cfg-price-slot';
+
+            if (isFirst) {
+              priceContent = `<span class="cfg-badge-included">входит в тариф</span>`;
+              priceClass += ' visible';
+            } else if (isExtraActive) {
+              priceContent = `<span class="cfg-price-val">+${formatPrice(c.setup)}\u00A0₽</span>`;
+              priceClass += ' visible';
             } else {
-              priceHtml = `<div class="cfg-row-price">+${formatPrice(c.setup)}\u00A0₽</div>`;
+              priceContent = `<span class="cfg-price-val">+${formatPrice(c.setup)}\u00A0₽</span>`;
             }
 
             return `
               <div class="cfg-row" data-row="${c.id}">
-                <div>
-                  <div class="cfg-row-label">
+                <div class="flex items-center gap-2.5 min-w-0">
+                  <span class="cfg-channel-icon ${isChecked ? 'opacity-100' : 'opacity-60'} transition-opacity duration-200">
+                    ${c.iconSvg}
+                  </span>
+                  <div class="cfg-row-label !gap-1">
                     <span>${c.label}</span>
                   </div>
-                  ${c.sub ? `<div class="cfg-row-sub">${c.sub}</div>` : ''}
                 </div>
-                <div style="display:flex;align-items:center;gap:12px;">
-                  ${priceHtml}
+                <div class="cfg-row-right">
+                  <div class="${priceClass}">
+                    ${priceContent}
+                  </div>
                   <label class="cfg-switch">
                     <input type="checkbox" data-group="channels" data-id="${c.id}" ${isChecked ? 'checked' : ''}>
-                    <span class="cfg-track"></span>
+                    <span class="cfg-track ${c.trackClass}"></span>
                   </label>
                 </div>
               </div>
@@ -9525,18 +9624,62 @@
           }).join('');
         }
 
+        function updateChannelsUI() {
+          CHANNELS.forEach(c => {
+            const row = channelsEl ? channelsEl.querySelector(`.cfg-row[data-row="${c.id}"]`) : null;
+            if (!row) return;
+            const input = row.querySelector('input[type="checkbox"]');
+            const icon = row.querySelector('.cfg-channel-icon');
+            const priceSlot = row.querySelector('.cfg-price-slot');
+
+            const isChecked = activeChannelOrder.includes(c.id);
+            const isFirst = isChecked && (activeChannelOrder[0] === c.id);
+            const isExtraActive = isChecked && !isFirst;
+
+            if (input && input.checked !== isChecked) input.checked = isChecked;
+            if (icon) {
+              if (isChecked) {
+                icon.classList.remove('opacity-60');
+                icon.classList.add('opacity-100');
+              } else {
+                icon.classList.remove('opacity-100');
+                icon.classList.add('opacity-60');
+              }
+            }
+
+            if (priceSlot) {
+              if (isFirst) {
+                priceSlot.innerHTML = `<span class="cfg-badge-included">входит в тариф</span>`;
+                priceSlot.classList.add('visible');
+              } else if (isExtraActive) {
+                priceSlot.innerHTML = `<span class="cfg-price-val">+${formatPrice(c.setup)}\u00A0₽</span>`;
+                priceSlot.classList.add('visible');
+              } else {
+                priceSlot.classList.remove('visible');
+              }
+            }
+          });
+        }
+
         function renderToggleList(container, items, group) {
           if (!container) return;
+          const isExtras = (group === 'extras');
           container.innerHTML = items.map(it => {
             const isChecked = !!state[group][it.id];
+            let priceClass = 'cfg-price-slot';
+            if (!isExtras || isChecked) {
+              priceClass += ' visible';
+            }
             return `
               <div class="cfg-row" data-row="${it.id}">
                 <div>
                   <div class="cfg-row-label">${it.label}</div>
                   ${it.sub ? `<div class="cfg-row-sub">${it.sub}</div>` : ''}
                 </div>
-                <div style="display:flex;align-items:center;gap:12px;">
-                  <div class="cfg-row-price">+${formatPrice(it.setup)}\u00A0₽</div>
+                <div class="cfg-row-right">
+                  <div class="${priceClass}">
+                    <span class="cfg-price-val">+${formatPrice(it.setup)}\u00A0₽</span>
+                  </div>
                   <label class="cfg-switch">
                     <input type="checkbox" data-group="${group}" data-id="${it.id}" ${isChecked ? 'checked' : ''}>
                     <span class="cfg-track"></span>
@@ -9545,6 +9688,25 @@
               </div>
             `;
           }).join('');
+        }
+
+        function updateExtrasUI() {
+          EXTRAS.forEach(e => {
+            const row = extrasEl ? extrasEl.querySelector(`.cfg-row[data-row="${e.id}"]`) : null;
+            if (!row) return;
+            const input = row.querySelector('input[type="checkbox"]');
+            const priceSlot = row.querySelector('.cfg-price-slot');
+            const isChecked = !!state.extras[e.id];
+
+            if (input && input.checked !== isChecked) input.checked = isChecked;
+            if (priceSlot) {
+              if (isChecked) {
+                priceSlot.classList.add('visible');
+              } else {
+                priceSlot.classList.remove('visible');
+              }
+            }
+          });
         }
 
         renderChannels();
@@ -9574,7 +9736,16 @@
               if (group && state[group]) {
                 state[group][id] = e.target.checked;
                 if (group === 'channels') {
-                  renderChannels();
+                  if (e.target.checked) {
+                    if (!activeChannelOrder.includes(id)) {
+                      activeChannelOrder.push(id);
+                    }
+                  } else {
+                    activeChannelOrder = activeChannelOrder.filter(x => x !== id);
+                  }
+                  updateChannelsUI();
+                } else if (group === 'extras') {
+                  updateExtrasUI();
                 }
                 recalc();
               }
@@ -9583,6 +9754,56 @@
         }
 
         function recalc(){
+          const isVipVolume = (state.volume === 'v4');
+          const vipNotice = document.getElementById('cfgVipNotice');
+          const standardPrices = document.getElementById('cfgStandardPrices');
+          const customPrices = document.getElementById('cfgCustomPrices');
+          const yearTotalBox = document.getElementById('cfgYearTotalBox');
+          const detailsWrap = document.getElementById('cfgDetailsWrap');
+          const mobPricesWrap = document.getElementById('mobPricesWrap');
+          const ctaBtn = document.getElementById('ctaBtn');
+
+          // VIP notice under volume buttons
+          if (vipNotice) {
+            if (isVipVolume) {
+              vipNotice.classList.add('visible');
+            } else {
+              vipNotice.classList.remove('visible');
+            }
+          }
+
+          const activeChItems = activeChannelOrder.map(id => CHANNELS.find(c => c.id === id)).filter(Boolean);
+          const activeChNames = activeChItems.map(c => c.label).join(', ') || 'Без каналов (только таблица)';
+          const activeCrmNames = CRMS.filter(c => state.crms[c.id]).map(c => c.label).join(', ') || 'Только таблица';
+          const activeExtraNames = EXTRAS.filter(e => state.extras[e.id]).map(e => e.label).join(', ') || 'Нет';
+
+          if (isVipVolume) {
+            // Empire / Custom Quote state
+            if (standardPrices) standardPrices.classList.add('hidden');
+            if (customPrices) customPrices.classList.remove('hidden');
+            if (yearTotalBox) yearTotalBox.classList.add('hidden');
+            if (detailsWrap) detailsWrap.classList.add('hidden');
+            if (mobPricesWrap) mobPricesWrap.textContent = 'Индивидуальный расчёт';
+
+            if (ctaBtn) {
+              ctaBtn.textContent = 'ПОЛУЧИТЬ ИНДИВИДУАЛЬНЫЙ РАСЧЁТ';
+              const tgMsg = `Здравствуйте! Интересует индивидуальный тариф «Империя» (от 1000 заявок в месяц):
+• Каналы: ${activeChNames}
+• База клиентов: ${activeCrmNames}
+• Дополнительно: ${activeExtraNames}
+Хочу обсудить проект!`;
+              ctaBtn.href = `https://t.me/altaioptima?text=${encodeURIComponent(tgMsg)}`;
+            }
+            return;
+          }
+
+          // Standard Calculation
+          if (standardPrices) standardPrices.classList.remove('hidden');
+          if (customPrices) customPrices.classList.add('hidden');
+          if (yearTotalBox) yearTotalBox.classList.remove('hidden');
+          if (detailsWrap) detailsWrap.classList.remove('hidden');
+          if (ctaBtn) ctaBtn.textContent = 'ПОЛУЧИТЬ ТОЧНЫЙ РАСЧЁТ';
+
           let setup = BASE_SETUP;
           let monthly = BASE_MONTHLY;
           
@@ -9593,18 +9814,19 @@
             monthlyStr: '15\u00A0000\u00A0₽/мес'
           });
 
-          // Channels: 1st is base, 2nd+ cost setup & monthly
-          const activeChannels = CHANNELS.filter(c => state.channels[c.id]);
-          if (activeChannels.length > 1) {
-            for (let i = 1; i < activeChannels.length; i++) {
-              const c = activeChannels[i];
-              setup += c.setup;
-              monthly += c.monthly;
-              tableRows.push({
-                name: c.label,
-                setupStr: `+${formatPrice(c.setup)}\u00A0₽`,
-                monthlyStr: `+${formatPrice(c.monthly)}\u00A0₽/мес`
-              });
+          // Channels: 1st is base (free), 2nd+ cost setup (+10 000) & monthly (+10 000)
+          if (activeChannelOrder.length > 1) {
+            for (let i = 1; i < activeChannelOrder.length; i++) {
+              const c = CHANNELS.find(ch => ch.id === activeChannelOrder[i]);
+              if (c) {
+                setup += c.setup;
+                monthly += c.monthly;
+                tableRows.push({
+                  name: c.label,
+                  setupStr: `+${formatPrice(c.setup)}\u00A0₽`,
+                  monthlyStr: `+${formatPrice(c.monthly)}\u00A0₽/мес`
+                });
+              }
             }
           }
 
@@ -9653,17 +9875,14 @@
 
           const setupTotalEl = document.getElementById('setupTotal');
           const monthlyTotalEl = document.getElementById('monthlyTotal');
-          const mobSetupTotalEl = document.getElementById('mobSetupTotal');
-          const mobMonthlyTotalEl = document.getElementById('mobMonthlyTotal');
           const yearTotalEl = document.getElementById('yearTotal');
           const cfgDetailsRowsEl = document.getElementById('cfgDetailsRows');
-          const ctaBtn = document.getElementById('ctaBtn');
 
           if (setupTotalEl) setupTotalEl.textContent = formatPrice(setup);
-          if (mobSetupTotalEl) mobSetupTotalEl.textContent = formatPrice(setup);
-
           if (monthlyTotalEl) monthlyTotalEl.textContent = formatPrice(monthly);
-          if (mobMonthlyTotalEl) mobMonthlyTotalEl.textContent = formatPrice(monthly);
+          if (mobPricesWrap) {
+            mobPricesWrap.innerHTML = `<span id="mobSetupTotal">${formatPrice(setup)}</span>\u00A0₽ + <span id="mobMonthlyTotal">${formatPrice(monthly)}</span>\u00A0₽/мес`;
+          }
 
           if (cfgDetailsRowsEl) {
             cfgDetailsRowsEl.innerHTML = tableRows.map(r => `
@@ -9683,11 +9902,7 @@
 
           // Prefilled Telegram message link
           if (ctaBtn) {
-            const activeChNames = activeChannels.map(c => c.label).join(', ') || 'Таблица';
-            const activeCrmNames = CRMS.filter(c => state.crms[c.id]).map(c => c.label).join(', ') || 'Только таблица';
-            const activeExtraNames = EXTRAS.filter(e => state.extras[e.id]).map(e => e.label).join(', ') || 'Нет';
             const volLabel = vol ? vol.shortLabel : 'до 100';
-
             const tgMsg = `Здравствуйте! Собрал расчёт ИИ-продавца на сайте:
 • Каналы: ${activeChNames}
 • База клиентов: ${activeCrmNames}
