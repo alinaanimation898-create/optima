@@ -3010,6 +3010,12 @@
       .cta-col-right {
         display: contents;
       }
+      .cta-pretitle-block { order: 1; }
+      .cta-notifications-stage { order: 2; }
+      .cta-mob-arrow { order: 3; display: flex; }
+      .cta-subtitle-block { order: 4; margin-top: 0; }
+      .cta-title-block { order: 5; margin-top: 24px; }
+      .cta-actions-block { order: 6; margin-top: 32px; }
     }
 
     @media (min-width: 1024px) {
@@ -3034,6 +3040,12 @@
         text-align: left;
         width: 100%;
       }
+      .cta-mob-arrow {
+        display: none !important;
+      }
+      .cta-title-block { order: 1; }
+      .cta-subtitle-block { order: 2; margin-top: 24px; }
+      .cta-actions-block { order: 3; margin-top: 40px; }
     }
 
     /* Радиальное голубое свечение за левой колонкой */
@@ -3230,7 +3242,7 @@
       font-size: clamp(28px, 2.6vw, 44px);
       line-height: 1.05;
     }
-    .cta-title-line-1 {
+    .cta-title-line-dark {
       display: block;
       white-space: nowrap;
       color: #075985;
@@ -3239,8 +3251,7 @@
       -webkit-text-fill-color: transparent;
       filter: drop-shadow(0 10px 24px rgba(2, 132, 199, 0.18));
     }
-    .cta-title-line-2,
-    .cta-title-line-3 {
+    .cta-title-line-gradient {
       display: block;
       white-space: nowrap;
     }
@@ -7110,7 +7121,7 @@
       <div class="max-w-[1200px] mx-auto relative z-10">
         <div class="cta-final-grid">
 
-          <!-- ЛЕВАЯ КОЛОНКА (На мобильных: 1. Претайтл -> 2. Уведомления) -->
+          <!-- ЛЕВАЯ КОЛОНКА (На мобильных: 1. Претайтл -> 2. Уведомления -> 3. Стрелка) -->
           <div class="cta-col-left">
             
             <!-- 1. Претайтл «Знакомо?» с акцентной полоской 24px -->
@@ -7143,7 +7154,7 @@
                 </div>
               </div>
 
-              <!-- Карточка 2: Менеджер Олег (серый круг с буквой «О») · 23:52 -->
+              <!-- Карточка 2: Менеджер Олег (серый круг с буквой «О») · 14:14 -->
               <div class="cta-push-wrapper cta-push-wrap-2">
                 <div class="cta-push-card cta-push-2">
                   <div class="w-9 h-9 rounded-full bg-slate-200 border border-slate-300 flex items-center justify-center shrink-0">
@@ -7152,7 +7163,7 @@
                   <div class="flex-1 min-w-0">
                     <div class="flex items-center justify-between gap-2 mb-0.5">
                       <span class="text-[13px] font-semibold text-[#1B2B40] leading-none">Менеджер Олег</span>
-                      <span class="text-[12px] text-slate-400 font-normal leading-none">23:52</span>
+                      <span class="text-[12px] text-slate-400 font-normal leading-none">14:14</span>
                     </div>
                     <p class="text-[14px] text-[#3A4A5E] leading-snug">
                       Клиент просит скидку, что&nbsp;ответить?
@@ -7199,22 +7210,32 @@
               </div>
 
             </div>
+
+            <!-- 3. Стрелка вниз на мобильной версии (после уведомлений) -->
+            <div class="cta-mob-arrow flex lg:hidden items-center justify-center my-2 sm:my-3">
+              <div class="blue-path-arrow text-sky-500">
+                <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+              </div>
+            </div>
+
           </div>
 
-          <!-- ПРАВАЯ КОЛОНКА (На мобильных: 3. Заголовок -> 4. Подзаголовок -> 5. Кнопки) -->
+          <!-- ПРАВАЯ КОЛОНКА (На мобильных: 4. Подзаголовок -> 5. Заголовок -> 6. Кнопки) -->
           <div class="cta-col-right">
             
-            <!-- 3. Заголовок (строго 3 строки) -->
+            <!-- Заголовок: «ИИ‑продавец работает, пока вы отдыхаете.» (На десктопе 1, на мобильных 5) -->
             <div class="cta-title-block">
               <h2 class="cta-final-title font-benzin font-black uppercase tracking-tight leading-[1.05]">
-                <span class="cta-title-line-1">Вы отдыхаете,</span>
-                <span class="cta-title-line-2 cta-gradient-shimmer mt-1 sm:mt-1.5">ИИ&#8209;продавец</span>
-                <span class="cta-title-line-3 cta-gradient-shimmer mt-0.5 sm:mt-1">работает</span>
+                <span class="cta-title-line-gradient cta-gradient-shimmer">ИИ&#8209;продавец</span>
+                <span class="cta-title-line-gradient cta-gradient-shimmer mt-1 sm:mt-1.5">работает,</span>
+                <span class="cta-title-line-dark mt-1 sm:mt-1.5">пока вы отдыхаете.</span>
               </h2>
             </div>
 
-            <!-- 4. Подзаголовок (отступ 24px, 19px, line-height 1.6, max-width 540px) -->
-            <div class="cta-subtitle-block mt-6 max-w-[540px]">
+            <!-- Подзаголовок (На десктопе 2, на мобильных 4) -->
+            <div class="cta-subtitle-block max-w-[540px]">
               <p class="text-[17px] sm:text-[19px] leading-[1.6] text-[#3A4A5E] font-normal">
                 Вам больше не&nbsp;нужно ничего проверять, менеджерам&nbsp;– отвечать на&nbsp;одни и&nbsp;те&nbsp;же вопросы. Они закрывают сделки, а&nbsp;вы занимаетесь тем, что&nbsp;важно.
               </p>
@@ -7223,12 +7244,11 @@
               </p>
             </div>
 
-            <!-- 5. Кнопки (отступ 40px, одинаковая высота) -->
-            <div class="cta-actions-block mt-10 w-full">
+            <!-- Кнопки (На десктопе 3, на мобильных 6) -->
+            <div class="cta-actions-block w-full">
               <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
-                <a href="https://t.me/altaioptima?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%D0%B0%D1%82%D1%8C%20%D1%80%D1%83%D1%82%D0%B8%D0%BD%D1%83%20%D0%98%D0%98-%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B2%D1%86%D1%83" target="_blank" class="btn-optic group shadow-xl py-4 px-7 sm:px-8 text-sm sm:text-base font-extrabold uppercase tracking-wider rounded-2xl flex items-center justify-center gap-2 cursor-pointer text-center min-h-[56px]">
+                <a href="https://t.me/altaioptima?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%D0%B0%D1%82%D1%8C%20%D1%80%D1%83%D1%82%D0%B8%D0%BD%D1%83%20%D0%98%D0%98-%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B2%D1%86%D1%83" target="_blank" class="btn-optic group shadow-xl py-4 px-7 sm:px-8 text-sm sm:text-base font-extrabold uppercase tracking-wider rounded-2xl flex items-center justify-center cursor-pointer text-center min-h-[56px]">
                   <span>Передать рутину ИИ&#8209;продавцу</span>
-                  <span class="btn-optic-arrow text-lg">→</span>
                 </a>
                 <a href="#psychology" class="btn-optic-outline group py-4 px-7 sm:px-8 text-sm sm:text-base font-extrabold uppercase tracking-wider rounded-2xl flex items-center justify-center text-center cursor-pointer min-h-[56px]">
                   <span>Проверить его в деле</span>

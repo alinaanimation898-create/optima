@@ -2948,6 +2948,12 @@
       .cta-col-right {
         display: contents;
       }
+      .cta-pretitle-block { order: 1; }
+      .cta-notifications-stage { order: 2; }
+      .cta-mob-arrow { order: 3; display: flex; }
+      .cta-subtitle-block { order: 4; margin-top: 0; }
+      .cta-title-block { order: 5; margin-top: 24px; }
+      .cta-actions-block { order: 6; margin-top: 32px; }
     }
 
     @media (min-width: 1024px) {
@@ -2972,6 +2978,12 @@
         text-align: left;
         width: 100%;
       }
+      .cta-mob-arrow {
+        display: none !important;
+      }
+      .cta-title-block { order: 1; margin-top: 0; }
+      .cta-subtitle-block { order: 2; margin-top: 24px; }
+      .cta-actions-block { order: 3; margin-top: 40px; }
     }
 
     /* Ambient blue glow behind left column */
@@ -3167,7 +3179,7 @@
       font-size: clamp(28px, 2.6vw, 44px);
       line-height: 1.05;
     }
-    .cta-title-line-1 {
+    .cta-title-line-dark {
       display: block;
       white-space: nowrap;
       color: #075985;
@@ -3176,8 +3188,7 @@
       -webkit-text-fill-color: transparent;
       filter: drop-shadow(0 10px 24px rgba(2, 132, 199, 0.18));
     }
-    .cta-title-line-2,
-    .cta-title-line-3 {
+    .cta-title-line-gradient {
       display: block;
       white-space: nowrap;
     }
@@ -6817,7 +6828,7 @@
                   <div class="flex-1 min-w-0">
                     <div class="flex items-center justify-between gap-2 mb-0.5">
                       <span class="text-[13px] font-semibold text-[#1B2B40] leading-none">Temsilci Can</span>
-                      <span class="text-[12px] text-slate-400 font-normal leading-none">23:52</span>
+                      <span class="text-[12px] text-slate-400 font-normal leading-none">14:14</span>
                     </div>
                     <p class="text-[14px] text-[#3A4A5E] leading-snug">
                       Müşteri indirim istiyor, ne cevap vermeliyim?
@@ -6864,22 +6875,32 @@
               </div>
 
             </div>
+
+            <!-- 3. Mobil aşağı ok -->
+            <div class="cta-mob-arrow flex lg:hidden items-center justify-center my-2 sm:my-3">
+              <div class="blue-path-arrow text-sky-500">
+                <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+              </div>
+            </div>
+
           </div>
 
-          <!-- SAĞ KOLON (Mobil: 3. Başlık -> 4. Alt Başlık -> 5. Butonlar) -->
+          <!-- SAĞ KOLON (Mobil: 4. Alt Başlık -> 5. Başlık -> 6. Butonlar) -->
           <div class="cta-col-right">
             
-            <!-- 3. Başlık (kesinlikle 3 satır) -->
+            <!-- Başlık: «Yapay Zekâ Satıcı çalışır, siz dinlenirken.» (Masaüstü 1, Mobil 5) -->
             <div class="cta-title-block">
               <h2 class="cta-final-title font-benzin font-black uppercase tracking-tight leading-[1.05]">
-                <span class="cta-title-line-1">Siz dinlenin,</span>
-                <span class="cta-title-line-2 cta-gradient-shimmer mt-1 sm:mt-1.5">Yapay Zekâ Satıcı</span>
-                <span class="cta-title-line-3 cta-gradient-shimmer mt-0.5 sm:mt-1">çalışsın</span>
+                <span class="cta-title-line-gradient cta-gradient-shimmer">Yapay Zekâ Satıcı</span>
+                <span class="cta-title-line-gradient cta-gradient-shimmer mt-1 sm:mt-1.5">çalışır,</span>
+                <span class="cta-title-line-dark mt-1 sm:mt-1.5">siz dinlenirken.</span>
               </h2>
             </div>
 
-            <!-- 4. Alt Başlık -->
-            <div class="cta-subtitle-block mt-6 max-w-[540px]">
+            <!-- Alt Başlık (Masaüstü 2, Mobil 4) -->
+            <div class="cta-subtitle-block max-w-[540px]">
               <p class="text-[17px] sm:text-[19px] leading-[1.6] text-[#3A4A5E] font-normal">
                 Artık hiçbir şeyi kontrol etmenize gerek yok, yöneticilerinizin de aynı soruları tekrar tekrar yanıtlamasına gerek yok. Onlar satışları kapatırken siz gerçekten önemli olan işlere odaklanırsınız.
               </p>
@@ -6888,12 +6909,11 @@
               </p>
             </div>
 
-            <!-- 5. Butonlar -->
-            <div class="cta-actions-block mt-10 w-full">
+            <!-- Butonlar (Masaüstü 3, Mobil 6) -->
+            <div class="cta-actions-block w-full">
               <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
-                <a href="https://t.me/altaioptima?text=Merhaba!%20%C4%B0%C5%9Fletmem%20i%C3%A7in%20Yapay%20Zeka%20Sat%C4%B1c%C4%B1s%C4%B1n%C4%B1%20ba%C5%9Flatmak%20istiyorum" target="_blank" class="btn-optic group shadow-xl py-4 px-7 sm:px-8 text-sm sm:text-base font-extrabold uppercase tracking-wider rounded-2xl flex items-center justify-center gap-2 cursor-pointer text-center min-h-[56px]">
+                <a href="https://t.me/altaioptima?text=Merhaba!%20%C4%B0%C5%9Fletmem%20i%C3%A7in%20Yapay%20Zeka%20Sat%C4%B1c%C4%B1s%C4%B1n%C4%B1%20ba%C5%9Flatmak%20istiyorum" target="_blank" class="btn-optic group shadow-xl py-4 px-7 sm:px-8 text-sm sm:text-base font-extrabold uppercase tracking-wider rounded-2xl flex items-center justify-center cursor-pointer text-center min-h-[56px]">
                   <span>Rutini Yapay Zeka Satış Uzmanına devredin</span>
-                  <span class="btn-optic-arrow text-lg">→</span>
                 </a>
                 <a href="#psychology" class="btn-optic-outline group py-4 px-7 sm:px-8 text-sm sm:text-base font-extrabold uppercase tracking-wider rounded-2xl flex items-center justify-center text-center cursor-pointer min-h-[56px]">
                   <span>İş başında test edin</span>
