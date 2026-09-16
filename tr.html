@@ -2139,20 +2139,21 @@
       border: 1px solid rgba(203, 213, 225, 0.7);
     }
     .phone-island-notch {
-      width: 115px;
-      height: 28px;
-      background: #061224;
-      border-radius: 20px;
+      width: 76px;
+      height: 22px;
+      background: #000000;
+      border-radius: 9999px;
       position: absolute;
-      top: 10px;
+      top: 8px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 50;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 0 10px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+      justify-content: center;
+      gap: 7px;
+      padding: 0 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
     }
     .chat-bg-wa {
       background-color: #efeae2;
@@ -4594,9 +4595,10 @@
               
                             <!-- DİNAMİK ISLAND -->
               <div class="phone-island-notch">
-                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span id="notchChannelText" class="text-[9px] text-white font-code font-bold tracking-wider">WHATSAPP</span>
-                <div class="w-1.5 h-1.5 rounded-full bg-sky-400"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-[#111827] ring-1 ring-slate-800/80 flex items-center justify-center">
+                  <div class="w-1 h-1 rounded-full bg-[#1e293b]"></div>
+                </div>
+                <div class="w-2.5 h-2.5 rounded-full bg-[#0a0f1d] ring-1 ring-slate-800/80"></div>
               </div>
 
               <!-- DİNAMİK SOHBET BAŞLIĞI -->
@@ -6734,7 +6736,7 @@
                 <span class="text-slate-400 text-sm ml-1">📎</span>
               </div>
               <button id="liveChatSubmitBtn" type="submit" class="w-8 h-8 rounded-full bg-[#00a884] hover:bg-[#008f6f] active:scale-95 text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
-                <svg class="w-4 h-4 fill-current rotate-45 -mr-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
               </button>
             </form>
           </div>
@@ -6846,7 +6848,7 @@
                 <span class="text-slate-400 text-xs ml-1">🌙</span>
               </div>
               <button id="liveChatSubmitBtn" type="submit" class="w-8 h-8 rounded-full bg-[#2aabee] hover:bg-[#229ed9] active:scale-95 text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
-                <svg class="w-4 h-4 fill-current rotate-45 -mr-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
               </button>
             </form>
           </div>
@@ -6949,7 +6951,7 @@
                 <span class="text-slate-400 text-xs ml-1">🎙️</span>
               </div>
               <button id="liveChatSubmitBtn" type="submit" class="w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 active:scale-95 text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
-                <svg class="w-4 h-4 fill-current rotate-45 -mr-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
               </button>
             </form>
           </div>
@@ -7075,7 +7077,7 @@
                   <span class="text-slate-400 text-xs ml-1">📷</span>
                 </div>
                 <button id="liveChatSubmitBtn" type="submit" class="w-8 h-8 rounded-xl bg-[#00aaff] hover:bg-[#0095e0] active:scale-95 text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
-                  <svg class="w-4 h-4 fill-current rotate-45 -mr-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                  <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
                 </button>
               </form>
             </div>
@@ -7201,12 +7203,10 @@
       const cfg = channelsConfig[key];
       if (!cfg) return;
 
-      const notchText = document.getElementById('notchChannelText');
       const chatHeader = document.getElementById('chatHeader');
       const messagesContainer = document.getElementById('messagesContainer');
       const chatFooterBar = document.getElementById('chatFooterBar');
 
-      if (notchText) notchText.textContent = cfg.channel;
       if (chatHeader) {
         chatHeader.className = `pt-10 pb-2.5 px-3.5 text-white flex items-center justify-between transition-all duration-300 shadow-xs z-10 shrink-0 ${cfg.headerBg}`;
         chatHeader.innerHTML = cfg.renderHeader();
