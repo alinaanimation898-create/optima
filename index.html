@@ -5887,11 +5887,10 @@
       <!-- 1. ЗАГОЛОВОК И ПОДЗАГОЛОВОК КАЛЬКУЛЯТОРА -->
       <div class="text-center max-w-4xl mx-auto px-4 space-y-3 relative z-10 pb-2 sm:pb-3">
         <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[40px] xl:text-[46px] leading-[1.15] sm:leading-[1.18]" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 12px 30px rgba(2, 132, 199, 0.22)); overflow: visible;">
-          <span class="block">ПОСЧИТАЙТЕ, СКОЛЬКО ДЕНЕГ</span>
-          <span class="block mt-1 sm:mt-1.5">ВЫ ТЕРЯЕТЕ БЕЗ ИИ-ПРОДАВЦА</span>
+          СКОЛЬКО ДЕНЕГ ВЫ ТЕРЯЕТЕ?
         </h2>
         <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed font-normal pt-1">
-          Укажите свои цифры, и калькулятор покажет, сколько выручки уходит из-за медленных ответов и когда окупится ИИ-продавец.
+          Ответьте на 4&nbsp;вопроса — калькулятор покажет, сколько продаж вы упускаете и когда окупится ИИ&#8209;продавец.
         </p>
       </div>
 
@@ -5977,30 +5976,14 @@
           <div class="calc-main-shell rounded-2xl sm:rounded-3xl p-4 sm:p-7 md:p-8 font-inter">
             <div class="grid lg:grid-cols-12 gap-5 lg:gap-8 items-stretch">
               
-              <!-- ЛЕВАЯ КОЛОНКА: ВВОД ПАРАМЕТРОВ (СЦЕНАРИИ + ИНТУИТИВНЫЕ СЛАЙДЕРЫ) -->
+              <!-- ЛЕВАЯ КОЛОНКА: ВВОД ПАРАМЕТРОВ (4 ВОПРОСА) -->
               <div class="lg:col-span-6 flex flex-col justify-between space-y-3.5 sm:space-y-4 lg:pr-4 lg:border-r border-slate-200">
                 
-                <!-- ПЕРЕКЛЮЧАТЕЛЬ СЦЕНАРИЕВ -->
-                <div class="space-y-1.5">
-                  <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Сценарий роста:</div>
-                  <div class="flex items-center gap-1.5 p-1 bg-slate-100/90 rounded-xl border border-slate-200">
-                    <button type="button" onclick="setCalcScenario(0.10, this)" class="calc-scenario-btn flex-1 py-1.5 px-2 rounded-lg text-[11px] sm:text-xs font-bold text-slate-600 hover:text-slate-900 transition-all cursor-pointer text-center">
-                      Осторожно +10%
-                    </button>
-                    <button type="button" onclick="setCalcScenario(0.20, this)" class="calc-scenario-btn active flex-1 py-1.5 px-2 rounded-lg text-[11px] sm:text-xs font-bold bg-white text-sky-700 shadow-xs border border-sky-200 transition-all cursor-pointer text-center">
-                      Реалистично +20%
-                    </button>
-                    <button type="button" onclick="setCalcScenario(0.50, this)" class="calc-scenario-btn flex-1 py-1.5 px-2 rounded-lg text-[11px] sm:text-xs font-bold text-slate-600 hover:text-slate-900 transition-all cursor-pointer text-center">
-                      Как в кейсах +50%
-                    </button>
-                  </div>
-                </div>
-
-                <!-- 1. Входящие заявки -->
+                <!-- 1. Сколько заявок приходит в месяц -->
                 <div class="calc-input-box space-y-2 p-3 sm:p-3.5 rounded-2xl bg-slate-50 border border-slate-200/90 shadow-2xs transition-all hover:border-sky-300" id="box_leadsRange">
                   <div class="flex items-center justify-between gap-2">
                     <label for="leadsDirectInput" class="text-xs sm:text-[13px] font-bold text-slate-800 select-none tracking-tight">
-                      Входящих заявок в месяц
+                      Сколько заявок приходит в месяц
                     </label>
                     <div class="calc-value-badge flex items-center bg-white px-2.5 py-0.5 rounded-lg border border-slate-200 shadow-2xs shrink-0 focus-within:border-sky-500 focus-within:ring-2 focus-within:ring-sky-100" id="badge_leadsRange">
                       <input type="number" id="leadsDirectInput" value="200" min="10" max="2000" step="10" class="w-14 sm:w-16 text-right font-black text-slate-950 text-base sm:text-lg outline-none bg-transparent tabular-nums p-0" oninput="handleDirectInput('leadsRange', this.value)">
@@ -6010,11 +5993,11 @@
 
                   <div class="flex items-center gap-2 pt-0.5">
                     <button type="button" onclick="adjustCalcValue('leadsRange', -10)" aria-label="Уменьшить заявки" class="calc-step-btn">−</button>
-                    <div class="flex-1 flex flex-col gap-1">
+                    <div class="flex-1 flex flex-col">
                       <input type="range" id="leadsRange" min="10" max="2000" step="10" value="200" oninput="syncCalcInput('leadsRange', 'leadsDirectInput')" class="calc-range-slider w-full">
-                      <div class="flex justify-between text-[10px] text-slate-400 font-mono select-none px-0.5">
+                      <div class="flex justify-between text-[10px] text-slate-400 font-mono select-none px-0.5 mt-2">
                         <span>10</span>
-                        <span>2 000</span>
+                        <span>2&nbsp;000</span>
                       </div>
                     </div>
                     <button type="button" onclick="adjustCalcValue('leadsRange', 10)" aria-label="Увеличить заявки" class="calc-step-btn">+</button>
@@ -6029,7 +6012,7 @@
                       <label for="convDirectInput" class="text-xs sm:text-[13px] font-bold text-slate-800 select-none tracking-tight">
                         Сколько заявок становятся покупками
                       </label>
-                      <span class="cursor-help text-slate-400 hover:text-sky-600 transition-colors text-[11px] font-bold px-1.5 py-0.2 rounded-full border border-slate-300 bg-white" title="Текущая конверсия из входящей заявки в успешную сделку">?</span>
+                      <span class="cursor-help text-slate-400 hover:text-sky-600 transition-colors text-[11px] font-bold px-1.5 py-0.2 rounded-full border border-slate-300 bg-white" title="Из 100 заявок сколько человек в итоге покупают. Если не знаете точно — оставьте 10%.">?</span>
                     </div>
                     <div class="calc-value-badge flex items-center bg-white px-2.5 py-0.5 rounded-lg border border-slate-200 shadow-2xs shrink-0 focus-within:border-sky-500 focus-within:ring-2 focus-within:ring-sky-100" id="badge_convRange">
                       <input type="number" id="convDirectInput" value="10" min="1" max="50" step="0.5" class="w-10 sm:w-12 text-right font-black text-slate-950 text-base sm:text-lg outline-none bg-transparent tabular-nums p-0" oninput="handleDirectInput('convRange', this.value)">
@@ -6039,9 +6022,9 @@
 
                   <div class="flex items-center gap-2 pt-0.5">
                     <button type="button" onclick="adjustCalcValue('convRange', -0.5)" aria-label="Уменьшить конверсию" class="calc-step-btn">−</button>
-                    <div class="flex-1 flex flex-col gap-1">
+                    <div class="flex-1 flex flex-col">
                       <input type="range" id="convRange" min="1" max="50" step="0.5" value="10" oninput="syncCalcInput('convRange', 'convDirectInput')" class="calc-range-slider w-full">
-                      <div class="flex justify-between text-[10px] text-slate-400 font-mono select-none px-0.5">
+                      <div class="flex justify-between text-[10px] text-slate-400 font-mono select-none px-0.5 mt-2">
                         <span>1%</span>
                         <span>50%</span>
                       </div>
@@ -6051,25 +6034,25 @@
                   <input type="hidden" id="convInput" value="10">
                 </div>
 
-                <!-- 3. Средний чек -->
+                <!-- 3. Средний чек одной покупки -->
                 <div class="calc-input-box space-y-2 p-3 sm:p-3.5 rounded-2xl bg-slate-50 border border-slate-200/90 shadow-2xs transition-all hover:border-sky-300" id="box_checkRange">
                   <div class="flex items-center justify-between gap-2">
                     <label for="checkDirectInput" class="text-xs sm:text-[13px] font-bold text-slate-800 select-none tracking-tight">
-                      Средний чек
+                      Средний чек одной покупки
                     </label>
                     <div class="calc-value-badge flex items-center bg-white px-2.5 py-0.5 rounded-lg border border-slate-200 shadow-2xs shrink-0 focus-within:border-sky-500 focus-within:ring-2 focus-within:ring-sky-100" id="badge_checkRange">
-                      <input type="text" id="checkDirectInput" value="30 000" class="w-20 sm:w-24 text-right font-black text-slate-950 text-base sm:text-lg outline-none bg-transparent tabular-nums p-0" oninput="handleCheckDirectInput(this)">
+                      <input type="text" id="checkDirectInput" value="30&nbsp;000" class="w-20 sm:w-24 text-right font-black text-slate-950 text-base sm:text-lg outline-none bg-transparent tabular-nums p-0" oninput="handleCheckDirectInput(this)">
                       <span class="text-[11px] font-bold text-slate-400 ml-1 select-none">₽</span>
                     </div>
                   </div>
 
                   <div class="flex items-center gap-2 pt-0.5">
                     <button type="button" onclick="adjustCalcValue('checkRange', -1000)" aria-label="Уменьшить чек" class="calc-step-btn">−</button>
-                    <div class="flex-1 flex flex-col gap-1">
+                    <div class="flex-1 flex flex-col">
                       <input type="range" id="checkRange" min="1000" max="1000000" step="1000" value="30000" oninput="syncCalcInput('checkRange', 'checkDirectInput')" class="calc-range-slider w-full">
-                      <div class="flex justify-between text-[10px] text-slate-400 font-mono select-none px-0.5">
-                        <span>1 000 ₽</span>
-                        <span>1 000 000 ₽</span>
+                      <div class="flex justify-between text-[10px] text-slate-400 font-mono select-none px-0.5 mt-2">
+                        <span>1&nbsp;000&nbsp;₽</span>
+                        <span>1&nbsp;000&nbsp;000&nbsp;₽</span>
                       </div>
                     </div>
                     <button type="button" onclick="adjustCalcValue('checkRange', 1000)" aria-label="Увеличить чек" class="calc-step-btn">+</button>
@@ -6077,19 +6060,42 @@
                   <input type="hidden" id="checkInput" value="30000">
                 </div>
 
+                <!-- 4. Как быстро вы сейчас отвечаете клиентам? -->
+                <div class="calc-input-box space-y-2 p-3 sm:p-3.5 rounded-2xl bg-slate-50 border border-slate-200/90 shadow-2xs transition-all hover:border-sky-300">
+                  <div class="text-xs sm:text-[13px] font-bold text-slate-800 select-none tracking-tight">
+                    Как быстро вы сейчас отвечаете клиентам?
+                  </div>
+                  <div class="grid grid-cols-3 gap-1.5 p-1 bg-slate-100/90 rounded-xl border border-slate-200">
+                    <button type="button" onclick="setCalcScenario(0.10, this)" class="calc-scenario-btn py-2 px-1 rounded-lg text-[11px] sm:text-xs font-bold text-slate-600 hover:text-slate-900 transition-all cursor-pointer text-center leading-tight">
+                      В течение 5&nbsp;минут
+                    </button>
+                    <button type="button" onclick="setCalcScenario(0.20, this)" class="calc-scenario-btn active py-2 px-1 rounded-lg text-[11px] sm:text-xs font-bold bg-white text-sky-700 shadow-xs border border-sky-200 transition-all cursor-pointer text-center leading-tight">
+                      В течение часа
+                    </button>
+                    <button type="button" onclick="setCalcScenario(0.50, this)" class="calc-scenario-btn py-2 px-1 rounded-lg text-[11px] sm:text-xs font-bold text-slate-600 hover:text-slate-900 transition-all cursor-pointer text-center leading-tight">
+                      Через несколько часов
+                    </button>
+                  </div>
+                </div>
+
               </div>
 
               <!-- ПРАВАЯ КОЛОНКА: ВЫРАЗИТЕЛЬНАЯ ТЕМНО-СИНЯЯ КАРТОЧКА РЕЗУЛЬТАТА (МАКСИМАЛЬНЫЙ КОНТРАСТ И ЧИТАЕМОСТЬ) -->
-              <div class="lg:col-span-6 flex flex-col justify-between space-y-4 sm:space-y-5 text-left p-4 sm:p-6 md:p-7 rounded-2xl sm:rounded-3xl bg-gradient-to-b from-[#0b1928] via-[#0f2438] to-[#071320] text-white border border-sky-400/40 shadow-[0_16px_40px_rgba(2,132,199,0.28)] font-inter">
+              <div id="calcResultCard" class="lg:col-span-6 flex flex-col justify-between space-y-4 sm:space-y-5 text-left p-4 sm:p-6 md:p-7 rounded-2xl sm:rounded-3xl bg-gradient-to-b from-[#0b1928] via-[#0f2438] to-[#071320] text-white border border-sky-400/40 shadow-[0_16px_40px_rgba(2,132,199,0.28)] font-inter">
                 
-                <!-- 1. ГЛАВНАЯ ЦИФРА: СКОЛЬКО НЕДОПОЛУЧАЕТЕ В МЕСЯЦ -->
+                <!-- 1. ГЛАВНАЯ ЦИФРА: ВЫ УПУСКАЕТЕ КАЖДЫЙ МЕСЯЦ -->
                 <div class="space-y-1">
                   <div class="text-[11px] sm:text-xs font-black uppercase tracking-wider text-sky-400 font-inter">
-                    ВЫ НЕДОПОЛУЧАЕТЕ КАЖДЫЙ МЕСЯЦ
+                    ВЫ УПУСКАЕТЕ КАЖДЫЙ МЕСЯЦ
                   </div>
                   
                   <div id="monthVal" class="calc-result-glow text-3xl sm:text-4xl md:text-[44px] font-black tracking-tight font-inter leading-none text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-teal-300 to-emerald-400 py-1 tabular-nums whitespace-nowrap">
-                    120 000 ₽
+                    120&nbsp;000&nbsp;₽
+                  </div>
+
+                  <!-- МЕЛКАЯ СТРОКА-РАСШИФРОВКА -->
+                  <div id="calcFormulaBreakdown" class="text-xs sm:text-[12.5px] text-slate-300/90 leading-relaxed font-normal pt-1">
+                    Сейчас: 200&nbsp;заявок × 10% × 30&nbsp;000&nbsp;₽ = 600&nbsp;000&nbsp;₽ в&nbsp;месяц. Быстрый ответ вернёт около 20% упущенных продаж.
                   </div>
                 </div>
 
@@ -6099,10 +6105,10 @@
                   <div class="p-3 sm:p-3.5 rounded-xl bg-white/10 border border-white/15 backdrop-blur-sm flex flex-col justify-between shadow-2xs">
                     <div class="text-[9.5px] sm:text-[10.5px] font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5 font-inter">
                       <span class="w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0"></span>
-                      <span>Стоимость ИИ</span>
+                      <span>ИИ&#8209;продавец стоит</span>
                     </div>
                     <div class="text-xs sm:text-sm md:text-base font-bold text-white font-inter tracking-tight mt-1 whitespace-nowrap">
-                      15 000 ₽/мес
+                      15&nbsp;000&nbsp;₽ в месяц
                     </div>
                   </div>
 
@@ -6110,7 +6116,7 @@
                   <div class="p-3 sm:p-3.5 rounded-xl bg-emerald-950/70 border border-emerald-500/50 backdrop-blur-sm flex flex-col justify-between shadow-2xs">
                     <div class="text-[9.5px] sm:text-[10.5px] font-bold uppercase tracking-wider text-emerald-300 flex items-center gap-1.5 font-inter">
                       <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
-                      <span>Окупаемость</span>
+                      <span>Окупится за</span>
                     </div>
                     <div id="paybackVal" class="text-xs sm:text-sm md:text-base font-black text-emerald-300 font-inter tracking-tight mt-1 whitespace-nowrap">
                       ~2 недели
@@ -6119,18 +6125,21 @@
                 </div>
 
                 <!-- 3. ЧИСТАЯ ВЫГОДА ЗА ГОД -->
-                <div class="p-3 sm:p-3.5 rounded-xl bg-sky-950/50 border border-sky-500/30 flex flex-col justify-between gap-1 font-inter">
-                  <div class="text-[11px] font-bold text-slate-300 uppercase tracking-wider">
+                <div id="yearNetBox" class="p-3 sm:p-3.5 rounded-xl bg-sky-950/50 border border-sky-500/30 flex flex-col justify-between gap-1 font-inter">
+                  <div class="text-[11px] font-bold text-slate-300 uppercase tracking-wider" id="yearNetLabel">
                     Чистая выгода за год
                   </div>
                   <div id="yearVal" class="calc-result-glow font-black text-emerald-400 text-xl sm:text-2xl md:text-3xl font-inter tracking-tight tabular-nums whitespace-nowrap">
-                    +1 225 000 ₽
+                    +1&nbsp;225&nbsp;000&nbsp;₽
+                  </div>
+                  <div id="yearNetWarning" class="hidden text-xs sm:text-[13px] text-amber-200/90 leading-snug font-normal py-0.5">
+                    При таких цифрах ИИ&#8209;продавец может не окупиться. Напишите нам — подберём подходящее решение.
                   </div>
                 </div>
 
-                <!-- 4. КНОПКА ДЕЙСТВИЯ -->
+                <!-- 4. КНОПКА ДЕЙСТВИЯ (ФИРМЕННЫЙ СИНЕ-ГОЛУБОЙ ГРАДИЕНТ) -->
                 <div class="pt-1">
-                  <a href="https://t.me/altaioptima" target="_blank" class="w-full flex items-center justify-center gap-2 py-3.5 px-4 bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600 hover:from-sky-400 hover:to-blue-500 active:scale-[0.98] text-white text-xs sm:text-sm font-extrabold uppercase tracking-wider rounded-xl shadow-[0_0_25px_rgba(56,189,248,0.45)] border border-sky-300/40 transition-all text-center cursor-pointer">
+                  <a href="https://t.me/altaioptima" target="_blank" class="w-full flex items-center justify-center gap-2 py-3.5 px-4 bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 hover:from-sky-400 hover:to-blue-500 active:scale-[0.98] text-white text-xs sm:text-sm font-extrabold uppercase tracking-wider rounded-xl shadow-[0_0_25px_rgba(56,189,248,0.4)] border border-sky-300/40 transition-all text-center cursor-pointer">
                     <span>Получить расчёт для моего бизнеса</span>
                     <span class="text-base font-bold">→</span>
                   </a>
@@ -6149,6 +6158,18 @@
 
       </div>
     </section>
+
+    <!-- МОБИЛЬНАЯ ЛИПКАЯ ПОЛОСКА КАЛЬКУЛЯТОРА (ДО 768 PX) -->
+    <div id="calcMobileStickyBar" class="fixed bottom-0 inset-x-0 z-40 bg-[#0b1928]/95 backdrop-blur-md border-t border-sky-500/30 px-4 py-2.5 shadow-[0_-8px_25px_rgba(0,0,0,0.4)] transition-all duration-300 transform translate-y-full md:hidden flex items-center justify-between pointer-events-auto">
+      <div class="flex flex-col">
+        <span class="text-[10.5px] uppercase font-bold text-slate-400 leading-tight">Вы упускаете:</span>
+        <span id="mobCalcGainVal" class="text-base font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-emerald-400 tabular-nums">120&nbsp;000&nbsp;₽/мес</span>
+      </div>
+      <button type="button" onclick="document.getElementById('calcResultCard')?.scrollIntoView({behavior:'smooth'})" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold text-xs shadow-md active:scale-95 flex items-center gap-1 cursor-pointer">
+        <span>Результат</span>
+        <span>↓</span>
+      </button>
+    </div>
 
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: СИНЯЯ СТРЕЛКА К ЮНИТ-ЭКОНОМИКЕ -->
     <div class="flex flex-col items-center justify-center pt-6 sm:pt-10 pb-3 sm:pb-5 relative z-20">
@@ -6170,7 +6191,7 @@
           В 4,5 РАЗА ДЕШЕВЛЕ,<br class="hidden sm:inline"> ЧЕМ НАНЯТЬ МЕНЕДЖЕРА
         </h2>
         <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
-          Штатный менеджер — ~960&nbsp;000&nbsp;₽ в год, ИИ-продавец — от 215&nbsp;000&nbsp;₽.
+          Штатный менеджер — ~960&nbsp;000&nbsp;₽ в год, ИИ&#8209;продавец — от 215&nbsp;000&nbsp;₽.
         </p>
       </div>
 
@@ -7573,6 +7594,14 @@
     let currentScenarioBoost = 0.20;
     const calcAnimationFrames = {};
 
+    function formatCalcNumber(num, fractionDigits = 0) {
+      if (num === null || num === undefined || isNaN(num)) return '0';
+      return num.toLocaleString('ru-RU', {
+        minimumFractionDigits: fractionDigits,
+        maximumFractionDigits: fractionDigits
+      }).replace(/\s/g, '\u00A0');
+    }
+
     function animateValue(elem, targetVal, suffix = '', prefix = '') {
       if (!elem) return;
       const id = elem.id || 'calc_anim';
@@ -7585,7 +7614,7 @@
       elem.setAttribute('data-raw-val', targetVal);
 
       if (Math.abs(targetVal - startVal) < 1) {
-        elem.textContent = `${prefix}${targetVal.toLocaleString('ru-RU').replace(/\s/g, '\u00A0')}${suffix}`;
+        elem.textContent = `${prefix}${formatCalcNumber(targetVal)}${suffix}`;
         return;
       }
 
@@ -7597,11 +7626,11 @@
         const progress = Math.min(elapsed / duration, 1);
         const ease = 1 - Math.pow(1 - progress, 2);
         const current = Math.round(startVal + (targetVal - startVal) * ease);
-        elem.textContent = `${prefix}${current.toLocaleString('ru-RU').replace(/\s/g, '\u00A0')}${suffix}`;
+        elem.textContent = `${prefix}${formatCalcNumber(current)}${suffix}`;
         if (progress < 1) {
           calcAnimationFrames[id] = requestAnimationFrame(step);
         } else {
-          elem.textContent = `${prefix}${targetVal.toLocaleString('ru-RU').replace(/\s/g, '\u00A0')}${suffix}`;
+          elem.textContent = `${prefix}${formatCalcNumber(targetVal)}${suffix}`;
         }
       }
       calcAnimationFrames[id] = requestAnimationFrame(step);
@@ -7643,9 +7672,9 @@
       const directInput = document.getElementById(directInputId);
       if (directInput) {
         if (rangeId === 'checkRange') {
-          directInput.value = Math.round(val).toLocaleString('ru-RU');
+          directInput.value = formatCalcNumber(Math.round(val));
         } else if (rangeId === 'convRange') {
-          directInput.value = val % 1 === 0 ? val.toFixed(0) : val.toFixed(1);
+          directInput.value = val % 1 === 0 ? val.toFixed(0) : val.toFixed(1).replace('.', ',');
         } else {
           directInput.value = Math.round(val);
         }
@@ -7665,9 +7694,9 @@
       const val = parseFloat(slider.value) || 0;
       
       if (rangeId === 'checkRange') {
-        directInput.value = Math.round(val).toLocaleString('ru-RU');
+        directInput.value = formatCalcNumber(Math.round(val));
       } else if (rangeId === 'convRange') {
-        directInput.value = val % 1 === 0 ? val.toFixed(0) : val.toFixed(1);
+        directInput.value = val % 1 === 0 ? val.toFixed(0) : val.toFixed(1).replace('.', ',');
       } else {
         directInput.value = Math.round(val);
       }
@@ -7682,7 +7711,7 @@
     function handleDirectInput(rangeId, rawVal) {
       const slider = document.getElementById(rangeId);
       if (!slider) return;
-      let val = parseFloat(rawVal) || 0;
+      let val = parseFloat(String(rawVal).replace(',', '.')) || 0;
       const min = parseFloat(slider.min) || 0;
       const max = parseFloat(slider.max) || 10000000;
       const clamped = Math.max(min, Math.min(max, val));
@@ -7718,45 +7747,81 @@
       const mV = document.getElementById('monthVal');
       const pbV = document.getElementById('paybackVal');
       const yV = document.getElementById('yearVal');
+      const breakdownEl = document.getElementById('calcFormulaBreakdown');
+      const warnEl = document.getElementById('yearNetWarning');
+      const mobGainEl = document.getElementById('mobCalcGainVal');
 
-      if (!lEl || !cEl || !mV || !yV) return;
+      if (!lEl || !cEl || !mV) return;
 
       const leads = Math.max(0, parseInt(lEl.value) || 0);
       const convPct = cvEl ? Math.max(0, parseFloat(cvEl.value) || 0) : 10.0;
       const check = Math.max(0, parseInt(cEl.value) || 0);
 
-      // Рассчитываем недополученные сделки и выручку
-      const extraConvPct = convPct * currentScenarioBoost; // 10% * 0.20 = 2%
-      const extraDealsExact = leads * (extraConvPct / 100); // 200 * 0.02 = 4 сделки
-      const extraMonthRev = Math.round(extraDealsExact * check); // 120 000 ₽
+      // growth = 0.10 / 0.20 / 0.50 (из выбранной кнопки)
+      const growth = currentScenarioBoost;
+      // revenue = leads * (conversion / 100) * check
+      const revenue = Math.round(leads * (convPct / 100) * check);
+      // gain = revenue * growth (упущенная выручка в месяц)
+      const gain = Math.round(revenue * growth);
+      // monthlyNet = gain - 15000 (выгода в месяц после оплаты подписки)
+      const monthlyNet = gain - 15000;
+      // yearNet = gain * 12 - 215000 (50 000 запуск + 15 000 × 11 месяцев)
+      const yearNet = gain * 12 - 215000;
+      // paybackMonths = 50000 / monthlyNet (только если monthlyNet > 0)
+      const paybackMonths = monthlyNet > 0 ? (50000 / monthlyNet) : null;
 
-      // Окупаемость (настройка 50 000 ₽)
-      const dailyGain = extraMonthRev / 30;
-      let paybackStr = '~2 недели';
-      if (dailyGain > 0) {
-        const days = Math.round(50000 / dailyGain);
-        if (days <= 5) paybackStr = `за ~${days} ${getNoun(days, 'день', 'дня', 'дней')}`;
-        else if (days <= 10) paybackStr = 'за ~1 неделю';
-        else if (days <= 18) paybackStr = 'за ~2 недели';
-        else if (days <= 25) paybackStr = 'за ~3 недели';
-        else if (days <= 40) paybackStr = 'в 1-й месяц';
-        else {
-          const months = (days / 30).toFixed(1);
-          paybackStr = `за ~${months} мес.`;
-        }
-      } else {
-        paybackStr = 'от 1 мес.';
+      // 1. Упущенная выручка в месяц (gain)
+      animateValue(mV, gain, '\u00A0₽');
+
+      // 2. Строка-расшифровка
+      if (breakdownEl) {
+        const convStr = convPct % 1 === 0 ? convPct.toFixed(0) : convPct.toFixed(1).replace('.', ',');
+        const checkStr = formatCalcNumber(check);
+        const revStr = formatCalcNumber(revenue);
+        const growthPct = Math.round(growth * 100);
+        breakdownEl.innerHTML = `Сейчас: ${leads}&nbsp;заявок × ${convStr}% × ${checkStr}&nbsp;₽ = ${revStr}&nbsp;₽ в&nbsp;месяц. Быстрый ответ вернёт около ${growthPct}% упущенных продаж.`;
       }
 
-      // Чистая выгода за год (за вычетом стоимости ИИ-продавца: 50 000 настройка + 11*15 000 = 215 000 ₽)
-      const serviceFirstYearCost = 215000;
-      const grossYearRev = extraMonthRev * 12;
-      const netYearProfit = Math.max(0, grossYearRev - serviceFirstYearCost);
-
-      // Обновляем дисплеи
-      animateValue(mV, extraMonthRev, '\u00A0₽');
+      // 3. Окупаемость
+      let paybackStr = '';
+      if (monthlyNet <= 0 || !paybackMonths || paybackMonths > 12) {
+        paybackStr = 'больше года';
+      } else if (paybackMonths < 1) {
+        const days = Math.round(paybackMonths * 30);
+        if (days >= 11 && days <= 17) {
+          paybackStr = '~2 недели';
+        } else if (days >= 6 && days <= 10) {
+          paybackStr = '~1 неделя';
+        } else if (days >= 18 && days <= 24) {
+          paybackStr = '~3 недели';
+        } else {
+          paybackStr = `~${days} ${getNoun(days, 'день', 'дня', 'дней')}`;
+        }
+      } else {
+        const months = Math.round(paybackMonths);
+        paybackStr = `~${months} мес.`;
+      }
       if (pbV) pbV.textContent = paybackStr;
-      animateValue(yV, netYearProfit, '\u00A0₽', '+');
+
+      // 4. Чистая выгода за год
+      if (yearNet <= 0) {
+        if (yV) yV.classList.add('hidden');
+        if (warnEl) warnEl.classList.remove('hidden');
+      } else {
+        if (warnEl) warnEl.classList.add('hidden');
+        if (yV) {
+          yV.classList.remove('hidden');
+          animateValue(yV, yearNet, '\u00A0₽', '+');
+        }
+      }
+
+      // 5. Мобильная липкая плашка
+      if (mobGainEl) {
+        mobGainEl.textContent = formatCalcNumber(gain) + '\u00A0₽/мес';
+      }
+      if (window.updateCalcStickyBar) {
+        window.updateCalcStickyBar();
+      }
 
       // Динамическая подсветка при взаимодействии
       if (e && e.target) {
@@ -7789,6 +7854,39 @@
       return five;
     }
 
+    function initCalcStickyBar() {
+      const stickyBar = document.getElementById('calcMobileStickyBar');
+      const calcSec = document.getElementById('calculator');
+      const resultCard = document.getElementById('calcResultCard');
+      if (!stickyBar || !calcSec || !resultCard) return;
+
+      function isVisible(el, thresholdPx = 40) {
+        const r = el.getBoundingClientRect();
+        const vh = window.innerHeight || document.documentElement.clientHeight;
+        return (r.top < vh - thresholdPx) && (r.bottom > thresholdPx);
+      }
+
+      function updateStickyBarVisibility() {
+        if (window.innerWidth >= 768) {
+          stickyBar.classList.add('translate-y-full');
+          return;
+        }
+        const inCalc = isVisible(calcSec, 60);
+        const inCard = isVisible(resultCard, 80);
+        if (inCalc && !inCard) {
+          stickyBar.classList.remove('translate-y-full');
+        } else {
+          stickyBar.classList.add('translate-y-full');
+        }
+      }
+
+      window.updateCalcStickyBar = updateStickyBarVisibility;
+
+      window.addEventListener('resize', updateStickyBarVisibility, { passive: true });
+      window.addEventListener('scroll', updateStickyBarVisibility, { passive: true });
+      setTimeout(updateStickyBarVisibility, 250);
+    }
+
     function initCalc() {
       ['leadsRange', 'convRange', 'checkRange'].forEach(id => {
         const slider = document.getElementById(id);
@@ -7797,6 +7895,17 @@
           slider.addEventListener('input', () => updateSliderTrack(slider));
         }
       });
+
+      const checkDirect = document.getElementById('checkDirectInput');
+      if (checkDirect) {
+        checkDirect.addEventListener('blur', () => {
+          const raw = checkDirect.value.replace(/\D/g, '');
+          const val = parseInt(raw) || 0;
+          checkDirect.value = formatCalcNumber(val);
+        });
+      }
+
+      initCalcStickyBar();
       updateCalc();
     }
 
