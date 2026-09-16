@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Altai Optima — Autonomous AI Business Architecture</title>
+  <title>Altai Optima - Autonomous AI Business Architecture</title>
   
   <!-- Favicon & Brand Icons -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -129,7 +129,7 @@
       font-family: var(--font-sans);
     }
 
-    /* ШРИФТ BENZIN — СТРОГО И ТОЛЬКО ДЛЯ ГЛАВНЫХ СЕКЦИОННЫХ ЗАГОЛОВКОВ (H1, H2) С ЗАЩИТОЙ ОТ ОБРЕЗАНИЯ */
+    /* ШРИФТ BENZIN - СТРОГО И ТОЛЬКО ДЛЯ ГЛАВНЫХ СЕКЦИОННЫХ ЗАГОЛОВКОВ (H1, H2) С ЗАЩИТОЙ ОТ ОБРЕЗАНИЯ */
     h1, h2,
     h1 *, h2 *,
     .font-benzin,
@@ -2987,12 +2987,14 @@
     /* ==========================================================================
        ФИНАЛЬНЫЙ БЛОК: СОВРЕМЕННАЯ СБОРКА (#cta-final)
        ========================================================================== */
+    /* =========================================================
+       10. ФИНАЛЬНЫЙ CTA БЛОК (#cta-final)
+       ========================================================= */
     #cta-final {
       background: transparent !important;
       box-shadow: none !important;
       border: none !important;
       position: relative;
-      overflow-x: clip;
     }
 
     .cta-final-grid {
@@ -3013,8 +3015,8 @@
     @media (min-width: 1024px) {
       .cta-final-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        column-gap: 64px;
+        grid-template-columns: 45% calc(55% - 72px);
+        column-gap: 72px;
         align-items: center;
         text-align: left;
       }
@@ -3074,13 +3076,13 @@
       line-height: 1;
     }
 
-    /* Поле уведомлений */
+    /* Поле уведомлений: CSS-сетка */
     .cta-notifications-stage {
       position: relative;
       width: 100%;
       max-width: 340px;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 1fr;
       gap: 12px;
       margin: 0 auto;
       z-index: 1;
@@ -3089,16 +3091,90 @@
     @media (min-width: 1024px) {
       .cta-notifications-stage {
         max-width: 540px;
-        height: 440px;
-        display: block;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px 20px;
+        align-items: start;
         margin: 0;
+      }
+      .cta-push-wrap-1 {
+        grid-column: 1;
+        grid-row: 1;
+      }
+      .cta-push-wrap-2 {
+        grid-column: 2;
+        grid-row: 1;
+        margin-top: 48px;
+      }
+      .cta-push-wrap-3 {
+        grid-column: 1;
+        grid-row: 2;
+        margin-left: 16px;
+      }
+      .cta-push-wrap-4 {
+        grid-column: 2;
+        grid-row: 2;
+        margin-top: 48px;
       }
     }
 
-    /* Стиль карточек уведомлений */
+    /* Обёртка карточки для анимации парения (translateY) и reveal */
+    .cta-push-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      will-change: transform, opacity;
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
+    }
+
+    @media (min-width: 1024px) {
+      .cta-push-wrapper {
+        justify-content: flex-start;
+      }
+    }
+
+    /* Начальное скрытое состояние для JS-анимации */
+    .cta-cards-js-ready .cta-push-wrapper {
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+    }
+
+    /* Класс проявления обёртки */
+    .cta-cards-js-ready .cta-push-wrapper.card-revealed {
+      opacity: 1;
+      transform: translateY(0px);
+      pointer-events: auto;
+    }
+
+    /* Парение обёрток (ТОЛЬКО translateY ±6px) */
+    .cta-push-wrapper.card-floating.cta-push-wrap-1 { animation: ctaFloatWrap1 5s ease-in-out infinite; }
+    .cta-push-wrapper.card-floating.cta-push-wrap-2 { animation: ctaFloatWrap2 6.5s ease-in-out infinite 0.8s; }
+    .cta-push-wrapper.card-floating.cta-push-wrap-3 { animation: ctaFloatWrap3 5.5s ease-in-out infinite 1.5s; }
+    .cta-push-wrapper.card-floating.cta-push-wrap-4 { animation: ctaFloatWrap4 7s ease-in-out infinite 2.2s; }
+
+    @keyframes ctaFloatWrap1 {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+    @keyframes ctaFloatWrap2 {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(6px); }
+    }
+    @keyframes ctaFloatWrap3 {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+    @keyframes ctaFloatWrap4 {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(6px); }
+    }
+
+    /* Стиль карточек уведомлений: 100% ячейки (max 260px на десктопе, 340px на моб), высота по содержимому */
     .cta-push-card {
       width: 100%;
       max-width: 340px;
+      height: auto;
       border-radius: 20px;
       padding: 14px 16px;
       background: rgba(255, 255, 255, 0.72);
@@ -3112,141 +3188,61 @@
       text-align: left;
       user-select: none;
       position: relative;
-      will-change: transform, opacity;
-      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
+      will-change: transform;
+      transition: transform 0.4s ease;
     }
 
-    /* Вибрация карточки при новом уведомлении (rotate ±2°, 3 цикла за 0.4 с) */
-    .cta-push-card.card-buzz {
-      animation: ctaCardBuzz 0.4s ease-in-out 3;
-    }
-    @keyframes ctaCardBuzz {
-      0%, 100% { transform: translate(var(--curr-x, 0px), var(--curr-y, 0px)) rotate(var(--curr-rot, 0deg)); }
-      20% { transform: translate(var(--curr-x, 0px), var(--curr-y, 0px)) rotate(calc(var(--curr-rot, 0deg) - 2deg)); }
-      40% { transform: translate(var(--curr-x, 0px), var(--curr-y, 0px)) rotate(calc(var(--curr-rot, 0deg) + 2deg)); }
-      60% { transform: translate(var(--curr-x, 0px), var(--curr-y, 0px)) rotate(calc(var(--curr-rot, 0deg) - 1.5deg)); }
-      80% { transform: translate(var(--curr-x, 0px), var(--curr-y, 0px)) rotate(calc(var(--curr-rot, 0deg) + 1.5deg)); }
+    @media (min-width: 1024px) {
+      .cta-push-card {
+        max-width: 260px;
+      }
     }
 
-    /* Начальное скрытое состояние для JS-анимации */
-    .cta-cards-js-ready .cta-push-card {
-      opacity: 0;
-      transform: translateY(20px) scale(0.9);
-      pointer-events: none;
-    }
-
-    /* Класс проявления карточек */
-    .cta-cards-js-ready .cta-push-card.card-revealed {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    /* Позиционирование и парение на мобильных (<1024px) */
+    /* Повороты карточек */
     @media (max-width: 1023px) {
       .cta-push-1 { --curr-rot: -1deg; transform: rotate(-1deg); }
       .cta-push-2 { --curr-rot: 0.8deg; transform: rotate(0.8deg); }
       .cta-push-3 { --curr-rot: -0.6deg; transform: rotate(-0.6deg); }
       .cta-push-4 { --curr-rot: 0.7deg; transform: rotate(0.7deg); }
-
-      .cta-push-card.card-floating.cta-push-1 { animation: ctaFloatMob1 5s ease-in-out infinite; }
-      .cta-push-card.card-floating.cta-push-2 { animation: ctaFloatMob2 6.5s ease-in-out infinite 0.8s; }
-      .cta-push-card.card-floating.cta-push-3 { animation: ctaFloatMob3 5.5s ease-in-out infinite 1.5s; }
-      .cta-push-card.card-floating.cta-push-4 { animation: ctaFloatMob4 7s ease-in-out infinite 2.2s; }
-
-      @keyframes ctaFloatMob1 {
-        0%, 100% { transform: translateY(0px) rotate(-1deg); }
-        50% { transform: translateY(-4px) rotate(-0.5deg); }
-      }
-      @keyframes ctaFloatMob2 {
-        0%, 100% { transform: translateY(0px) rotate(0.8deg); }
-        50% { transform: translateY(4px) rotate(1.2deg); }
-      }
-      @keyframes ctaFloatMob3 {
-        0%, 100% { transform: translateY(0px) rotate(-0.6deg); }
-        50% { transform: translateY(-4px) rotate(-0.2deg); }
-      }
-      @keyframes ctaFloatMob4 {
-        0%, 100% { transform: translateY(0px) rotate(0.7deg); }
-        50% { transform: translateY(4px) rotate(1.1deg); }
-      }
     }
 
-    /* Позиционирование и парение на десктопе (≥1024px) — шахматка 2x2 */
     @media (min-width: 1024px) {
-      .cta-push-card {
-        position: absolute;
-        width: 260px;
-      }
-      .cta-push-1 {
-        top: 10px;
-        left: 0px;
-        --curr-rot: -2deg;
-        --curr-x: 0px;
-        --curr-y: 0px;
-        transform: rotate(-2deg);
-        z-index: 1;
-      }
-      .cta-push-2 {
-        top: 50px;
-        right: 0px;
-        --curr-rot: 1.5deg;
-        --curr-x: 0px;
-        --curr-y: 0px;
-        transform: rotate(1.5deg);
-        z-index: 2;
-      }
-      .cta-push-3 {
-        top: 220px;
-        left: 32px;
-        --curr-rot: 1deg;
-        --curr-x: 0px;
-        --curr-y: 0px;
-        transform: rotate(1deg);
-        z-index: 3;
-      }
-      .cta-push-4 {
-        top: 310px;
-        right: 0px;
-        --curr-rot: -1.5deg;
-        --curr-x: 0px;
-        --curr-y: 0px;
-        transform: rotate(-1.5deg);
-        z-index: 4;
-      }
-
-      .cta-push-card.card-floating.cta-push-1 { animation: ctaFloatDesk1 5s ease-in-out infinite; }
-      .cta-push-card.card-floating.cta-push-2 { animation: ctaFloatDesk2 6.5s ease-in-out infinite 0.8s; }
-      .cta-push-card.card-floating.cta-push-3 { animation: ctaFloatDesk3 5.5s ease-in-out infinite 1.5s; }
-      .cta-push-card.card-floating.cta-push-4 { animation: ctaFloatDesk4 7s ease-in-out infinite 2.2s; }
-
-      @keyframes ctaFloatDesk1 {
-        0%, 100% { transform: translate(0px, 0px) rotate(-2deg); }
-        50% { transform: translate(4px, -8px) rotate(-1.5deg); }
-      }
-      @keyframes ctaFloatDesk2 {
-        0%, 100% { transform: translate(0px, 0px) rotate(1.5deg); }
-        50% { transform: translate(-4px, 8px) rotate(2deg); }
-      }
-      @keyframes ctaFloatDesk3 {
-        0%, 100% { transform: translate(0px, 0px) rotate(1deg); }
-        50% { transform: translate(3px, -7px) rotate(0.5deg); }
-      }
-      @keyframes ctaFloatDesk4 {
-        0%, 100% { transform: translate(0px, 0px) rotate(-1.5deg); }
-        50% { transform: translate(-3px, 7px) rotate(-1deg); }
-      }
+      .cta-push-1 { --curr-rot: -2deg; transform: rotate(-2deg); }
+      .cta-push-2 { --curr-rot: 1.5deg; transform: rotate(1.5deg); }
+      .cta-push-3 { --curr-rot: 1deg; transform: rotate(1deg); }
+      .cta-push-4 { --curr-rot: -1.5deg; transform: rotate(-1.5deg); }
     }
 
-    /* Заголовок правой колонки */
+    /* Вибрация карточки при новом уведомлении (rotate ±2°, без смещения, 3 цикла за 0.4 с) */
+    .cta-push-card.card-buzz {
+      animation: ctaCardBuzz 0.4s ease-in-out 3;
+    }
+    @keyframes ctaCardBuzz {
+      0%, 100% { transform: rotate(var(--curr-rot, 0deg)); }
+      20% { transform: rotate(calc(var(--curr-rot, 0deg) - 2deg)); }
+      40% { transform: rotate(calc(var(--curr-rot, 0deg) + 2deg)); }
+      60% { transform: rotate(calc(var(--curr-rot, 0deg) - 1.5deg)); }
+      80% { transform: rotate(calc(var(--curr-rot, 0deg) + 1.5deg)); }
+    }
+
+    /* Заголовок правой колонки (font-size clamp(28px, 2.6vw, 44px), line-height 1.05) */
     .cta-final-title {
-      font-size: clamp(28px, 3.8vw, 54px);
+      font-size: clamp(28px, 2.6vw, 44px);
+      line-height: 1.05;
     }
     .cta-title-line-1 {
+      display: block;
+      white-space: nowrap;
       color: #075985;
       background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       filter: drop-shadow(0 10px 24px rgba(2, 132, 199, 0.18));
+    }
+    .cta-title-line-2,
+    .cta-title-line-3 {
+      display: block;
+      white-space: nowrap;
     }
     .cta-gradient-shimmer {
       display: inline-block;
@@ -3281,8 +3277,9 @@
 
     /* Отключение анимаций при prefers-reduced-motion */
     @media (prefers-reduced-motion: reduce) {
+      .cta-push-wrapper,
+      .cta-push-wrapper.card-floating,
       .cta-push-card,
-      .cta-push-card.card-floating,
       .cta-push-card.card-buzz,
       .cta-gradient-shimmer {
         animation: none !important;
@@ -4001,7 +3998,7 @@
 
       <!-- ПРАВЫЙ БЛОК: TG, WA, КНОПКА ЗАЯВКИ И КНОПКА НАВЕРХ -->
       <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
-        <!-- TG ICON (Desktop) — БЕЗ ПОДЛОЖКИ -->
+        <!-- TG ICON (Desktop) - БЕЗ ПОДЛОЖКИ -->
         <a href="https://t.me/altaioptima" target="_blank" class="hidden sm:flex p-1.5 text-[#229ED9] hover:text-sky-500 items-center justify-center transition-all duration-200 hover:scale-120 group shrink-0" title="Telegram">
           <svg class="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#229ED9] fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
@@ -4606,7 +4603,7 @@
               Единый щит во всех каналах связи
             </h3>
             <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
-              WhatsApp, Telegram, Avito, Instagram — ИИ‑продавец мгновенно перехватывает диалоги везде, куда стучится клиент
+              WhatsApp, Telegram, Avito, Instagram - ИИ-продавец мгновенно перехватывает диалоги везде, куда стучится клиент
             </p>
           </div>
 
@@ -4837,7 +4834,7 @@
                 <span>- ЛУЧШАЯ МЫСЛЬ -</span>
               </div>
               <blockquote id="activeBookQuote" class="text-xs sm:text-sm font-bold text-slate-900 leading-snug italic">
-                «Мы — дамы и господа к услугам дам и господ»
+                «Мы - дамы и господа к услугам дам и господ»
               </blockquote>
             </div>
           </div>
@@ -5064,7 +5061,7 @@
             "spine": "#0284c7",
             "accent": "#38bdf8",
             "essence": "Создание безупречного сервиса через самоуважение сотрудников и абсолютные стандарты качества. Учит вести бизнес без лакейства, суеты и заискивания, выстраивая подлинное гостеприимство.",
-            "quote": "«Мы — дамы и господа к услугам дам и господ»",
+            "quote": "«Мы - дамы и господа к услугам дам и господ»",
             "thought": "В диалоге исключены робость и подобострастие. Агент держит благородную осанку, соблюдает эталонный деловой этикет и обращается к собеседнику с равным достоинством."
           },
           {
@@ -5176,7 +5173,7 @@
             "spine": "#0e7490",
             "accent": "#2dd4bf",
             "essence": "Опыт создания многомиллиардного бизнеса через искреннюю культуру заботы о покупателе. Учит выстраивать доверительную человеческую связь поверх сухого прайс-листа.",
-            "quote": "«Искренний сервис — это не строка расходов, а главный двигатель органического роста компании»",
+            "quote": "«Искренний сервис - это не строка расходов, а главный двигатель органического роста компании»",
             "thought": "Естественный, живой язык диалога без шаблонных канцеляризмов. Агент вникает в ситуацию гостя и искренне подбирает решение под реальную задачу."
           },
           {
@@ -5601,7 +5598,7 @@
             
             <div class="text-center lg:text-left pb-1.5 border-b border-sky-200/60 lg:border-sky-200/80">
               <p class="text-xs sm:text-sm font-bold text-slate-800 font-inter tracking-wide">
-                Кликните на аватар — резюме откроется
+                Кликните на аватар - резюме откроется
               </p>
             </div>
 
@@ -5732,7 +5729,7 @@
                   <img 
                     id="resumeCandidatePhoto"
                     src="persona_mikhail.jpg" 
-                    alt="Михаил — Директор по стратегическим сделкам" 
+                    alt="Михаил - Директор по стратегическим сделкам" 
                     class="w-full h-full object-cover rounded-lg select-none pointer-events-none transition-all duration-300"
                     style="object-position: 50% top;"
                   / loading="lazy">
@@ -5831,7 +5828,7 @@
                 </h3>
                 <div class="border-b border-slate-900 mt-1 mb-2.5"></div>
                 <p id="resumeCandidateAbout" class="text-xs sm:text-[13px] text-slate-700 leading-relaxed font-normal bg-slate-50/70 p-3.5 sm:p-5 rounded-xl border border-slate-200/80">
-                  «Я не пытаюсь заменить ваших ведущих экспертов и звезд продаж. Моя задача — забрать черновую рутину, защитить их фокус от спама и пустых диалогов и передать им клиента в момент наивысшей готовности к сделке.»
+                  «Я не пытаюсь заменить ваших ведущих экспертов и звезд продаж. Моя задача - забрать черновую рутину, защитить их фокус от спама и пустых диалогов и передать им клиента в момент наивысшей готовности к сделке.»
                 </p>
               </div>
 
@@ -6311,7 +6308,7 @@
           СКОЛЬКО ДЕНЕГ ВЫ ТЕРЯЕТЕ?
         </h2>
         <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed font-normal pt-1">
-          Ответьте на 4&nbsp;вопроса — калькулятор покажет, сколько продаж вы упускаете и когда окупится ИИ&#8209;продавец
+          Ответьте на 4&nbsp;вопроса - калькулятор покажет, сколько продаж вы упускаете и когда окупится ИИ&#8209;продавец
         </p>
       </div>
 
@@ -6433,7 +6430,7 @@
                       <label for="convDirectInput" class="text-xs sm:text-[13px] font-bold text-slate-800 select-none tracking-tight">
                         Сколько заявок становятся покупками
                       </label>
-                      <span class="cursor-help text-slate-400 hover:text-sky-600 transition-colors text-[11px] font-bold px-1.5 py-0.2 rounded-full border border-slate-300 bg-white" title="Из 100 заявок сколько человек в итоге покупают. Если не знаете точно — оставьте 10%">?</span>
+                      <span class="cursor-help text-slate-400 hover:text-sky-600 transition-colors text-[11px] font-bold px-1.5 py-0.2 rounded-full border border-slate-300 bg-white" title="Из 100 заявок сколько человек в итоге покупают. Если не знаете точно - оставьте 10%">?</span>
                     </div>
                     <div class="calc-value-badge flex items-center bg-white px-2.5 py-0.5 rounded-lg border border-slate-200 shadow-2xs shrink-0 focus-within:border-sky-500 focus-within:ring-2 focus-within:ring-sky-100" id="badge_convRange">
                       <input type="number" id="convDirectInput" value="10" min="1" max="50" step="0.5" class="w-10 sm:w-12 text-right font-black text-slate-950 text-base sm:text-lg outline-none bg-transparent tabular-nums p-0" oninput="handleDirectInput('convRange', this.value)">
@@ -6554,7 +6551,7 @@
                     +1&nbsp;225&nbsp;000&nbsp;₽
                   </div>
                   <div id="yearNetWarning" class="hidden text-xs sm:text-[13px] text-amber-200/90 leading-snug font-normal py-0.5">
-                    При таких цифрах ИИ&#8209;продавец может не окупиться. Напишите нам — подберём подходящее решение
+                    При таких цифрах ИИ&#8209;продавец может не окупиться. Напишите нам - подберём подходящее решение
                   </div>
                 </div>
 
@@ -6612,7 +6609,7 @@
           В 4,5 РАЗА ДЕШЕВЛЕ,<br class="hidden sm:inline"> ЧЕМ НАНЯТЬ МЕНЕДЖЕРА
         </h2>
         <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
-          Штатный менеджер — ~960&nbsp;000&nbsp;₽ в год, ИИ&#8209;продавец — от 215&nbsp;000&nbsp;₽
+          Штатный менеджер - ~960&nbsp;000&nbsp;₽ в год, ИИ&#8209;продавец - от 215&nbsp;000&nbsp;₽
         </p>
       </div>
 
@@ -6938,7 +6935,7 @@
               <!-- Подсказка под списком CRM -->
               <div class="text-[11.5px] text-slate-500 pt-2.5 border-t border-slate-200/70 leading-relaxed mt-2 flex items-center gap-1.5">
                 <span class="text-sky-600 font-bold">ℹ️</span>
-                <span>Начните с таблицы, а когда бизнес вырастет — подключим CRM и перенесём базу</span>
+                <span>Начните с таблицы, а когда бизнес вырастет - подключим CRM и перенесём базу</span>
               </div>
 
               <!-- Предупреждение если выбраны amoCRM + Битрикс24 -->
@@ -6962,7 +6959,7 @@
                   <span class="text-base sm:text-lg shrink-0 mt-0.5">ℹ️</span>
                   <div class="space-y-2.5">
                     <div class="text-xs sm:text-[13px] leading-relaxed text-slate-700 font-normal">
-                      От 1&nbsp;000 заявок в месяц — индивидуальный тариф „Империя“. Стоимость зависит от объёма и количества ИИ&#8209;продавцов. Свяжитесь с нами - рассчитаем под ваш бизнес
+                      От 1&nbsp;000 заявок в месяц - индивидуальный тариф „Империя“. Стоимость зависит от объёма и количества ИИ&#8209;продавцов. Свяжитесь с нами - рассчитаем под ваш бизнес
                     </div>
                     <a href="https://t.me/altaioptima?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B8%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%20%D0%98%D0%98-%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B2%D1%86%D0%B0" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-500 hover:to-blue-500 active:scale-95 px-3.5 py-1.5 rounded-xl shadow-xs transition-all transform hover:-translate-y-0.5">
                       <span>Получить индивидуальный расчёт</span>
@@ -7059,7 +7056,7 @@
                 Не нашли свой вариант?
               </div>
               <p class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-2xl font-normal">
-                Подключим любой канал, CRM или учётную систему. Расскажите о своих продажах — предложим решение
+                Подключим любой канал, CRM или учётную систему. Расскажите о своих продажах - предложим решение
               </p>
             </div>
             <div class="w-full sm:w-auto shrink-0 pt-2 sm:pt-0">
@@ -7108,108 +7105,118 @@
       </a>
     </div>
 
-    <!-- 9. ФИНАЛЬНЫЙ БЛОК -->
-    <section id="cta-final" class="w-full relative z-20 font-inter py-[80px] lg:py-[140px] overflow-x-clip">
-      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-10">
+    <!-- 9. ФИНАЛЬНЫЙ CTA БЛОК (#cta-final) -->
+    <section id="cta-final" class="relative py-[80px] lg:py-[140px] px-4 sm:px-6 lg:px-10 overflow-hidden">
+      <div class="max-w-[1200px] mx-auto relative z-10">
         <div class="cta-final-grid">
-          
-          <!-- ЛЕВАЯ КОЛОНКА (На мобильных: 1. Знакомо? -> 2. Уведомления) -->
+
+          <!-- ЛЕВАЯ КОЛОНКА (На мобильных: 1. Претайтл -> 2. Уведомления) -->
           <div class="cta-col-left">
             
-            <!-- 1. Претайтл «Знакомо?» -->
+            <!-- 1. Претайтл «Знакомо?» с акцентной полоской 24px -->
             <div class="cta-pretitle-block">
               <span class="cta-pretitle-line" aria-hidden="true"></span>
-              <span class="cta-pretitle-text">ЗНАКОМО?</span>
+              <span class="cta-pretitle-text">Знакомо?</span>
             </div>
 
-            <!-- 2. Поле уведомлений (высота ~440px, шахматка 2x2) -->
-            <div class="cta-notifications-stage">
-              <!-- Радиальное голубое свечение за карточками -->
-              <div class="cta-cards-glow" aria-hidden="true"></div>
+            <!-- Фоновое свечение (за карточками) -->
+            <div class="cta-cards-glow" aria-hidden="true"></div>
 
-              <!-- Карточка 1: WhatsApp (#25D366) · 23:47 -->
-              <div class="cta-push-card cta-push-1">
-                <div class="w-9 h-9 rounded-[9px] bg-[#25D366] flex items-center justify-center shrink-0 shadow-xs">
-                  <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.68 12.04 3.68C14.24 3.68 16.31 4.54 17.87 6.1C19.42 7.66 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15ZM16.56 14.36C16.31 14.24 15.09 13.64 14.86 13.56C14.63 13.48 14.47 13.44 14.3 13.69C14.14 13.94 13.67 14.49 13.52 14.66C13.38 14.83 13.23 14.85 12.98 14.73C12.74 14.61 11.95 14.35 11.01 13.51C10.28 12.86 9.78 12.05 9.64 11.8C9.5 11.56 9.62 11.42 9.75 11.3C9.86 11.02 10 11.02 10.12 10.88C10.24 10.74 10.28 10.64 10.36 10.47C10.44 10.31 10.4 10.16 10.34 10.04C10.28 9.92 9.8 8.74 9.6 8.25C9.4 7.78 9.21 7.84 9.06 7.83C8.92 7.82 8.76 7.82 8.6 7.82C8.44 7.82 8.17 7.88 7.95 8.12C7.73 8.36 7.1 8.95 7.1 10.16C7.1 11.37 7.98 12.54 8.1 12.7C8.22 12.87 9.83 15.34 12.3 16.4C12.89 16.65 13.35 16.8 13.7 16.91C14.3 17.1 14.84 17.07 15.27 17.01C15.75 16.94 16.74 16.41 16.95 15.82C17.15 15.23 17.15 14.73 17.09 14.62C17.03 14.51 16.81 14.48 16.56 14.36Z"/></svg>
-                </div>
-                <div class="flex-1 min-w-0">
-                  <div class="flex items-center justify-between gap-2 mb-0.5">
-                    <span class="text-[13px] font-semibold text-[#1B2B40] leading-none">WhatsApp</span>
-                    <span class="text-[12px] text-slate-400 font-normal leading-none">23:47</span>
+            <!-- 2. Сетка уведомлений (CSS-сетка) -->
+            <div class="cta-notifications-stage">
+
+              <!-- Карточка 1: WhatsApp (#25D366) · 23:48 -->
+              <div class="cta-push-wrapper cta-push-wrap-1">
+                <div class="cta-push-card cta-push-1">
+                  <div class="w-9 h-9 rounded-[9px] bg-[#25D366] flex items-center justify-center shrink-0 shadow-xs">
+                    <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.68 12.04 3.68C14.24 3.68 16.31 4.54 17.87 6.1C19.42 7.66 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15ZM16.56 14.36C16.31 14.24 15.09 13.64 14.86 13.56C14.63 13.48 14.47 13.44 14.3 13.69C14.14 13.94 13.67 14.49 13.52 14.66C13.38 14.83 13.23 14.85 12.98 14.73C12.74 14.61 11.95 14.35 11.01 13.51C10.28 12.86 9.78 12.05 9.64 11.8C9.5 11.56 9.62 11.42 9.75 11.3C9.86 11.02 10 11.02 10.12 10.88C10.24 10.74 10.28 10.64 10.36 10.47C10.44 10.31 10.4 10.16 10.34 10.04C10.28 9.92 9.8 8.74 9.6 8.25C9.4 7.78 9.21 7.84 9.06 7.83C8.92 7.82 8.76 7.82 8.6 7.82C8.44 7.82 8.17 7.88 7.95 8.12C7.73 8.36 7.1 8.95 7.1 10.16C7.1 11.37 7.98 12.54 8.1 12.7C8.22 12.87 9.83 15.34 12.3 16.4C12.89 16.65 13.35 16.8 13.7 16.91C14.3 17.1 14.84 17.07 15.27 17.01C15.75 16.94 16.74 16.41 16.95 15.82C17.15 15.23 17.15 14.73 17.09 14.62C17.03 14.51 16.81 14.48 16.56 14.36Z"/></svg>
                   </div>
-                  <p class="text-[14px] text-[#3A4A5E] leading-snug line-clamp-2">
-                    Здравствуйте, вы&nbsp;работаете? Хочу оформить заказ
-                  </p>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center justify-between gap-2 mb-0.5">
+                      <span class="text-[13px] font-semibold text-[#1B2B40] leading-none">WhatsApp</span>
+                      <span class="text-[12px] text-slate-400 font-normal leading-none">23:48</span>
+                    </div>
+                    <p class="text-[14px] text-[#3A4A5E] leading-snug">
+                      Здравствуйте, вы&nbsp;работаете? Хочу оформить заказ
+                    </p>
+                  </div>
                 </div>
               </div>
 
               <!-- Карточка 2: Менеджер Олег (серый круг с буквой «О») · 23:52 -->
-              <div class="cta-push-card cta-push-2">
-                <div class="w-9 h-9 rounded-full bg-slate-200 border border-slate-300 flex items-center justify-center shrink-0">
-                  <span class="text-[15px] font-bold text-slate-700">О</span>
-                </div>
-                <div class="flex-1 min-w-0">
-                  <div class="flex items-center justify-between gap-2 mb-0.5">
-                    <span class="text-[13px] font-semibold text-[#1B2B40] leading-none">Менеджер Олег</span>
-                    <span class="text-[12px] text-slate-400 font-normal leading-none">23:52</span>
+              <div class="cta-push-wrapper cta-push-wrap-2">
+                <div class="cta-push-card cta-push-2">
+                  <div class="w-9 h-9 rounded-full bg-slate-200 border border-slate-300 flex items-center justify-center shrink-0">
+                    <span class="text-[15px] font-bold text-slate-700">О</span>
                   </div>
-                  <p class="text-[14px] text-[#3A4A5E] leading-snug line-clamp-2">
-                    Клиент просит скидку, что ответить?
-                  </p>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center justify-between gap-2 mb-0.5">
+                      <span class="text-[13px] font-semibold text-[#1B2B40] leading-none">Менеджер Олег</span>
+                      <span class="text-[12px] text-slate-400 font-normal leading-none">23:52</span>
+                    </div>
+                    <p class="text-[14px] text-[#3A4A5E] leading-snug">
+                      Клиент просит скидку, что&nbsp;ответить?
+                    </p>
+                  </div>
                 </div>
               </div>
 
               <!-- Карточка 3: CRM (фирменный синий, график) · 00:15 -->
-              <div class="cta-push-card cta-push-3">
-                <div class="w-9 h-9 rounded-[9px] bg-[#0284C7] flex items-center justify-center shrink-0 shadow-xs">
-                  <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"/></svg>
-                </div>
-                <div class="flex-1 min-w-0">
-                  <div class="flex items-center justify-between gap-2 mb-0.5">
-                    <span class="text-[13px] font-semibold text-[#1B2B40] leading-none">CRM</span>
-                    <span class="text-[12px] text-slate-400 font-normal leading-none">00:15</span>
+              <div class="cta-push-wrapper cta-push-wrap-3">
+                <div class="cta-push-card cta-push-3">
+                  <div class="w-9 h-9 rounded-[9px] bg-[#0284C7] flex items-center justify-center shrink-0 shadow-xs">
+                    <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"/></svg>
                   </div>
-                  <p class="text-[14px] text-[#3A4A5E] leading-snug line-clamp-2">
-                    4 сделки без ответственного
-                  </p>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center justify-between gap-2 mb-0.5">
+                      <span class="text-[13px] font-semibold text-[#1B2B40] leading-none">CRM</span>
+                      <span class="text-[12px] text-slate-400 font-normal leading-none">00:15</span>
+                    </div>
+                    <p class="text-[14px] text-[#3A4A5E] leading-snug">
+                      4&nbsp;сделки без&nbsp;ответственного
+                    </p>
+                  </div>
                 </div>
               </div>
 
               <!-- Карточка 4: Telegram (#2AABEE) · 09:40 со стрелкой/красной полоской слева 3px -->
-              <div class="cta-push-card cta-push-4 relative overflow-hidden">
-                <span class="absolute left-0 top-3 bottom-3 w-[3px] bg-[#EF4444] rounded-r-full" aria-hidden="true"></span>
-                <div class="w-9 h-9 rounded-[9px] bg-[#2AABEE] flex items-center justify-center shrink-0 shadow-xs ml-1">
-                  <svg class="w-4 h-4 fill-white -translate-x-0.5 translate-y-0.5" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
-                </div>
-                <div class="flex-1 min-w-0">
-                  <div class="flex items-center justify-between gap-2 mb-0.5">
-                    <span class="text-[13px] font-semibold text-[#1B2B40] leading-none">Telegram</span>
-                    <span class="text-[12px] text-slate-400 font-normal leading-none">09:40</span>
+              <div class="cta-push-wrapper cta-push-wrap-4">
+                <div class="cta-push-card cta-push-4 relative overflow-hidden">
+                  <span class="absolute left-0 top-3 bottom-3 w-[3px] bg-[#EF4444] rounded-r-full" aria-hidden="true"></span>
+                  <div class="w-9 h-9 rounded-[9px] bg-[#2AABEE] flex items-center justify-center shrink-0 shadow-xs ml-1">
+                    <svg class="w-4 h-4 fill-white -translate-x-0.5 translate-y-0.5" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
                   </div>
-                  <p class="text-[14px] text-[#3A4A5E] leading-snug line-clamp-2">
-                    Уже не&nbsp;актуально, купил в&nbsp;другом месте
-                  </p>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center justify-between gap-2 mb-0.5">
+                      <span class="text-[13px] font-semibold text-[#1B2B40] leading-none">Telegram</span>
+                      <span class="text-[12px] text-slate-400 font-normal leading-none">09:40</span>
+                    </div>
+                    <p class="text-[14px] text-[#3A4A5E] leading-snug">
+                      Уже не&nbsp;актуально, купил в&nbsp;другом месте
+                    </p>
+                  </div>
                 </div>
               </div>
 
             </div>
           </div>
 
-          <!-- ПРАВАЯ КОЛОНКА (На мобильных: 3. Заголовок -> 4. Подзаголовок -> 5. Кнопки -> 6. Микротекст) -->
+          <!-- ПРАВАЯ КОЛОНКА (На мобильных: 3. Заголовок -> 4. Подзаголовок -> 5. Кнопки) -->
           <div class="cta-col-right">
             
-            <!-- 3. Заголовок (строго 2 строки) -->
+            <!-- 3. Заголовок (строго 3 строки) -->
             <div class="cta-title-block">
-              <h2 class="cta-final-title font-benzin font-black uppercase tracking-tight leading-[1.12]">
-                <span class="cta-title-line-1 block whitespace-nowrap">Вы отдыхаете,</span>
-                <span class="cta-title-line-2 block whitespace-nowrap cta-gradient-shimmer mt-1 sm:mt-2">ИИ&#8209;продавец работает</span>
+              <h2 class="cta-final-title font-benzin font-black uppercase tracking-tight leading-[1.05]">
+                <span class="cta-title-line-1">Вы отдыхаете,</span>
+                <span class="cta-title-line-2 cta-gradient-shimmer mt-1 sm:mt-1.5">ИИ&#8209;продавец</span>
+                <span class="cta-title-line-3 cta-gradient-shimmer mt-0.5 sm:mt-1">работает</span>
               </h2>
             </div>
 
-            <!-- 4. Подзаголовок (отступ 24px, 19px, line-height 1.6) -->
-            <div class="cta-subtitle-block mt-6 max-w-full">
+            <!-- 4. Подзаголовок (отступ 24px, 19px, line-height 1.6, max-width 540px) -->
+            <div class="cta-subtitle-block mt-6 max-w-[540px]">
               <p class="text-[17px] sm:text-[19px] leading-[1.6] text-[#3A4A5E] font-normal">
-                Вам больше не&nbsp;нужно ничего проверять, менеджерам&nbsp;— отвечать на&nbsp;одни и&nbsp;те&nbsp;же вопросы. Они закрывают сделки, а&nbsp;вы занимаетесь тем, что&nbsp;важно.
+                Вам больше не&nbsp;нужно ничего проверять, менеджерам&nbsp;– отвечать на&nbsp;одни и&nbsp;те&nbsp;же вопросы. Они закрывают сделки, а&nbsp;вы занимаетесь тем, что&nbsp;важно.
               </p>
               <p class="text-[17px] sm:text-[19px] leading-[1.6] text-[#0F172A] font-semibold mt-2">
                 И&nbsp;наконец выпускаете телефон из&nbsp;рук.
@@ -7227,13 +7234,6 @@
                   <span>Проверить его в деле</span>
                 </a>
               </div>
-            </div>
-
-            <!-- 6. Микротекст (отступ 16px, 13px, серый) -->
-            <div class="cta-micro-block mt-4">
-              <p class="text-[13px] text-slate-500 font-normal leading-normal">
-                Без кадровых документов · Первый канал в&nbsp;тарифе · Точная цена после короткого брифа
-              </p>
             </div>
 
           </div>
@@ -8047,7 +8047,7 @@
       const input = document.getElementById('liveChatInput');
       if (!input) return;
 
-      // Если поле в фокусе или пользователь уже начал писать — не мешаем
+      // Если поле в фокусе или пользователь уже начал писать - не мешаем
       if (document.activeElement === input || (input.value && input.value.length > 0)) {
         chatTypewriterTimer = setTimeout(runChatTypewriter, 1200);
         return;
@@ -8714,7 +8714,7 @@
           '<strong class="text-slate-950">Знание регламентов:</strong> до 100 регламентов, стандартов и технических карт без ошибок.',
           '<strong class="text-slate-950">Бесшовная передача:</strong> передает в CRM готовое саммари и лид эксперту.'
         ],
-        about: '«Я не пытаюсь заменить ваших ведущих экспертов и звезд продаж. Моя задача — забрать черновую рутину, защитить их фокус от спама и пустых диалогов и передать им клиента в момент наивысшей готовности к сделке.»'
+        about: '«Я не пытаюсь заменить ваших ведущих экспертов и звезд продаж. Моя задача - забрать черновую рутину, защитить их фокус от спама и пустых диалогов и передать им клиента в момент наивысшей готовности к сделке.»'
       },
       yaroslav: {
         name: 'МАКСИМ ГРОМОВ',
@@ -8768,7 +8768,7 @@
           '<strong class="text-slate-950">Экспертное закрытие возражений:</strong> аргументированное сравнение с аналогами рынка и демонстрация ключевых выгод.',
           '<strong class="text-slate-950">Выстраивание долгосрочного доверия:</strong> легкий и уверенный деловой стиль общения, располагающий к партнерству.'
         ],
-        about: '«Главная задача в продажах — найти самое точное и выгодное решение для клиента. Я помогаю увидеть конкретную пользу продукта, быстро рассчитываю смету и формирую предложение, от которого невозможно отказаться.»'
+        about: '«Главная задача в продажах - найти самое точное и выгодное решение для клиента. Я помогаю увидеть конкретную пользу продукта, быстро рассчитываю смету и формирую предложение, от которого невозможно отказаться.»'
       },
       ekaterina: {
         name: 'КОНСТАНТИН БЕЛОВ',
@@ -8846,7 +8846,7 @@
         photoEl.style.opacity = '0';
         setTimeout(() => {
           photoEl.src = data.photo;
-          photoEl.alt = `${data.name} — ${data.role}`;
+          photoEl.alt = `${data.name} - ${data.role}`;
           photoEl.style.objectPosition = data.photoPos || 'center';
           photoEl.style.opacity = '1';
         }, 150);
@@ -8922,7 +8922,7 @@
         authorAvatarBg: 'bg-gradient-to-tr from-sky-600 to-blue-700',
         authorName: 'Геннадий Дорохин',
         authorRole: 'Основатель и генеральный директор',
-        review: '«В риелторском бизнесе скорость первого контакта решает всё. Если клиент оставил заявку на подбор квартиры или оценку объекта, а риелтор перезванивает через 3 часа — клиент уже общается с другим агентством. AI Altai Optima подхватывает лиды с ЦИАН, Авито и сайта за 10 секунд, квалифицирует бюджет, район и формат покупки, после чего назначает показ или консультацию с ведущим брокером. Мы увеличили число закрытых сделок с 4 до 9 в месяц на филиал, а выручка выросла на 10.3 млн ₽.»',
+        review: '«В риелторском бизнесе скорость первого контакта решает всё. Если клиент оставил заявку на подбор квартиры или оценку объекта, а риелтор перезванивает через 3 часа - клиент уже общается с другим агентством. AI Altai Optima подхватывает лиды с ЦИАН, Авито и сайта за 10 секунд, квалифицирует бюджет, район и формат покупки, после чего назначает показ или консультацию с ведущим брокером. Мы увеличили число закрытых сделок с 4 до 9 в месяц на филиал, а выручка выросла на 10.3 млн ₽.»',
         nicheTag: 'НИША: НЕДВИЖИМОСТЬ И РИЕЛТОРСКИЕ УСЛУГИ',
         stackTag: 'ПОДКЛЮЧЕНИЕ: VOICE AI + AMOCRM + ЦИАН/AVITO',
         title: 'Агентство недвижимости «Домиан»',
@@ -8993,7 +8993,7 @@
         authorAvatarBg: 'bg-gradient-to-tr from-amber-700 to-stone-900',
         authorName: 'Яна Янакова',
         authorRole: 'Основательница обувного бренда TALLORA (tallora.ru)',
-        review: '«В обувном ритейле, особенно в сегменте размеров 41+, главный барьер к покупке — это страх не угадать с размером, полнотой колодки и подъемом. Клиенты пишут в WhatsApp с замерами стопы в сантиметрах, просят живые фото и уточняют наличие в московском шоуруме на Большом Трёхсвятительском. Раньше менеджеры не успевали отвечать всем вовремя, и до 60% бросали диалог. AI Altai Optima подключен к нашей 1С: он мгновенно переводит мерки стопы в точный размер нужной модели, сверяет остатки на складе, предлагает доставку с примеркой или бронь в шоуруме. Выручка выросла с 1.4 до 2.85 млн ₽ в месяц, а возвратов стало в 2 раза меньше!»',
+        review: '«В обувном ритейле, особенно в сегменте размеров 41+, главный барьер к покупке - это страх не угадать с размером, полнотой колодки и подъемом. Клиенты пишут в WhatsApp с замерами стопы в сантиметрах, просят живые фото и уточняют наличие в московском шоуруме на Большом Трёхсвятительском. Раньше менеджеры не успевали отвечать всем вовремя, и до 60% бросали диалог. AI Altai Optima подключен к нашей 1С: он мгновенно переводит мерки стопы в точный размер нужной модели, сверяет остатки на складе, предлагает доставку с примеркой или бронь в шоуруме. Выручка выросла с 1.4 до 2.85 млн ₽ в месяц, а возвратов стало в 2 раза меньше!»',
         nicheTag: 'НИША: ПРОИЗВОДСТВО И РИТЕЙЛ ОБУВИ (TALLORA.RU)',
         stackTag: 'ПОДКЛЮЧЕНИЕ: TELEGRAM + WHATSAPP + 1С:УТ',
         title: 'Бренд обуви TALLORA (tallora.ru)',
@@ -9034,7 +9034,7 @@
                   <span class="font-bold text-emerald-950">AI Стилист TALLORA</span>
                   <span class="text-emerald-800 font-bold">1С Склад: В наличии ✓</span>
                 </div>
-                <div>«Здравствуйте! На длину стопы 27.3 см и увеличенную полноту у этой модели идеально подойдет <strong>42 размер</strong> — в лоферах предусмотрена мягкая анатомическая стелька и эластичные вставки в подъеме. В наличии на складе и в шоуруме в Москве (Большой Трёхсвятительский пер., 2/1с1). Оформить курьерскую доставку с примеркой или забронировать для примерки в шоуруме?»</div>
+                <div>«Здравствуйте! На длину стопы 27.3 см и увеличенную полноту у этой модели идеально подойдет <strong>42 размер</strong> - в лоферах предусмотрена мягкая анатомическая стелька и эластичные вставки в подъеме. В наличии на складе и в шоуруме в Москве (Большой Трёхсвятительский пер., 2/1с1). Оформить курьерскую доставку с примеркой или забронировать для примерки в шоуруме?»</div>
                 <div class="text-[9px] text-emerald-800 text-right font-bold">16:24 • ✓✓</div>
               </div>
               <div class="bg-white p-2.5 rounded-2xl rounded-tl-xs shadow-2xs max-w-[85%] text-xs text-slate-800">
@@ -9155,7 +9155,7 @@
         authorAvatarBg: 'bg-gradient-to-tr from-purple-600 to-indigo-700',
         authorName: 'Артем Ковалев',
         authorRole: 'Управляющий партнер',
-        review: '«В юридическом консалтинге время партнеров — самый дорогой актив компании. Раньше до 40% консультаций тратилось на неквалифицированные лиды с чеками ниже минимального порога практики. AI Altai Optima проводит первичный скрининг входящих запросов в Telegram и на сайте, собирает вводные данные по спору или сделке и назначает онлайн-встречи только с лицами, принимающими решения в компаниях целевого сегмента. Это увеличило портфель контрактов практики с 1.8 до 3.45 млн ₽ в месяц.»',
+        review: '«В юридическом консалтинге время партнеров - самый дорогой актив компании. Раньше до 40% консультаций тратилось на неквалифицированные лиды с чеками ниже минимального порога практики. AI Altai Optima проводит первичный скрининг входящих запросов в Telegram и на сайте, собирает вводные данные по спору или сделке и назначает онлайн-встречи только с лицами, принимающими решения в компаниях целевого сегмента. Это увеличило портфель контрактов практики с 1.8 до 3.45 млн ₽ в месяц.»',
         nicheTag: 'НИША: ЮРИДИЧЕСКИЙ КОНСАЛТИНГ И АРБИТРАЖ',
         stackTag: 'ПОДКЛЮЧЕНИЕ: TELEGRAM + AMOCRM + CALENDAR',
         title: 'Юридическая фирма «Лекс Консалтинг»',
@@ -10450,14 +10450,10 @@
           if (!section) return;
 
           const stage = section.querySelector('.cta-notifications-stage');
-          const cards = [
-            section.querySelector('.cta-push-1'),
-            section.querySelector('.cta-push-2'),
-            section.querySelector('.cta-push-3'),
-            section.querySelector('.cta-push-4')
-          ].filter(Boolean);
+          const wrappers = Array.from(section.querySelectorAll('.cta-push-wrapper'));
+          const cards = Array.from(section.querySelectorAll('.cta-push-card'));
 
-          if (!cards.length) return;
+          if (!wrappers.length) return;
 
           // Подготавливаем скрытое состояние для плавного появления (без JS карточки видны сразу)
           if (stage) {
@@ -10470,11 +10466,11 @@
             if (hasAnimated) return;
             hasAnimated = true;
 
-            cards.forEach((card, idx) => {
+            wrappers.forEach((wrap, idx) => {
               setTimeout(() => {
-                card.classList.add('card-revealed');
+                wrap.classList.add('card-revealed');
                 setTimeout(() => {
-                  card.classList.add('card-floating');
+                  wrap.classList.add('card-floating');
                 }, 550);
               }, idx * 300);
             });
