@@ -2925,27 +2925,186 @@
       will-change: background-position;
     }
 
-    /* ФИРМЕННЫЙ СИНЕ-ГОЛУБОЙ ГРАДИЕНТ ДЛЯ ВТОРОЙ СТРОКИ ФИНАЛЬНОГО БЛОКА */
-    .cta-final-gradient-line {
+    /* ФИНАЛЬНЫЙ БЛОК: НОВАЯ АНИМИРОВАННАЯ КОМПОЗИЦИЯ (#cta-final) */
+    #cta-final {
+      background: transparent !important;
+      box-shadow: none !important;
+      border: none !important;
+    }
+
+    /* 2. «ЗНАКОМО?» */
+    .cta-pretitle {
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    }
+    .cta-pretitle.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* 3. СТРОКИ БОЛИ */
+    .cta-pain-row {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cta-pain-row.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cta-pain-phrase {
+      display: inline-block;
+      position: relative;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      transform-origin: center center;
+    }
+
+    .cta-pain-phrase::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 52%;
+      transform: translateY(-50%);
+      width: 0%;
+      height: 3px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #0284c7 0%, #38bdf8 100%);
+      transition: width 0.35s cubic-bezier(0, 0, 0.2, 1);
+      pointer-events: none;
+    }
+
+    .cta-pain-phrase.struck::after {
+      width: 100%;
+    }
+
+    .cta-pain-phrase.struck {
+      opacity: 0.35;
+      transform: scale(0.97);
+    }
+
+    /* 4. ЗАГОЛОВОК */
+    .cta-heading-line {
+      opacity: 0;
+      transform: translateY(24px);
+      filter: blur(8px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                  transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                  filter 0.6s ease-out;
+      will-change: opacity, transform, filter;
+    }
+
+    .cta-heading-line.revealed {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    /* Вторая строка заголовка: градиент + блик раз в 5с (длительность 1.5с) */
+    .cta-gradient-glow {
       display: inline-block;
       background: linear-gradient(
         110deg,
         #0284c7 0%,
-        #0ea5e9 20%,
-        #38bdf8 38%,
-        #67e8f9 48%,
-        #38bdf8 58%,
-        #0284c7 78%,
-        #0369a1 100%
-      ) !important;
-      background-size: 250% 100% !important;
-      -webkit-background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-      background-clip: text !important;
-      color: transparent !important;
-      animation: heroTextFlareShimmer 4s ease-in-out infinite !important;
-      filter: drop-shadow(0 8px 20px rgba(14, 165, 233, 0.22)) !important;
+        #0ea5e9 18%,
+        #38bdf8 32%,
+        #ffffff 46%,
+        #ffffff 52%,
+        #67e8f9 64%,
+        #0ea5e9 80%,
+        #0284c7 100%
+      );
+      background-size: 280% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 8px 24px rgba(14, 165, 233, 0.22));
       will-change: background-position;
+    }
+
+    .cta-gradient-glow.shimmer-active {
+      animation: ctaHeadlineShimmer 5s ease-in-out infinite;
+    }
+
+    @keyframes ctaHeadlineShimmer {
+      0% {
+        background-position: 100% 0%;
+      }
+      30% { /* 30% от 5 сек = 1.5 секунды */
+        background-position: 0% 0%;
+      }
+      100% {
+        background-position: 0% 0%;
+      }
+    }
+
+    /* ИНДИКАТОР «В СЕТИ» */
+    .cta-online-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      background: rgba(34, 197, 94, 0.08);
+      border: 1px solid rgba(34, 197, 94, 0.28);
+      box-shadow: 0 1px 4px rgba(34, 197, 94, 0.08);
+      user-select: none;
+    }
+
+    .cta-online-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 9999px;
+      background-color: #22c55e;
+      position: relative;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .cta-online-dot::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 9999px;
+      border: 1.5px solid #22c55e;
+      animation: ctaOnlineRing 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    }
+
+    @keyframes ctaOnlineRing {
+      0% {
+        transform: scale(0.7);
+        opacity: 0.9;
+      }
+      70% {
+        transform: scale(2.4);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(2.4);
+        opacity: 0;
+      }
+    }
+
+    .cta-online-text {
+      font-size: 12px;
+      font-weight: 600;
+      color: #22c55e;
+      line-height: 1;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* 5. ПОДЗАГОЛОВОК И КНОПКА */
+    .cta-delayed-content {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cta-delayed-content.revealed {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* БЕГУЩИЙ НЕОНОВЫЙ ЛУЧ-РАЗДЕЛИТЕЛЬ В ПЛАШКЕ ХИРО */
@@ -6765,27 +6924,76 @@
     </div>
 
     <!-- 9. ФИНАЛЬНЫЙ БЛОК -->
-    <section id="cta-final" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-20 pt-12 pb-16 sm:pt-16 sm:pb-24 space-y-6 sm:space-y-8 font-inter">
-      <div class="space-y-4">
-        <h2 class="font-benzin uppercase tracking-tight font-black text-[22px] min-[390px]:text-2xl sm:text-4xl md:text-5xl lg:text-[46px] select-none leading-[1.15] space-y-1">
-          <span class="block whitespace-nowrap" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 10px 24px rgba(2, 132, 199, 0.18));">
-            Вы отдыхаете
-          </span>
-          <span class="block whitespace-nowrap cta-final-gradient-line">
-            ИИ&#8209;продавец работает
-          </span>
-        </h2>
-        <p class="max-w-[670px] mx-auto text-xs min-[380px]:text-sm sm:text-base md:text-[17px] text-slate-600 font-medium leading-relaxed">
-          Забот у бизнеса и так хватает - продажи больше не одна из них. Каждый клиент получит ответ, каждая заявка окажется в CRM, а у вас наконец появится время на то, ради чего вы начинали свой бизнес
-        </p>
+    <section id="cta-final" class="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8 text-center py-[72px] lg:py-[120px] relative z-20 font-inter">
+      
+      <!-- 2. «ЗНАКОМО?» -->
+      <div id="ctaPretitle" class="cta-pretitle text-[14px] font-bold uppercase tracking-[0.12em] mb-5 sm:mb-6" style="color: rgba(2, 132, 199, 0.7);">
+        ЗНАКОМО?
       </div>
 
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-        <a href="https://t.me/altaioptima?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D1%82%D0%B8%D1%82%D1%8C%20%D0%98%D0%98-%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B2%D1%86%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0" target="_blank" class="btn-optic group shadow-xl py-4 px-8 sm:px-10 text-sm sm:text-base font-extrabold uppercase tracking-wider rounded-2xl inline-flex items-center justify-center gap-2">
-          <span>Освободить себя от рутины</span>
-          <span class="text-lg">→</span>
-        </a>
+      <!-- 3. СТРОКИ БОЛИ -->
+      <div id="ctaPainRows" class="space-y-[12px] mb-12 sm:mb-16">
+        <div class="cta-pain-row text-[18px] sm:text-[22px] md:text-[24px] font-normal leading-snug" style="color: #3A4A5E;">
+          <span class="cta-pain-phrase">Телефон в руке даже за ужином</span>
+        </div>
+        <div class="cta-pain-row text-[18px] sm:text-[22px] md:text-[24px] font-normal leading-snug" style="color: #3A4A5E;">
+          <span class="cta-pain-phrase">Проверяете, ответил ли менеджер клиенту</span>
+        </div>
+        <div class="cta-pain-row text-[18px] sm:text-[22px] md:text-[24px] font-normal leading-snug" style="color: #3A4A5E;">
+          <span class="cta-pain-phrase">Переписываете за ним кривые ответы</span>
+        </div>
+        <div class="cta-pain-row text-[18px] sm:text-[22px] md:text-[24px] font-normal leading-snug" style="color: #3A4A5E;">
+          <span class="cta-pain-phrase">Заявка сгорела, а в CRM пусто</span>
+        </div>
       </div>
+
+      <!-- 4. ЗАГОЛОВОК С ИНДИКАТОРОМ «В СЕТИ» -->
+      <div id="ctaHeadlineWrap" class="space-y-2 sm:space-y-3">
+        
+        <!-- Индикатор «в сети» над заголовком на мобильном -->
+        <div class="flex sm:hidden justify-center mb-3">
+          <div class="cta-online-badge cta-heading-line" id="ctaOnlineBadgeMob">
+            <span class="cta-online-dot"></span>
+            <span class="cta-online-text">в сети</span>
+          </div>
+        </div>
+
+        <!-- Строка 1: «Вы отдыхаете.» -->
+        <h2 class="font-benzin uppercase tracking-tight font-black text-[26px] min-[390px]:text-[30px] sm:text-4xl md:text-5xl lg:text-[54px] select-none leading-[1.14]">
+          <span id="ctaHeadLine1" class="cta-heading-line block" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 10px 24px rgba(2, 132, 199, 0.18));">
+            Вы отдыхаете.
+          </span>
+          
+          <!-- Строка 2: «ИИ‑продавец работает.» + Индикатор «в сети» на десктопе -->
+          <span id="ctaHeadLine2" class="cta-heading-line block mt-1 sm:mt-2">
+            <span class="inline-flex items-center justify-center flex-wrap gap-x-4 gap-y-2">
+              <span id="ctaGlowText" class="cta-gradient-glow">
+                ИИ&#8209;продавец работает.
+              </span>
+              <span class="hidden sm:inline-flex cta-online-badge align-middle">
+                <span class="cta-online-dot"></span>
+                <span class="cta-online-text">в сети</span>
+              </span>
+            </span>
+          </span>
+        </h2>
+      </div>
+
+      <!-- 5. ПОДЗАГОЛОВОК И КНОПКА ДЕЙСТВИЯ -->
+      <div id="ctaDelayedContent" class="cta-delayed-content space-y-8 sm:space-y-10 mt-6 sm:mt-8">
+        <p class="max-w-[720px] mx-auto text-base sm:text-[18px] md:text-[20px] leading-relaxed font-normal" style="color: #3A4A5E;">
+          Он отвечает каждому клиенту за минуту, не пишет криво, не забывает про CRM и не уходит в отпуск. <strong class="font-bold text-slate-900">А вы наконец выпускаете телефон из рук.</strong>
+        </p>
+
+        <!-- Кнопка действия -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-1">
+          <a href="https://t.me/altaioptima?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D1%82%D0%B8%D1%82%D1%8C%20%D0%98%D0%98-%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B2%D1%86%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0" target="_blank" class="btn-optic group shadow-xl py-4 px-8 sm:px-10 text-sm sm:text-base font-extrabold uppercase tracking-wider rounded-2xl inline-flex items-center justify-center gap-2">
+            <span>Освободить себя от рутины</span>
+            <span class="text-lg">→</span>
+          </a>
+        </div>
+      </div>
+
     </section>
 
     <!-- Тонкий неоновый световой разделитель перед футером (с достаточным воздухом) -->
@@ -9987,6 +10195,89 @@
         }
 
         recalc();
+
+        // ФИНАЛЬНЫЙ БЛОК (#cta-final): ИНТЕРАКТИВНАЯ АНИМАЦИЯ ПО ШАГАМ
+        (function initCtaFinalAnimation() {
+          const section = document.getElementById('cta-final');
+          if (!section) return;
+
+          const pretitle = document.getElementById('ctaPretitle');
+          const painRows = section.querySelectorAll('.cta-pain-row');
+          const painPhrases = section.querySelectorAll('.cta-pain-phrase');
+          const headline1 = document.getElementById('ctaHeadLine1');
+          const headline2 = document.getElementById('ctaHeadLine2');
+          const onlineBadgeMob = document.getElementById('ctaOnlineBadgeMob');
+          const glowText = document.getElementById('ctaGlowText');
+          const delayedContent = document.getElementById('ctaDelayedContent');
+
+          let hasAnimated = false;
+
+          function runAnimation() {
+            if (hasAnimated) return;
+            hasAnimated = true;
+
+            // 2. «ЗНАКОМО?» (fade-in 0.4 с)
+            if (pretitle) pretitle.classList.add('revealed');
+
+            // 3. Этап А — появление строк боли (выезд снизу на 16px с fade-in, интервал 0.15 с)
+            painRows.forEach((row, i) => {
+              setTimeout(() => {
+                row.classList.add('visible');
+              }, i * 150);
+            });
+
+            // Появление строк заканчивается в: 3 * 150 + 400 = 850 мс
+            // Этап Б — пауза 0.6 с (850 + 600 = 1450 мс)
+            // Этап В — перечёркивание: по очереди, интервал 0.35 с (1450, 1800, 2150, 2500)
+            const strikeStartTime = 1450;
+            const strikeInterval = 350;
+
+            painPhrases.forEach((phrase, i) => {
+              setTimeout(() => {
+                phrase.classList.add('struck');
+              }, strikeStartTime + i * strikeInterval);
+            });
+
+            // Последняя 4-я строка начинает перечёркиваться в 2500 мс и завершает за 350 мс -> 2850 мс
+            // 4. ЗАГОЛОВОК: появляется через 0.3 с после последнего перечёркивания (2850 + 300 = 3150 мс)
+            const headlineStartTime = 3150;
+
+            // Строка 1 («Вы отдыхаете.»): fade-in + 24px + blur 8px -> 0, 0.6 с
+            setTimeout(() => {
+              if (headline1) headline1.classList.add('revealed');
+            }, headlineStartTime);
+
+            // Строка 2 («ИИ‑продавец работает.») + индикатор: с задержкой 0.25 с (3150 + 250 = 3400 мс)
+            setTimeout(() => {
+              if (headline2) headline2.classList.add('revealed');
+              if (onlineBadgeMob) onlineBadgeMob.classList.add('revealed');
+            }, headlineStartTime + 250);
+
+            // После завершения появления строки 2 (3400 + 600 = 4000 мс): включаем цикличный блик раз в 5с
+            setTimeout(() => {
+              if (glowText) glowText.classList.add('shimmer-active');
+            }, headlineStartTime + 850);
+
+            // 5. ПОДЗАГОЛОВОК И КНОПКА: fade-in через 0.3 с после заголовка (4000 + 300 = 4300 мс)
+            setTimeout(() => {
+              if (delayedContent) delayedContent.classList.add('revealed');
+            }, headlineStartTime + 1150);
+          }
+
+          if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio >= 0.38) {
+                  runAnimation();
+                  observer.unobserve(section);
+                }
+              });
+            }, { threshold: [0.2, 0.38, 0.4, 0.5] });
+            observer.observe(section);
+          } else {
+            runAnimation();
+          }
+        })();
 
         // Mobile Floating Bar observer
         const mobileBar = document.getElementById('cfgMobileBottomBar');
