@@ -2154,6 +2154,20 @@
       padding: 0 10px;
       box-shadow: 0 3px 8px rgba(0,0,0,0.25);
     }
+    .chat-bg-wa {
+      background-color: #efeae2;
+      background-image: radial-gradient(#d1c7b7 0.8px, transparent 0.8px);
+      background-size: 16px 16px;
+    }
+    .chat-bg-tg {
+      background: linear-gradient(180deg, #d2f1df 0%, #cae4fa 45%, #ebd5f8 100%);
+    }
+    .chat-bg-ig {
+      background-color: #ffffff;
+    }
+    .chat-bg-avito {
+      background-color: #ffffff;
+    }
 
     
     .voice-wave-bar {
@@ -4568,65 +4582,26 @@
           <div class="phone-titanium-shell" id="phoneContainer">
             <div class="phone-screen-display" id="phoneScreen">
               
-              
+                            <!-- DİNAMİK ISLAND -->
               <div class="phone-island-notch">
                 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                 <span id="notchChannelText" class="text-[9px] text-white font-code font-bold tracking-wider">WHATSAPP</span>
                 <div class="w-1.5 h-1.5 rounded-full bg-sky-400"></div>
               </div>
 
-              
-              <div id="chatHeader" class="pt-11 pb-3 px-4 bg-[#075e54] text-white flex items-center justify-between transition-colors duration-300 shadow-xs">
-                <div class="flex items-center gap-2.5">
-                  <div id="channelAvatar" class="w-8 h-8 rounded-full border border-white/40 overflow-hidden shadow-sm shrink-0 bg-slate-800 flex items-center justify-center">
-                    <img src="avatar_eva.jpg" alt="Eva" class="w-full h-full object-cover" />
-                  </div>
-                  <div>
-                    <div id="channelName" class="text-xs font-bold leading-tight flex items-center gap-1.5">
-                      <span id="channelNameText">YAPAY ZEKA SATICISI Altai Optima</span>
-                      <span id="channelVerified" class="text-emerald-300 text-[11px]">✓</span>
-                    </div>
-                    <div id="agentStatus" class="text-[10px] text-emerald-200 font-medium">çevrimiçi • aktif</div>
-                  </div>
-                </div>
-                <div class="flex items-center gap-1.5">
-                  <button id="chatResetBtn" type="button" onclick="resetLiveChatDialogue()" class="text-[10px] text-white/90 hover:text-white bg-white/15 hover:bg-white/25 px-2 py-1 rounded-lg backdrop-blur-xs transition-all cursor-pointer flex items-center gap-1 font-medium" title="Sıfırdan başlat">
-                    <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
-                    <span>Sıfırla</span>
-                  </button>
-                  <div id="channelBadge" class="text-[10px] font-code font-bold bg-white/20 text-white px-2.5 py-0.5 rounded-full backdrop-blur-xs">
-                    WhatsApp
-                  </div>
-                </div>
+              <!-- DİNAMİK SOHBET BAŞLIĞI -->
+              <div id="chatHeader" class="pt-10 pb-2.5 px-3.5 bg-[#075e54] text-white flex items-center justify-between transition-all duration-300 shadow-xs z-10 shrink-0">
+                <!-- applyMessengerTheme ile oluşturulur -->
               </div>
 
-              <!-- MESSAGES CONTAINER -->
-              <div id="messagesContainer" class="p-4 space-y-3 flex-grow overflow-y-auto text-xs bg-[#efeae2] transition-colors duration-300 min-h-[300px]">
-                
+              <!-- MESAJLAR KONTEYNERİ -->
+              <div id="messagesContainer" class="p-3.5 space-y-3 flex-grow overflow-y-auto text-xs chat-bg-wa transition-colors duration-300 min-h-[320px]">
+                <!-- Mesajlar script tarafından oluşturulur -->
               </div>
 
-              <!-- INPUT PANEL -->
-              <div class="p-2.5 bg-white border-t border-slate-200/90 flex flex-col gap-2 z-10 shrink-0 shadow-xs">
-                
-                <form id="liveChatForm" onsubmit="handleLiveChatSubmit(event)" class="flex items-center gap-2">
-                  <input 
-                    id="liveChatInput" 
-                    type="text" 
-                    placeholder="Yapay Zeka Satıcısına bir mesaj yazın..." 
-                    autocomplete="off"
-                    class="flex-1 bg-slate-50 border border-slate-200/90 text-slate-800 placeholder:text-slate-400 text-xs rounded-xl px-3 py-2 outline-none focus:border-sky-500 focus:bg-white focus:ring-2 focus:ring-sky-100 transition-all font-inter"
-                  />
-                  <button 
-                    id="liveChatSubmitBtn"
-                    type="submit" 
-                    class="w-8 h-8 rounded-xl bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-500 hover:to-blue-500 active:scale-95 text-white flex items-center justify-center shrink-0 shadow-sm transition-transform cursor-pointer"
-                    title="Gönder"
-                  >
-                    <svg class="w-4 h-4 fill-current rotate-45 -mr-0.5" viewBox="0 0 24 24">
-                      <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-                    </svg>
-                  </button>
-                </form>
+              <!-- İNTERAKTİF GİRİŞ PANELİ -->
+              <div id="chatFooterBar" class="p-2.5 bg-white border-t border-slate-200/90 flex items-center gap-2 z-10 shrink-0 shadow-xs">
+                <!-- applyMessengerTheme ile oluşturulur -->
               </div>
             </div>
           </div>
@@ -6618,175 +6593,438 @@
       full_deal: {
         channel: 'WHATSAPP',
         badge: 'WhatsApp',
-        assistantName: 'YAPAY ZEKA SATICISI Altai Optima',
-        avatarLetter: 'E',
+        assistantName: 'Altai Optima • Yapay Zeka Satıcısı',
         headerBg: 'bg-[#075e54]',
-        headerSubText: 'text-emerald-200',
+        headerSubText: 'text-emerald-100',
         statusText: 'çevrimiçi • aktif',
-        bottomStatus: '✓ WhatsApp Business API • CRM ile senkronize',
-        verifiedIcon: '✓',
-        verifiedColor: 'text-emerald-300',
-        chatBg: 'bg-[#efeae2]',
-        avatarBg: 'bg-[#128c7e]',
-        avatarBorder: 'border-emerald-400',
-        footerBg: 'bg-[#f0f2f5]',
-        actionBtnBg: 'bg-[#128c7e]',
-        actionIcon: '➤',
-        btnBorderClass: 'border-emerald-500',
-        btnHoverClass: 'hover:border-emerald-400',
+        chatBg: 'chat-bg-wa',
+        renderHeader: () => `
+          <div class="flex items-center gap-2 w-full justify-between">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-full overflow-hidden border border-white/30 bg-slate-800 shrink-0">
+                <img src="avatar_eva.jpg" alt="Eva" class="w-full h-full object-cover" />
+              </div>
+              <div class="leading-tight text-left">
+                <div class="text-xs font-bold flex items-center gap-1">
+                  <span>Altai Optima</span>
+                  <span class="text-emerald-300 text-[10px]">✓</span>
+                </div>
+                <div class="text-[10px] text-emerald-200">çevrimiçi • aktif</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <button type="button" onclick="resetLiveChatDialogue()" class="text-[10px] text-white/90 hover:text-white bg-white/15 hover:bg-white/25 px-2 py-1 rounded-md transition-all cursor-pointer font-medium">
+                Temizle
+              </button>
+            </div>
+          </div>
+        `,
+        renderStarter: () => `
+          <div class="space-y-3 animate-fade-in">
+            <!-- Tarih ve şifreleme bildirimi -->
+            <div class="flex justify-center">
+              <span class="bg-[#d1eaeb] text-[#4a5568] text-[9.5px] font-medium px-2 py-0.5 rounded-md shadow-2xs">BUGÜN</span>
+            </div>
+            <div class="bg-[#ffeecd] border border-[#f5d799] text-[#523d13] text-[10px] text-center p-2 rounded-xl shadow-2xs leading-snug mx-2">
+              🔒 Mesajlar ve aramalar uçtan uca şifrelidir. Bu sohbetin dışındaki hiç kimse, WhatsApp bile bunları okuyamaz ve dinleyemez.
+            </div>
+            <!-- Kullanıcı mesajı -->
+            <div class="flex justify-end items-end gap-1.5">
+              <div class="bg-[#d9fdd3] text-slate-900 p-2.5 rounded-2xl rounded-tr-xs max-w-[85%] shadow-xs">
+                <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">Merhaba! Otel ve turizm sektörü için yapay zeka satış temsilcisi entegrasyonu hakkında bilgi almak istiyordum.</p>
+                <div class="text-[9px] text-emerald-800 text-right mt-0.5 font-sans flex items-center justify-end gap-1">
+                  <span>14:15</span>
+                  <span class="text-[#34B7F1] font-bold">✓✓</span>
+                </div>
+              </div>
+            </div>
+            <!-- Yapay zeka yanıtı -->
+            <div class="flex justify-start items-end gap-1.5">
+              <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs border border-slate-200/50">
+                <div class="text-[9.5px] font-bold text-[#075e54] mb-0.5">Altai Optima • Yapay Zeka Satıcısı</div>
+                <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">Merhaba! 🌴 Altai Optima, otellerde ve seyahat acentelerinde 7/24 oda rezervasyonu, tur seçimi ve ek hizmet satışlarını otomatikleştirir. CRM ve rezervasyon sisteminizle tam entegre çalışır.<br><br>Günde ortalama kaç müşteri talebi alıyorsunuz?</p>
+                <div class="text-[9px] text-slate-400 text-right mt-0.5 font-sans flex items-center justify-end gap-1">
+                  <span>14:16</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `,
         renderAiBubble: (msg) => `
-          <div class="flex justify-start items-end gap-2 animate-fade-in">
-            <div class="bg-white text-slate-900 p-3 rounded-2xl rounded-tl-xs max-w-[88%] shadow-sm border border-slate-200/60">
-              <div class="text-[9px] font-code font-bold text-[#075e54] uppercase mb-0.5">${msg.author}</div>
-              <p class="leading-relaxed font-normal text-[12px] text-slate-800">${msg.text}</p>
-              <div class="text-[9px] text-slate-400 text-right mt-1 font-code flex items-center justify-end gap-1">
+          <div class="flex justify-start items-end gap-1.5 animate-fade-in">
+            <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs border border-slate-200/50">
+              <div class="text-[9.5px] font-bold text-[#075e54] mb-0.5">${msg.author || 'Altai Optima • Yapay Zeka Satıcısı'}</div>
+              <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">${msg.text}</p>
+              <div class="text-[9px] text-slate-400 text-right mt-0.5 font-sans flex items-center justify-end gap-1">
+                <span>${msg.time}</span>
+              </div>
+            </div>
+          </div>
+        `,
+        renderUserBubble: (msg) => `
+          <div class="flex justify-end items-end gap-1.5 animate-fade-in">
+            <div class="bg-[#d9fdd3] text-slate-900 p-2.5 rounded-2xl rounded-tr-xs max-w-[85%] shadow-xs">
+              <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">${msg.text}</p>
+              <div class="text-[9px] text-emerald-800 text-right mt-0.5 font-sans flex items-center justify-end gap-1">
                 <span>${msg.time}</span>
                 <span class="text-[#34B7F1] font-bold">✓✓</span>
               </div>
             </div>
           </div>
         `,
-        renderUserBubble: (msg) => `
-          <div class="flex justify-end items-end gap-2 animate-fade-in">
-            <div class="bg-[#d9fdd3] text-slate-900 p-3 rounded-2xl rounded-tr-xs max-w-[85%] shadow-sm">
-              <div class="text-[9px] font-code font-bold text-emerald-800 uppercase mb-0.5">${msg.author}</div>
-              <p class="leading-relaxed font-normal text-[12px] text-slate-800">${msg.text}</p>
-              <div class="text-[9px] text-emerald-700 text-right mt-1 font-code flex items-center justify-end gap-1">
-                <span>${msg.time}</span>
-                <span class="text-[#34B7F1] font-bold">✓✓</span>
+        renderFooter: () => `
+          <div class="flex items-center gap-1.5 w-full">
+            <button type="button" class="text-slate-400 hover:text-slate-600 p-1"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></button>
+            <form id="liveChatForm" onsubmit="handleLiveChatSubmit(event)" class="flex-1 flex items-center gap-1.5">
+              <div class="flex-1 bg-white border border-slate-200 rounded-2xl px-3 py-1.5 flex items-center justify-between shadow-2xs">
+                <input id="liveChatInput" type="text" placeholder="Mesaj" autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-xs outline-none" />
+                <span class="text-slate-400 text-sm ml-1">📎</span>
               </div>
-            </div>
+              <button id="liveChatSubmitBtn" type="submit" class="w-8 h-8 rounded-full bg-[#00a884] hover:bg-[#008f6f] active:scale-95 text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
+                <svg class="w-4 h-4 fill-current rotate-45 -mr-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+              </button>
+            </form>
           </div>
         `
       },
       price_objection: {
         channel: 'TELEGRAM',
         badge: 'Telegram',
-        assistantName: 'YAPAY ZEKA SATICISI Altai Optima',
-        avatarLetter: 'E',
-        headerBg: 'bg-[#229ed9]',
-        headerSubText: 'text-sky-100',
-        statusText: 'çevrimiçi • bot aktif',
-        bottomStatus: '✓ Telegram Bot API • CRM ile senkronize',
-        verifiedIcon: '✓',
-        verifiedColor: 'text-white',
-        chatBg: 'bg-[#e7ebf0]',
-        avatarBg: 'bg-[#0088cc]',
-        avatarBorder: 'border-sky-300',
-        footerBg: 'bg-[#ffffff]',
-        actionBtnBg: 'bg-[#229ed9]',
-        actionIcon: '➤',
-        btnBorderClass: 'border-sky-500',
-        btnHoverClass: 'hover:border-sky-400',
+        assistantName: 'Altai Optima Bot',
+        headerBg: 'bg-white/80 backdrop-blur-md border-b border-sky-100',
+        headerSubText: 'text-slate-500',
+        statusText: 'çevrimiçi',
+        chatBg: 'chat-bg-tg',
+        renderHeader: () => `
+          <div class="flex items-center gap-2 w-full justify-between text-slate-800">
+            <div class="flex items-center text-sky-500 font-medium text-xs cursor-pointer">
+              <svg class="w-4 h-4 mr-0.5 fill-current" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+              <span>12</span>
+            </div>
+            <div class="px-3 py-0.5 rounded-full bg-white/90 shadow-2xs border border-sky-100 text-center">
+              <div class="text-[11.5px] font-bold text-slate-900 leading-tight">Altai Optima</div>
+              <div class="text-[9.5px] text-slate-500 leading-tight">1 üye • bot</div>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <button type="button" onclick="resetLiveChatDialogue()" class="text-[10px] text-sky-700 bg-sky-50 hover:bg-sky-100 px-2 py-1 rounded-md transition-all cursor-pointer font-semibold">
+                Temizle
+              </button>
+              <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-purple-400 to-pink-400 text-white font-bold text-xs flex items-center justify-center border border-white shadow-2xs">
+                O
+              </div>
+            </div>
+          </div>
+        `,
+        renderStarter: () => `
+          <div class="space-y-3 animate-fade-in">
+            <!-- Tarih -->
+            <div class="flex justify-center">
+              <span class="bg-black/15 backdrop-blur-xs text-white text-[10px] font-medium px-2.5 py-0.5 rounded-full shadow-2xs">Bugün</span>
+            </div>
+            <!-- Bilgi kartı -->
+            <div class="mx-auto max-w-[92%] bg-[#6c8cf5]/85 backdrop-blur-md rounded-2xl p-3.5 text-white shadow-md text-left space-y-1.5 border border-white/20">
+              <div class="text-xs font-bold text-center pb-0.5 border-b border-white/20">Altai Optima Yapay Zeka Satıcısı</div>
+              <div class="text-[10.5px] text-sky-100 font-medium leading-tight">Sistem Yetenekleri:</div>
+              <div class="space-y-1 text-[10.5px] text-white/95 leading-tight">
+                <div class="flex items-center gap-1.5"><span>✓</span><span>30–60 sn anında yanıt</span></div>
+                <div class="flex items-center gap-1.5"><span>✓</span><span>%100 CRM veri ve iletişim kaydı</span></div>
+                <div class="flex items-center gap-1.5"><span>✓</span><span>Otonom nitelendirme ve anlaşma kapatma</span></div>
+                <div class="flex items-center gap-1.5"><span>✓</span><span>Tatilsiz 7/24 kesintisiz çalışma</span></div>
+              </div>
+            </div>
+            <!-- Kullanıcı mesajı -->
+            <div class="flex justify-end items-end gap-1.5">
+              <div class="bg-[#eff7ff] text-slate-900 p-2.5 rounded-2xl rounded-tr-xs max-w-[85%] shadow-xs border border-sky-100">
+                <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">Merhaba! Piyasada ucuz botlar gördüm. Sizin farkınız nedir ve yatırım ne kadar sürede geri döner?</p>
+                <div class="text-[9px] text-sky-600 text-right mt-0.5 font-sans flex items-center justify-end gap-1">
+                  <span>14:20</span>
+                  <span class="text-[#229ed9]">✓✓</span>
+                </div>
+              </div>
+            </div>
+            <!-- Yapay Zeka yanıtı -->
+            <div class="flex justify-start items-end gap-1.5">
+              <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs">
+                <div class="text-[9.5px] font-bold text-[#0088cc] mb-0.5 flex items-center gap-1">
+                  <span>Altai Optima</span>
+                  <span class="text-[8px] bg-sky-100 text-sky-700 px-1 rounded font-normal">bot</span>
+                </div>
+                <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">İyi günler! ☀️ Basit şablon butonlu botlar müşterileri menüde kaybettirir ve standart dışı sorularda potansiyel müşterilerin %60'ını kaçırır.<br><br>Bizim Yapay Zeka Satıcımız uzman düzeyinde canlı diyalog kurar, itirazları karşılar ve CRM'de anlaşmayı yönetir. Yatırım genellikle 2. kapatılan satışta kendini amorti eder. İşletmenizin hacmine göre kazancı hesaplayalım mı?</p>
+                <div class="text-[9px] text-slate-400 text-right mt-0.5 font-sans flex items-center justify-end gap-1">
+                  <span>14:20</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `,
         renderAiBubble: (msg) => `
-          <div class="flex justify-start items-end gap-2 animate-fade-in">
-            <div class="bg-white text-slate-900 p-3 rounded-2xl rounded-bl-xs max-w-[88%] shadow-sm border border-sky-100">
-              <div class="text-[9px] font-code font-bold text-[#0088cc] uppercase mb-0.5 flex items-center gap-1">
-                <span>${msg.author}</span>
+          <div class="flex justify-start items-end gap-1.5 animate-fade-in">
+            <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs">
+              <div class="text-[9.5px] font-bold text-[#0088cc] mb-0.5 flex items-center gap-1">
+                <span>${msg.author || 'Altai Optima'}</span>
                 <span class="text-[8px] bg-sky-100 text-sky-700 px-1 rounded font-normal">bot</span>
               </div>
-              <p class="leading-relaxed font-normal text-[12px] text-slate-800">${msg.text}</p>
-              <div class="text-[9px] text-slate-400 text-right mt-1 font-code flex items-center justify-end gap-1">
+              <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">${msg.text}</p>
+              <div class="text-[9px] text-slate-400 text-right mt-0.5 font-sans flex items-center justify-end gap-1">
+                <span>${msg.time}</span>
+              </div>
+            </div>
+          </div>
+        `,
+        renderUserBubble: (msg) => `
+          <div class="flex justify-end items-end gap-1.5 animate-fade-in">
+            <div class="bg-[#eff7ff] text-slate-900 p-2.5 rounded-2xl rounded-tr-xs max-w-[85%] shadow-xs border border-sky-100">
+              <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">${msg.text}</p>
+              <div class="text-[9px] text-sky-600 text-right mt-0.5 font-sans flex items-center justify-end gap-1">
                 <span>${msg.time}</span>
                 <span class="text-[#229ed9]">✓✓</span>
               </div>
             </div>
           </div>
         `,
-        renderUserBubble: (msg) => `
-          <div class="flex justify-end items-end gap-2 animate-fade-in">
-            <div class="bg-[#eff7ff] text-slate-900 p-3 rounded-2xl rounded-br-xs max-w-[85%] shadow-sm border border-sky-200/70">
-              <div class="text-[9px] font-code font-bold text-sky-700 uppercase mb-0.5">${msg.author}</div>
-              <p class="leading-relaxed font-normal text-[12px] text-slate-800">${msg.text}</p>
-              <div class="text-[9px] text-sky-500 text-right mt-1 font-code flex items-center justify-end gap-1">
-                <span>${msg.time}</span>
-                <span class="text-[#229ed9]">✓✓</span>
+        renderFooter: () => `
+          <div class="flex items-center gap-1.5 w-full">
+            <button type="button" class="text-slate-400 hover:text-slate-600 p-1">
+              <svg class="w-5 h-5 fill-none stroke-current" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"/></svg>
+            </button>
+            <form id="liveChatForm" onsubmit="handleLiveChatSubmit(event)" class="flex-1 flex items-center gap-1.5">
+              <div class="flex-1 bg-white border border-slate-200 rounded-2xl px-3 py-1.5 flex items-center justify-between shadow-2xs">
+                <input id="liveChatInput" type="text" placeholder="Mesaj" autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-xs outline-none" />
+                <span class="text-slate-400 text-xs ml-1">🌙</span>
               </div>
-            </div>
+              <button id="liveChatSubmitBtn" type="submit" class="w-8 h-8 rounded-full bg-[#2aabee] hover:bg-[#229ed9] active:scale-95 text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
+                <svg class="w-4 h-4 fill-current rotate-45 -mr-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+              </button>
+            </form>
           </div>
         `
       },
       reanimate: {
         channel: 'INSTAGRAM DIRECT',
         badge: 'Instagram',
-        assistantName: 'YAPAY ZEKA SATICISI Altai Optima',
-        avatarLetter: 'E',
-        headerBg: 'bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045]',
-        headerSubText: 'text-pink-100',
-        statusText: 'çevrimiçi • Direct',
-        bottomStatus: '✓ Instagram Direct • CRM ile senkronize',
-        verifiedIcon: '✓',
-        verifiedColor: 'text-sky-300',
-        chatBg: 'bg-[#fafafa]',
-        avatarBg: 'bg-gradient-to-tr from-[#feda75] via-[#d62976] to-[#4f5bd5]',
-        avatarBorder: 'border-white',
-        footerBg: 'bg-[#ffffff]',
-        actionBtnBg: 'bg-gradient-to-r from-[#833ab4] to-[#e1306c]',
-        actionIcon: '➤',
-        btnBorderClass: 'border-pink-500',
-        btnHoverClass: 'hover:border-pink-400',
+        assistantName: 'altai.optima',
+        headerBg: 'bg-white border-b border-slate-100',
+        headerSubText: 'text-slate-400',
+        statusText: 'Şimdi aktif',
+        chatBg: 'chat-bg-ig',
+        renderHeader: () => `
+          <div class="flex items-center gap-2 w-full justify-between text-slate-900">
+            <div class="flex items-center text-slate-800 font-bold text-xs cursor-pointer">
+              <svg class="w-4 h-4 mr-0.5 fill-current" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+              <span>2</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <div class="p-0.5 rounded-full bg-gradient-to-tr from-amber-400 via-rose-500 to-purple-600 shrink-0">
+                <div class="w-6 h-6 rounded-full overflow-hidden border border-white bg-slate-900">
+                  <img src="avatar_eva.jpg" alt="Eva" class="w-full h-full object-cover" />
+                </div>
+              </div>
+              <div class="leading-tight text-left">
+                <div class="text-xs font-extrabold flex items-center gap-1">
+                  <span>altai.optima</span>
+                  <svg class="w-3 h-3 text-sky-500 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+                <div class="text-[9px] text-slate-400">Şimdi aktif</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <button type="button" onclick="resetLiveChatDialogue()" class="text-[10px] text-slate-600 bg-slate-100 hover:bg-slate-200 px-2 py-1 rounded-md transition-all cursor-pointer font-medium">
+                Temizle
+              </button>
+            </div>
+          </div>
+        `,
+        renderStarter: () => `
+          <div class="space-y-3 animate-fade-in">
+            <!-- Profil Kartı -->
+            <div class="flex flex-col items-center justify-center text-center p-2.5 my-1 space-y-1.5">
+              <div class="p-0.5 rounded-full bg-gradient-to-tr from-amber-400 via-rose-500 to-purple-600">
+                <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white bg-slate-900">
+                  <img src="avatar_eva.jpg" alt="Eva" class="w-full h-full object-cover" />
+                </div>
+              </div>
+              <div>
+                <div class="text-xs font-black text-slate-900">altai.optima</div>
+                <div class="text-[10px] text-slate-500">Instagram • 12,4 B takipçi</div>
+              </div>
+              <button type="button" class="text-[10px] font-semibold bg-slate-100 hover:bg-slate-200 text-slate-800 px-3 py-1 rounded-lg transition-colors">
+                Profili Gör
+              </button>
+            </div>
+            <!-- Kullanıcı mesajı -->
+            <div class="flex justify-end items-end gap-1.5">
+              <div class="bg-[#efefef] text-slate-900 px-3 py-2 rounded-2xl rounded-br-xs max-w-[85%] shadow-2xs">
+                <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">İyi günler! Satış otomasyonu reels videonuzu gördüm. Ürünlerimizde nasıl test edebiliriz?</p>
+                <div class="text-[9px] text-slate-400 text-right mt-0.5 font-sans">14:30</div>
+              </div>
+            </div>
+            <!-- Yapay zeka yanıtı (gradyan) -->
+            <div class="flex justify-start items-end gap-1.5">
+              <div class="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 text-white p-3 rounded-2xl rounded-bl-xs max-w-[88%] shadow-xs">
+                <div class="text-[9.5px] font-bold text-pink-100 mb-0.5">altai.optima</div>
+                <p class="leading-relaxed font-normal text-[11.5px] text-white">Elif Hanım, iyi günler! 💫 Yapay Zeka Satıcısı doğrudan Direct'e bağlanır: Hikaye yanıtlarını anında cevaplar, ürünleri seçer ve ödemeye yönlendirir.<br><br>Cevap mantığını hemen şimdi test etmek için aşağıya herhangi bir soru yazın!</p>
+                <div class="text-[9px] text-white/80 text-right mt-0.5 font-sans">14:30</div>
+              </div>
+            </div>
+          </div>
+        `,
         renderAiBubble: (msg) => `
-          <div class="flex justify-start items-end gap-2 animate-fade-in">
-            <div class="bg-gradient-to-r from-purple-600 to-pink-600 text-white p-3.5 rounded-3xl rounded-bl-sm max-w-[90%] shadow-md">
-              <div class="text-[9px] font-code font-bold text-pink-200 uppercase mb-0.5">${msg.author}</div>
-              <p class="leading-relaxed font-normal text-[12px] text-white">${msg.text}</p>
-              <div class="text-[9px] text-pink-200 text-right mt-1 font-code">${msg.time}</div>
+          <div class="flex justify-start items-end gap-1.5 animate-fade-in">
+            <div class="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 text-white p-3 rounded-2xl rounded-bl-xs max-w-[88%] shadow-xs">
+              <div class="text-[9.5px] font-bold text-pink-100 mb-0.5">${msg.author || 'altai.optima'}</div>
+              <p class="leading-relaxed font-normal text-[11.5px] text-white">${msg.text}</p>
+              <div class="text-[9px] text-white/80 text-right mt-0.5 font-sans">${msg.time}</div>
             </div>
           </div>
         `,
         renderUserBubble: (msg) => `
-          <div class="flex justify-end items-end gap-2 animate-fade-in">
-            <div class="bg-[#efefef] text-slate-900 p-3 rounded-3xl rounded-br-sm max-w-[85%] shadow-sm border border-slate-200">
-              <div class="text-[9px] font-code font-bold text-slate-500 uppercase mb-0.5">${msg.author}</div>
-              <p class="leading-relaxed font-normal text-[12px] text-slate-800">${msg.text}</p>
-              <div class="text-[9px] text-slate-400 text-right mt-1 font-code">${msg.time}</div>
+          <div class="flex justify-end items-end gap-1.5 animate-fade-in">
+            <div class="bg-[#efefef] text-slate-900 px-3 py-2 rounded-2xl rounded-br-xs max-w-[85%] shadow-2xs">
+              <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">${msg.text}</p>
+              <div class="text-[9px] text-slate-400 text-right mt-0.5 font-sans">${msg.time}</div>
             </div>
+          </div>
+        `,
+        renderFooter: () => `
+          <div class="flex items-center gap-1.5 w-full">
+            <button type="button" class="text-slate-500 hover:text-slate-800 p-1">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            </button>
+            <form id="liveChatForm" onsubmit="handleLiveChatSubmit(event)" class="flex-1 flex items-center gap-1.5">
+              <div class="flex-1 bg-slate-100 rounded-full px-3 py-1.5 flex items-center justify-between">
+                <input id="liveChatInput" type="text" placeholder="Mesaj yazın..." autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-xs outline-none" />
+                <span class="text-slate-400 text-xs ml-1">🎙️</span>
+              </div>
+              <button id="liveChatSubmitBtn" type="submit" class="w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 active:scale-95 text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
+                <svg class="w-4 h-4 fill-current rotate-45 -mr-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+              </button>
+            </form>
           </div>
         `
       },
       avito_deal: {
-        channel: 'AVITO',
-        badge: 'Avito',
-        assistantName: 'YAPAY ZEKA SATICISI Altai Optima',
-        avatarLetter: 'E',
-        headerBg: 'bg-[#00aaff]',
-        headerSubText: 'text-sky-100',
-        statusText: 'çevrimiçi • Canlı Chat',
-        bottomStatus: '✓ Entegrasyon • CRM ile senkronize',
-        verifiedIcon: '✓',
-        verifiedColor: 'text-white',
-        chatBg: 'bg-[#f4f6f8]',
-        avatarBg: 'bg-white text-[#00aaff]',
-        avatarBorder: 'border-white/80',
-        footerBg: 'bg-[#ffffff]',
-        actionBtnBg: 'bg-[#00aaff]',
-        actionIcon: '➤',
-        btnBorderClass: 'border-sky-500',
-        btnHoverClass: 'hover:border-sky-400',
-        renderAiBubble: (msg) => `
-          <div class="flex justify-start items-end gap-2 animate-fade-in">
-            <div class="bg-white text-slate-900 p-3.5 rounded-2xl rounded-bl-xs max-w-[88%] shadow-sm border border-slate-200/80">
-              <div class="text-[9px] font-code font-bold text-[#00aaff] uppercase mb-0.5 flex items-center gap-1">
-                <span>${msg.author}</span>
-                <span class="text-[8px] bg-sky-100 text-sky-800 px-1 rounded font-normal">Şirket ✓</span>
+        channel: 'AVİTO / PAZARYERİ',
+        badge: 'Pazaryeri',
+        assistantName: 'Altai Optima | Yapay Zeka Satıcısı',
+        headerBg: 'bg-white border-b border-slate-200/80',
+        headerSubText: 'text-slate-500',
+        statusText: 'çevrimiçi',
+        chatBg: 'chat-bg-avito',
+        renderHeader: () => `
+          <div class="flex items-center gap-2 w-full justify-between text-slate-900">
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-slate-800 cursor-pointer fill-current" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+              <div class="w-7 h-7 rounded-lg overflow-hidden border border-slate-200 bg-white shrink-0 p-0.5 flex items-center justify-center">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
+                  <circle cx="7" cy="8" r="4" fill="#00AAFF"/>
+                  <circle cx="17" cy="7" r="3" fill="#04E061"/>
+                  <circle cx="16" cy="16" r="4.5" fill="#FF4053"/>
+                  <circle cx="8" cy="16.5" r="2.5" fill="#9B51E0"/>
+                </svg>
               </div>
-              <p class="leading-relaxed font-normal text-[12px] text-slate-800">${msg.text}</p>
-              <div class="text-[9px] text-slate-400 text-right mt-1 font-code flex items-center justify-end gap-1">
-                <span>${msg.time}</span>
-                <span class="text-[#00aaff] font-bold">✓✓</span>
+              <div class="leading-tight text-left">
+                <div class="text-[11.5px] font-bold flex items-center gap-1">
+                  <span>Altai Optima</span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                </div>
+                <div class="text-[9.5px] text-slate-500 truncate max-w-[130px]">Otonom Satış Departmanı · 20.000 ₺</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <button type="button" onclick="resetLiveChatDialogue()" class="text-[10px] text-slate-600 bg-slate-100 hover:bg-slate-200 px-2 py-1 rounded-md transition-all cursor-pointer font-medium">
+                Temizle
+              </button>
+            </div>
+          </div>
+        `,
+        renderStarter: () => `
+          <div class="space-y-2.5 animate-fade-in">
+            <!-- Tarih -->
+            <div class="flex justify-center">
+              <span class="text-slate-400 text-[10px] font-medium">Pazartesi, 14 Eylül</span>
+            </div>
+            <!-- Güvenlik kutusu -->
+            <div class="mx-auto max-w-[96%] bg-[#eef9ef] border border-[#d6f2d6] rounded-2xl p-2.5 text-slate-800 text-[10.5px] leading-snug shadow-2xs space-y-1 relative">
+              <div class="flex items-start gap-2">
+                <div class="shrink-0 pt-0.5">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none">
+                    <circle cx="7" cy="8" r="4" fill="#00AAFF"/>
+                    <circle cx="17" cy="7" r="3" fill="#04E061"/>
+                    <circle cx="16" cy="16" r="4.5" fill="#FF4053"/>
+                    <circle cx="8" cy="16.5" r="2.5" fill="#9B51E0"/>
+                  </svg>
+                </div>
+                <div class="space-y-0.5">
+                  <p class="font-normal text-slate-800">Siparişinizi uygulama üzerinden güvenle oluşturup ödeyebilirsiniz.</p>
+                  <p class="text-[10px] text-slate-700">🛡️ Alıcı koruma garantisi aktiftir</p>
+                  <p class="text-[10px] text-slate-700">✅ Kurulum sonrası 24 saat kontrol süresi</p>
+                  <p class="text-[10px] text-slate-700">💸 Satıcıya ödeme ancak siz onayladığınızda aktarılır</p>
+                </div>
+              </div>
+              <div class="text-[8.5px] text-slate-400 text-right">9:12</div>
+            </div>
+            <!-- Kullanıcı mesajları -->
+            <div class="flex justify-end items-end gap-1">
+              <div class="bg-[#e1f3fe] text-slate-900 px-3 py-1.5 rounded-2xl rounded-tr-xs max-w-[85%] shadow-2xs">
+                <span class="text-[11.5px]">Merhaba</span>
+                <span class="text-[8.5px] text-[#00aaff] ml-1.5">9:12 ✓✓</span>
+              </div>
+            </div>
+            <div class="flex justify-end items-end gap-1">
+              <div class="bg-[#e1f3fe] text-slate-900 px-3 py-1.5 rounded-2xl rounded-tr-xs max-w-[85%] shadow-2xs">
+                <span class="text-[11.5px]">Anahtar teslim kurulum nasıl oluyor?)</span>
+                <span class="text-[8.5px] text-[#00aaff] ml-1.5">9:13 ✓✓</span>
+              </div>
+            </div>
+            <div class="flex justify-end items-end gap-1">
+              <div class="bg-[#e1f3fe] text-slate-900 px-3 py-1.5 rounded-2xl rounded-tr-xs max-w-[85%] shadow-2xs">
+                <span class="text-[11.5px]">Satın almak istiyorum</span>
+                <span class="text-[8.5px] text-[#00aaff] ml-1.5">9:13 ✓✓</span>
+              </div>
+            </div>
+            <!-- Satıcı yanıtı -->
+            <div class="flex justify-start items-end gap-1">
+              <div class="bg-[#f2f3f5] text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-2xs">
+                <p class="leading-relaxed font-normal text-[11.5px] text-slate-900">Merhaba! 👋<br>Güncel anahtar teslim kurulum ve lansman bedeli 20.000 ₺, aylık abonelik 6.000 ₺/ay.<br>Bağlantı için CRM sisteminiz ve diyalog senaryolarınız gerekecektir. İşletme sektörünüz nedir?</p>
+                <div class="text-[8.5px] text-slate-400 text-right mt-0.5">10:11</div>
               </div>
             </div>
           </div>
         `,
+        renderAiBubble: (msg) => `
+          <div class="flex justify-start items-end gap-1 animate-fade-in">
+            <div class="bg-[#f2f3f5] text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-2xs">
+              <p class="leading-relaxed font-normal text-[11.5px] text-slate-900">${msg.text}</p>
+              <div class="text-[8.5px] text-slate-400 text-right mt-0.5">${msg.time}</div>
+            </div>
+          </div>
+        `,
         renderUserBubble: (msg) => `
-          <div class="flex justify-end items-end gap-2 animate-fade-in">
-            <div class="bg-[#e5f4ff] text-slate-900 p-3 rounded-2xl rounded-br-xs max-w-[85%] shadow-sm border border-sky-200/70">
-              <div class="text-[9px] font-code font-bold text-sky-800 uppercase mb-0.5">${msg.author}</div>
-              <p class="leading-relaxed font-normal text-[12px] text-slate-800">${msg.text}</p>
-              <div class="text-[9px] text-sky-600 text-right mt-1 font-code flex items-center justify-end gap-1">
-                <span>${msg.time}</span>
-                <span class="text-[#00aaff]">✓✓</span>
-              </div>
+          <div class="flex justify-end items-end gap-1 animate-fade-in">
+            <div class="bg-[#e1f3fe] text-slate-900 px-3 py-2 rounded-2xl rounded-tr-xs max-w-[85%] shadow-2xs">
+              <p class="leading-relaxed font-normal text-[11.5px] text-slate-900">${msg.text}</p>
+              <div class="text-[8.5px] text-[#00aaff] text-right mt-0.5 font-sans">${msg.time} ✓✓</div>
+            </div>
+          </div>
+        `,
+        renderFooter: () => `
+          <div class="flex flex-col gap-1.5 w-full">
+            <button type="button" onclick="sendQuickPrompt('Anahtar teslim sipariş vermek istiyorum')" class="w-full py-2 bg-[#1b1c1e] hover:bg-black text-white text-[11px] font-bold rounded-xl shadow-xs transition-colors text-center cursor-pointer">
+              Pazaryeri üzerinden güvenli satın al
+            </button>
+            <div class="flex items-center gap-1.5 w-full">
+              <button type="button" class="text-slate-600 hover:text-slate-900 p-1">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+              </button>
+              <form id="liveChatForm" onsubmit="handleLiveChatSubmit(event)" class="flex-1 flex items-center gap-1.5">
+                <div class="flex-1 bg-[#f2f3f5] rounded-xl px-3 py-1.5 flex items-center justify-between">
+                  <input id="liveChatInput" type="text" placeholder="Mesaj" autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-xs outline-none" />
+                  <span class="text-slate-400 text-xs ml-1">📷</span>
+                </div>
+                <button id="liveChatSubmitBtn" type="submit" class="w-8 h-8 rounded-xl bg-[#00aaff] hover:bg-[#0095e0] active:scale-95 text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
+                  <svg class="w-4 h-4 fill-current rotate-45 -mr-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                </button>
+              </form>
             </div>
           </div>
         `
@@ -6898,40 +7136,6 @@
       return safe;
     }
 
-    function renderLiveChatStarter() {
-      return `
-        <div id="emptyChatPrompt" class="h-full min-h-[220px] flex flex-col items-center justify-center text-center p-4 my-auto select-none space-y-3 animate-fade-in">
-          <div class="relative flex items-center justify-center">
-            <div class="w-14 h-14 rounded-full border-2 border-sky-400 p-0.5 shadow-lg shadow-sky-500/25 overflow-hidden bg-slate-900 shrink-0">
-              <img src="avatar_eva.jpg" alt="Eva" class="w-full h-full object-cover rounded-full" />
-            </div>
-            <span class="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white shadow-xs"></span>
-          </div>
-
-          <div class="space-y-1">
-            <div class="text-[13px] sm:text-sm font-extrabold text-slate-800 font-inter">
-              Yapay Zeka Satıcısı Diyaloğa Hazır
-            </div>
-            <p class="text-[11.5px] text-slate-500 max-w-[240px] leading-relaxed font-inter">
-              Cevap mantığını test etmek için herhangi bir soru yazın veya aşağıdaki hazır butonlardan birini seçin
-            </p>
-          </div>
-
-          <!-- Aşağıyı gösteren animasyonlu yönlendirme oku -->
-          <div class="pt-2 flex flex-col items-center text-sky-600">
-            <div class="px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200 text-[11px] font-bold tracking-wide uppercase flex items-center gap-1.5 shadow-xs">
-              <span>Aşağıya mesajınızı yazın</span>
-              <span class="text-sm animate-bounce">↓</span>
-            </div>
-          </div>
-        </div>
-      `;
-    }
-
-    function updateQuickPrompts() {
-      // Quick prompts removed
-    }
-
     function resetLiveChatDialogue() {
       demoChatClient.resetSession();
       channelMessages[currentKey] = [];
@@ -6946,46 +7150,19 @@
 
       const notchText = document.getElementById('notchChannelText');
       const chatHeader = document.getElementById('chatHeader');
-      const channelAvatar = document.getElementById('channelAvatar');
-      const channelBadge = document.getElementById('channelBadge');
-      const channelNameText = document.getElementById('channelNameText');
-      const channelVerified = document.getElementById('channelVerified');
-      const agentStatus = document.getElementById('agentStatus');
       const messagesContainer = document.getElementById('messagesContainer');
-      const chatActionBtn = document.getElementById('chatActionBtn');
-      const liveInput = document.getElementById('liveChatInput');
+      const chatFooterBar = document.getElementById('chatFooterBar');
 
       if (notchText) notchText.textContent = cfg.channel;
-      if (channelBadge) channelBadge.textContent = cfg.badge;
-
-      if (liveInput) {
-        liveInput.placeholder = "Yapay Zeka Satıcısına bir mesaj yazın...";
-      }
-
       if (chatHeader) {
-        chatHeader.className = `pt-11 pb-3 px-4 text-white flex items-center justify-between transition-all duration-300 shadow-xs ${cfg.headerBg}`;
-      }
-      if (channelAvatar) {
-        channelAvatar.className = "w-8 h-8 rounded-full border border-white/40 overflow-hidden shadow-sm shrink-0 bg-slate-800 flex items-center justify-center";
-        channelAvatar.innerHTML = '<img src="avatar_eva.jpg" alt="Eva" class="w-full h-full object-cover" />';
-      }
-      if (channelNameText) {
-        channelNameText.textContent = cfg.assistantName || 'YAPAY ZEKA SATICISI Altai Optima';
-      }
-      if (channelVerified) {
-        channelVerified.className = `${cfg.verifiedColor || 'text-white'} text-[11px]`;
-        channelVerified.textContent = cfg.verifiedIcon || '✓';
-      }
-      if (agentStatus) {
-        agentStatus.className = `text-[10px] font-medium transition-colors duration-300 ${cfg.headerSubText}`;
-        agentStatus.textContent = cfg.statusText || 'çevrimiçi';
+        chatHeader.className = `pt-10 pb-2.5 px-3.5 text-white flex items-center justify-between transition-all duration-300 shadow-xs z-10 shrink-0 ${cfg.headerBg}`;
+        chatHeader.innerHTML = cfg.renderHeader();
       }
       if (messagesContainer) {
-        messagesContainer.className = `p-4 space-y-3 flex-grow overflow-y-auto text-xs transition-colors duration-300 ${cfg.chatBg}`;
+        messagesContainer.className = `p-3.5 space-y-3 flex-grow overflow-y-auto text-xs transition-colors duration-300 min-h-[320px] ${cfg.chatBg}`;
       }
-      if (chatActionBtn) {
-        chatActionBtn.className = `w-8 h-8 rounded-xl text-white flex items-center justify-center text-xs font-bold shadow-sm transition-all duration-300 ${cfg.actionBtnBg}`;
-        chatActionBtn.textContent = cfg.actionIcon;
+      if (chatFooterBar) {
+        chatFooterBar.innerHTML = cfg.renderFooter();
       }
     }
 
@@ -6999,19 +7176,16 @@
     function renderFullBranch(key, animate = false) {
       clearChatAnimTimers();
       const box = document.getElementById('messagesContainer');
-      const agentStatus = document.getElementById('agentStatus');
       if (!box) return;
       box.innerHTML = '';
       const cfg = channelsConfig[key];
       if (!cfg) return;
 
-      updateQuickPrompts();
       const list = channelMessages[key] || [];
 
       if (list.length === 0) {
-        box.innerHTML = renderLiveChatStarter();
+        box.innerHTML = cfg.renderStarter();
         box.scrollTop = 0;
-        if (agentStatus) agentStatus.textContent = cfg.statusText || 'çevrimiçi';
         return;
       }
 
@@ -7021,7 +7195,6 @@
         box.insertAdjacentHTML('beforeend', html);
       });
       box.scrollTop = box.scrollHeight;
-      if (agentStatus) agentStatus.textContent = cfg.statusText || 'çevrimiçi';
     }
 
     function selectBranch(key, btn) {
@@ -7055,21 +7228,15 @@
       if (demoChatClient.isSending) return;
 
       const box = document.getElementById('messagesContainer');
-      const agentStatus = document.getElementById('agentStatus');
       if (!box) return;
 
       const cfg = channelsConfig[currentKey] || channelsConfig.full_deal;
       const timeStr = new Date().toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
 
-      const emptyPrompt = document.getElementById('emptyChatPrompt');
-      if (emptyPrompt) emptyPrompt.remove();
-      const starterCard = document.getElementById('liveChatStarterCard');
-      if (starterCard) starterCard.remove();
-
-      // Kullanıcı mesajını ekle
+      // Kullanıcı mesajı
       const userMsg = {
         sender: 'user',
-        author: 'Siz (Ziyaretçi)',
+        author: 'Siz',
         text: text,
         time: timeStr
       };
@@ -7079,11 +7246,10 @@
       box.scrollTop = box.scrollHeight;
       input.value = '';
 
-      // Yazıyor durumunu aktifleştir
+      // Yazıyor durumu
       demoChatClient.isSending = true;
       input.disabled = true;
       if (submitBtn) submitBtn.disabled = true;
-      if (agentStatus) agentStatus.textContent = 'Yapay zeka yanıt hazırlıyor...';
 
       const existingTyping = document.getElementById('chatTypingIndicator');
       if (existingTyping) existingTyping.remove();
@@ -7091,7 +7257,7 @@
       const typingHtml = `
         <div id="chatTypingIndicator" class="flex justify-start items-end gap-2 animate-fade-in transition-all">
           <div class="bg-white text-slate-800 px-3 py-2 rounded-2xl rounded-bl-xs shadow-xs border border-slate-200/80 flex items-center gap-2">
-            <span class="text-[10px] font-bold text-sky-700">Yapay Zeka Satıcısı yazıyor</span>
+            <span class="text-[10px] font-bold text-sky-700">Yapay zeka yazıyor</span>
             <div class="flex items-center gap-1">
               <span class="w-1.5 h-1.5 rounded-full bg-sky-500 animate-bounce" style="animation-delay: 0ms; animation-duration: 0.8s;"></span>
               <span class="w-1.5 h-1.5 rounded-full bg-sky-500 animate-bounce" style="animation-delay: 180ms; animation-duration: 0.8s;"></span>
@@ -7108,13 +7274,13 @@
         const typingEl = document.getElementById('chatTypingIndicator');
         if (typingEl) typingEl.remove();
 
-        const responseText = data.assistant_response || data.response || 'Başvurunuz için teşekkürler! CRM sistemine kaydedildi.';
+        const responseText = data.assistant_response || data.response || 'Başvurunuz için teşekkürler! Bilgiler CRM sistemine kaydedildi.';
         const formattedText = formatAiResponse(responseText);
 
         const aiTimeStr = new Date().toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
         const aiMsg = {
           sender: 'ai',
-          author: cfg.assistantName || 'YAPAY ZEKA SATICISI Altai Optima',
+          author: cfg.assistantName || 'Altai Optima',
           text: formattedText,
           time: aiTimeStr
         };
@@ -7132,7 +7298,7 @@
 
         const errHtml = `
           <div class="flex justify-start items-end gap-2 animate-fade-in">
-            <div class="bg-amber-50 text-amber-900 p-3 rounded-2xl rounded-bl-xs max-w-[88%] shadow-xs border border-amber-200 text-xs">
+            <div class="bg-amber-50 text-amber-900 p-2.5 rounded-2xl rounded-bl-xs max-w-[88%] shadow-xs border border-amber-200 text-xs">
               <div class="text-[9px] font-bold text-amber-700 uppercase mb-0.5">Sistem Bildirimi</div>
               <p class="leading-relaxed font-normal">${errMsg}</p>
             </div>
@@ -7140,16 +7306,11 @@
         `;
         box.insertAdjacentHTML('beforeend', errHtml);
         box.scrollTop = box.scrollHeight;
-
-        if (footerStatus) {
-          footerStatus.textContent = `⚠️ ${errMsg}`;
-        }
       } finally {
         demoChatClient.isSending = false;
         input.disabled = false;
         if (submitBtn) submitBtn.disabled = false;
         input.focus();
-        if (agentStatus) agentStatus.textContent = cfg.statusText || 'çevrimiçi';
       }
     }
 
