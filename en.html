@@ -2925,12 +2925,15 @@
     }
 
     
-    /* FINAL BLOCK: 2-COLUMN COMPOSITION (#cta-final) */
+    /* ==========================================================================
+       FINAL SECTION: MODERN BUILD (#cta-final)
+       ========================================================================== */
     #cta-final {
       background: transparent !important;
       box-shadow: none !important;
       border: none !important;
       position: relative;
+      overflow-x: clip;
     }
 
     .cta-final-grid {
@@ -2941,90 +2944,102 @@
       gap: 36px;
     }
 
-    .cta-col-text-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      width: 100%;
-    }
-
-    .cta-col-visual {
-      width: 100%;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .cta-col-text-footer {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      width: 100%;
+    @media (max-width: 1023px) {
+      .cta-col-left,
+      .cta-col-right {
+        display: contents;
+      }
     }
 
     @media (min-width: 1024px) {
       .cta-final-grid {
         display: grid;
-        grid-template-columns: 45% calc(55% - 80px);
-        grid-template-rows: auto auto;
-        column-gap: 80px;
-        row-gap: 24px;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 64px;
         align-items: center;
         text-align: left;
       }
-      .cta-col-visual {
-        grid-column: 1;
-        grid-row: 1 / span 2;
-        align-self: center;
-        justify-content: flex-start;
+      .cta-col-left {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        width: 100%;
       }
-      .cta-col-text-header {
-        grid-column: 2;
-        grid-row: 1;
-        align-self: end;
+      .cta-col-right {
+        display: flex;
+        flex-direction: column;
         align-items: flex-start;
         text-align: left;
-      }
-      .cta-col-text-footer {
-        grid-column: 2;
-        grid-row: 2;
-        align-self: start;
-        align-items: flex-start;
-        text-align: left;
+        width: 100%;
       }
     }
 
+    /* Ambient blue glow behind left column */
     .cta-cards-glow {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 480px;
+      width: 520px;
       height: 480px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(56, 189, 248, 0.3) 0%, rgba(2, 132, 199, 0.15) 42%, rgba(2, 132, 199, 0) 72%);
-      filter: blur(50px);
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.28) 0%, rgba(2, 132, 199, 0.12) 45%, rgba(2, 132, 199, 0) 75%);
+      filter: blur(60px);
       pointer-events: none;
       z-index: 0;
     }
 
-    .cta-cards-stage {
+    /* Pretitle «SOUND FAMILIAR?» */
+    .cta-pretitle-block {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      z-index: 1;
+    }
+    .cta-pretitle-line {
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background: #0284C7;
+      border-radius: 9999px;
+      flex-shrink: 0;
+    }
+    .cta-pretitle-text {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #0284C7;
+      line-height: 1;
+    }
+
+    /* Notifications stage */
+    .cta-notifications-stage {
       position: relative;
       width: 100%;
-      max-width: 420px;
-      height: 420px;
+      max-width: 340px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
       margin: 0 auto;
       z-index: 1;
     }
 
+    @media (min-width: 1024px) {
+      .cta-notifications-stage {
+        max-width: 540px;
+        height: 440px;
+        display: block;
+        margin: 0;
+      }
+    }
+
+    /* Push card style */
     .cta-push-card {
-      position: absolute;
-      left: 50%;
-      width: 360px;
-      max-width: calc(100% - 20px);
+      width: 100%;
+      max-width: 340px;
       border-radius: 20px;
       padding: 14px 16px;
       background: rgba(255, 255, 255, 0.72);
@@ -3037,192 +3052,175 @@
       align-items: flex-start;
       text-align: left;
       user-select: none;
-      opacity: 1;
-      pointer-events: auto;
-      cursor: pointer;
-      transform: translate(calc(-50% + var(--rest-x, 0px)), var(--rest-y, 0px)) scale(1) rotate(var(--rest-rot, 0deg));
-      will-change: transform, opacity, filter;
+      position: relative;
+      will-change: transform, opacity;
       transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
     }
 
-    .cta-push-1 {
-      --rest-x: 0px;
-      --rest-y: 20px;
-      --rest-rot: -2deg;
-      z-index: 1;
+    /* Buzz vibration on new notification */
+    .cta-push-card.card-buzz {
+      animation: ctaCardBuzz 0.4s ease-in-out 3;
     }
-    .cta-push-2 {
-      --rest-x: 24px;
-      --rest-y: 90px;
-      --rest-rot: 1.5deg;
-      z-index: 2;
-    }
-    .cta-push-3 {
-      --rest-x: -12px;
-      --rest-y: 160px;
-      --rest-rot: -1deg;
-      z-index: 3;
-    }
-    .cta-push-4 {
-      --rest-x: 16px;
-      --rest-y: 230px;
-      --rest-rot: 2deg;
-      z-index: 4;
+    @keyframes ctaCardBuzz {
+      0%, 100% { transform: translate(var(--curr-x, 0px), var(--curr-y, 0px)) rotate(var(--curr-rot, 0deg)); }
+      20% { transform: translate(var(--curr-x, 0px), var(--curr-y, 0px)) rotate(calc(var(--curr-rot, 0deg) - 2deg)); }
+      40% { transform: translate(var(--curr-x, 0px), var(--curr-y, 0px)) rotate(calc(var(--curr-rot, 0deg) + 2deg)); }
+      60% { transform: translate(var(--curr-x, 0px), var(--curr-y, 0px)) rotate(calc(var(--curr-rot, 0deg) - 1.5deg)); }
+      80% { transform: translate(var(--curr-x, 0px), var(--curr-y, 0px)) rotate(calc(var(--curr-rot, 0deg) + 1.5deg)); }
     }
 
-    .cta-push-card.card-arrived {
-      transform: translate(calc(-50% + var(--rest-x)), var(--rest-y)) scale(1) rotate(var(--rest-rot));
-      opacity: 1;
-      pointer-events: auto;
-      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
-    }
-
-    @keyframes ctaAnxietyWobble {
-      0%, 100% {
-        transform: translate(calc(-50% + var(--rest-x)), var(--rest-y)) rotate(var(--rest-rot));
-      }
-      25% {
-        transform: translate(calc(-50% + var(--rest-x) + 1.2px), var(--rest-y)) rotate(calc(var(--rest-rot) - 0.5deg));
-      }
-      75% {
-        transform: translate(calc(-50% + var(--rest-x) - 1.2px), var(--rest-y)) rotate(calc(var(--rest-rot) + 0.5deg));
-      }
-    }
-    .cta-push-card.card-wobbling {
-      animation: ctaAnxietyWobble 0.35s ease-in-out infinite;
-    }
-
-    .cta-push-card.card-swiped {
-      transform: translate(calc(-50% - 130%), var(--rest-y)) rotate(-8deg) !important;
-      opacity: 0 !important;
-      pointer-events: none !important;
-      transition: transform 0.45s cubic-bezier(0.4, 0, 1, 1), opacity 0.45s ease-in !important;
-    }
-
-    .cta-push-antidote {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 380px;
-      max-width: calc(100% - 20px);
-      border-radius: 20px;
-      padding: 15px 18px;
-      background: #ffffff;
-      border: 1.5px solid transparent;
-      background-image: linear-gradient(#ffffff, #ffffff), linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
-      background-origin: padding-box, border-box;
-      background-clip: padding-box, border-box;
-      box-shadow: 0 16px 48px rgba(59, 130, 246, 0.25);
-      z-index: 10;
+    /* Initial state for JS animation */
+    .cta-cards-js-ready .cta-push-card {
       opacity: 0;
-      filter: blur(10px);
-      transform: translate(-50%, -50%) scale(0.9);
+      transform: translateY(20px) scale(0.9);
       pointer-events: none;
-      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.7s ease, filter 0.7s ease;
-      will-change: transform, opacity, filter;
     }
-    .cta-push-antidote.antidote-revealed {
+
+    .cta-cards-js-ready .cta-push-card.card-revealed {
       opacity: 1;
-      filter: blur(0);
-      transform: translate(-50%, -50%) scale(1);
       pointer-events: auto;
     }
-    .cta-push-antidote.antidote-floating {
-      animation: antidoteFloating 3.6s ease-in-out infinite;
-    }
-    @keyframes antidoteFloating {
-      0%, 100% {
-        transform: translate(-50%, -50%) translateY(0);
-        box-shadow: 0 16px 48px rgba(59, 130, 246, 0.25);
+
+    /* Mobile positions & floating */
+    @media (max-width: 1023px) {
+      .cta-push-1 { --curr-rot: -1deg; transform: rotate(-1deg); }
+      .cta-push-2 { --curr-rot: 0.8deg; transform: rotate(0.8deg); }
+      .cta-push-3 { --curr-rot: -0.6deg; transform: rotate(-0.6deg); }
+      .cta-push-4 { --curr-rot: 0.7deg; transform: rotate(0.7deg); }
+
+      .cta-push-card.card-floating.cta-push-1 { animation: ctaFloatMob1 5s ease-in-out infinite; }
+      .cta-push-card.card-floating.cta-push-2 { animation: ctaFloatMob2 6.5s ease-in-out infinite 0.8s; }
+      .cta-push-card.card-floating.cta-push-3 { animation: ctaFloatMob3 5.5s ease-in-out infinite 1.5s; }
+      .cta-push-card.card-floating.cta-push-4 { animation: ctaFloatMob4 7s ease-in-out infinite 2.2s; }
+
+      @keyframes ctaFloatMob1 {
+        0%, 100% { transform: translateY(0px) rotate(-1deg); }
+        50% { transform: translateY(-4px) rotate(-0.5deg); }
       }
-      50% {
-        transform: translate(-50%, -50%) translateY(-6px);
-        box-shadow: 0 22px 56px rgba(56, 189, 248, 0.38);
+      @keyframes ctaFloatMob2 {
+        0%, 100% { transform: translateY(0px) rotate(0.8deg); }
+        50% { transform: translateY(4px) rotate(1.2deg); }
+      }
+      @keyframes ctaFloatMob3 {
+        0%, 100% { transform: translateY(0px) rotate(-0.6deg); }
+        50% { transform: translateY(-4px) rotate(-0.2deg); }
+      }
+      @keyframes ctaFloatMob4 {
+        0%, 100% { transform: translateY(0px) rotate(0.7deg); }
+        50% { transform: translateY(4px) rotate(1.1deg); }
       }
     }
 
-    .cta-pretitle {
-      font-size: 14px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: rgba(2, 132, 199, 0.85);
-      margin-bottom: 12px;
+    /* Desktop positions & floating (2x2 chess) */
+    @media (min-width: 1024px) {
+      .cta-push-card {
+        position: absolute;
+        width: 260px;
+      }
+      .cta-push-1 {
+        top: 10px;
+        left: 0px;
+        --curr-rot: -2deg;
+        --curr-x: 0px;
+        --curr-y: 0px;
+        transform: rotate(-2deg);
+        z-index: 1;
+      }
+      .cta-push-2 {
+        top: 50px;
+        right: 0px;
+        --curr-rot: 1.5deg;
+        --curr-x: 0px;
+        --curr-y: 0px;
+        transform: rotate(1.5deg);
+        z-index: 2;
+      }
+      .cta-push-3 {
+        top: 220px;
+        left: 32px;
+        --curr-rot: 1deg;
+        --curr-x: 0px;
+        --curr-y: 0px;
+        transform: rotate(1deg);
+        z-index: 3;
+      }
+      .cta-push-4 {
+        top: 310px;
+        right: 0px;
+        --curr-rot: -1.5deg;
+        --curr-x: 0px;
+        --curr-y: 0px;
+        transform: rotate(-1.5deg);
+        z-index: 4;
+      }
+
+      .cta-push-card.card-floating.cta-push-1 { animation: ctaFloatDesk1 5s ease-in-out infinite; }
+      .cta-push-card.card-floating.cta-push-2 { animation: ctaFloatDesk2 6.5s ease-in-out infinite 0.8s; }
+      .cta-push-card.card-floating.cta-push-3 { animation: ctaFloatDesk3 5.5s ease-in-out infinite 1.5s; }
+      .cta-push-card.card-floating.cta-push-4 { animation: ctaFloatDesk4 7s ease-in-out infinite 2.2s; }
+
+      @keyframes ctaFloatDesk1 {
+        0%, 100% { transform: translate(0px, 0px) rotate(-2deg); }
+        50% { transform: translate(4px, -8px) rotate(-1.5deg); }
+      }
+      @keyframes ctaFloatDesk2 {
+        0%, 100% { transform: translate(0px, 0px) rotate(1.5deg); }
+        50% { transform: translate(-4px, 8px) rotate(2deg); }
+      }
+      @keyframes ctaFloatDesk3 {
+        0%, 100% { transform: translate(0px, 0px) rotate(1deg); }
+        50% { transform: translate(3px, -7px) rotate(0.5deg); }
+      }
+      @keyframes ctaFloatDesk4 {
+        0%, 100% { transform: translate(0px, 0px) rotate(-1.5deg); }
+        50% { transform: translate(-3px, 7px) rotate(-1deg); }
+      }
     }
 
-    .cta-gradient-glow {
+    /* Right column title */
+    .cta-final-title {
+      font-size: clamp(28px, 3.8vw, 54px);
+    }
+    .cta-title-line-1 {
+      color: #075985;
+      background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 10px 24px rgba(2, 132, 199, 0.18));
+    }
+    .cta-gradient-shimmer {
       display: inline-block;
       background: linear-gradient(
         110deg,
         #0284c7 0%,
-        #0ea5e9 18%,
-        #38bdf8 32%,
-        #ffffff 46%,
+        #0ea5e9 20%,
+        #38bdf8 35%,
+        #ffffff 48%,
         #ffffff 52%,
-        #67e8f9 64%,
+        #38bdf8 65%,
         #0ea5e9 80%,
         #0284c7 100%
       );
-      background-size: 280% 100%;
+      background-size: 260% 100%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       color: transparent;
       filter: drop-shadow(0 8px 24px rgba(14, 165, 233, 0.22));
       will-change: background-position;
-      animation: ctaHeadlineShimmer 5s ease-in-out infinite;
+      animation: ctaHeadlineGleam 6s ease-in-out infinite;
     }
 
-    @keyframes ctaHeadlineShimmer {
-      0% {
-        background-position: 100% 0%;
-      }
-      30% {
-        background-position: 0% 0%;
-      }
-      100% {
-        background-position: 0% 0%;
-      }
-    }
-
-    /* Green status dot on avatar (10px, #22C55E, 2px white outline) */
-    .cta-avatar-status {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 10px;
-      height: 10px;
-      border-radius: 9999px;
-      background-color: #22c55e;
-      box-shadow: 0 0 0 2px #ffffff;
-      display: block;
-    }
-
-    .cta-avatar-status::after {
-      content: '';
-      position: absolute;
-      inset: -2px;
-      border-radius: 9999px;
-      border: 2px solid #22c55e;
-      animation: ctaStatusRing 2s cubic-bezier(0.25, 1, 0.5, 1) infinite;
-      pointer-events: none;
-    }
-
-    @keyframes ctaStatusRing {
-      0% {
-        transform: scale(0.8);
-        opacity: 0.9;
-      }
-      60%, 100% {
-        transform: scale(2.2);
-        opacity: 0;
-      }
-    }
-
+    /* Disable animations on prefers-reduced-motion */
     @media (prefers-reduced-motion: reduce) {
-      .cta-avatar-status::after {
+      .cta-push-card,
+      .cta-push-card.card-floating,
+      .cta-push-card.card-buzz,
+      .cta-gradient-shimmer {
         animation: none !important;
-        display: none !important;
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
       }
     }
 
@@ -6770,29 +6768,23 @@
 
     
     <!-- 9. FINAL CTA SECTION -->
-    <section id="cta-final" class="w-full relative z-20 font-inter py-[80px] lg:py-[140px]">
-      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="cta-final" class="w-full relative z-20 font-inter py-[80px] lg:py-[140px] overflow-x-clip">
+      <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-10">
         <div class="cta-final-grid">
           
-          <!-- 1. TEXT: HEADER -->
-          <div class="cta-col-text-header">
-            <div class="cta-pretitle">SOUND FAMILIAR?</div>
-            <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[40px] xl:text-[46px] leading-[1.14]">
-              <span class="block" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 10px 24px rgba(2, 132, 199, 0.18));">
-                You relax.
-              </span>
-              <span class="block mt-1 sm:mt-2">
-                <span class="cta-gradient-glow">The AI Closer works.</span>
-              </span>
-            </h2>
-          </div>
+          <!-- LEFT COLUMN (Mobile: 1. Pretitle -> 2. Notifications) -->
+          <div class="cta-col-left">
+            
+            <!-- 1. Pretitle «SOUND FAMILIAR?» -->
+            <div class="cta-pretitle-block">
+              <span class="cta-pretitle-line" aria-hidden="true"></span>
+              <span class="cta-pretitle-text">SOUND FAMILIAR?</span>
+            </div>
 
-          <!-- 2. LEFT COLUMN: NOTIFICATION STACK -->
-          <div class="cta-col-visual">
-            <div class="cta-cards-glow" aria-hidden="true"></div>
+            <!-- 2. Notifications Stage (~440px height, 2x2 chess) -->
+            <div class="cta-notifications-stage">
+              <div class="cta-cards-glow" aria-hidden="true"></div>
 
-            <div class="cta-cards-stage">
-              
               <!-- Card 1: WhatsApp -->
               <div class="cta-push-card cta-push-1">
                 <div class="w-9 h-9 rounded-[9px] bg-[#25D366] flex items-center justify-center shrink-0 shadow-xs">
@@ -6804,14 +6796,14 @@
                     <span class="text-[12px] text-slate-400 font-normal leading-none">23:47</span>
                   </div>
                   <p class="text-[14px] text-[#3A4A5E] leading-snug line-clamp-2">
-                    Client: Hello, are you open? I want to place an order
+                    Hello, are you open? I want to place an order
                   </p>
                 </div>
               </div>
 
               <!-- Card 2: Sales Manager -->
               <div class="cta-push-card cta-push-2">
-                <div class="w-9 h-9 rounded-[9px] bg-slate-200 border border-slate-300 flex items-center justify-center shrink-0">
+                <div class="w-9 h-9 rounded-full bg-slate-200 border border-slate-300 flex items-center justify-center shrink-0">
                   <span class="text-[15px] font-bold text-slate-700">M</span>
                 </div>
                 <div class="flex-1 min-w-0">
@@ -6853,45 +6845,55 @@
                     <span class="text-[12px] text-slate-400 font-normal leading-none">09:40</span>
                   </div>
                   <p class="text-[14px] text-[#3A4A5E] leading-snug line-clamp-2">
-                    Client: No longer relevant, bought elsewhere
+                    No longer relevant, bought elsewhere
                   </p>
-                </div>
-              </div>
-
-              <!-- Card 5: Antidote Card -->
-              <div id="ctaAntidoteCard" class="cta-push-antidote">
-                <div class="relative w-9 h-9 rounded-full shrink-0">
-                  <img src="avatar_eva.jpg" alt="AI Closer" class="w-full h-full object-cover rounded-full ring-2 ring-sky-100" />
-                  <span class="cta-avatar-status" aria-hidden="true"></span>
-                </div>
-                <div class="flex-1 min-w-0">
-                  <div class="flex items-center justify-between gap-2 mb-0.5">
-                    <span class="text-[15px] font-semibold text-[#1B2B40] leading-none">AI Closer</span>
-                    <span class="text-[12px] text-slate-400 font-normal leading-none">07:00</span>
-                  </div>
-                  <p class="text-[14px] text-[#3A4A5E] leading-snug">
-                    Handled 14 inquiries overnight. 3 hot deals captured in CRM
-                  </p>
-                  <div class="text-[12px] font-medium text-[#22c55e] mt-1.5 leading-none">
-                    All under control ✓
-                  </div>
                 </div>
               </div>
 
             </div>
           </div>
 
-          <!-- 3. TEXT: SUBTITLE AND BUTTON -->
-          <div class="cta-col-text-footer space-y-6 sm:space-y-8">
-            <p class="text-base sm:text-[18px] lg:text-[19px] leading-relaxed font-normal text-[#3A4A5E] max-w-[580px]">
-              It responds to every lead within 60 seconds, writes flawlessly, never forgets the CRM, and never takes a vacation. <strong class="font-bold text-slate-900">And you finally let go of your phone.</strong>
-            </p>
-            <div class="pt-1">
-              <a href="https://t.me/altaioptima?text=Hello!%20I%20want%20to%20launch%20an%20AI%20Closer%20for%20my%20business" target="_blank" class="btn-optic group shadow-xl py-4 px-8 sm:px-10 text-sm sm:text-base font-extrabold uppercase tracking-wider rounded-2xl inline-flex items-center justify-center gap-2 cursor-pointer">
-                <span>Free yourself from routine</span>
-                <span class="text-lg">→</span>
-              </a>
+          <!-- RIGHT COLUMN (Mobile: 3. Title -> 4. Subtitle -> 5. Buttons -> 6. Microtext) -->
+          <div class="cta-col-right">
+            
+            <!-- 3. Title (strictly 2 lines) -->
+            <div class="cta-title-block">
+              <h2 class="cta-final-title font-benzin font-black uppercase tracking-tight leading-[1.12]">
+                <span class="cta-title-line-1 block whitespace-nowrap">You relax,</span>
+                <span class="cta-title-line-2 block whitespace-nowrap cta-gradient-shimmer mt-1 sm:mt-2">The AI Closer works</span>
+              </h2>
             </div>
+
+            <!-- 4. Subtitle -->
+            <div class="cta-subtitle-block mt-6 max-w-full">
+              <p class="text-[17px] sm:text-[19px] leading-[1.6] text-[#3A4A5E] font-normal">
+                You no longer need to check anything, and managers no longer need to answer the same repetitive questions. They close deals while you focus on what truly matters.
+              </p>
+              <p class="text-[17px] sm:text-[19px] leading-[1.6] text-[#0F172A] font-semibold mt-2">
+                And you finally let go of your phone.
+              </p>
+            </div>
+
+            <!-- 5. Buttons -->
+            <div class="cta-actions-block mt-10 w-full">
+              <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
+                <a href="https://t.me/altaioptima?text=Hello!%20I%20want%20to%20launch%20an%20AI%20Closer%20for%20my%20business" target="_blank" class="btn-optic group shadow-xl py-4 px-7 sm:px-8 text-sm sm:text-base font-extrabold uppercase tracking-wider rounded-2xl flex items-center justify-center gap-2 cursor-pointer text-center min-h-[56px]">
+                  <span>Hand over routine to AI Closer</span>
+                  <span class="btn-optic-arrow text-lg">→</span>
+                </a>
+                <a href="#psychology" class="btn-optic-outline group py-4 px-7 sm:px-8 text-sm sm:text-base font-extrabold uppercase tracking-wider rounded-2xl flex items-center justify-center text-center cursor-pointer min-h-[56px]">
+                  <span>See it in action</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- 6. Microtext -->
+            <div class="cta-micro-block mt-4">
+              <p class="text-[13px] text-slate-500 font-normal leading-normal">
+                No HR paperwork · First channel included · Exact pricing after a brief
+              </p>
+            </div>
+
           </div>
 
         </div>
@@ -9788,80 +9790,71 @@ Let's discuss integration details!`;
 
         recalc();
 
-        // FINAL BLOCK (#cta-final): NOTIFICATIONS CHOREOGRAPHY
+        // FINAL BLOCK (#cta-final): CARDS ANIMATION
         (function initCtaFinalChoreography() {
           const section = document.getElementById('cta-final');
           if (!section) return;
 
+          const stage = section.querySelector('.cta-notifications-stage');
           const cards = [
             section.querySelector('.cta-push-1'),
             section.querySelector('.cta-push-2'),
             section.querySelector('.cta-push-3'),
             section.querySelector('.cta-push-4')
-          ];
-          const antidote = document.getElementById('ctaAntidoteCard');
+          ].filter(Boolean);
+
+          if (!cards.length) return;
+
+          if (stage) {
+            stage.classList.add('cta-cards-js-ready');
+          }
 
           let hasAnimated = false;
 
-          function triggerSwipe() {
-            if (cards[0] && cards[0].classList.contains('card-swiped')) return;
-            cards.forEach(c => c && c.classList.remove('card-wobbling'));
-            cards.forEach((card, idx) => {
-              if (!card) return;
-              setTimeout(() => {
-                card.classList.add('card-swiped');
-              }, idx * 100);
-            });
-            setTimeout(() => {
-              if (antidote) {
-                antidote.classList.add('antidote-revealed');
-              }
-            }, 550);
-            setTimeout(() => {
-              if (antidote) {
-                antidote.classList.add('antidote-floating');
-              }
-            }, 1250);
-          }
-
-          function runChoreography() {
+          function revealCards() {
             if (hasAnimated) return;
             hasAnimated = true;
 
-            setTimeout(() => {
-              cards.forEach(c => c && c.classList.add('card-wobbling'));
-            }, 500);
+            cards.forEach((card, idx) => {
+              setTimeout(() => {
+                card.classList.add('card-revealed');
+                setTimeout(() => {
+                  card.classList.add('card-floating');
+                }, 550);
+              }, idx * 300);
+            });
 
-            setTimeout(() => {
-              triggerSwipe();
-            }, 2000);
+            let buzzIdx = 0;
+            setInterval(() => {
+              if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+              const card = cards[buzzIdx % cards.length];
+              if (card) {
+                card.classList.add('card-buzz');
+                setTimeout(() => {
+                  card.classList.remove('card-buzz');
+                }, 1250);
+              }
+              buzzIdx++;
+            }, 4000);
           }
-
-          cards.forEach(card => {
-            if (card) {
-              card.addEventListener('click', () => {
-                hasAnimated = true;
-                triggerSwipe();
-              });
-            }
-          });
 
           if ('IntersectionObserver' in window) {
             const observer = new IntersectionObserver((entries) => {
               entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                  runChoreography();
+                  revealCards();
                   observer.unobserve(section);
                 }
               });
-            }, { threshold: 0.05 });
+            }, { threshold: 0.3 });
             observer.observe(section);
           }
 
           function checkScrollFallback() {
+            if (hasAnimated) return;
             const rect = section.getBoundingClientRect();
-            if (rect.top < window.innerHeight * 0.92 && rect.bottom > 0) {
-              runChoreography();
+            if (rect.top < window.innerHeight * 0.75 && rect.bottom > 0) {
+              revealCards();
               window.removeEventListener('scroll', checkScrollFallback);
             }
           }
