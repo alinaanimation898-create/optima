@@ -2194,6 +2194,27 @@
       background-color: #ffffff;
     }
 
+    /* МЯГКАЯ ПУЛЬСАЦИЯ ПОЛЯ ВВОДА ДЛЯ ПРИГЛАШЕНИЯ К НАБОРУ */
+    @keyframes liveChatInputGlow {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(14, 165, 233, 0);
+        border-color: rgba(203, 213, 225, 0.85);
+      }
+      50% {
+        box-shadow: 0 0 16px 2px rgba(14, 165, 233, 0.35);
+        border-color: rgba(56, 189, 248, 0.95);
+      }
+    }
+    .live-chat-input-glow {
+      animation: liveChatInputGlow 2.8s ease-in-out infinite;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .live-chat-input-glow:focus-within {
+      animation: none !important;
+      border-color: #0284c7 !important;
+      box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.25) !important;
+    }
+
     /* ЭКВАЛАЙЗЕР ЖИВОГО ГОЛОСА */
     .voice-wave-bar {
       width: 4px;
@@ -6952,35 +6973,50 @@
           </div>
         `,
         renderStarter: () => `
-          <div class="space-y-3 animate-fade-in">
-            <!-- Дата -->
-            <div class="flex justify-center">
-              <span class="bg-[#e1d9cc]/90 text-slate-700 text-[10px] font-semibold px-2.5 py-0.5 rounded-md shadow-2xs uppercase tracking-wider">СЕГОДНЯ</span>
-            </div>
-            <!-- Шифрование -->
-            <div class="mx-auto max-w-[92%] bg-[#ffeecd] border border-[#fae2a6] rounded-xl p-2.5 text-center text-[10px] text-[#544322] leading-snug shadow-2xs flex items-center justify-center gap-1.5">
-              <svg class="w-3.5 h-3.5 shrink-0 fill-current opacity-80" viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
-              <span>Сообщения защищены сквозным шифрованием. Ответы формируются автономным ИИ-продавцом.</span>
-            </div>
-            <!-- Сообщение пользователя -->
-            <div class="flex justify-end items-end gap-1.5">
-              <div class="bg-[#d9fdd3] text-slate-900 p-2.5 rounded-2xl rounded-tr-xs max-w-[85%] shadow-xs">
-                <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">Добрый день! Менеджеры отвечают по 3-4 часа, а вечером заявки сгорают. Реально ли настроить ИИ за 3 дня?</p>
-                <div class="text-[9px] text-emerald-800 text-right mt-0.5 font-sans flex items-center justify-end gap-1">
-                  <span>14:20</span>
-                  <span class="text-[#34B7F1] font-bold">✓✓</span>
-                </div>
+          <div class="empty-chat-state h-full flex flex-col justify-between items-center text-center animate-fade-in py-1 px-1">
+            <div class="space-y-2 w-full">
+              <div class="flex justify-center">
+                <span class="bg-[#e1d9cc]/90 text-slate-700 text-[10px] font-semibold px-2.5 py-0.5 rounded-md shadow-2xs uppercase tracking-wider">СЕГОДНЯ</span>
+              </div>
+              <div class="mx-auto max-w-[94%] bg-[#ffeecd]/90 border border-[#fae2a6] rounded-xl p-2 text-center text-[10px] text-[#544322] leading-snug shadow-2xs flex items-center justify-center gap-1.5">
+                <svg class="w-3.5 h-3.5 shrink-0 fill-current opacity-80" viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+                <span>Чат пуст. Ответы генерирует автономный ИИ-продавец.</span>
               </div>
             </div>
-            <!-- Ответ ИИ -->
-            <div class="flex justify-start items-end gap-1.5">
-              <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs border border-slate-200/50">
-                <div class="text-[9.5px] font-bold text-[#075e54] mb-0.5">Altai Optima • ИИ-Продавец</div>
-                <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">Максим, доброго дня! ✨ Безупречный сервис начинается со скорости: человек, оставивший заявку, ждет ответа сейчас, а не завтра утром.<br><br>ИИ-продавец подключается за 3 дня и отвечает каждому клиенту за 1 минуту 24/7. В какой CRM ведете учет, чтобы я рассчитала точную отдачу?</p>
-                <div class="text-[9px] text-slate-400 text-right mt-0.5 font-sans flex items-center justify-end gap-1">
-                  <span>14:20</span>
-                </div>
+
+            <div class="my-auto py-3 px-2 flex flex-col items-center justify-center text-center space-y-2.5 cursor-pointer select-none" onclick="focusChatInput()">
+              <div class="relative w-11 h-11 rounded-2xl bg-gradient-to-br from-[#25d366]/20 to-[#128c7e]/30 border border-[#25d366]/40 flex items-center justify-center text-[#075e54] shadow-xs">
+                <svg class="w-5 h-5 fill-current animate-pulse" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg>
+                <span class="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                </span>
               </div>
+              <div class="space-y-0.5 max-w-[270px]">
+                <div class="text-[12.5px] font-black text-slate-800 tracking-tight">Чат с ИИ-продавцом готов</div>
+                <p class="text-[10.5px] text-slate-600 leading-snug font-normal">
+                  Напишите любой вопрос в строке внизу или нажмите на вариант:
+                </p>
+              </div>
+              <div class="flex flex-col gap-1.5 w-full max-w-[285px]">
+                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Сколько стоит внедрение под ключ?')" class="text-left text-[11px] font-medium bg-white/95 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#25d366] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
+                  <span>«Сколько стоит внедрение под ключ?»</span>
+                  <span class="text-[#075e54] text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
+                </button>
+                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('А если клиент просит скидку?')" class="text-left text-[11px] font-medium bg-white/95 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#25d366] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
+                  <span>«А если клиент просит скидку?»</span>
+                  <span class="text-[#075e54] text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
+                </button>
+                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Как вы подключаетесь к amoCRM?')" class="text-left text-[11px] font-medium bg-white/95 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#25d366] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
+                  <span>«Как вы подключаетесь к amoCRM?»</span>
+                  <span class="text-[#075e54] text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="pt-1 pb-1 flex items-center gap-1.5 text-[10.5px] font-bold text-[#075e54] animate-bounce cursor-pointer select-none" onclick="focusChatInput()">
+              <span>Напечатайте сообщение в поле ниже</span>
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M11 4h2v12l5.5-5.5 1.42 1.42L12 19.84l-7.92-7.92L5.5 10.5 11 16V4z"/></svg>
             </div>
           </div>
         `,
@@ -7008,10 +7044,10 @@
         `,
         renderFooter: () => `
           <div class="flex items-center gap-1.5 w-full">
-            <button type="button" class="text-slate-400 hover:text-slate-600 p-1"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></button>
+            <button type="button" class="text-slate-400 hover:text-slate-600 p-1 cursor-pointer"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></button>
             <form id="liveChatForm" onsubmit="handleLiveChatSubmit(event)" class="flex-1 flex items-center gap-1.5">
-              <div class="flex-1 bg-white border border-slate-200 rounded-2xl px-3 py-1.5 flex items-center justify-between shadow-2xs">
-                <input id="liveChatInput" type="text" placeholder="Сообщение" autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-xs outline-none" />
+              <div class="flex-1 bg-white border border-slate-200/90 rounded-2xl px-3 py-1.5 flex items-center justify-between shadow-2xs live-chat-input-glow">
+                <input id="liveChatInput" type="text" placeholder="Напишите сообщение..." autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-xs outline-none" />
                 <span class="text-slate-400 text-sm ml-1">📎</span>
               </div>
               <button id="liveChatSubmitBtn" type="submit" class="w-8 h-8 rounded-full bg-[#00a884] hover:bg-[#008f6f] active:scale-95 text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
@@ -7050,44 +7086,50 @@
           </div>
         `,
         renderStarter: () => `
-          <div class="space-y-3 animate-fade-in">
-            <!-- Дата -->
-            <div class="flex justify-center">
-              <span class="bg-black/15 backdrop-blur-xs text-white text-[10px] font-medium px-2.5 py-0.5 rounded-full shadow-2xs">Сегодня</span>
-            </div>
-            <!-- Инфо-карточка группы/бота в стиле скрина -->
-            <div class="mx-auto max-w-[92%] bg-[#6c8cf5]/85 backdrop-blur-md rounded-2xl p-3.5 text-white shadow-md text-left space-y-1.5 border border-white/20">
-              <div class="text-xs font-bold text-center pb-0.5 border-b border-white/20">ИИ-Продавец Altai Optima</div>
-              <div class="text-[10.5px] text-sky-100 font-medium leading-tight">Возможности системы:</div>
-              <div class="space-y-1 text-[10.5px] text-white/95 leading-tight">
-                <div class="flex items-center gap-1.5"><span>✓</span><span>Мгновенный ответ каждому за 30–60 сек</span></div>
-                <div class="flex items-center gap-1.5"><span>✓</span><span>100% фиксация контактов и данных в CRM</span></div>
-                <div class="flex items-center gap-1.5"><span>✓</span><span>Автономная квалификация и дожим</span></div>
-                <div class="flex items-center gap-1.5"><span>✓</span><span>Работа без выходных и праздников 24/7</span></div>
+          <div class="empty-chat-state h-full flex flex-col justify-between items-center text-center animate-fade-in py-1 px-1">
+            <div class="space-y-2 w-full">
+              <div class="flex justify-center">
+                <span class="bg-black/15 backdrop-blur-xs text-white text-[10px] font-medium px-2.5 py-0.5 rounded-full shadow-2xs">Сегодня</span>
+              </div>
+              <div class="mx-auto max-w-[94%] bg-[#6c8cf5]/25 border border-white/30 backdrop-blur-md rounded-xl p-2 text-center text-[10px] text-slate-800 leading-snug shadow-2xs">
+                <div class="font-bold text-[#0088cc]">Altai Optima Telegram Bot</div>
+                <div class="text-[9.5px] text-slate-600">Чат свободен · Напишите вопрос для теста</div>
               </div>
             </div>
-            <!-- Сообщение пользователя -->
-            <div class="flex justify-end items-end gap-1.5">
-              <div class="bg-[#eff7ff] text-slate-900 p-2.5 rounded-2xl rounded-tr-xs max-w-[85%] shadow-xs border border-sky-100">
-                <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">Здравствуйте! Видел ботов за пару тысяч рублей. В чем ваше отличие и как окупается внедрение?</p>
-                <div class="text-[9px] text-sky-600 text-right mt-0.5 font-sans flex items-center justify-end gap-1">
-                  <span>14:20</span>
-                  <span class="text-[#229ed9]">✓✓</span>
-                </div>
+
+            <div class="my-auto py-3 px-2 flex flex-col items-center justify-center text-center space-y-2.5 cursor-pointer select-none" onclick="focusChatInput()">
+              <div class="relative w-11 h-11 rounded-2xl bg-sky-500/20 border border-sky-400/50 flex items-center justify-center text-[#0088cc] shadow-xs">
+                <svg class="w-5 h-5 fill-current animate-pulse" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                <span class="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-sky-500"></span>
+                </span>
+              </div>
+              <div class="space-y-0.5 max-w-[270px]">
+                <div class="text-[12.5px] font-black text-slate-800 tracking-tight">Чат свободен для общения</div>
+                <p class="text-[10.5px] text-slate-600 leading-snug font-normal">
+                  Задайте вопрос в строке внизу или выберите готовый сценарий:
+                </p>
+              </div>
+              <div class="flex flex-col gap-1.5 w-full max-w-[285px]">
+                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('В чем отличие от обычных чат-ботов?')" class="text-left text-[11px] font-medium bg-white/95 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#229ed9] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
+                  <span>«В чем отличие от обычных чат-ботов?»</span>
+                  <span class="text-sky-600 text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
+                </button>
+                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Как быстро окупается внедрение?')" class="text-left text-[11px] font-medium bg-white/95 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#229ed9] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
+                  <span>«Как быстро окупается внедрение?»</span>
+                  <span class="text-sky-600 text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
+                </button>
+                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Сколько сделок закрывает в месяц?')" class="text-left text-[11px] font-medium bg-white/95 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#229ed9] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
+                  <span>«Сколько сделок закрывает в месяц?»</span>
+                  <span class="text-sky-600 text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
+                </button>
               </div>
             </div>
-            <!-- Ответ ИИ -->
-            <div class="flex justify-start items-end gap-1.5">
-              <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs">
-                <div class="text-[9.5px] font-bold text-[#0088cc] mb-0.5 flex items-center gap-1">
-                  <span>Altai Optima</span>
-                  <span class="text-[8px] bg-sky-100 text-sky-700 px-1 rounded font-normal">bot</span>
-                </div>
-                <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">Доброго дня! ☀️ Шаблонные кнопочные боты путают клиентов меню и теряют до 60% лидов при нестандартных вопросах.<br><br>Наш ИИ ведет живой диалог на уровне сильного эксперта, снимает любые возражения и сам ведет сделку в CRM. Внедрение окупается уже со 2-й закрытой сделки. Давайте рассчитаем выгоду под ваши объемы?</p>
-                <div class="text-[9px] text-slate-400 text-right mt-0.5 font-sans flex items-center justify-end gap-1">
-                  <span>14:20</span>
-                </div>
-              </div>
+
+            <div class="pt-1 pb-1 flex items-center gap-1.5 text-[10.5px] font-bold text-sky-600 animate-bounce cursor-pointer select-none" onclick="focusChatInput()">
+              <span>Напечатайте вопрос в строке ниже</span>
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M11 4h2v12l5.5-5.5 1.42 1.42L12 19.84l-7.92-7.92L5.5 10.5 11 16V4z"/></svg>
             </div>
           </div>
         `,
@@ -7118,11 +7160,11 @@
         `,
         renderFooter: () => `
           <div class="flex items-center gap-1.5 w-full">
-            <button type="button" class="text-slate-400 hover:text-slate-600 p-1">
+            <button type="button" class="text-slate-400 hover:text-slate-600 p-1 cursor-pointer">
               <svg class="w-5 h-5 fill-none stroke-current" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"/></svg>
             </button>
             <form id="liveChatForm" onsubmit="handleLiveChatSubmit(event)" class="flex-1 flex items-center gap-1.5">
-              <div class="flex-1 bg-white border border-slate-200 rounded-2xl px-3 py-1.5 flex items-center justify-between shadow-2xs">
+              <div class="flex-1 bg-white border border-slate-200/90 rounded-2xl px-3 py-1.5 flex items-center justify-between shadow-2xs live-chat-input-glow">
                 <input id="liveChatInput" type="text" placeholder="Сообщение" autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-xs outline-none" />
                 <span class="text-slate-400 text-xs ml-1">🌙</span>
               </div>
@@ -7169,36 +7211,45 @@
           </div>
         `,
         renderStarter: () => `
-          <div class="space-y-3 animate-fade-in">
-            <!-- Профиль Инстаграм -->
-            <div class="flex flex-col items-center justify-center text-center p-2.5 my-1 space-y-1.5">
+          <div class="empty-chat-state h-full flex flex-col justify-between items-center text-center animate-fade-in py-1 px-1">
+            <div class="flex flex-col items-center justify-center text-center p-1 space-y-1">
               <div class="p-0.5 rounded-full bg-gradient-to-tr from-amber-400 via-rose-500 to-purple-600">
-                <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white bg-slate-900">
+                <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white bg-slate-900">
                   <img src="avatar_eva.jpg" alt="Эва" class="w-full h-full object-cover" />
                 </div>
               </div>
               <div>
                 <div class="text-xs font-black text-slate-900">altai.optima</div>
-                <div class="text-[10px] text-slate-500">Instagram • 12,4 тыс. подписчиков</div>
-              </div>
-              <button type="button" class="text-[10px] font-semibold bg-slate-100 hover:bg-slate-200 text-slate-800 px-3 py-1 rounded-lg transition-colors">
-                Посмотреть профиль
-              </button>
-            </div>
-            <!-- Сообщение пользователя -->
-            <div class="flex justify-end items-end gap-1.5">
-              <div class="bg-[#efefef] text-slate-900 px-3 py-2 rounded-2xl rounded-br-xs max-w-[85%] shadow-2xs">
-                <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">Добрый день! Увидела ваш рилс про автопродажи. Как протестировать на наших товарах?</p>
-                <div class="text-[9px] text-slate-400 text-right mt-0.5 font-sans">14:30</div>
+                <div class="text-[9px] text-slate-400">Instagram Direct · Чат пуст</div>
               </div>
             </div>
-            <!-- Ответ ИИ (градиентный) -->
-            <div class="flex justify-start items-end gap-1.5">
-              <div class="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 text-white p-3 rounded-2xl rounded-bl-xs max-w-[88%] shadow-xs">
-                <div class="text-[9.5px] font-bold text-pink-100 mb-0.5">altai.optima</div>
-                <p class="leading-relaxed font-normal text-[11.5px] text-white">Елизавета, доброго дня! 💫 ИИ-продавец подключается напрямую к Direct: мгновенно отвечает на реакции в Stories, подбирает товары и доводит до оплаты.<br><br>Напишите любой вопрос ниже, чтобы протестировать логику ответов прямо сейчас!</p>
-                <div class="text-[9px] text-white/80 text-right mt-0.5 font-sans">14:30</div>
+
+            <div class="my-auto py-2 px-2 flex flex-col items-center justify-center text-center space-y-2.5 cursor-pointer select-none" onclick="focusChatInput()">
+              <div class="space-y-0.5 max-w-[270px]">
+                <div class="text-[12.5px] font-black text-slate-900 tracking-tight">Напишите сообщение в Direct</div>
+                <p class="text-[10.5px] text-slate-600 leading-snug font-normal">
+                  ИИ отвечает мгновенно 24/7. Напечатайте вопрос или кликните вариант:
+                </p>
               </div>
+              <div class="flex flex-col gap-1.5 w-full max-w-[285px]">
+                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Как протестировать на наших товарах?')" class="text-left text-[11px] font-medium bg-slate-50 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-pink-500 active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
+                  <span>«Как протестировать на наших товарах?»</span>
+                  <span class="text-pink-600 text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
+                </button>
+                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Отвечает ли бот на реакции в Stories?')" class="text-left text-[11px] font-medium bg-slate-50 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-pink-500 active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
+                  <span>«Отвечает ли бот на реакции в Stories?»</span>
+                  <span class="text-pink-600 text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
+                </button>
+                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Как передаются лиды в отдел продаж?')" class="text-left text-[11px] font-medium bg-slate-50 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-pink-500 active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
+                  <span>«Как передаются лиды в отдел продаж?»</span>
+                  <span class="text-pink-600 text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="pt-1 pb-1 flex items-center gap-1.5 text-[10.5px] font-bold text-pink-600 animate-bounce cursor-pointer select-none" onclick="focusChatInput()">
+              <span>Напечатайте сообщение в поле ниже</span>
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M11 4h2v12l5.5-5.5 1.42 1.42L12 19.84l-7.92-7.92L5.5 10.5 11 16V4z"/></svg>
             </div>
           </div>
         `,
@@ -7221,11 +7272,11 @@
         `,
         renderFooter: () => `
           <div class="flex items-center gap-1.5 w-full">
-            <button type="button" class="text-slate-500 hover:text-slate-800 p-1">
+            <button type="button" class="text-slate-500 hover:text-slate-800 p-1 cursor-pointer">
               <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
             </button>
             <form id="liveChatForm" onsubmit="handleLiveChatSubmit(event)" class="flex-1 flex items-center gap-1.5">
-              <div class="flex-1 bg-slate-100 rounded-full px-3 py-1.5 flex items-center justify-between">
+              <div class="flex-1 bg-slate-100 border border-slate-200/80 rounded-full px-3 py-1.5 flex items-center justify-between live-chat-input-glow">
                 <input id="liveChatInput" type="text" placeholder="Написать сообщение..." autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-xs outline-none" />
                 <span class="text-slate-400 text-xs ml-1">🎙️</span>
               </div>
@@ -7272,15 +7323,13 @@
           </div>
         `,
         renderStarter: () => `
-          <div class="space-y-2.5 animate-fade-in">
-            <!-- Дата как на скрине -->
-            <div class="flex justify-center">
-              <span class="text-slate-400 text-[10px] font-medium">Понедельник, 14 сентября</span>
-            </div>
-            <!-- Зеленый блок безопасности Авито со скрина -->
-            <div class="mx-auto max-w-[96%] bg-[#eef9ef] border border-[#d6f2d6] rounded-2xl p-2.5 text-slate-800 text-[10.5px] leading-snug shadow-2xs space-y-1 relative">
-              <div class="flex items-start gap-2">
-                <div class="shrink-0 pt-0.5">
+          <div class="empty-chat-state h-full flex flex-col justify-between items-center text-center animate-fade-in py-1 px-1">
+            <div class="space-y-2 w-full">
+              <div class="flex justify-center">
+                <span class="text-slate-400 text-[10px] font-medium">Понедельник, 14 сентября</span>
+              </div>
+              <div class="mx-auto max-w-[96%] bg-[#eef9ef] border border-[#d6f2d6] rounded-2xl p-2 text-slate-800 text-[10.5px] leading-snug shadow-2xs flex items-center gap-2">
+                <div class="shrink-0">
                   <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none">
                     <circle cx="7" cy="8" r="4" fill="#00AAFF"/>
                     <circle cx="17" cy="7" r="3" fill="#04E061"/>
@@ -7288,40 +7337,36 @@
                     <circle cx="8" cy="16.5" r="2.5" fill="#9B51E0"/>
                   </svg>
                 </div>
-                <div class="space-y-0.5">
-                  <p class="font-normal text-slate-800">Вы можете оформить и оплатить заказ онлайн в приложении Авито.</p>
-                  <p class="text-[10px] text-slate-700">🛡️ Данные карты под защитой — продавец их не узнает</p>
-                  <p class="text-[10px] text-slate-700">✅ У вас будет 24 часа на проверку покупки</p>
-                  <p class="text-[10px] text-slate-700">💸 Продавец получит деньги, когда вы подтвердите результат</p>
-                </div>
-              </div>
-              <div class="text-[8.5px] text-slate-400 text-right">9:12</div>
-            </div>
-            <!-- Сообщения пользователя как на скрине (голубые пузыри) -->
-            <div class="flex justify-end items-end gap-1">
-              <div class="bg-[#e1f3fe] text-slate-900 px-3 py-1.5 rounded-2xl rounded-tr-xs max-w-[85%] shadow-2xs">
-                <span class="text-[11.5px]">Здравствуйте</span>
-                <span class="text-[8.5px] text-[#00aaff] ml-1.5">9:12 ✓✓</span>
+                <p class="font-medium text-slate-700 text-[10.5px]">Безопасная сделка на Авито. Чат пуст.</p>
               </div>
             </div>
-            <div class="flex justify-end items-end gap-1">
-              <div class="bg-[#e1f3fe] text-slate-900 px-3 py-1.5 rounded-2xl rounded-tr-xs max-w-[85%] shadow-2xs">
-                <span class="text-[11.5px]">Как настроить под ключ?)</span>
-                <span class="text-[8.5px] text-[#00aaff] ml-1.5">9:13 ✓✓</span>
+
+            <div class="my-auto py-2 px-2 flex flex-col items-center justify-center text-center space-y-2.5 cursor-pointer select-none" onclick="focusChatInput()">
+              <div class="space-y-0.5 max-w-[270px]">
+                <div class="text-[12.5px] font-black text-slate-900 tracking-tight">Начните диалог с продавцом</div>
+                <p class="text-[10.5px] text-slate-600 leading-snug font-normal">
+                  Задайте вопрос по объявлению в строке внизу или выберите готовый:
+                </p>
+              </div>
+              <div class="flex flex-col gap-1.5 w-full max-w-[285px]">
+                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Здравствуйте, как настроить под ключ?')" class="text-left text-[11px] font-medium bg-[#f2f3f5] hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#00aaff] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
+                  <span>«Здравствуйте, как настроить под ключ?»</span>
+                  <span class="text-[#00aaff] text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
+                </button>
+                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Какая актуальная стоимость тарифа?')" class="text-left text-[11px] font-medium bg-[#f2f3f5] hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#00aaff] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
+                  <span>«Какая актуальная стоимость тарифа?»</span>
+                  <span class="text-[#00aaff] text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
+                </button>
+                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Интересует интеграция с 1С')" class="text-left text-[11px] font-medium bg-[#f2f3f5] hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#00aaff] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
+                  <span>«Интересует интеграция с 1С»</span>
+                  <span class="text-[#00aaff] text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
+                </button>
               </div>
             </div>
-            <div class="flex justify-end items-end gap-1">
-              <div class="bg-[#e1f3fe] text-slate-900 px-3 py-1.5 rounded-2xl rounded-tr-xs max-w-[85%] shadow-2xs">
-                <span class="text-[11.5px]">Хочу приобрести</span>
-                <span class="text-[8.5px] text-[#00aaff] ml-1.5">9:13 ✓✓</span>
-              </div>
-            </div>
-            <!-- Ответ продавца со скрина (серый пузырь) -->
-            <div class="flex justify-start items-end gap-1">
-              <div class="bg-[#f2f3f5] text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-2xs">
-                <p class="leading-relaxed font-normal text-[11.5px] text-slate-900">Здравствуйте! 👋<br>Сейчас актуальная стоимость 50 000 руб за настройку и запуск, 15 000 руб/мес подписка.<br>Для подключения понадобится ваша CRM и сценарии диалогов. Подскажите вашу сферу бизнеса?</p>
-                <div class="text-[8.5px] text-slate-400 text-right mt-0.5">10:11</div>
-              </div>
+
+            <div class="pt-1 pb-1 flex items-center gap-1.5 text-[10.5px] font-bold text-[#00aaff] animate-bounce cursor-pointer select-none" onclick="focusChatInput()">
+              <span>Напечатайте вопрос в строке ниже</span>
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M11 4h2v12l5.5-5.5 1.42 1.42L12 19.84l-7.92-7.92L5.5 10.5 11 16V4z"/></svg>
             </div>
           </div>
         `,
@@ -7342,25 +7387,19 @@
           </div>
         `,
         renderFooter: () => `
-          <div class="flex flex-col gap-1.5 w-full">
-            <!-- Плавающая черная кнопка Авито как на скрине -->
-            <button type="button" onclick="sendQuickPrompt('Хочу оформить заказ под ключ')" class="w-full py-2 bg-[#1b1c1e] hover:bg-black text-white text-[11px] font-bold rounded-xl shadow-xs transition-colors text-center cursor-pointer">
-              Купить онлайн через Авито
+          <div class="flex items-center gap-1.5 w-full">
+            <button type="button" class="text-slate-600 hover:text-slate-900 p-1 cursor-pointer">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
             </button>
-            <div class="flex items-center gap-1.5 w-full">
-              <button type="button" class="text-slate-600 hover:text-slate-900 p-1">
-                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+            <form id="liveChatForm" onsubmit="handleLiveChatSubmit(event)" class="flex-1 flex items-center gap-1.5">
+              <div class="flex-1 bg-[#f2f3f5] border border-slate-200/80 rounded-xl px-3 py-1.5 flex items-center justify-between live-chat-input-glow">
+                <input id="liveChatInput" type="text" placeholder="Сообщение" autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-xs outline-none" />
+                <span class="text-slate-400 text-xs ml-1">📷</span>
+              </div>
+              <button id="liveChatSubmitBtn" type="submit" class="w-8 h-8 rounded-xl bg-[#00aaff] hover:bg-[#0095e0] active:scale-95 text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
+                <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
               </button>
-              <form id="liveChatForm" onsubmit="handleLiveChatSubmit(event)" class="flex-1 flex items-center gap-1.5">
-                <div class="flex-1 bg-[#f2f3f5] rounded-xl px-3 py-1.5 flex items-center justify-between">
-                  <input id="liveChatInput" type="text" placeholder="Сообщение" autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-xs outline-none" />
-                  <span class="text-slate-400 text-xs ml-1">📷</span>
-                </div>
-                <button id="liveChatSubmitBtn" type="submit" class="w-8 h-8 rounded-xl bg-[#00aaff] hover:bg-[#0095e0] active:scale-95 text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
-                  <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-                </button>
-              </form>
-            </div>
+            </form>
           </div>
         `
       }
@@ -7475,6 +7514,7 @@
       demoChatClient.resetSession();
       channelMessages[currentKey] = [];
       renderFullBranch(currentKey, false);
+      runChatTypewriter();
     }
 
     let currentKey = 'full_deal';
@@ -7496,6 +7536,70 @@
       }
       if (chatFooterBar) {
         chatFooterBar.innerHTML = cfg.renderFooter();
+      }
+      runChatTypewriter();
+    }
+
+    // ФОКУС НА ПОЛЕ ВВОДА ПРИ КЛИКЕ НА ОБЛАСТЬ ЧАТА
+    function focusChatInput() {
+      const input = document.getElementById('liveChatInput');
+      if (input) {
+        input.focus();
+        const wrapper = input.closest('.live-chat-input-glow') || input.parentElement;
+        if (wrapper) {
+          wrapper.classList.add('ring-2', 'ring-sky-400');
+          setTimeout(() => wrapper.classList.remove('ring-2', 'ring-sky-400'), 1000);
+        }
+      }
+    }
+
+    // ДИНАМИЧЕСКИЙ ЭФФЕКТ НАБОРА ТЕКСТА В ПОЛЕ ВВОДА (TYPEWRITER)
+    let chatTypewriterTimer = null;
+    const chatPromptsList = [
+      "Напишите любой вопрос ИИ-продавцу...",
+      "«Сколько стоит внедрение под ключ?»",
+      "«А если клиент просит скидку?»",
+      "«С какими CRM и каналами работаете?»",
+      "«Как быстро настраивается система?»",
+      "Напечатайте сообщение сюда..."
+    ];
+    let chatPromptIndex = 0;
+    let chatCharIndex = 0;
+    let chatIsDeleting = false;
+
+    function runChatTypewriter() {
+      if (chatTypewriterTimer) clearTimeout(chatTypewriterTimer);
+      const input = document.getElementById('liveChatInput');
+      if (!input) return;
+
+      // Если поле в фокусе или пользователь уже начал писать — не мешаем
+      if (document.activeElement === input || (input.value && input.value.length > 0)) {
+        chatTypewriterTimer = setTimeout(runChatTypewriter, 1200);
+        return;
+      }
+
+      const fullText = chatPromptsList[chatPromptIndex];
+
+      if (!chatIsDeleting) {
+        chatCharIndex++;
+        input.setAttribute('placeholder', fullText.substring(0, chatCharIndex) + '|');
+        if (chatCharIndex >= fullText.length) {
+          input.setAttribute('placeholder', fullText);
+          chatIsDeleting = true;
+          chatTypewriterTimer = setTimeout(runChatTypewriter, 2200);
+          return;
+        }
+        chatTypewriterTimer = setTimeout(runChatTypewriter, 65);
+      } else {
+        chatCharIndex--;
+        input.setAttribute('placeholder', fullText.substring(0, chatCharIndex) + '|');
+        if (chatCharIndex <= 0) {
+          chatIsDeleting = false;
+          chatPromptIndex = (chatPromptIndex + 1) % chatPromptsList.length;
+          chatTypewriterTimer = setTimeout(runChatTypewriter, 400);
+          return;
+        }
+        chatTypewriterTimer = setTimeout(runChatTypewriter, 30);
       }
     }
 
