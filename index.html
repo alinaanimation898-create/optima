@@ -3012,7 +3012,6 @@
       }
       .cta-pretitle-block { order: 1; }
       .cta-notifications-stage { order: 2; }
-      .cta-footnote { order: 2; }
       .cta-mob-arrow { order: 3; display: flex; }
       .cta-subtitle-block { order: 4; margin-top: 0; }
       .cta-title-block { order: 5; margin-top: 24px; }
@@ -7234,11 +7233,6 @@
 
             </div>
 
-            <!-- Сноска про Instagram -->
-            <p class="cta-footnote text-[11px] text-slate-400 mt-3 text-center lg:text-left leading-relaxed max-w-[580px]">
-              *Instagram принадлежит компании Meta, деятельность которой признана экстремистской и запрещена в РФ
-            </p>
-
             <!-- 3. Стрелка вниз на мобильной версии (после уведомлений) -->
             <div class="cta-mob-arrow flex lg:hidden items-center justify-center my-1">
               <div class="blue-path-track block" style="height: 55px;">
@@ -7255,12 +7249,12 @@
           <!-- ПРАВАЯ КОЛОНКА (На мобильных: 4. Подзаголовок -> 5. Заголовок -> 6. Кнопки) -->
           <div class="cta-col-right">
             
-            <!-- Заголовок: «ИИ‑продавец / работает, пока вы / отдыхаете» (На десктопе 1, на мобильных 5) -->
+            <!-- Заголовок: «ИИ‑продавец / работает, пока / вы отдыхаете» (На десктопе 1, на мобильных 5) -->
             <div class="cta-title-block">
               <h2 class="cta-final-title font-benzin font-black uppercase tracking-tight leading-[1.05]">
                 <span class="cta-title-line-gradient cta-gradient-shimmer">ИИ&#8209;продавец</span>
-                <span class="cta-title-line-gradient cta-gradient-shimmer mt-1 sm:mt-1.5">работает, пока вы</span>
-                <span class="cta-title-line-dark mt-1 sm:mt-1.5">отдыхаете</span>
+                <span class="cta-title-line-gradient cta-gradient-shimmer mt-1 sm:mt-1.5">работает, пока</span>
+                <span class="cta-title-line-dark mt-1 sm:mt-1.5">вы отдыхаете</span>
               </h2>
             </div>
 
@@ -7271,15 +7265,11 @@
               </p>
             </div>
 
-            <!-- Кнопки (На десктопе 3, на мобильных 6) -->
+            <!-- Кнопка (На десктопе 3, на мобильных 6) -->
             <div class="cta-actions-block w-full">
               <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
-                <a href="https://t.me/altaioptima?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%D0%B0%D1%82%D1%8C%20%D1%80%D1%83%D1%82%D0%B8%D0%BD%D1%83%20%D0%98%D0%98-%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B2%D1%86%D1%83" target="_blank" class="btn-optic group shadow-xl py-4 px-10 text-sm sm:text-base font-extrabold uppercase tracking-wider rounded-2xl flex items-center justify-center gap-2 cursor-pointer text-center min-h-[56px]">
+                <a href="https://t.me/altaioptima?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%D0%B0%D1%82%D1%8C%20%D1%80%D1%83%D1%82%D0%B8%D0%BD%D1%83%20%D0%98%D0%98-%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B2%D1%86%D1%83" target="_blank" class="btn-optic group shadow-xl py-4 px-10 text-sm sm:text-base font-extrabold uppercase tracking-wider rounded-2xl flex items-center justify-center cursor-pointer text-center min-h-[56px]">
                   <span>Передать рутину ИИ&#8209;продавцу</span>
-                  <span class="btn-optic-arrow text-lg">→</span>
-                </a>
-                <a href="#psychology" class="btn-optic-outline group py-4 px-8 text-sm sm:text-base font-extrabold uppercase tracking-wider rounded-2xl flex items-center justify-center text-center cursor-pointer min-h-[56px]">
-                  <span>Проверить его в деле</span>
                 </a>
               </div>
             </div>
@@ -7290,13 +7280,19 @@
       </div>
     </section>
 
-    <!-- Тонкий неоновый световой разделитель перед футером (с достаточным воздухом) -->
-    <div class="section-neon-divider max-w-5xl mx-auto opacity-75 my-12 sm:my-16">
-      <div class="section-neon-beam" style="--divider-duration: 9s; --divider-delay: 2s;"></div>
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД К ФУТЕРУ: СТРЕЛКА К ЛОГОТИПУ В ФУТЕРЕ (С ДОСТАТОЧНЫМ ВОЗДУХОМ) -->
+    <div class="flex flex-col items-center justify-center pt-8 pb-14 sm:pt-12 sm:pb-18 relative z-20">
+      <a href="#footer-brand" class="blue-path-track block cursor-pointer" title="ALTAI OPTIMA">
+        <div class="blue-path-arrow text-sky-500">
+          <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </div>
+      </a>
     </div>
 
     <!-- 10. ФУТЕР (ПОЛНОСТЬЮ ПРОЗРАЧНЫЙ, БЕЗ ДРУГОЙ ПОДЛОЖКИ, С ЦЕНТРОВКОЙ НА МОБИЛЬНЫХ) -->
-    <footer class="pt-14 pb-20 sm:pt-20 sm:pb-24 text-slate-600 relative overflow-hidden z-20 border-t border-sky-200/50 font-inter bg-transparent">
+    <footer id="footer-brand" class="pt-10 pb-20 sm:pt-20 sm:pb-24 text-slate-600 relative overflow-hidden z-20 border-t border-sky-200/50 font-inter bg-transparent">
       
       <!-- ДЕЛИКАТНЫЙ АБРИС АЛТАЙСКИХ ГОР НА ФОНЕ ФУТЕРА -->
       <div class="absolute inset-0 pointer-events-none opacity-25 -z-10 flex items-end">

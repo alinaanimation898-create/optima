@@ -2950,7 +2950,6 @@
       }
       .cta-pretitle-block { order: 1; }
       .cta-notifications-stage { order: 2; }
-      .cta-footnote { order: 2; }
       .cta-mob-arrow { order: 3; display: flex; }
       .cta-subtitle-block { order: 4; margin-top: 0; }
       .cta-title-block { order: 5; margin-top: 24px; }
@@ -6899,11 +6898,6 @@
 
             </div>
 
-            <!-- Dipnot -->
-            <p class="cta-footnote text-[11px] text-slate-400 mt-3 text-center lg:text-left leading-relaxed max-w-[580px]">
-              *Instagram, Rusya Federasyonu'nda yasaklanmış olan Meta şirketine aittir.
-            </p>
-
             <!-- 3. Mobil aşağı ok -->
             <div class="cta-mob-arrow flex lg:hidden items-center justify-center my-1">
               <div class="blue-path-track block" style="height: 55px;">
@@ -6936,15 +6930,11 @@
               </p>
             </div>
 
-            <!-- Butonlar (Masaüstü 3, Mobil 6) -->
+            <!-- Buton (Masaüstü 3, Mobil 6) -->
             <div class="cta-actions-block w-full">
               <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
-                <a href="https://t.me/altaioptima?text=Merhaba!%20%C4%B0%C5%9Fletmem%20i%C3%A7in%20Yapay%20Zeka%20Sat%C4%B1c%C4%B1s%C4%B1n%C4%B1%20ba%C5%9Flatmak%20istiyorum" target="_blank" class="btn-optic group shadow-xl py-4 px-10 text-sm sm:text-base font-extrabold uppercase tracking-wider rounded-2xl flex items-center justify-center gap-2 cursor-pointer text-center min-h-[56px]">
+                <a href="https://t.me/altaioptima?text=Merhaba!%20%C4%B0%C5%9Fletmem%20i%C3%A7in%20Yapay%20Zeka%20Sat%C4%B1c%C4%B1s%C4%B1n%C4%B1%20ba%C5%9Flatmak%20istiyorum" target="_blank" class="btn-optic group shadow-xl py-4 px-10 text-sm sm:text-base font-extrabold uppercase tracking-wider rounded-2xl flex items-center justify-center cursor-pointer text-center min-h-[56px]">
                   <span>Rutini Yapay Zeka Satış Uzmanına devredin</span>
-                  <span class="btn-optic-arrow text-lg">→</span>
-                </a>
-                <a href="#psychology" class="btn-optic-outline group py-4 px-8 text-sm sm:text-base font-extrabold uppercase tracking-wider rounded-2xl flex items-center justify-center text-center cursor-pointer min-h-[56px]">
-                  <span>İş başında test edin</span>
                 </a>
               </div>
             </div>
@@ -6955,13 +6945,19 @@
       </div>
     </section>
 
-    
-    <div class="section-neon-divider max-w-5xl mx-auto opacity-75 my-12 sm:my-16">
-      <div class="section-neon-beam" style="--divider-duration: 9s; --divider-delay: 2s;"></div>
+    <!-- BAĞLANTI GEÇİŞİ: FOOTER LOGOSUNA DOĞRU OK (MOBİL VE MASAÜSTÜ BOŞLUK) -->
+    <div class="flex flex-col items-center justify-center pt-8 pb-14 sm:pt-12 sm:pb-18 relative z-20">
+      <a href="#footer-brand" class="blue-path-track block cursor-pointer" title="ALTAI OPTIMA">
+        <div class="blue-path-arrow text-sky-500">
+          <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </div>
+      </a>
     </div>
 
-    
-    <footer class="pt-14 pb-20 sm:pt-20 sm:pb-24 text-slate-600 relative overflow-hidden z-20 border-t border-sky-200/50 font-inter bg-transparent">
+    <!-- 10. FOOTER -->
+    <footer id="footer-brand" class="pt-10 pb-20 sm:pt-20 sm:pb-24 text-slate-600 relative overflow-hidden z-20 border-t border-sky-200/50 font-inter bg-transparent">
       
       
       <div class="absolute inset-0 pointer-events-none opacity-25 -z-10 flex items-end">
