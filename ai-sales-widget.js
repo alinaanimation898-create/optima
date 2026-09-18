@@ -7,6 +7,104 @@
 (function () {
   'use strict';
 
+
+  const currentLang = document.documentElement.lang || (window.location.pathname.includes('/tr') ? 'tr' : (window.location.pathname.includes('/en') ? 'en' : 'ru'));
+
+  const I18N = {
+    ru: {
+      assistantName: 'ALTAI Optima',
+      avatarAlt: 'Эва',
+      online: 'Онлайн',
+      close: 'Закрыть',
+      minimize: 'Свернуть',
+      reset: 'Очистить диалог',
+      teaserText: '${T.teaserText}',
+      startChat: '${T.startChat}',
+      replyTime: '${T.replyTime}',
+      inputPlaceholder: 'Задайте вопрос по установке софта...',
+      sendTitle: 'Отправить вопрос',
+      openChatAria: 'Открыть чат с ALTAI Optima',
+      welcomeTitle: 'Здравствуйте!',
+      welcomeText: 'Я персональный консультант <strong>ALTAI Optima</strong>. Помогу рассчитать сроки и стоимость установки софта, расскажу об интеграциях с вашей CRM (amoCRM, Битрикс24, 1С) и запуск под ключ.',
+      quickQuestionsTitle: '${T.quickQuestionsTitle}',
+      suggestedQuestions: [
+        '🚀 Как проходит установка софта за 3 дня?',
+        '💰 Сколько стоит настройка и ежемесячная подписка?',
+        '🔌 Как софт подключается к amoCRM, Битрикс24 и 1С?',
+        '📞 Можно ли подключить WhatsApp и телефонию?',
+        '🛡️ Что входит в тариф 50 000 ₽ под ключ?'
+      ],
+      typing: 'ИИ печатает',
+      errWait: T.errWait,
+      errServer: 'Ошибка связи с сервером',
+      defaultResponse: T.defaultResponse,
+      notice: 'Уведомление',
+      defaultError: 'Не удалось получить ответ сервера. Проверьте соединение.'
+    },
+    tr: {
+      assistantName: 'ALTAI Optima',
+      avatarAlt: 'Eva',
+      online: 'Çevrimiçi',
+      close: 'Kapat',
+      minimize: 'Küçült',
+      reset: 'Sohbeti Temizle',
+      teaserText: 'Merhaba! Yazılım kurulumu ve CRM entegrasyonları hakkındaki tüm sorularınızı yanıtlamaya hazırım 🚀',
+      startChat: 'Görüşmeye Başla →',
+      replyTime: '3 sn içinde yanıt',
+      inputPlaceholder: 'Yazılım kurulumu hakkında bir soru yazın...',
+      sendTitle: 'Soruyu Gönder',
+      openChatAria: 'ALTAI Optima ile sohbeti aç',
+      welcomeTitle: 'Merhaba!',
+      welcomeText: 'Ben <strong>ALTAI Optima</strong> kişisel danışmanıyım. Kurulum süresi ve maliyetini hesaplayabilir, CRM (amoCRM, Bitrix24, ERP) entegrasyonlarını ve anahtar teslim devreye alımı anlatabilirim.',
+      quickQuestionsTitle: 'Kurulum hakkında hızlı sorular:',
+      suggestedQuestions: [
+        '🚀 Yazılım kurulumu 3 günde nasıl gerçekleşir?',
+        '💰 Kurulum ve aylık abonelik maliyeti nedir?',
+        '🔌 amoCRM, Bitrix24 ve ERP sistemlerine nasıl bağlanır?',
+        '📞 WhatsApp ve santral entegrasyonu yapılabilir mi?',
+        '🛡️ 50.000 $ anahtar teslim pakete neler dahildir?'
+      ],
+      typing: 'Yapay zeka yazıyor',
+      errWait: 'Sunucu geçici olarak meşgul, lütfen bir dakika bekleyin.',
+      errServer: 'Sunucu bağlantı hatası',
+      defaultResponse: 'İlginiz için teşekkürler! Talebiniz uzmanlarımıza iletildi.',
+      notice: 'Bildirim',
+      defaultError: 'Sunucudan yanıt alınamadı. Lütfen internet bağlantınızı kontrol edin.'
+    },
+    en: {
+      assistantName: 'ALTAI Optima',
+      avatarAlt: 'Eva',
+      online: 'Online',
+      close: 'Close',
+      minimize: 'Minimize',
+      reset: 'Clear chat',
+      teaserText: 'Hello! I am ready to answer any questions about software setup and CRM integrations 🚀',
+      startChat: 'Start Chat →',
+      replyTime: 'Replies in 3s',
+      inputPlaceholder: 'Ask a question about software setup...',
+      sendTitle: 'Send Question',
+      openChatAria: 'Open chat with ALTAI Optima',
+      welcomeTitle: 'Hello!',
+      welcomeText: 'I am your <strong>ALTAI Optima</strong> personal consultant. I can help calculate setup timeline & costs, and explain CRM integrations and turn-key launch.',
+      quickQuestionsTitle: 'Quick questions about software setup:',
+      suggestedQuestions: [
+        '🚀 How does the 3-day software setup work?',
+        '💰 How much is setup and monthly subscription?',
+        '🔌 How does it connect to amoCRM, Bitrix24, and ERP?',
+        '📞 Can we connect WhatsApp and VoIP telephony?',
+        '🛡️ What is included in the $500 turn-key plan?'
+      ],
+      typing: 'AI is typing',
+      errWait: 'Server is temporarily busy. Please wait a minute.',
+      errServer: 'Server connection error',
+      defaultResponse: 'Thank you for reaching out! Your inquiry has been forwarded to our specialists.',
+      notice: 'Notice',
+      defaultError: 'Could not connect to the server. Please check your connection.'
+    }
+  };
+
+  const T = I18N[currentLang] || I18N.ru;
+
   const CONFIG = {
     apiBaseUrl: 'https://api.optima.altaiweb.online',
     tenantId: 'altai_optima',
@@ -15,13 +113,7 @@
     storageKeyTeaserDismissed: 'altai_ai_widget_teaser_dismissed',
     avatarUrl: 'avatar_eva.jpg',
     assistantName: 'ALTAI Optima',
-    suggestedQuestions: [
-      '🚀 Как проходит установка софта за 3 дня?',
-      '💰 Сколько стоит настройка и ежемесячная подписка?',
-      '🔌 Как софт подключается к amoCRM, Битрикс24 и 1С?',
-      '📞 Можно ли подключить WhatsApp и телефонию?',
-      '🛡️ Что входит в тариф 50 000 ₽ под ключ?'
-    ]
+    suggestedQuestions: T.suggestedQuestions
   };
 
   // State
@@ -306,24 +398,24 @@
         <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 8px;">
           <div style="display: flex; align-items: center; gap: 9px;">
             <div style="position: relative; width: 36px; height: 36px; border-radius: 50%; overflow: hidden; border: 1.5px solid #0284c7; flex-shrink: 0; box-shadow: 0 2px 6px rgba(2, 132, 199, 0.2);">
-              <img src="${CONFIG.avatarUrl}" alt="Эва" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='brand_logo.png'" />
+              <img src="${CONFIG.avatarUrl}" alt="${T.avatarAlt}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='brand_logo.png'" />
               <span style="position: absolute; bottom: 0; right: 0; width: 9px; height: 9px; background: #10b981; border: 1.5px solid #ffffff; border-radius: 50%;"></span>
             </div>
             <div>
               <div style="font-size: 12px; font-weight: 800; color: #0f172a; letter-spacing: -0.01em;">ALTAI Optima</div>
-              <div style="font-size: 10px; color: #10b981; font-weight: 600;">Онлайн</div>
+              <div style="font-size: 10px; color: #10b981; font-weight: 600;">${T.online}</div>
             </div>
           </div>
-          <button id="altaiTeaserCloseBtn" type="button" style="background: none; border: none; color: #94a3b8; font-size: 14px; cursor: pointer; padding: 2px 4px; line-height: 1; transition: color 0.2s;" onmouseover="this.style.color='#334155'" onmouseout="this.style.color='#94a3b8'" title="Закрыть">✕</button>
+          <button id="altaiTeaserCloseBtn" type="button" style="background: none; border: none; color: #94a3b8; font-size: 14px; cursor: pointer; padding: 2px 4px; line-height: 1; transition: color 0.2s;" onmouseover="this.style.color='#334155'" onmouseout="this.style.color='#94a3b8'" title="${T.close}">✕</button>
         </div>
         <p style="margin: 8px 0 0 0; font-size: 12px; line-height: 1.45; color: #334155; font-weight: 500;">
-          Здравствуйте! Готова ответить на любые вопросы по установке софта и интеграциям 🚀
+          ${T.teaserText}
         </p>
         <div style="margin-top: 8px; display: flex; align-items: center; justify-content: space-between;">
           <span style="font-size: 11px; font-weight: 700; color: #0284c7; display: flex; align-items: center; gap: 4px;">
-            Начать диалог →
+            ${T.startChat}
           </span>
-          <span style="font-size: 10px; color: #94a3b8;">Ответ за 3 сек</span>
+          <span style="font-size: 10px; color: #94a3b8;">${T.replyTime}</span>
         </div>
       </div>
 
@@ -333,7 +425,7 @@
         <div style="background: #ffffff; border-bottom: 1px solid #f1f5f9; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; box-shadow: 0 1px 3px rgba(0,0,0,0.02);">
           <div style="display: flex; align-items: center; gap: 10px;">
             <div style="position: relative; width: 40px; height: 40px; border-radius: 50%; overflow: hidden; border: 2px solid #0284c7; flex-shrink: 0; box-shadow: 0 2px 8px rgba(2, 132, 199, 0.25);">
-              <img src="${CONFIG.avatarUrl}" alt="Эва" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='brand_logo.png'" />
+              <img src="${CONFIG.avatarUrl}" alt="${T.avatarAlt}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='brand_logo.png'" />
               <span style="position: absolute; bottom: 1px; right: 1px; width: 10px; height: 10px; background: #10b981; border: 2px solid #ffffff; border-radius: 50%;"></span>
             </div>
             <div>
@@ -349,11 +441,11 @@
 
           <div style="display: flex; align-items: center; gap: 6px;">
             <!-- Reset / Clear dialogue -->
-            <button id="altaiWidgetResetBtn" type="button" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 9px; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; color: #64748b; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#f1f5f9'; this.style.color='#0f172a';" onmouseout="this.style.background='#f8fafc'; this.style.color='#64748b';" title="Очистить диалог">
+            <button id="altaiWidgetResetBtn" type="button" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 9px; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; color: #64748b; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#f1f5f9'; this.style.color='#0f172a';" onmouseout="this.style.background='#f8fafc'; this.style.color='#64748b';" title="${T.reset}">
               <svg style="width: 14px; height: 14px; fill: currentColor;" viewBox="0 0 24 24"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
             </button>
             <!-- Close / Minimize -->
-            <button id="altaiWidgetCloseBtn" type="button" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 9px; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; color: #64748b; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#f1f5f9'; this.style.color='#0f172a';" onmouseout="this.style.background='#f8fafc'; this.style.color='#64748b';" title="Свернуть">
+            <button id="altaiWidgetCloseBtn" type="button" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 9px; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; color: #64748b; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#f1f5f9'; this.style.color='#0f172a';" onmouseout="this.style.background='#f8fafc'; this.style.color='#64748b';" title="${T.minimize}">
               <span style="font-size: 14px; line-height: 1;">✕</span>
             </button>
           </div>
@@ -371,7 +463,7 @@
               <input 
                 id="altaiWidgetInput" 
                 type="text" 
-                placeholder="Задайте вопрос по установке софта..." 
+                placeholder="${T.inputPlaceholder}" 
                 autocomplete="off" 
                 style="width: 100%; background: transparent; border: none; outline: none; font-size: 12.5px; color: #0f172a; padding: 8px 0; font-family: inherit;"
               />
@@ -382,7 +474,7 @@
               style="width: 38px; height: 38px; border-radius: 14px; background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); border: none; color: #ffffff; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; box-shadow: 0 3px 10px rgba(2, 132, 199, 0.3); transition: all 0.2s;"
               onmouseover="this.style.filter='brightness(1.1)'"
               onmouseout="this.style.filter='none'"
-              title="Отправить вопрос"
+              title="${T.sendTitle}"
             >
               <svg style="width: 16px; height: 16px; fill: currentColor; margin-left: 2px;" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
             </button>
@@ -391,13 +483,13 @@
       </div>
 
       <!-- Floating Action Button (FAB Launcher) -->
-      <button id="altaiWidgetLauncher" type="button" class="altai-widget-launcher" aria-label="Открыть чат с ALTAI Optima">
+      <button id="altaiWidgetLauncher" type="button" class="altai-widget-launcher" aria-label="${T.openChatAria}">
         <div class="altai-widget-pulse-ring"></div>
         
         <!-- Closed state icon (Eva's avatar + chat icon) -->
         <div id="altaiLauncherIconClosed" style="position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
           <div style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; border: 1.5px solid rgba(255,255,255,0.95); box-shadow: inset 0 0 4px rgba(0,0,0,0.2);">
-            <img src="${CONFIG.avatarUrl}" alt="Эва" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='brand_logo.png'" />
+            <img src="${CONFIG.avatarUrl}" alt="${T.avatarAlt}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='brand_logo.png'" />
           </div>
           <!-- Online green dot -->
           <span style="position: absolute; top: 4px; right: 4px; width: 13px; height: 13px; background: #10b981; border: 2.5px solid #ffffff; border-radius: 50%; box-shadow: 0 1px 3px rgba(0,0,0,0.2);"></span>
@@ -439,17 +531,14 @@
           <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 18px; padding: 14px; color: #0f172a; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
             <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
               <span style="font-size: 18px;">👋</span>
-              <span style="font-size: 13px; font-weight: 700; color: #0f172a;">Здравствуйте!</span>
+              <span style="font-size: 13px; font-weight: 700; color: #0f172a;">${T.welcomeTitle}</span>
             </div>
-            <p style="font-size: 12px; line-height: 1.5; color: #334155; margin: 0;">
-              Я персональный консультант <strong>ALTAI Optima</strong>.
-              Помогу рассчитать сроки и стоимость установки софта, расскажу об интеграциях с вашей CRM (amoCRM, Битрикс24, 1С) и запуск под ключ.
-            </p>
+            <p style="font-size: 12px; line-height: 1.5; color: #334155; margin: 0;">${T.welcomeText}</p>
           </div>
 
           <div>
             <div style="font-size: 10.5px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; padding-left: 2px;">
-              Быстрые вопросы по установке софта:
+              ${T.quickQuestionsTitle}
             </div>
             <div style="display: flex; flex-direction: column; gap: 6px;">
               ${CONFIG.suggestedQuestions.map(q => `
@@ -491,7 +580,7 @@
         html += `
           <div style="display: flex; justify-content: flex-start; gap: 8px; animation: fadeIn 0.2s ease-out;">
             <div style="width: 28px; height: 28px; border-radius: 50%; overflow: hidden; border: 1.5px solid #0284c7; flex-shrink: 0; margin-top: 2px;">
-              <img src="${CONFIG.avatarUrl}" alt="Эва" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='brand_logo.png'" />
+              <img src="${CONFIG.avatarUrl}" alt="${T.avatarAlt}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='brand_logo.png'" />
             </div>
             <div style="max-width: 85%; background: #ffffff; border: 1px solid #e2e8f0; color: #0f172a; border-radius: 18px 18px 18px 4px; padding: 10px 14px; font-size: 12px; line-height: 1.5; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
               <div style="font-size: 10px; font-weight: 800; color: #0284c7; text-transform: uppercase; margin-bottom: 4px; letter-spacing: 0.02em;">
@@ -535,10 +624,10 @@
     const typingHtml = `
       <div id="altaiWidgetTyping" style="display: flex; justify-content: flex-start; gap: 8px; animation: fadeIn 0.2s ease-out;">
         <div style="width: 28px; height: 28px; border-radius: 50%; overflow: hidden; border: 1.5px solid #0284c7; flex-shrink: 0; margin-top: 2px;">
-          <img src="${CONFIG.avatarUrl}" alt="Эва" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='brand_logo.png'" />
+          <img src="${CONFIG.avatarUrl}" alt="${T.avatarAlt}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='brand_logo.png'" />
         </div>
         <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px 16px 16px 4px; padding: 10px 14px; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
-          <span style="font-size: 11px; font-weight: 700; color: #0284c7;">ИИ печатает</span>
+          <span style="font-size: 11px; font-weight: 700; color: #0284c7;">${T.typing}</span>
           <div style="display: flex; align-items: center; gap: 3px;">
             <span class="altai-typing-dot" style="width: 5px; height: 5px; border-radius: 50%; background: #0284c7; animation-delay: 0s;"></span>
             <span class="altai-typing-dot" style="width: 5px; height: 5px; border-radius: 50%; background: #0284c7; animation-delay: 0.2s;"></span>
@@ -601,11 +690,11 @@
       removeTypingIndicator();
 
       if (res.status === 429) {
-        throw new Error('Сервер временно перегружен запросами. Пожалуйста, подождите минуту.');
+        throw new Error(T.errWait);
       }
 
       if (!res.ok) {
-        throw new Error(`Ошибка связи с сервером (${res.status})`);
+        throw new Error(`${T.errServer} (${res.status})`);
       }
 
       const data = await res.json();
@@ -613,7 +702,7 @@
         sessionId = data.session_id;
       }
 
-      const aiResponseText = data.assistant_response || data.response || 'Спасибо за обращение! Ваш вопрос передан специалистам по внедрению.';
+      const aiResponseText = data.assistant_response || data.response || T.defaultResponse;
       const aiTimeStr = new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
 
       messages.push({
@@ -629,7 +718,7 @@
       const errTime = new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
       messages.push({
         role: 'assistant',
-        text: `⚠️ *Уведомление:* ${err.message || 'Не удалось получить ответ сервера. Проверьте соединение.'}`,
+        text: `⚠️ *${T.notice}:* ${err.message || T.defaultError}`,
         time: errTime
       });
       saveState();
