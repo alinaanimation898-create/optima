@@ -7024,7 +7024,7 @@
               
               <div id="cfgStandardPrices" class="space-y-1 pb-1 transition-all duration-200">
                 <div class="flex items-baseline gap-1.5 text-xl sm:text-2xl font-black text-white font-inter">
-                  <span id="setupTotal">50&nbsp;000</span> <span class="text-sky-400 font-bold text-sm">₽</span>
+                  <span id="setupTotal">700</span> <span class="text-sky-400 font-bold text-sm">€</span>
                   <span class="text-xs text-slate-300 font-medium ml-1">kurulum</span>
                 </div>
                 <div class="flex items-baseline gap-1.5 text-xl sm:text-2xl font-black text-emerald-400 font-inter">
@@ -8471,7 +8471,7 @@
         {
           delay: 2500,
           action: () => {
-            budgetEl.textContent = '3 4700 €';
+            budgetEl.textContent = '48.000 €';
             budgetEl.classList.add('text-emerald-700');
             if (counterEl) counterEl.textContent = "8 zorunlu alandan 4'ü dolduruldu";
           }
@@ -10013,10 +10013,10 @@
               priceContent = `<span class="cfg-badge-included">dahil</span>`;
               priceClass += ' visible';
             } else if (isExtraActive) {
-              priceContent = `<span class="cfg-price-val">+${formatPrice(c.setup)}\u00A0₽</span>`;
+              priceContent = `<span class="cfg-price-val">+${formatPrice(c.setup)}\u00A0€</span>`;
               priceClass += ' visible';
             } else {
-              priceContent = `<span class="cfg-price-val">+${formatPrice(c.setup)}\u00A0₽</span>`;
+              priceContent = `<span class="cfg-price-val">+${formatPrice(c.setup)}\u00A0€</span>`;
             }
 
             return `
@@ -10071,7 +10071,7 @@
                 priceSlot.innerHTML = `<span class="cfg-badge-included">dahil</span>`;
                 priceSlot.classList.add('visible');
               } else if (isExtraActive) {
-                priceSlot.innerHTML = `<span class="cfg-price-val">+${formatPrice(c.setup)}\u00A0₽</span>`;
+                priceSlot.innerHTML = `<span class="cfg-price-val">+${formatPrice(c.setup)}\u00A0€</span>`;
                 priceSlot.classList.add('visible');
               } else {
                 priceSlot.classList.remove('visible');
@@ -10092,7 +10092,7 @@
                 </div>
                 <div class="cfg-row-right">
                   <div class="cfg-price-slot visible">
-                    <span class="cfg-price-val">+${formatPrice(it.setup)}\u00A0₽</span>
+                    <span class="cfg-price-val">+${formatPrice(it.setup)}\u00A0€</span>
                   </div>
                   <label class="cfg-switch">
                     <input type="checkbox" data-group="${group}" data-id="${it.id}" ${isChecked ? 'checked' : ''}>
@@ -10198,7 +10198,7 @@ Projeyi görüşmek istiyorum!`;
           let tableRows = [];
           tableRows.push({
             name: 'Temel (1 kanal + tablo)',
-            setupStr: '50\u00A0000\u00A0₽',
+            setupStr: '700\u00A0€',
             monthlyStr: '210\u00A0€/ay'
           });
 
@@ -10375,6 +10375,6 @@ Projeyi görüşmek istiyorum!`;
   </script>
 
   
-  <script src="../ai-sales-widget.js?v=2.1"></script>
+  <script src="ai-sales-widget.js?v=2.1"></script>
 </body>
 </html>
