@@ -3986,7 +3986,7 @@
         <a href="#constructor" class="ruble-neon-pill group relative inline-flex items-center justify-center p-[1.5px] rounded-full overflow-hidden transition-transform duration-200 hover:scale-110 active:scale-95 shrink-0" title="Tarife Sihirbazı">
           <span class="ruble-beam-spin absolute inset-[-120%] rounded-full pointer-events-none"></span>
           <span class="relative z-10 flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/90 group-hover:bg-sky-50 text-sky-600 group-hover:text-sky-700 font-extrabold text-xs sm:text-sm shadow-xs transition-colors">
-            $
+            €
           </span>
         </a>
         <span class="text-slate-300 select-none">•</span>
@@ -4311,11 +4311,11 @@
               <div class="text-[11px] sm:text-xs text-sky-200/80 font-medium mt-0.5 leading-tight">kurulum</div>
             </div>
             <div class="flex flex-col justify-center sm:border-l sm:border-white/10 sm:pl-4">
-              <div class="text-sm sm:text-base md:text-[16px] font-black text-white tracking-tight leading-tight whitespace-nowrap">50.000&nbsp;$'dan</div>
+              <div class="text-sm sm:text-base md:text-[16px] font-black text-white tracking-tight leading-tight whitespace-nowrap">700&nbsp;€'dan</div>
               <div class="text-[11px] sm:text-xs text-sky-200/80 font-medium mt-0.5 leading-tight">kurulum</div>
             </div>
             <div class="flex flex-col justify-center sm:border-l sm:border-white/10 sm:pl-4">
-              <div class="text-sm sm:text-base md:text-[16px] font-black text-white tracking-tight leading-tight whitespace-nowrap">15.000&nbsp;$/ay'dan</div>
+              <div class="text-sm sm:text-base md:text-[16px] font-black text-white tracking-tight leading-tight whitespace-nowrap">210&nbsp;€/ay'dan</div>
               <div class="text-[11px] sm:text-xs text-sky-200/80 font-medium mt-0.5 leading-tight">abonelik</div>
             </div>
           </div>
@@ -5286,7 +5286,7 @@
             card.style.width = "170px";
             card.style.height = "244px";
             card.style.background = b.gradient;
-            card.style.border = `1.5px solid ${b.border}55`;
+            card.style.border = `1.5px solid €{b.border}55`;
             card.style.boxShadow = `0 15px 35px -10px rgba(0,0,0,0.6), inset 5px 0 15px -3px rgba(255,255,255,0.15), inset -5px 0 15px -3px rgba(0,0,0,0.5)`;
             card.dataset.index = i;
 
@@ -5294,30 +5294,30 @@
               <div class="relative z-10 flex flex-col h-full justify-between text-white pointer-events-none">
                 <div>
                   <h4 class="text-base sm:text-lg font-extrabold leading-snug text-white mt-2 drop-shadow-sm">
-                    ${b.title}
+                    €{b.title}
                   </h4>
                 </div>
                 
                 <div class="pt-3 border-t border-white/15">
-                  <p class="text-xs font-semibold drop-shadow-sm" style="color: ${b.accent};">
-                    ${b.author}
+                  <p class="text-xs font-semibold drop-shadow-sm" style="color: €{b.accent};">
+                    €{b.author}
                   </p>
                   <p class="text-[10px] text-slate-400 font-mono mt-0.5">
-                    ${b.category}
+                    €{b.category}
                   </p>
                 </div>
               </div>
               
-              <div class="absolute left-0 top-0 bottom-0 w-3 rounded-l-2xl" style="background: linear-gradient(to right, ${b.spine}, rgba(255,255,255,0.2) 50%, ${b.spine});"></div>
+              <div class="absolute left-0 top-0 bottom-0 w-3 rounded-l-2xl" style="background: linear-gradient(to right, €{b.spine}, rgba(255,255,255,0.2) 50%, €{b.spine});"></div>
               
-              <div class="book-neon-glow absolute inset-0 rounded-2xl pointer-events-none transition-opacity duration-300 opacity-0" style="box-shadow: inset 0 0 20px ${b.border}, 0 0 30px ${b.border}99; border: 2px solid ${b.border};"></div>
+              <div class="book-neon-glow absolute inset-0 rounded-2xl pointer-events-none transition-opacity duration-300 opacity-0" style="box-shadow: inset 0 0 20px €{b.border}, 0 0 30px €{b.border}99; border: 2px solid €{b.border};"></div>
             `;
 
             card.addEventListener("mouseenter", () => {
               const glow = card.querySelector(".book-neon-glow");
               if (glow) glow.style.opacity = "1";
               card.style.borderColor = b.border;
-              card.style.boxShadow = `0 20px 45px -5px ${b.border}77, 0 0 35px ${b.border}55, inset 0 0 15px ${b.border}44`;
+              card.style.boxShadow = `0 20px 45px -5px €{b.border}77, 0 0 35px €{b.border}55, inset 0 0 15px €{b.border}44`;
             });
 
             card.addEventListener("mouseleave", () => {
@@ -5325,7 +5325,7 @@
               if (glow) glow.style.opacity = (i === activeIndex) ? "0.8" : "0";
               if (i === activeIndex) {
                 card.style.borderColor = b.border;
-                card.style.boxShadow = `0 20px 45px -10px ${b.border}66, 0 0 25px ${b.border}44, inset 0 0 20px -5px ${b.border}33`;
+                card.style.boxShadow = `0 20px 45px -10px €{b.border}66, 0 0 25px €{b.border}44, inset 0 0 20px -5px €{b.border}33`;
               } else {
                 card.style.borderColor = `${b.border}44`;
                 card.style.boxShadow = `0 10px 25px -10px rgba(0,0,0,0.5)`;
@@ -5351,7 +5351,7 @@
             const dot = document.createElement("button");
             dot.type = "button";
             dot.className = "w-2.5 h-2.5 rounded-full transition-all duration-300 bg-slate-300 hover:bg-sky-400";
-            dot.setAttribute("aria-label", `Kitap ${i + 1}`);
+            dot.setAttribute("aria-label", `Kitap €{i + 1}`);
             dot.addEventListener("click", () => {
               setActiveBook(i);
               resetAutoRotate();
@@ -5366,7 +5366,7 @@
             const btn = document.createElement("button");
             btn.type = "button";
             btn.className = "quick-book-chip px-2 py-1 rounded-lg text-[10px] font-mono font-bold transition-all duration-200 border border-slate-200 bg-white text-slate-600 hover:text-slate-900 shadow-2xs flex items-center justify-center gap-1";
-            btn.innerHTML = `<span class="w-1.5 h-1.5 rounded-full" style="background: ${b.border};"></span><span>#${b.id}</span>`;
+            btn.innerHTML = `<span class="w-1.5 h-1.5 rounded-full" style="background: €{b.border};"></span><span>#${b.id}</span>`;
             btn.title = `${b.title} (${b.author})`;
             btn.addEventListener("click", () => {
               setActiveBook(i);
@@ -5375,7 +5375,7 @@
 
             btn.addEventListener("mouseenter", () => {
               btn.style.borderColor = b.border;
-              btn.style.boxShadow = `0 0 12px ${b.border}66`;
+              btn.style.boxShadow = `0 0 12px €{b.border}66`;
             });
             btn.addEventListener("mouseleave", () => {
               if (i !== activeIndex) {
@@ -5420,7 +5420,7 @@
 
               if (diff === 0) {
                 card.style.borderColor = books[i].border;
-                card.style.boxShadow = `0 20px 45px -10px ${books[i].border}66, 0 0 25px ${books[i].border}44, inset 0 0 20px -5px ${books[i].border}33`;
+                card.style.boxShadow = `0 20px 45px -10px €{books[i].border}66, 0 0 25px €{books[i].border}44, inset 0 0 20px -5px €{books[i].border}33`;
                 if (glow) glow.style.opacity = "0.7";
               } else {
                 card.style.borderColor = `${books[i].border}44`;
@@ -5453,7 +5453,7 @@
                 chips[i].style.borderColor = books[i].border;
                 chips[i].style.background = "#0f172a";
                 chips[i].style.color = "#ffffff";
-                chips[i].style.boxShadow = `0 0 14px ${books[i].border}77`;
+                chips[i].style.boxShadow = `0 0 14px €{books[i].border}77`;
               } else {
                 chips[i].style.borderColor = "";
                 chips[i].style.background = "#ffffff";
@@ -5481,7 +5481,7 @@
             if (titleEl) titleEl.textContent = `«${b.title}»`;
             if (quoteBookTitleEl) quoteBookTitleEl.textContent = b.title;
             if (downloadBtnBookTitleEl) downloadBtnBookTitleEl.textContent = `«${b.title}»`;
-            if (authorEl) authorEl.textContent = `Yazar: ${b.author}`;
+            if (authorEl) authorEl.textContent = `Yazar: €{b.author}`;
             if (catEl) catEl.textContent = b.category;
             if (badgeEl) badgeEl.textContent = b.badge;
             if (quoteEl) quoteEl.textContent = b.quote;
@@ -5834,7 +5834,7 @@
                     </div>
                     <div class="flex items-baseline justify-between">
                       <span class="text-slate-500 font-medium">Maaş:</span>
-                      <span class="font-bold text-slate-900 font-inter">50.000 $'dan başlayan</span>
+                      <span class="font-bold text-slate-900 font-inter">700 €'dan başlayan</span>
                     </div>
                   </div>
                 </div>
@@ -6139,13 +6139,13 @@
                   <div class="grid grid-cols-2 gap-2 text-left">
                     <div>
                       <span class="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500 block">Öncesi</span>
-                      <div class="font-black text-slate-900 text-sm sm:text-base md:text-lg font-inter mt-0.5">110.000 $</div>
+                      <div class="font-black text-slate-900 text-sm sm:text-base md:text-lg font-inter mt-0.5">110.000 €</div>
                       <div class="text-[9px] sm:text-[10px] text-slate-500 font-sans mt-0.5">4 satış / ay</div>
                     </div>
                     <div class="border-l border-sky-100 pl-2.5 sm:pl-3">
                       <span class="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-700 block">Sonrası</span>
-                      <div class="font-black text-emerald-700 text-sm sm:text-base md:text-lg font-inter mt-0.5">245.000 $</div>
-                      <div class="text-[9px] sm:text-[10px] text-emerald-800 font-medium font-sans mt-0.5">+135.000 $ (9 satış)</div>
+                      <div class="font-black text-emerald-700 text-sm sm:text-base md:text-lg font-inter mt-0.5">245.000 €</div>
+                      <div class="text-[9px] sm:text-[10px] text-emerald-800 font-medium font-sans mt-0.5">+135.000 € (9 satış)</div>
                     </div>
                   </div>
                 </div>
@@ -6188,13 +6188,13 @@
                   <div class="grid grid-cols-2 gap-2 text-left">
                     <div>
                       <span class="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500 block">Öncesi</span>
-                      <div class="font-black text-slate-900 text-sm sm:text-base md:text-lg font-inter mt-0.5">15.500 $</div>
+                      <div class="font-black text-slate-900 text-sm sm:text-base md:text-lg font-inter mt-0.5">15.500 €</div>
                       <div class="text-[9px] sm:text-[10px] text-slate-500 font-sans mt-0.5">online / ay</div>
                     </div>
                     <div class="border-l border-cyan-100 pl-2.5 sm:pl-3">
                       <span class="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-700 block">Sonrası</span>
-                      <div class="font-black text-emerald-700 text-sm sm:text-base md:text-lg font-inter mt-0.5">31.500 $</div>
-                      <div class="text-[9px] sm:text-[10px] text-emerald-800 font-medium font-sans mt-0.5">+16.000 $ (+%104)</div>
+                      <div class="font-black text-emerald-700 text-sm sm:text-base md:text-lg font-inter mt-0.5">31.500 €</div>
+                      <div class="text-[9px] sm:text-[10px] text-emerald-800 font-medium font-sans mt-0.5">+16.000 € (+%104)</div>
                     </div>
                   </div>
                 </div>
@@ -6237,13 +6237,13 @@
                   <div class="grid grid-cols-2 gap-2 text-left">
                     <div>
                       <span class="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500 block">Öncesi</span>
-                      <div class="font-black text-slate-900 text-sm sm:text-base md:text-lg font-inter mt-0.5">45.000 $</div>
+                      <div class="font-black text-slate-900 text-sm sm:text-base md:text-lg font-inter mt-0.5">45.000 €</div>
                       <div class="text-[9px] sm:text-[10px] text-slate-500 font-sans mt-0.5">aylık</div>
                     </div>
                     <div class="border-l border-blue-100 pl-2.5 sm:pl-3">
                       <span class="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-700 block">Sonrası</span>
-                      <div class="font-black text-emerald-700 text-sm sm:text-base md:text-lg font-inter mt-0.5">95.000 $</div>
-                      <div class="text-[9px] sm:text-[10px] text-emerald-800 font-medium font-sans mt-0.5">+50.000 $ (+%112)</div>
+                      <div class="font-black text-emerald-700 text-sm sm:text-base md:text-lg font-inter mt-0.5">95.000 €</div>
+                      <div class="text-[9px] sm:text-[10px] text-emerald-800 font-medium font-sans mt-0.5">+50.000 € (+%112)</div>
                     </div>
                   </div>
                 </div>
@@ -6286,13 +6286,13 @@
                   <div class="grid grid-cols-2 gap-2 text-left">
                     <div>
                       <span class="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500 block">Öncesi</span>
-                      <div class="font-black text-slate-900 text-sm sm:text-base md:text-lg font-inter mt-0.5">25.000 $</div>
+                      <div class="font-black text-slate-900 text-sm sm:text-base md:text-lg font-inter mt-0.5">25.000 €</div>
                       <div class="text-[9px] sm:text-[10px] text-slate-500 font-sans mt-0.5">aylık</div>
                     </div>
                     <div class="border-l border-slate-200/90 pl-2.5 sm:pl-3">
                       <span class="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-700 block">Sonrası</span>
-                      <div class="font-black text-emerald-700 text-sm sm:text-base md:text-lg font-inter mt-0.5">48.000 $</div>
-                      <div class="text-[9px] sm:text-[10px] text-emerald-800 font-medium font-sans mt-0.5">+23.000 $ (+%92)</div>
+                      <div class="font-black text-emerald-700 text-sm sm:text-base md:text-lg font-inter mt-0.5">48.000 €</div>
+                      <div class="text-[9px] sm:text-[10px] text-emerald-800 font-medium font-sans mt-0.5">+23.000 € (+%92)</div>
                     </div>
                   </div>
                 </div>
@@ -6498,23 +6498,23 @@
                       Ortalama sipariş tutarı
                     </label>
                     <div class="calc-value-badge flex items-center bg-white px-2.5 py-0.5 rounded-lg border border-slate-200 shadow-2xs shrink-0 focus-within:border-sky-500 focus-within:ring-2 focus-within:ring-sky-100" id="badge_checkRange">
-                      <input type="text" id="checkDirectInput" value="30&nbsp;000" class="w-20 sm:w-24 text-right font-black text-slate-950 text-base sm:text-lg outline-none bg-transparent tabular-nums p-0" oninput="handleCheckDirectInput(this)">
-                      <span class="text-[11px] font-bold text-slate-400 ml-1 select-none">$</span>
+                      <input type="text" id="checkDirectInput" value="400" class="w-20 sm:w-24 text-right font-black text-slate-950 text-base sm:text-lg outline-none bg-transparent tabular-nums p-0" oninput="handleCheckDirectInput(this)">
+                      <span class="text-[11px] font-bold text-slate-400 ml-1 select-none">€</span>
                     </div>
                   </div>
 
                   <div class="flex items-center gap-2 pt-0.5">
-                    <button type="button" onclick="adjustCalcValue('checkRange', -1000)" aria-label="Tutarı azalt" class="calc-step-btn">−</button>
+                    <button type="button" onclick="adjustCalcValue('checkRange', -10)" aria-label="Tutarı azalt" class="calc-step-btn">−</button>
                     <div class="flex-1 flex flex-col">
-                      <input type="range" id="checkRange" min="1000" max="1000000" step="1000" value="30000" oninput="syncCalcInput('checkRange', 'checkDirectInput')" class="calc-range-slider w-full">
+                      <input type="range" id="checkRange" min="20" max="10000" step="10" value="400" oninput="syncCalcInput('checkRange', 'checkDirectInput')" class="calc-range-slider w-full">
                       <div class="flex justify-between text-[10px] text-slate-400 font-mono select-none px-0.5 mt-2">
-                        <span>1&nbsp;000&nbsp;$</span>
-                        <span>1&nbsp;000&nbsp;000&nbsp;$</span>
+                        <span>20&nbsp;€</span>
+                        <span>10.000&nbsp;€</span>
                       </div>
                     </div>
-                    <button type="button" onclick="adjustCalcValue('checkRange', 1000)" aria-label="Tutarı artır" class="calc-step-btn">+</button>
+                    <button type="button" onclick="adjustCalcValue('checkRange', 10)" aria-label="Tutarı artır" class="calc-step-btn">+</button>
                   </div>
-                  <input type="hidden" id="checkInput" value="30000">
+                  <input type="hidden" id="checkInput" value="400">
                 </div>
 
                 
@@ -6547,12 +6547,12 @@
                   </div>
                   
                   <div id="monthVal" class="calc-result-glow text-3xl sm:text-4xl md:text-[44px] font-black tracking-tight font-inter leading-none text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-teal-300 to-emerald-400 py-1 tabular-nums whitespace-nowrap">
-                    120&nbsp;000&nbsp;$
+                    1.600&nbsp;€
                   </div>
 
                   
                   <div id="calcFormulaBreakdown" class="text-xs sm:text-[12.5px] text-slate-300/90 leading-relaxed font-normal pt-1">
-                    Şu an: 200&nbsp;talep × %10 × 30.000&nbsp;$ = 600.000&nbsp;$&nbsp;/ay. Hızlı yanıt kaçırılan satışların yaklaşık %20'sini geri kazandırır.
+                    Şu an: 200&nbsp;talep × %10 × 400&nbsp;€ = 8.000&nbsp;€ /ay. Hızlı yanıt kaçırılan satışların yaklaşık %20'sini geri kazandırır.
                   </div>
                 </div>
 
@@ -6565,7 +6565,7 @@
                       <span>Yapay zeka satıcısının maliyeti</span>
                     </div>
                     <div class="text-xs sm:text-sm md:text-base font-bold text-white font-inter tracking-tight mt-1 whitespace-nowrap">
-                      15.000&nbsp;$&nbsp;/ay
+                      210&nbsp;€/ay
                     </div>
                   </div>
 
@@ -6587,7 +6587,7 @@
                     Yıllık net kazanç
                   </div>
                   <div id="yearVal" class="calc-result-glow font-black text-emerald-400 text-xl sm:text-2xl md:text-3xl font-inter tracking-tight tabular-nums whitespace-nowrap">
-                    +1&nbsp;225&nbsp;000&nbsp;$
+                    +16.190&nbsp;€
                   </div>
                   <div id="yearNetWarning" class="hidden text-xs sm:text-[13px] text-amber-200/90 leading-snug font-normal py-0.5">
                     Bu rakamlarla yapay zeka satıcısı amorti etmeyebilir. Bize yazın - işinize en uygun çözümü sunalım
@@ -6620,7 +6620,7 @@
     <div id="calcMobileStickyBar" class="fixed bottom-0 inset-x-0 z-40 bg-[#0b1928]/95 backdrop-blur-md border-t border-sky-500/30 px-4 py-2.5 shadow-[0_-8px_25px_rgba(0,0,0,0.4)] transition-all duration-300 transform translate-y-full md:hidden flex items-center justify-between pointer-events-auto">
       <div class="flex flex-col">
         <span class="text-[10.5px] uppercase font-bold text-slate-400 leading-tight">Kaçırılan:</span>
-        <span id="mobCalcGainVal" class="text-base font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-emerald-400 tabular-nums">120.000&nbsp;$/ay</span>
+        <span id="mobCalcGainVal" class="text-base font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-emerald-400 tabular-nums">120&nbsp;000&nbsp;€/ay</span>
       </div>
       <button type="button" onclick="document.getElementById('calcResultCard')?.scrollIntoView({behavior:'smooth'})" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold text-xs shadow-md active:scale-95 flex items-center gap-1 cursor-pointer">
         <span>Sonuç</span>
@@ -6648,7 +6648,7 @@
           SATIŞ TEMSİLCİSİNE GÖRE<br class="hidden sm:inline"> 4,5 KAT DAHA EKONOMİK
         </h2>
         <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
-          Kadrolu temsilci: yıllık ~$960.000, Yapay zeka: $215.000'dan başlayan fiyatlarla
+          Kadrolu temsilci: yıllık ~13.500 €, Yapay zeka: 3.010 €'dan başlayan fiyatlarla
         </p>
       </div>
 
@@ -6659,10 +6659,10 @@
         <div class="sm:hidden flex items-center justify-between px-4 py-2.5 bg-gradient-to-r from-emerald-50 via-sky-50 to-emerald-50 border-b border-slate-200/80 text-[11px] text-slate-700 font-medium">
           <span class="flex items-center gap-1.5 font-semibold text-emerald-900">
             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>Tabloyu kaydırın</span>
+            <span>Tablo kaydırılabilir</span>
           </span>
           <span class="flex items-center gap-1 font-bold text-emerald-700 animate-bounce-x">
-            <span>sağa, AI Satıcıya</span>
+            <span>sağa, Yapay Zeka Satıcısına doğru</span>
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
           </span>
         </div>
@@ -6674,7 +6674,7 @@
           </button>
           <button type="button" id="colTabAI" onclick="scrollTableToCol(1)" class="text-xs px-3.5 py-1 rounded-full font-black border border-emerald-400 bg-emerald-100 text-emerald-950 transition-all active:scale-95 shadow-xs flex items-center gap-1">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
-            <span>AI Satıcı →</span>
+            <span>Yapay Zeka Satıcısı →</span>
           </button>
         </div>
 
@@ -6716,11 +6716,11 @@
                   Aylık maliyet
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-rose-700 font-bold bg-white border-r-2 border-slate-200">
-                  78.000 $'dan başlayan
-                  <span class="text-[11px] text-slate-500 font-normal block mt-0.5">(50.000 $ net maaş + ~22.000 $ vergi & sigorta + ~6.000 $ yazılım & telefon)</span>
+                  ~1.100 €/ay
+                  <span class="text-[11px] text-slate-500 font-normal block mt-0.5">(700 € net maaş + ~300 € vergi & sigorta + ~100 € yazılım & telefon)</span>
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-black text-emerald-700 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  15.000 $'dan başlayan
+                  210 €/ay
                   <span class="text-[11px] text-emerald-800 font-medium block mt-0.5">(abonelik, her şey dahil)</span>
                 </td>
               </tr>
@@ -6743,7 +6743,7 @@
               
               <tr class="hover:bg-slate-50/40 transition-colors">
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-900 bg-slate-50/70 border-r border-slate-200">
-                  Hastalık İzni, Yıllık İzin, İstifalar
+                  Hastalık, izin ve ayrılma süreçleri
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-700 bg-white border-r-2 border-slate-200">
                   Maliyet size aittir, ayrıldığında yeni personel arayıp eğitirsiniz
@@ -6772,11 +6772,11 @@
                   Kurulum & Entegrasyon
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-700 bg-white border-r-2 border-slate-200">
-                  <span class="font-bold text-rose-700">25.000 $'dan başlayan</span> ve 1-2 ay
+                  <span class="font-bold text-rose-700">350 €</span> ve 1-2 ay
                   <span class="text-[11px] text-slate-500 block font-normal mt-0.5">(ilan, mülakatlar, staj süreci, eğitim maliyetleri)</span>
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-black text-emerald-700 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  50.000 $ ve 3 günden başlayan
+                  700 € ve 3 günden başlayan
                   <span class="text-[11px] text-emerald-800 font-medium block mt-0.5">(ürünlerinize ve satış dinamiklerinize göre ince ayar)</span>
                 </td>
               </tr>
@@ -6829,10 +6829,10 @@
                   Yıllık toplam
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-bold text-slate-800 bg-white border-r-2 border-slate-200">
-                  ~960&nbsp;000&nbsp;$
+                  ~960&nbsp;000&nbsp;€
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 font-black text-emerald-700 bg-emerald-100/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  215.000 $'dan başlayan
+                  3.010 €'dan başlayan
                 </td>
               </tr>
 
@@ -6851,7 +6851,7 @@
         <div class="green-path-track block relative mx-auto" style="height: 80px;">
           <div class="green-ruble-arrow flex flex-col items-center">
             <div class="w-7 h-7 rounded-full bg-gradient-to-b from-emerald-600 to-emerald-900 text-white flex items-center justify-center font-bold text-xs shadow-[0_0_16px_rgba(4,120,87,0.7)] border border-white/90 font-inter">
-              $
+              €
             </div>
             <svg class="w-4 h-4 text-emerald-800 -mt-1 drop-shadow-[0_0_6px_rgba(4,120,87,0.8)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path>
@@ -6861,27 +6861,27 @@
           
           <div class="ruble-scatter-field" style="height: 340px;">
             
-            <div class="scatter-coin w-6 h-6 text-[10px]" style="--cx: -240px; --cy: 140px; --cr: -55deg; --sway: -15px; animation-delay: 0.05s;">$</div>
-            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: -180px; --cy: 165px; --cr: -40deg; --sway: 18px; animation-delay: 0.25s;">$</div>
-            <div class="scatter-coin w-6 h-6 text-[11px]" style="--cx: -130px; --cy: 145px; --cr: -30deg; --sway: -12px; animation-delay: 0.45s;">$</div>
-            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: -80px; --cy: 175px; --cr: -20deg; --sway: 15px; animation-delay: 0.65s;">$</div>
-            <div class="scatter-coin w-6 h-6 text-[10px]" style="--cx: -210px; --cy: 195px; --cr: -60deg; --sway: 20px; animation-delay: 1.05s;">$</div>
-            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: -120px; --cy: 185px; --cr: -35deg; --sway: -16px; animation-delay: 0.35s;">$</div>
+            <div class="scatter-coin w-6 h-6 text-[10px]" style="--cx: -240px; --cy: 140px; --cr: -55deg; --sway: -15px; animation-delay: 0.05s;">€</div>
+            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: -180px; --cy: 165px; --cr: -40deg; --sway: 18px; animation-delay: 0.25s;">€</div>
+            <div class="scatter-coin w-6 h-6 text-[11px]" style="--cx: -130px; --cy: 145px; --cr: -30deg; --sway: -12px; animation-delay: 0.45s;">€</div>
+            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: -80px; --cy: 175px; --cr: -20deg; --sway: 15px; animation-delay: 0.65s;">€</div>
+            <div class="scatter-coin w-6 h-6 text-[10px]" style="--cx: -210px; --cy: 195px; --cr: -60deg; --sway: 20px; animation-delay: 1.05s;">€</div>
+            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: -120px; --cy: 185px; --cr: -35deg; --sway: -16px; animation-delay: 0.35s;">€</div>
 
             
-            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: -35px; --cy: 145px; --cr: -10deg; --sway: -12px; animation-delay: 0.15s;">$</div>
-            <div class="scatter-coin w-8 h-8 text-sm" style="--cx: 30px; --cy: 155px; --cr: 10deg; --sway: 14px; animation-delay: 0.4s;">$</div>
-            <div class="scatter-coin w-6 h-6 text-[11px]" style="--cx: -15px; --cy: 175px; --cr: -8deg; --sway: 10px; animation-delay: 0.6s;">$</div>
-            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: 18px; --cy: 185px; --cr: 8deg; --sway: -12px; animation-delay: 0.85s;">$</div>
-            <div class="scatter-coin w-8 h-8 text-sm" style="--cx: 0px; --cy: 195px; --cr: 0deg; --sway: 8px; animation-delay: 1.1s;">$</div>
+            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: -35px; --cy: 145px; --cr: -10deg; --sway: -12px; animation-delay: 0.15s;">€</div>
+            <div class="scatter-coin w-8 h-8 text-sm" style="--cx: 30px; --cy: 155px; --cr: 10deg; --sway: 14px; animation-delay: 0.4s;">€</div>
+            <div class="scatter-coin w-6 h-6 text-[11px]" style="--cx: -15px; --cy: 175px; --cr: -8deg; --sway: 10px; animation-delay: 0.6s;">€</div>
+            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: 18px; --cy: 185px; --cr: 8deg; --sway: -12px; animation-delay: 0.85s;">€</div>
+            <div class="scatter-coin w-8 h-8 text-sm" style="--cx: 0px; --cy: 195px; --cr: 0deg; --sway: 8px; animation-delay: 1.1s;">€</div>
 
             
-            <div class="scatter-coin w-6 h-6 text-[10px]" style="--cx: 80px; --cy: 145px; --cr: 20deg; --sway: 14px; animation-delay: 0.1s;">$</div>
-            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: 130px; --cy: 170px; --cr: 30deg; --sway: -15px; animation-delay: 0.3s;">$</div>
-            <div class="scatter-coin w-8 h-8 text-sm" style="--cx: 180px; --cy: 155px; --cr: 40deg; --sway: 18px; animation-delay: 0.5s;">$</div>
-            <div class="scatter-coin w-6 h-6 text-[11px]" style="--cx: 230px; --cy: 175px; --cr: 55deg; --sway: -12px; animation-delay: 0.7s;">$</div>
-            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: 110px; --cy: 195px; --cr: 25deg; --sway: -10px; animation-delay: 0.45s;">$</div>
-            <div class="scatter-coin w-8 h-8 text-sm" style="--cx: 205px; --cy: 190px; --cr: 50deg; --sway: 15px; animation-delay: 0.8s;">$</div>
+            <div class="scatter-coin w-6 h-6 text-[10px]" style="--cx: 80px; --cy: 145px; --cr: 20deg; --sway: 14px; animation-delay: 0.1s;">€</div>
+            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: 130px; --cy: 170px; --cr: 30deg; --sway: -15px; animation-delay: 0.3s;">€</div>
+            <div class="scatter-coin w-8 h-8 text-sm" style="--cx: 180px; --cy: 155px; --cr: 40deg; --sway: 18px; animation-delay: 0.5s;">€</div>
+            <div class="scatter-coin w-6 h-6 text-[11px]" style="--cx: 230px; --cy: 175px; --cr: 55deg; --sway: -12px; animation-delay: 0.7s;">€</div>
+            <div class="scatter-coin w-7 h-7 text-xs" style="--cx: 110px; --cy: 195px; --cr: 25deg; --sway: -10px; animation-delay: 0.45s;">€</div>
+            <div class="scatter-coin w-8 h-8 text-sm" style="--cx: 205px; --cy: 190px; --cr: 50deg; --sway: 15px; animation-delay: 0.8s;">€</div>
 
             
             <div class="scatter-sparkle" style="--sx: -120px; --sy: 150px; animation-delay: 0.3s;">✦</div>
@@ -6895,7 +6895,7 @@
         <div class="relative z-10 flex flex-col items-center justify-center space-y-2 pt-3">
           <div class="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-black font-inter tracking-tight leading-none">
             <span class="savings-touch-text">
-              ~745&nbsp;000&nbsp;$
+              ~745&nbsp;000&nbsp;€
             </span>
           </div>
         </div>
@@ -7023,11 +7023,11 @@
               
               <div id="cfgStandardPrices" class="space-y-1 pb-1 transition-all duration-200">
                 <div class="flex items-baseline gap-1.5 text-xl sm:text-2xl font-black text-white font-inter">
-                  <span id="setupTotal">50&nbsp;000</span> <span class="text-sky-400 font-bold text-sm">$</span>
+                  <span id="setupTotal">50&nbsp;000</span> <span class="text-sky-400 font-bold text-sm">₽</span>
                   <span class="text-xs text-slate-300 font-medium ml-1">kurulum</span>
                 </div>
                 <div class="flex items-baseline gap-1.5 text-xl sm:text-2xl font-black text-emerald-400 font-inter">
-                  <span id="monthlyTotal">15&nbsp;000</span> <span class="text-emerald-300 font-bold text-sm">$/ay</span>
+                  <span id="monthlyTotal">210</span> <span class="text-emerald-300 font-bold text-sm">€/ay</span>
                   <span class="text-xs text-slate-300 font-medium ml-1">2. aydan itibaren</span>
                 </div>
               </div>
@@ -7068,11 +7068,11 @@
               <div class="cfg-year-total-box !mt-2 !p-2.5" id="cfgYearTotalBox">
                 <div class="cfg-year-total-val text-xs sm:text-sm">
                   <span>İlk yıl için:</span>
-                  <span id="yearTotal" class="font-black text-sky-300">215&nbsp;000&nbsp;$</span>
+                  <span id="yearTotal" class="font-black text-sky-300">2210&nbsp;€</span>
                 </div>
                 <div class="cfg-year-total-compare text-[11px]">
                   <span>Kadrolu temsilci:</span>
-                  <span class="text-slate-300">~960&nbsp;000&nbsp;$</span>
+                  <span class="text-slate-300">~960&nbsp;000&nbsp;€</span>
                 </div>
               </div>
 
@@ -7122,10 +7122,10 @@
       <div class="flex items-center justify-between gap-3 max-w-md mx-auto">
         <div class="text-left font-inter">
           <div class="text-xs font-black text-white whitespace-nowrap" id="mobPricesWrap">
-            <span id="mobSetupTotal">50&nbsp;000</span>&nbsp;$ + <span id="mobMonthlyTotal">15&nbsp;000</span>&nbsp;$/ay
+            <span id="mobSetupTotal">700</span>&nbsp;€ + <span id="mobMonthlyTotal">210</span>&nbsp;€/ay
           </div>
           
-          <div class="text-[9.5px] text-sky-400 font-bold uppercase tracking-wider">Tahmini Maliyetiniz</div>
+          <div class="text-[9.5px] text-sky-400 font-bold uppercase tracking-wider">Hesabınız</div>
         </div>
         <a href="#ctaBtn" onclick="document.getElementById('ctaBtn')?.scrollIntoView({behavior:'smooth'})" class="shrink-0 text-xs font-black text-white bg-gradient-to-r from-sky-500 to-blue-600 px-3.5 py-2 rounded-xl shadow-md uppercase tracking-wider">
           Hesaplama Alın
@@ -7289,10 +7289,10 @@
       
       <div class="p-1.5 bg-slate-100 rounded-2xl border border-slate-200/80 overflow-x-auto no-scrollbar">
         <div class="flex items-center gap-1.5 min-w-max" id="modalCaseTabs">
-          <button onclick="switchCaseInModal('realestate', this)" data-case="realestate" class="modal-tab-btn active py-2 px-3.5 rounded-xl font-bold text-xs transition cursor-pointer bg-slate-950 text-white shadow-xs">Gayrimenkul (+135.000 $)</button>
+          <button onclick="switchCaseInModal('realestate', this)" data-case="realestate" class="modal-tab-btn active py-2 px-3.5 rounded-xl font-bold text-xs transition cursor-pointer bg-slate-950 text-white shadow-xs">Gayrimenkul (+135.000 €)</button>
           <button onclick="switchCaseInModal('apparel', this)" data-case="apparel" class="modal-tab-btn py-2 px-3.5 rounded-xl font-bold text-xs transition cursor-pointer text-slate-600 hover:text-slate-950 hover:bg-slate-100">TALLORA Ayakkabı (2x Büyüme)</button>
-          <button onclick="switchCaseInModal('production', this)" data-case="production" class="modal-tab-btn py-2 px-3.5 rounded-xl font-bold text-xs transition cursor-pointer text-slate-600 hover:text-slate-950 hover:bg-slate-100">Mobilya Fabrikası (+50.000 $)</button>
-          <button onclick="switchCaseInModal('legal', this)" data-case="legal" class="modal-tab-btn py-2 px-3.5 rounded-xl font-bold text-xs transition cursor-pointer text-slate-600 hover:text-slate-950 hover:bg-slate-100">Hukuk Bürosu (+23.000 $)</button>
+          <button onclick="switchCaseInModal('production', this)" data-case="production" class="modal-tab-btn py-2 px-3.5 rounded-xl font-bold text-xs transition cursor-pointer text-slate-600 hover:text-slate-950 hover:bg-slate-100">Mobilya Fabrikası (+50.000 €)</button>
+          <button onclick="switchCaseInModal('legal', this)" data-case="legal" class="modal-tab-btn py-2 px-3.5 rounded-xl font-bold text-xs transition cursor-pointer text-slate-600 hover:text-slate-950 hover:bg-slate-100">Hukuk Bürosu (+23.000 €)</button>
         </div>
       </div>
 
@@ -7682,7 +7682,7 @@
                   <span>Altai Optima</span>
                   <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                 </div>
-                <div class="text-[9.5px] text-slate-500 truncate max-w-[130px]">Otonom Satış Departmanı · 50.000 $</div>
+                <div class="text-[9.5px] text-slate-500 truncate max-w-[130px]">Otonom Satış Departmanı · 700 €</div>
               </div>
             </div>
             <div class="flex items-center gap-1.5">
@@ -7815,7 +7815,7 @@
         if (this.config) return this.config;
         try {
           const res = await fetch(`${this.baseUrl}/api/v1/demo/config?tenant_id=${encodeURIComponent(this.tenantId)}`);
-          if (!res.ok) throw new Error(`Config HTTP ${res.status}`);
+          if (!res.ok) throw new Error(`Config HTTP €{res.status}`);
           this.config = await res.json();
           return this.config;
         } catch (e) {
@@ -7898,11 +7898,11 @@
       const chatFooterBar = document.getElementById('chatFooterBar');
 
       if (chatHeader) {
-        chatHeader.className = `pt-10 pb-2.5 px-3.5 text-white flex items-center justify-between transition-all duration-300 shadow-xs z-10 shrink-0 ${cfg.headerBg}`;
+        chatHeader.className = `pt-10 pb-2.5 px-3.5 text-white flex items-center justify-between transition-all duration-300 shadow-xs z-10 shrink-0 €{cfg.headerBg}`;
         chatHeader.innerHTML = cfg.renderHeader();
       }
       if (messagesContainer) {
-        messagesContainer.className = `p-3.5 space-y-3 flex-grow overflow-y-auto text-xs transition-colors duration-300 min-h-[320px] ${cfg.chatBg}`;
+        messagesContainer.className = `p-3.5 space-y-3 flex-grow overflow-y-auto text-xs transition-colors duration-300 min-h-[320px] €{cfg.chatBg}`;
       }
       if (chatFooterBar) {
         chatFooterBar.innerHTML = cfg.renderFooter();
@@ -8120,7 +8120,7 @@
 
     function formatCalcNumber(num, fractionDigits = 0) {
       if (num === null || num === undefined || isNaN(num)) return '0';
-      return num.toLocaleString('ru-RU', {
+      return num.toLocaleString('tr-TR', {
         minimumFractionDigits: fractionDigits,
         maximumFractionDigits: fractionDigits
       }).replace(/\s/g, '\u00A0');
@@ -8179,7 +8179,7 @@
       const max = parseFloat(slider.max) || 100;
       const val = parseFloat(slider.value) || 0;
       const pct = Math.max(0, Math.min(100, ((val - min) / (max - min)) * 100));
-      slider.style.background = `linear-gradient(to right, #0284c7 0%, #0284c7 ${pct}%, #e2e8f0 ${pct}%, #e2e8f0 100%)`;
+      slider.style.background = `linear-gradient(to right, #0284c7 0%, #0284c7 €{pct}%, #e2e8f0 €{pct}%, #e2e8f0 100%)`;
     }
 
     function adjustCalcValue(rangeId, delta) {
@@ -8287,20 +8287,20 @@
 
       const gain = Math.round(revenue * growth);
 
-      const monthlyNet = gain - 15000;
+      const monthlyNet = gain - 210;
 
-      const yearNet = gain * 12 - 215000;
+      const yearNet = gain * 12 - 3010;
 
-      const paybackMonths = monthlyNet > 0 ? (50000 / monthlyNet) : null;
+      const paybackMonths = monthlyNet > 0 ? (700 / monthlyNet) : null;
 
-      animateValue(mV, gain, '\u00A0$');
+      animateValue(mV, gain, '\u00A0€');
 
       if (breakdownEl) {
         const convStr = convPct % 1 === 0 ? convPct.toFixed(0) : convPct.toFixed(1).replace('.', ',');
         const checkStr = formatCalcNumber(check);
         const revStr = formatCalcNumber(revenue);
         const growthPct = Math.round(growth * 100);
-        breakdownEl.innerHTML = `Şu an: ${leads}&nbsp;talep × ${convStr}% × ${checkStr}&nbsp;$ = ${revStr}&nbsp;$ /ay. Hızlı yanıt kaçırılan satışların yaklaşık %${growthPct}'sini geri kazandırır.`;
+        breakdownEl.innerHTML = `Şu an: €{leads}&nbsp;talep × €{convStr}% × €{checkStr}&nbsp;€ = €{revStr}&nbsp;€ /ay. Hızlı yanıt kaçırılan satışların yaklaşık %${growthPct}'sini geri kazandırır.`;
       }
 
       let paybackStr = '';
@@ -8330,12 +8330,12 @@
         if (warnEl) warnEl.classList.add('hidden');
         if (yV) {
           yV.classList.remove('hidden');
-          animateValue(yV, yearNet, '\u00A0$', '+');
+          animateValue(yV, yearNet, '\u00A0€', '+');
         }
       }
 
       if (mobGainEl) {
-        mobGainEl.textContent = formatCalcNumber(gain) + '\u00A0$/ay';
+        mobGainEl.textContent = formatCalcNumber(gain) + '\u00A0€/ay';
       }
       if (window.updateCalcStickyBar) {
         window.updateCalcStickyBar();
@@ -8470,7 +8470,7 @@
         {
           delay: 2500,
           action: () => {
-            budgetEl.textContent = '3 450.000 $';
+            budgetEl.textContent = '3 4700 €';
             budgetEl.classList.add('text-emerald-700');
             if (counterEl) counterEl.textContent = "8 zorunlu alandan 4'ü dolduruldu";
           }
@@ -8686,7 +8686,7 @@
         const hoverCls = personaHoverClasses[bKey] || 'group-hover:scale-110 group-hover:ring-2 group-hover:ring-sky-400';
         const frame = b.querySelector('.persona-avatar-frame');
         if (frame) {
-          frame.className = `persona-avatar-frame relative w-11 h-11 sm:w-12 sm:h-12 lg:w-11 lg:h-11 rounded-full overflow-hidden shrink-0 transition-all duration-300 border border-slate-200/80 bg-slate-100 ${hoverCls}`;
+          frame.className = `persona-avatar-frame relative w-11 h-11 sm:w-12 sm:h-12 lg:w-11 lg:h-11 rounded-full overflow-hidden shrink-0 transition-all duration-300 border border-slate-200/80 bg-slate-100 €{hoverCls}`;
         }
         const age = b.querySelector('.persona-age');
         if (age) {
@@ -8697,11 +8697,11 @@
         btn.classList.add('active');
         const frame = btn.querySelector('.persona-avatar-frame');
         if (frame && data.haloClass) {
-          frame.className = `persona-avatar-frame relative w-11 h-11 sm:w-12 sm:h-12 lg:w-11 lg:h-11 rounded-full overflow-hidden shrink-0 transition-all duration-300 ${data.haloClass}`;
+          frame.className = `persona-avatar-frame relative w-11 h-11 sm:w-12 sm:h-12 lg:w-11 lg:h-11 rounded-full overflow-hidden shrink-0 transition-all duration-300 €{data.haloClass}`;
         }
         const age = btn.querySelector('.persona-age');
         if (age && data.ageColorClass) {
-          age.className = `persona-age text-[9px] sm:text-[11px] font-mono ${data.ageColorClass} font-bold whitespace-nowrap`;
+          age.className = `persona-age text-[9px] sm:text-[11px] font-mono €{data.ageColorClass} font-bold whitespace-nowrap`;
         }
       }
 
@@ -8722,7 +8722,7 @@
         photoEl.style.opacity = '0';
         setTimeout(() => {
           photoEl.src = data.photo;
-          photoEl.alt = `${data.name} - ${data.role}`;
+          photoEl.alt = `${data.name} - €{data.role}`;
           photoEl.style.objectPosition = data.photoPos || 'center';
           photoEl.style.opacity = '1';
         }, 150);
@@ -8794,22 +8794,22 @@
         authorAvatarBg: 'bg-gradient-to-tr from-sky-600 to-blue-700',
         authorName: 'Gennadiy Dorohin',
         authorRole: 'Kurucu ve Genel Müdür',
-        review: '“Gayrimenkul sektöründe ilk temas hızı her şeyi belirler. Müşteri web sitesinden daire seçimi için talep bıraktığında danışman 3 saat sonra ararsa, müşteri rakip ajansla anlaşmış olur. Altai Optima yapay zekası ilan sitelerinden ve sitemizden gelen talepleri 10 saniyede yakalar, bütçe ve konumu netleştirir, ardından kıdemli danışmanlara yerinde gösterim randevusu oluşturur. Şube başına aylık kapanan satış sayısını 4\'ten 9\'a çıkardık ve gelirimiz 115.000 $ arttı.”',
+        review: '“Gayrimenkul sektöründe ilk temas hızı her şeyi belirler. Müşteri web sitesinden daire seçimi için talep bıraktığında danışman 3 saat sonra ararsa, müşteri rakip ajansla anlaşmış olur. Altai Optima yapay zekası ilan sitelerinden ve sitemizden gelen talepleri 10 saniyede yakalar, bütçe ve konumu netleştirir, ardından kıdemli danışmanlara yerinde gösterim randevusu oluşturur. Şube başına aylık kapanan satış sayısını 4\'ten 9\'a çıkardık ve gelirimiz 115.000 € arttı.”',
         nicheTag: 'SEKTÖR: GAYRİMENKUL VE EMLAK HİZMETLERİ',
         stackTag: 'ENTEGRASYON: VOICE AI + AMOCRM + İLAN SİTELERİ',
         title: '“Domian” Gayrimenkul Ajansı',
         subtitle: '10 saniyede sesli değerlendirme ve otomatik randevu ataması sayesinde aylık satışlar 4\'ten 9\'a yükseldi',
-        revenue: '+115.000 $',
-        revenueNote: 'AYLIK GELİR 90.000 $\'DAN 205.000 $\'A YÜKSELDİ (2.25 KAT ARTIŞ)',
+        revenue: '+115.000 €',
+        revenueNote: 'AYLIK GELİR 90.000 €\'DAN 205.000 €\'A YÜKSELDİ (2.25 KAT ARTIŞ)',
         payback: '2 HAFTA',
         metrics: [
-          { label: 'GELİR ARTIŞI', val: '+%125', sub: '90.000 $\'dan 205.000 $/ay', color: 'text-emerald-600' },
+          { label: 'GELİR ARTIŞI', val: '+%125', sub: '90.000 €\'dan 205.000 €/ay', color: 'text-emerald-600' },
           { label: 'YANIT HIZI', val: '10 SANİYE', sub: 'Talep anında otomatik sesli arama', color: 'text-sky-950' },
           { label: 'GÖSTERİM RANDEVUSU', val: '38 GÖRÜŞME', sub: 'Müşteriye özel yerinde gösterim', color: 'text-emerald-600' },
           { label: 'TALEP KAPSAMA', val: '%100', sub: 'Sıfır kayıp ve gecikmiş talep', color: 'text-emerald-600' }
         ],
-        summaryA: 'Danışmanlar <strong>2–4 saat sonra</strong> geri arıyordu • Müşterilerin <strong>%45\'i rakiplere gidiyordu</strong> • Gelir <strong>90.000 $/ay (4 satış)</strong>',
-        summaryB: 'Sesli yapay zeka ile anında değerlendirme • Otomatik gösterim randevusu • <strong>205.000 $/ay (+115.000 $, 9 satış)</strong>',
+        summaryA: 'Danışmanlar <strong>2–4 saat sonra</strong> geri arıyordu • Müşterilerin <strong>%45\'i rakiplere gidiyordu</strong> • Gelir <strong>90.000 €/ay (4 satış)</strong>',
+        summaryB: 'Sesli yapay zeka ile anında değerlendirme • Otomatik gösterim randevusu • <strong>205.000 €/ay (+115.000 €, 9 satış)</strong>',
         liveTag: 'VOICE AI + AMOCRM',
         leftTitle: 'Sesli Yapay Zeka • Müşteri Değerlendirme & Randevu',
         leftBadge: 'VOICE AI 7/24',
@@ -8822,7 +8822,7 @@
             <div class="p-3.5 space-y-3 text-xs flex-1">
               <div class="p-2.5 rounded-xl bg-white/10 border border-white/10 space-y-1">
                 <span class="text-[10px] font-sans text-emerald-300 font-bold block">AI Asistanı:</span>
-                <p>“Merhaba Mikhail Bey! Merkezde 2 odalı daire seçimi için talep bıraktınız. 110.000 $ altında 4 yeni portföyümüz var. Satın almayı krediyle mi yoksa peşin mi planlıyorsunuz?”</p>
+                <p>“Merhaba Mikhail Bey! Merkezde 2 odalı daire seçimi için talep bıraktınız. 110.000 € altında 4 yeni portföyümüz var. Satın almayı krediyle mi yoksa peşin mi planlıyorsunuz?”</p>
               </div>
               <div class="p-2.5 rounded-xl bg-emerald-950/60 border border-emerald-500/40 space-y-1">
                 <span class="text-[10px] font-sans text-slate-300 font-bold block">Müşteri:</span>
@@ -8849,7 +8849,7 @@
                   <span>Mikhail // 2 Odalı, Merkez</span>
                   <span class="text-emerald-700">Cumartesi, 11:30</span>
                 </div>
-                <div class="text-[11px] text-slate-500">Bütçe: 110k $\'a kadar • Onaylı Kredi • Danışman: A. Voronov</div>
+                <div class="text-[11px] text-slate-500">Bütçe: 110k €\'a kadar • Onaylı Kredi • Danışman: A. Voronov</div>
               </div>
               <div class="p-2.5 bg-emerald-50 rounded-xl border border-emerald-200 text-emerald-900 text-xs">
                 <strong>Sonuç:</strong> Talep anında değerlendirildi, CRM\'e işlendi, WhatsApp planları iletildi ve randevu takvime eklendi.
@@ -8865,22 +8865,22 @@
         authorAvatarBg: 'bg-gradient-to-tr from-amber-700 to-stone-900',
         authorName: 'Yana Yanakova',
         authorRole: 'TALLORA Markası Kurucusu (tallora.ru)',
-        review: '“Ayakkabı e-ticaretinde özellikle 41+ numaralarda en büyük engel, kalıp ve tarak uyumudur. Müşteriler ayak ölçülerini santimetre olarak WhatsApp\'tan iletir, canlı fotoğraf ister. Eskiden personelimiz 40 dakikada yanıt verirdi ve müşterilerin %60\'ı vazgeçerdi. Altai Optima yapay zekası 1C ERP\'mize bağlı: ayak ölçüsünü 3 saniyede doğru numaraya çevirir, stok kontrolü yapar ve deneme randevusu oluşturur. Online gelirimiz 15.500 $\'dan 31.500 $\'a yükseldi, iade oranı yarı yarıya azaldı!”',
+        review: '“Ayakkabı e-ticaretinde özellikle 41+ numaralarda en büyük engel, kalıp ve tarak uyumudur. Müşteriler ayak ölçülerini santimetre olarak WhatsApp\'tan iletir, canlı fotoğraf ister. Eskiden personelimiz 40 dakikada yanıt verirdi ve müşterilerin %60\'ı vazgeçerdi. Altai Optima yapay zekası 1C ERP\'mize bağlı: ayak ölçüsünü 3 saniyede doğru numaraya çevirir, stok kontrolü yapar ve deneme randevusu oluşturur. Online gelirimiz 15.500 €\'dan 31.500 €\'a yükseldi, iade oranı yarı yarıya azaldı!”',
         nicheTag: 'SEKTÖR: AYAKKABI ÜRETİMİ VE E-TİCARET',
         stackTag: 'ENTEGRASYON: TELEGRAM + WHATSAPP + 1C ERP',
         title: 'TALLORA Ayakkabı Markası (tallora.ru)',
         subtitle: 'Ayak ölçüsüne göre anında numara seçimi, ERP stok kontrolü ve sepet kurtarma ile iki kat online ciro',
-        revenue: '+16.000 $',
-        revenueNote: 'ONLİNE GELİR 15.500 $\'DAN 31.500 $/AY\'A YÜKSELDİ (+%104)',
+        revenue: '+16.000 €',
+        revenueNote: 'ONLİNE GELİR 15.500 €\'DAN 31.500 €/AY\'A YÜKSELDİ (+%104)',
         payback: '1. AY',
         metrics: [
-          { label: 'GELİR ARTIŞI', val: '+%104', sub: '15.5k $\'dan 31.5k $/ay', color: 'text-emerald-600' },
+          { label: 'GELİR ARTIŞI', val: '+%104', sub: '15.5k €\'dan 31.5k €/ay', color: 'text-emerald-600' },
           { label: 'YANIT HIZI', val: '3 SANİYE', sub: 'WhatsApp ve Telegram 7/24', color: 'text-sky-950' },
           { label: 'SİPARİŞ DÖNÜŞÜMÜ', val: '+%48', sub: 'Kişiye özel numara danışmanlığı ile', color: 'text-emerald-600' },
           { label: 'İADE AZALMASI', val: '2 KAT DÜŞÜŞ', sub: 'Hassas kalıp ve ayak yapısı uyumu', color: 'text-emerald-600' }
         ],
-        summaryA: 'Müşteriler beden danışmanlığı için <strong>40 dk bekliyordu</strong> • <strong>%65 terk edilen sepet</strong> • Kanal geliri <strong>15.500 $/ay</strong>',
-        summaryB: '1C ile anında numara eşleştirme • Mağazada deneme & kurye ile prova • <strong>31.500 $/ay (+16.000 $/ay)</strong>',
+        summaryA: 'Müşteriler beden danışmanlığı için <strong>40 dk bekliyordu</strong> • <strong>%65 terk edilen sepet</strong> • Kanal geliri <strong>15.500 €/ay</strong>',
+        summaryB: '1C ile anında numara eşleştirme • Mağazada deneme & kurye ile prova • <strong>31.500 €/ay (+16.000 €/ay)</strong>',
         liveTag: 'WHATSAPP + 1C ERP',
         leftTitle: 'WhatsApp • Numara Danışmanlığı & Mağaza Rezervasyonu',
         leftBadge: 'WHATSAPP E-TİCARET',
@@ -8928,7 +8928,7 @@
               <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-2xs space-y-1.5">
                 <div class="flex justify-between font-bold text-slate-950">
                   <span>TALLORA Deri Loafer (Siyah, 42 Numara)</span>
-                  <span class="text-sky-700">165 $</span>
+                  <span class="text-sky-700">165 €</span>
                 </div>
                 <div class="text-[11px] text-slate-500">Kanal: tallora.ru • Denemeli kurye teslimatı</div>
               </div>
@@ -8946,22 +8946,22 @@
         authorAvatarBg: 'bg-gradient-to-tr from-amber-600 to-orange-700',
         authorName: 'Aleksandr Şestakov',
         authorRole: 'Genel Müdür & Kurucu',
-        review: '“Özel üretim mobilyada anlaşma kapanması, ön maliyet hesabının hızına ve müşteri değerlendirme kalitesine bağlıdır. Eskiden mimar ve personelimiz hesaplama için 2 gün harcardı ve müşterilerin yarısı kaybolurdu. Altai Optima yapay zekası WhatsApp üzerinden çizim ve ölçüleri okur, 2 dakikada ön maliyeti çıkarır ve ölçü uzmanı randevusunu otomatik belirler. İmzalanan sözleşme hacmimiz 35.000 $\'dan 75.000 $\'a yükseldi.”',
+        review: '“Özel üretim mobilyada anlaşma kapanması, ön maliyet hesabının hızına ve müşteri değerlendirme kalitesine bağlıdır. Eskiden mimar ve personelimiz hesaplama için 2 gün harcardı ve müşterilerin yarısı kaybolurdu. Altai Optima yapay zekası WhatsApp üzerinden çizim ve ölçüleri okur, 2 dakikada ön maliyeti çıkarır ve ölçü uzmanı randevusunu otomatik belirler. İmzalanan sözleşme hacmimiz 35.000 €\'dan 75.000 €\'a yükseldi.”',
         nicheTag: 'SEKTÖR: ÖZEL MOBİLYA ÜRETİMİ',
         stackTag: 'ENTEGRASYON: WHATSAPP API + 1C + BITRIX24',
         title: '“Birinci Mobilya Fabrikası”',
         subtitle: 'WhatsApp üzerinden anında maliyet hesabı ve otomatik ölçü randevusu ile sözleşmelerde %112 artış',
-        revenue: '+40.000 $',
-        revenueNote: 'SÖZLEŞME HACMİ 35.000 $\'DAN 75.000 $/AY\'A ÇIKTI (+%112)',
+        revenue: '+40.000 €',
+        revenueNote: 'SÖZLEŞME HACMİ 35.000 €\'DAN 75.000 €/AY\'A ÇIKTI (+%112)',
         payback: '1. AY',
         metrics: [
-          { label: 'SÖZLEŞME ARTIŞI', val: '+%112', sub: '35k $\'dan 75k $/ay', color: 'text-emerald-600' },
+          { label: 'SÖZLEŞME ARTIŞI', val: '+%112', sub: '35k €\'dan 75k €/ay', color: 'text-emerald-600' },
           { label: 'HESAPLAMA HIZI', val: '2 DAKİKA', sub: '2 gün süren manuel hesap yerine', color: 'text-sky-950' },
           { label: 'ÖLÇÜ DÖNÜŞÜMÜ', val: '%46', sub: 'Fiyat hesaplanan WhatsApp sohbetinden', color: 'text-emerald-600' },
           { label: 'İŞ YÜKÜ AZALMASI', val: '-%55', sub: 'Uzmanlar sadece hazır ölçülere gider', color: 'text-emerald-600' }
         ],
-        summaryA: 'Maliyet hesabı <strong>2 gün sürüyordu</strong> • Müşteriler rakiplerden alıyordu • Hacim <strong>35.000 $/ay</strong>',
-        summaryB: 'WhatsApp\'ta anında ölçüye göre hesap • 2 dakikada randevu • <strong>75.000 $/ay (+40.000 $/ay)</strong>',
+        summaryA: 'Maliyet hesabı <strong>2 gün sürüyordu</strong> • Müşteriler rakiplerden alıyordu • Hacim <strong>35.000 €/ay</strong>',
+        summaryB: 'WhatsApp\'ta anında ölçüye göre hesap • 2 dakikada randevu • <strong>75.000 €/ay (+40.000 €/ay)</strong>',
         liveTag: 'WHATSAPP + BITRIX24',
         leftTitle: 'WhatsApp • Mutfak Maliyet Hesabı ve Ölçü Randevusu',
         leftBadge: 'WHATSAPP 7/24',
@@ -8987,7 +8987,7 @@
                   <span class="font-bold text-emerald-950">AI Asistanı “1MF”</span>
                   <span class="text-emerald-800 font-bold">Hesaplama Tamamlandı ✓</span>
                 </div>
-                <div>“Merhaba! Mat lake ve Blum mekanizma için yaklaşık maliyet aralığı: <strong>2.900 – 3.250 $</strong>. Numunelerle birlikte ölçü uzmanımızı <strong>yarın 15:00</strong> veya <strong>19:00</strong> için yönlendirebiliriz. Hangi saat uygun?”</div>
+                <div>“Merhaba! Mat lake ve Blum mekanizma için yaklaşık maliyet aralığı: <strong>2.900 – 3.250 €</strong>. Numunelerle birlikte ölçü uzmanımızı <strong>yarın 15:00</strong> veya <strong>19:00</strong> için yönlendirebiliriz. Hangi saat uygun?”</div>
                 <div class="text-[9px] text-emerald-800 text-right font-bold">13:41 • ✓✓</div>
               </div>
               <div class="bg-white p-2.5 rounded-2xl rounded-tl-xs shadow-2xs max-w-[85%] text-xs text-slate-800">
@@ -9009,7 +9009,7 @@
               <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-2xs space-y-1.5">
                 <div class="flex justify-between font-bold text-slate-950">
                   <span>Lake Mutfak 3.4m // Blum Donanım</span>
-                  <span class="text-blue-700">~3.100 $</span>
+                  <span class="text-blue-700">~3.100 €</span>
                 </div>
                 <div class="text-[11px] text-slate-500">Ölçü Tarihi: Yarın, 19:00 • Uzman: V. Nikolaev</div>
               </div>
@@ -9027,22 +9027,22 @@
         authorAvatarBg: 'bg-gradient-to-tr from-purple-600 to-indigo-700',
         authorName: 'Artyom Kovalyov',
         authorRole: 'Yönetici Ortak',
-        review: '“Hukuki danışmanlıkta ortakların zamanı en değerli varlıktır. Eskiden keşif görüşmelerinin %40\'ı bütçe altı uygunsuz başvurularla harcanıyordu. Altai Optima yapay zekası Telegram ve web üzerinden ön değerlendirme yapar, dava parametrelerini toplar ve yalnızca nitelikli kurumsal karar vericilerle online randevu planlar. Bu sayede aylık sözleşme portföyümüz 20.000 $\'dan 38.000 $\'a yükseldi.”',
+        review: '“Hukuki danışmanlıkta ortakların zamanı en değerli varlıktır. Eskiden keşif görüşmelerinin %40\'ı bütçe altı uygunsuz başvurularla harcanıyordu. Altai Optima yapay zekası Telegram ve web üzerinden ön değerlendirme yapar, dava parametrelerini toplar ve yalnızca nitelikli kurumsal karar vericilerle online randevu planlar. Bu sayede aylık sözleşme portföyümüz 20.000 €\'dan 38.000 €\'a yükseldi.”',
         nicheTag: 'SEKTÖR: HUKUKİ DANIŞMANLIK VE TAHKİM',
         stackTag: 'ENTEGRASYON: TELEGRAM BOT + AMOCRM + CALENDAR',
         title: '“Lex Consulting” Hukuk Bürosu',
         subtitle: 'Otomatik başvuru değerlendirme ve uzman randevu ataması ile kapanan sözleşmelerde %92 artış',
-        revenue: '+18.000 $',
-        revenueNote: 'SÖZLEŞME HACMİ 20.000 $\'DAN 38.000 $/AY\'A YÜKSELDİ (+%92)',
+        revenue: '+18.000 €',
+        revenueNote: 'SÖZLEŞME HACMİ 20.000 €\'DAN 38.000 €/AY\'A YÜKSELDİ (+%92)',
         payback: '3 HAFTA',
         metrics: [
-          { label: 'SÖZLEŞME ARTIŞI', val: '+%92', sub: '20k $\'dan 38k $/ay', color: 'text-emerald-600' },
+          { label: 'SÖZLEŞME ARTIŞI', val: '+%92', sub: '20k €\'dan 38k €/ay', color: 'text-emerald-600' },
           { label: 'HEDEF GÖRÜŞMELER', val: '%91', sub: 'Yalnızca nitelikli ticari uyuşmazlıklar', color: 'text-sky-950' },
           { label: 'ZAMAN TASARRUFU', val: '22 SAAT/AY', sub: 'Gereksiz keşif görüşmelerinden kurtulma', color: 'text-emerald-600' },
           { label: 'ORTALAMA SÖZLEŞME', val: '+%55', sub: 'Orta ve büyük ölçekli işletme odağı', color: 'text-emerald-600' }
         ],
-        summaryA: 'Ortaklar haftada 15 saati <strong>niteliksiz görüşmelere</strong> harcıyordu • Düşük dönüşüm • Gelir <strong>20.000 $/ay</strong>',
-        summaryB: 'Uyuşmazlık tutarı ve bütçeye göre otomatik skorlama • <strong>38.000 $/ay (+18.000 $/ay)</strong>',
+        summaryA: 'Ortaklar haftada 15 saati <strong>niteliksiz görüşmelere</strong> harcıyordu • Düşük dönüşüm • Gelir <strong>20.000 €/ay</strong>',
+        summaryB: 'Uyuşmazlık tutarı ve bütçeye göre otomatik skorlama • <strong>38.000 €/ay (+18.000 €/ay)</strong>',
         liveTag: 'TELEGRAM + CALENDAR + AMOCRM',
         leftTitle: 'Telegram • Ön Hukuki Değerlendirme & Skorlama',
         leftBadge: 'TELEGRAM B2B',
@@ -9054,7 +9054,7 @@
             </div>
             <div class="p-3.5 space-y-3 text-xs flex-1">
               <div class="bg-white p-3 rounded-2xl rounded-tl-xs shadow-2xs max-w-[90%] text-slate-800">
-                <div>“İyi günler! Tedarikçinin 160.000 $\'lık ekipman teslimatı davasında ticari mahkemede savunmaya ihtiyacımız var. Bu davaları alıyor musunuz?”</div>
+                <div>“İyi günler! Tedarikçinin 160.000 €\'lık ekipman teslimatı davasında ticari mahkemede savunmaya ihtiyacımız var. Bu davaları alıyor musunuz?”</div>
                 <div class="text-[9px] text-slate-400 text-right mt-1">15:10</div>
               </div>
               <div class="bg-[#ede7f6] p-3 rounded-2xl rounded-tr-xs shadow-2xs ml-auto max-w-[95%] space-y-1.5 text-slate-900 border border-purple-200">
@@ -9062,7 +9062,7 @@
                   <span class="font-bold text-purple-950">AI Asistanı “Lex Consulting”</span>
                   <span class="text-purple-700 font-bold">Profil Onaylandı ✓</span>
                 </div>
-                <div>“İyi günler! Evet, tahkim uygulamamız 50.000 $ üzeri tedarik uyuşmazlıklarını yürütmektedir. Kıdemli ortağımızla <strong>yarın 16:00</strong> için 30 dakikalık online randevu planlayabiliriz. Bu saati ayıralım mı?”</div>
+                <div>“İyi günler! Evet, tahkim uygulamamız 50.000 € üzeri tedarik uyuşmazlıklarını yürütmektedir. Kıdemli ortağımızla <strong>yarın 16:00</strong> için 30 dakikalık online randevu planlayabiliriz. Bu saati ayıralım mı?”</div>
                 <div class="text-[9px] text-purple-700 text-right font-bold">15:11 • ✓✓</div>
               </div>
             </div>
@@ -9073,13 +9073,13 @@
         rightHtml: `
           <div class="rounded-2xl border border-slate-300 overflow-hidden shadow-sm flex flex-col font-sans bg-[#f5f7f8]">
             <div class="bg-[#6a1b9a] text-white px-3.5 py-2.5 flex items-center justify-between">
-              <span class="font-bold text-xs tracking-tight">amoCRM • Anlaşma: 160k $ Ticari Uyuşmazlık</span>
+              <span class="font-bold text-xs tracking-tight">amoCRM • Anlaşma: 160k € Ticari Uyuşmazlık</span>
               <span class="text-[9px] font-sans font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">RANDEVU TAKVİMDE</span>
             </div>
             <div class="p-3 space-y-2 text-xs">
               <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-2xs space-y-1.5">
                 <div class="flex justify-between font-bold text-slate-950">
-                  <span>Tedarik Davası (160.000 $)</span>
+                  <span>Tedarik Davası (160.000 €)</span>
                   <span class="text-purple-700">Yarın, 16:00</span>
                 </div>
                 <div class="text-[11px] text-slate-500">Müşteri: Genel Müdür • Zoom bağlantısı Telegram ile iletildi</div>
@@ -9154,11 +9154,11 @@
           
           <div class="space-y-2">
             <h3 class="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight leading-snug font-inter">
-              ${data.companyName}
+              €{data.companyName}
             </h3>
             
             <p class="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed font-inter">
-              ${data.subtitle}
+              €{data.subtitle}
             </p>
           </div>
 
@@ -9168,23 +9168,23 @@
               <span class="text-[10px] font-sans font-bold text-emerald-800 uppercase tracking-wider">1. AY SONUCU</span>
               <span class="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-sans font-bold text-emerald-800 bg-white/90 px-2.5 py-1 rounded-xl border border-emerald-300 shadow-2xs shrink-0">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                <span>AMORTİ: ${data.payback || '1. AY'}</span>
+                <span>AMORTİ: €{data.payback || '1. AY'}</span>
               </span>
             </div>
             <div class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-emerald-600 tracking-tight font-inter">
-              ${data.revenue}
+              €{data.revenue}
             </div>
             <div class="text-[11px] sm:text-xs text-slate-600 font-medium font-inter">
-              ${data.revenueNote}
+              €{data.revenueNote}
             </div>
           </div>
 
           
           <div class="grid grid-cols-2 gap-2">
-            ${data.metrics ? data.metrics.map(m => `
+            €{data.metrics ? data.metrics.map(m => `
               <div class="p-3 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-0.5">
                 <span class="text-[9px] font-sans text-slate-500 font-bold block uppercase">${m.label}</span>
-                <div class="text-base sm:text-lg font-extrabold ${m.color || 'text-slate-950'} font-inter">${m.val}</div>
+                <div class="text-base sm:text-lg font-extrabold €{m.color || 'text-slate-950'} font-inter">${m.val}</div>
                 <span class="text-[10px] text-slate-600 leading-tight block">${m.sub}</span>
               </div>
             `).join('') : ''}
@@ -9194,11 +9194,11 @@
           <div class="space-y-2 pt-0.5">
             <div class="p-3 rounded-xl bg-rose-50/60 text-xs text-slate-800 leading-snug flex items-start gap-2.5">
               <span class="text-rose-600 font-bold shrink-0">✕</span>
-              <div><strong class="text-rose-900 font-bold">Öncesi:</strong> ${data.summaryA}</div>
+              <div><strong class="text-rose-900 font-bold">Öncesi:</strong> €{data.summaryA}</div>
             </div>
             <div class="p-3 rounded-xl bg-emerald-50/60 text-xs text-slate-900 leading-snug flex items-start gap-2.5">
               <span class="text-emerald-600 font-bold shrink-0">✓</span>
-              <div><strong class="text-emerald-900 font-bold">Sonrası:</strong> ${data.summaryB}</div>
+              <div><strong class="text-emerald-900 font-bold">Sonrası:</strong> €{data.summaryB}</div>
             </div>
           </div>
 
@@ -9206,8 +9206,8 @@
           <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2.5 font-inter">
             <div class="flex items-center justify-between gap-2">
               <div class="flex items-center gap-2.5 min-w-0">
-                <div class="w-8 h-8 rounded-full ${data.authorAvatarBg || 'bg-sky-600'} text-white font-bold text-xs flex items-center justify-center shadow-xs shrink-0 font-sans">
-                  ${data.authorAvatar || 'RK'}
+                <div class="w-8 h-8 rounded-full €{data.authorAvatarBg || 'bg-sky-600'} text-white font-bold text-xs flex items-center justify-center shadow-xs shrink-0 font-sans">
+                  €{data.authorAvatar || 'RK'}
                 </div>
                 <div class="min-w-0">
                   <div class="font-bold text-slate-950 text-xs truncate font-inter">${data.authorName}</div>
@@ -9219,7 +9219,7 @@
               </div>
             </div>
             <blockquote class="text-xs text-slate-700 leading-relaxed italic border-l-2 border-sky-300 pl-3 py-0.5 font-normal">
-              ${data.review}
+              €{data.review}
             </blockquote>
           </div>
 
@@ -9240,7 +9240,7 @@
               </span>
             </div>
             <span class="text-[10px] font-sans text-slate-600 font-semibold">
-              ${data.liveTag}
+              €{data.liveTag}
             </span>
           </div>
 
@@ -9715,8 +9715,8 @@
       }
 
       function moveOrbTo(pos, durationMs = 850) {
-        orb.style.transition = `transform ${durationMs}ms cubic-bezier(0.34, 1.4, 0.64, 1), opacity 0.3s ease`;
-        orb.style.transform = `translate3d(${pos.x.toFixed(1)}px, ${pos.y.toFixed(1)}px, 0)`;
+        orb.style.transition = `transform €{durationMs}ms cubic-bezier(0.34, 1.4, 0.64, 1), opacity 0.3s ease`;
+        orb.style.transform = `translate3d(${pos.x.toFixed(1)}px, €{pos.y.toFixed(1)}px, 0)`;
         orb.style.opacity = '1';
       }
 
@@ -9913,12 +9913,12 @@
         const lang = (document.documentElement.lang || 'ru').toLowerCase();
         const isEn = lang.startsWith('en');
         const isTr = lang.startsWith('tr');
-        const curSym = (isEn || isTr) ? '$' : '$';
-        const perMo = isEn ? '/mo' : (isTr ? '/ay' : '/ay');
+        const curSym = '€';
+        const perMo = isEn ? '/mo' : '/ay';
         const loc = (isEn || isTr) ? 'en-US' : 'ru-RU';
 
-        const BASE_SETUP = 50000;
-        const BASE_MONTHLY = 15000;
+        const BASE_SETUP = 700;
+        const BASE_MONTHLY = 210;
 
         const CHANNELS = [
           {
@@ -9934,54 +9934,54 @@
             label: 'Telegram',
             trackClass: 'cfg-track-tg',
             iconSvg: `<svg class="w-6 h-6 shrink-0 transition-opacity duration-200" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#2AABEE"/><path d="M5.5 11.9l11.6-4.8c.5-.2 1.1.1.9.7l-2 9.4c-.1.6-.7.8-1.1.5l-3.3-2.4-1.6 1.5c-.2.2-.4.4-.8.4l.2-3.3 6-5.4c.3-.2-.1-.4-.4-.2l-7.4 4.7-3.2-1c-.7-.2-.7-.7.1-1z" fill="#FFFFFF"/></svg>`,
-            setup: 10000,
-            monthly: 10000
+            setup: 140,
+            monthly: 140
           },
           {
             id: 'inst',
             label: 'Instagram*',
             trackClass: 'cfg-track-inst',
             iconSvg: `<svg class="w-6 h-6 shrink-0 transition-opacity duration-200" viewBox="0 0 24 24" fill="none"><defs><linearGradient id="instGradCtor" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#F58529"/><stop offset="50%" stop-color="#DD2A7B"/><stop offset="100%" stop-color="#8134AF"/></linearGradient></defs><rect width="24" height="24" rx="6" fill="url(#instGradCtor)"/><rect x="5.5" y="5.5" width="13" height="13" rx="3.8" stroke="#FFFFFF" stroke-width="1.6" fill="none"/><circle cx="12" cy="12" r="3.2" stroke="#FFFFFF" stroke-width="1.6" fill="none"/><circle cx="15.8" cy="8.2" r="0.9" fill="#FFFFFF"/></svg>`,
-            setup: 10000,
-            monthly: 10000
+            setup: 140,
+            monthly: 140
           },
           {
             id: 'avito',
             label: 'Canlı Chat',
             trackClass: 'cfg-track-avito',
             iconSvg: `<svg class="w-6 h-6 shrink-0 transition-opacity duration-200" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#F8FAFC"/><circle cx="8" cy="8.5" r="3.8" fill="#96CE00"/><circle cx="15.5" cy="7.5" r="2.8" fill="#A839EB"/><circle cx="15.5" cy="15" r="4.2" fill="#00AAFF"/><circle cx="8.5" cy="16.5" r="3" fill="#FF4053"/></svg>`,
-            setup: 10000,
-            monthly: 10000
+            setup: 140,
+            monthly: 140
           },
           {
             id: 'max',
             label: 'MAX',
             trackClass: 'cfg-track-max',
             iconSvg: `<svg class="w-6 h-6 shrink-0 transition-opacity duration-200" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#0077FF"/><path d="M6 16.5V7.5L10 13.5L12 10.5L14 13.5L18 7.5V16.5H15.5V11.5L13 15.2H11L8.5 11.5V16.5H6Z" fill="#FFFFFF"/></svg>`,
-            setup: 10000,
-            monthly: 10000
+            setup: 140,
+            monthly: 140
           },
           {
             id: 'mail',
             label: 'Email',
             trackClass: 'cfg-track-mail',
             iconSvg: `<svg class="w-6 h-6 shrink-0 transition-opacity duration-200" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="6" fill="#0284C7"/><path d="M5.5 8C5.5 7.17 6.17 6.5 7 6.5H17C17.83 6.5 18.5 7.17 18.5 8V16C18.5 16.83 17.83 17.5 17 17.5H7C6.17 17.5 5.5 16.83 5.5 16V8Z" stroke="#FFFFFF" stroke-width="1.3" fill="none"/><path d="M6 8L12 12.5L18 8" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-            setup: 10000,
-            monthly: 10000
+            setup: 140,
+            monthly: 140
           },
         ];
 
         const CRMS = [
-          {id:'amo', label:'amoCRM', setup:20000, monthly:5000},
-          {id:'bitrix', label:'Bitrix24', setup:20000, monthly:5000},
-          {id:'1c', label:'1C Enterprise / ERP', setup:20000, monthly:5000},
-          {id:'moysklad', label:'Depo / ERP Sistemi', setup:20000, monthly:5000},
+          {id:'amo', label:'amoCRM', setup:0, monthly:0},
+          {id:'bitrix', label:'Bitrix24', setup:280, monthly:70},
+          {id:'1c', label:'1C Enterprise / ERP', setup:280, monthly:70},
+          {id:'moysklad', label:'Depo / ERP Sistemi', setup:280, monthly:70},
         ];
         const VOLUMES = [
-          {id:'v1', label:"100\'e kadar", shortLabel:"100\'e kadar", setupAdd:0, monthlyAdd:0},
-          {id:'v2', label:'100-500', shortLabel:'100-500', setupAdd:0, monthlyAdd:3000},
-          {id:'v3', label:'500-1000', shortLabel:'500-1000', setupAdd:0, monthlyAdd:7000},
-          {id:'v4', label:'1000+', shortLabel:'1000+', isVip: true, setupAdd:0, monthlyAdd:15000},
+          {id:'v1', label:"100'e kadar", shortLabel:"100'e kadar", setupAdd:0, monthlyAdd:0},
+          {id:'v2', label:'100-500', shortLabel:'100-500', setupAdd:0, monthlyAdd:40},
+          {id:'v3', label:'500-1000', shortLabel:'500-1000', setupAdd:0, monthlyAdd:100},
+          {id:'v4', label:'1000+', shortLabel:'1000+', isVip: true, setupAdd:0, monthlyAdd:210},
         ];
 
         const state = {
@@ -10012,17 +10012,17 @@
               priceContent = `<span class="cfg-badge-included">dahil</span>`;
               priceClass += ' visible';
             } else if (isExtraActive) {
-              priceContent = `<span class="cfg-price-val">+${formatPrice(c.setup)}\u00A0$</span>`;
+              priceContent = `<span class="cfg-price-val">+${formatPrice(c.setup)}\u00A0₽</span>`;
               priceClass += ' visible';
             } else {
-              priceContent = `<span class="cfg-price-val">+${formatPrice(c.setup)}\u00A0$</span>`;
+              priceContent = `<span class="cfg-price-val">+${formatPrice(c.setup)}\u00A0₽</span>`;
             }
 
             return `
               <div class="cfg-row" data-row="${c.id}">
                 <div class="flex items-center gap-2.5 min-w-0">
-                  <span class="cfg-channel-icon ${isChecked ? 'opacity-100' : 'opacity-60'} transition-opacity duration-200">
-                    ${c.iconSvg}
+                  <span class="cfg-channel-icon €{isChecked ? 'opacity-100' : 'opacity-60'} transition-opacity duration-200">
+                    €{c.iconSvg}
                   </span>
                   <div class="cfg-row-label !gap-1">
                     <span>${c.label}</span>
@@ -10030,11 +10030,11 @@
                 </div>
                 <div class="cfg-row-right">
                   <div class="${priceClass}">
-                    ${priceContent}
+                    €{priceContent}
                   </div>
                   <label class="cfg-switch">
-                    <input type="checkbox" data-group="channels" data-id="${c.id}" ${isChecked ? 'checked' : ''}>
-                    <span class="cfg-track ${c.trackClass}"></span>
+                    <input type="checkbox" data-group="channels" data-id="${c.id}" €{isChecked ? 'checked' : ''}>
+                    <span class="cfg-track €{c.trackClass}"></span>
                   </label>
                 </div>
               </div>
@@ -10070,7 +10070,7 @@
                 priceSlot.innerHTML = `<span class="cfg-badge-included">dahil</span>`;
                 priceSlot.classList.add('visible');
               } else if (isExtraActive) {
-                priceSlot.innerHTML = `<span class="cfg-price-val">+${formatPrice(c.setup)}\u00A0$</span>`;
+                priceSlot.innerHTML = `<span class="cfg-price-val">+${formatPrice(c.setup)}\u00A0₽</span>`;
                 priceSlot.classList.add('visible');
               } else {
                 priceSlot.classList.remove('visible');
@@ -10087,14 +10087,14 @@
               <div class="cfg-row" data-row="${it.id}">
                 <div>
                   <div class="cfg-row-label">${it.label}</div>
-                  ${it.sub ? `<div class="cfg-row-sub">${it.sub}</div>` : ''}
+                  €{it.sub ? `<div class="cfg-row-sub">${it.sub}</div>` : ''}
                 </div>
                 <div class="cfg-row-right">
                   <div class="cfg-price-slot visible">
-                    <span class="cfg-price-val">+${formatPrice(it.setup)}\u00A0$</span>
+                    <span class="cfg-price-val">+${formatPrice(it.setup)}\u00A0₽</span>
                   </div>
                   <label class="cfg-switch">
-                    <input type="checkbox" data-group="${group}" data-id="${it.id}" ${isChecked ? 'checked' : ''}>
+                    <input type="checkbox" data-group="${group}" data-id="${it.id}" €{isChecked ? 'checked' : ''}>
                     <span class="cfg-track"></span>
                   </label>
                 </div>
@@ -10108,7 +10108,7 @@
 
         if (volumeEl) {
           volumeEl.innerHTML = VOLUMES.map(v =>
-            `<div class="cfg-pill ${v.isVip ? 'cfg-pill-vip' : ''} ${v.id===state.volume?'active':''}" data-volume="${v.id}">${v.label}</div>`
+            `<div class="cfg-pill €{v.isVip ? 'cfg-pill-vip' : ''} €{v.id===state.volume?'active':''}" data-volume="${v.id}">${v.label}</div>`
           ).join('');
 
           volumeEl.addEventListener('click', e => {
@@ -10177,8 +10177,8 @@
             if (ctaBtn) {
               ctaBtn.textContent = 'ÖZEL TEKLİF ALIN';
               const tgMsg = `Merhaba! 1000+ talep için Kurumsal tarife ile ilgileniyorum:
-• Kanallar: ${activeChNames}
-• Müşteri Tabanı: ${activeCrmNames}
+• Kanallar: €{activeChNames}
+• Müşteri Tabanı: €{activeCrmNames}
 Projeyi görüşmek istiyorum!`;
               ctaBtn.href = `https://t.me/altaioptima?text=${encodeURIComponent(tgMsg)}`;
             }
@@ -10197,8 +10197,8 @@ Projeyi görüşmek istiyorum!`;
           let tableRows = [];
           tableRows.push({
             name: 'Temel (1 kanal + tablo)',
-            setupStr: '50\u00A0000\u00A0$',
-            monthlyStr: '15\u00A0000\u00A0$/ay'
+            setupStr: '50\u00A0000\u00A0₽',
+            monthlyStr: '210\u00A0€/ay'
           });
 
           if (activeChannelOrder.length > 1) {
@@ -10209,8 +10209,8 @@ Projeyi görüşmek istiyorum!`;
                 monthly += c.monthly;
                 tableRows.push({
                   name: c.label,
-                  setupStr: `+${formatPrice(c.setup)}\u00A0$`,
-                  monthlyStr: `+${formatPrice(c.monthly)}\u00A0$/ay`
+                  setupStr: `+${formatPrice(c.setup)}\u00A0€`,
+                  monthlyStr: `+${formatPrice(c.monthly)}\u00A0€/ay`
                 });
               }
             }
@@ -10222,8 +10222,8 @@ Projeyi görüşmek istiyorum!`;
               monthly += c.monthly;
               tableRows.push({
                 name: c.label,
-                setupStr: `+${formatPrice(c.setup)}\u00A0$`,
-                monthlyStr: `+${formatPrice(c.monthly)}\u00A0$/ay`
+                setupStr: `+${formatPrice(c.setup)}\u00A0€`,
+                monthlyStr: `+${formatPrice(c.monthly)}\u00A0€/ay`
               });
             }
           });
@@ -10237,9 +10237,9 @@ Projeyi görüşmek istiyorum!`;
           if(vol && vol.monthlyAdd){
             monthly += vol.monthlyAdd;
             tableRows.push({
-              name: `Talep Hacmi: ${vol.shortLabel}`,
+              name: `Talep Hacmi: €{vol.shortLabel}`,
               setupStr: '-',
-              monthlyStr: `+${formatPrice(vol.monthlyAdd)}\u00A0$/ay`
+              monthlyStr: `+${formatPrice(vol.monthlyAdd)}\u00A0€/ay`
             });
           }
 
@@ -10251,7 +10251,7 @@ Projeyi görüşmek istiyorum!`;
           if (setupTotalEl) setupTotalEl.textContent = formatPrice(setup);
           if (monthlyTotalEl) monthlyTotalEl.textContent = formatPrice(monthly);
           if (mobPricesWrap) {
-            mobPricesWrap.innerHTML = `<span id="mobSetupTotal">${formatPrice(setup)}</span>\u00A0$ + <span id="mobMonthlyTotal">${formatPrice(monthly)}</span>\u00A0$/ay`;
+            mobPricesWrap.innerHTML = `<span id="mobSetupTotal">${formatPrice(setup)}</span>\u00A0€ + <span id="mobMonthlyTotal">${formatPrice(monthly)}</span>\u00A0€/ay`;
           }
 
           if (cfgDetailsRowsEl) {
@@ -10266,16 +10266,16 @@ Projeyi görüşmek istiyorum!`;
 
           const yearTotalSum = setup + (11 * monthly);
           if (yearTotalEl) {
-            yearTotalEl.textContent = formatPrice(yearTotalSum) + '\u00A0$';
+            yearTotalEl.textContent = formatPrice(yearTotalSum) + '\u00A0€';
           }
 
           if (ctaBtn) {
             const volLabel = vol ? vol.shortLabel : "100'e kadar";
             const tgMsg = `Merhaba! Web sitesinde yapay zeka satıcısı maliyetini hesapladım:
-• Kanallar: ${activeChNames}
-• Müşteri Tabanı: ${activeCrmNames}
-• Talep Hacmi: ${volLabel} /ay
-• Tahmini Maliyet: ${formatPrice(setup)} $ kurulum + ${formatPrice(monthly)} $/ay
+• Kanallar: €{activeChNames}
+• Müşteri Tabanı: €{activeCrmNames}
+• Talep Hacmi: €{volLabel} /ay
+• Tahmini Maliyet: €{formatPrice(setup)} € kurulum + €{formatPrice(monthly)} €/ay
 Projeyi görüşmek istiyorum!`;
 
             ctaBtn.href = `https://t.me/altaioptima?text=${encodeURIComponent(tgMsg)}`;

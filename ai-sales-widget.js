@@ -18,15 +18,15 @@
       close: 'Закрыть',
       minimize: 'Свернуть',
       reset: 'Очистить диалог',
-      teaserText: '${T.teaserText}',
-      startChat: '${T.startChat}',
-      replyTime: '${T.replyTime}',
+      teaserText: 'Здравствуйте! Готова ответить на любые вопросы по установке софта и интеграциям 🚀',
+      startChat: 'Начать диалог →',
+      replyTime: 'Ответ за 3 сек',
       inputPlaceholder: 'Задайте вопрос по установке софта...',
       sendTitle: 'Отправить вопрос',
       openChatAria: 'Открыть чат с ALTAI Optima',
       welcomeTitle: 'Здравствуйте!',
       welcomeText: 'Я персональный консультант <strong>ALTAI Optima</strong>. Помогу рассчитать сроки и стоимость установки софта, расскажу об интеграциях с вашей CRM (amoCRM, Битрикс24, 1С) и запуск под ключ.',
-      quickQuestionsTitle: '${T.quickQuestionsTitle}',
+      quickQuestionsTitle: 'Быстрые вопросы по установке софта:',
       suggestedQuestions: [
         '🚀 Как проходит установка софта за 3 дня?',
         '💰 Сколько стоит настройка и ежемесячная подписка?',
@@ -35,9 +35,9 @@
         '🛡️ Что входит в тариф 50 000 ₽ под ключ?'
       ],
       typing: 'ИИ печатает',
-      errWait: T.errWait,
+      errWait: 'Сервер временно перегружен запросами. Пожалуйста, подождите минуту.',
       errServer: 'Ошибка связи с сервером',
-      defaultResponse: T.defaultResponse,
+      defaultResponse: 'Спасибо за обращение! Ваш вопрос передан специалистам по внедрению.',
       notice: 'Уведомление',
       defaultError: 'Не удалось получить ответ сервера. Проверьте соединение.'
     },
@@ -62,7 +62,7 @@
         '💰 Kurulum ve aylık abonelik maliyeti nedir?',
         '🔌 amoCRM, Bitrix24 ve ERP sistemlerine nasıl bağlanır?',
         '📞 WhatsApp ve santral entegrasyonu yapılabilir mi?',
-        '🛡️ 50.000 $ anahtar teslim pakete neler dahildir?'
+        '🛡️ 50.000 ₽ anahtar teslim pakete neler dahildir?'
       ],
       typing: 'Yapay zeka yazıyor',
       errWait: 'Sunucu geçici olarak meşgul, lütfen bir dakika bekleyin.',
