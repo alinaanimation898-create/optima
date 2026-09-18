@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Партнёрская программа Altai Optima — процент с каждого платежа клиента</title>
-  <meta name="description" content="Рекомендуйте ИИ-продавца Altai Optima бизнесу и получайте от 25% с внедрения и от 15% с каждого платежа клиента — пока он пользуется сервисом. Без взносов, по договору, с ежемесячным отчётом.">
+  <title>Партнёрская программа Altai Optima — от 25% с внедрения и от 15% с подписки</title>
+  <meta name="description" content="Рекомендуйте ИИ-продавца Altai Optima бизнесу. Получайте от 25% с внедрения и от 15% с каждого ежемесячного платежа клиента. Без взносов, официальный договор, выплаты в течение 5 дней.">
   <meta name="theme-color" content="#020817">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Партнёрская программа Altai Optima">
@@ -58,7 +58,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
-    /* 1. ЛОКАЛЬНЫЙ ШРИФТ BENZIN BOLD */
     @font-face {
       font-family: 'Benzin';
       src: url('benzin-bold.otf') format('opentype'),
@@ -88,10 +87,9 @@
       margin: 0;
       padding: 0;
       position: relative;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
     }
 
-    /* ФИРМЕННЫЙ АНИМИРОВАННЫЙ САПФИРОВЫЙ ГРАДИЕНТ ГЛАВНОГО ЗАГОЛОВКА */
+    /* АНИМИРОВАННЫЙ САПФИРОВЫЙ ГРАДИЕНТ ГЛАВНОГО ЗАГОЛОВКА */
     .partner-hero-animated-title {
       background: linear-gradient(
         135deg,
@@ -151,221 +149,76 @@
       100% { left: calc(100% + 180px); opacity: 0; }
     }
 
-    /* ЖИДКОЕ СТЕКЛО (Liquid Crystal) */
-    .liquid-crystal-panel {
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid rgba(226, 232, 240, 0.9);
-      box-shadow: 0 14px 36px -4px rgba(2, 132, 199, 0.07), 0 4px 16px -2px rgba(15, 23, 42, 0.03);
+    /* ЯРКИЕ КАРТОЧКИ С ГРАДИЕНТАМИ (ВМЕСТО ПЛОСКИХ БЕЛЫХ) */
+    .card-sapphire {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 249, 255, 0.95) 100%);
+      border: 1.5px solid rgba(186, 230, 253, 0.9);
+      box-shadow: 0 12px 32px -4px rgba(2, 132, 199, 0.1), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
       transition: all 0.35s var(--ease-fluid);
     }
-    .liquid-crystal-panel:hover {
-      box-shadow: 0 20px 48px -4px rgba(2, 132, 199, 0.15), 0 8px 24px -2px rgba(15, 23, 42, 0.05);
-      border-color: rgba(56, 189, 248, 0.6);
-      transform: translateY(-2px);
-    }
-
-    .liquid-crystal-highlight {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 249, 255, 0.94) 100%);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid rgba(56, 189, 248, 0.5);
-      box-shadow: 0 18px 45px -4px rgba(2, 132, 199, 0.14), 0 6px 20px -2px rgba(15, 23, 42, 0.04);
-      transition: all 0.35s var(--ease-fluid);
-    }
-    .liquid-crystal-highlight:hover {
+    .card-sapphire:hover {
+      transform: translateY(-3px);
       border-color: #38bdf8;
-      box-shadow: 0 24px 55px -4px rgba(2, 132, 199, 0.22);
-      transform: translateY(-2px);
+      box-shadow: 0 20px 48px -4px rgba(2, 132, 199, 0.22);
     }
 
-    /* ПАЙПЛАЙН КАРТОЧКИ С АНИМАЦИЕЙ */
-    .pipeline-card-wrapper {
+    .card-emerald {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.98) 0%, rgba(236, 253, 245, 0.95) 100%);
+      border: 1.5px solid rgba(167, 243, 208, 0.9);
+      box-shadow: 0 12px 32px -4px rgba(16, 185, 129, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+      transition: all 0.35s var(--ease-fluid);
+    }
+    .card-emerald:hover {
+      transform: translateY(-3px);
+      border-color: #34d399;
+      box-shadow: 0 20px 48px -4px rgba(16, 185, 129, 0.24);
+    }
+
+    .card-highlight-pro {
       position: relative;
-      padding: 1.5px;
-      border-radius: 1.25rem;
-      background: rgba(224, 242, 254, 0.85);
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: linear-gradient(145deg, #ffffff 0%, #f0f9ff 100%);
+      border: 2px solid #0284c7;
+      box-shadow: 0 16px 45px -4px rgba(2, 132, 199, 0.25);
+      transition: all 0.35s var(--ease-fluid);
     }
-    .pipeline-card-wrapper::before {
-      content: '';
-      position: absolute;
-      inset: -150%;
-      background: conic-gradient(from 0deg, transparent 0%, transparent 68%, #38bdf8 82%, #0284c7 90%, #ffffff 98%, transparent 100%);
-      opacity: 0;
-      pointer-events: none;
-    }
-    .pipeline-card-wrapper.pipeline-emerald {
-      background: rgba(167, 243, 208, 0.85);
-    }
-    .pipeline-card-wrapper.pipeline-emerald::before {
-      background: conic-gradient(from 0deg, transparent 0%, transparent 68%, #34d399 82%, #059669 90%, #ffffff 98%, transparent 100%);
+    .card-highlight-pro:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px -4px rgba(2, 132, 199, 0.35);
     }
 
-    .pipeline-card-inner {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      border-radius: calc(1.25rem - 1.5px);
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(8px);
-      padding: 1.35rem 1.4rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    /* АНИМАЦИИ ПАЙПЛАЙНА */
-    @keyframes cardGlowPulse1 {
-      0%, 100% { box-shadow: 0 4px 12px rgba(2, 132, 199, 0.06); }
-      2%, 24% { box-shadow: 0 0 28px rgba(56, 189, 248, 0.45), 0 12px 28px -4px rgba(2, 132, 199, 0.25); transform: translateY(-3px); }
-      26% { box-shadow: 0 4px 12px rgba(2, 132, 199, 0.06); transform: translateY(0); }
-    }
-    @keyframes cardSpin1 {
-      0%, 100% { opacity: 0; transform: rotate(0deg); }
-      1% { opacity: 1; }
-      24% { opacity: 1; transform: rotate(360deg); }
-      26% { opacity: 0; transform: rotate(400deg); }
-    }
-    @keyframes cardGlowPulse2 {
-      0%, 24%, 100% { box-shadow: 0 4px 12px rgba(2, 132, 199, 0.06); transform: translateY(0); }
-      26%, 49% { box-shadow: 0 0 28px rgba(56, 189, 248, 0.45), 0 12px 28px -4px rgba(2, 132, 199, 0.25); transform: translateY(-3px); }
-      51% { box-shadow: 0 4px 12px rgba(2, 132, 199, 0.06); transform: translateY(0); }
-    }
-    @keyframes cardSpin2 {
-      0%, 24%, 100% { opacity: 0; transform: rotate(0deg); }
-      26% { opacity: 1; }
-      49% { opacity: 1; transform: rotate(360deg); }
-      51% { opacity: 0; transform: rotate(400deg); }
-    }
-    @keyframes cardGlowPulse3 {
-      0%, 49%, 100% { box-shadow: 0 4px 12px rgba(2, 132, 199, 0.06); transform: translateY(0); }
-      51%, 74% { box-shadow: 0 0 28px rgba(56, 189, 248, 0.45), 0 12px 28px -4px rgba(2, 132, 199, 0.25); transform: translateY(-3px); }
-      76% { box-shadow: 0 4px 12px rgba(2, 132, 199, 0.06); transform: translateY(0); }
-    }
-    @keyframes cardSpin3 {
-      0%, 49%, 100% { opacity: 0; transform: rotate(0deg); }
-      51% { opacity: 1; }
-      74% { opacity: 1; transform: rotate(360deg); }
-      76% { opacity: 0; transform: rotate(400deg); }
-    }
-    @keyframes cardGlowPulse4 {
-      0%, 74% { box-shadow: 0 8px 24px rgba(16, 185, 129, 0.12); transform: translateY(0); }
-      76%, 98% { box-shadow: 0 0 34px rgba(52, 211, 153, 0.6), 0 16px 36px -4px rgba(16, 185, 129, 0.35); transform: translateY(-3px); }
-      100% { box-shadow: 0 8px 24px rgba(16, 185, 129, 0.12); transform: translateY(0); }
-    }
-    @keyframes cardSpin4 {
-      0%, 74% { opacity: 0; transform: rotate(0deg); }
-      76% { opacity: 1; }
-      98% { opacity: 1; transform: rotate(360deg); }
-      100% { opacity: 0; transform: rotate(400deg); }
-    }
-
-    .flow-card-1 { animation: cardGlowPulse1 7.2s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
-    .flow-card-1::before { animation: cardSpin1 7.2s linear infinite; }
-    .flow-card-2 { animation: cardGlowPulse2 7.2s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
-    .flow-card-2::before { animation: cardSpin2 7.2s linear infinite; }
-    .flow-card-3 { animation: cardGlowPulse3 7.2s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
-    .flow-card-3::before { animation: cardSpin3 7.2s linear infinite; }
-    .flow-card-4 { animation: cardGlowPulse4 7.2s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
-    .flow-card-4::before { animation: cardSpin4 7.2s linear infinite; }
-
-    /* АНИМИРОВАННЫЙ ТЕЛЕГРАМ-КРУЖОЧЕК */
-    .tg-circle-wrapper {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .tg-circle-wave {
-      position: absolute;
-      inset: -14px;
-      border-radius: 50%;
-      border: 2px solid rgba(56, 189, 248, 0.55);
-      animation: tgCircleWave 3s cubic-bezier(0.16, 1, 0.3, 1) infinite;
-      pointer-events: none;
-    }
-    .tg-circle-wave-2 {
-      animation-delay: 1.5s;
-    }
-    @keyframes tgCircleWave {
-      0% { transform: scale(0.92); opacity: 0.95; border-color: rgba(56, 189, 248, 0.7); }
-      50% { opacity: 0.45; }
-      100% { transform: scale(1.36); opacity: 0; border-color: rgba(2, 132, 199, 0); }
-    }
-    .tg-progress-ring {
-      position: absolute;
-      inset: -5px;
-      border-radius: 50%;
-      padding: 3.5px;
-      background: conic-gradient(from 0deg, #38bdf8, #0284c7 35%, #7dd3fc 60%, #0ea5e9 85%, #38bdf8 100%);
-      animation: tgRingSpin 5s linear infinite;
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      box-shadow: 0 0 25px rgba(56, 189, 248, 0.5);
-    }
-    @keyframes tgRingSpin {
-      100% { transform: rotate(360deg); }
-    }
-
-    /* ФИРМЕННАЯ ОПТИЧЕСКАЯ КНОПКА (BTN-OPTIC) */
+    /* ФИРМЕННАЯ ОПТИЧЕСКАЯ КНОПКА */
     .btn-optic {
       position: relative;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      padding: 16px 36px;
+      gap: 10px;
+      padding: 15px 32px;
       background: linear-gradient(135deg, #0284c7 0%, #0369a1 40%, #082f49 100%);
       color: #ffffff;
-      font-family: var(--font-sans);
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.04em;
       font-size: 0.8125rem;
       line-height: 1;
       clip-path: polygon(
-        14px 0%, calc(100% - 14px) 0%, 100% 14px, 100% calc(100% - 14px),
-        calc(100% - 14px) 100%, 14px 100%, 0% calc(100% - 14px), 0% 14px
+        12px 0%, calc(100% - 12px) 0%, 100% 12px, 100% calc(100% - 12px),
+        calc(100% - 12px) 100%, 12px 100%, 0% calc(100% - 12px), 0% 12px
       );
       box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.45), inset 0 -2px 4px rgba(0, 0, 0, 0.5);
-      filter: drop-shadow(0 8px 24px rgba(2, 132, 199, 0.35)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.18));
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, filter 0.3s ease;
+      filter: drop-shadow(0 8px 24px rgba(2, 132, 199, 0.35));
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
       overflow: hidden;
       cursor: pointer;
       user-select: none;
       text-decoration: none;
       white-space: nowrap;
     }
-    @keyframes buttonGlareSweep {
-      0% { left: -130%; }
-      30%, 100% { left: 150%; }
-    }
-    .btn-optic::before {
-      content: '';
-      position: absolute;
-      top: -60%;
-      left: -130%;
-      width: 60%;
-      height: 220%;
-      background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.75) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 100%);
-      transform: rotate(25deg);
-      pointer-events: none;
-      animation: buttonGlareSweep 3.2s ease-in-out infinite;
-      filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8));
-    }
     .btn-optic:hover {
       transform: translateY(-2px) scale(1.02);
-      filter: drop-shadow(0 12px 30px rgba(2, 132, 199, 0.5)) drop-shadow(0 0 20px rgba(56, 189, 248, 0.7));
-    }
-    .btn-optic:active {
-      transform: translateY(0px) scale(0.99);
+      filter: drop-shadow(0 12px 30px rgba(2, 132, 199, 0.55));
     }
 
-    /* АНИМИРОВАННАЯ НЕОНОВАЯ КОНТУРНАЯ КНОПКА */
     .btn-neon-contour {
       position: relative;
       display: inline-flex;
@@ -373,128 +226,26 @@
       justify-content: center;
       color: #0284c7;
       background: #ffffff;
-      border: 1.5px solid transparent;
+      border: 1.5px solid #bae6fd;
       border-radius: 9999px;
       text-decoration: none;
       box-shadow: 0 4px 14px rgba(2, 132, 199, 0.08);
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      overflow: hidden;
-      z-index: 1;
-    }
-    .btn-neon-contour::before {
-      content: '';
-      position: absolute;
-      inset: -50%;
-      width: 200%;
-      height: 200%;
-      background: conic-gradient(from 0deg, #0284c7 0%, #38bdf8 25%, #818cf8 50%, #38bdf8 75%, #0284c7 100%);
-      animation: neonBorderSpin 3.5s linear infinite;
-      z-index: -2;
-    }
-    .btn-neon-contour::after {
-      content: '';
-      position: absolute;
-      inset: 1.5px;
-      border-radius: 9999px;
-      background: #ffffff;
-      z-index: -1;
-      transition: background 0.25s ease;
-    }
-    .btn-neon-contour:hover::after {
-      background: #f0f9ff;
+      transition: all 0.25s ease;
     }
     .btn-neon-contour:hover {
       color: #0369a1;
+      border-color: #38bdf8;
+      background: #f0f9ff;
       box-shadow: 0 8px 24px rgba(2, 132, 199, 0.18);
-      transform: translateY(-1px) scale(1.03);
-    }
-    @keyframes neonBorderSpin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    /* МОБИЛЬНОЕ МЕНЮ */
-    .mobile-menu-neon-card {
-      position: relative;
-      border-radius: 1.25rem;
-      padding: 1.5px;
-      background: transparent;
-      overflow: hidden;
-      box-shadow: 0 18px 45px -10px rgba(2, 132, 199, 0.25);
-    }
-    .mobile-menu-neon-card::before {
-      content: '';
-      position: absolute;
-      inset: -60%;
-      width: 220%;
-      height: 220%;
-      background: conic-gradient(from 0deg, #0284c7 0%, #38bdf8 25%, #818cf8 45%, transparent 65%, #0284c7 90%, #38bdf8 100%);
-      animation: neonBorderSpin 3.5s linear infinite;
-      z-index: 0;
-    }
-    .mobile-menu-neon-inner {
-      position: relative;
-      z-index: 1;
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border-radius: calc(1.25rem - 1.5px);
-    }
-
-    /* ПАРЯЩИЕ ЗНАЧКИ РУБЛЯ */
-    .partner-ruble-token {
-      position: absolute;
-      user-select: none;
-      pointer-events: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      line-height: 1;
-      text-align: center;
-      will-change: transform, opacity;
-      animation: rubleFloat 6s ease-in-out infinite alternate;
-    }
-    @keyframes rubleFloat {
-      0% { transform: translateY(0px) rotate(0deg); opacity: 0.25; }
-      50% { transform: translateY(-16px) rotate(5deg); opacity: 0.65; }
-      100% { transform: translateY(-28px) rotate(-5deg); opacity: 0.35; }
-    }
-
-    /* Range Slider Styling */
-    input[type=range] {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 100%;
-      height: 8px;
-      border-radius: 9999px;
-      background: rgba(255, 255, 255, 0.2);
-      outline: none;
-      transition: background 0.2s ease;
-    }
-    input[type=range]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
-      cursor: pointer;
-      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.6);
-      border: 3px solid #ffffff;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-    input[type=range]::-webkit-slider-thumb:hover {
-      transform: scale(1.15);
-      box-shadow: 0 6px 20px rgba(56, 189, 248, 0.8);
+      transform: translateY(-1px);
     }
 
     /* Segmented status toggle buttons */
     .calc-seg {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      background: rgba(4, 18, 42, 0.6);
-      border: 1px solid rgba(56, 189, 248, 0.3);
+      background: rgba(4, 18, 42, 0.7);
+      border: 1px solid rgba(56, 189, 248, 0.35);
       border-radius: 9999px;
       padding: 4px;
       gap: 4px;
@@ -516,14 +267,39 @@
       box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
     }
 
-    /* Form Styles */
+    /* Range Slider Styling */
+    input[type=range] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 8px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.2);
+      outline: none;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.6);
+      border: 3px solid #ffffff;
+      transition: transform 0.15s ease;
+    }
+    input[type=range]::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+
     .form-input {
       width: 100%;
       background: #ffffff;
       color: #061224;
       border: 1.5px solid #cbd5e1;
       border-radius: 12px;
-      padding: 10px 14px;
+      padding: 11px 14px;
       font-size: 14px;
       line-height: 1.5;
       transition: border-color 0.2s, box-shadow 0.2s;
@@ -533,182 +309,164 @@
       outline: none;
       box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
     }
-    .form-select {
-      appearance: none;
-      -webkit-appearance: none;
-      background-image: linear-gradient(45deg, transparent 50%, #64748b 50%), linear-gradient(135deg, #64748b 50%, transparent 50%);
-      background-position: calc(100% - 18px) 55%, calc(100% - 13px) 55%;
-      background-size: 5px 5px;
-      background-repeat: no-repeat;
-      padding-right: 36px;
-    }
 
-    /* FAQ accordion icon */
     details summary::-webkit-details-marker { display: none; }
     details summary .faq-icon { transition: transform 0.25s ease; }
     details[open] summary .faq-icon { transform: rotate(45deg); color: #0284c7; }
   </style>
 </head>
-<body class="bg-[#f1f5fa] text-[#061224] antialiased overflow-x-hidden selection:bg-sky-500 selection:text-white relative">
+<body class="bg-[#f1f5fa] text-[#061224] antialiased selection:bg-sky-500 selection:text-white relative">
 
-  <!-- ЖИВОЙ АНИМИРОВАННЫЙ НЕОНОВЫЙ БЭКГРАУНД -->
+  <!-- ЖИВОЙ БЭКГРАУНД -->
   <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
     <div class="absolute -top-[15%] left-1/2 -translate-x-1/2 w-[1200px] h-[700px] bg-sky-300/25 blur-[140px] rounded-full"></div>
     <div class="absolute top-[35%] -right-[15%] w-[700px] h-[700px] bg-cyan-300/20 blur-[150px] rounded-full"></div>
     <div class="absolute top-[65%] -left-[15%] w-[800px] h-[650px] bg-blue-200/30 blur-[150px] rounded-full"></div>
-    <div class="absolute bottom-[-10%] right-[10%] w-[600px] h-[600px] bg-emerald-300/15 blur-[160px] rounded-full"></div>
-
-    <!-- Интерактивное поле мерцающих значков рублей -->
-    <div id="partnerRubleField" class="absolute inset-0 w-full h-full overflow-hidden"></div>
   </div>
 
-  <!-- STICKY FLOATING NAV DOCK -->
+  <!-- НАВИГАЦИОННЫЙ ДОК -->
   <div class="fixed top-3 sm:top-5 left-0 right-0 z-50 flex justify-center px-2 sm:px-4 pointer-events-none">
-    <div class="relative bg-white/90 backdrop-blur-2xl border border-slate-200/90 shadow-[0_12px_36px_rgba(15,23,42,0.09)] rounded-full px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-3 sm:gap-6 text-xs text-slate-800 font-inter pointer-events-auto w-[96%] max-w-7xl">
+    <div class="relative bg-white/95 backdrop-blur-2xl border border-slate-200 shadow-[0_12px_36px_rgba(15,23,42,0.09)] rounded-full px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-3 sm:gap-6 text-xs text-slate-800 pointer-events-auto w-[96%] max-w-7xl">
       
-      <!-- Логотип + PARTNER -->
-      <a href="./index.html" class="flex items-center gap-2.5 group shrink-0" title="На главную ALTAI OPTIMA">
+      <a href="./index.html" class="flex items-center gap-2.5 group shrink-0" title="ALTAI OPTIMA">
         <img src="brand_logo.png" alt="ALTAI OPTIMA" class="h-5 sm:h-6 w-auto object-contain transition-transform duration-200 group-hover:scale-105" loading="lazy">
         <span class="hidden sm:inline-block text-[11px] sm:text-xs font-black uppercase tracking-widest bg-gradient-to-r from-sky-500 via-blue-600 to-sky-700 bg-clip-text text-transparent select-none">
           PARTNER
         </span>
       </a>
 
-      <!-- Десктоп-навигация -->
       <nav class="hidden lg:flex items-center space-x-1 xl:space-x-3 text-[11px] xl:text-xs font-bold tracking-wider uppercase text-slate-700 whitespace-nowrap">
-        <a href="#who" class="px-2 py-1 hover:text-sky-600 hover:bg-sky-50 rounded-full transition-colors">КОМУ</a>
+        <a href="#benefits" class="px-2.5 py-1 hover:text-sky-600 hover:bg-sky-50 rounded-full transition-colors">ВЫГОДА</a>
         <span class="text-slate-300">•</span>
-        <a href="#how" class="px-2 py-1 hover:text-sky-600 hover:bg-sky-50 rounded-full transition-colors">КАК РАБОТАЕТ</a>
+        <a href="#how" class="px-2.5 py-1 hover:text-sky-600 hover:bg-sky-50 rounded-full transition-colors">КАК РАБОТАЕТ</a>
         <span class="text-slate-300">•</span>
-        <a href="#product" class="px-2 py-1 hover:text-sky-600 hover:bg-sky-50 rounded-full transition-colors">ПРОДУКТ</a>
+        <a href="#product" class="px-2.5 py-1 hover:text-sky-600 hover:bg-sky-50 rounded-full transition-colors">ПРОДУКТ</a>
         <span class="text-slate-300">•</span>
-        <a href="#rewards" class="px-2 py-1 hover:text-sky-600 hover:bg-sky-50 rounded-full transition-colors">ВОЗНАГРАЖДЕНИЕ</a>
+        <a href="#rewards" class="px-2.5 py-1 hover:text-sky-600 hover:bg-sky-50 rounded-full transition-colors">ТАРИФЫ И СТАВКИ</a>
         <span class="text-slate-300">•</span>
-        <a href="#calc" class="px-2 py-1 hover:text-sky-600 hover:bg-sky-50 rounded-full transition-colors">КАЛЬКУЛЯТОР</a>
+        <a href="#calc" class="px-2.5 py-1 hover:text-sky-600 hover:bg-sky-50 rounded-full transition-colors">КАЛЬКУЛЯТОР</a>
         <span class="text-slate-300">•</span>
-        <a href="#rules" class="px-2 py-1 hover:text-sky-600 hover:bg-sky-50 rounded-full transition-colors">ПРАВИЛА</a>
-        <span class="text-slate-300">•</span>
-        <a href="#faq" class="px-2 py-1 hover:text-sky-600 hover:bg-sky-50 rounded-full transition-colors">FAQ</a>
+        <a href="#faq" class="px-2.5 py-1 hover:text-sky-600 hover:bg-sky-50 rounded-full transition-colors">FAQ</a>
       </nav>
 
-      <!-- Правый блок кнопок -->
       <div class="flex items-center gap-2 sm:gap-3 shrink-0 whitespace-nowrap">
-        <a href="./index.html" class="btn-neon-contour px-3.5 py-1.5 text-[11px] font-bold tracking-wider hidden sm:inline-flex items-center gap-1.5 whitespace-nowrap">
-          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
-          <span>Главная</span>
+        <a href="https://t.me/altaioptima" target="_blank" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-sky-50 text-[#229ED9] hover:bg-sky-100 font-bold text-[11px] transition">
+          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+          <span>@altaioptima</span>
         </a>
-
-        <!-- TG Icon -->
-        <a href="https://t.me/altaioptima" target="_blank" class="hidden sm:flex p-1.5 text-[#229ED9] hover:text-sky-500 items-center justify-center transition-all duration-200 hover:scale-120 group shrink-0" title="Telegram">
-          <svg class="w-4 h-4 text-[#229ED9] fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
-          </svg>
+        <a href="#join" class="px-4 sm:px-5 py-2 rounded-full bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-extrabold text-[10px] sm:text-xs uppercase tracking-wider transition-transform duration-200 hover:scale-105 shadow-md shrink-0">
+          <span>СТАТЬ ПАРТНЁРОМ</span>
         </a>
-
-        <!-- CTA Кнопка -->
-        <a href="#join" class="px-3.5 sm:px-5 py-2 rounded-full bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-extrabold text-[10px] sm:text-xs uppercase tracking-wider transition-transform duration-200 hover:scale-105 shadow-md shrink-0 whitespace-nowrap">
-          <span>СТАТЬ ПАРТНЕРОМ</span>
-        </a>
-
-        <!-- Мобильное меню кнопка -->
-        <button type="button" onclick="toggleMobileMenu()" class="lg:hidden w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center font-bold shrink-0">
+        <button type="button" onclick="toggleMobileMenu()" class="lg:hidden w-8 h-8 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center font-bold">
           ☰
         </button>
       </div>
     </div>
   </div>
 
-  <!-- Мобильное меню Drawer -->
-  <div id="mobile-menu-drawer" class="fixed inset-x-3 top-20 z-40 mobile-menu-neon-card hidden lg:hidden">
-    <div class="mobile-menu-neon-inner p-5 flex flex-col gap-2.5 font-inter text-sm relative overflow-hidden">
-      <div class="absolute top-0 inset-x-6 h-[1.5px] bg-gradient-to-r from-transparent via-sky-400 to-transparent opacity-90 pointer-events-none"></div>
-
-      <a href="#who" onclick="toggleMobileMenu()" class="py-2 px-3 rounded-lg hover:bg-sky-50/80 font-semibold text-slate-800 transition">Кому подходит</a>
-      <a href="#how" onclick="toggleMobileMenu()" class="py-2 px-3 rounded-lg hover:bg-sky-50/80 font-semibold text-slate-800 transition">Как это работает</a>
-      <a href="#product" onclick="toggleMobileMenu()" class="py-2 px-3 rounded-lg hover:bg-sky-50/80 font-semibold text-slate-800 transition">Что вы рекомендуете</a>
-      <a href="#rewards" onclick="toggleMobileMenu()" class="py-2 px-3 rounded-lg hover:bg-sky-50/80 font-semibold text-slate-800 transition">Статусы и вознаграждение</a>
-      <a href="#calc" onclick="toggleMobileMenu()" class="py-2 px-3 rounded-lg hover:bg-sky-50/80 font-semibold text-slate-800 transition">Калькулятор дохода</a>
-      <a href="#rules" onclick="toggleMobileMenu()" class="py-2 px-3 rounded-lg hover:bg-sky-50/80 font-semibold text-slate-800 transition">Правила и выплаты</a>
-      <a href="#fit" onclick="toggleMobileMenu()" class="py-2 px-3 rounded-lg hover:bg-sky-50/80 font-semibold text-slate-800 transition">Кому предлагать</a>
-      <a href="#faq" onclick="toggleMobileMenu()" class="py-2 px-3 rounded-lg hover:bg-sky-50/80 font-semibold text-slate-800 transition">Частые вопросы</a>
-      <a href="#join" onclick="toggleMobileMenu()" class="py-2 px-3 rounded-lg bg-sky-50 font-bold text-sky-700 transition">Стать партнёром</a>
-
-      <div class="pt-2 border-t border-slate-100 flex items-center justify-between">
-        <a href="./index.html" class="inline-flex items-center gap-1.5 text-xs text-slate-600 font-semibold hover:text-sky-600 transition">
-          <i data-lucide="arrow-left" class="w-4 h-4"></i> Главный сайт
-        </a>
-        <a href="https://t.me/altaioptima" target="_blank" class="px-4 py-2 rounded-full bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs transition">
-          Написать в TG
-        </a>
-      </div>
-    </div>
+  <!-- Мобильное меню -->
+  <div id="mobile-menu-drawer" class="fixed inset-x-3 top-20 z-40 bg-white/95 backdrop-blur-2xl border border-sky-200 rounded-2xl p-5 shadow-2xl hidden lg:hidden space-y-2 text-sm font-semibold">
+    <a href="#benefits" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Выгода партнёра</a>
+    <a href="#how" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Как это работает (4 шага)</a>
+    <a href="#product" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Что делает ИИ-продавец</a>
+    <a href="#rewards" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Тарифы и ставки</a>
+    <a href="#calc" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Калькулятор дохода</a>
+    <a href="#who" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Кому предлагать</a>
+    <a href="#faq" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Вопросы и ответы</a>
+    <a href="#join" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg bg-sky-600 text-white font-bold text-center mt-2">Стать партнёром</a>
   </div>
 
   <main class="relative z-10 pt-28 sm:pt-36 pb-24 bg-grid-cyber">
     
-    <!-- 1. HERO SECTION -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-20 relative">
+    <!-- 1. HERO С КЛЮЧЕВЫМИ АКЦЕНТАМИ (ГЛАВНЫЙ МАРКЕТИНГОВЫЙ ЭКРАН) -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-24 relative">
       <div class="max-w-5xl mx-auto text-center">
         
-        <h1 class="font-benzin tracking-tight mb-6 uppercase select-none">
-          <span class="block text-3xl sm:text-5xl md:text-6xl lg:text-[68px] font-black leading-[1.08] partner-hero-animated-title">
-            ПАРТНЁРСКАЯ ПРОГРАММА
+        <!-- Бейдж статуса -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-100/90 border border-sky-300/80 text-sky-800 text-xs font-black uppercase tracking-wider mb-6 shadow-xs">
+          <span class="w-2 h-2 rounded-full bg-sky-500 animate-pulse"></span>
+          <span>B2B Партнёрская программа</span>
+        </div>
+
+        <h1 class="font-benzin tracking-tight mb-5 uppercase select-none">
+          <span class="block text-3xl sm:text-5xl md:text-6xl lg:text-[64px] font-black leading-[1.08] partner-hero-animated-title">
+            РЕКОМЕНДУЙТЕ ИИ-ПРОДАВЦА
           </span>
-          <span class="block text-lg sm:text-2xl md:text-3xl lg:text-[36px] font-black tracking-wider mt-2 sm:mt-3 text-slate-800">
-            ПРОЦЕНТ С КАЖДОГО ПЛАТЕЖА КЛИЕНТА
+          <span class="block text-xl sm:text-3xl md:text-4xl lg:text-[42px] font-black tracking-wider mt-2 text-slate-900">
+            И ПОЛУЧАЙТЕ ПРОЦЕНТ С КАЖДОГО ПЛАТЕЖА
           </span>
         </h1>
 
-        <p class="text-base sm:text-lg md:text-xl text-slate-700 leading-relaxed max-w-4xl mx-auto mb-10 font-medium">
-          Вы знакомите нас с собственником или руководителем продаж. Мы проводим демо, заключаем договор, запускаем и поддерживаем ИИ-продавца. Вы получаете <strong class="text-sky-700 font-extrabold">от 25% с внедрения</strong> и <strong class="text-emerald-700 font-extrabold">от 15% с каждого платежа клиента</strong> — пока он пользуется сервисом.
+        <p class="text-base sm:text-lg md:text-xl text-slate-700 leading-relaxed max-w-3xl mx-auto mb-10 font-medium">
+          Вы передаёте контакт ЛПР — мы проводим демо, закрываем сделку и запускаем систему. Вы зарабатываете <strong class="text-sky-700 font-extrabold">от 25% сразу</strong> + <strong class="text-emerald-700 font-extrabold">от 15% ежемесячно</strong> всё время, пока клиент пользуется сервисом.
         </p>
 
-        <!-- 4 КЛЮЧЕВЫХ ПРЕИМУЩЕСТВА -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto text-left items-stretch mb-10">
+        <!-- 3 ОСНОВНЫХ АКЦЕНТНЫХ БЛОКА (МАРКЕТИНГОВЫЙ ФОКУС) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto text-left items-stretch mb-10" id="benefits">
           
-          <div class="liquid-crystal-panel p-5 rounded-2xl border border-sky-200/80 flex items-start gap-3">
-            <span class="w-7 h-7 rounded-full bg-sky-100 text-sky-700 font-bold flex items-center justify-center shrink-0 mt-0.5 text-sm">✓</span>
-            <div>
-              <div class="font-bold text-slate-900 text-sm mb-1">Без взносов и покупок</div>
-              <p class="text-xs text-slate-600 leading-normal">Никаких вступительных взносов, платного обучения или скрытых расходов.</p>
+          <!-- Карточка 1: Только контакт -->
+          <div class="card-sapphire p-6 sm:p-7 rounded-[28px] flex flex-col justify-between relative overflow-hidden group">
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center font-black text-lg mb-3">🤝</div>
+              <div class="text-xs font-black uppercase tracking-wider text-sky-700">Минимум усилий</div>
+              <div class="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight font-inter">
+                Только контакт
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Передаёте ЛПР — мы сами проводим экспертное демо, считаем окупаемость и закрываем договор.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-sky-100 text-xs font-bold text-sky-700">
+              Вся рутина на нашей команде →
             </div>
           </div>
 
-          <div class="liquid-crystal-panel p-5 rounded-2xl border border-emerald-200/80 flex items-start gap-3">
-            <span class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center shrink-0 mt-0.5 text-sm">₽</span>
-            <div>
-              <div class="font-bold text-slate-900 text-sm mb-1">Доход из реальных оплат</div>
-              <p class="text-xs text-slate-600 leading-normal">Выплаты формируются из оплат клиентов и растут вместе с их масштабом.</p>
+          <!-- Карточка 2: Двойной доход (ВЫДЕЛЕННАЯ ЭМЕРАЛЬД) -->
+          <div class="card-emerald p-6 sm:p-7 rounded-[28px] flex flex-col justify-between relative overflow-hidden group border-2 border-emerald-400">
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-black text-lg mb-3">💰</div>
+              <div class="text-xs font-black uppercase tracking-wider text-emerald-800">Двойной заработок</div>
+              <div class="text-2xl sm:text-3xl font-black text-emerald-950 tracking-tight font-inter">
+                25% + 15% / мес
+              </div>
+              <p class="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+                Разовый бонус сразу при оплате внедрения плюс регулярный процент с абонентской платы.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-emerald-200 text-xs font-extrabold text-emerald-800">
+              От 12 500 ₽ + 2 250 ₽/мес с клиента →
             </div>
           </div>
 
-          <div class="liquid-crystal-panel p-5 rounded-2xl border border-sky-200/80 flex items-start gap-3">
-            <span class="w-7 h-7 rounded-full bg-sky-100 text-sky-700 font-bold flex items-center justify-center shrink-0 mt-0.5 text-sm">📈</span>
-            <div>
-              <div class="font-bold text-slate-900 text-sm mb-1">Ставка растёт с базой</div>
-              <p class="text-xs text-slate-600 leading-normal">+5 п.п. от 5 клиентов и ещё +5 п.п. от 15 активных клиентов ко всей базе.</p>
+          <!-- Карточка 3: 100% под ключ -->
+          <div class="card-sapphire p-6 sm:p-7 rounded-[28px] flex flex-col justify-between relative overflow-hidden group">
+            <div class="space-y-2">
+              <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-black text-lg mb-3">⚙️</div>
+              <div class="text-xs font-black uppercase tracking-wider text-blue-700">Техбаза сервиса</div>
+              <div class="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight font-inter">
+                100% под ключ
+              </div>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Сценарии, интеграции с amoCRM/Битрикс24/1С, телефония и круглосуточная поддержка 24/7.
+              </p>
             </div>
-          </div>
-
-          <div class="liquid-crystal-panel p-5 rounded-2xl border border-slate-200 flex items-start gap-3">
-            <span class="w-7 h-7 rounded-full bg-slate-100 text-slate-700 font-bold flex items-center justify-center shrink-0 mt-0.5 text-sm">📄</span>
-            <div>
-              <div class="font-bold text-slate-900 text-sm mb-1">Официальный договор</div>
-              <p class="text-xs text-slate-600 leading-normal">Ежемесячный прозрачный отчёт, закрывающие акты и выплаты на расчётный счёт.</p>
+            <div class="mt-4 pt-3 border-t border-blue-100 text-xs font-bold text-blue-700">
+              Запуск клиента от 3 дней →
             </div>
           </div>
 
         </div>
 
+        <!-- Кнопки действия -->
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#join" class="btn-optic group shadow-xl">
-            <span class="font-bold tracking-wide">СТАТЬ ПАРТНЁРОМ</span>
+          <a href="#join" class="btn-optic group shadow-xl w-full sm:w-auto">
+            <span>СТАТЬ ПАРТНЁРОМ ЗА 1 ДЕНЬ</span>
           </a>
-          <a href="#calc" class="btn-neon-contour px-6 py-3.5 text-xs font-bold uppercase tracking-wider">
+          <a href="#calc" class="btn-neon-contour px-7 py-3.5 text-xs font-bold uppercase tracking-wider w-full sm:w-auto">
             Рассчитать свой доход
           </a>
-          <a href="#rewards" class="text-xs font-bold text-slate-600 hover:text-sky-700 px-4 py-2 transition">
-            Условия вознаграждения →
+          <a href="https://t.me/altaioptima" target="_blank" class="text-xs font-bold text-sky-700 hover:text-sky-900 px-4 py-2 transition flex items-center gap-1.5">
+            <span>Задать вопрос в Telegram</span> →
           </a>
         </div>
 
@@ -720,75 +478,59 @@
       <div class="section-neon-beam" style="--divider-duration: 7.5s;"></div>
     </div>
 
-    <!-- 2. КОМУ ПОДХОДИТ ПРОГРАММА (#who) -->
-    <section id="who" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-20 scroll-mt-28 relative">
-      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+    <!-- 2. КАК ЭТО РАБОТАЕТ — 4 ПРОСТЫХ ШАГА (#how) -->
+    <section id="how" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 scroll-mt-28 relative">
+      <div class="text-center max-w-3xl mx-auto mb-10">
         <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-          КОМУ ПОДХОДИТ ПРОГРАММА
+          4 ШАГА К ДОХОДУ
         </h2>
-        <p class="text-sm sm:text-base text-slate-600 font-medium mt-2">
-          Больше всего зарабатывают те, кому собственники бизнеса уже доверяют
+        <p class="text-sm sm:text-base text-slate-600 font-medium mt-1.5">
+          Всю техническую часть, презентацию и переговоры берёт на себя наша команда
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
         
-        <div class="liquid-crystal-panel p-6 sm:p-7 rounded-[26px] border border-sky-100 flex flex-col justify-between">
+        <!-- Шаг 1 -->
+        <div class="card-sapphire p-5 rounded-2xl flex flex-col justify-between border-t-4 border-t-sky-500">
           <div>
-            <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center font-bold text-lg mb-4">⚙️</div>
-            <h3 class="text-lg font-bold text-slate-900 mb-2">Интеграторы amoCRM и Битрикс24</h3>
+            <span class="text-xs font-black uppercase tracking-wider text-sky-600 bg-sky-50 px-2.5 py-1 rounded-md mb-3 inline-block">ШАГ 01</span>
+            <h3 class="text-base font-bold text-slate-900 mb-2">Оставьте заявку</h3>
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              У ваших клиентов уже есть CRM и запрос на ИИ. В статусе «Интегратор» вы внедряете сами и зарабатываете и на внедрении (100% своей цены), и на подписке (30%).
+              Заполняете форму за 1 минуту. Подписываем договор и выдаём личный код и персональную ссылку.
             </p>
           </div>
         </div>
 
-        <div class="liquid-crystal-panel p-6 sm:p-7 rounded-[26px] border border-sky-100 flex flex-col justify-between">
+        <!-- Шаг 2 -->
+        <div class="card-sapphire p-5 rounded-2xl flex flex-col justify-between border-t-4 border-t-sky-500">
           <div>
-            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-lg mb-4">🎯</div>
-            <h3 class="text-lg font-bold text-slate-900 mb-2">Маркетинговые агентства и таргетологи</h3>
+            <span class="text-xs font-black uppercase tracking-wider text-sky-600 bg-sky-50 px-2.5 py-1 rounded-md mb-3 inline-block">ШАГ 02</span>
+            <h3 class="text-base font-bold text-slate-900 mb-2">Передайте контакт</h3>
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Вы приводите клиентам заявки, а ИИ-продавец помогает превратить их в сделки. Клиент видит реальный результат вашей рекламы, а вы получаете ежемесячный процент.
+              Отправляете контакт ЛПР через форму или в Telegram. Закрепляем клиента за вами за 1 рабочий день на 90 дней.
             </p>
           </div>
         </div>
 
-        <div class="liquid-crystal-panel p-6 sm:p-7 rounded-[26px] border border-sky-100 flex flex-col justify-between">
+        <!-- Шаг 3 -->
+        <div class="card-sapphire p-5 rounded-2xl flex flex-col justify-between border-t-4 border-t-sky-500">
           <div>
-            <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-lg mb-4">💼</div>
-            <h3 class="text-lg font-bold text-slate-900 mb-2">Бухгалтеры, консультанты и бизнес-клубы</h3>
+            <span class="text-xs font-black uppercase tracking-wider text-sky-600 bg-sky-50 px-2.5 py-1 rounded-md mb-3 inline-block">ШАГ 03</span>
+            <h3 class="text-base font-bold text-slate-900 mb-2">Мы продаём и внедряем</h3>
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Одна рекомендация тому, кто вам доверяет, приносит доход всё время, пока клиент пользуется сервисом Altai Optima.
+              Проводим экспертную демонстрацию, заключаем договор и запускаем ИИ-продавца от 3 рабочих дней.
             </p>
           </div>
         </div>
 
-        <div class="liquid-crystal-panel p-6 sm:p-7 rounded-[26px] border border-sky-100 flex flex-col justify-between">
+        <!-- Шаг 4: Выделенный -->
+        <div class="card-emerald p-5 rounded-2xl flex flex-col justify-between border-2 border-emerald-400">
           <div>
-            <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-lg mb-4">🏢</div>
-            <h3 class="text-lg font-bold text-slate-900 mb-2">Франчайзеры и управляющие сетями</h3>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Одно решение на уровне сети — автономный ИИ-продавец в каждой точке. Такие масштабные проекты мы обсуждаем индивидуально.
-            </p>
-          </div>
-        </div>
-
-        <div class="liquid-crystal-panel p-6 sm:p-7 rounded-[26px] border border-sky-100 flex flex-col justify-between">
-          <div>
-            <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center font-bold text-lg mb-4">⭐</div>
-            <h3 class="text-lg font-bold text-slate-900 mb-2">Клиенты Altai Optima</h3>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Порекомендуйте сервис коллегам и партнёрам по бизнесу — условия вознаграждения такие же высокие, как у профессиональных партнёров.
-            </p>
-          </div>
-        </div>
-
-        <div class="liquid-crystal-panel p-6 sm:p-7 rounded-[26px] border border-sky-100 flex flex-col justify-between">
-          <div>
-            <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-lg mb-4">🌍</div>
-            <h3 class="text-lg font-bold text-slate-900 mb-2">Предприниматели из стран СНГ</h3>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Станьте региональным партнёром: продвигайте сервис в своей стране, собирайте команду партнёров и получайте дополнительно 5% со всей территории.
+            <span class="text-xs font-black uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2.5 py-1 rounded-md mb-3 inline-block">ШАГ 04 • ВЫПЛАТА</span>
+            <h3 class="text-base font-black text-emerald-950 mb-2">Получайте выплаты</h3>
+            <p class="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+              Бонус за внедрение — в течение 5 дней после оплаты. Процент с подписки — ежемесячно с детальным актом.
             </p>
           </div>
         </div>
@@ -801,72 +543,103 @@
       <div class="section-neon-beam" style="--divider-duration: 8s;"></div>
     </div>
 
-    <!-- 3. КАК ЭТО РАБОТАЕТ (#how) -->
-    <section id="how" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 sm:mb-24 scroll-mt-28 relative">
-      <div class="text-center max-w-4xl mx-auto mb-10 sm:mb-12">
-        <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-          КАК ЭТО РАБОТАЕТ
-        </h2>
-        <p class="text-sm sm:text-base text-slate-600 font-medium mt-2">
-          От заявки до первой выплаты — четыре шага. Всю техническую часть и продажу берёт на себя наша команда.
-        </p>
+    <!-- 3. ЧТО ДЕЛАЕТ ИИ-ПРОДАВЕЦ (#product) -->
+    <section id="product" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 scroll-mt-28 relative">
+      
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 max-w-3xl mx-auto mb-10 text-center sm:text-left">
+        <!-- АВАТАР ЭВЫ -->
+        <div class="relative shrink-0">
+          <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 border-2 border-sky-400 bg-gradient-to-tr from-sky-400 to-blue-600 shadow-lg relative group">
+            <div class="w-full h-full rounded-full overflow-hidden bg-slate-900">
+              <img src="avatar_eva.jpg" alt="Эва — ИИ-продавец" loading="lazy" class="w-full h-full object-cover object-[center_12%]"/>
+            </div>
+            <div class="absolute bottom-0 right-0 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-emerald-500 border-2 border-white shadow-xs flex items-center justify-center" title="В сети 24/7">
+              <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-1 flex-1">
+          <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            ЧТО ВЫ РЕКОМЕНДУЕТЕ
+          </h2>
+          <p class="text-xs sm:text-sm md:text-base text-slate-700 leading-relaxed font-medium">
+            Автономный ИИ-продавец отвечает на заявки в чатах за 30–60 секунд, квалифицирует лидов и доводит до выставления счёта в CRM.
+          </p>
+        </div>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 relative items-stretch">
+      <!-- ВИЗУАЛЬНОЕ СРАВНЕНИЕ: ДЕЛАЕТ / НЕ ДЕЛАЕТ -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-8">
         
-        <!-- Шаг 1 -->
-        <div class="pipeline-card-wrapper flow-card-1 group">
-          <div class="pipeline-card-inner">
-            <div>
-              <div class="text-3xl font-black font-benzin text-sky-500 mb-2">01</div>
-              <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2">Оставьте заявку</h3>
-              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Заполните <a href="#join" class="text-sky-600 underline font-semibold">форму</a>. В течение рабочего дня свяжемся, подпишем договор и выдадим код и ссылку.
-              </p>
-            </div>
-          </div>
+        <div class="card-emerald p-6 sm:p-7 rounded-[26px]">
+          <h3 class="text-base font-bold text-emerald-900 uppercase tracking-wider mb-4 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-black">✓</span>
+            Что делает ИИ-продавец:
+          </h3>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-slate-700">
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-600 font-bold">✓</span>
+              <span><strong>Мгновенный ответ за 30–60 сек</strong> днём, ночью и в праздники (без очередей и потерь лидов)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-600 font-bold">✓</span>
+              <span><strong>Квалификация по базе знаний:</strong> выясняет задачу, бюджет, сроки и отсекает спам</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-600 font-bold">✓</span>
+              <span><strong>Понимает аудиосообщения</strong> и отвечает естественным человеческим голосом</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-600 font-bold">✓</span>
+              <span><strong>Заполняет CRM</strong> (amoCRM, Битрикс24, 1С) и передаёт менеджеру готовую сделку</span>
+            </li>
+          </ul>
         </div>
 
-        <!-- Шаг 2 -->
-        <div class="pipeline-card-wrapper flow-card-2 group">
-          <div class="pipeline-card-inner">
-            <div>
-              <div class="text-3xl font-black font-benzin text-sky-500 mb-2">02</div>
-              <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2">Передайте клиента</h3>
-              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                С согласия клиента отправьте контакт через форму или дайте ссылку. Закрепление подтвердим за 1 рабочий день.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Шаг 3 -->
-        <div class="pipeline-card-wrapper flow-card-3 group">
-          <div class="pipeline-card-inner">
-            <div>
-              <div class="text-3xl font-black font-benzin text-sky-500 mb-2">03</div>
-              <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2">Мы продаём и внедряем</h3>
-              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Проводим демо, считаем окупаемость, заключаем договор и запускаем ИИ от 3 рабочих дней. Держим вас в курсе.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Шаг 4 -->
-        <div class="pipeline-card-wrapper pipeline-emerald flow-card-4 group">
-          <div class="pipeline-card-inner bg-gradient-to-b from-emerald-50/90 via-white to-white">
-            <div>
-              <div class="text-3xl font-black font-benzin text-emerald-600 mb-2">04</div>
-              <h3 class="text-sm font-bold text-emerald-900 uppercase tracking-wider mb-2">Вы получаете выплаты</h3>
-              <p class="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
-                Бонус за внедрение — в течение 5 рабочих дней. Процент с подписки — ежемесячно с полным отчётом.
-              </p>
-            </div>
-          </div>
+        <div class="card-sapphire p-6 sm:p-7 rounded-[26px]">
+          <h3 class="text-base font-bold text-slate-700 uppercase tracking-wider mb-4 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-xs font-black">✕</span>
+            Чего он НЕ делает:
+          </h3>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-slate-700">
+            <li class="flex items-start gap-2">
+              <span class="text-rose-500 font-bold">✕</span>
+              <span><strong>Не увольняет всех людей:</strong> финальную сделку закрывает живой менеджер, но уже с горячим клиентом</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-rose-500 font-bold">✕</span>
+              <span><strong>Не придумывает цены:</strong> отвечает строго по регламентам, а сложные вопросы сразу переводит на сотрудника</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-rose-500 font-bold">✕</span>
+              <span><strong>Не раздражает клиентов:</strong> общается вежливо, контекстно и без шаблонных робото-фраз</span>
+            </li>
+          </ul>
         </div>
 
       </div>
+
+      <!-- ЧИПЫ КАНАЛОВ И СТОИМОСТИ -->
+      <div class="card-sapphire p-6 rounded-2xl max-w-5xl mx-auto space-y-4 text-xs sm:text-sm">
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-3 border-b border-slate-200">
+          <span class="font-bold text-slate-900">Каналы интеграции:</span>
+          <div class="flex flex-wrap gap-1.5 font-semibold text-xs text-slate-700">
+            <span class="px-3 py-1 rounded-full bg-sky-50 border border-sky-200">Telegram</span>
+            <span class="px-3 py-1 rounded-full bg-sky-50 border border-sky-200">WhatsApp</span>
+            <span class="px-3 py-1 rounded-full bg-sky-50 border border-sky-200">Авито</span>
+            <span class="px-3 py-1 rounded-full bg-sky-50 border border-sky-200">Сайт</span>
+            <span class="px-3 py-1 rounded-full bg-sky-50 border border-sky-200">MAX</span>
+            <span class="px-3 py-1 rounded-full bg-sky-50 border border-sky-200">Почта</span>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <span class="font-bold text-slate-900">Чек для клиента:</span>
+          <span class="text-slate-700">Внедрение — <strong>от 50&nbsp;000&nbsp;₽</strong>, подписка — <strong>от 15&nbsp;000&nbsp;₽/мес</strong> (со 2-го месяца). Договор только с юрлицами.</span>
+        </div>
+      </div>
+
     </section>
 
     <!-- Тонкий неоновый разделитель -->
@@ -874,278 +647,195 @@
       <div class="section-neon-beam" style="--divider-duration: 8.2s;"></div>
     </div>
 
-    <!-- 4. ЧТО ВЫ РЕКОМЕНДУЕТЕ (#product) -->
-    <section id="product" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-20 scroll-mt-28 relative">
-      
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 max-w-3xl mx-auto mb-10 sm:mb-12 text-center sm:text-left">
-        <!-- АВАТАР ЭВЫ -->
-        <div class="relative shrink-0">
-          <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 border-2 border-sky-400/80 shadow-[0_0_25px_rgba(56,189,248,0.5)] bg-gradient-to-tr from-sky-400 via-sky-200 to-blue-600 relative group transition-transform duration-300 hover:scale-105">
-            <div class="w-full h-full rounded-full overflow-hidden bg-slate-900 relative">
-              <img src="avatar_eva.jpg" alt="Эва — AI продавец" loading="lazy" class="w-full h-full object-cover object-[center_12%]"/>
-            </div>
-            <div class="absolute bottom-0 right-0 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-emerald-500 border-2 border-white shadow-xs flex items-center justify-center z-10" title="В сети 24/7">
-              <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="space-y-1.5 flex-1">
-          <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight leading-tight uppercase" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-            ЧТО ВЫ РЕКОМЕНДУЕТЕ
-          </h2>
-          <p class="text-xs sm:text-sm md:text-base text-slate-700 leading-relaxed font-medium">
-            ИИ-продавец отвечает клиентам бизнеса в чатах за 30–60 секунд — днём, ночью и в выходные. Он выясняет задачу, бюджет и сроки и передаёт менеджеру готовую заявку вместе с перепиской.
-          </p>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-10">
-        
-        <!-- Что делает -->
-        <div class="liquid-crystal-panel p-6 sm:p-7 rounded-[28px] border-t-2 border-t-emerald-400">
-          <h3 class="text-base font-bold text-emerald-800 uppercase tracking-wider mb-4 flex items-center gap-2">
-            <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-black">✓</span>
-            Что делает ИИ-продавец
-          </h3>
-          <ul class="space-y-3 text-xs sm:text-sm text-slate-700">
-            <li class="flex items-start gap-2.5">
-              <span class="text-emerald-500 font-bold mt-0.5">✓</span>
-              <span>Отвечает на вопросы о товарах, ценах и сроках строго по базе знаний компании</span>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="text-emerald-500 font-bold mt-0.5">✓</span>
-              <span>Отсеивает спам и нецелевые обращения, квалифицируя платежеспособных лидов</span>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="text-emerald-500 font-bold mt-0.5">✓</span>
-              <span>Понимает и расшифровывает входящие голосовые сообщения</span>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="text-emerald-500 font-bold mt-0.5">✓</span>
-              <span>Заполняет карточку в CRM или Google-таблице и мгновенно ставит задачу менеджеру</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Чего не делает -->
-        <div class="liquid-crystal-panel p-6 sm:p-7 rounded-[28px] border-t-2 border-t-slate-400">
-          <h3 class="text-base font-bold text-slate-700 uppercase tracking-wider mb-4 flex items-center gap-2">
-            <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-xs font-black">✕</span>
-            Чего не делает
-          </h3>
-          <ul class="space-y-3 text-xs sm:text-sm text-slate-700">
-            <li class="flex items-start gap-2.5">
-              <span class="text-rose-500 font-bold mt-0.5">✕</span>
-              <span><strong>Не заменяет людей полностью:</strong> финальную сделку закрывает живой менеджер, но уже с горячим и подготовленным клиентом</span>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="text-rose-500 font-bold mt-0.5">✕</span>
-              <span><strong>Не придумывает условия:</strong> отвечает строго по проверенным регламентам, а нестандартные вопросы сразу переводит на сотрудника</span>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-
-      <!-- ХАРАКТЕРИСТИКИ ПРОДУКТА -->
-      <div class="liquid-crystal-panel p-6 sm:p-8 rounded-[28px] max-w-5xl mx-auto space-y-6">
-        
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 pb-4 border-b border-slate-200">
-          <div class="md:col-span-3 text-xs font-bold uppercase tracking-wider text-slate-500">Каналы связи</div>
-          <div class="md:col-span-9 space-y-2">
-            <div class="flex flex-wrap gap-2 text-xs font-semibold text-slate-800">
-              <span class="px-3 py-1 rounded-full bg-sky-50 border border-sky-200">Сайт</span>
-              <span class="px-3 py-1 rounded-full bg-sky-50 border border-sky-200">MAX</span>
-              <span class="px-3 py-1 rounded-full bg-sky-50 border border-sky-200">Авито</span>
-              <span class="px-3 py-1 rounded-full bg-sky-50 border border-sky-200">Электронная почта</span>
-              <span class="px-3 py-1 rounded-full bg-sky-50 border border-sky-200">Telegram*</span>
-              <span class="px-3 py-1 rounded-full bg-sky-50 border border-sky-200">WhatsApp*</span>
-            </div>
-            <p class="text-[11px] text-slate-400">* В России работают с ограничениями. Для клиентов из стран СНГ — основные каналы.</p>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 pb-4 border-b border-slate-200">
-          <div class="md:col-span-3 text-xs font-bold uppercase tracking-wider text-slate-500">Учёт клиентов</div>
-          <div class="md:col-span-9 flex flex-wrap gap-2 text-xs font-semibold text-slate-800">
-            <span class="px-3 py-1 rounded-full bg-slate-100 border border-slate-200">amoCRM</span>
-            <span class="px-3 py-1 rounded-full bg-slate-100 border border-slate-200">Битрикс24</span>
-            <span class="px-3 py-1 rounded-full bg-slate-100 border border-slate-200">1С</span>
-            <span class="px-3 py-1 rounded-full bg-slate-100 border border-slate-200">Google Таблицы</span>
-            <span class="px-3 py-1 rounded-full bg-slate-100 border border-slate-200">Excel Online</span>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 pb-4 border-b border-slate-200">
-          <div class="md:col-span-3 text-xs font-bold uppercase tracking-wider text-slate-500">Цена для клиента</div>
-          <div class="md:col-span-9 text-xs sm:text-sm text-slate-700 leading-relaxed">
-            Внедрение — <strong>от 50&nbsp;000&nbsp;₽</strong> (стартовый пакет: один канал и онлайн-таблица для учёта). Подписка — <strong>от 15&nbsp;000&nbsp;₽ в месяц</strong> со второго месяца. Дополнительные каналы, интеграция с CRM и высокий трафик увеличивают сумму. Для потока от 1000 обращений в месяц — тариф «Империя».
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
-          <div class="md:col-span-3 text-xs font-bold uppercase tracking-wider text-slate-500">Договор</div>
-          <div class="md:col-span-9 text-xs sm:text-sm text-slate-700">
-            Договор на сервис заключается <strong>только с юридическими лицами</strong>.
-          </div>
-        </div>
-
-      </div>
-
-      <!-- HBR Fact Card -->
-      <div class="mt-6 p-6 rounded-2xl bg-gradient-to-r from-sky-50 to-blue-50 border-l-4 border-l-sky-500 max-w-5xl mx-auto text-xs sm:text-sm text-slate-700">
-        <p class="font-bold text-slate-900 mb-1">Почему бизнесу важна скорость ответа:</p>
-        <p>Компании, которые связались с потенциальным клиентом в течение часа, почти <strong>в 7 раз чаще</strong> доходили с ним до содержательного разговора с лицом, принимающим решение, чем те, кто ответил на час позже. <span class="text-slate-400 text-xs">(Источник: Harvard Business Review)</span></p>
-      </div>
-
-    </section>
-
-    <!-- Тонкий неоновый разделитель -->
-    <div class="section-neon-divider max-w-6xl mx-auto opacity-75">
-      <div class="section-neon-beam" style="--divider-duration: 7.8s;"></div>
-    </div>
-
-    <!-- 5. СТАТУСЫ И ВОЗНАГРАЖДЕНИЕ (#rewards) -->
-    <section id="rewards" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-20 scroll-mt-28 relative">
-      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+    <!-- 4. СТАТУСЫ И ТАРИФЫ ВОЗНАГРАЖДЕНИЯ (#rewards) -->
+    <section id="rewards" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 scroll-mt-28 relative">
+      <div class="text-center max-w-3xl mx-auto mb-10">
         <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-          СТАТУСЫ И ВОЗНАГРАЖДЕНИЕ
+          СТАТУСЫ И СТАВКИ ВОЗНАГРАЖДЕНИЯ
         </h2>
-        <p class="text-sm sm:text-base text-slate-600 font-medium mt-2">
-          Процент считается от суммы, которую клиент фактически оплатил, без НДС. Чем больше чек клиента — тем выше ваша выплата.
+        <p class="text-sm sm:text-base text-slate-600 font-medium mt-1.5">
+          Процент начисляется от фактически поступивших оплат без НДС. Выплаты растут с масштабом клиента.
         </p>
       </div>
 
-      <!-- ТАБЛИЦА СТАВОК -->
-      <div class="liquid-crystal-panel rounded-[28px] overflow-hidden border border-sky-200/80 shadow-sm mb-8">
-        <div class="overflow-x-auto">
-          <table class="w-full text-left border-collapse min-w-[680px]">
-            <thead>
-              <tr class="bg-sky-50/80 border-b border-sky-100 text-xs uppercase tracking-wider text-slate-500 font-bold">
-                <th class="p-5">Статус</th>
-                <th class="p-5">Что вы делаете</th>
-                <th class="p-5">С внедрения</th>
-                <th class="p-5">С подписки</th>
-                <th class="p-5">Пример со стартового чека</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-100 text-xs sm:text-sm">
-              <tr class="hover:bg-sky-50/30 transition">
-                <td class="p-5 font-black text-slate-900 font-inter text-base">Рекомендатель</td>
-                <td class="p-5 text-slate-600">Знакомите нас с ЛПР. Демо, договор и внедрение ведёт наша команда.</td>
-                <td class="p-5 font-black text-sky-600 text-lg">25%</td>
-                <td class="p-5 font-black text-emerald-600 text-lg">15% <span class="text-xs text-slate-400 font-normal">/ мес</span></td>
-                <td class="p-5 font-bold text-slate-800">12&nbsp;500&nbsp;₽ <span class="text-xs font-normal text-slate-500">+ 2&nbsp;250&nbsp;₽/мес</span></td>
-              </tr>
-              <tr class="hover:bg-sky-50/30 transition bg-sky-50/20">
-                <td class="p-5 font-black text-sky-700 font-inter text-base">Агент</td>
-                <td class="p-5 text-slate-600">Сами проводите встречу и демо (после обучения). Договор и техбаза — на нас.</td>
-                <td class="p-5 font-black text-sky-600 text-lg">35%</td>
-                <td class="p-5 font-black text-emerald-600 text-lg">20% <span class="text-xs text-slate-400 font-normal">/ мес</span></td>
-                <td class="p-5 font-bold text-slate-800">17&nbsp;500&nbsp;₽ <span class="text-xs font-normal text-slate-500">+ 3&nbsp;000&nbsp;₽/мес</span></td>
-              </tr>
-              <tr class="hover:bg-sky-50/30 transition">
-                <td class="p-5 font-black text-slate-900 font-inter text-base">Интегратор</td>
-                <td class="p-5 text-slate-600">Сами продаёте, внедряете и держите первую линию поддержки по стандартам сервиса.</td>
-                <td class="p-5 font-black text-sky-600 text-lg">100% <span class="text-xs text-slate-400 font-normal">вашей цены</span></td>
-                <td class="p-5 font-black text-emerald-600 text-lg">30% <span class="text-xs text-slate-400 font-normal">/ мес</span></td>
-                <td class="p-5 font-bold text-slate-800">Вся сумма внедрения <span class="text-xs font-normal text-slate-500">+ 4&nbsp;500&nbsp;₽/мес</span></td>
-              </tr>
-            </tbody>
-          </table>
+      <!-- 3 СТАТУСНЫХ ТАРИФА В КАРТОЧКАХ С АКЦЕНТОМ НА АГЕНТЕ -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch mb-10">
+        
+        <!-- 1. Рекомендатель -->
+        <div class="card-sapphire p-6 sm:p-7 rounded-[28px] flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Старт</span>
+              <span class="text-xs font-bold text-sky-600">Для всех</span>
+            </div>
+            
+            <div>
+              <h3 class="text-2xl font-black text-slate-900 font-inter">Рекомендатель</h3>
+              <p class="text-xs text-slate-500 mt-1">Только контакт ЛПР — продажа и запуск на нас</p>
+            </div>
+
+            <div class="py-3 border-y border-slate-100 space-y-2">
+              <div class="flex justify-between items-baseline">
+                <span class="text-xs text-slate-600">С внедрения:</span>
+                <span class="text-2xl font-black text-sky-600">25%</span>
+              </div>
+              <div class="flex justify-between items-baseline">
+                <span class="text-xs text-slate-600">С подписки:</span>
+                <span class="text-2xl font-black text-emerald-600">15% <span class="text-xs font-normal text-slate-400">/ мес</span></span>
+              </div>
+            </div>
+
+            <div class="p-3 bg-sky-50/60 rounded-xl text-xs text-slate-700 space-y-1">
+              <div class="font-bold text-sky-900">Пример со стартового чека:</div>
+              <div>• <strong>12 500 ₽</strong> сразу в день оплаты</div>
+              <div>• <strong>2 250 ₽/мес</strong> каждый месяц</div>
+            </div>
+          </div>
+
+          <a href="#join" class="btn-neon-contour w-full py-2.5 text-xs font-bold uppercase tracking-wider text-center mt-6">
+            Выбрать статус
+          </a>
         </div>
-        <div class="p-4 bg-slate-50/80 border-t border-slate-100 text-xs text-slate-500">
-          * Примеры посчитаны для стартового пакета: внедрение 50&nbsp;000&nbsp;₽, подписка 15&nbsp;000&nbsp;₽/мес. На крупных проектах с несколькими каналами и CRM чеки и выплаты выше.
+
+        <!-- 2. Агент (АКЦЕНТНЫЙ ХИТ) -->
+        <div class="card-highlight-pro p-6 sm:p-7 rounded-[28px] flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-black uppercase tracking-wider text-white bg-gradient-to-r from-sky-600 to-blue-600 px-3 py-1 rounded-full shadow-xs">⭐ САМЫЙ ПОПУЛЯРНЫЙ</span>
+              <span class="text-xs font-extrabold text-sky-700">После обучения</span>
+            </div>
+            
+            <div>
+              <h3 class="text-2xl font-black text-slate-950 font-inter">Агент</h3>
+              <p class="text-xs text-slate-600 mt-1">Сами проводите демо. Техническая часть — на нас</p>
+            </div>
+
+            <div class="py-3 border-y border-sky-100 space-y-2">
+              <div class="flex justify-between items-baseline">
+                <span class="text-xs font-semibold text-slate-700">С внедрения:</span>
+                <span class="text-3xl font-black text-sky-600">35%</span>
+              </div>
+              <div class="flex justify-between items-baseline">
+                <span class="text-xs font-semibold text-slate-700">С подписки:</span>
+                <span class="text-3xl font-black text-emerald-600">20% <span class="text-xs font-normal text-slate-400">/ мес</span></span>
+              </div>
+            </div>
+
+            <div class="p-3 bg-emerald-50 rounded-xl text-xs text-slate-800 space-y-1 border border-emerald-200">
+              <div class="font-bold text-emerald-950">Пример со стартового чека:</div>
+              <div>• <strong>17 500 ₽</strong> сразу в день оплаты</div>
+              <div>• <strong>3 000 ₽/мес</strong> каждый месяц</div>
+            </div>
+          </div>
+
+          <a href="#join" class="btn-optic w-full py-3 text-xs font-bold uppercase tracking-wider text-center mt-6 shadow-md">
+            СТАТЬ АГЕНТОМ
+          </a>
         </div>
+
+        <!-- 3. Интегратор -->
+        <div class="card-sapphire p-6 sm:p-7 rounded-[28px] flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-purple-700 bg-purple-50 px-3 py-1 rounded-full">PRO / CRM</span>
+              <span class="text-xs font-bold text-slate-500">2 внедрения</span>
+            </div>
+            
+            <div>
+              <h3 class="text-2xl font-black text-slate-900 font-inter">Интегратор</h3>
+              <p class="text-xs text-slate-500 mt-1">Внедряете сами по своей цене + техлиния</p>
+            </div>
+
+            <div class="py-3 border-y border-slate-100 space-y-2">
+              <div class="flex justify-between items-baseline">
+                <span class="text-xs text-slate-600">С внедрения:</span>
+                <span class="text-xl font-black text-sky-600">100% <span class="text-xs font-normal text-slate-500">вашей цены</span></span>
+              </div>
+              <div class="flex justify-between items-baseline">
+                <span class="text-xs text-slate-600">С подписки:</span>
+                <span class="text-2xl font-black text-emerald-600">30% <span class="text-xs font-normal text-slate-400">/ мес</span></span>
+              </div>
+            </div>
+
+            <div class="p-3 bg-purple-50/60 rounded-xl text-xs text-slate-700 space-y-1">
+              <div class="font-bold text-purple-950">Пример со стартового чека:</div>
+              <div>• <strong>Вся сумма за услуги</strong> остаётся вам</div>
+              <div>• <strong>4 500 ₽/мес</strong> с подписки каждого клиента</div>
+            </div>
+          </div>
+
+          <a href="#join" class="btn-neon-contour w-full py-2.5 text-xs font-bold uppercase tracking-wider text-center mt-6">
+            Для интеграторов
+          </a>
+        </div>
+
       </div>
 
-      <!-- РАНГИ И НАСТАВНИЧЕСКИЙ БОНУС -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch mb-8">
+      <!-- 2 БОНУСНЫХ БЛОКА: РОСТ СТАВКИ И НАСТАВНИЧЕСТВО -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
         
-        <!-- Повышение ставок -->
-        <div class="liquid-crystal-panel p-6 sm:p-7 rounded-[28px] border-l-4 border-l-emerald-500 flex flex-col justify-between">
+        <!-- Рост ставки -->
+        <div class="card-emerald p-6 rounded-2xl flex flex-col justify-between border-l-4 border-l-emerald-500">
           <div>
-            <h3 class="text-lg font-bold text-slate-900 mb-2">Ставка растёт вместе с вашей базой</h3>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-              Ранг повышается автоматически по числу активных клиентов, оплачивающих подписку. Повышенная ставка действует на <strong>всех</strong> ваших клиентов:
-            </p>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-2">
+              📈 Ранги активности
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Ставка растёт со всей базой клиентов</h3>
             <ul class="space-y-2 text-xs sm:text-sm text-slate-700">
               <li class="flex items-start gap-2">
-                <span class="text-emerald-600 font-black">•</span>
-                <span><strong>От 5 активных клиентов:</strong> +5 п.п. к подписке (Рекомендатель — 20%, Агент — 25%).</span>
+                <span class="text-emerald-600 font-bold">•</span>
+                <span><strong>От 5 активных клиентов:</strong> +5 п.п. к подписке (Рекомендатель 20%, Агент 25%)</span>
               </li>
               <li class="flex items-start gap-2">
-                <span class="text-emerald-600 font-black">•</span>
-                <span><strong>От 15 активных клиентов:</strong> дополнительно +5 п.п. к внедрению (Рекомендатель — 30% и 20%, Агент — 40% и 25%).</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-emerald-600 font-black">•</span>
-                <span><strong>Интеграторам от 10 клиентов:</strong> персональные условия и совместный маркетинг.</span>
+                <span class="text-emerald-600 font-bold">•</span>
+                <span><strong>От 15 активных клиентов:</strong> +5 п.п. к внедрению (Рекомендатель 30%, Агент 40%)</span>
               </li>
             </ul>
           </div>
         </div>
 
         <!-- Наставнический бонус -->
-        <div class="liquid-crystal-panel p-6 sm:p-7 rounded-[28px] border-l-4 border-l-indigo-500 flex flex-col justify-between">
+        <div class="card-sapphire p-6 rounded-2xl flex flex-col justify-between border-l-4 border-l-purple-500">
           <div>
-            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 font-black text-xs uppercase tracking-wider mb-2">
-              Наставнический бонус
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-100 text-purple-800 text-xs font-bold uppercase tracking-wider mb-2">
+              🤝 Наставнический бонус
             </div>
-            <h3 class="text-xl font-black text-indigo-900 mb-2">+7% с внедрений и +5% с подписок</h3>
-            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
-              Пригласите партнёра, проведите вводную встречу и помогите с первой рекомендацией. С оплат его клиентов вы получаете бонус из доли Altai Optima. Вознаграждение приглашённого партнёра остаётся 100% полным.
-            </p>
-            <p class="text-xs text-slate-500 italic">
-              * Бонус начисляется по партнёрам первой линии при наличии хотя бы 1 личного оплаченного клиента за последние 6 месяцев.
+            <h3 class="text-lg font-bold text-slate-900 mb-2">+7% с внедрений и +5% с подписок</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Приглашайте партнёров и помогайте им начать. Вы получаете бонус из нашей доли прибыли, не уменьшая вознаграждение самого партнёра.
             </p>
           </div>
         </div>
 
       </div>
 
-      <!-- РЕГИОНАЛЬНЫЙ ПАРТНЕР -->
-      <div class="liquid-crystal-panel p-6 sm:p-8 rounded-[28px] border border-sky-200 bg-gradient-to-r from-sky-50/50 via-white to-sky-50/50 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div>
-          <h3 class="text-lg font-bold text-slate-900 mb-1">Региональный партнёр: 5% со всей территории</h3>
-          <p class="text-xs sm:text-sm text-slate-600 max-w-3xl leading-relaxed">
-            Для стран СНГ и крупных регионов: продвижение сервиса, координация партнёров и первая линия поддержки на местном языке. Вы получаете 5% со всех оплат клиентов на территории дополнительно к личным продажам.
-          </p>
-        </div>
-        <a href="#join" class="btn-neon-contour px-6 py-3 text-xs font-bold uppercase tracking-wider shrink-0">
-          Обсудить условия
-        </a>
-      </div>
-
     </section>
 
     <!-- Тонкий неоновый разделитель -->
     <div class="section-neon-divider max-w-6xl mx-auto opacity-75">
-      <div class="section-neon-beam" style="--divider-duration: 8s;"></div>
+      <div class="section-neon-beam" style="--divider-duration: 8.5s;"></div>
     </div>
 
-    <!-- 6. ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР ДОХОДА (#calc) -->
-    <section id="calc" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-20 scroll-mt-28 relative">
-      <div id="calcCardContainer" class="rounded-[36px] p-6 sm:p-10 lg:p-12 max-w-5xl mx-auto border border-sky-400/30 relative overflow-hidden shadow-[0_24px_60px_-10px_rgba(2,132,199,0.3)] text-white" style="background: linear-gradient(145deg, #075985 0%, #0369a1 45%, #082f49 100%);">
+    <!-- 5. ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР ДОХОДА (#calc) -->
+    <section id="calc" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 scroll-mt-28 relative">
+      <div class="rounded-[36px] p-6 sm:p-10 lg:p-12 max-w-5xl mx-auto border border-sky-400/40 relative overflow-hidden shadow-[0_24px_60px_-10px_rgba(2,132,199,0.35)] text-white" style="background: linear-gradient(145deg, #075985 0%, #0369a1 45%, #082f49 100%);">
         
         <div class="text-center max-w-2xl mx-auto mb-8 relative z-10">
           <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight uppercase">
-            СКОЛЬКО ВЫ МОЖЕТЕ ПОЛУЧАТЬ
+            ПОСЧИТАЙТЕ СВОЙ ДОХОД
           </h2>
-          <p class="text-xs sm:text-sm text-sky-100/90 font-medium mt-2">
-            Выберите статус и число клиентов — график покажет прогноз дохода по месяцам за 2 года.
+          <p class="text-xs sm:text-sm text-sky-100/90 font-medium mt-1">
+            Выберите статус и количество клиентов в год — интерактивный график построит прогноз на 24 месяца
           </p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10">
           
-          <!-- ЛЕВАЯ ЧАСТЬ: ВЫБОР СТАТУСА И ПОЛЗУНОК -->
+          <!-- ЛЕВАЯ ЧАСТЬ -->
           <div class="lg:col-span-5 space-y-6">
             
-            <!-- Статус переключатель -->
             <div>
-              <label class="block text-xs font-bold uppercase tracking-wider text-sky-200 mb-2">Ваш статус</label>
+              <label class="block text-xs font-bold uppercase tracking-wider text-sky-200 mb-2">1. Выберите статус:</label>
               <div class="calc-seg">
                 <div>
                   <input type="radio" name="calc-status" id="st-rec" value="recommender" checked>
@@ -1162,78 +852,45 @@
               </div>
             </div>
 
-            <!-- Ползунок клиентов -->
             <div>
               <div class="flex justify-between items-baseline mb-2">
-                <label for="clients-slider" class="text-xs font-bold uppercase tracking-wider text-sky-200">Новых клиентов в год:</label>
+                <label for="clients-slider" class="text-xs font-bold uppercase tracking-wider text-sky-200">2. Клиентов в год:</label>
                 <span class="font-inter text-2xl font-black text-emerald-300 tabular-nums" id="clients-out">12</span>
               </div>
               <input type="range" id="clients-slider" min="0" max="60" step="1" value="12" class="cursor-pointer">
-              <div class="flex justify-between text-[11px] text-sky-200/70 font-medium mt-1">
-                <span>0</span>
-                <span>12 (1 в мес)</span>
-                <span>24</span>
-                <span>60</span>
+              
+              <!-- Быстрые кнопки-пресеты -->
+              <div class="flex gap-2 mt-2.5">
+                <button type="button" onclick="setClients(3)" class="px-2.5 py-1 rounded-md bg-white/10 hover:bg-white/20 text-[11px] font-bold text-sky-200">3 клиента</button>
+                <button type="button" onclick="setClients(6)" class="px-2.5 py-1 rounded-md bg-white/10 hover:bg-white/20 text-[11px] font-bold text-sky-200">6 клиентов</button>
+                <button type="button" onclick="setClients(12)" class="px-2.5 py-1 rounded-md bg-white/20 hover:bg-white/30 text-[11px] font-bold text-emerald-300">12 (1 в мес)</button>
+                <button type="button" onclick="setClients(24)" class="px-2.5 py-1 rounded-md bg-white/10 hover:bg-white/20 text-[11px] font-bold text-sky-200">24 клиента</button>
               </div>
             </div>
 
-            <!-- ИТОГОВЫЕ ЦИФРЫ В 3 ПАНЕЛЯХ -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-3 pt-2">
-              <div class="bg-white/10 rounded-xl p-3.5 border border-white/15 backdrop-blur-xs">
-                <div class="text-[11px] font-bold uppercase tracking-wider text-sky-200">За первые 12 месяцев</div>
-                <div class="text-2xl font-black text-white tabular-nums mt-0.5" id="out-year1">—</div>
+            <!-- ИТОГОВЫЕ ЦИФРЫ -->
+            <div class="space-y-2.5 pt-2">
+              <div class="bg-white/10 rounded-xl p-3.5 border border-white/15 backdrop-blur-xs flex items-center justify-between">
+                <span class="text-xs font-bold text-sky-200">За 1-й год:</span>
+                <span class="text-2xl font-black text-white tabular-nums" id="out-year1">—</span>
               </div>
-              <div class="bg-white/10 rounded-xl p-3.5 border border-white/15 backdrop-blur-xs">
-                <div class="text-[11px] font-bold uppercase tracking-wider text-emerald-300">С подписок в 12-м месяце</div>
-                <div class="text-2xl font-black text-emerald-300 tabular-nums mt-0.5" id="out-rec12">—</div>
+              <div class="bg-emerald-500/20 rounded-xl p-3.5 border border-emerald-400/40 backdrop-blur-xs flex items-center justify-between">
+                <span class="text-xs font-bold text-emerald-200">Пассивный доход в 12-м мес:</span>
+                <span class="text-2xl font-black text-emerald-300 tabular-nums" id="out-rec12">—</span>
               </div>
-              <div class="bg-white/10 rounded-xl p-3.5 border border-white/15 backdrop-blur-xs">
-                <div class="text-[11px] font-bold uppercase tracking-wider text-sky-200">За 2-й год работы</div>
-                <div class="text-2xl font-black text-white tabular-nums mt-0.5" id="out-year2">—</div>
+              <div class="bg-white/10 rounded-xl p-3.5 border border-white/15 backdrop-blur-xs flex items-center justify-between">
+                <span class="text-xs font-bold text-sky-200">За 2-й год:</span>
+                <span class="text-2xl font-black text-white tabular-nums" id="out-year2">—</span>
               </div>
             </div>
-
-            <!-- Детали параметров -->
-            <details class="text-xs border-t border-white/15 pt-3 group">
-              <summary class="cursor-pointer text-sky-300 font-bold hover:text-white transition flex items-center justify-between">
-                <span>⚙️ Изменить средние чеки и параметры</span>
-                <span class="text-xs group-open:rotate-180 transition-transform">▼</span>
-              </summary>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3 pt-3 border-t border-white/10">
-                <div>
-                  <label class="block text-[11px] text-sky-200 mb-1">Чек внедрения, ₽</label>
-                  <input type="number" id="calc-setup" value="50000" step="5000" class="w-full bg-slate-900/60 border border-sky-400/40 rounded-lg px-2.5 py-1.5 text-xs text-white">
-                </div>
-                <div id="calc-integrator-price-box" class="hidden">
-                  <label class="block text-[11px] text-sky-200 mb-1">Ваша цена внедрения, ₽</label>
-                  <input type="number" id="calc-integrator-price" value="50000" step="5000" class="w-full bg-slate-900/60 border border-sky-400/40 rounded-lg px-2.5 py-1.5 text-xs text-white">
-                </div>
-                <div>
-                  <label class="block text-[11px] text-sky-200 mb-1">Подписка в месяц, ₽</label>
-                  <input type="number" id="calc-sub" value="15000" step="1000" class="w-full bg-slate-900/60 border border-sky-400/40 rounded-lg px-2.5 py-1.5 text-xs text-white">
-                </div>
-                <div>
-                  <label class="block text-[11px] text-sky-200 mb-1">Отток клиентов, %/мес</label>
-                  <input type="number" id="calc-churn" value="3" step="0.5" max="30" class="w-full bg-slate-900/60 border border-sky-400/40 rounded-lg px-2.5 py-1.5 text-xs text-white">
-                </div>
-                <div>
-                  <label class="block text-[11px] text-sky-200 mb-1">Приглашённых партнёров</label>
-                  <input type="number" id="calc-invited" value="2" min="0" class="w-full bg-slate-900/60 border border-sky-400/40 rounded-lg px-2.5 py-1.5 text-xs text-white">
-                </div>
-                <div>
-                  <label class="block text-[11px] text-sky-200 mb-1">Клиентов/год у партнёра</label>
-                  <input type="number" id="calc-invited-clients" value="6" min="0" class="w-full bg-slate-900/60 border border-sky-400/40 rounded-lg px-2.5 py-1.5 text-xs text-white">
-                </div>
-              </div>
-            </details>
 
           </div>
 
-          <!-- ПРАВАЯ ЧАСТЬ: ДИНАМИЧЕСКИЙ ГРАФИК 24 МЕСЯЦА -->
-          <div class="lg:col-span-7 bg-slate-950/40 rounded-2xl p-5 border border-white/10 flex flex-col justify-between">
+          <!-- ПРАВАЯ ЧАСТЬ: ГРАФИК И ПАРАМЕТРЫ -->
+          <div class="lg:col-span-7 bg-slate-950/50 rounded-2xl p-5 border border-white/10 flex flex-col justify-between">
             
-            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-              <span class="text-xs font-bold uppercase tracking-wider text-sky-200">Динамика дохода (24 месяца)</span>
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-sky-200">Динамика ежемесячного дохода</span>
               <ul class="flex flex-wrap gap-3 text-[11px] text-slate-300">
                 <li class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-xs bg-[#D4B373] inline-block"></span> Внедрения</li>
                 <li class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-xs bg-[#38bdf8] inline-block"></span> Подписки</li>
@@ -1241,17 +898,30 @@
               </ul>
             </div>
 
-            <!-- SVG ГРАФИК -->
             <div class="w-full my-2">
               <svg id="calc-chart" viewBox="0 0 560 240" class="w-full h-auto block"></svg>
             </div>
 
-            <p class="text-[11px] text-sky-100/70 leading-relaxed mt-3" id="calc-note">
+            <p class="text-[11px] text-sky-100/70 leading-relaxed mt-2" id="calc-note">
               Расчёт носит иллюстративный характер. Подписка клиента начисляется со второго месяца после запуска.
             </p>
 
-            <div class="mt-4 pt-4 border-t border-white/10 flex justify-end">
-              <a href="#join" class="btn-optic py-3 px-6 text-xs font-bold uppercase tracking-wider shadow-lg">
+            <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between">
+              <details class="text-xs group">
+                <summary class="cursor-pointer text-sky-300 font-bold hover:text-white">⚙️ Настройки чека</summary>
+                <div class="grid grid-cols-2 gap-2 mt-2 p-3 bg-slate-900/80 rounded-lg border border-sky-400/20 text-xs">
+                  <div>
+                    <label class="block text-[10px] text-sky-200">Чек внедрения, ₽</label>
+                    <input type="number" id="calc-setup" value="50000" step="5000" class="w-full bg-slate-950 border border-sky-400/40 rounded px-2 py-1 text-xs text-white">
+                  </div>
+                  <div>
+                    <label class="block text-[10px] text-sky-200">Подписка, ₽/мес</label>
+                    <input type="number" id="calc-sub" value="15000" step="1000" class="w-full bg-slate-950 border border-sky-400/40 rounded px-2 py-1 text-xs text-white">
+                  </div>
+                </div>
+              </details>
+
+              <a href="#join" class="btn-optic py-2.5 px-6 text-xs font-bold uppercase tracking-wider shadow-lg">
                 Стать партнёром
               </a>
             </div>
@@ -1268,217 +938,42 @@
       <div class="section-neon-beam" style="--divider-duration: 8.5s;"></div>
     </div>
 
-    <!-- 7. ПРАВИЛА ЗАКРЕПЛЕНИЯ И ВЫПЛАТ (#rules) -->
-    <section id="rules" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-20 scroll-mt-28 relative">
-      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+    <!-- 6. КОМУ ПОДХОДИТ И КОМУ ПРЕДЛАГАТЬ (#who / #fit) -->
+    <section id="who" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 scroll-mt-28 relative">
+      <div class="text-center max-w-3xl mx-auto mb-10">
         <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-          ЗАКРЕПЛЕНИЕ КЛИЕНТОВ И ВЫПЛАТЫ
+          КОМУ ПРЕДЛАГАТЬ И КТО ЗАРАБАТЫВАЕТ
         </h2>
-        <p class="text-sm sm:text-base text-slate-600 font-medium mt-2">
-          Прозрачные условия без мелкого шрифта. Полный текст — в <a href="partner-rules.html" class="text-sky-600 underline font-semibold">Правилах партнёрской программы</a>.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
-        
-        <div class="liquid-crystal-panel p-5 sm:p-6 rounded-2xl border border-sky-100">
-          <div class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
-            <span class="text-sky-600">⏱️</span> Закрепление за 1 день
-          </div>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Подтверждаем рекомендацию за 1 рабочий день. Закрепление действует 90 дней и однократно продлевается на 60 дней при участии в переговорах.
-          </p>
-        </div>
-
-        <div class="liquid-crystal-panel p-5 sm:p-6 rounded-2xl border border-sky-100">
-          <div class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
-            <span class="text-sky-600">🔗</span> Клиент пришёл сам
-          </div>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Если клиент перешёл по вашей персональной ссылке или назвал ваш код — он закрепляется за вами. Мы опрашиваем каждого нового клиента.
-          </p>
-        </div>
-
-        <div class="liquid-crystal-panel p-5 sm:p-6 rounded-2xl border border-sky-100">
-          <div class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
-            <span class="text-sky-600">🥇</span> Две рекомендации
-          </div>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Если одного клиента порекомендовали два партнёра, закрепление получает тот, чья заявка подтверждена системой первой.
-          </p>
-        </div>
-
-        <div class="liquid-crystal-panel p-5 sm:p-6 rounded-2xl border border-sky-100">
-          <div class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
-            <span class="text-sky-600">🛡️</span> Защита от пересечений
-          </div>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Если клиент обращался к нам в последние 90 дней, закрепить его нельзя — мы сразу открыто сообщим об этом.
-          </p>
-        </div>
-
-        <div class="liquid-crystal-panel p-5 sm:p-6 rounded-2xl border border-sky-100">
-          <div class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
-            <span class="text-sky-600">🔁</span> Срок выплат с подписок
-          </div>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Выплаты начисляются всё время, пока клиент оплачивает подписку — даже если вы временно не привлекаете новых клиентов.
-          </p>
-        </div>
-
-        <div class="liquid-crystal-panel p-5 sm:p-6 rounded-2xl border border-sky-100">
-          <div class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
-            <span class="text-sky-600">💳</span> Сроки выплат
-          </div>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Бонус за внедрение — в течение 5 рабочих дней после оплаты. Процент с подписки — ежемесячно до 10-го числа. Порог выплаты — 3&nbsp;000&nbsp;₽.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Тонкий неоновый разделитель -->
-    <div class="section-neon-divider max-w-6xl mx-auto opacity-75">
-      <div class="section-neon-beam" style="--divider-duration: 8s;"></div>
-    </div>
-
-    <!-- 8. КОМУ ПРЕДЛАГАТЬ И КОДЕКС (#fit / #code) -->
-    <section id="fit" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-20 scroll-mt-28 relative">
-      
-      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-        <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-          КОМУ ПРЕДЛАГАТЬ И КОДЕКС ПАРТНЁРА
-        </h2>
-        <p class="text-sm sm:text-base text-slate-600 font-medium mt-2">
-          Довольный клиент платит годами, а неподходящий быстро уходит. Проверьте компанию перед рекомендацией.
+        <p class="text-sm sm:text-base text-slate-600 font-medium mt-1.5">
+          Проверьте компанию перед рекомендацией, чтобы клиент оставался с вами годами
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-10">
         
-        <div class="liquid-crystal-panel p-6 sm:p-7 rounded-[26px] border-t-2 border-t-emerald-500">
-          <h3 class="text-base font-bold text-emerald-800 uppercase tracking-wider mb-4">Предлагайте, если у компании:</h3>
-          <ul class="space-y-3 text-xs sm:text-sm text-slate-700">
-            <li class="flex items-start gap-2.5">
-              <span class="text-emerald-500 font-bold">✓</span>
-              <span>От 100 обращений в месяц в чатах, на Авито или через сайт</span>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="text-emerald-500 font-bold">✓</span>
-              <span>Средний чек сделки от 30&nbsp;000&nbsp;₽ (оптимально от 50&nbsp;000&nbsp;₽)</span>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="text-emerald-500 font-bold">✓</span>
-              <span>Есть менеджер или отдел продаж, который закрывает сделки</span>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="text-emerald-500 font-bold">✓</span>
-              <span>Правовая форма — юридическое лицо (ООО, АО или ИП)</span>
-            </li>
+        <div class="card-emerald p-6 rounded-[24px]">
+          <h3 class="text-sm font-black text-emerald-950 uppercase tracking-wider mb-3 flex items-center gap-2">
+            <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs">✓</span>
+            Идеальный клиент (Рекомендуйте):
+          </h3>
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-700">
+            <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">✓</span><span>От 100 обращений в месяц в чатах, на сайте или на Авито</span></li>
+            <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">✓</span><span>Средний чек сделки от 30 000 ₽</span></li>
+            <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">✓</span><span>Есть отдел продаж или менеджер, закрывающий сделки</span></li>
+            <li class="flex items-start gap-2"><span class="text-emerald-600 font-bold">✓</span><span>Форма — юридическое лицо (ООО, АО или ИП)</span></li>
           </ul>
         </div>
 
-        <div class="liquid-crystal-panel p-6 sm:p-7 rounded-[26px] border-t-2 border-t-rose-400">
-          <h3 class="text-base font-bold text-rose-800 uppercase tracking-wider mb-4">Не предлагайте, если:</h3>
-          <ul class="space-y-3 text-xs sm:text-sm text-slate-700">
-            <li class="flex items-start gap-2.5">
-              <span class="text-rose-500 font-bold">✕</span>
-              <span>Обращений меньше 50 в месяц, а чек ниже 10&nbsp;000&nbsp;₽ (подписка не окупится)</span>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="text-rose-500 font-bold">✕</span>
-              <span>Собственник рассчитывает уволить всех продавцов и оставить только ИИ</span>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="text-rose-500 font-bold">✕</span>
-              <span>У компании нет прайса и регламентов — нейросеть не на чем обучать</span>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="text-rose-500 font-bold">✕</span>
-              <span>Специфические медицинские или финансовые лицензии (требуется предварительное согласование)</span>
-            </li>
+        <div class="card-sapphire p-6 rounded-[24px]">
+          <h3 class="text-sm font-black text-slate-800 uppercase tracking-wider mb-3 flex items-center gap-2">
+            <span class="w-5 h-5 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-xs">✕</span>
+            Не подходящий клиент (Не тратьте время):
+          </h3>
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-600">
+            <li class="flex items-start gap-2"><span class="text-rose-500 font-bold">✕</span><span>Меньше 50 обращений в месяц и чек ниже 10 000 ₽</span></li>
+            <li class="flex items-start gap-2"><span class="text-rose-500 font-bold">✕</span><span>Собственник хочет уволить всех продавцов без разбора</span></li>
+            <li class="flex items-start gap-2"><span class="text-rose-500 font-bold">✕</span><span>У компании нет прайс-листа и базовых регламентов</span></li>
           </ul>
-        </div>
-
-      </div>
-
-      <!-- КОДЕКС ПАРТНЕРА -->
-      <div id="code" class="liquid-crystal-panel p-6 sm:p-8 rounded-[28px] max-w-5xl mx-auto space-y-6">
-        <h3 class="text-lg font-bold text-slate-900 border-b border-slate-200 pb-3">Кодекс партнёра Altai Optima</h3>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-700 mb-3">Разрешено и приветствуется:</h4>
-            <ul class="space-y-2 text-xs sm:text-sm text-slate-600">
-              <li>• Рассказывать о сервисе своими словами и использовать официальный промо-набор</li>
-              <li>• Приглашать ЛПР на демонстрацию, а агентам — проводить её самостоятельно</li>
-              <li>• Публиковать обзоры и кейсы с соблюдением правил маркировки рекламы</li>
-              <li>• Приглашать партнёров в программу и помогать им с первыми сделками</li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="text-xs font-bold uppercase tracking-wider text-rose-700 mb-3">Категорически запрещено:</h4>
-            <ul class="space-y-2 text-xs sm:text-sm text-slate-600">
-              <li>• Спам-рассылки в мессенджерах и звонки без согласия получателей</li>
-              <li>• Обещание гарантированной окупаемости или прибыли от лица сервиса</li>
-              <li>• Приём оплаты за сервис на личные счета или выдача себя за сотрудника Altai Optima</li>
-              <li>• Контекстная реклама по брендовым запросам «Altai Optima»</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="p-4 rounded-xl bg-slate-50 text-xs text-slate-600 border border-slate-200">
-          <strong>Маркировка интернет-рекламы:</strong> Публикации с вашей ссылкой подлежат маркировке по закону «О рекламе» (пометка, токен erid). Напишите нам перед запуском кампаний — подскажем с оформлением.
-        </div>
-      </div>
-
-    </section>
-
-    <!-- Тонкий неоновый разделитель -->
-    <div class="section-neon-divider max-w-6xl mx-auto opacity-75">
-      <div class="section-neon-beam" style="--divider-duration: 8.2s;"></div>
-    </div>
-
-    <!-- 9. ДОГОВОР, НАЛОГИ И ДОКУМЕНТЫ (#legal) -->
-    <section id="legal" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-20 scroll-mt-28 relative">
-      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-        <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-          ДОГОВОР, НАЛОГИ И ВЫПЛАТЫ
-        </h2>
-        <p class="text-sm sm:text-base text-slate-600 font-medium mt-2">
-          Всё оформляем официально — так выплаты защищены и для вас, и для нас.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
-        
-        <div class="liquid-crystal-panel p-5 rounded-2xl border border-sky-100">
-          <div class="text-xs font-bold uppercase tracking-wider text-sky-700 mb-2">ИП и Компании</div>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Агентский договор. Ежемесячный акт и отчёт, безналичный расчёт на ваш расчётный счёт.
-          </p>
-        </div>
-
-        <div class="liquid-crystal-panel p-5 rounded-2xl border border-sky-100">
-          <div class="text-xs font-bold uppercase tracking-wider text-sky-700 mb-2">Самозанятые</div>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            По закону самозанятые не могут работать по классическому агентскому договору — формат подбираем индивидуально.
-          </p>
-        </div>
-
-        <div class="liquid-crystal-panel p-5 rounded-2xl border border-sky-100">
-          <div class="text-xs font-bold uppercase tracking-wider text-sky-700 mb-2">Физические лица</div>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            С выплат физлицам удерживается НДФЛ и взносы. Для регулярного заработка рекомендуем оформить ИП.
-          </p>
-        </div>
-
-        <div class="liquid-crystal-panel p-5 rounded-2xl border border-sky-100">
-          <div class="text-xs font-bold uppercase tracking-wider text-sky-700 mb-2">Партнёры из СНГ</div>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Международный контракт, индивидуальный порядок расчётов и удобная валюта выплат.
-          </p>
         </div>
 
       </div>
@@ -1489,9 +984,9 @@
       <div class="section-neon-beam" style="--divider-duration: 8.5s;"></div>
     </div>
 
-    <!-- 10. ЧАСТЫЕ ВОПРОСЫ (#faq) -->
-    <section id="faq" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-20 scroll-mt-28 relative">
-      <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+    <!-- 7. ЧАСТЫЕ ВОПРОСЫ (#faq) -->
+    <section id="faq" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 scroll-mt-28 relative">
+      <div class="text-center max-w-2xl mx-auto mb-10">
         <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
           ЧАСТЫЕ ВОПРОСЫ
         </h2>
@@ -1499,94 +994,44 @@
 
       <div class="space-y-3">
         
-        <details class="liquid-crystal-panel rounded-2xl border border-sky-100 p-5 group transition">
+        <details class="card-sapphire rounded-2xl p-5 group transition">
           <summary class="flex justify-between items-center cursor-pointer font-bold text-slate-900 text-sm sm:text-base select-none">
-            <span>Сколько я получу с одного клиента?</span>
+            <span>Сколько я получу с одного клиента на старте?</span>
             <span class="faq-icon text-sky-600 font-bold text-xl ml-3">+</span>
           </summary>
-          <div class="mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed space-y-2">
-            <p>Зависит от вашего статуса и тарифа клиента. На стартовом пакете (50&nbsp;000&nbsp;₽ внедрение и 15&nbsp;000&nbsp;₽/мес подписка) рекомендатель получает 12&nbsp;500&nbsp;₽ разово и 2&nbsp;250&nbsp;₽ каждый месяц, агент — 17&nbsp;500&nbsp;₽ и 3&nbsp;000&nbsp;₽.</p>
-            <p>50&nbsp;000&nbsp;₽ — это стартовый минимум. На более крупных проектах с несколькими каналами и CRM чеки выше, а процент начисляется от всей фактически поступившей суммы.</p>
+          <div class="mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed space-y-1.5">
+            <p>На стартовом тарифе (внедрение 50&nbsp;000&nbsp;₽ и подписка 15&nbsp;000&nbsp;₽/мес) Рекомендатель получает <strong>12&nbsp;500&nbsp;₽ сразу</strong> и <strong>2&nbsp;250&nbsp;₽ каждый месяц</strong>. Агент получает <strong>17&nbsp;500&nbsp;₽</strong> и <strong>3&nbsp;000&nbsp;₽/мес</strong>.</p>
+            <p>Если проект клиента масштабнее (несколько каналов, CRM, большой трафик), ваш процент начисляется от всей суммы.</p>
           </div>
         </details>
 
-        <details class="liquid-crystal-panel rounded-2xl border border-sky-100 p-5 group transition">
-          <summary class="flex justify-between items-center cursor-pointer font-bold text-slate-900 text-sm sm:text-base select-none">
-            <span>Как повышается ставка вознаграждения?</span>
-            <span class="faq-icon text-sky-600 font-bold text-xl ml-3">+</span>
-          </summary>
-          <div class="mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Автоматически по количеству клиентов, оплачивающих подписку в текущем месяце. От 5 клиентов ставка с подписки вырастает на 5 процентных пунктов, от 15 клиентов — ещё +5 пунктов к внедрению. Повышенная ставка применяется ко всем вашим клиентам.
-          </div>
-        </details>
-
-        <details class="liquid-crystal-panel rounded-2xl border border-sky-100 p-5 group transition">
+        <details class="card-sapphire rounded-2xl p-5 group transition">
           <summary class="flex justify-between items-center cursor-pointer font-bold text-slate-900 text-sm sm:text-base select-none">
             <span>Как вы закрепите клиента за мной?</span>
             <span class="faq-icon text-sky-600 font-bold text-xl ml-3">+</span>
           </summary>
           <div class="mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Передайте контакт через вкладку «Передать клиента» или дайте свою персональную ссылку. В течение 1 рабочего дня мы подтверждаем закрепление — после этого клиент закреплён за вами на 90 дней (с возможностью продления на 60 дней).
+            Передайте контакт через форму «Передать клиента» или дайте вашу персональную ссылку. Закрепление подтверждается за 1 рабочий день и действует 90 дней (с продлением на 60 дней при участии в переговорах).
           </div>
         </details>
 
-        <details class="liquid-crystal-panel rounded-2xl border border-sky-100 p-5 group transition">
-          <summary class="flex justify-between items-center cursor-pointer font-bold text-slate-900 text-sm sm:text-base select-none">
-            <span>Что если клиент напишет вам напрямую?</span>
-            <span class="faq-icon text-sky-600 font-bold text-xl ml-3">+</span>
-          </summary>
-          <div class="mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Если ваша рекомендация была подтверждена, либо клиент перешёл по ссылке или назвал ваш код — клиент закрепляется за вами. Мы опрашиваем каждого нового клиента о том, откуда он узнал о сервисе.
-          </div>
-        </details>
-
-        <details class="liquid-crystal-panel rounded-2xl border border-sky-100 p-5 group transition">
-          <summary class="flex justify-between items-center cursor-pointer font-bold text-slate-900 text-sm sm:text-base select-none">
-            <span>Что будет с выплатами, если клиент уйдёт или сменит тариф?</span>
-            <span class="faq-icon text-sky-600 font-bold text-xl ml-3">+</span>
-          </summary>
-          <div class="mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Процент начисляется от реальных оплат. Если клиент перешёл на тариф дороже — вы получаете больше. Если перестал платить — начисления по нему приостанавливаются.
-          </div>
-        </details>
-
-        <details class="liquid-crystal-panel rounded-2xl border border-sky-100 p-5 group transition">
+        <details class="card-sapphire rounded-2xl p-5 group transition">
           <summary class="flex justify-between items-center cursor-pointer font-bold text-slate-900 text-sm sm:text-base select-none">
             <span>Что если я временно перестану привлекать новых клиентов?</span>
             <span class="faq-icon text-sky-600 font-bold text-xl ml-3">+</span>
           </summary>
           <div class="mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Процент с подписок ранее приведённых клиентов продолжит поступать каждый месяц, пока они пользуются сервисом. Условие личных продаж действует только для наставнического бонуса.
+            Процент с ежемесячных подписок уже приведённых клиентов продолжит поступать в полном объёме, пока они пользуются сервисом.
           </div>
         </details>
 
-        <details class="liquid-crystal-panel rounded-2xl border border-sky-100 p-5 group transition">
+        <details class="card-sapphire rounded-2xl p-5 group transition">
           <summary class="flex justify-between items-center cursor-pointer font-bold text-slate-900 text-sm sm:text-base select-none">
-            <span>Нужно ли мне разбираться в ИИ и CRM?</span>
+            <span>Как оформляются выплаты и договор?</span>
             <span class="faq-icon text-sky-600 font-bold text-xl ml-3">+</span>
           </summary>
           <div class="mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
-            В статусе «Рекомендатель» — нет: демо, переговоры, договор и техническую настройку выполняет наша команда. Агентам и интеграторам мы проводим бесплатное экспертное обучение.
-          </div>
-        </details>
-
-        <details class="liquid-crystal-panel rounded-2xl border border-sky-100 p-5 group transition">
-          <summary class="flex justify-between items-center cursor-pointer font-bold text-slate-900 text-sm sm:text-base select-none">
-            <span>Это сетевой маркетинг (МЛМ)?</span>
-            <span class="faq-icon text-sky-600 font-bold text-xl ml-3">+</span>
-          </summary>
-          <div class="mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Нет. В программе нет вступительных взносов, обязательных покупок или выплат за регистрацию новичков. Наставнический бонус имеет только 1 уровень и выплачивается исключительно из выручки от реальных платежей клиентов.
-          </div>
-        </details>
-
-        <details class="liquid-crystal-panel rounded-2xl border border-sky-100 p-5 group transition">
-          <summary class="flex justify-between items-center cursor-pointer font-bold text-slate-900 text-sm sm:text-base select-none">
-            <span>Могу ли я внедрять сам и зарабатывать больше?</span>
-            <span class="faq-icon text-sky-600 font-bold text-xl ml-3">+</span>
-          </summary>
-          <div class="mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Да, в статусе «Интегратор». После обучения и 2 пилотных внедрений вы внедряете сервис по своей цене (забирая 100% чека за работу) и получаете 30% с ежемесячной подписки клиента.
+            Заключаем официальный договор (с ИП, ООО, самозанятыми или физлицами). Выплаты производятся безналичным расчётом на расчётный счёт с предоставлением закрывающих актов.
           </div>
         </details>
 
@@ -1598,239 +1043,129 @@
       <div class="section-neon-beam" style="--divider-duration: 8.5s;"></div>
     </div>
 
-    <!-- 11. ЗАЯВКА / СТАТЬ ПАРТНЕРОМ (#join) -->
-    <section id="join" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-20 scroll-mt-28 relative">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start max-w-6xl mx-auto">
+    <!-- 8. ФОРМА ЗАЯВКИ / СТАТЬ ПАРТНЕРОМ (#join) -->
+    <section id="join" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 scroll-mt-28 relative">
+      <div class="card-highlight-pro p-6 sm:p-10 rounded-[32px] border-2 border-sky-400 shadow-2xl">
         
-        <!-- ЛЕВАЯ КОЛОНКА: ЧТО ВЫ ПОЛУЧИТЕ И КОНТАКТЫ -->
-        <div class="lg:col-span-5 space-y-6">
-          <div>
-            <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-              СТАНЬТЕ ПАРТНЁРОМ
-            </h2>
-            <p class="text-xs sm:text-sm text-slate-600 mt-2">
-              Оставьте заявку — свяжемся в течение рабочего дня, расскажем об условиях и вышлем договор.
-            </p>
-          </div>
-
-          <!-- ПАРТНЕРСКИЙ НАБОР -->
-          <div class="liquid-crystal-panel p-6 rounded-2xl border border-sky-100 space-y-3">
-            <h3 class="text-xs font-bold uppercase tracking-wider text-sky-800">После договора вы получите:</h3>
-            <ul class="space-y-2 text-xs text-slate-600">
-              <li class="flex items-start gap-2"><span class="text-sky-500 font-bold">✓</span><span>Партнёрский код и персональную ссылку</span></li>
-              <li class="flex items-start gap-2"><span class="text-sky-500 font-bold">✓</span><span>Презентацию для собственника и РОПа</span></li>
-              <li class="flex items-start gap-2"><span class="text-sky-500 font-bold">✓</span><span>Демо-диалог с ИИ, который можно показать клиенту</span></li>
-              <li class="flex items-start gap-2"><span class="text-sky-500 font-bold">✓</span><span>Кейсы и калькулятор окупаемости для бизнеса</span></li>
-              <li class="flex items-start gap-2"><span class="text-sky-500 font-bold">✓</span><span>Шаблоны первого сообщения и скрипты отработки возражений</span></li>
-              <li class="flex items-start gap-2"><span class="text-sky-500 font-bold">✓</span><span>Бесплатное обучение и персонального куратора</span></li>
-            </ul>
-          </div>
-
-          <!-- СВЯЗЬ НАПРЯМУЮ -->
-          <div class="liquid-crystal-panel p-6 rounded-2xl border border-sky-100 space-y-3">
-            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-700">Связаться напрямую:</h3>
-            <div class="space-y-2 text-xs">
-              <div class="flex items-center gap-2 text-slate-700">
-                <span class="text-slate-400">Telegram:</span>
-                <a href="https://t.me/altaioptima" target="_blank" class="font-bold text-[#229ED9] hover:underline">@altaioptima</a>
-              </div>
-              <div class="flex items-center gap-2 text-slate-700">
-                <span class="text-slate-400">Почта:</span>
-                <a href="mailto:optima@altaiweb.online" class="font-bold text-sky-700 hover:underline">optima@altaiweb.online</a>
-              </div>
-            </div>
-          </div>
+        <div class="text-center max-w-2xl mx-auto mb-8">
+          <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            ПОДКЛЮЧИТЬСЯ К ПРОГРАММЕ
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1">
+            Заполните форму или напишите нам в Telegram — свяжемся за 1 рабочий день и вышлем партнёрский набор
+          </p>
         </div>
 
-        <!-- ПРАВАЯ КОЛОНКА: ВКЛАДКИ И ФОРМЫ -->
-        <div class="lg:col-span-7 liquid-crystal-highlight p-6 sm:p-8 rounded-[32px] border-2 border-sky-300 shadow-xl">
-          
-          <!-- Вкладки форм -->
-          <div class="flex border border-sky-200 rounded-full p-1 bg-white mb-6 gap-1" role="tablist">
-            <button type="button" role="tab" id="tab-apply" aria-controls="panel-apply" aria-selected="true" class="flex-1 py-2.5 px-4 rounded-full font-bold text-xs sm:text-sm text-center transition-all bg-sky-600 text-white shadow-xs">
-              Стать партнёром
-            </button>
-            <button type="button" role="tab" id="tab-refer" aria-controls="panel-refer" aria-selected="false" class="flex-1 py-2.5 px-4 rounded-full font-bold text-xs sm:text-sm text-center transition-all text-slate-600 hover:text-sky-700">
-              Передать клиента
-            </button>
-          </div>
+        <!-- ВКЛАДКИ ФОРМ -->
+        <div class="flex border border-sky-200 rounded-full p-1 bg-white mb-6 gap-1 max-w-md mx-auto" role="tablist">
+          <button type="button" role="tab" id="tab-apply" aria-controls="panel-apply" aria-selected="true" class="flex-1 py-2.5 px-4 rounded-full font-bold text-xs sm:text-sm text-center transition-all bg-sky-600 text-white shadow-xs">
+            Стать партнёром
+          </button>
+          <button type="button" role="tab" id="tab-refer" aria-controls="panel-refer" aria-selected="false" class="flex-1 py-2.5 px-4 rounded-full font-bold text-xs sm:text-sm text-center transition-all text-slate-600 hover:text-sky-700">
+            Передать клиента
+          </button>
+        </div>
 
-          <!-- ФОРМА 1: СТАТЬ ПАРТНЕРОМ -->
-          <div role="tabpanel" id="panel-apply">
-            <form id="form-apply" data-subject="Заявка в партнёрскую программу Altai Optima" data-success="Заявка успешно отправлена! Свяжемся с вами в течение рабочего дня." class="space-y-4">
-              
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1" for="a-name">Имя и фамилия <span class="text-sky-600">*</span></label>
-                  <input type="text" id="a-name" name="name" data-label="Имя" required class="form-input" placeholder="Иван Иванов">
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1" for="a-phone">Телефон <span class="text-sky-600">*</span></label>
-                  <input type="tel" id="a-phone" name="phone" data-label="Телефон" required class="form-input" placeholder="+7 900 000-00-00">
-                </div>
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1" for="a-email">Электронная почта</label>
-                  <input type="email" id="a-email" name="email" data-label="Почта" class="form-input" placeholder="ivan@example.com">
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1" for="a-channel">Удобный способ связи</label>
-                  <select id="a-channel" name="channel" data-label="Способ связи" class="form-input form-select">
-                    <option>Telegram</option>
-                    <option>WhatsApp</option>
-                    <option>Телефон</option>
-                    <option>MAX</option>
-                    <option>Электронная почта</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1" for="a-city">Город и страна <span class="text-sky-600">*</span></label>
-                  <input type="text" id="a-city" name="city" data-label="Город и страна" required class="form-input" placeholder="Москва, Россия">
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1" for="a-form">Правовая форма <span class="text-sky-600">*</span></label>
-                  <select id="a-form" name="legalForm" data-label="Правовая форма" required class="form-input form-select">
-                    <option value="">Выберите форму</option>
-                    <option>ИП</option>
-                    <option>Юридическое лицо (ООО/АО)</option>
-                    <option>Самозанятый</option>
-                    <option>Физическое лицо</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1" for="p-status">Интересующий статус</label>
-                  <select id="p-status" name="status" data-label="Статус" class="form-input form-select">
-                    <option>Пока не знаю</option>
-                    <option>Рекомендатель</option>
-                    <option>Агент</option>
-                    <option>Интегратор</option>
-                    <option>Региональный партнёр</option>
-                  </select>
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1" for="a-mentor">Код пригласившего партнёра</label>
-                  <input type="text" id="a-mentor" name="mentorCode" data-label="Код наставника" class="form-input" placeholder="Если есть">
-                </div>
-              </div>
-
+        <!-- ФОРМА 1: СТАТЬ ПАРТНЕРОМ -->
+        <div role="tabpanel" id="panel-apply" class="max-w-2xl mx-auto">
+          <form id="form-apply" data-subject="Заявка в партнёрскую программу Altai Optima" data-success="Заявка успешно отправлена! Свяжемся с вами в течение рабочего дня." class="space-y-4">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label class="block text-xs font-semibold text-slate-700 mb-1" for="a-about">Кому планируете рекомендовать сервис?</label>
-                <textarea id="a-about" name="about" data-label="Аудитория" rows="2" class="form-input" placeholder="Например: веду контекстную рекламу для 10 компаний по ремонту квартир"></textarea>
+                <label class="block text-xs font-semibold text-slate-700 mb-1" for="a-name">Имя и фамилия <span class="text-sky-600">*</span></label>
+                <input type="text" id="a-name" name="name" data-label="Имя" required class="form-input" placeholder="Иван Иванов">
               </div>
-
-              <!-- Чекбоксы согласий -->
-              <div class="space-y-2 pt-1">
-                <label class="flex items-start gap-2 text-[11px] text-slate-600 cursor-pointer">
-                  <input type="checkbox" name="consentPD" required data-label="Согласие ПДн" class="mt-0.5 rounded text-sky-600 focus:ring-sky-500">
-                  <span>Даю согласие на обработку персональных данных в соответствии с <a href="документы/3.%20Политика%20обработки%20персональных%20данных.docx" class="text-sky-600 underline">Политикой обработки данных</a> <span class="text-sky-600">*</span></span>
-                </label>
-                <label class="flex items-start gap-2 text-[11px] text-slate-600 cursor-pointer">
-                  <input type="checkbox" name="consentAds" data-label="Согласие на рассылку" class="mt-0.5 rounded text-sky-600 focus:ring-sky-500">
-                  <span>Согласен получать новости и обновления программы</span>
-                </label>
-              </div>
-
-              <div class="pt-2">
-                <button type="submit" class="btn-optic w-full justify-center shadow-lg">
-                  <span>ОТПРАВИТЬ ЗАЯВКУ</span>
-                </button>
-              </div>
-
-              <div class="form-status hidden p-4 rounded-xl border border-sky-300 bg-sky-50 text-xs text-slate-800"></div>
-
-            </form>
-          </div>
-
-          <!-- ФОРМА 2: ПЕРЕДАТЬ КЛИЕНТА -->
-          <div role="tabpanel" id="panel-refer" class="hidden">
-            <p class="text-xs text-slate-500 mb-4">Для действующих партнёров. Передавайте контакт только с предварительного согласия клиента.</p>
-            <form id="form-refer" data-subject="Рекомендация клиента — Altai Optima" data-success="Клиент успешно передан! Закрепление подтвердим в течение 1 рабочего дня." class="space-y-4">
-              
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1" for="r-code">Ваш партнёрский код <span class="text-sky-600">*</span></label>
-                  <input type="text" id="r-code" name="partnerCode" data-label="Код партнёра" required class="form-input" placeholder="OPT-XXXX">
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1" for="r-pname">Ваше имя <span class="text-sky-600">*</span></label>
-                  <input type="text" id="r-pname" name="partnerName" data-label="Имя партнёра" required class="form-input" placeholder="Иван">
-                </div>
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1" for="r-company">Компания клиента <span class="text-sky-600">*</span></label>
-                  <input type="text" id="r-company" name="company" data-label="Компания" required class="form-input" placeholder="ООO «Вектор»">
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1" for="r-inn">ИНН клиента (если знаете)</label>
-                  <input type="text" id="r-inn" name="inn" data-label="ИНН" class="form-input" placeholder="10 или 12 цифр">
-                </div>
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1" for="r-contact">Имя и должность контакта <span class="text-sky-600">*</span></label>
-                  <input type="text" id="r-contact" name="contactName" data-label="Контакт" required class="form-input" placeholder="Алексей, директор">
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1" for="r-cphone">Телефон или Telegram контакта <span class="text-sky-600">*</span></label>
-                  <input type="text" id="r-cphone" name="contactInfo" data-label="Телефон/почта контакта" required class="form-input" placeholder="+7 900 000-00-00">
-                </div>
-              </div>
-
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1" for="r-city">Город клиента</label>
-                  <input type="text" id="r-city" name="city" data-label="Город" class="form-input" placeholder="Казань">
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1" for="r-leads">Обращений в месяц</label>
-                  <select id="r-leads" name="leads" data-label="Обращений в месяц" class="form-input form-select">
-                    <option>Не знаю</option>
-                    <option>Меньше 50</option>
-                    <option>50–100</option>
-                    <option>100–300</option>
-                    <option>Больше 300</option>
-                  </select>
-                </div>
-              </div>
-
               <div>
-                <label class="block text-xs font-semibold text-slate-700 mb-1" for="r-comment">Комментарий к сделке</label>
-                <textarea id="r-comment" name="comment" data-label="Комментарий" rows="2" class="form-input" placeholder="Ниша, каналы заявок, используемая CRM и ключевая боль"></textarea>
+                <label class="block text-xs font-semibold text-slate-700 mb-1" for="a-phone">Телефон / Telegram <span class="text-sky-600">*</span></label>
+                <input type="tel" id="a-phone" name="phone" data-label="Телефон" required class="form-input" placeholder="+7 900 000-00-00">
               </div>
+            </div>
 
-              <div class="space-y-2 pt-1">
-                <label class="flex items-start gap-2 text-[11px] text-slate-600 cursor-pointer">
-                  <input type="checkbox" name="clientConsent" required data-label="Клиент согласен" class="mt-0.5 rounded text-sky-600 focus:ring-sky-500">
-                  <span>Клиент согласен, чтобы с ним связались от Altai Optima, и разрешил передать контакты <span class="text-sky-600">*</span></span>
-                </label>
-                <label class="flex items-start gap-2 text-[11px] text-slate-600 cursor-pointer">
-                  <input type="checkbox" name="consentPD" required data-label="Согласие ПДн" class="mt-0.5 rounded text-sky-600 focus:ring-sky-500">
-                  <span>Даю согласие на обработку персональных данных <span class="text-sky-600">*</span></span>
-                </label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1" for="p-status">Желаемый статус</label>
+                <select id="p-status" name="status" data-label="Статус" class="form-input">
+                  <option>Рекомендатель (25% + 15%/мес)</option>
+                  <option>Агент (35% + 20%/мес)</option>
+                  <option>Интегратор (100% внедрение + 30%/мес)</option>
+                  <option>Региональный партнёр (5% со всей страны)</option>
+                </select>
               </div>
-
-              <div class="pt-2">
-                <button type="submit" class="btn-optic w-full justify-center shadow-lg">
-                  <span>ПЕРЕДАТЬ КЛИЕНТА</span>
-                </button>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1" for="a-city">Город и страна <span class="text-sky-600">*</span></label>
+                <input type="text" id="a-city" name="city" data-label="Город" required class="form-input" placeholder="Москва, Россия">
               </div>
+            </div>
 
-              <div class="form-status hidden p-4 rounded-xl border border-sky-300 bg-sky-50 text-xs text-slate-800"></div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1" for="a-about">Кому планируете рекомендовать сервис?</label>
+              <textarea id="a-about" name="about" data-label="Аудитория" rows="2" class="form-input" placeholder="Например: веду контекстную рекламу для 10 компаний по ремонту квартир"></textarea>
+            </div>
 
-            </form>
-          </div>
+            <label class="flex items-start gap-2 text-[11px] text-slate-600 cursor-pointer pt-1">
+              <input type="checkbox" name="consentPD" required data-label="Согласие ПДн" class="mt-0.5 rounded text-sky-600">
+              <span>Даю согласие на обработку персональных данных в соответствии с <a href="документы/3.%20Политика%20обработки%20персональных%20данных.docx" class="text-sky-600 underline">Политикой</a> <span class="text-sky-600">*</span></span>
+            </label>
 
+            <div class="pt-2 flex flex-col sm:flex-row gap-3">
+              <button type="submit" class="btn-optic flex-1 justify-center shadow-lg">
+                <span>ОТПРАВИТЬ ЗАЯВКУ</span>
+              </button>
+              <a href="https://t.me/altaioptima?text=%D0%94%D0%BE%D0%B1%D1%80%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%20%D0%BF%D0%B0%D1%80%D1%82%D0%BD%D1%85%D1%80%D0%BE%D0%BC%20ALTAI%20OPTIMA" target="_blank" class="btn-neon-contour px-6 py-3 text-xs font-bold uppercase tracking-wider text-center flex items-center justify-center gap-2">
+                <span>Написать в Telegram</span>
+              </a>
+            </div>
+
+            <div class="form-status hidden p-4 rounded-xl border border-sky-300 bg-sky-50 text-xs text-slate-800"></div>
+
+          </form>
+        </div>
+
+        <!-- ФОРМА 2: ПЕРЕДАТЬ КЛИЕНТА -->
+        <div role="tabpanel" id="panel-refer" class="hidden max-w-2xl mx-auto">
+          <form id="form-refer" data-subject="Рекомендация клиента — Altai Optima" data-success="Клиент передан! Закрепление подтвердим за 1 рабочий день." class="space-y-4">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1" for="r-code">Ваш код партнёра <span class="text-sky-600">*</span></label>
+                <input type="text" id="r-code" name="partnerCode" data-label="Код партнёра" required class="form-input" placeholder="OPT-XXXX">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1" for="r-pname">Ваше имя <span class="text-sky-600">*</span></label>
+                <input type="text" id="r-pname" name="partnerName" data-label="Имя партнёра" required class="form-input" placeholder="Иван">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1" for="r-company">Компания клиента <span class="text-sky-600">*</span></label>
+                <input type="text" id="r-company" name="company" data-label="Компания" required class="form-input" placeholder="ООО «Вектор»">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1" for="r-cphone">Телефон/Telegram контакта <span class="text-sky-600">*</span></label>
+                <input type="text" id="r-cphone" name="contactInfo" data-label="Контакт" required class="form-input" placeholder="+7 900 000-00-00">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1" for="r-comment">Комментарий к сделке</label>
+              <textarea id="r-comment" name="comment" data-label="Комментарий" rows="2" class="form-input" placeholder="Ниша, каналы заявок, используемая CRM"></textarea>
+            </div>
+
+            <label class="flex items-start gap-2 text-[11px] text-slate-600 cursor-pointer pt-1">
+              <input type="checkbox" name="clientConsent" required data-label="Клиент согласен" class="mt-0.5 rounded text-sky-600">
+              <span>Клиент согласен, чтобы с ним связались от Altai Optima, и разрешил передать контакты <span class="text-sky-600">*</span></span>
+            </label>
+
+            <div class="pt-2">
+              <button type="submit" class="btn-optic w-full justify-center shadow-lg">
+                <span>ПЕРЕДАТЬ КЛИЕНТА НА ЗАКРЕПЛЕНИЕ</span>
+              </button>
+            </div>
+
+            <div class="form-status hidden p-4 rounded-xl border border-sky-300 bg-sky-50 text-xs text-slate-800"></div>
+
+          </form>
         </div>
 
       </div>
@@ -1840,158 +1175,66 @@
 
   <!-- ФУТЕР -->
   <footer class="pt-12 pb-16 text-slate-600 relative overflow-hidden z-20 border-t border-sky-200/50 font-inter bg-transparent">
-    
-    <!-- АБРИС АЛТАЙСКИХ ГОР -->
-    <div class="absolute inset-0 pointer-events-none opacity-25 -z-10 flex items-end">
-      <svg class="w-full h-44 sm:h-56" viewBox="0 0 1400 300" preserveAspectRatio="none" fill="none">
-        <defs>
-          <linearGradient id="partnerFooterMountainGrad" x1="0%" y1="0%" x2="0%" y2="1">
-            <stop offset="0%" stop-color="#0284c7" stop-opacity="0.18" />
-            <stop offset="100%" stop-color="#0284c7" stop-opacity="0.0" />
-          </linearGradient>
-        </defs>
-        <path d="M 0 300 L 0 200 L 140 120 L 290 180 L 450 80 L 620 160 L 780 50 L 920 140 L 1080 70 L 1240 150 L 1400 90 L 1400 300 Z" fill="url(#partnerFooterMountainGrad)" />
-        <path d="M 0 230 L 180 150 L 350 210 L 530 110 L 700 190 L 890 90 L 1050 170 L 1220 110 L 1400 180 L 1400 300 Z" fill="url(#partnerFooterMountainGrad)" />
-      </svg>
-    </div>
-
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 text-center md:text-left">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 text-center md:text-left">
         
         <div class="lg:col-span-5 space-y-3 flex flex-col items-center md:items-start">
           <a href="./index.html" class="inline-flex items-center gap-2 group py-1" title="ALTAI OPTIMA">
-            <img src="brand_logo.png" alt="ALTAI OPTIMA" class="h-8 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
-            <span class="text-[10px] font-black uppercase tracking-wider bg-gradient-to-r from-sky-500 via-blue-600 to-sky-700 bg-clip-text text-transparent select-none">
+            <img src="brand_logo.png" alt="ALTAI OPTIMA" class="h-8 sm:h-9 w-auto object-contain" loading="lazy">
+            <span class="text-[10px] font-black uppercase tracking-wider bg-gradient-to-r from-sky-500 to-blue-700 bg-clip-text text-transparent">
               PARTNER
             </span>
           </a>
           <p class="text-xs text-slate-500 max-w-sm">
-            Программа не является инвестиционной. Доход партнёра зависит от фактических оплат привлечённых им клиентов и не гарантируется.
+            Программа не является инвестиционной. Доход партнёра зависит от фактических оплат привлечённых клиентов.
           </p>
-          <div class="text-xs text-slate-400 italic">
-            «Мысли глобально, действуй локально»
-          </div>
         </div>
 
-        <div class="lg:col-span-4 space-y-3.5 flex flex-col items-center md:items-start">
+        <div class="lg:col-span-4 space-y-2.5 flex flex-col items-center md:items-start">
           <div class="text-[11px] uppercase tracking-wider font-extrabold text-sky-950 font-mono">
-            Контакты и связь
+            Контакты
           </div>
-          <ul class="space-y-2.5 text-xs">
-            <li>
-              <a href="https://t.me/altaioptima" target="_blank" class="inline-flex items-center gap-2 text-slate-700 hover:text-[#229ED9] transition-colors py-0.5 group">
-                <svg class="w-4 h-4 text-[#229ED9] fill-current group-hover:scale-110 transition-transform shrink-0" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
-                </svg>
-                <span class="font-medium">Telegram: @altaioptima</span>
-              </a>
-            </li>
-            <li>
-              <a href="mailto:optima@altaiweb.online" class="inline-flex items-center gap-2 text-slate-700 hover:text-sky-700 transition-colors py-0.5 font-mono group">
-                <svg class="w-4 h-4 text-sky-600 stroke-current group-hover:scale-110 transition-transform shrink-0" fill="none" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
-                <span>optima@altaiweb.online</span>
-              </a>
-            </li>
+          <ul class="space-y-2 text-xs">
+            <li><a href="https://t.me/altaioptima" target="_blank" class="text-slate-700 hover:text-[#229ED9]">Telegram: @altaioptima</a></li>
+            <li><a href="mailto:optima@altaiweb.online" class="text-slate-700 hover:text-sky-700">optima@altaiweb.online</a></li>
           </ul>
-          <div class="pt-2">
-            <a href="./index.html" class="inline-flex items-center gap-2 text-xs font-bold text-sky-800 bg-sky-50 hover:bg-sky-100 border border-sky-200 px-4 py-2 rounded-full transition-all">
-              <span>← Главная страница</span>
-            </a>
-          </div>
         </div>
 
-        <div class="lg:col-span-3 space-y-2.5 flex flex-col items-center md:items-start text-center md:text-left">
+        <div class="lg:col-span-3 space-y-2 flex flex-col items-center md:items-start text-xs text-slate-400">
           <div class="text-[11px] uppercase tracking-wider font-bold text-slate-400 font-mono">
             Документы
           </div>
-          <ul class="space-y-1 text-xs text-slate-400">
+          <ul class="space-y-1">
             <li><a href="partner-rules.html" class="text-sky-700 font-bold hover:underline">Правила партнёрской программы</a></li>
-            <li><a href="документы/1.%20Публичная%20оферта%20Altai%20Optima.docx" download class="hover:text-slate-600 hover:underline">Публичная оферта</a></li>
-            <li><a href="документы/2.%20Пользовательское%20соглашение%20Altai%20Optima.docx" download class="hover:text-slate-600 hover:underline">Пользовательское соглашение</a></li>
-            <li><a href="документы/3.%20Политика%20обработки%20персональных%20данных.docx" download class="hover:text-slate-600 hover:underline">Политика обработки данных</a></li>
-            <li><a href="документы/4.%20Политика%20обработки%20файлов%20cookie.docx" download class="hover:text-slate-600 hover:underline">Политика файлов cookie</a></li>
-            <li><a href="документы/5.%20Согласие%20на%20обработку%20персональных%20данных.docx" download class="hover:text-slate-600 hover:underline">Согласие на обработку ПДн</a></li>
-            <li><a href="документы/6.%20Согласие%20на%20рекламную%20рассылку.docx" download class="hover:text-slate-600 hover:underline">Согласие на рассылку</a></li>
+            <li><a href="документы/1.%20Публичная%20оферта%20Altai%20Optima.docx" download class="hover:underline">Публичная оферта</a></li>
+            <li><a href="документы/3.%20Политика%20обработки%20персональных%20данных.docx" download class="hover:underline">Политика обработки данных</a></li>
           </ul>
         </div>
 
       </div>
 
-      <div class="pt-8 mt-12 border-t border-sky-200/60 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400 text-center md:text-left">
-        <div>
-          © 2026 Altai Optima. Все права защищены.
-        </div>
-        <div>
-          <a href="#" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;" class="inline-flex items-center gap-1.5 text-slate-400 hover:text-sky-600 font-medium transition-colors">
-            <span>Наверх ↑</span>
-          </a>
-        </div>
+      <div class="pt-8 mt-10 border-t border-sky-200/60 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400 text-center md:text-left">
+        <div>© 2026 Altai Optima. Все права защищены.</div>
         <div class="text-[11.5px] text-slate-400">
-          <span class="font-medium text-slate-500">Реквизиты:</span> ИП Жалилова Алина Наильевна · <span class="font-mono">ИНН 301725020276</span>
+          ИП Жалилова Алина Наильевна · <span class="font-mono">ИНН 301725020276</span>
         </div>
       </div>
 
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- СКРИПТ КАЛЬКУЛЯТОРА И ФОРМ -->
   <script>
     function toggleMobileMenu() {
       const drawer = document.getElementById('mobile-menu-drawer');
-      if (drawer) {
-        drawer.classList.toggle('hidden');
-        drawer.classList.toggle('flex');
-      }
+      if (drawer) drawer.classList.toggle('hidden');
     }
 
-    // Генерация живых мерцающих значков рубля
-    function initPartnerRubleField() {
-      const field = document.getElementById('partnerRubleField');
-      if (!field) return;
-      field.innerHTML = '';
-      
-      const isMob = window.innerWidth < 768;
-      const count = isMob ? 16 : 34;
-      const colors = [
-        'rgba(2, 132, 199, 0.35)',
-        'rgba(16, 185, 129, 0.42)',
-        'rgba(56, 189, 248, 0.48)',
-        'rgba(5, 150, 105, 0.38)',
-        'rgba(14, 165, 233, 0.32)'
-      ];
-
-      for (let i = 0; i < count; i++) {
-        const token = document.createElement('span');
-        token.className = 'partner-ruble-token';
-        token.textContent = '₽';
-        
-        const isLeft = i % 2 === 0;
-        let x = isMob ? (isLeft ? (Math.random() * 8 + 1) : (Math.random() * 8 + 91)) : (isLeft ? (Math.random() * 15 + 1.5) : (Math.random() * 15 + 83.5));
-        const y = Math.random() * 92 + 4;
-        const size = isMob ? (Math.floor(Math.random() * 8) + 13) : (Math.floor(Math.random() * 14) + 16);
-        const color = colors[i % colors.length];
-        const delay = (Math.random() * 5).toFixed(2);
-        const duration = (Math.random() * 3 + 4.5).toFixed(2);
-
-        token.style.left = `${x}%`;
-        token.style.top = `${y}%`;
-        token.style.fontSize = `${size}px`;
-        token.style.color = color;
-        token.style.animationDelay = `${delay}s`;
-        token.style.animationDuration = `${duration}s`;
-
-        field.appendChild(token);
-      }
-    }
-
-    /* ======= КАЛЬКУЛЯТОР 24 МЕСЯЦА ======= */
     const RATES = {
-      recommender: { setup: 0.25, sub: 0.15, rank: true,  name: 'Рекомендатель' },
-      agent:       { setup: 0.35, sub: 0.20, rank: true,  name: 'Агент' },
-      integrator:  { setup: 1.00, sub: 0.30, rank: false, name: 'Интегратор' }
+      recommender: { setup: 0.25, sub: 0.15, rank: true },
+      agent:       { setup: 0.35, sub: 0.20, rank: true },
+      integrator:  { setup: 1.00, sub: 0.30, rank: false }
     };
     const MENTOR = { setup: 0.07, sub: 0.05 };
     const MONTHS = 24;
@@ -2006,16 +1249,24 @@
     };
     const S_churn = (k, c) => k <= 0 ? 0 : (c <= 0 ? k : (1 - Math.pow(1 - c, k)) / c);
 
+    function setClients(n) {
+      const slider = document.getElementById('clients-slider');
+      if (slider) {
+        slider.value = n;
+        updateCalculator();
+      }
+    }
+
     function calcModel(p) {
       const base = RATES[p.status] || RATES.recommender;
       const a = p.clientsYear / 12;
-      const b = p.invited * p.invitedClientsYear / 12;
+      const b = 2 * 6 / 12;
       const mentorOn = p.clientsYear >= 2;
       const rows = [];
 
       for (let t = 1; t <= MONTHS; t++) {
-        const alive = a * S_churn(t - 1, p.churn);
-        const mAlive = b * S_churn(t - 1, p.churn);
+        const alive = a * S_churn(t - 1, 0.03);
+        const mAlive = b * S_churn(t - 1, 0.03);
         let rSetup = base.setup;
         let rSub = base.sub;
 
@@ -2024,18 +1275,12 @@
           if (alive >= 15) { rSetup += 0.05; }
         }
 
-        const setupInc = p.status === 'integrator' ? a * p.integratorPrice : a * p.setup * rSetup;
+        const setupInc = p.status === 'integrator' ? a * p.setup : a * p.setup * rSetup;
         const subInc = alive * p.sub * rSub;
         const mentorInc = mentorOn ? (b * p.setup * MENTOR.setup + mAlive * p.sub * MENTOR.sub) : 0;
         const mentorSub = mentorOn ? mAlive * p.sub * MENTOR.sub : 0;
 
-        rows.push({
-          setup: setupInc,
-          sub: subInc,
-          mentor: mentorInc,
-          mentorSub: mentorSub,
-          total: setupInc + subInc + mentorInc
-        });
+        rows.push({ setup: setupInc, sub: subInc, mentor: mentorInc, total: setupInc + subInc + mentorInc });
       }
 
       const sumRange = (from, to) => rows.slice(from - 1, to).reduce((s, r) => s + r.total, 0);
@@ -2043,9 +1288,8 @@
         rows: rows,
         year1: sumRange(1, 12),
         year2: sumRange(13, 24),
-        recurring12: rows[11].sub + rows[11].mentorSub,
-        mentorOn: mentorOn,
-        active12: a * S_churn(11, p.churn)
+        recurring12: rows[11].sub,
+        active12: a * S_churn(11, 0.03)
       };
     }
 
@@ -2092,7 +1336,6 @@
       g += `<line x1="${x12.toFixed(1)}" x2="${x12.toFixed(1)}" y1="${PT}" y2="${PT + ih}" stroke="rgba(56,189,248,0.5)" stroke-dasharray="3 4"/>`;
       g += `<text x="${x12 + 6}" y="${PT + 12}" font-size="10" fill="#7dd3fc" font-family="Inter">1 год</text>`;
 
-      // Area fills
       g += `<path d="${areaPath(() => 0, (r) => r.setup)}" fill="#D4B373" fill-opacity=".85"/>`;
       g += `<path d="${areaPath((r) => r.setup, (r) => r.setup + r.sub)}" fill="#38bdf8" fill-opacity=".85"/>`;
       g += `<path d="${areaPath((r) => r.setup + r.sub, (r) => r.total)}" fill="#c084fc" fill-opacity=".85"/>`;
@@ -2108,18 +1351,11 @@
         status: status,
         clientsYear: numVal('clients-slider', 12),
         setup: numVal('calc-setup', 50000),
-        integratorPrice: numVal('calc-integrator-price', 50000),
-        sub: numVal('calc-sub', 15000),
-        churn: Math.min(numVal('calc-churn', 3), 30) / 100,
-        invited: numVal('calc-invited', 2),
-        invitedClientsYear: numVal('calc-invited-clients', 6)
+        sub: numVal('calc-sub', 15000)
       };
 
       const out = document.getElementById('clients-out');
       if (out) out.textContent = p.clientsYear;
-
-      const ipBox = document.getElementById('calc-integrator-price-box');
-      if (ipBox) ipBox.classList.toggle('hidden', status !== 'integrator');
 
       const res = calcModel(p);
       const elY1 = document.getElementById('out-year1');
@@ -2131,16 +1367,12 @@
 
       drawCalcChart(res.rows);
 
-      let note = 'Расчёт носит иллюстративный характер. Подписка клиента начисляется со второго месяца после запуска.';
-      if (status === 'integrator') note += ' Для интегратора разовая выплата — это стоимость услуг по внедрению по вашей цене.';
-      else if (res.active12 >= 5) note += ' В расчёте уже учтена повышенная ставка ранга: от 5 активных клиентов процент с подписки возрастает.';
-      if (p.invited > 0 && !res.mentorOn) note += ' Наставнический бонус не включён: требуется минимум 1 личный клиент за полугодие.';
-      
+      let note = 'Подписка клиента начисляется со второго месяца после запуска.';
+      if (res.active12 >= 5 && status !== 'integrator') note += ' В расчёте уже учтён повышенный ранг (+5% к ставке).';
       const noteEl = document.getElementById('calc-note');
       if (noteEl) noteEl.textContent = note;
     }
 
-    /* ======= ВКЛАДКИ ФОРМ ======= */
     function initTabs() {
       const tabApply = document.getElementById('tab-apply');
       const tabRefer = document.getElementById('tab-refer');
@@ -2174,7 +1406,6 @@
       tabRefer.addEventListener('click', () => setTab(false));
     }
 
-    /* ======= ОБРАБОТКА ФОРМ ======= */
     function initFormHandlers() {
       function formToText(form) {
         const lines = [];
@@ -2208,11 +1439,10 @@
           statusBox.innerHTML = `
             <div class="space-y-2">
               <p class="font-bold text-emerald-700">✓ ${successMsg}</p>
-              <p class="text-slate-600">Мы также подготовили текст для отправки на почту или в Telegram:</p>
-              <textarea readonly class="w-full text-xs p-2 rounded border border-slate-300 bg-white font-mono" rows="5">${text}</textarea>
+              <textarea readonly class="w-full text-xs p-2 rounded border border-slate-300 bg-white font-mono" rows="4">${text}</textarea>
               <div class="flex flex-wrap gap-2 pt-1">
-                <button type="button" class="btn-copy px-3 py-1.5 rounded-lg bg-sky-600 text-white font-bold text-xs hover:bg-sky-500">Скопировать текст</button>
-                <a href="https://t.me/altaioptima?text=${encodeURIComponent(text)}" target="_blank" class="px-3 py-1.5 rounded-lg bg-[#229ED9] text-white font-bold text-xs hover:opacity-90">Отправить в Telegram</a>
+                <button type="button" class="btn-copy px-3 py-1.5 rounded-lg bg-sky-600 text-white font-bold text-xs">Скопировать текст</button>
+                <a href="https://t.me/altaioptima?text=${encodeURIComponent(text)}" target="_blank" class="px-3 py-1.5 rounded-lg bg-[#229ED9] text-white font-bold text-xs">Открыть в Telegram</a>
               </div>
             </div>
           `;
@@ -2229,7 +1459,6 @@
           }
         }
 
-        // Открываем почтовый клиент
         const mailto = `mailto:optima@altaiweb.online?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
         window.location.href = mailto;
       }
@@ -2241,22 +1470,11 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      if (window.lucide) {
-        lucide.createIcons();
-      }
-
-      initPartnerRubleField();
-      window.addEventListener('resize', () => {
-        clearTimeout(window._partnerRubleResizeTimer);
-        window._partnerRubleResizeTimer = setTimeout(initPartnerRubleField, 250);
-      }, { passive: true });
-
       initTabs();
       initFormHandlers();
 
-      // Калькулятор
       document.querySelectorAll('input[name="calc-status"]').forEach(el => el.addEventListener('change', updateCalculator));
-      ['clients-slider', 'calc-setup', 'calc-integrator-price', 'calc-sub', 'calc-churn', 'calc-invited', 'calc-invited-clients'].forEach(id => {
+      ['clients-slider', 'calc-setup', 'calc-sub'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.addEventListener('input', updateCalculator);
       });
