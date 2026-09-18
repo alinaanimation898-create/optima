@@ -4326,7 +4326,7 @@
           <a href="#constructor" class="btn-optic group shadow-xl flex-1 sm:flex-initial text-center justify-center">
             <span>РАССЧИТАТЬ СТОИМОСТЬ</span>
           </a>
-          <a href="#psychology" class="btn-optic-outline group flex-1 sm:flex-initial text-center justify-center">
+          <a href="#psychology" onclick="if (window.openAiSalesWidget) { window.openAiSalesWidget(); return false; }" class="btn-optic-outline group flex-1 sm:flex-initial text-center justify-center">
             <span>НАПИСАТЬ ИИ-ПРОДАВЦУ</span>
           </a>
         </div>
@@ -4343,7 +4343,18 @@
   <div class="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8 pt-5 sm:pt-6 space-y-12 sm:space-y-14 md:space-y-18 pb-20 sm:pb-24">
 
     
-    <section id="cta-final" class="relative py-[80px] lg:py-[140px] px-4 sm:px-6 lg:px-10 overflow-hidden">
+    <div class="flex flex-col items-center justify-center pt-2 sm:pt-4 pb-2 relative z-20">
+      <a href="#cta-final" class="blue-path-track block cursor-pointer" title="Знакомо?">
+        <div class="blue-path-arrow text-sky-500">
+          <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </div>
+      </a>
+    </div>
+
+    
+    <section id="cta-final" class="relative py-[40px] lg:py-[80px] px-4 sm:px-6 lg:px-10 overflow-hidden">
       <div class="max-w-[1200px] mx-auto relative z-10">
         <div class="cta-final-grid">
 
@@ -4514,9 +4525,9 @@
       </div>
     </section>
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: СИНЯЯ СТРЕЛКА -->
+    
     <div class="flex flex-col items-center justify-center pt-4 sm:pt-8 pb-2 relative z-20">
-      <a href="#scrollProblemTitle" class="blue-path-track block cursor-pointer">
+      <a href="#scrollProblemTitle" class="blue-path-track block cursor-pointer" title="Сколько денег вы теряете, пока менеджер тормозит">
         <div class="blue-path-arrow text-sky-500">
           <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
@@ -4525,6 +4536,7 @@
       </a>
     </div>
 
+    
     <section class="space-y-7 sm:space-y-8 py-2 sm:py-0 relative z-20">
       <div class="text-center max-w-5xl mx-auto space-y-3 sm:space-y-4 pb-2 sm:pb-4">
         <h2 id="scrollProblemTitle" class="font-benzin tracking-tight leading-[1.05] text-xl sm:text-3xl md:text-4xl lg:text-[46px] xl:text-[52px] break-words select-none overflow-visible py-0.5">
@@ -7825,7 +7837,7 @@
         } catch (e) {
           this.config = {
             tenant_id: this.tenantId,
-            business_name: "AI SALES REP Altai Optima",
+            business_name: "ALTAI Optima",
             welcome_message: "Здравствуйте! Я ваш персональный ИИ-продавец. Готов ответить на любые вопросы, рассчитать стоимость и оформить заказ. Чем могу помочь?",
             suggested_questions: [
               "Сколько стоит внедрение под ключ?",
@@ -10438,7 +10450,7 @@
     });
   </script>
 
-  <!-- Interactive AI Sales Widget -->
+  
   <script src="ai-sales-widget.js"></script>
 </body>
 </html>
