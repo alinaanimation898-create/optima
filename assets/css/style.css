@@ -2434,27 +2434,18 @@
 
 #scrollProblemTitle {
       overflow: visible !important;
-      line-height: 1.06 !important;
+      line-height: 1.15 !important;
     }
     #scrollProblemTitle .scroll-gradient-line {
       display: inline-block;
       width: 100%;
-      background-image: linear-gradient(
-        90deg,
-        #be123c 0%,
-        #e11d48 calc(var(--line-p, 0%) * 0.85),
-        #f43f5e var(--line-p, 0%),
-        rgba(244, 63, 94, 0.35) calc(var(--line-p, 0%) + 5%),
-        #0f172a calc(var(--line-p, 0%) + 12%),
-        #0f172a 100%
-      );
+      background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       box-decoration-break: clone;
       -webkit-box-decoration-break: clone;
       overflow: visible !important;
-      filter: none !important;
-      will-change: background-image;
+      filter: drop-shadow(0 10px 24px rgba(2, 132, 199, 0.18)) !important;
     }
 
     /* СКРОЛЛ-ГРАДИЕНТ ДЛЯ ЦИФР В КАРТОЧКАХ УТЕЧЕК (-40%, -80%, -20%) СЛЕВА НАПРАВО */
