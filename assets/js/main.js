@@ -3303,8 +3303,8 @@
                 wrap.classList.add('card-revealed');
                 setTimeout(() => {
                   wrap.classList.add('card-floating');
-                }, 500);
-              }, idx * 300);
+                }, 650);
+              }, idx * 150);
             });
 
             // Периодическое вздрагивание одной карточки раз в 4 с по очереди (scale 1 -> 1.02 -> 1 за 0.3 с)

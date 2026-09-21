@@ -3710,17 +3710,17 @@
     /* Обёртка карточки (парение translateY ±5px и reveal) */
     .cta-push-wrapper {
       will-change: transform, opacity;
-      transition: transform 0.45s cubic-bezier(0.32, 0.72, 0, 1), opacity 0.45s cubic-bezier(0.32, 0.72, 0, 1);
+      transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.45s ease-out;
     }
 
-    /* Начальное состояние для анимации появления (JS-ready) */
+    /* Начальное состояние для анимации появления (JS-ready) — эффект падающих уведомлений */
     .cta-cards-js-ready .cta-push-wrapper {
       opacity: 0;
-      transform: translateY(-16px) scale(0.96);
+      transform: translateY(-42px) scale(0.9);
       pointer-events: none;
     }
 
-    /* Класс проявления обёртки */
+    /* Класс проявления обёртки — мягко и упруго приземляется */
     .cta-cards-js-ready .cta-push-wrapper.card-revealed {
       opacity: 1;
       transform: translateY(0px) scale(1);
