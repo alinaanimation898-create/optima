@@ -1531,6 +1531,8 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
+      padding-top: 14px;
+      align-items: stretch;
     }
     @media (max-width: 1023px) {
       #constructor .cfg-tariffs-strip {
@@ -1552,17 +1554,17 @@
       border: 2px solid #E2E8F0;
       box-shadow: 0 4px 14px -2px rgba(15, 23, 42, 0.04);
       cursor: pointer;
-      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.25s ease, background 0.2s ease;
+      transition: border-color 0.2s ease, box-shadow 0.25s ease, background 0.2s ease;
       user-select: none;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       min-height: 125px;
+      height: 100%;
     }
     #constructor .cfg-tariff-card:hover {
-      transform: translateY(-2px);
       border-color: #38bdf8;
-      box-shadow: 0 12px 24px -4px rgba(2, 132, 199, 0.12);
+      box-shadow: 0 8px 22px -2px rgba(2, 132, 199, 0.16);
     }
     #constructor .cfg-tariff-card:focus-visible {
       outline: 2px solid #0284c7;
@@ -1571,8 +1573,7 @@
     #constructor .cfg-tariff-card.active {
       border-color: #0284c7;
       background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 100%);
-      box-shadow: 0 12px 28px -4px rgba(2, 132, 199, 0.22), 0 0 0 1px #0284c7;
-      transform: translateY(-2px);
+      box-shadow: 0 8px 24px -2px rgba(2, 132, 199, 0.22), 0 0 0 1px #0284c7;
     }
     #constructor .cfg-tariff-badge {
       position: absolute;
@@ -5041,10 +5042,11 @@
           </div>
 
           <!-- ЧИСТЫЕ ЛОГОТИПЫ БЕЗ ПОДЛОЖЕК: СЕРЫЕ С ЭФФЕКТОМ ЦВЕТА ПРИ НАВЕДЕНИИ -->
-          <div class="flex items-center justify-between sm:justify-start gap-3 sm:gap-8 pt-2 relative z-10">
-            <img src="logo_amocrm_cropped.png" alt="amoCRM" class="h-5 sm:h-7 max-w-[95px] sm:max-w-none w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer select-none shrink-0" loading="lazy">
-            <img src="logo_bitrix24.webp" alt="Битрикс24" class="h-5 sm:h-7 max-w-[105px] sm:max-w-none w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer select-none shrink-0" loading="lazy">
-            <img src="logo_1c.svg" alt="1С:Предприятие" class="h-5 sm:h-7 max-w-[42px] sm:max-w-none w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer select-none shrink-0" loading="lazy">
+          <div class="flex items-center justify-between sm:justify-start gap-3 sm:gap-6 pt-2 relative z-10">
+            <img src="assets/logos/amocrm_logo.png" alt="amoCRM" class="h-6 sm:h-7 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer select-none shrink-0" loading="lazy">
+            <img src="assets/logos/bitrix24_logo.webp" alt="Битрикс24" class="h-6 sm:h-7 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer select-none shrink-0" loading="lazy">
+            <img src="assets/logos/1c_logo.png" alt="1С:Предприятие" class="h-6 sm:h-7 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer select-none shrink-0" loading="lazy">
+            <img src="assets/logos/moysklad_logo.svg" alt="МойСклад" class="h-6 sm:h-7 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-pointer select-none shrink-0" loading="lazy">
           </div>
         </div>
 
@@ -7079,7 +7081,7 @@
                   Зависит от человека: может забыть внести данные или ошибиться
                 </td>
                 <td class="py-3.5 sm:py-4 px-4 sm:px-6 text-emerald-950 bg-emerald-50/70 border-l-2 border-emerald-400 shadow-[inset_0_0_15px_rgba(16,185,129,0.06)]">
-                  <span class="font-extrabold text-emerald-950">amoCRM, Битрикс24, 1С, Google Таблицы / Excel</span>
+                  <span class="font-extrabold text-emerald-950">amoCRM, Битрикс24, 1С, МойСклад, Google Таблицы / Excel</span>
                   <span class="text-[11px] text-emerald-800 font-medium block mt-0.5">(сам заполняет нужные поля по вашим правилам в каждой сделке)</span>
                 </td>
               </tr>
@@ -7212,7 +7214,7 @@
     <section id="constructor" class="max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 font-inter space-y-8 sm:space-y-10 lg:space-y-12 py-10 sm:py-14">
       
       <!-- 2.1. ТЕКСТОВЫЙ БЛОК-ЦИТАТА ПЕРЕД ТАРИФАМИ (НА ЧИСТОМ ФОНЕ БЕЗ ПОДЛОЖКИ) -->
-      <div class="max-w-5xl mx-auto mb-8 sm:mb-10 px-2 sm:px-4">
+      <div class="max-w-[1100px] mx-auto mb-8 sm:mb-10 px-2 sm:px-0">
         <div class="flex items-center justify-between gap-3 mb-3">
           <div class="flex items-center gap-2">
             <span class="inline-block w-2 h-2 rounded-full bg-sky-500 shadow-[0_0_8px_rgba(14,165,233,0.8)]"></span>
@@ -7259,7 +7261,7 @@
       </div>
 
       <!-- 2.2. ПОЛОСА ИЗ 4 КАРТОЧЕК ТАРИФОВ -->
-      <div class="cfg-tariffs-strip max-w-5xl mx-auto mb-6 sm:mb-8" id="cfgTariffsStrip" role="group" aria-label="Тарифные планы">
+      <div class="cfg-tariffs-strip max-w-[1100px] mx-auto mb-6 sm:mb-8" id="cfgTariffsStrip" role="group" aria-label="Тарифные планы">
         <!-- Карточка: Старт -->
         <div class="cfg-tariff-card" data-tariff="start" data-slider="150" role="button" tabindex="0" aria-pressed="false">
           <div class="cfg-tariff-header">
@@ -7433,14 +7435,7 @@
                   </table>
                 </div>
               </div>
-
-              <!-- Итог за первый год (АККУРАТНАЯ ВТОРОСТЕПЕННАЯ СТРОКА) -->
-              <div class="pt-2 pb-1 text-xs text-slate-400 flex items-center justify-between" id="cfgYearTotalBox">
-                <span>За первый год со всеми расходами:</span>
-                <span id="yearTotal" class="font-bold text-slate-200 tabular-nums">392&nbsp;000&nbsp;₽</span>
-              </div>
-
-              <a class="cfg-cta !mt-3 !py-2.5 !text-xs sm:!text-sm" href="https://t.me/altaioptima" id="ctaBtn" target="_blank" rel="noopener">ЗАПУСТИТЬ ИИ-ПРОДАВЦА</a>
+<a class="cfg-cta !mt-3 !py-2.5 !text-xs sm:!text-sm" href="https://t.me/altaioptima" id="ctaBtn" target="_blank" rel="noopener">ЗАПУСТИТЬ ИИ-ПРОДАВЦА</a>
               <div class="cfg-note !mt-2 text-[10.5px]">
                 Цены окончательные. Подписка помесячная, отключиться можно в любой момент.
               </div>
@@ -10444,7 +10439,7 @@
           }
         ];
 
-        // 3. CRM И УЧЁТНЫЕ СИСТЕМЫ (фирменные логотипы и цвета)
+        // 3. CRM И УЧЁТНЫЕ СИСТЕМЫ (актуальные фирменные логотипы)
         const CRMS = [
           {
             id: 'table',
@@ -10464,24 +10459,26 @@
             id: 'amo',
             label: 'amoCRM',
             defaultChecked: false,
-            iconSvg: `<div class="w-9 h-9 rounded-xl bg-[#008CE4] flex items-center justify-center text-white shadow-xs shrink-0 font-extrabold text-[11px] tracking-tight">
-              amo
-            </div>`
+            iconSvg: `<img src="assets/logos/amocrm_logo.png" alt="amoCRM" class="w-9 h-9 rounded-xl object-contain shadow-xs shrink-0">`
           },
           {
             id: 'bitrix',
             label: 'Битрикс24',
             defaultChecked: false,
-            iconSvg: `<div class="w-9 h-9 rounded-xl bg-[#2FC6F6] flex items-center justify-center text-white shadow-xs shrink-0 font-black text-xs">
-              Б24
-            </div>`
+            iconSvg: `<img src="assets/logos/bitrix24_logo.webp" alt="Битрикс24" class="w-9 h-9 rounded-xl object-contain shadow-xs shrink-0">`
           },
           {
             id: '1c',
             label: '1С',
             defaultChecked: false,
-            iconSvg: `<div class="w-9 h-9 rounded-xl bg-[#FFE600] border border-amber-300 flex items-center justify-center text-[#EE1C25] shadow-xs shrink-0 font-black text-xs">
-              1С
+            iconSvg: `<img src="assets/logos/1c_logo.png" alt="1С" class="w-9 h-9 rounded-xl object-contain shadow-xs shrink-0">`
+          },
+          {
+            id: 'moysklad',
+            label: 'МойСклад',
+            defaultChecked: false,
+            iconSvg: `<div class="w-9 h-9 rounded-xl bg-[#0073F6] flex items-center justify-center p-1.5 shadow-xs shrink-0">
+              <img src="assets/logos/moysklad_logo.svg" alt="МойСклад" class="w-full h-full object-contain">
             </div>`
           }
         ];
@@ -10728,12 +10725,7 @@
             }
           }
 
-          // 4. За первый год
-          const yearTotalEl = document.getElementById('yearTotal');
-          const firstYearSum = setup + (isAnnual ? annual : monthly * 11);
-          if (yearTotalEl) {
-            yearTotalEl.textContent = `${prefix}${formatPrice(firstYearSum)}\u00A0₽`;
-          }
+// 4. Итог за первый год убран по требованию
 
           // 5. Раскрывашка «Подробнее»
           const cfgDetailsRowsEl = document.getElementById('cfgDetailsRows');
