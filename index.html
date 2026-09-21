@@ -7220,53 +7220,6 @@
     <!-- 8.9 СЕКЦИЯ: КОНСТРУКТОР ТАРИФА -->
     <section id="constructor" class="max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 font-inter space-y-8 sm:space-y-10 lg:space-y-12 py-10 sm:py-14">
       
-      <!-- 2.1. ТЕКСТОВЫЙ БЛОК-ЦИТАТА ПЕРЕД ТАРИФАМИ (НА ЧИСТОМ ФОНЕ БЕЗ ПОДЛОЖКИ) -->
-      <div class="max-w-[1100px] mx-auto mb-8 sm:mb-10 px-2 sm:px-0">
-        <div class="flex items-center justify-between gap-3 mb-3">
-          <div class="flex items-center gap-2">
-            <span class="inline-block w-2 h-2 rounded-full bg-sky-500 shadow-[0_0_8px_rgba(14,165,233,0.8)]"></span>
-            <span class="text-xs sm:text-[13px] font-extrabold uppercase tracking-widest text-sky-800 font-inter">
-              МЫ ПОСТАВИЛИ МИНИМАЛЬНУЮ ЦЕНУ ВХОДА
-            </span>
-          </div>
-          <span class="text-[10.5px] font-bold uppercase tracking-wider text-sky-700 bg-sky-50 px-2.5 py-0.5 rounded-full border border-sky-200/80 shrink-0">
-            Прямая речь
-          </span>
-        </div>
-
-        <blockquote class="pl-4 sm:pl-5 border-l-2 sm:border-l-[3px] border-sky-500 my-4 space-y-3 sm:space-y-3.5 text-xs sm:text-sm md:text-[15px] text-slate-700 leading-relaxed font-normal">
-          <p>
-            Запуск ИИ-продавца стоит 29&nbsp;000&nbsp;₽ — примерно во столько он обходится нам самим. На внедрении мы не зарабатываем и не пытаемся.
-          </p>
-          <p>
-            Мы зарабатываем на подписке. А подписку платят только те, кому продукт приносит деньги каждый месяц. Значит, наш заработок начинается там же, где ваш: когда ИИ-продавец отвечает вашим клиентам ночью, доводит их до менеджера и приносит сделки.
-          </p>
-          <p class="font-bold text-slate-900">
-            Поэтому мы кровно заинтересованы, чтобы он работал и продавал. Если у вас не пойдёт — мы потеряем клиента. Если пойдёт — будем работать годами.
-          </p>
-        </blockquote>
-
-        <!-- АВТОРСКАЯ ПОДПИСЬ -->
-        <div class="mt-4 pt-3.5 border-t border-slate-200/70 flex items-center justify-between flex-wrap gap-3">
-          <div class="flex items-center gap-2.5 sm:gap-3">
-            <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-tr from-sky-600 via-sky-500 to-blue-600 flex items-center justify-center text-white font-extrabold text-xs sm:text-sm shadow-xs ring-2 ring-white shrink-0">
-              ⚡
-            </div>
-            <div>
-              <div class="text-xs sm:text-sm font-extrabold text-slate-900 leading-tight">
-                Алина и Давид
-              </div>
-              <div class="text-[11px] sm:text-xs text-sky-700 font-medium">
-                главные движки Altai Optima
-              </div>
-            </div>
-          </div>
-          <div class="text-[11px] sm:text-xs text-slate-400 font-normal">
-            основатели проекта
-          </div>
-        </div>
-      </div>
-
       <!-- 2.2. ПОЛОСА ИЗ 4 КАРТОЧЕК ТАРИФОВ -->
       <div class="cfg-tariffs-strip max-w-[1100px] mx-auto mb-6 sm:mb-8" id="cfgTariffsStrip" role="group" aria-label="Тарифные планы">
         <!-- Карточка: Старт -->
@@ -10411,26 +10364,19 @@
             id: 'site_chat',
             label: 'Чат на сайте',
             defaultChecked: true,
-            iconSvg: `<div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-sky-600 via-sky-500 to-cyan-400 flex items-center justify-center text-white shadow-xs shrink-0">
-              <svg class="w-4.5 h-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-                <circle cx="8.5" cy="11.5" r="1" fill="currentColor"></circle>
-                <circle cx="12" cy="11.5" r="1" fill="currentColor"></circle>
-                <circle cx="15.5" cy="11.5" r="1" fill="currentColor"></circle>
-              </svg>
-            </div>`
+            iconSvg: `<img src="assets/logos/widget_chat_logo.png" alt="Чат на сайте" class="w-8 h-8 rounded-full object-contain shadow-xs shrink-0">`
           },
           {
             id: 'max',
             label: 'MAX',
             defaultChecked: true,
-            iconSvg: `<img src="assets/logos/max_logo.webp" alt="MAX" class="w-8 h-8 rounded-xl object-contain shadow-xs shrink-0">`
+            iconSvg: `<img src="assets/logos/max_logo.webp" alt="MAX" class="w-8 h-8 rounded-full object-contain shadow-xs shrink-0">`
           },
           {
             id: 'avito',
             label: 'Авито',
             defaultChecked: false,
-            iconSvg: `<div class="w-8 h-8 rounded-xl bg-white border border-slate-200/80 flex items-center justify-center shadow-xs shrink-0 p-1">
+            iconSvg: `<div class="w-8 h-8 rounded-full bg-white border border-slate-200/80 flex items-center justify-center shadow-xs shrink-0 p-1">
               <svg class="w-6 h-6" viewBox="0 0 48 48" fill="none">
                 <circle cx="14" cy="15" r="8.5" fill="#97D900"/>
                 <circle cx="32" cy="15" r="7.5" fill="#00AAFF"/>
@@ -10451,7 +10397,7 @@
             label: 'WhatsApp*',
             sub: 'основной канал для клиентов из СНГ',
             defaultChecked: false,
-            iconSvg: `<div class="w-8 h-8 rounded-xl bg-[#25D366] flex items-center justify-center text-white shadow-xs shrink-0">
+            iconSvg: `<div class="w-8 h-8 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-xs shrink-0">
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12.004 2c-5.523 0-10 4.477-10 10 0 1.767.459 3.427 1.261 4.872L2 22l5.282-1.229A9.957 9.957 0 0012.004 22c5.523 0 10-4.477 10-10s-4.477-10-10-10zm5.669 14.161c-.244.686-1.218 1.258-1.701 1.309-.457.049-1.049.073-1.696-.134-.393-.126-.897-.291-1.55-.573-2.73-1.181-4.509-3.955-4.646-4.137-.137-.183-1.111-1.48-1.111-2.823 0-1.343.7-2.005.949-2.274.249-.269.544-.337.725-.337.181 0 .363.002.52.01.167.008.39-.063.61.465.228.547.776 1.895.845 2.033.069.137.115.297.023.48-.091.183-.137.297-.274.457-.137.16-.288.358-.412.48-.137.137-.28.286-.12.56.16.274.712 1.173 1.528 1.901 1.05.936 1.935 1.226 2.209 1.363.274.137.434.114.594-.069.16-.183.686-.799.869-1.074.183-.274.366-.228.61-.137.244.091 1.55.731 1.817.868.267.137.446.206.514.32.069.114.069.663-.175 1.349z"/>
               </svg>
@@ -10461,24 +10407,13 @@
             id: 'inst',
             label: 'Instagram**',
             defaultChecked: false,
-            iconSvg: `<div class="w-8 h-8 rounded-xl flex items-center justify-center text-white shadow-xs shrink-0" style="background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);">
-              <svg class="w-4.5 h-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-            </div>`
+            iconSvg: `<img src="assets/logos/inst_logo.png" alt="Instagram" class="w-8 h-8 rounded-full object-contain shadow-xs shrink-0">`
           },
           {
             id: 'email',
             label: 'Электронная почта',
             defaultChecked: false,
-            iconSvg: `<div class="w-8 h-8 rounded-xl bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600 shadow-xs shrink-0">
-              <svg class="w-4.5 h-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-            </div>`
+            iconSvg: `<img src="assets/logos/email_logo.png" alt="Электронная почта" class="w-8 h-8 rounded-full object-contain shadow-xs shrink-0">`
           }
         ];
 
@@ -10488,7 +10423,7 @@
             id: 'table',
             label: 'Таблица (Google / Excel Online)',
             defaultChecked: true,
-            iconSvg: `<div class="w-9 h-9 rounded-xl bg-[#0F9D58] flex items-center justify-center text-white shadow-xs shrink-0">
+            iconSvg: `<div class="w-9 h-9 rounded-full bg-[#0F9D58] flex items-center justify-center text-white shadow-xs shrink-0">
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                 <line x1="3" y1="9" x2="21" y2="9"></line>
@@ -10502,27 +10437,27 @@
             id: 'amo',
             label: 'amoCRM',
             defaultChecked: false,
-            iconSvg: `<img src="assets/logos/amocrm_logo.png" alt="amoCRM" class="w-9 h-9 rounded-xl object-contain shadow-xs shrink-0">`
+            iconSvg: `<img src="assets/logos/amocrm_logo.png" alt="amoCRM" class="w-9 h-9 rounded-full object-contain shadow-xs shrink-0">`
           },
           {
             id: 'bitrix',
             label: 'Битрикс24',
             defaultChecked: false,
-            iconSvg: `<img src="assets/logos/bitrix24_logo.webp" alt="Битрикс24" class="w-9 h-9 rounded-xl object-contain shadow-xs shrink-0">`
+            iconSvg: `<div class="w-9 h-9 rounded-full bg-white border border-slate-200/80 flex items-center justify-center p-1 shadow-xs shrink-0 overflow-hidden">
+              <img src="assets/logos/bitrix24_logo.webp" alt="Битрикс24" class="w-full h-auto object-contain">
+            </div>`
           },
           {
             id: '1c',
             label: '1С',
             defaultChecked: false,
-            iconSvg: `<img src="assets/logos/1c_logo.png" alt="1С" class="w-9 h-9 rounded-xl object-contain shadow-xs shrink-0">`
+            iconSvg: `<img src="assets/logos/1c_logo.png" alt="1С" class="w-9 h-9 rounded-full object-contain shadow-xs shrink-0">`
           },
           {
             id: 'moysklad',
             label: 'МойСклад',
             defaultChecked: false,
-            iconSvg: `<div class="w-9 h-9 rounded-xl bg-[#0073F6] flex items-center justify-center p-1.5 shadow-xs shrink-0">
-              <img src="assets/logos/moysklad_logo.svg" alt="МойСклад" class="w-full h-full object-contain">
-            </div>`
+            iconSvg: `<img src="assets/logos/moysklad_logo.png" alt="МойСклад" class="w-9 h-9 rounded-full object-contain shadow-xs shrink-0">`
           }
         ];
 
