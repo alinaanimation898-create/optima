@@ -1596,6 +1596,13 @@
       border-radius: 999px;
       box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35);
     }
+    #constructor .cfg-tariff-header {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: flex-start;
+      min-height: 48px;
+    }
     #constructor .cfg-tariff-name {
       font-size: 18px;
       font-weight: 900;
@@ -1607,9 +1614,11 @@
       color: #64748b;
       margin-top: 3px;
       font-weight: 500;
+      line-height: 1.35;
     }
     #constructor .cfg-tariff-price {
-      margin-top: 14px;
+      margin-top: auto;
+      padding-top: 14px;
       font-size: 20px;
       font-weight: 900;
       color: #0284c7;
