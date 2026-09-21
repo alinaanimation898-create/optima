@@ -416,11 +416,14 @@
   gap: 0.75rem;
 }
 .ao-case-avatar {
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 3.25rem;
+  height: 3.25rem;
   border-radius: 9999px;
   object-fit: cover;
-  border: 2px solid #bae6fd;
+  border: 2px solid #38bdf8;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15);
+  background: #f8fafc;
+  flex-shrink: 0;
 }
 .ao-case-author-name {
   font-size: 0.875rem;

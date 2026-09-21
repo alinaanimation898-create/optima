@@ -1436,45 +1436,6 @@
       </div>
     </section>
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ВИТИЕВАТАЯ ТРОПА К КЕЙСАМ -->
-    <div class="curved-path-container pt-4 sm:pt-7 pb-1">
-      <a href="#cases" class="curved-path-link" title="Результаты">
-        <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="gradPathCases" x1="100%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
-              <stop offset="50%" stop-color="#0284c7" stop-opacity="0.85"/>
-              <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
-            </linearGradient>
-            <filter id="glowPathCases" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="3.5" result="blur"/>
-              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-            </filter>
-          </defs>
-          <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
-                stroke="url(#gradPathCases)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
-          <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
-                class="curved-path-flow" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathCases)"/>
-          <circle cx="170" cy="6" r="3" fill="#38bdf8" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
-          <circle cx="170" cy="6" r="2.5" fill="#0284c7"/>
-          <path d="M 93,55 L 100,64 L 107,55" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-    </div>
-
-    <!-- 8. РЕАЛЬНЫЕ КЕЙСЫ ВНЕДРЕНИЯ -->
-    <section id="cases" class="ao-band ao-band--glacial relative z-20">
-      <div class="ao-results">
-        <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[46px] leading-tight" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 10px 24px rgba(2, 132, 199, 0.18));">
-          РЕАЛЬНЫЕ КЕЙСЫ ВНЕДРЕНИЯ
-        </h2>
-        <p>Посмотрите, как ИИ‑продавец окупает себя в реальном бизнесе с первых недель работы</p>
-        <div class="ao-tabs" role="tablist" aria-label="Ниши"></div>
-        <div class="ao-case" id="aoCase" role="tabpanel" aria-live="polite"></div>
-      </div>
-    </section>
-
-
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ВИТИЕВАТАЯ ТРОПА К КАЛЬКУЛЯТОРУ -->
     <div class="curved-path-container pt-4 sm:pt-7 pb-1">
       <a href="#calculator" class="curved-path-link" title="Посчитайте свои потери">
@@ -2374,6 +2335,48 @@
 
       </div>
 
+    </section>
+
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ВИТИЕВАТАЯ ТРОПА К ПРИМЕРАМ ВНЕДРЕНИЯ -->
+    <div class="curved-path-container pt-4 sm:pt-7 pb-1">
+      <a href="#cases" class="curved-path-link" title="Примеры внедрения">
+        <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradPathCases" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
+              <stop offset="50%" stop-color="#0284c7" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
+            </linearGradient>
+            <filter id="glowPathCases" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3.5" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
+                stroke="url(#gradPathCases)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
+          <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
+                class="curved-path-flow" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathCases)"/>
+          <circle cx="170" cy="6" r="3" fill="#38bdf8" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
+          <circle cx="170" cy="6" r="2.5" fill="#0284c7"/>
+          <path d="M 93,55 L 100,64 L 107,55" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- ПРИМЕРЫ ВНЕДРЕНИЯ -->
+    <section id="cases" class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 font-inter">
+      <div class="ao-results !p-0">
+        <div class="text-center max-w-4xl mx-auto space-y-2.5 mb-6 sm:mb-8">
+          <h2 class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl lg:text-[54px] leading-tight" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 10px 24px rgba(2, 132, 199, 0.18));">
+            ПРИМЕРЫ ВНЕДРЕНИЯ
+          </h2>
+          <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto font-inter">
+            Посмотрите, как ИИ‑продавец окупает себя в реальном бизнесе с первых недель работы
+          </p>
+        </div>
+        <div class="ao-tabs" role="tablist" aria-label="Ниши"></div>
+        <div class="ao-case" id="aoCase" role="tabpanel" aria-live="polite"></div>
+      </div>
     </section>
 
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД К БЛОКУ «КАК ЭТО РАБОТАЕТ» -->
