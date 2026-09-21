@@ -2665,55 +2665,116 @@
     <!-- 8.9 СЕКЦИЯ: КОНСТРУКТОР ТАРИФА -->
     <section id="constructor" class="max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 font-inter space-y-8 sm:space-y-10 lg:space-y-12 py-10 sm:py-14">
       
-      <!-- 2.2. ПОЛОСА ИЗ 4 КАРТОЧЕК ТАРИФОВ -->
-      <div class="cfg-tariffs-strip max-w-[1100px] mx-auto mb-6 sm:mb-8" id="cfgTariffsStrip" role="group" aria-label="Тарифные планы">
-        <!-- Карточка: Старт -->
-        <div class="cfg-tariff-card" data-tariff="start" data-slider="150" role="button" tabindex="0" aria-pressed="false">
-          <div class="cfg-tariff-header">
-            <div class="cfg-tariff-name">Старт</div>
-            <div class="cfg-tariff-limit">до 200 диалогов в месяц</div>
-          </div>
-          <div class="cfg-tariff-price">
-            <span class="cfg-tariff-val tabular-nums">22&nbsp;000</span>
-            <span class="cfg-tariff-period">₽/мес</span>
-          </div>
+      <!-- 2.2. ЗАГОЛОВОК И ПОЛОСА ТАРИФОВ (ЛЕСТНИЦА ВЫСОТЫ) -->
+      <div class="max-w-[1100px] mx-auto mb-6 sm:mb-8">
+        <div class="flex items-center gap-2 mb-3 sm:mb-4">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-sky-500 shadow-[0_0_8px_rgba(14,165,233,0.8)]"></span>
+          <h2 class="text-xs sm:text-sm font-black uppercase tracking-widest text-sky-950 font-inter">
+            ТАРИФЫ
+          </h2>
         </div>
 
-        <!-- Карточка: Бизнес -->
-        <div class="cfg-tariff-card active" data-tariff="business" data-slider="400" role="button" tabindex="0" aria-pressed="true">
-          <div class="cfg-tariff-badge">выбирают чаще</div>
-          <div class="cfg-tariff-header">
-            <div class="cfg-tariff-name">Бизнес</div>
-            <div class="cfg-tariff-limit">до 600 диалогов в месяц</div>
+        <div class="cfg-tariffs-strip" id="cfgTariffsStrip" role="group" aria-label="Тарифные планы">
+          <!-- Карточка: Старт (120px) -->
+          <div class="cfg-tariff-card" data-tariff="start" data-slider="150" role="button" tabindex="0" aria-pressed="false">
+            <div class="cfg-tariff-top">
+              <div class="cfg-vol-scale" aria-hidden="true">
+                <span class="cfg-vol-seg active"></span>
+                <span class="cfg-vol-seg"></span>
+                <span class="cfg-vol-seg"></span>
+                <span class="cfg-vol-seg"></span>
+              </div>
+              <div class="cfg-tariff-check" aria-hidden="true">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+            </div>
+            <div class="cfg-tariff-bottom">
+              <div class="cfg-tariff-header">
+                <div class="cfg-tariff-name">Старт</div>
+                <div class="cfg-tariff-limit">до 200 диалогов</div>
+              </div>
+              <div class="cfg-tariff-price">
+                <span class="cfg-tariff-val tabular-nums">22&nbsp;000</span>
+                <span class="cfg-tariff-period">₽/мес</span>
+              </div>
+            </div>
           </div>
-          <div class="cfg-tariff-price">
-            <span class="cfg-tariff-val tabular-nums">33&nbsp;000</span>
-            <span class="cfg-tariff-period">₽/мес</span>
-          </div>
-        </div>
 
-        <!-- Карточка: Поток -->
-        <div class="cfg-tariff-card" data-tariff="stream" data-slider="1000" role="button" tabindex="0" aria-pressed="false">
-          <div class="cfg-tariff-header">
-            <div class="cfg-tariff-name">Поток</div>
-            <div class="cfg-tariff-limit">до 1500 диалогов в месяц</div>
+          <!-- Карточка: Бизнес (150px) -->
+          <div class="cfg-tariff-card active" data-tariff="business" data-slider="400" role="button" tabindex="0" aria-pressed="true">
+            <div class="cfg-tariff-badge">выбирают чаще</div>
+            <div class="cfg-tariff-top">
+              <div class="cfg-vol-scale" aria-hidden="true">
+                <span class="cfg-vol-seg active"></span>
+                <span class="cfg-vol-seg active"></span>
+                <span class="cfg-vol-seg"></span>
+                <span class="cfg-vol-seg"></span>
+              </div>
+              <div class="cfg-tariff-check" aria-hidden="true">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+            </div>
+            <div class="cfg-tariff-bottom">
+              <div class="cfg-tariff-header">
+                <div class="cfg-tariff-name">Бизнес</div>
+                <div class="cfg-tariff-limit">до 600 диалогов</div>
+              </div>
+              <div class="cfg-tariff-price">
+                <span class="cfg-tariff-val tabular-nums">33&nbsp;000</span>
+                <span class="cfg-tariff-period">₽/мес</span>
+              </div>
+            </div>
           </div>
-          <div class="cfg-tariff-price">
-            <span class="cfg-tariff-val tabular-nums">55&nbsp;000</span>
-            <span class="cfg-tariff-period">₽/мес</span>
-          </div>
-        </div>
 
-        <!-- Карточка: Империя -->
-        <div class="cfg-tariff-card" data-tariff="empire" data-slider="2500" role="button" tabindex="0" aria-pressed="false">
-          <div class="cfg-tariff-header">
-            <div class="cfg-tariff-name">Империя</div>
-            <div class="cfg-tariff-limit">больше 1500 диалогов в месяц</div>
+          <!-- Карточка: Поток (180px) -->
+          <div class="cfg-tariff-card" data-tariff="stream" data-slider="1000" role="button" tabindex="0" aria-pressed="false">
+            <div class="cfg-tariff-top">
+              <div class="cfg-vol-scale" aria-hidden="true">
+                <span class="cfg-vol-seg active"></span>
+                <span class="cfg-vol-seg active"></span>
+                <span class="cfg-vol-seg active"></span>
+                <span class="cfg-vol-seg"></span>
+              </div>
+              <div class="cfg-tariff-check" aria-hidden="true">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+            </div>
+            <div class="cfg-tariff-bottom">
+              <div class="cfg-tariff-header">
+                <div class="cfg-tariff-name">Поток</div>
+                <div class="cfg-tariff-limit">до 1500 диалогов</div>
+              </div>
+              <div class="cfg-tariff-price">
+                <span class="cfg-tariff-val tabular-nums">55&nbsp;000</span>
+                <span class="cfg-tariff-period">₽/мес</span>
+              </div>
+            </div>
           </div>
-          <div class="cfg-tariff-price">
-            <span class="text-xs sm:text-sm font-bold text-slate-500 mr-0.5">от</span>
-            <span class="cfg-tariff-val tabular-nums">88&nbsp;000</span>
-            <span class="cfg-tariff-period">₽/мес</span>
+
+          <!-- Карточка: Империя (210px) -->
+          <div class="cfg-tariff-card" data-tariff="empire" data-slider="2500" role="button" tabindex="0" aria-pressed="false">
+            <div class="cfg-tariff-top">
+              <div class="cfg-vol-scale" aria-hidden="true">
+                <span class="cfg-vol-seg active"></span>
+                <span class="cfg-vol-seg active"></span>
+                <span class="cfg-vol-seg active"></span>
+                <span class="cfg-vol-seg active"></span>
+              </div>
+              <div class="cfg-tariff-check" aria-hidden="true">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+            </div>
+            <div class="cfg-tariff-bottom">
+              <div class="cfg-tariff-header">
+                <div class="cfg-tariff-name">Империя</div>
+                <div class="cfg-tariff-limit">больше 1500 диалогов</div>
+              </div>
+              <div class="cfg-tariff-price">
+                <span class="cfg-tariff-from">от&nbsp;</span>
+                <span class="cfg-tariff-val tabular-nums">88&nbsp;000</span>
+                <span class="cfg-tariff-period">₽/мес</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
