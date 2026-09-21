@@ -399,14 +399,29 @@
   <!-- ОСНОВНОЙ КОНТЕНТ В ЦЕНТРАЛЬНОМ КОНТЕЙНЕРЕ -->
   <div class="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8 pt-5 sm:pt-6 space-y-12 sm:space-y-14 md:space-y-18 pb-20 sm:pb-24">
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: СИНЯЯ СТРЕЛКА К БЛОКУ «ЗНАКОМО?» -->
-    <div class="flex flex-col items-center justify-center pt-2 sm:pt-4 pb-2 relative z-20">
-      <a href="#cta-final" class="blue-path-track block cursor-pointer" title="Знакомо?">
-        <div class="blue-path-arrow text-sky-500">
-          <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
-        </div>
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ВИТИЕВАТАЯ ТРОПА К БЛОКУ «ЗНАКОМО?» -->
+    <div class="curved-path-container pt-2 sm:pt-4 pb-1">
+      <a href="#cta-final" class="curved-path-link" title="Знакомо?">
+        <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradPath1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
+              <stop offset="50%" stop-color="#0284c7" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
+            </linearGradient>
+            <filter id="glowPath1" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3.5" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
+                stroke="url(#gradPath1)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
+          <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
+                class="curved-path-flow" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPath1)"/>
+          <circle cx="30" cy="6" r="3" fill="#38bdf8" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
+          <circle cx="30" cy="6" r="2.5" fill="#0284c7"/>
+          <path d="M 93,55 L 100,64 L 107,55" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </a>
     </div>
 
@@ -595,15 +610,23 @@
 
             </div>
 
-            <!-- 3. Стрелка вниз на мобильной версии (после уведомлений) -->
-            <div class="cta-mob-arrow flex lg:hidden items-center justify-center my-1">
-              <div class="blue-path-track block" style="height: 55px;">
-                <div class="blue-path-arrow text-sky-500">
-                  <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                  </svg>
-                </div>
-              </div>
+            <!-- 3. Витиеватая тропа вниз на мобильной версии (после уведомлений) -->
+            <div class="cta-mob-arrow flex lg:hidden items-center justify-center my-1.5">
+              <svg class="w-[120px] h-[45px] overflow-visible" viewBox="0 0 160 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="gradPathMobCta" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
+                    <stop offset="50%" stop-color="#0284c7" stop-opacity="0.85"/>
+                    <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
+                  </linearGradient>
+                </defs>
+                <path d="M 25,4 C 95,4 140,20 105,34 C 75,44 75,40 80,50" 
+                      stroke="url(#gradPathMobCta)" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 3" opacity="0.45"/>
+                <path d="M 25,4 C 95,4 140,20 105,34 C 75,44 75,40 80,50" 
+                      class="curved-path-flow" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="25" cy="4" r="2.5" fill="#38bdf8"/>
+                <path d="M 74,43 L 80,51 L 86,43" stroke="#0284c7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
             </div>
 
           </div>
@@ -642,14 +665,29 @@
       </div>
     </section>
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: СИНЯЯ СТРЕЛКА К ТОЧКАМ СЛИВА ВЫРУЧКИ -->
-    <div class="flex flex-col items-center justify-center pt-4 sm:pt-8 pb-2 relative z-20">
-      <a href="#scrollProblemTitle" class="blue-path-track block cursor-pointer" title="Где утекают деньги">
-        <div class="blue-path-arrow text-sky-500">
-          <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
-        </div>
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ВИТИЕВАТАЯ ТРОПА К ТОЧКАМ СЛИВА ВЫРУЧКИ -->
+    <div class="curved-path-container pt-3 sm:pt-6 pb-1">
+      <a href="#scrollProblemTitle" class="curved-path-link" title="Где утекают деньги">
+        <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradPath2" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
+              <stop offset="50%" stop-color="#0284c7" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
+            </linearGradient>
+            <filter id="glowPath2" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3.5" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
+                stroke="url(#gradPath2)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
+          <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
+                class="curved-path-flow" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPath2)"/>
+          <circle cx="170" cy="6" r="3" fill="#38bdf8" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
+          <circle cx="170" cy="6" r="2.5" fill="#0284c7"/>
+          <path d="M 93,55 L 100,64 L 107,55" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </a>
     </div>
 
@@ -715,14 +753,31 @@
       <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: СИНЯЯ СТРЕЛКА -> ПЛАШКА -> ЗЕЛЕНАЯ СТРЕЛКА С РУБЛЕМ -> +30% -->
       <div class="flex flex-col items-center justify-center pt-8 sm:pt-14 pb-1 relative z-20">
         
-        <!-- 1. Синяя стрелка до плашки «А МОЖЕТЕ ПОЛУЧАТЬ...» -->
-        <a href="#manifesto" class="blue-path-track block cursor-pointer" title="А можете получать...">
-          <div class="blue-path-arrow text-sky-500">
-            <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        <!-- 1. Витиеватая лазурная тропа до «А МОЖЕТЕ ПОЛУЧАТЬ...» -->
+        <div class="curved-path-container pt-2 pb-1">
+          <a href="#manifesto" class="curved-path-link" title="А можете получать...">
+            <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="gradPathDrum1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
+                  <stop offset="50%" stop-color="#0284c7" stop-opacity="0.85"/>
+                  <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
+                </linearGradient>
+                <filter id="glowPathDrum1" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="3.5" result="blur"/>
+                  <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                </filter>
+              </defs>
+              <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
+                    stroke="url(#gradPathDrum1)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
+              <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
+                    class="curved-path-flow" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathDrum1)"/>
+              <circle cx="30" cy="6" r="3" fill="#38bdf8" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
+              <circle cx="30" cy="6" r="2.5" fill="#0284c7"/>
+              <path d="M 93,55 L 100,64 L 107,55" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-          </div>
-        </a>
+          </a>
+        </div>
 
         <!-- 2. Текст: А МОЖЕТЕ ПОЛУЧАТЬ + АНИМИРОВАННАЯ БАРАБАННАЯ ДРОБЬ -->
         <div class="relative z-20 my-5 sm:my-7 text-center select-none font-inter">
@@ -783,14 +838,31 @@
           </div>
         </div>
 
-        <!-- 3. Зеленая стрелка к блоку манифеста -->
-        <a href="#manifesto" class="green-path-track block cursor-pointer relative" title="Перейти к манифесту">
-          <div class="green-path-arrow text-emerald-500">
-            <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(16,185,129,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        <!-- 3. Изумрудная витиеватая тропа к блоку манифеста -->
+        <div class="curved-path-container pt-1 pb-1">
+          <a href="#manifesto" class="curved-path-link" title="Перейти к манифесту">
+            <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="gradPathEmerald" x1="100%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#34d399" stop-opacity="0.3"/>
+                  <stop offset="50%" stop-color="#10b981" stop-opacity="0.85"/>
+                  <stop offset="100%" stop-color="#047857" stop-opacity="1"/>
+                </linearGradient>
+                <filter id="glowPathEmerald" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="3.5" result="blur"/>
+                  <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                </filter>
+              </defs>
+              <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
+                    stroke="url(#gradPathEmerald)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
+              <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
+                    class="curved-path-flow-emerald" stroke="#34d399" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathEmerald)"/>
+              <circle cx="170" cy="6" r="3" fill="#34d399" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
+              <circle cx="170" cy="6" r="2.5" fill="#10b981"/>
+              <path d="M 93,55 L 100,64 L 107,55" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-          </div>
-        </a>
+          </a>
+        </div>
 
       </div>
     </section>
@@ -871,14 +943,29 @@
       </div>
     </section>
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: СИНЯЯ СТРЕЛКА К ДЕМО-ЧАТУ -->
-    <div class="flex flex-col items-center justify-center pt-6 sm:pt-10 pb-3 sm:pb-5 relative z-20">
-      <a href="#scenarios" class="blue-path-track block cursor-pointer" title="Проверьте сами">
-        <div class="blue-path-arrow text-sky-500">
-          <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
-        </div>
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ВИТИЕВАТАЯ ТРОПА К ДЕМО-ЧАТУ -->
+    <div class="curved-path-container pt-4 sm:pt-7 pb-1">
+      <a href="#scenarios" class="curved-path-link" title="Проверьте сами">
+        <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradPathScenarios" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
+              <stop offset="50%" stop-color="#0284c7" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
+            </linearGradient>
+            <filter id="glowPathScenarios" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3.5" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
+                stroke="url(#gradPathScenarios)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
+          <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
+                class="curved-path-flow" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathScenarios)"/>
+          <circle cx="30" cy="6" r="3" fill="#38bdf8" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
+          <circle cx="30" cy="6" r="2.5" fill="#0284c7"/>
+          <path d="M 93,55 L 100,64 L 107,55" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </a>
     </div>
 
@@ -892,10 +979,6 @@
           
           <!-- ЗАГОЛОВОК + ПОДЗАГОЛОВОК -->
           <div class="space-y-2 sm:space-y-2.5 text-center lg:text-left">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100/80 text-sky-800 text-xs font-mono font-bold tracking-wider uppercase mb-1">
-              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span>Живой интерактивный тест</span>
-            </div>
             <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-3xl lg:text-[28px] xl:text-[34px] 2xl:text-[38px] leading-[1.15] hyphens-none overflow-visible" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 8px 20px rgba(2, 132, 199, 0.16));">
               Проверьте сами:<br>задайте ему любой вопрос
             </h2>
@@ -1041,14 +1124,29 @@
     </section>
 
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: СИНЯЯ СТРЕЛКА К КАК ЭТО РАБОТАЕТ -->
-    <div class="flex flex-col items-center justify-center pt-6 sm:pt-10 pb-3 sm:pb-5 relative z-20">
-      <a href="#solutions" class="blue-path-track block cursor-pointer" title="Как это работает">
-        <div class="blue-path-arrow text-sky-500">
-          <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
-        </div>
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ВИТИЕВАТАЯ ТРОПА К БЛОКУ «КАК ЭТО РАБОТАЕТ» -->
+    <div class="curved-path-container pt-4 sm:pt-7 pb-1">
+      <a href="#solutions" class="curved-path-link" title="Как это работает">
+        <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradPathSolutions" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
+              <stop offset="50%" stop-color="#0284c7" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
+            </linearGradient>
+            <filter id="glowPathSolutions" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3.5" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
+                stroke="url(#gradPathSolutions)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
+          <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
+                class="curved-path-flow" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathSolutions)"/>
+          <circle cx="170" cy="6" r="3" fill="#38bdf8" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
+          <circle cx="170" cy="6" r="2.5" fill="#0284c7"/>
+          <path d="M 93,55 L 100,64 L 107,55" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </a>
     </div>
 
@@ -1057,10 +1155,6 @@
       
       <!-- ШАПКА: КАК ЭТО РАБОТАЕТ -->
       <div class="text-center max-w-4xl mx-auto space-y-2.5 pb-2">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100/70 border border-sky-200 text-sky-800 text-xs font-mono font-bold uppercase tracking-wider mb-1">
-          <span class="w-2 h-2 rounded-full bg-sky-500 animate-pulse"></span>
-          <span>Прозрачный запуск за 3 дня</span>
-        </div>
         <h2 class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl lg:text-[54px] leading-tight" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 10px 24px rgba(2, 132, 199, 0.18));">
           КАК ЭТО РАБОТАЕТ
         </h2>
@@ -1329,14 +1423,29 @@
     </section>
 
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: СИНЯЯ СТРЕЛКА К КНИГАМ -->
-    <div class="flex flex-col items-center justify-center pt-6 sm:pt-10 pb-3 sm:pb-5 relative z-20">
-      <a href="#psychology" class="blue-path-track block cursor-pointer" title="На чем воспитан ИИ-продавец">
-        <div class="blue-path-arrow text-sky-500">
-          <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
-        </div>
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ВИТИЕВАТАЯ ТРОПА К КНИГАМ -->
+    <div class="curved-path-container pt-4 sm:pt-7 pb-1">
+      <a href="#psychology" class="curved-path-link" title="На чем воспитан ИИ-продавец">
+        <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradPathPsychology" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
+              <stop offset="50%" stop-color="#0284c7" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
+            </linearGradient>
+            <filter id="glowPathPsychology" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3.5" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
+                stroke="url(#gradPathPsychology)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
+          <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
+                class="curved-path-flow" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathPsychology)"/>
+          <circle cx="30" cy="6" r="3" fill="#38bdf8" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
+          <circle cx="30" cy="6" r="2.5" fill="#0284c7"/>
+          <path d="M 93,55 L 100,64 L 107,55" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </a>
     </div>
 
@@ -1346,9 +1455,6 @@
 
       <!-- ЗАГОЛОВОК СЕКЦИИ -->
       <div class="text-left max-w-5xl mb-7 sm:mb-10">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100/80 text-sky-800 text-xs font-mono font-bold tracking-wider uppercase mb-2">
-          <span>Фундаментальная база знаний</span>
-        </div>
         <h2 class="font-benzin uppercase tracking-tight font-black leading-[1.15] sm:leading-[1.18] break-words text-3xl sm:text-4xl md:text-5xl" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 8px 20px rgba(2, 132, 199, 0.16));">
           НА ЧЁМ ВОСПИТАН ИИ-ПРОДАВЕЦ
         </h2>
@@ -1493,14 +1599,29 @@
     </section>
 
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: СИНЯЯ СТРЕЛКА К КОМАНДЕ ПРОДАВЦОВ -->
-    <div class="flex flex-col items-center justify-center pt-6 sm:pt-10 pb-3 sm:pb-5 relative z-20">
-      <a href="#philosophy" class="blue-path-track block cursor-pointer" title="Команда ИИ-продавцов">
-        <div class="blue-path-arrow text-sky-500">
-          <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
-        </div>
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ВИТИЕВАТАЯ ТРОПА К КОМАНДЕ ПРОДАВЦОВ -->
+    <div class="curved-path-container pt-4 sm:pt-7 pb-1">
+      <a href="#philosophy" class="curved-path-link" title="Команда ИИ-продавцов">
+        <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradPathPhilosophy" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
+              <stop offset="50%" stop-color="#0284c7" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
+            </linearGradient>
+            <filter id="glowPathPhilosophy" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3.5" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
+                stroke="url(#gradPathPhilosophy)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
+          <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
+                class="curved-path-flow" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathPhilosophy)"/>
+          <circle cx="170" cy="6" r="3" fill="#38bdf8" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
+          <circle cx="170" cy="6" r="2.5" fill="#0284c7"/>
+          <path d="M 93,55 L 100,64 L 107,55" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </a>
     </div>
 
@@ -1788,23 +1909,35 @@
       </div>
     </section>
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: СИНЯЯ СТРЕЛКА К КЕЙСАМ -->
-    <div class="flex flex-col items-center justify-center pt-6 sm:pt-10 pb-3 sm:pb-5 relative z-20">
-      <a href="#cases" class="blue-path-track block cursor-pointer" title="Результаты">
-        <div class="blue-path-arrow text-sky-500">
-          <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
-        </div>
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ВИТИЕВАТАЯ ТРОПА К КЕЙСАМ -->
+    <div class="curved-path-container pt-4 sm:pt-7 pb-1">
+      <a href="#cases" class="curved-path-link" title="Результаты">
+        <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradPathCases" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
+              <stop offset="50%" stop-color="#0284c7" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
+            </linearGradient>
+            <filter id="glowPathCases" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3.5" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
+                stroke="url(#gradPathCases)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
+          <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
+                class="curved-path-flow" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathCases)"/>
+          <circle cx="30" cy="6" r="3" fill="#38bdf8" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
+          <circle cx="30" cy="6" r="2.5" fill="#0284c7"/>
+          <path d="M 93,55 L 100,64 L 107,55" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </a>
     </div>
 
     <!-- 8. БЛОК: РЕЗУЛЬТАТЫ (РАСЧЁТНЫЕ МОДЕЛИ ПО НИШАМ) -->
     <section id="cases" class="space-y-6 sm:space-y-7 relative z-20 py-10 sm:py-12 lg:py-16 xl:py-20">
       <div class="text-center max-w-4xl mx-auto space-y-1.5 pb-1">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100/80 text-sky-800 text-xs font-mono font-bold tracking-wider uppercase mb-1">
-          <span>Открытая экономика по нишам</span>
-        </div>
         <h2 class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.05] py-1 break-words" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 12px 30px rgba(2, 132, 199, 0.22));">
           РЕЗУЛЬТАТЫ
         </h2>
@@ -1980,14 +2113,29 @@
     </section>
 
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: СИНЯЯ СТРЕЛКА К КАЛЬКУЛЯТОРУ -->
-    <div class="flex flex-col items-center justify-center pt-6 sm:pt-10 pb-3 sm:pb-5 relative z-20">
-      <a href="#calculator" class="blue-path-track block cursor-pointer" title="Посчитайте свои потери">
-        <div class="blue-path-arrow text-sky-500">
-          <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
-        </div>
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ВИТИЕВАТАЯ ТРОПА К КАЛЬКУЛЯТОРУ -->
+    <div class="curved-path-container pt-4 sm:pt-7 pb-1">
+      <a href="#calculator" class="curved-path-link" title="Посчитайте свои потери">
+        <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradPathCalculator" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
+              <stop offset="50%" stop-color="#0284c7" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
+            </linearGradient>
+            <filter id="glowPathCalculator" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3.5" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
+                stroke="url(#gradPathCalculator)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
+          <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
+                class="curved-path-flow" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathCalculator)"/>
+          <circle cx="170" cy="6" r="3" fill="#38bdf8" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
+          <circle cx="170" cy="6" r="2.5" fill="#0284c7"/>
+          <path d="M 93,55 L 100,64 L 107,55" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </a>
     </div>
 
@@ -2263,14 +2411,29 @@
       </div>
     </section>
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: СИНЯЯ СТРЕЛКА К СРАВНЕНИЮ С МЕНЕДЖЕРОМ -->
-    <div class="flex flex-col items-center justify-center pt-6 sm:pt-10 pb-3 sm:pb-5 relative z-20">
-      <a href="#unit-economics" class="blue-path-track block cursor-pointer" title="Сравнение с менеджером">
-        <div class="blue-path-arrow text-sky-500">
-          <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
-        </div>
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ВИТИЕВАТАЯ ТРОПА К СРАВНЕНИЮ С МЕНЕДЖЕРОМ -->
+    <div class="curved-path-container pt-4 sm:pt-7 pb-1">
+      <a href="#unit-economics" class="curved-path-link" title="Сравнение с менеджером">
+        <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradPathUnitEco" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#34d399" stop-opacity="0.3"/>
+              <stop offset="50%" stop-color="#10b981" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#047857" stop-opacity="1"/>
+            </linearGradient>
+            <filter id="glowPathUnitEco" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3.5" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
+                stroke="url(#gradPathUnitEco)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
+          <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
+                class="curved-path-flow-emerald" stroke="#34d399" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathUnitEco)"/>
+          <circle cx="30" cy="6" r="3" fill="#34d399" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
+          <circle cx="30" cy="6" r="2.5" fill="#10b981"/>
+          <path d="M 93,55 L 100,64 L 107,55" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </a>
     </div>
 
@@ -2542,14 +2705,29 @@
 
     </section>
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: СИНЯЯ СТРЕЛКА К ТАРИФАМ -->
-    <div class="flex flex-col items-center justify-center pt-6 sm:pt-10 pb-3 sm:pb-5 relative z-20">
-      <a href="#constructor" class="blue-path-track block cursor-pointer" title="Тарифы">
-        <div class="blue-path-arrow text-sky-500">
-          <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
-        </div>
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ВИТИЕВАТАЯ ТРОПА К ТАРИФАМ -->
+    <div class="curved-path-container pt-4 sm:pt-7 pb-1">
+      <a href="#constructor" class="curved-path-link" title="Тарифы">
+        <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradPathConstructor" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
+              <stop offset="50%" stop-color="#0284c7" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
+            </linearGradient>
+            <filter id="glowPathConstructor" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3.5" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
+                stroke="url(#gradPathConstructor)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
+          <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
+                class="curved-path-flow" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathConstructor)"/>
+          <circle cx="170" cy="6" r="3" fill="#38bdf8" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
+          <circle cx="170" cy="6" r="2.5" fill="#0284c7"/>
+          <path d="M 93,55 L 100,64 L 107,55" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </a>
     </div>
 
@@ -2823,14 +3001,29 @@
 
     </section>
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: СИНЯЯ СТРЕЛКА К ПИСЬМУ ОСНОВАТЕЛЕЙ -->
-    <div class="flex flex-col items-center justify-center pt-6 sm:pt-10 pb-3 sm:pb-5 relative z-20">
-      <a href="#founders-letter" class="blue-path-track block cursor-pointer" title="Письмо основателей">
-        <div class="blue-path-arrow text-sky-500">
-          <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
-        </div>
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ВИТИЕВАТАЯ ТРОПА К ПИСЬМУ ОСНОВАТЕЛЕЙ -->
+    <div class="curved-path-container pt-4 sm:pt-7 pb-1">
+      <a href="#founders-letter" class="curved-path-link" title="Письмо основателей">
+        <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradPathFounders" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
+              <stop offset="50%" stop-color="#0284c7" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
+            </linearGradient>
+            <filter id="glowPathFounders" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3.5" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
+                stroke="url(#gradPathFounders)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
+          <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
+                class="curved-path-flow" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathFounders)"/>
+          <circle cx="30" cy="6" r="3" fill="#38bdf8" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
+          <circle cx="30" cy="6" r="2.5" fill="#0284c7"/>
+          <path d="M 93,55 L 100,64 L 107,55" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </a>
     </div>
 
@@ -2914,11 +3107,6 @@
     <section id="sunrise-cta" class="cta-sunrise-section relative py-16 sm:py-24 px-4 sm:px-6 lg:px-8 text-center overflow-hidden z-20 my-10 rounded-3xl border border-[#C2A77E]/30 shadow-xl">
       <div class="cta-sunrise-glow"></div>
       <div class="max-w-4xl mx-auto relative z-10 space-y-6">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 border border-[#C2A77E]/40 text-[#7D7063] text-xs font-mono font-bold tracking-wider uppercase backdrop-blur-md shadow-2xs">
-          <span class="w-2 h-2 rounded-full bg-[#C2A77E] animate-pulse"></span>
-          <span>Пилотный период 7 дней</span>
-        </div>
-
         <h2 class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-slate-900 leading-tight">
           НАЧНИТЕ ПРЯМО СЕЙЧАС
         </h2>

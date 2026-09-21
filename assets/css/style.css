@@ -1225,6 +1225,63 @@
       }
     }
 
+    /* ВИТИЕВАТЫЕ ТРОПЫ-ПЕРЕХОДЫ МЕЖДУ БЛОКАМИ */
+    .curved-path-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 0;
+      z-index: 20;
+      overflow: visible;
+      user-select: none;
+    }
+    .curved-path-link {
+      position: relative;
+      display: inline-block;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      filter: drop-shadow(0 4px 16px rgba(2, 132, 199, 0.18));
+    }
+    .curved-path-link:hover {
+      transform: translateY(3px) scale(1.06);
+      filter: drop-shadow(0 8px 24px rgba(2, 132, 199, 0.38));
+    }
+    .curved-path-svg {
+      width: 170px;
+      height: 60px;
+      overflow: visible;
+    }
+    @media (min-width: 640px) {
+      .curved-path-svg {
+        width: 210px;
+        height: 72px;
+      }
+    }
+    @keyframes curvedPathFlowPulse {
+      0% {
+        stroke-dashoffset: 260;
+        opacity: 0.15;
+      }
+      35%, 65% {
+        opacity: 1;
+      }
+      100% {
+        stroke-dashoffset: 0;
+        opacity: 0.15;
+      }
+    }
+    .curved-path-flow {
+      stroke-dasharray: 65 195;
+      animation: curvedPathFlowPulse 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+    .curved-path-flow-emerald {
+      stroke-dasharray: 65 195;
+      animation: curvedPathFlowPulse 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
     .green-path-track {
       position: relative;
       width: 2px;
