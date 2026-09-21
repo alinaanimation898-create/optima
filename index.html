@@ -40,7 +40,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-  <link rel=stylesheet href=assets/css/style.css>
+  <link rel="stylesheet" href="assets/css/style.css?v=3.0">
 </head>
 <body class="selection:bg-sky-200 selection:text-sky-950 overflow-x-clip">
 
@@ -1220,11 +1220,11 @@
       </div>
 
       <!-- ПОДРАЗДЕЛ: В ЧЕМ СИЛА? БРАТ + КАНАЛЫ СВЯЗИ -->
-      <div class="pt-4 sm:pt-6">
-        <div class="text-left max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pb-3 sm:pb-4">
-          <div class="flex flex-wrap items-center gap-3 sm:gap-5">
+      <div class="pt-6 sm:pt-8">
+        <div class="text-left max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pb-4 sm:pb-5">
+          <div class="flex flex-wrap items-center gap-3 sm:gap-4">
             <h3 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl text-slate-900 leading-tight">
-              В ЧЕМ СИЛА?
+              В ЧЁМ СИЛА?
             </h3>
             
             <!-- Интерактивная пасхалка «БРАТ» -->
@@ -1237,63 +1237,82 @@
               </button>
             </div>
           </div>
-          <p class="text-xs sm:text-sm text-slate-500 font-inter mt-1">
-            Единый щит перехвата диалогов во всех каналах и передача квалифицированных клиентов в CRM
+          <p class="text-xs sm:text-sm md:text-base text-slate-600 font-inter mt-1.5 max-w-3xl leading-relaxed">
+            Единый щит перехвата диалогов во всех каналах и мгновенная фиксация квалифицированных клиентов в CRM
           </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-7xl mx-auto items-stretch">
           
-          <!-- Карточка: Голос (Мягкая фильтрация и консультация) -->
-          <div id="bentoCard1" class="lg:col-span-7 bento-glass-sapphire p-6 sm:p-8 flex flex-col justify-between space-y-4 group rounded-[32px]">
-            <div class="space-y-3">
-              <div class="flex items-center gap-1.5 h-6">
-                <span class="voice-wave-bar" style="animation-delay: 0.1s; height: 10px;"></span>
-                <span class="voice-wave-bar" style="animation-delay: 0.35s; height: 22px;"></span>
-                <span class="voice-wave-bar" style="animation-delay: 0.18s; height: 14px;"></span>
-                <span class="voice-wave-bar" style="animation-delay: 0.45s; height: 24px;"></span>
-                <span class="voice-wave-bar" style="animation-delay: 0.22s; height: 12px;"></span>
-                <span class="voice-wave-bar" style="animation-delay: 0.5s; height: 18px;"></span>
+          <!-- Карточка 1: Голос и регламент -->
+          <div id="bentoCard1" class="lg:col-span-7 rounded-3xl bg-white/95 backdrop-blur-md border border-sky-200/90 shadow-[0_12px_36px_rgba(2,132,199,0.06)] p-6 sm:p-8 flex flex-col justify-between space-y-5 group hover:border-sky-400/80 transition-all duration-300">
+            <div class="space-y-3.5">
+              <div class="flex items-center justify-between gap-3">
+                <div class="flex items-center gap-1.5 h-6">
+                  <span class="voice-wave-bar bg-sky-500" style="animation-delay: 0.1s; height: 10px;"></span>
+                  <span class="voice-wave-bar bg-sky-500" style="animation-delay: 0.35s; height: 22px;"></span>
+                  <span class="voice-wave-bar bg-sky-500" style="animation-delay: 0.18s; height: 14px;"></span>
+                  <span class="voice-wave-bar bg-sky-500" style="animation-delay: 0.45s; height: 24px;"></span>
+                  <span class="voice-wave-bar bg-sky-500" style="animation-delay: 0.22s; height: 12px;"></span>
+                  <span class="voice-wave-bar bg-sky-500" style="animation-delay: 0.5s; height: 18px;"></span>
+                </div>
+                <span class="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-sky-700 bg-sky-50 px-2.5 py-1 rounded-full border border-sky-200/70">
+                  ГОЛОС И РЕГЛАМЕНТ
+                </span>
               </div>
-              <h4 class="bento-card-title text-lg sm:text-xl font-bold font-inter text-slate-950">
+
+              <h4 class="text-lg sm:text-xl font-bold font-inter text-slate-950 leading-snug">
                 Мягкая фильтрация и консультация по регламенту
               </h4>
-              <p class="text-slate-700 text-sm sm:text-base leading-relaxed font-medium">
-                Вежливо и уверенно снимает первичные вопросы по прайсу и срокам. Распознаёт голосовые сообщения и общается живым языком без роботизированных штампов.
+              <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
+                Вежливо и уверенно снимает первичные вопросы по прайсу, условиям и срокам. Распознаёт аудиосообщения любой длины и общается живым языком без роботизированных штампов.
               </p>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2 pt-3 border-t border-slate-100 text-[11px] font-bold text-slate-700">
+              <span class="px-3 py-1 rounded-full bg-slate-50 border border-slate-200/80">🎙 Распознаёт аудиосообщения</span>
+              <span class="px-3 py-1 rounded-full bg-slate-50 border border-slate-200/80">⚡ Скорость &lt; 60 сек</span>
+              <span class="px-3 py-1 rounded-full bg-slate-50 border border-slate-200/80">🧠 Помнит контекст диалога</span>
             </div>
           </div>
 
-          <!-- Карточка: МЕССЕНДЖЕРЫ -->
-          <div id="bentoCard2" class="lg:col-span-5 bento-glass-emerald p-6 sm:p-8 flex flex-col justify-between space-y-5 group rounded-[32px] relative overflow-hidden">
-            <div class="space-y-2 relative z-10">
-              <h4 class="bento-card-title text-base sm:text-lg font-bold font-inter text-slate-950">
+          <!-- Карточка 2: Все каналы связи -->
+          <div id="bentoCard2" class="lg:col-span-5 rounded-3xl bg-white/95 backdrop-blur-md border border-emerald-200/90 shadow-[0_12px_36px_rgba(16,185,129,0.06)] p-6 sm:p-8 flex flex-col justify-between space-y-5 group hover:border-emerald-400/80 transition-all duration-300">
+            <div class="space-y-2.5">
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/70">
+                  ОМНИКАНАЛЬНОСТЬ
+                </span>
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              </div>
+
+              <h4 class="text-lg sm:text-xl font-bold font-inter text-slate-950 leading-snug">
                 Единый щит во всех каналах связи
               </h4>
               <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
-                WhatsApp, Telegram, Avito, MAX, Instagram — перехват везде, куда стучится клиент.
+                Мгновенный перехват везде, куда пишет клиент:
               </p>
             </div>
 
-            <!-- МЕССЕНДЖЕРЫ -->
-            <div class="grid grid-cols-2 gap-x-4 gap-y-3 pt-1 relative z-10">
-              <div class="flex items-center gap-2.5 text-xs font-bold text-slate-900">
-                <span class="w-3 h-3 rounded-full bg-[#25D366]"></span> WhatsApp
+            <!-- Сетка каналов в красивых плашках -->
+            <div class="grid grid-cols-2 gap-2 pt-1 font-inter">
+              <div class="flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-50 border border-slate-200/80 text-xs font-bold text-slate-900 shadow-2xs hover:bg-emerald-50/50 transition-colors">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#25D366] shrink-0"></span> WhatsApp
               </div>
-              <div class="flex items-center gap-2.5 text-xs font-bold text-slate-900">
-                <span class="w-3 h-3 rounded-full bg-[#229ED9]"></span> Telegram
+              <div class="flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-50 border border-slate-200/80 text-xs font-bold text-slate-900 shadow-2xs hover:bg-sky-50/50 transition-colors">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#229ED9] shrink-0"></span> Telegram
               </div>
-              <div class="flex items-center gap-2.5 text-xs font-bold text-slate-900">
-                <span class="w-3 h-3 rounded-full bg-[#E1306C]"></span> Instagram Direct
+              <div class="flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-50 border border-slate-200/80 text-xs font-bold text-slate-900 shadow-2xs hover:bg-pink-50/50 transition-colors">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#E1306C] shrink-0"></span> Instagram
               </div>
-              <div class="flex items-center gap-2.5 text-xs font-bold text-slate-900">
-                <span class="w-3 h-3 rounded-full bg-[#00AAFF]"></span> Авито Чат
+              <div class="flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-50 border border-slate-200/80 text-xs font-bold text-slate-900 shadow-2xs hover:bg-cyan-50/50 transition-colors">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#00AAFF] shrink-0"></span> Авито Чат
               </div>
-              <div class="flex items-center gap-2.5 text-xs font-bold text-slate-900">
-                <span class="w-3 h-3 rounded-full bg-[#7B2CBF]"></span> MAX
+              <div class="flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-50 border border-slate-200/80 text-xs font-bold text-slate-900 shadow-2xs hover:bg-purple-50/50 transition-colors">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#7B2CBF] shrink-0"></span> MAX
               </div>
-              <div class="flex items-center gap-2.5 text-xs font-bold text-slate-900">
-                <span class="w-3 h-3 rounded-full bg-[#0284c7]"></span> Виджет на сайте
+              <div class="flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-50 border border-slate-200/80 text-xs font-bold text-slate-900 shadow-2xs hover:bg-sky-50/50 transition-colors">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#0284c7] shrink-0"></span> Виджет сайта
               </div>
             </div>
           </div>
@@ -1301,121 +1320,173 @@
         </div>
       </div>
 
-      <!-- ПОДРАЗДЕЛ: ВСЕ ЧЕТКО + ИНТЕГРАЦИЯ AMOCRM / БИТРИКС24 -->
-      <div class="pt-6 sm:pt-10 border-t border-slate-200/80">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <!-- ПОДРАЗДЕЛ: ВСЁ ЧЁТКО + ИНТЕГРАЦИЯ CRM (СИНХРОНИЗАЦИЯ БЕЗ ЧЕЛОВЕЧЕСКОГО ФАКТОРА) -->
+      <div class="pt-8 sm:pt-12">
+        <div class="max-w-7xl mx-auto rounded-[32px] bg-gradient-to-br from-white via-sky-50/30 to-slate-50/70 border border-sky-200/90 shadow-[0_20px_50px_rgba(2,132,199,0.08)] p-6 sm:p-10">
           
-          <!-- ЛЕВАЯ КОЛОНКА: ВСЕ ЧЕТКО -->
-          <div class="lg:col-span-6 space-y-4 sm:space-y-6 text-center lg:text-left">
-            <h3 class="font-benzin uppercase tracking-tight font-black text-4xl sm:text-5xl lg:text-6xl leading-none inline-block" style="background: linear-gradient(135deg, #0284c7 0%, #0369a1 40%, #059669 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 6px 18px rgba(2, 132, 199, 0.16));">
-              ВСЕ ЧЕТКО
-            </h3>
-
-            <div class="py-1">
-              <div class="inline-flex flex-col items-center lg:items-start space-y-1 text-slate-900 font-bold text-base sm:text-lg md:text-xl font-inter leading-snug">
-                <span class="crm-pain-strikethrough">Пока менеджеры ленятся</span>
-                <span class="crm-pain-strikethrough">и забывают вести CRM</span>
-              </div>
-            </div>
-
-            <div class="font-inter text-slate-700 text-base sm:text-lg md:text-xl leading-snug">
-              <span class="crm-headline-gradient font-black text-xl sm:text-2xl md:text-[25px] leading-tight block">
-                ИИ&#8209;продавец автоматически
-              </span>
-              <span class="crm-headline-gradient font-black text-xl sm:text-2xl md:text-[25px] leading-tight block">
-                фиксирует всю информацию
-              </span>
-            </div>
-
-            <div class="flex items-center justify-center lg:justify-start gap-4 sm:gap-6 pt-2">
-              <img src="assets/logos/amocrm_logo.webp" alt="amoCRM" class="h-6 sm:h-7 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer" loading="lazy">
-              <img src="assets/logos/bitrix24_logo.webp" alt="Битрикс24" class="h-6 sm:h-7 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer" loading="lazy">
-              <img src="assets/logos/1c_logo.webp" alt="1С:Предприятие" class="h-6 sm:h-7 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer" loading="lazy">
-              <img src="assets/logos/moysklad_logo.svg" alt="МойСклад" class="h-6 sm:h-7 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer" loading="lazy">
-            </div>
-          </div>
-
-          <!-- ПРАВАЯ КОЛОНКА: АУТЕНТИЧНЫЙ ИНТЕРФЕЙС AMOCRM -->
-          <!-- ПРАВАЯ КОЛОНКА: АУТЕНТИЧНЫЙ ИНТЕРФЕЙС AMOCRM С ЖИВЫМ ЗАПОЛНЕНИЕМ -->
-        <div class="lg:col-span-6 flex flex-col justify-center">
-          <div class="rounded-3xl border border-slate-200/90 shadow-[0_20px_50px_rgba(15,23,42,0.12)] bg-white overflow-hidden text-slate-800 font-sans flex flex-col justify-between">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
-            <!-- ВЕРХНЯЯ ТЕМНАЯ ШАПКА AMOCRM (#1e3440) -->
-            <div class="bg-[#1e3440] text-white pt-4 px-4 sm:px-5 pb-0 select-none">
+            <!-- ЛЕВАЯ КОЛОНКА: СРАВНЕНИЕ И ЛОГОТИПЫ -->
+            <div class="lg:col-span-6 space-y-6 text-center lg:text-left font-inter">
               
-              <!-- Заголовок: < Максим Громов ... -->
-              <div class="flex items-center justify-between pb-2">
-                <div class="flex items-center gap-2">
-                  <span class="text-[#8ba2ad] text-base font-bold cursor-pointer hover:text-white">&lt;</span>
-                  <h4 class="text-base sm:text-lg font-bold text-white tracking-tight flex items-center gap-2">
-                    <span>Максим Громов</span>
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                  </h4>
+              <div class="space-y-2">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider">
+                  <span>СИНХРОНИЗАЦИЯ С ВАШЕЙ CRM</span>
                 </div>
-                <div class="text-[#8ba2ad] text-xl font-bold tracking-widest cursor-pointer hover:text-white leading-none">
-                  •••
+                <h3 class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl text-slate-950 leading-tight">
+                  ВСЁ ЧЁТКО
+                </h3>
+              </div>
+
+              <!-- БЛОК СРАВНЕНИЯ: БЫЛО vs СТАЛО -->
+              <div class="space-y-3 max-w-xl mx-auto lg:mx-0 text-left">
+                
+                <!-- Было (человеческий фактор) -->
+                <div class="p-3.5 sm:p-4 rounded-2xl bg-rose-50/70 border border-rose-200/80 flex items-start gap-3">
+                  <span class="w-5 h-5 rounded-full bg-rose-200 text-rose-800 flex items-center justify-center font-black text-xs shrink-0 mt-0.5">✕</span>
+                  <div class="text-xs sm:text-sm text-rose-950 leading-relaxed">
+                    <strong class="font-bold text-rose-900">Человеческий фактор:</strong> менеджеры устают, забывают внести контакт, путают этапы воронки и теряют историю переписки.
+                  </div>
+                </div>
+
+                <!-- Стало (с ИИ-продавцом) -->
+                <div class="p-3.5 sm:p-4 rounded-2xl bg-emerald-50/80 border border-emerald-300/80 flex items-start gap-3 shadow-2xs">
+                  <span class="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center font-black text-xs shrink-0 mt-0.5">✓</span>
+                  <div class="text-xs sm:text-sm text-emerald-950 leading-relaxed">
+                    <strong class="font-bold text-emerald-900">С Altai Optima:</strong> ИИ моментально создаёт сделку, валидирует телефон, присваивает тег «Готов к КП» и сохраняет саммари диалога.
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- ЛОГОТИПЫ ПОДДЕРЖИВАЕМЫХ CRM -->
+              <div class="pt-2">
+                <span class="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-bold block mb-2.5">
+                  Работает «из коробки» с вашей системой:
+                </span>
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4">
+                  <div class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs">
+                    <img src="assets/logos/amocrm_logo.webp" alt="amoCRM" class="h-4 sm:h-5 w-auto object-contain" loading="lazy">
+                    <span class="text-xs font-bold text-slate-800">amoCRM</span>
+                  </div>
+                  <div class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs">
+                    <img src="assets/logos/bitrix24_logo.webp" alt="Битрикс24" class="h-4 sm:h-5 w-auto object-contain" loading="lazy">
+                    <span class="text-xs font-bold text-slate-800">Битрикс24</span>
+                  </div>
+                  <div class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs">
+                    <img src="assets/logos/1c_logo.webp" alt="1С:Предприятие" class="h-4 sm:h-5 w-auto object-contain" loading="lazy">
+                    <span class="text-xs font-bold text-slate-800">1С</span>
+                  </div>
+                  <div class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs">
+                    <img src="assets/logos/moysklad_logo.svg" alt="МойСклад" class="h-4 sm:h-5 w-auto object-contain" loading="lazy">
+                    <span class="text-xs font-bold text-slate-800">МойСклад</span>
+                  </div>
                 </div>
               </div>
 
-              <!-- Строка с ID и тегом: #10968189 [#ТЕГИРОВАТЬ] -->
-              <div class="flex items-center justify-between pb-3 text-xs">
-                <div class="flex items-center gap-2.5">
-                  <span class="text-[#8ba2ad] font-mono text-[11px]">#10968189</span>
-                  <button type="button" class="border border-[#385362] text-[#8ba2ad] hover:text-white text-[9px] font-bold px-2 py-0.5 rounded tracking-wider uppercase transition">
-                    #ТЕГИРОВАТЬ
-                  </button>
-                </div>
-              </div>
+            </div>
 
-              <!-- Табы: Основное (активный с белой полосой), Сделки, Настроить -->
-              <div class="flex items-center gap-6 text-xs font-bold pt-1">
-                <div class="text-white pb-2.5 border-b-2 border-white cursor-pointer">
-                  Основное
+            <!-- ПРАВАЯ КОЛОНКА: АУТЕНТИЧНЫЙ ИНТЕРФЕЙС AMOCRM С ЖИВЫМИ ДАННЫМИ -->
+            <div class="lg:col-span-6 flex flex-col justify-center">
+              <div class="rounded-3xl border border-slate-300/80 shadow-[0_20px_50px_rgba(15,23,42,0.12)] bg-white overflow-hidden text-slate-800 font-sans flex flex-col justify-between">
+                
+                <!-- ВЕРХНЯЯ ТЕМНАЯ ШАПКА AMOCRM (#1e3440) -->
+                <div class="bg-[#1e3440] text-white pt-4 px-4 sm:px-5 pb-0 select-none">
+                  
+                  <!-- Заголовок: < Максим Громов ... -->
+                  <div class="flex items-center justify-between pb-2">
+                    <div class="flex items-center gap-2">
+                      <span class="text-[#8ba2ad] text-base font-bold cursor-pointer hover:text-white">&lt;</span>
+                      <h4 class="text-base sm:text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                        <span>Максим Громов</span>
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                      </h4>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                      <span class="text-[10px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded border border-emerald-400/40">
+                        ГОРЯЧИЙ ЛИД
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Строка с ID и тегом: #10968189 [#ТЕГИРОВАТЬ] -->
+                  <div class="flex items-center justify-between pb-3 text-xs">
+                    <div class="flex items-center gap-2.5">
+                      <span class="text-[#8ba2ad] font-mono text-[11px]">#10968189</span>
+                      <span class="text-[9px] font-bold px-2 py-0.5 rounded tracking-wider uppercase bg-[#385362] text-sky-200">
+                        #ВЫСТАВИТЬ СЧЁТ
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Табы: Основное, Сделка, История -->
+                  <div class="flex items-center gap-6 text-xs font-bold pt-1">
+                    <div class="text-white pb-2.5 border-b-2 border-white cursor-pointer">
+                      Основное
+                    </div>
+                    <div class="text-[#8ba2ad] hover:text-slate-200 pb-2.5 cursor-pointer font-medium transition">
+                      Сделка (180 000 ₽)
+                    </div>
+                    <div class="text-[#8ba2ad] hover:text-slate-200 pb-2.5 cursor-pointer font-medium transition">
+                      История ИИ
+                    </div>
+                  </div>
                 </div>
-                <div class="text-[#8ba2ad] hover:text-slate-200 pb-2.5 cursor-pointer font-medium transition">
-                  Сделки
+
+                <!-- БЕЛОЕ ТЕЛО КАРТОЧКИ: РЕАЛЬНЫЕ ПОЛЯ AMOCRM -->
+                <div class="p-4 sm:p-5 space-y-3 bg-white text-xs text-slate-800 flex-1">
+                  
+                  <div class="space-y-2 pb-3 border-b border-slate-100 font-inter">
+                    <div class="flex items-baseline justify-between">
+                      <span class="text-[#8795a1] w-28 shrink-0 font-medium">Ответственный</span>
+                      <span class="text-slate-900 font-bold flex-1 text-left">Егоров Ренат (AI Altai)</span>
+                    </div>
+
+                    <div class="flex items-baseline justify-between">
+                      <span class="text-[#8795a1] w-28 shrink-0 font-medium">Раб. тел.</span>
+                      <div class="flex-1 text-left flex items-center gap-1.5">
+                        <span class="text-sky-700 font-mono font-bold">+7 (926) 841-20-44</span>
+                        <span class="text-[9px] bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded font-mono font-semibold">валиден ✓</span>
+                      </div>
+                    </div>
+
+                    <div class="flex items-baseline justify-between">
+                      <span class="text-[#8795a1] w-28 shrink-0 font-medium">Email раб.</span>
+                      <span class="text-sky-700 font-mono font-medium flex-1 text-left">gromov@mebel-group.ru</span>
+                    </div>
+
+                    <div class="flex items-baseline justify-between">
+                      <span class="text-[#8795a1] w-28 shrink-0 font-medium">Этап воронки</span>
+                      <span class="text-emerald-700 font-bold flex-1 text-left">Квалифицирован (готов к звонку)</span>
+                    </div>
+                  </div>
+
+                  <!-- Саммари от ИИ-продавца -->
+                  <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1 font-inter">
+                    <div class="flex items-center justify-between text-[10px] font-bold text-sky-800 uppercase tracking-wider">
+                      <span>САММАРИ ПЕРЕПИСКИ ОТ ИИ</span>
+                      <span class="text-slate-400 font-normal">2 мин назад</span>
+                    </div>
+                    <p class="text-[11px] text-slate-700 leading-relaxed font-normal">
+                      Клиент запросил расчёт корпусной мебели. Бюджет 180 000 ₽, монтаж в Москве. Согласован созвон с дизайнером на вторник в 15:00.
+                    </p>
+                  </div>
+
+                  <!-- Футер синхронизации -->
+                  <div class="flex items-center justify-between pt-1 text-[10px] text-slate-400 font-mono">
+                    <span class="flex items-center gap-1.5 text-emerald-700 font-bold">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                      Синхронизировано с amoCRM
+                    </span>
+                    <span>ID: #10968189</span>
+                  </div>
+
                 </div>
-                <div class="text-[#8ba2ad] hover:text-slate-200 pb-2.5 cursor-pointer font-medium transition">
-                  Настроить
-                </div>
+
               </div>
             </div>
 
-            <!-- БЕЛОЕ ТЕЛО КАРТОЧКИ: РЕАЛЬНЫЕ ПОЛЯ AMOCRM -->
-            <div class="p-4 sm:p-5 space-y-3 bg-white text-xs text-slate-800 flex-1">
-              
-              <!-- СЕКЦИЯ 1: КОНТАКТНОЕ ЛИЦО -->
-              <div class="space-y-2 pb-3 border-b border-slate-100">
-                <div class="flex items-baseline justify-between">
-                  <span class="text-[#8795a1] w-28 shrink-0 font-medium">Отв-ный</span>
-                  <span class="text-slate-900 font-semibold flex-1 text-left">Егоров Ренат (AI Altai)</span>
-                </div>
-
-                <div class="flex items-baseline justify-between">
-                  <span class="text-[#8795a1] w-28 shrink-0 font-medium">Раб. тел.</span>
-                  <div class="flex-1 text-left flex items-center gap-1.5">
-                    <span id="amoPhone" class="text-sky-700 font-mono font-bold transition-all duration-300">...</span>
-                    <span id="amoPhoneBadge" class="text-[9px] bg-emerald-100 text-emerald-800 px-1.5 py-0.2 rounded font-mono opacity-0 transition-opacity duration-300 font-semibold">валиден ✓</span>
-                  </div>
-                </div>
-
-                <div class="flex items-baseline justify-between">
-                  <span class="text-[#8795a1] w-28 shrink-0 font-medium">Email раб.</span>
-                  <span id="amoEmail" class="text-sky-700 font-mono font-medium flex-1 text-left transition-all duration-300">...</span>
-                </div>
-
-                <div class="flex items-baseline justify-between">
-                  <span class="text-[#8795a1] w-28 shrink-0 font-medium">Должность</span>
-                  <span id="amoPosition" class="text-slate-900 font-semibold flex-1 text-left transition-all duration-300">...</span>
-                </div>
-
-                <div class="flex items-center justify-between pt-0.5">
-                  <span class="text-[#8795a1] w-36 shrink-0 font-medium">Пользовательское с...</span>
-                  <div class="w-8 h-4 rounded-full bg-emerald-500 p-0.5 flex items-center justify-end transition-colors cursor-pointer" title="Активно">
-                    <div class="w-3 h-3 rounded-full bg-white shadow-xs"></div>
-                  </div>
-                </div>
-              </div>
+          </div>
 
         </div>
       </div>
@@ -1449,7 +1520,7 @@
       </a>
     </div>
 
-<script defer src="assets/js/books.js"></script>
+<script defer src="assets/js/books.js?v=3.0"></script>
     <!-- 6. БЛОК: НА ЧЁМ ВОСПИТАН ИИ-ПРОДАВЕЦ (КНИГИ) -->
     <section id="psychology" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16 xl:py-20 relative z-20 font-inter overflow-x-clip">
 
@@ -3287,7 +3358,7 @@
     </div>
   </div>
 
-  <script defer src="assets/js/main.js"></script>
+  <script defer src="assets/js/main.js?v=3.0"></script>
 
   <!-- Интерактивный виджет живого общения с ИИ-продавцом по установке софта -->
   <script src="ai-sales-widget.js?v=2.1"></script>
