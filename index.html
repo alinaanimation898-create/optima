@@ -34,7 +34,7 @@
   <!-- Preconnect and Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Marck+Script&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Marck+Script&family=Neucha&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -130,10 +130,18 @@
       font-family: var(--font-sans);
     }
 
-    /* РУКОПИСНЫЙ ШРИФТ ДЛЯ ПИСЬМА ОСНОВАТЕЛЕЙ */
+    /* РУКОПИСНЫЕ ШРИФТЫ ДЛЯ ПИСЬМА ОСНОВАТЕЛЕЙ */
+    .font-letter-body,
+    .font-letter-body * {
+      font-family: 'Neucha', 'Caveat', -apple-system, sans-serif !important;
+    }
+    .font-signature,
+    .font-signature * {
+      font-family: 'Caveat', 'Marck Script', cursive, sans-serif !important;
+    }
     .font-handwriting,
     .font-handwriting * {
-      font-family: 'Caveat', 'Marck Script', cursive, sans-serif !important;
+      font-family: 'Neucha', 'Caveat', cursive, sans-serif !important;
     }
 
     /* ШРИФТ BENZIN - СТРОГО И ТОЛЬКО ДЛЯ ГЛАВНЫХ СЕКЦИОННЫХ ЗАГОЛОВКОВ (H1, H2) С ЗАЩИТОЙ ОТ ОБРЕЗАНИЯ */
@@ -7452,37 +7460,70 @@
       </div>
     </div>
 
-    <!-- 9.5. ПИСЬМО ОСНОВАТЕЛЕЙ (РУКОПИСНЫЙ СТИЛЬ БЕЗ ПОДЛОЖЕК) -->
-    <section id="founders-letter" class="max-w-3xl mx-auto px-5 sm:px-8 py-16 sm:py-24 relative z-20 font-handwriting select-text">
-      <div class="text-left space-y-6 sm:space-y-8 text-slate-800 text-2xl sm:text-3xl md:text-[27px] leading-[1.65] font-medium">
+    <!-- 9.5. ПИСЬМО ОСНОВАТЕЛЕЙ (ОФОРМЛЕНИЕ ПИСЬМА БЕЗ ПОДЛОЖЕК С ВЫСОКОЙ ЧИТАЕМОСТЬЮ) -->
+    <section id="founders-letter" class="max-w-3xl mx-auto px-5 sm:px-8 py-14 sm:py-20 relative z-20 select-text">
+      
+      <!-- ШТАМП / ШАПКА ПИСЬМА БЕЗ ПОДЛОЖКИ -->
+      <div class="flex items-center justify-between flex-wrap gap-3 pb-5 border-b border-sky-300/40 mb-8 sm:mb-10 font-inter">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-sky-100/90 border border-sky-300/80 flex items-center justify-center text-sky-700 shadow-xs shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <div>
+            <div class="text-xs sm:text-[13px] font-black uppercase tracking-widest text-sky-950 flex items-center gap-2">
+              Письмо основателей
+              <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            </div>
+            <div class="text-[11px] sm:text-xs text-slate-500 font-medium">
+              Личное обращение к предпринимателям
+            </div>
+          </div>
+        </div>
+        <div class="text-[11px] sm:text-xs font-mono text-slate-500 bg-sky-50/80 px-2.5 py-1 rounded-md border border-sky-200/60">
+          Барнаул / Кремниевая долина • 2026
+        </div>
+      </div>
+
+      <!-- ТЕКСТ ПИСЬМА С МАРКЕРОМ ПОЛЕЙ СТРАНИЦЫ -->
+      <div class="border-l-2 sm:border-l-[3px] border-sky-400/50 pl-5 sm:pl-8 md:pl-10 space-y-6 sm:space-y-7 text-left">
         
-        <h2 class="text-3xl sm:text-4xl md:text-[38px] font-bold text-slate-900 leading-tight tracking-normal">
+        <h2 class="font-letter-body text-2xl sm:text-3xl md:text-[34px] font-bold text-slate-950 leading-snug tracking-normal">
           Здравствуйте! Мы&nbsp;— Алина и&nbsp;Давид, основатели Altai Optima
         </h2>
 
-        <p>
-          Алина двенадцать лет в&nbsp;продажах, и&nbsp;через неё прошли сотни менеджеров&nbsp;— хороших, старательных и&nbsp;всё равно теряющих клиентов. Ответили через три часа. Забыли перезвонить. Не внесли сделку в&nbsp;CRM. Нагрубили в&nbsp;конце тяжёлого дня. А&nbsp;вечером и&nbsp;в&nbsp;выходные, когда люди как раз готовы покупать, не ответили вовсе. Altai Optima появилась из простого желания: чтобы с&nbsp;вашим бизнесом такого больше не происходило.
-        </p>
+        <div class="font-letter-body text-slate-800 text-xl sm:text-2xl md:text-[24px] leading-[1.7] sm:leading-[1.75] font-normal space-y-5 sm:space-y-6 tracking-wide">
+          <p>
+            Алина двенадцать лет в&nbsp;продажах, и&nbsp;через неё прошли сотни менеджеров&nbsp;— хороших, старательных и&nbsp;всё равно теряющих клиентов. Ответили через три часа. Забыли перезвонить. Не внесли сделку в&nbsp;CRM. Нагрубили в&nbsp;конце тяжёлого дня. А&nbsp;вечером и&nbsp;в&nbsp;выходные, когда люди как раз готовы покупать, не ответили вовсе. Altai Optima появилась из простого желания: чтобы с&nbsp;вашим бизнесом такого больше не происходило.
+          </p>
 
-        <p>
-          Давид больше десяти лет в&nbsp;разработке, из них пять строил сложные ИИ-системы в&nbsp;Кремниевой долине. Всё, что мы делаем в&nbsp;Altai Optima, построено на одном принципе: ИИ не должен быть «чат-ботом с&nbsp;кнопками». Он должен думать, помнить контекст, квалифицировать лида, работать с&nbsp;возражениями и&nbsp;вести клиента к&nbsp;сделке так же тонко, как лучший живой продавец, только без усталости, перерывов и&nbsp;человеческого фактора.
-        </p>
+          <p>
+            Давид больше десяти лет в&nbsp;разработке, из них пять строил сложные ИИ-системы в&nbsp;Кремниевой долине. Всё, что мы делаем в&nbsp;Altai Optima, построено на одном принципе: ИИ не должен быть «чат-ботом с&nbsp;кнопками». Он должен думать, помнить контекст, квалифицировать лида, работать с&nbsp;возражениями и&nbsp;вести клиента к&nbsp;сделке так же тонко, как лучший живой продавец, только без усталости, перерывов и&nbsp;человеческого фактора.
+          </p>
 
-        <p>
-          Мы сознательно сделали запуск за 29&nbsp;000&nbsp;₽&nbsp;— это себестоимость нашей работы по сборке базы знаний и&nbsp;интеграции. Мы не зарабатываем на старте. Наша бизнес-модель держится на том, что ИИ-продавец окупает себя в&nbsp;первый же месяц и&nbsp;остаётся с&nbsp;вами на годы, принося реальную прибыль.
-        </p>
+          <p>
+            Мы сознательно сделали запуск за 29&nbsp;000&nbsp;₽&nbsp;— это себестоимость нашей работы по сборке базы знаний и&nbsp;интеграции. Мы не зарабатываем на старте. Наша бизнес-модель держится на том, что ИИ-продавец окупает себя в&nbsp;первый же месяц и&nbsp;остаётся с&nbsp;вами на годы, принося реальную прибыль.
+          </p>
 
-        <p>
-          Здесь нет длинных контрактов и&nbsp;кабальных условий: ежемесячная подписка, вы платите только пока продукт работает на вас. База знаний и&nbsp;все данные остаются вашими.
-        </p>
+          <p>
+            Здесь нет длинных контрактов и&nbsp;кабальных условий: ежемесячная подписка, вы платите только пока продукт работает на вас. База знаний и&nbsp;все данные остаются вашими.
+          </p>
 
-        <p class="font-bold text-slate-900">
-          Нам важно, чтобы вы остались с&nbsp;нами не из-за условий, а&nbsp;потому что это работает.
-        </p>
+          <p class="font-bold text-slate-950 text-xl sm:text-2xl md:text-[26px] leading-[1.6]">
+            Нам важно, чтобы вы остались с&nbsp;нами не из-за условий, а&nbsp;потому что это работает.
+          </p>
+        </div>
 
-        <div class="pt-4 sm:pt-6">
-          <p class="text-slate-700">Изобилия и&nbsp;процветания вам и&nbsp;вашему бизнесу,</p>
-          <p class="text-3xl sm:text-4xl md:text-[36px] font-bold text-slate-900 pt-1">Алина и&nbsp;Давид</p>
+        <!-- ПОДПИСЬ ПИСЬМА -->
+        <div class="pt-6 sm:pt-8 border-t border-sky-200/50 mt-8 sm:mt-10">
+          <p class="font-letter-body text-slate-700 text-xl sm:text-2xl">Изобилия и&nbsp;процветания вам и&nbsp;вашему бизнесу,</p>
+          <div class="font-signature text-4xl sm:text-5xl md:text-6xl font-bold text-sky-900 pt-2 tracking-wide">
+            Алина и&nbsp;Давид
+          </div>
+          <div class="text-xs sm:text-sm text-slate-500 font-inter pt-1.5 font-medium">
+            Основатели Altai Optima
+          </div>
         </div>
 
       </div>
