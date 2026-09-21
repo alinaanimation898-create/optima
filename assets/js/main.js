@@ -759,7 +759,7 @@
       const typingHtml = `
         <div id="chatTypingIndicator" class="flex justify-start items-end gap-2 animate-fade-in transition-all">
           <div class="bg-white text-slate-800 px-3 py-2 rounded-2xl rounded-bl-xs shadow-xs border border-slate-200/80 flex items-center gap-2">
-            <span class="text-[10px] font-bold text-sky-700">ИИ печатает</span>
+            <span class="text-[10px] font-bold text-sky-700">печатает…</span>
             <div class="flex items-center gap-1">
               <span class="w-1.5 h-1.5 rounded-full bg-sky-500 animate-bounce" style="animation-delay: 0ms; animation-duration: 0.8s;"></span>
               <span class="w-1.5 h-1.5 rounded-full bg-sky-500 animate-bounce" style="animation-delay: 180ms; animation-duration: 0.8s;"></span>
@@ -793,20 +793,31 @@
         const typingEl = document.getElementById('chatTypingIndicator');
         if (typingEl) typingEl.remove();
 
-        let errMsg = err.message || 'Ошибка связи с сервером';
-        if (err.status === 429) {
-          errMsg = 'Сервер временно перегружен, пожалуйста, подождите минуту.';
+        // Психологический фоллбэк: если бэкенд офлайн, отвечаем по стандартам продаж
+        const lower = text.toLowerCase().trim();
+        let fallbackReply = '';
+
+        if (lower.includes('третий день') || lower.includes('долго') || lower.includes('претензи') || lower.includes('издевательств')) {
+          fallbackReply = 'Искренне приношу извинения за задержку — понимаю ваше возмущение, ожидание действительно недопустимо. Давайте сразу исправим ситуацию: по какому заказу или вопросу ждёте информацию? Я найду данные прямо сейчас и всё решу.';
+        } else if (lower.includes('дешевле') || lower.includes('скидк') || lower.includes('торг')) {
+          fallbackReply = 'Понимаю ваше желание сэкономить — бюджет всегда важен. Но давайте сравним условия: мы закладываем полное сопровождение, прозрачные регламенты и отсутствие скрытых переплат. Подскажите, что именно предложили конкуренты? Посмотрим, в чём разница.';
+        } else if (lower === 'цена' || lower.includes('стоимость')) {
+          fallbackReply = 'Здравствуйте! Подскажу точную стоимость. Чтобы назвать цифру именно под вашу задачу: для какого объёма заявок подбираете решение? Назовите 1–2 детали, и я сразу пришлю точный расчёт с вариантами.';
+        } else if (lower.includes('подумать') || lower.includes('сомнен')) {
+          fallbackReply = 'Конечно, спешка здесь ни к чему. А над чем именно хотите подумать — есть сомнения по функционалу, срокам или стоимости? Если удобно, пришлю краткую выжимку по пунктам, чтобы было проще сравнить.';
+        } else {
+          fallbackReply = 'Здравствуйте! Я ИИ-продавец Altai Optima. Отвечаю за 40 секунд, квалифицирую лиды и передаю готовые заявки в CRM. Какой сценарий работы вашего бизнеса хотите протестировать?';
         }
 
-        const errHtml = `
-          <div class="flex justify-start items-end gap-2 animate-fade-in">
-            <div class="bg-amber-50 text-amber-900 p-2.5 rounded-2xl rounded-bl-xs max-w-[88%] shadow-xs border border-amber-200 text-xs">
-              <div class="text-[9px] font-bold text-amber-700 uppercase mb-0.5">Уведомление</div>
-              <p class="leading-relaxed font-normal">${errMsg}</p>
-            </div>
-          </div>
-        `;
-        box.insertAdjacentHTML('beforeend', errHtml);
+        const aiTimeStr = new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
+        const aiMsg = {
+          sender: 'ai',
+          author: cfg.assistantName || 'Altai Optima',
+          text: fallbackReply,
+          time: aiTimeStr
+        };
+        channelMessages[currentKey].push(aiMsg);
+        box.insertAdjacentHTML('beforeend', cfg.renderAiBubble(aiMsg));
         box.scrollTop = box.scrollHeight;
       } finally {
         demoChatClient.isSending = false;
@@ -988,12 +999,33 @@
       const revenue = Math.round(leads * (convPct / 100) * check);
       // gain = revenue * growth (упущенная выручка в месяц)
       const gain = Math.round(revenue * growth);
-      // monthlyNet = gain - 15000 (выгода в месяц после оплаты подписки)
-      const monthlyNet = gain - 15000;
-      // yearNet = gain * 12 - 215000 (50 000 запуск + 15 000 × 11 месяцев)
-      const yearNet = gain * 12 - 215000;
-      // paybackMonths = 50000 / monthlyNet (только если monthlyNet > 0)
-      const paybackMonths = monthlyNet > 0 ? (50000 / monthlyNet) : null;
+
+      // Динамический тариф по объёму лидов:
+      let tariffName = '«Старт»';
+      let monthlyTariffPrice = 22000;
+      if (leads <= 200) {
+        tariffName = '«Старт»';
+        monthlyTariffPrice = 22000;
+      } else if (leads <= 600) {
+        tariffName = '«Бизнес»';
+        monthlyTariffPrice = 33000;
+      } else if (leads <= 1500) {
+        tariffName = '«Поток»';
+        monthlyTariffPrice = 55000;
+      } else {
+        tariffName = '«Империя»';
+        monthlyTariffPrice = 88000;
+      }
+
+      const launchPrice = 29000;
+      const monthlyNet = gain - monthlyTariffPrice;
+      const yearNet = gain * 12 - (launchPrice + monthlyTariffPrice * 12);
+      const paybackMonths = monthlyNet > 0 ? (launchPrice / monthlyNet) : null;
+
+      const tariffRecEl = document.getElementById('calcTariffRecommended');
+      if (tariffRecEl) {
+        tariffRecEl.innerHTML = `Тариф ${tariffName} — ${formatCalcNumber(monthlyTariffPrice)}&nbsp;₽/мес`;
+      }
 
       // 1. Упущенная выручка в месяц (gain)
       animateValue(mV, gain, '\u00A0₽');
@@ -1389,6 +1421,7 @@
     };
 
     function selectPersona(key, btn) {
+      currentPersonaKey = key;
       const data = personasData[key];
       if (!data) return;
 
@@ -2328,7 +2361,7 @@
 
       if (window.innerWidth >= 1024) {
         // НА ДЕСКТОПЕ: мягкая последовательная активация карточек слева направо
-        const isTitleComplete = (p3 >= 0.70);
+        const isTitleComplete = line3 ? (p3 >= 0.70) : (p2 >= 0.60);
         if (!isTitleComplete) {
           if (m1El) m1El.style.setProperty('--leak-p', '0%');
           if (m2El) m2El.style.setProperty('--leak-p', '0%');
@@ -2530,7 +2563,191 @@
       setTimeout(tick, 700);
     }
 
+    
+    // 1. «САЙТ ЗНАЕТ, КОТОРЫЙ ЧАС»: ДИНАМИЧЕСКАЯ СТРОКА ВРЕМЕНИ
+    function initHeroDynamicTime() {
+      const badge = document.getElementById('heroLiveTimeBadge');
+      const textEl = document.getElementById('heroLiveTimeText');
+      if (!textEl) return;
+
+      const now = new Date();
+      const hours = now.getHours();
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const timeStr = `${String(hours).padStart(2, '0')}:${minutes}`;
+      const day = now.getDay(); // 0 = вс, 6 = сб
+      const isWeekend = (day === 0 || day === 6);
+      const dayName = isWeekend ? (day === 6 ? 'Суббота' : 'Воскресенье') : '';
+
+      let message = '';
+      if (hours >= 23 || hours < 7) {
+        message = `Сейчас ${timeStr}. Ваши менеджеры спят. Он на смене.`;
+      } else if (isWeekend) {
+        message = `${dayName}, ${timeStr}. У отдела продаж выходной, у него — самые горячие часы.`;
+      } else {
+        message = `Сейчас ${timeStr}. Пока менеджер на звонке, он уже ответил пятерым.`;
+      }
+
+      textEl.textContent = message;
+    }
+
+    // 2. ОЖИВАЮЩИЕ УВЕДОМЛЕНИЯ В HERO: МИНИ-ИСТОРИЯ «ДО → ПОСЛЕ»
+    function initLivingNotificationsStory() {
+      const ctaSection = document.getElementById('cta-final');
+      if (!ctaSection) return;
+
+      let hasAnimated = false;
+
+      function runStory() {
+        if (hasAnimated) return;
+        hasAnimated = true;
+
+        const steps = [
+          { id: 'notifCard1', delay: 800, typingDuration: 1200 }, // Анна
+          { id: 'notifCard3', delay: 2400, typingDuration: 1000 }, // Олег
+          { id: 'notifCard4', delay: 4200, typingDuration: 0 },    // Битрикс24
+          { id: 'notifCard5', delay: 5600, typingDuration: 0 },    // Дмитрий
+          { id: 'notifCard2', delay: 7000, typingDuration: 1000 }  // Мария
+        ];
+
+        steps.forEach(step => {
+          setTimeout(() => {
+            const card = document.getElementById(step.id);
+            if (!card) return;
+            const liveArea = card.querySelector('.notif-live-area');
+            const typingEl = card.querySelector('.notif-typing');
+            const solvedEl = card.querySelector('.notif-solved');
+
+            if (liveArea) liveArea.classList.remove('hidden');
+
+            if (step.typingDuration > 0 && typingEl) {
+              typingEl.classList.remove('hidden');
+              setTimeout(() => {
+                if (typingEl) typingEl.classList.add('hidden');
+                if (solvedEl) solvedEl.classList.remove('hidden');
+                card.classList.add('is-solved');
+              }, step.typingDuration);
+            } else {
+              if (typingEl) typingEl.classList.add('hidden');
+              if (solvedEl) solvedEl.classList.remove('hidden');
+              card.classList.add('is-solved');
+            }
+          }, step.delay);
+        });
+      }
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              runStory();
+              observer.disconnect();
+            }
+          });
+        }, { threshold: 0.15 });
+        observer.observe(ctaSection);
+      } else {
+        setTimeout(runStory, 1200);
+      }
+    }
+
+    // 3. ИНТЕРАКТИВНАЯ ПАСХАЛКА «БРАТ»
+    function initBrotherEasterEgg() {
+      const slot = document.getElementById('orbLaunchSlot');
+      const bubble = document.getElementById('brotherSpeechBubble');
+      if (!slot || !bubble) return;
+
+      let timer = null;
+      function toggleBubble(e) {
+        if (e) e.stopPropagation();
+        clearTimeout(timer);
+        bubble.classList.toggle('show');
+        if (bubble.classList.contains('show')) {
+          timer = setTimeout(() => {
+            bubble.classList.remove('show');
+          }, 4500);
+        }
+      }
+
+      slot.addEventListener('click', toggleBubble);
+      slot.addEventListener('mouseenter', () => {
+        clearTimeout(timer);
+        bubble.classList.add('show');
+      });
+      slot.addEventListener('mouseleave', () => {
+        timer = setTimeout(() => {
+          bubble.classList.remove('show');
+        }, 2000);
+      });
+    }
+
+    // 4. МЕХАНИКА СОБЕСЕДОВАНИЯ И ПЕРЕКЛЮЧЕНИЯ ПЕРСОН
+    let currentPersonaKey = 'stanislav';
+
+    window.interviewCurrentPersona = function() {
+      window.interviewPersona(currentPersonaKey);
+    };
+
+    window.interviewPersona = function(key) {
+      if (!key) key = 'stanislav';
+      currentPersonaKey = key;
+      const data = personasData[key];
+      if (!data) return;
+
+      const scenariosSec = document.getElementById('scenarios');
+      if (scenariosSec) {
+        scenariosSec.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      const header = document.getElementById('chatHeader');
+      if (header) {
+        header.innerHTML = `
+          <div class="flex items-center gap-2.5">
+            <div class="relative w-9 h-9 rounded-full overflow-hidden border border-white/30 shrink-0">
+              <img src="${data.photo}" alt="${data.name}" class="w-full h-full object-cover">
+            </div>
+            <div class="leading-tight">
+              <div class="font-bold text-xs sm:text-sm text-white">${data.name}</div>
+              <div class="text-[10px] text-white/80 font-mono flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>На собеседовании</span>
+              </div>
+            </div>
+          </div>
+          <div class="text-[11px] text-white/80 font-mono">
+            Online
+          </div>
+        `;
+      }
+
+      const greetings = {
+        stanislav: 'Добрый день! Готов к собеседованию. Спрашивайте о регламентах, сложных сделках и квалификации — покажу, как держу маржинальность в B2B.',
+        polina: 'Здравствуйте! Рада познакомиться. Готова ответить на любые вопросы по клиентскому сервису, записи и мягкому дожиму без навязчивости.',
+        dmitry: 'Приветствую! Готов продемонстрировать мгновенный подбор товаров, расчёт доставки и закрытие заказов за 40 секунд.',
+        yaroslav: 'Добрый день! Готов ответить на любые вопросы по управлению продажами и распределению лидов между брокерами.',
+        ekaterina: 'Здравствуйте! Готов провести аудит вашей воронки и показать, где теряются заявки.'
+      };
+
+      const greetingText = greetings[key] || `Здравствуйте! Я ${data.name}, готов к собеседованию. Задайте мне любой вопрос!`;
+
+      const box = document.getElementById('messagesContainer');
+      if (box) {
+        const timeStr = new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
+        const interviewMsg = {
+          sender: 'ai',
+          author: data.name,
+          text: greetingText,
+          time: timeStr
+        };
+        box.innerHTML = '';
+        const cfg = channelsConfig[currentKey] || channelsConfig.full_deal;
+        box.insertAdjacentHTML('beforeend', cfg.renderAiBubble(interviewMsg));
+      }
+    };
+
     document.addEventListener('DOMContentLoaded', () => {
+      initHeroDynamicTime();
+      initLivingNotificationsStory();
+      initBrotherEasterEgg();
       handleStickyNavScroll();
       applyMessengerTheme('full_deal');
       renderFullBranch('full_deal');

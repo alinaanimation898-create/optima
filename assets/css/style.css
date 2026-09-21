@@ -1,10 +1,11 @@
-/* 1. ЛОКАЛЬНЫЙ ШРИФТ BENZIN (ОСНОВНОЙ ШРИФТ ЗАГОЛОВКОВ) */
+/* 1. ЛОКАЛЬНЫЙ ШРИФТ BENZIN SEMIBOLD (ОСНОВНОЙ ШРИФТ ЗАГОЛОВКОВ) */
     @font-face {
       font-family: 'Benzin';
-      src: url('Benzin-Medium.woff2') format('woff2'),
-           url('../fonts/Benzin-Medium.woff2') format('woff2'),
-           url('../../Benzin-Medium.woff2') format('woff2'),
-           url('/Benzin-Medium.woff2') format('woff2'),
+      src: url('Benzin-Semibold.woff2') format('woff2'),
+           url('../fonts/Benzin-Semibold.woff2') format('woff2'),
+           url('../../Benzin-Semibold.woff2') format('woff2'),
+           url('/Benzin-Semibold.woff2') format('woff2'),
+           url('Benzin-Medium.woff2') format('woff2'),
            url('benzin-bold.otf') format('opentype'),
            url('https://fonts.cdnfonts.com/s/72887/Benzin-Bold.woff') format('woff');
       font-weight: 100 900;
@@ -40,6 +41,16 @@
     }
 
     :root {
+      /* NATURAL LUXURY / COLLECTION NO. 1: THE HIGH ALTITUDE */
+      --color-glacial-air: #C9DFEB;
+      --color-frosted-peak: #F2F3F5;
+      --color-shadow-rock: #4A5568;
+      --color-aura-blue: #6A9BC2;
+      --color-celestial-sky: #A4CDEB;
+      --color-pine-needle: #2F4F3F;
+      --color-altai-dawn: #C2A77E;
+      --color-earthen-stone: #7D7063;
+
       --ease-fluid: cubic-bezier(0.16, 1, 0.3, 1);
       --font-heading: 'Benzin', 'Inter', sans-serif;
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -58,8 +69,8 @@
     }
 
     body {
-      background-color: #f0f5fa;
-      color: #061224;
+      background-color: var(--color-frosted-peak, #F2F3F5);
+      color: var(--color-shadow-rock, #4A5568);
       font-family: var(--font-sans);
       overflow-x: clip !important;
       max-width: 100vw !important;
@@ -75,24 +86,16 @@
       inset: 0;
       z-index: -1;
       pointer-events: none;
-      background-color: #f0f5fa;
+      background-color: #F2F3F5;
       background-image: 
-        radial-gradient(at 8% 12%, rgba(56, 189, 248, 0.14) 0px, transparent 50%),
-        radial-gradient(at 92% 25%, rgba(14, 165, 233, 0.12) 0px, transparent 50%),
-        radial-gradient(at 15% 55%, rgba(2, 132, 199, 0.09) 0px, transparent 55%),
-        radial-gradient(at 85% 75%, rgba(56, 189, 248, 0.13) 0px, transparent 50%),
-        radial-gradient(at 45% 95%, rgba(14, 165, 233, 0.10) 0px, transparent 55%),
-        linear-gradient(180deg, #f0f6fc 0%, #e9f2fb 22%, #f4f8fc 48%, #eaf2fa 72%, #f1f6fb 100%);
+        radial-gradient(at 10% 12%, rgba(201, 223, 235, 0.45) 0px, transparent 55%),
+        radial-gradient(at 90% 22%, rgba(164, 205, 235, 0.40) 0px, transparent 50%),
+        radial-gradient(at 15% 60%, rgba(201, 223, 235, 0.30) 0px, transparent 55%),
+        radial-gradient(at 85% 78%, rgba(194, 167, 126, 0.16) 0px, transparent 50%),
+        radial-gradient(at 50% 95%, rgba(106, 155, 194, 0.20) 0px, transparent 55%),
+        linear-gradient(180deg, #F8FAFC 0%, #F2F3F5 25%, #EDF3F8 60%, #F2F3F5 100%);
       will-change: transform;
       transform: translateZ(0);
-      color: #061224;
-      font-family: var(--font-sans);
-      overflow-x: clip !important;
-      max-width: 100vw !important;
-      width: 100% !important;
-      position: relative;
-      margin: 0;
-      padding: 0;
     }
 
     /* ВЕСЬ САЙТ, ВСЕ КАРТОЧКИ, ТЕКСТ, КНОПКИ, МЕТРИКИ, H3-H6: СТРОГО INTER */
@@ -357,6 +360,157 @@
     @keyframes cyberRingPulse {
       0% { transform: scale(0.6); opacity: 0.8; }
       80%, 100% { transform: scale(2.2); opacity: 0; }
+    }
+
+    /* ТОПОГРАФИЧЕСКИЕ ИЗОЛИНИИ ВЫСОТ АЛТАЙСКИХ ГОР (NATURAL LUXURY / GLACIAL AIR) */
+    .topographic-contour-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .topo-contour-line {
+      stroke: var(--color-glacial-air, #C9DFEB);
+      stroke-width: 1.25;
+      fill: none;
+      opacity: 0.55;
+    }
+    .topo-contour-accent {
+      stroke: var(--color-celestial-sky, #A4CDEB);
+      stroke-width: 1.6;
+      fill: none;
+      opacity: 0.75;
+    }
+    .topo-contour-pulse {
+      stroke: url(#glacialFlowGrad);
+      stroke-width: 2.2;
+      fill: none;
+      stroke-dasharray: 240 1600;
+      animation: topoFlow 14s linear infinite;
+    }
+    @keyframes topoFlow {
+      0% { stroke-dashoffset: 1840; }
+      100% { stroke-dashoffset: 0; }
+    }
+    .topo-altitude-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      fill: var(--color-aura-blue, #6A9BC2);
+      opacity: 0.7;
+    }
+
+    /* ОЖИВАЮЩИЕ УВЕДОМЛЕНИЯ «ДО → ПОСЛЕ» */
+    .cta-push-card {
+      transition: border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s ease-out;
+    }
+    .cta-push-card.is-solved {
+      border-color: #2F4F3F !important; /* Pine Needle */
+      box-shadow: 0 8px 24px -4px rgba(47, 79, 63, 0.16), 0 2px 6px -1px rgba(47, 79, 63, 0.08) !important;
+    }
+    .notif-tag-solved {
+      background-color: rgba(47, 79, 63, 0.12);
+      color: #2F4F3F;
+      font-weight: 700;
+      border-radius: 9999px;
+      padding: 2px 8px;
+      font-size: 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .notif-typing-chip {
+      font-size: 12px;
+      color: #6A9BC2;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .notif-typing-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: #6A9BC2;
+      animation: notifDotPulse 1.2s infinite ease-in-out;
+    }
+    .notif-typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .notif-typing-dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes notifDotPulse {
+      0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+      40% { transform: scale(1.15); opacity: 1; }
+    }
+
+    /* ПАСХАЛКА «БРАТ» */
+    .brother-easter-egg-btn {
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.2s ease;
+    }
+    .brother-easter-egg-btn:hover {
+      transform: scale(1.05);
+    }
+    .brother-speech-bubble {
+      position: absolute;
+      bottom: calc(100% + 12px);
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      background: #0f172a;
+      color: #ffffff;
+      padding: 8px 14px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.35;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+      box-shadow: 0 10px 25px -3px rgba(15, 23, 42, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+      z-index: 60;
+    }
+    .brother-speech-bubble::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 6px;
+      border-style: solid;
+      border-color: #0f172a transparent transparent transparent;
+    }
+    .brother-easter-egg-btn:hover .brother-speech-bubble,
+    .brother-easter-egg-btn.active .brother-speech-bubble,
+    .brother-speech-bubble.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ФИНАЛЬНЫЙ CTA НА РАССВЕТНОМ ФОНЕ (ALTAI DAWN & GLACIAL AIR) */
+    .cta-sunrise-section {
+      position: relative;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(201, 223, 235, 0.35) 0%, rgba(242, 243, 245, 0.8) 35%, rgba(194, 167, 126, 0.25) 100%);
+      border: 1px solid rgba(194, 167, 126, 0.35);
+      box-shadow: 0 20px 60px -15px rgba(194, 167, 126, 0.2), 0 4px 16px rgba(15, 23, 42, 0.04);
+      overflow: hidden;
+    }
+    .cta-sunrise-glow {
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(194, 167, 126, 0.35) 0%, rgba(201, 223, 235, 0.2) 50%, transparent 70%);
+      filter: blur(50px);
+      pointer-events: none;
     }
 
     /* МЕЖСЕКЦИОННЫЕ АКЦЕНТНЫЕ НЕОНОВЫЕ ЛУЧИ */
