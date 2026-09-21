@@ -531,10 +531,12 @@
       }
 
       async sendMessage(messageText) {
+        const personaKey = (window.AO_PERSONA && window.AO_PERSONA.key) || 'stanislav';
         const payload = {
           message: messageText.trim(),
           session_id: this.getSessionId() || null,
-          tenant_id: this.tenantId
+          tenant_id: this.tenantId,
+          persona: personaKey
         };
 
         const res = await fetch(`${this.baseUrl}/api/v1/demo/chat`, {
@@ -827,7 +829,7 @@
       }
     }
 
-    let currentScenarioBoost = 0.20;
+    let currentScenarioBoost = 0.12;
     const calcAnimationFrames = {};
 
     function formatCalcNumber(num, fractionDigits = 0) {
@@ -1020,11 +1022,19 @@
       const launchPrice = 29000;
       const monthlyNet = gain - monthlyTariffPrice;
       const yearNet = gain * 12 - (launchPrice + monthlyTariffPrice * 12);
-      const paybackMonths = monthlyNet > 0 ? (launchPrice / monthlyNet) : null;
+      const paybackDays = gain > 0 ? (launchPrice + monthlyTariffPrice) / (gain / 30) : Infinity;
 
       const tariffRecEl = document.getElementById('calcTariffRecommended');
       if (tariffRecEl) {
         tariffRecEl.innerHTML = `Тариф ${tariffName} — ${formatCalcNumber(monthlyTariffPrice)}&nbsp;₽/мес`;
+      }
+      const aoCostEl = document.getElementById('aoCalcCost');
+      if (aoCostEl) {
+        aoCostEl.innerHTML = `${formatCalcNumber(monthlyTariffPrice)}&nbsp;₽ в&nbsp;месяц`;
+      }
+      const aoTariffEl = document.getElementById('aoCalcTariff');
+      if (aoTariffEl) {
+        aoTariffEl.innerHTML = `тариф «${tariffName.replace(/[«»]/g, '')}» + запуск ${formatCalcNumber(launchPrice)}&nbsp;₽`;
       }
 
       // 1. Упущенная выручка в месяц (gain)
@@ -1040,23 +1050,17 @@
       }
 
       // 3. Окупаемость
-      let paybackStr = '';
-      if (monthlyNet <= 0 || !paybackMonths || paybackMonths > 12) {
-        paybackStr = 'больше года';
-      } else if (paybackMonths < 1) {
-        const days = Math.round(paybackMonths * 30);
-        if (days >= 11 && days <= 17) {
-          paybackStr = '~2 недели';
-        } else if (days >= 6 && days <= 10) {
-          paybackStr = '~1 неделя';
-        } else if (days >= 18 && days <= 24) {
-          paybackStr = '~3 недели';
-        } else {
-          paybackStr = `~${days} ${getNoun(days, 'день', 'дня', 'дней')}`;
-        }
+      let paybackStr = '—';
+      if (!isFinite(paybackDays) || paybackDays <= 0) {
+        paybackStr = '—';
+      } else if (paybackDays <= 10) {
+        paybackStr = '~' + Math.max(1, Math.round(paybackDays)) + ' дн.';
+      } else if (paybackDays <= 45) {
+        const w = Math.round(paybackDays / 7);
+        paybackStr = '~' + w + (w === 1 ? ' неделю' : w < 5 ? ' недели' : ' недель');
       } else {
-        const months = Math.round(paybackMonths);
-        paybackStr = `~${months} мес.`;
+        const m = Math.round(paybackDays / 30);
+        paybackStr = '~' + m + (m === 1 ? ' месяц' : m < 5 ? ' месяца' : ' месяцев');
       }
       if (pbV) pbV.textContent = paybackStr;
 

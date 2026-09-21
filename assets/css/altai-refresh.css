@@ -1,0 +1,571 @@
+/* =====================================================================
+   ALTAI OPTIMA — Brand Refresh & New Sections (Glacial Air #C9DFEB)
+   ===================================================================== */
+
+:root {
+  --ao-glacial: #C9DFEB;
+  --ao-glacial-soft: rgba(201, 223, 235, 0.45);
+  --ao-frost: #f1f5fa;
+  --ao-dawn: rgba(194, 167, 126, 0.22);
+  --ao-sapphire: #0284c7;
+  --ao-sapphire-dark: #0369a1;
+  --ao-slate-dark: #07172C;
+}
+
+/* --- AO BANDS (Section Backgrounds) --- */
+.ao-band {
+  position: relative;
+  border-radius: 2rem;
+  transition: all 0.3s ease;
+}
+.ao-band--glacial {
+  background: linear-gradient(135deg, rgba(201, 223, 235, 0.4) 0%, rgba(240, 246, 252, 0.8) 50%, rgba(201, 223, 235, 0.25) 100%);
+  border: 1px solid rgba(186, 230, 253, 0.8);
+  box-shadow: 0 20px 50px -15px rgba(2, 132, 199, 0.08);
+}
+.ao-band--glacial-soft {
+  background: linear-gradient(180deg, rgba(240, 246, 252, 0.6) 0%, rgba(201, 223, 235, 0.25) 100%);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+.ao-band--frost {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+}
+.ao-band--paper {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 20px 50px -15px rgba(15, 23, 42, 0.06);
+}
+.ao-band--dawn {
+  background: linear-gradient(135deg, #07172C 0%, #0F2438 45%, #0B1928 100%);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  box-shadow: 0 25px 60px -15px rgba(2, 132, 199, 0.35);
+  color: #ffffff;
+}
+
+/* --- HERO: Timeline & Facts --- */
+.ao-timeline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(2, 132, 199, 0.08);
+  border: 1px solid rgba(2, 132, 199, 0.25);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #0369a1;
+  margin-bottom: 0.75rem;
+}
+.ao-timeline i {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulse 2s infinite;
+}
+.ao-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  padding-top: 1rem;
+}
+@media (min-width: 640px) {
+  .ao-facts {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+.ao-facts > div {
+  padding: 0.65rem 0.85rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 0.875rem;
+  display: flex;
+  flex-direction: column;
+}
+.ao-facts strong {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+.ao-facts span {
+  font-size: 0.6875rem;
+  color: #64748b;
+  margin-top: 0.15rem;
+}
+.ao-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-top: 1rem;
+}
+.ao-replay {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #0284c7;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+.ao-replay:hover {
+  color: #0369a1;
+}
+.ao-foot {
+  font-size: 0.6875rem;
+  color: #94a3b8;
+  margin-top: 0.5rem;
+}
+.ao-source {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-align: center;
+  max-width: 48rem;
+  margin: 1rem auto 0;
+  line-height: 1.4;
+}
+
+/* --- LIVE NOTIFICATIONS: Reply & Typing badges --- */
+.ao-badge {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 9999px;
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+}
+.ao-reply {
+  margin-top: 0.35rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.625rem;
+  background: #f0f9ff;
+  border-left: 3px solid #0284c7;
+  font-size: 0.78125rem;
+  color: #0f172a;
+  line-height: 1.35;
+}
+.ao-reply em {
+  display: block;
+  font-size: 0.6875rem;
+  font-style: normal;
+  font-weight: 700;
+  color: #0284c7;
+  margin-bottom: 0.15rem;
+}
+.ao-typing {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #0284c7;
+  font-style: italic;
+  animation: pulse 1.5s infinite;
+}
+.ao-swap {
+  color: #047857 !important;
+  font-weight: 600;
+}
+.cta-push-card.ao-done {
+  border-color: #38bdf8;
+  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.2);
+}
+
+/* --- SECTION: КАК ЭТО РАБОТАЕТ (#how) --- */
+.ao-how {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+.ao-how h2 {
+  font-family: Benzin, Inter, sans-serif;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.75rem;
+}
+.ao-how > p {
+  font-size: 1rem;
+  color: #475569;
+  max-width: 36rem;
+  margin: 0 auto 2.5rem;
+  line-height: 1.5;
+}
+.ao-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+@media (min-width: 768px) {
+  .ao-steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.ao-steps > li {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 1.5rem;
+  padding: 1.75rem;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.ao-steps > li:hover {
+  border-color: #38bdf8;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(2, 132, 199, 0.1);
+}
+.ao-steps h3 {
+  font-family: Inter, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+.ao-steps p {
+  font-size: 0.875rem;
+  color: #475569;
+  line-height: 1.55;
+}
+.ao-note {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e2e8f0;
+  font-size: 0.8125rem !important;
+  color: #0369a1 !important;
+  background: #f0f9ff;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+}
+
+/* --- SECTION: РЕЗУЛЬТАТЫ ПО НИШАМ (#cases) --- */
+.ao-results {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+.ao-results h2 {
+  font-family: Benzin, Inter, sans-serif;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+.ao-results > p {
+  font-size: 0.9375rem;
+  color: #64748b;
+  max-width: 38rem;
+  margin: 0 auto 2rem;
+}
+.ao-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+.ao-tabs button {
+  padding: 0.5rem 1.125rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.ao-tabs button:hover {
+  border-color: #0284c7;
+  color: #0284c7;
+}
+.ao-tabs button[aria-selected="true"] {
+  background: #0284c7;
+  border-color: #0284c7;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
+}
+.ao-case {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  background: #ffffff;
+  border: 1px solid rgba(186, 230, 253, 0.9);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  text-align: left;
+  box-shadow: 0 15px 40px -10px rgba(2, 132, 199, 0.1);
+}
+@media (min-width: 768px) {
+  .ao-case {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+.ao-case h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #0f172a;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+.ao-case dl {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.625rem 1rem;
+  font-size: 0.875rem;
+}
+.ao-case dt {
+  color: #64748b;
+}
+.ao-case dt.ao-assume {
+  color: #0369a1;
+  font-weight: 600;
+}
+.ao-case dd {
+  font-weight: 700;
+  color: #0f172a;
+  text-align: right;
+  margin: 0;
+}
+.ao-logic {
+  margin-top: 1.25rem;
+  font-size: 0.8125rem;
+  color: #0369a1;
+  background: #f0f9ff;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border-left: 3px solid #0284c7;
+  line-height: 1.45;
+}
+.ao-out {
+  background: linear-gradient(145deg, #07172C 0%, #0B1928 100%);
+  color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ao-out h3 {
+  color: #38bdf8;
+  border-bottom-color: rgba(255, 255, 255, 0.15);
+}
+.ao-out dt {
+  color: #94a3b8;
+}
+.ao-out dd {
+  color: #ffffff;
+}
+.ao-big {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: #34d399;
+  letter-spacing: -0.02em;
+  margin-top: 1rem;
+}
+.ao-big-cap {
+  font-size: 0.8125rem;
+  color: #cbd5e1;
+  margin-top: 0.35rem;
+  line-height: 1.45;
+}
+.ao-model-note {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-top: 1.25rem;
+  line-height: 1.45;
+  text-align: center;
+}
+.ao-model-note a {
+  color: #0284c7;
+  text-decoration: underline;
+}
+
+/* --- SECTION: ТРУДНЫЙ КЛИЕНТ (#scenarios) --- */
+.ao-roles {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  border-radius: 1.25rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+.ao-roles p {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.625rem;
+}
+.ao-roles > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.ao-roles button {
+  padding: 0.35rem 0.75rem;
+  border-radius: 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.ao-roles button:hover {
+  background: #0284c7;
+  border-color: #0284c7;
+  color: #ffffff;
+}
+.ao-roles small {
+  display: block;
+  margin-top: 0.625rem;
+  font-size: 0.6875rem;
+  color: #94a3b8;
+}
+
+/* --- SECTION: НАЙМ И СОБЕСЕДОВАНИЕ (#philosophy) --- */
+.ao-hire {
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+  border-radius: 1.25rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+.ao-hire p {
+  font-size: 0.8125rem;
+  color: #475569;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+.ao-hire button {
+  display: block;
+  width: 100%;
+  padding: 0.65rem 1rem;
+  border-radius: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+.ao-primary {
+  background: #0284c7;
+  color: #ffffff;
+  border: none;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+}
+.ao-primary:hover {
+  background: #0369a1;
+}
+.ao-secondary {
+  background: #f8fafc;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+}
+.ao-secondary:hover {
+  background: #f1f5f9;
+}
+.ao-hire-banner {
+  padding: 1rem 1.25rem;
+  background: #ecfdf5;
+  border: 1px solid #6ee7b7;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  color: #065f46;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+.ao-hire-banner button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: #065f46;
+  cursor: pointer;
+}
+.ao-bubble {
+  padding: 0.65rem 0.85rem;
+  background: #f0f9ff;
+  border-left: 3px solid #0284c7;
+  border-radius: 0.75rem;
+  font-size: 0.8125rem;
+  color: #0f172a;
+  margin: 0.5rem 0;
+  line-height: 1.4;
+}
+.ao-bubble b {
+  display: block;
+  color: #0284c7;
+  font-size: 0.75rem;
+  margin-bottom: 0.2rem;
+}
+
+/* --- SECTION: ФИНАЛЬНЫЙ ПРИЗЫВ (#final) --- */
+.ao-final {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+.ao-final h2 {
+  font-family: Benzin, Inter, sans-serif;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+.ao-final p {
+  font-size: 1rem;
+  color: #94a3b8;
+  max-width: 32rem;
+  margin: 0 auto 2rem;
+  line-height: 1.5;
+}
+.ao-final .ao-actions {
+  justify-content: center;
+}
+
+/* --- MISC --- */
+.ao-brat {
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: #0284c7;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.ao-h-tariffs {
+  font-family: Benzin, Inter, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #0f172a;
+}
