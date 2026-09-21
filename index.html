@@ -32,9 +32,10 @@
     }
   </script>
   <!-- Preconnect and Fonts -->
+  <link rel="preload" href="Benzin-Medium.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Marck+Script&family=Neucha&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Marck+Script&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -2949,70 +2950,79 @@
       </div>
     </div>
 
-    <!-- 9.5. ПИСЬМО ОСНОВАТЕЛЕЙ (ШИРОКИЙ ПРОПОРЦИОНАЛЬНЫЙ ФОРМАТ СО ШРИФТОМ SUNLESS DAY БЕЗ ПОДЛОЖЕК) -->
-    <section id="founders-letter" class="max-w-5xl xl:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 relative z-20 select-text font-sunless">
-      
-      <!-- ШТАМП / ШАПКА ПИСЬМА БЕЗ ПОДЛОЖКИ -->
-      <div class="flex items-center justify-between flex-wrap gap-3 pb-4 sm:pb-5 border-b border-sky-300/40 mb-6 sm:mb-8 font-inter">
-        <div class="flex items-center gap-3">
-          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-sky-100/90 border border-sky-300/80 flex items-center justify-center text-sky-700 shadow-xs shrink-0">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-            </svg>
-          </div>
-          <div>
-            <div class="text-xs sm:text-[13px] font-black uppercase tracking-widest text-sky-950 flex items-center gap-2">
-              Письмо основателей
-              <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-            </div>
-            <div class="text-[11px] sm:text-xs text-slate-500 font-medium">
-              Личное обращение к предпринимателям
-            </div>
-          </div>
-        </div>
-        <div class="text-[11px] sm:text-xs font-mono text-slate-500 bg-sky-50/80 px-2.5 py-1 rounded-md border border-sky-200/60">
-          Барнаул / Кремниевая долина • 2026
-        </div>
-      </div>
-
-      <!-- ТЕКСТ ПИСЬМА С МАРКЕРОМ ПОЛЕЙ СТРАНИЦЫ -->
-      <div class="border-l-2 sm:border-l-[3px] border-sky-400/50 pl-5 sm:pl-8 md:pl-10 space-y-5 sm:space-y-6 text-left">
+    <!-- 9.5. ПИСЬМО ОСНОВАТЕЛЕЙ (БУМАЖНЫЙ ЛИСТ С ШРИФТОМ С ЗАСЕЧКАМИ) -->
+    <section id="founders-letter" class="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 relative z-20 select-text">
+      <div class="letter-sheet text-left">
         
-        <h2 class="text-2xl sm:text-3xl md:text-[34px] lg:text-[38px] font-bold text-slate-950 leading-snug tracking-normal">
+        <!-- ШАПКА ПИСЬМА -->
+        <div class="flex items-center gap-3.5 mb-7">
+          <!-- Два круга 48px со смещением -->
+          <div class="flex items-center -space-x-3 shrink-0">
+            <div class="w-12 h-12 rounded-full bg-[#E6F1FB] border-2 border-white flex items-center justify-center text-[#0C447C] font-bold text-lg shadow-xs overflow-hidden relative" title="Алина">
+              <img src="assets/images/alina.jpg" alt="Алина" class="w-full h-full object-cover hidden" onerror="this.remove()">
+              <span>А</span>
+            </div>
+            <div class="w-12 h-12 rounded-full bg-[#B5D4F4] border-2 border-white flex items-center justify-center text-[#042C53] font-bold text-lg shadow-xs overflow-hidden relative z-10" title="Давид">
+              <img src="assets/images/david.jpg" alt="Давид" class="w-full h-full object-cover hidden" onerror="this.remove()">
+              <span>Д</span>
+            </div>
+          </div>
+          <!-- Имена и подпись -->
+          <div class="font-inter">
+            <div class="text-[16px] font-bold text-[#042C53] leading-tight">
+              Алина и Давид
+            </div>
+            <div class="text-[14px] text-slate-500 font-normal leading-normal mt-0.5">
+              основатели Altai Optima
+            </div>
+          </div>
+        </div>
+
+        <!-- ЗАГОЛОВОК ПИСЬМА -->
+        <h2 class="font-serif-letter text-[24px] sm:text-[30px] font-bold text-[#042C53] leading-[1.25] tracking-tight mb-5 sm:mb-6">
           Здравствуйте! Мы&nbsp;— Алина и&nbsp;Давид, основатели Altai Optima
         </h2>
 
-        <div class="text-slate-800 text-lg sm:text-xl md:text-[22px] lg:text-[25px] leading-[1.65] sm:leading-[1.7] font-normal space-y-4 sm:space-y-5 tracking-wide">
+        <!-- ТЕЛО ПИСЬМА (ШРИФТ LORA, 18px / моб 17px, line-height 1.7, цвет темно-синий, отступ между абзацами 18px) -->
+        <div class="font-serif-letter text-[#0C447C] text-[17px] sm:text-[18px] leading-[1.7] space-y-[18px]">
           <p>
-            Алина двенадцать лет в&nbsp;продажах, и&nbsp;через неё прошли сотни менеджеров&nbsp;— хороших, старательных и&nbsp;всё равно теряющих клиентов. Ответили через три часа. Забыли перезвонить. Не внесли сделку в&nbsp;CRM. Нагрубили в&nbsp;конце тяжёлого дня. А&nbsp;вечером и&nbsp;в&nbsp;выходные, когда люди как раз готовы покупать, не ответили вовсе. Altai Optima появилась из простого желания: чтобы с&nbsp;вашим бизнесом такого больше не происходило.
+            Алина двенадцать лет в&nbsp;продажах, и&nbsp;через неё прошли сотни менеджеров&nbsp;— хороших, старательных и&nbsp;всё равно теряющих клиентов. Ответили через три часа. Забыли перезвонить. Не внесли сделку в&nbsp;CRM. Нагрубили в&nbsp;конце тяжёлого дня. А&nbsp;вечером и&nbsp;в&nbsp;выходные, когда люди как раз готовы покупать, не ответили вовсе. Altai Optima появилась из простого желания: чтобы с&nbsp;вашим бизнесом так больше не случалось.
           </p>
 
           <p>
-            Давид больше десяти лет в&nbsp;разработке, из них пять строил сложные ИИ-системы в&nbsp;Кремниевой долине. Всё, что мы делаем в&nbsp;Altai Optima, построено на одном принципе: ИИ не должен быть «чат-ботом с&nbsp;кнопками». Он должен думать, помнить контекст, квалифицировать лида, работать с&nbsp;возражениями и&nbsp;вести клиента к&nbsp;сделке так же тонко, как лучший живой продавец, только без усталости, перерывов и&nbsp;человеческого фактора.
+            Давид больше десяти лет в&nbsp;разработке, из них пять строил сложные ИИ-системы в&nbsp;Кремниевой долине. Всё, что мы делаем в&nbsp;Altai Optima, построено на одном принципе: ИИ не должен быть «чат-ботом с&nbsp;кнопками». Он должен думать, помнить контекст, квалифицировать лида, работать с&nbsp;возражениями и&nbsp;вести клиента к&nbsp;сделке так же тонко, как лучший живой продавец,&nbsp;— только без усталости, перерывов и&nbsp;человеческого фактора.
           </p>
 
           <p>
-            Мы сознательно сделали запуск за 29&nbsp;000&nbsp;₽&nbsp;— это себестоимость нашей работы по сборке базы знаний и&nbsp;интеграции. Мы не зарабатываем на старте. Наша бизнес-модель держится на том, что ИИ-продавец окупает себя в&nbsp;первый же месяц и&nbsp;остаётся с&nbsp;вами на годы, принося реальную прибыль.
+            Мы строим компанию вдолгую, а&nbsp;не ради разового чека. Поэтому запуск стоит 29&nbsp;000&nbsp;₽: это честная цена нашей работы по упаковке базы знаний и&nbsp;интеграции. Наша прибыль начинается дальше&nbsp;— на ежемесячной подписке. А&nbsp;её продолжают платить, только пока ИИ-продавец стабильно приносит сделки и&nbsp;окупает вложения. Если система даёт результат, мы работаем вместе годами. Если эффекта нет, вы просто отключаетесь. Мы сознательно выбрали такую модель: наш доход напрямую привязан к&nbsp;вашей прибыли.
           </p>
 
           <p>
-            Здесь нет длинных контрактов и&nbsp;кабальных условий: ежемесячная подписка, вы платите только пока продукт работает на вас. База знаний и&nbsp;все данные остаются вашими.
+            Здесь нет длинных контрактов и&nbsp;кабальных условий. Подписка ежемесячная, отключиться можно в&nbsp;любой момент без штрафов, а&nbsp;база знаний и&nbsp;все данные остаются вашими.
           </p>
 
-          <p class="font-bold text-slate-950 text-xl sm:text-2xl md:text-[25px] lg:text-[27px] leading-[1.55]">
+          <!-- ФИНАЛЬНАЯ ФРАЗА (20px, жирная, отступ сверху 28px) -->
+          <p class="font-bold text-[#042C53] text-[18px] sm:text-[20px] pt-2.5 leading-[1.5]">
             Нам важно, чтобы вы остались с&nbsp;нами не из-за условий, а&nbsp;потому что это работает.
           </p>
         </div>
 
-        <!-- ПОДПИСЬ ПИСЬМА -->
-        <div class="pt-5 sm:pt-7 border-t border-sky-200/50 mt-6 sm:mt-8">
-          <p class="text-slate-700 text-lg sm:text-xl md:text-[22px]">Изобилия и&nbsp;процветания вам и&nbsp;вашему бизнесу,</p>
-          <div class="text-3xl sm:text-4xl md:text-5xl font-bold text-sky-900 pt-2 tracking-wide">
+        <!-- ПОДПИСЬ -->
+        <div class="pt-6 mt-6">
+          <p class="font-serif-letter italic text-[16px] text-slate-600 mb-1">
+            С&nbsp;верой в&nbsp;ваш бизнес,
+          </p>
+          <div class="font-signature text-[38px] font-bold text-[#185FA5] leading-none py-2 tracking-wide">
             Алина и&nbsp;Давид
           </div>
-          <div class="text-xs sm:text-sm text-slate-500 font-inter pt-1 font-medium">
-            Основатели Altai Optima
+          <div class="font-inter text-[13px] text-slate-500 font-normal mt-1">
+            Алина&nbsp;— продажи и&nbsp;сервис. Давид&nbsp;— продукт и&nbsp;ИИ.
           </div>
+        </div>
+
+        <!-- P.S. (16px, курсив, отделен тонкой линией сверху, отступ 28px) -->
+        <div class="border-t border-slate-200/80 pt-5 mt-7 font-serif-letter italic text-[16px] text-slate-700 leading-relaxed">
+          P.S. Прежде чем решать, <a href="#ctaBtn" onclick="document.getElementById('ctaBtn')?.scrollIntoView({behavior:'smooth'})" class="text-sky-600 hover:text-sky-700 underline font-medium not-italic">напишите нашему ИИ-продавцу</a>. Он ответит сразу&nbsp;— даже если сейчас три часа ночи.
         </div>
 
       </div>
