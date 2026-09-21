@@ -24,7 +24,8 @@
             mono: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
             code: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
             benzin: ['Benzin', 'Inter', 'sans-serif'],
-            heading: ['Benzin', 'Inter', 'sans-serif']
+            heading: ['Benzin', 'Inter', 'sans-serif'],
+            handwriting: ['Caveat', 'Marck Script', 'cursive', 'sans-serif']
           }
         }
       }
@@ -33,7 +34,7 @@
   <!-- Preconnect and Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Marck+Script&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -127,6 +128,12 @@
     .font-inter *:not(h1):not(h2):not(.font-benzin):not(.font-benzin-heading):not(.manifesto-ruble-title),
     .font-sans *:not(h1):not(h2):not(.font-benzin):not(.font-benzin-heading):not(.manifesto-ruble-title) {
       font-family: var(--font-sans);
+    }
+
+    /* РУКОПИСНЫЙ ШРИФТ ДЛЯ ПИСЬМА ОСНОВАТЕЛЕЙ */
+    .font-handwriting,
+    .font-handwriting * {
+      font-family: 'Caveat', 'Marck Script', cursive, sans-serif !important;
     }
 
     /* ШРИФТ BENZIN - СТРОГО И ТОЛЬКО ДЛЯ ГЛАВНЫХ СЕКЦИОННЫХ ЗАГОЛОВКОВ (H1, H2) С ЗАЩИТОЙ ОТ ОБРЕЗАНИЯ */
@@ -7482,6 +7489,42 @@
         </a>
       </div>
     </div>
+
+    <!-- 9.5. ПИСЬМО ОСНОВАТЕЛЕЙ (РУКОПИСНЫЙ СТИЛЬ БЕЗ ПОДЛОЖЕК) -->
+    <section id="founders-letter" class="max-w-3xl mx-auto px-5 sm:px-8 py-16 sm:py-24 relative z-20 font-handwriting select-text">
+      <div class="text-left space-y-6 sm:space-y-8 text-slate-800 text-2xl sm:text-3xl md:text-[27px] leading-[1.65] font-medium">
+        
+        <h2 class="text-3xl sm:text-4xl md:text-[38px] font-bold text-slate-900 leading-tight tracking-normal">
+          Здравствуйте! Мы&nbsp;— Алина и&nbsp;Давид, основатели Altai Optima
+        </h2>
+
+        <p>
+          Алина двенадцать лет в&nbsp;продажах, и&nbsp;через неё прошли сотни менеджеров&nbsp;— хороших, старательных и&nbsp;всё равно теряющих клиентов. Ответили через три часа. Забыли перезвонить. Не внесли сделку в&nbsp;CRM. Нагрубили в&nbsp;конце тяжёлого дня. А&nbsp;вечером и&nbsp;в&nbsp;выходные, когда люди как раз готовы покупать, не ответили вовсе. Altai Optima появилась из простого желания: чтобы с&nbsp;вашим бизнесом такого больше не происходило.
+        </p>
+
+        <p>
+          Давид больше десяти лет в&nbsp;разработке, из них пять строил сложные ИИ-системы в&nbsp;Кремниевой долине. Всё, что мы делаем в&nbsp;Altai Optima, построено на одном принципе: ИИ не должен быть «чат-ботом с&nbsp;кнопками». Он должен думать, помнить контекст, квалифицировать лида, работать с&nbsp;возражениями и&nbsp;вести клиента к&nbsp;сделке так же тонко, как лучший живой продавец, только без усталости, перерывов и&nbsp;человеческого фактора.
+        </p>
+
+        <p>
+          Мы сознательно сделали запуск за 29&nbsp;000&nbsp;₽&nbsp;— это себестоимость нашей работы по сборке базы знаний и&nbsp;интеграции. Мы не зарабатываем на старте. Наша бизнес-модель держится на том, что ИИ-продавец окупает себя в&nbsp;первый же месяц и&nbsp;остаётся с&nbsp;вами на годы, принося реальную прибыль.
+        </p>
+
+        <p>
+          Здесь нет длинных контрактов и&nbsp;кабальных условий: ежемесячная подписка, вы платите только пока продукт работает на вас. База знаний и&nbsp;все данные остаются вашими.
+        </p>
+
+        <p class="font-bold text-slate-900">
+          Нам важно, чтобы вы остались с&nbsp;нами не из-за условий, а&nbsp;потому что это работает.
+        </p>
+
+        <div class="pt-4 sm:pt-6">
+          <p class="text-slate-700">Изобилия и&nbsp;процветания вам и&nbsp;вашему бизнесу,</p>
+          <p class="text-3xl sm:text-4xl md:text-[36px] font-bold text-slate-900 pt-1">Алина и&nbsp;Давид</p>
+        </div>
+
+      </div>
+    </section>
 
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД К ФУТЕРУ: СТРЕЛКА К ЛОГОТИПУ В ФУТЕРЕ (С ДОСТАТОЧНЫМ ВОЗДУХОМ) -->
     <div class="flex flex-col items-center justify-center pt-8 pb-14 sm:pt-12 sm:pb-18 relative z-20">
