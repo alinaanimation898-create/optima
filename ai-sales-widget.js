@@ -7,8 +7,163 @@
 (function () {
   'use strict';
 
-
   const currentLang = document.documentElement.lang || (window.location.pathname.includes('/tr') ? 'tr' : (window.location.pathname.includes('/en') ? 'en' : 'ru'));
+
+  // Smart time-of-day contextual generator (Morning Coffee, Peak Day, Evening Shift, Night Owl, Weekend)
+  function getSmartTimeData(lang) {
+    const now = new Date();
+    const hours = now.getHours();
+    const day = now.getDay(); // 0 = Sunday, 6 = Saturday
+    const isWeekend = (day === 0 || day === 6);
+    const timeStr = now.toLocaleTimeString(lang === 'en' ? 'en-US' : (lang === 'tr' ? 'tr-TR' : 'ru-RU'), {
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+
+    if (lang === 'tr') {
+      if (hours >= 22 || hours < 7) {
+        return {
+          timeStr,
+          statusText: `Şimdi ${timeStr} • Gece Vardiyası`,
+          headerStatus: `Şimdi ${timeStr} • 7/24 Çevrimiçi`,
+          teaserPill: `Saat ${timeStr}. Mesai bitti ama müşteriler yazmaya devam ediyor. 7/24 buradayım.`,
+          welcomeTitle: `İyi geceler!`,
+          welcomeText: `Saat <strong>${timeStr}</strong>. Mesai saatleri dışında da buradayım: müşterilere anında yanıt veriyor ve talepleri CRM'e kaydediyorum.`
+        };
+      } else if (hours >= 7 && hours < 10) {
+        return {
+          timeStr,
+          statusText: `Şimdi ${timeStr} • 7/24 Çevrimiçi`,
+          headerStatus: `Şimdi ${timeStr} • 7/24 Çevrimiçi`,
+          teaserPill: `Günaydın! Saat ${timeStr}. Yöneticileriniz kahvelerini alırken ben müşterilere yanıt veriyorum.`,
+          welcomeTitle: `Günaydın!`,
+          welcomeText: `Saat <strong>${timeStr}</strong>. Ekibiniz güne başlarken ben sabah taleplerini karşılamaya başladım bile!`
+        };
+      } else if (isWeekend && hours >= 10 && hours < 18) {
+        return {
+          timeStr,
+          statusText: `Şimdi ${timeStr} • Hafta Sonu`,
+          headerStatus: `Şimdi ${timeStr} • 7/24 Çevrimiçi`,
+          teaserPill: `Hafta sonu saat ${timeStr}. Ekibiniz dinlenirken işletmeniz 7/24 satış yapmaya devam ediyor.`,
+          welcomeTitle: `İyi hafta sonları!`,
+          welcomeText: `Saat <strong>${timeStr}</strong>. Hafta sonu dahi hiçbir müşteriyi yanıtsız bırakmıyor, siparişleri topluyorum.`
+        };
+      } else if (hours >= 18 && hours < 22) {
+        return {
+          timeStr,
+          statusText: `Şimdi ${timeStr} • Akşam Vardiyası`,
+          headerStatus: `Şimdi ${timeStr} • 7/24 Çevrimiçi`,
+          teaserPill: `Saat ${timeStr}. Mesai bitiyor ancak ben gelen tüm siparişleri ve talepleri almaya devam ediyorum.`,
+          welcomeTitle: `İyi akşamlar!`,
+          welcomeText: `Saat <strong>${timeStr}</strong>. Ekibiniz ayrılırken ben akşam taleplerini toplamaya ve CRM'e kaydetmeye devam ediyorum.`
+        };
+      } else {
+        return {
+          timeStr,
+          statusText: `Şimdi ${timeStr} • 3 sn yanıt`,
+          headerStatus: `Şimdi ${timeStr} • Çevrimiçi`,
+          teaserPill: `Saat ${timeStr}. Yoğun mesai saati! Ekibinizin tüm müşterilere 3 saniyede yanıt vermesini sağlıyorum.`,
+          welcomeTitle: `Merhaba!`,
+          welcomeText: `Saat <strong>${timeStr}</strong>. Ben <strong>ALTAI Optima</strong> danışmanıyım. Kurulum süresi, maliyet ve CRM entegrasyonları için buradayım.`
+        };
+      }
+    } else if (lang === 'en') {
+      if (hours >= 22 || hours < 7) {
+        return {
+          timeStr,
+          statusText: `Now ${timeStr} • Night Shift`,
+          headerStatus: `Now ${timeStr} • Online 24/7`,
+          teaserPill: `It's ${timeStr}. The workday is over, but clients keep messaging. I'm online 24/7.`,
+          welcomeTitle: `Good evening!`,
+          welcomeText: `It is <strong>${timeStr}</strong>. While your team rests, I respond to leads in 3 seconds and capture every order.`
+        };
+      } else if (hours >= 7 && hours < 10) {
+        return {
+          timeStr,
+          statusText: `Now ${timeStr} • Online 24/7`,
+          headerStatus: `Now ${timeStr} • Online 24/7`,
+          teaserPill: `Good morning! It's ${timeStr}. While managers grab their coffee, I'm already handling leads.`,
+          welcomeTitle: `Good morning!`,
+          welcomeText: `It is <strong>${timeStr}</strong>. While your sales team brews their morning coffee, I am already qualifying early inquiries.`
+        };
+      } else if (isWeekend && hours >= 10 && hours < 18) {
+        return {
+          timeStr,
+          statusText: `Now ${timeStr} • Weekend`,
+          headerStatus: `Now ${timeStr} • Online 24/7`,
+          teaserPill: `It's ${timeStr} on the weekend. Your team is resting while your business keeps selling 24/7.`,
+          welcomeTitle: `Happy weekend!`,
+          welcomeText: `It is <strong>${timeStr}</strong>. Even on weekends, no client inquiry goes unanswered. Ask me anything about setup and integrations!`
+        };
+      } else if (hours >= 18 && hours < 22) {
+        return {
+          timeStr,
+          statusText: `Now ${timeStr} • Evening Shift`,
+          headerStatus: `Now ${timeStr} • Online 24/7`,
+          teaserPill: `It's ${timeStr}. Business hours are winding down, but I continue handling orders and leads.`,
+          welcomeTitle: `Good evening!`,
+          welcomeText: `It is <strong>${timeStr}</strong>. As the working day closes, I keep qualifying evening buyers and pushing data directly to your CRM.`
+        };
+      } else {
+        return {
+          timeStr,
+          statusText: `Now ${timeStr} • Replies in 3s`,
+          headerStatus: `Now ${timeStr} • Online`,
+          teaserPill: `It's ${timeStr}. Peak business hours! I help your team respond in 3s without missed deals.`,
+          welcomeTitle: `Hello!`,
+          welcomeText: `I am your <strong>ALTAI Optima</strong> consultant. I can calculate setup timeline & costs, and explain turn-key CRM integrations.`
+        };
+      }
+    } else {
+      // Default: Russian
+      if (hours >= 22 || hours < 7) {
+        return {
+          timeStr,
+          statusText: `Сейчас ${timeStr} • Ночная смена`,
+          headerStatus: `Сейчас ${timeStr} • На связи 24/7`,
+          teaserPill: `Сейчас ${timeStr}. Рабочий день закончился, а клиенты продолжают писать. Я на связи 24/7.`,
+          welcomeTitle: `Доброй ночи!`,
+          welcomeText: `Сейчас <strong>${timeStr}</strong>. Рабочий день закончился, но я не сплю: мгновенно отвечаю клиентам за 3 секунды и фиксирую сделки в CRM.`
+        };
+      } else if (hours >= 7 && hours < 10) {
+        return {
+          timeStr,
+          statusText: `Сейчас ${timeStr} • На связи 24/7`,
+          headerStatus: `Сейчас ${timeStr} • На связи 24/7`,
+          teaserPill: `Доброе утро! Сейчас ${timeStr}. Пока менеджеры наливают себе кофе, я уже отвечаю клиентам 24/7.`,
+          welcomeTitle: `Доброе утро!`,
+          welcomeText: `Сейчас <strong>${timeStr}</strong>. Пока ваш отдел продаж только наливает утренний кофе, я уже вовсю квалифицирую утренние лиды и назначаю встречи.`
+        };
+      } else if (isWeekend && hours >= 10 && hours < 18) {
+        return {
+          timeStr,
+          statusText: `Сейчас ${timeStr} • Выходной день`,
+          headerStatus: `Сейчас ${timeStr} • На связи 24/7`,
+          teaserPill: `Сейчас ${timeStr}, выходной. Ваши сотрудники отдыхают, а бизнес продолжает продавать 24/7.`,
+          welcomeTitle: `Отличных выходных!`,
+          welcomeText: `Сейчас <strong>${timeStr}</strong>. Ваши менеджеры на заслуженном отдыхе, а я работаю без перерывов, консультирую покупателей и приношу оплаты.`
+        };
+      } else if (hours >= 18 && hours < 22) {
+        return {
+          timeStr,
+          statusText: `Сейчас ${timeStr} • Вечерняя смена`,
+          headerStatus: `Сейчас ${timeStr} • На связи 24/7`,
+          teaserPill: `Сейчас ${timeStr}. Рабочий день закончился, а клиенты продолжают писать. Я на связи 24/7.`,
+          welcomeTitle: `Добрый вечер!`,
+          welcomeText: `Сейчас <strong>${timeStr}</strong>. Менеджеры уходят домой, а я продолжаю принимать вечерние заказы, дожимать сомневающихся и записывать всё в CRM.`
+        };
+      } else {
+        return {
+          timeStr,
+          statusText: `Сейчас ${timeStr} • Отвечаю за 3 сек`,
+          headerStatus: `Сейчас ${timeStr} • Онлайн`,
+          teaserPill: `Сейчас ${timeStr} — разгар дня! Помогаю отделу продаж отвечать за 3 секунды без пропущенных клиентов.`,
+          welcomeTitle: `Здравствуйте!`,
+          welcomeText: `Сейчас <strong>${timeStr}</strong>. Я персональный консультант <strong>ALTAI Optima</strong>. Помогу рассчитать сроки и стоимость установки софта и интеграции с вашей CRM.`
+        };
+      }
+    }
+  }
 
   const I18N = {
     ru: {
@@ -18,14 +173,11 @@
       close: 'Закрыть',
       minimize: 'Свернуть',
       reset: 'Очистить диалог',
-      teaserText: 'Здравствуйте! Готова ответить на любые вопросы по установке софта и интеграциям 🚀',
       startChat: 'Начать диалог →',
       replyTime: 'Ответ за 3 сек',
       inputPlaceholder: 'Задайте вопрос по установке софта...',
       sendTitle: 'Отправить вопрос',
       openChatAria: 'Открыть чат с ALTAI Optima',
-      welcomeTitle: 'Здравствуйте!',
-      welcomeText: 'Я персональный консультант <strong>ALTAI Optima</strong>. Помогу рассчитать сроки и стоимость установки софта, расскажу об интеграциях с вашей CRM (amoCRM, Битрикс24, 1С) и запуск под ключ.',
       quickQuestionsTitle: 'Проверьте сами: задайте ему любой вопрос',
       suggestedQuestions: [
         'Претензия: Третий день жду ответа, почему так долго?',
@@ -48,14 +200,11 @@
       close: 'Kapat',
       minimize: 'Küçült',
       reset: 'Sohbeti Temizle',
-      teaserText: 'Merhaba! Yazılım kurulumu ve CRM entegrasyonları hakkındaki tüm sorularınızı yanıtlamaya hazırım 🚀',
       startChat: 'Görüşmeye Başla →',
       replyTime: '3 sn içinde yanıt',
       inputPlaceholder: 'Yazılım kurulumu hakkında bir soru yazın...',
       sendTitle: 'Soruyu Gönder',
       openChatAria: 'ALTAI Optima ile sohbeti aç',
-      welcomeTitle: 'Merhaba!',
-      welcomeText: 'Ben <strong>ALTAI Optima</strong> kişisel danışmanıyım. Kurulum süresi ve maliyetini hesaplayabilir, CRM (amoCRM, Bitrix24, ERP) entegrasyonlarını ve anahtar teslim devreye alımı anlatabilirim.',
       quickQuestionsTitle: 'Kendiniz test edin: ona herhangi bir soru sorun',
       suggestedQuestions: [
         'Şikayet: Üç gündür yanıt bekliyorum, neden bu kadar uzun sürdü?',
@@ -78,14 +227,11 @@
       close: 'Close',
       minimize: 'Minimize',
       reset: 'Clear chat',
-      teaserText: 'Hello! I am ready to answer any questions about software setup and CRM integrations 🚀',
       startChat: 'Start Chat →',
       replyTime: 'Replies in 3s',
       inputPlaceholder: 'Ask a question about software setup...',
       sendTitle: 'Send Question',
       openChatAria: 'Open chat with ALTAI Optima',
-      welcomeTitle: 'Hello!',
-      welcomeText: 'I am your <strong>ALTAI Optima</strong> personal consultant. I can help calculate setup timeline & costs, and explain CRM integrations and turn-key launch.',
       quickQuestionsTitle: 'Test it yourself: ask any question',
       suggestedQuestions: [
         'Complaint: Waiting 3 days for a reply, why so long?',
@@ -298,7 +444,7 @@
         position: absolute;
         bottom: 76px;
         right: 0;
-        width: 300px;
+        width: 310px;
         background: #ffffff;
         border: 1px solid #e2e8f0;
         border-radius: 20px;
@@ -370,6 +516,16 @@
         background: #94a3b8;
       }
 
+      /* Live status pulse dot */
+      @keyframes altaiStatusPulse {
+        0% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.4); opacity: 0.6; }
+        100% { transform: scale(1); opacity: 1; }
+      }
+      .altai-live-dot {
+        animation: altaiStatusPulse 2s infinite ease-in-out;
+      }
+
       /* Typing indicator dots */
       @keyframes altaiTypingBounce {
         0%, 80%, 100% { transform: translateY(0); }
@@ -388,28 +544,33 @@
 
     injectStyles();
 
+    const timeData = getSmartTimeData(currentLang);
+
     const root = document.createElement('div');
     root.id = 'altaiAiSalesWidgetRoot';
     root.className = 'altai-widget-root';
 
     root.innerHTML = `
-      <!-- Proactive Teaser Bubble -->
+      <!-- Proactive Teaser Bubble with Dynamic Smart Time Context -->
       <div id="altaiWidgetTeaser" class="altai-widget-teaser hidden" onclick="window.openAiSalesWidget()">
         <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 8px;">
           <div style="display: flex; align-items: center; gap: 9px;">
             <div style="position: relative; width: 36px; height: 36px; border-radius: 50%; overflow: hidden; border: 1.5px solid #0284c7; flex-shrink: 0; box-shadow: 0 2px 6px rgba(2, 132, 199, 0.2);">
               <img src="${CONFIG.avatarUrl}" alt="${T.avatarAlt}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='brand_logo.png'" />
-              <span style="position: absolute; bottom: 0; right: 0; width: 9px; height: 9px; background: #10b981; border: 1.5px solid #ffffff; border-radius: 50%;"></span>
+              <span class="altai-live-dot" style="position: absolute; bottom: 0; right: 0; width: 9px; height: 9px; background: #10b981; border: 1.5px solid #ffffff; border-radius: 50%;"></span>
             </div>
             <div>
               <div style="font-size: 12px; font-weight: 800; color: #0f172a; letter-spacing: -0.01em;">ALTAI Optima</div>
-              <div style="font-size: 10px; color: #10b981; font-weight: 600;">${T.online}</div>
+              <div id="altaiTeaserStatus" style="font-size: 10px; color: #0284c7; font-weight: 700; display: flex; align-items: center; gap: 4px;">
+                <span style="width: 5px; height: 5px; background: #10b981; border-radius: 50%;"></span>
+                <span id="altaiTeaserStatusText">${timeData.statusText}</span>
+              </div>
             </div>
           </div>
           <button id="altaiTeaserCloseBtn" type="button" style="background: none; border: none; color: #94a3b8; font-size: 14px; cursor: pointer; padding: 2px 4px; line-height: 1; transition: color 0.2s;" onmouseover="this.style.color='#334155'" onmouseout="this.style.color='#94a3b8'" title="${T.close}">✕</button>
         </div>
-        <p style="margin: 8px 0 0 0; font-size: 12px; line-height: 1.45; color: #334155; font-weight: 500;">
-          ${T.teaserText}
+        <p id="altaiWidgetTeaserText" style="margin: 8px 0 0 0; font-size: 12px; line-height: 1.45; color: #334155; font-weight: 500;">
+          ${timeData.teaserPill}
         </p>
         <div style="margin-top: 8px; display: flex; align-items: center; justify-content: space-between;">
           <span style="font-size: 11px; font-weight: 700; color: #0284c7; display: flex; align-items: center; gap: 4px;">
@@ -426,15 +587,15 @@
           <div style="display: flex; align-items: center; gap: 10px;">
             <div style="position: relative; width: 40px; height: 40px; border-radius: 50%; overflow: hidden; border: 2px solid #0284c7; flex-shrink: 0; box-shadow: 0 2px 8px rgba(2, 132, 199, 0.25);">
               <img src="${CONFIG.avatarUrl}" alt="${T.avatarAlt}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='brand_logo.png'" />
-              <span style="position: absolute; bottom: 1px; right: 1px; width: 10px; height: 10px; background: #10b981; border: 2px solid #ffffff; border-radius: 50%;"></span>
+              <span class="altai-live-dot" style="position: absolute; bottom: 1px; right: 1px; width: 10px; height: 10px; background: #10b981; border: 2px solid #ffffff; border-radius: 50%;"></span>
             </div>
             <div>
               <div style="font-size: 14px; font-weight: 800; color: #0f172a; letter-spacing: -0.01em;">
                 ALTAI Optima
               </div>
-              <div style="font-size: 10.5px; color: #10b981; font-weight: 600; display: flex; align-items: center; gap: 4px;">
+              <div id="altaiWidgetOnlineStatus" style="font-size: 10.5px; color: #10b981; font-weight: 600; display: flex; align-items: center; gap: 4px;">
                 <span style="width: 6px; height: 6px; background: #10b981; border-radius: 50%;"></span>
-                Онлайн
+                <span id="altaiWidgetOnlineStatusText">${timeData.headerStatus}</span>
               </div>
             </div>
           </div>
@@ -486,7 +647,7 @@
       <button id="altaiWidgetLauncher" type="button" class="altai-widget-launcher" aria-label="${T.openChatAria}">
         <div class="altai-widget-pulse-ring"></div>
         
-        <!-- Closed state icon (Eva's avatar + chat icon) -->
+        <!-- Closed state icon (Eva avatar) -->
         <div id="altaiLauncherIconClosed" style="position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
           <div style="width: 50px; height: 50px; border-radius: 50%; overflow: hidden; border: 1.5px solid rgba(255,255,255,0.95); box-shadow: inset 0 0 4px rgba(0,0,0,0.2);">
             <img src="${CONFIG.avatarUrl}" alt="${T.avatarAlt}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='brand_logo.png'" />
@@ -507,6 +668,9 @@
     attachEventListeners();
     renderDialogue();
 
+    // Periodic live ticker update for time & contextual greetings
+    setInterval(updateSmartTimeUI, 15000);
+
     // Schedule proactive teaser if not dismissed previously
     const teaserDismissed = sessionStorage.getItem(CONFIG.storageKeyTeaserDismissed);
     if (!teaserDismissed) {
@@ -519,21 +683,40 @@
     }
   }
 
+  // Update dynamic time UI elements smoothly
+  function updateSmartTimeUI() {
+    const data = getSmartTimeData(currentLang);
+    const teaserStatus = document.getElementById('altaiTeaserStatusText');
+    const teaserText = document.getElementById('altaiWidgetTeaserText');
+    const headerStatus = document.getElementById('altaiWidgetOnlineStatusText');
+    const starterStatus = document.getElementById('altaiStarterLiveStatus');
+
+    if (teaserStatus) teaserStatus.textContent = data.statusText;
+    if (teaserText) teaserText.textContent = data.teaserPill;
+    if (headerStatus) headerStatus.textContent = data.headerStatus;
+    if (starterStatus) starterStatus.textContent = data.statusText;
+  }
+
   // Render Dialogue stream - Light Theme
   function renderDialogue() {
     const container = document.getElementById('altaiWidgetMessages');
     if (!container) return;
 
     if (messages.length === 0) {
-      // Render clean starter card + suggested question chips
+      const timeData = getSmartTimeData(currentLang);
+      // Render clean starter card + suggested question chips with dynamic live time badge
       const starterHtml = `
         <div style="display: flex; flex-direction: column; gap: 12px; animation: fadeIn 0.3s ease-out;">
           <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 18px; padding: 14px; color: #0f172a; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+            <div style="display: inline-flex; align-items: center; gap: 6px; font-size: 10.5px; font-weight: 700; color: #0284c7; margin-bottom: 9px; background: #f0f9ff; padding: 3px 8px; border-radius: 8px; border: 1px solid #bae6fd;">
+              <span style="width: 6px; height: 6px; background: #10b981; border-radius: 50%; box-shadow: 0 0 0 2px rgba(16,185,129,0.2);"></span>
+              <span id="altaiStarterLiveStatus">${timeData.statusText}</span>
+            </div>
             <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
               <span style="font-size: 18px;">👋</span>
-              <span style="font-size: 13px; font-weight: 700; color: #0f172a;">${T.welcomeTitle}</span>
+              <span style="font-size: 13px; font-weight: 700; color: #0f172a;">${timeData.welcomeTitle}</span>
             </div>
-            <p style="font-size: 12px; line-height: 1.5; color: #334155; margin: 0;">${T.welcomeText}</p>
+            <p style="font-size: 12px; line-height: 1.5; color: #334155; margin: 0;">${timeData.welcomeText}</p>
           </div>
 
           <div>
