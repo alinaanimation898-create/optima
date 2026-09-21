@@ -3733,6 +3733,7 @@
     .cta-push-wrapper.card-floating.cta-push-wrap-3 { animation: ctaFloatWrap3 6.8s ease-in-out infinite 1.4s; }
     .cta-push-wrapper.card-floating.cta-push-wrap-4 { animation: ctaFloatWrap4 5.2s ease-in-out infinite 0.4s; }
     .cta-push-wrapper.card-floating.cta-push-wrap-5 { animation: ctaFloatWrap5 6.5s ease-in-out infinite 1.1s; }
+    .cta-push-wrapper.card-floating.cta-push-wrap-6 { animation: ctaFloatWrap2 5.8s ease-in-out infinite 0.9s; }
 
     @keyframes ctaFloatWrap1 {
       0%, 100% { transform: translateY(0px); }

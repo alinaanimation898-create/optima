@@ -32,7 +32,7 @@
      ================================================================= */
   var DAYS = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
   function timeLine() {
-    var el = document.getElementById('aoTimeText');
+    var el = document.getElementById('heroLiveTimeText') || document.getElementById('aoTimeText');
     if (!el) return;
     var d = new Date();
     var h = d.getHours(), day = d.getDay();
@@ -43,80 +43,8 @@
     else if (weekend) text = '<b>' + DAYS[day] + ', ' + hm + '.</b> У отдела продаж выходной, у него — самые горячие часы.';
     else if (h < 10) text = '<b>Сейчас ' + hm + '.</b> Отдел продаж ещё в пути, а он уже ответил первым клиентам.';
     else if (h < 19) text = '<b>Сейчас ' + hm + '.</b> Пока менеджер на звонке, он уже ответил пятерым.';
-    else text = '<b>Сейчас ' + hm + '.</b> Рабочий день закончился, а клиенты только начинают писать. Он на связи.';
+    else text = '<b>Сейчас ' + hm + '.</b> Рабочий день закончился, а клиенты продолжают писать. Он на связи.';
     el.innerHTML = text;
-  }
-
-  /* =================================================================
-     2. Оживающие уведомления
-     ================================================================= */
-  var NOTIF = [
-    { wrap: '.cta-push-wrap-1', mode: 'reply', delay: 300,
-      reply: 'Здравствуйте, Анна! Да, работаем. Подскажу по наличию и оформлю заказ?', badge: 'ответ за 40 сек' },
-    { wrap: '.cta-push-wrap-2', mode: 'reply', delay: 1500,
-      reply: 'Доброе утро, Мария! Подскажу цену и наличие. Какой у вас размер?', badge: 'ответ за 30 сек' },
-    { wrap: '.cta-push-wrap-3', mode: 'swap', delay: 2700,
-      text: 'ИИ-продавец ответил клиенту по регламенту скидок', badge: 'готово' },
-    { wrap: '.cta-push-wrap-4', mode: 'swap', delay: 3700,
-      text: '4 сделки распределены между менеджерами', badge: 'готово' },
-    { wrap: '.cta-push-wrap-5', mode: 'swap', delay: 4700,
-      text: 'Отлично, оформляйте! Когда сможете доставить?', badge: 'клиент остался' }
-  ];
-  var notifTimers = [];
-  function notifCard(item) {
-    var w = $(item.wrap);
-    return w ? { card: w.querySelector('.cta-push-card'), p: w.querySelector('p') } : null;
-  }
-  function notifReset() {
-    notifTimers.forEach(clearTimeout); notifTimers = [];
-    NOTIF.forEach(function (item) {
-      var n = notifCard(item); if (!n || !n.card) return;
-      n.card.classList.remove('ao-done');
-      $$('.ao-reply,.ao-typing,.ao-badge', n.card).forEach(function (x) { x.remove(); });
-      if (n.p && n.p.dataset.aoOrig) { n.p.innerHTML = n.p.dataset.aoOrig; n.p.classList.remove('ao-swap'); }
-    });
-  }
-  function notifFinish(item, n) {
-    var badge = document.createElement('span');
-    badge.className = 'ao-badge'; badge.textContent = item.badge;
-    if (item.mode === 'reply') {
-      var r = document.createElement('div');
-      r.className = 'ao-reply';
-      r.innerHTML = '<em>ИИ-продавец</em>';
-      r.appendChild(document.createTextNode(item.reply));
-      r.appendChild(badge);
-      n.p.parentNode.appendChild(r);
-    } else {
-      n.p.textContent = item.text;
-      n.p.appendChild(badge);
-      n.p.classList.add('ao-swap');
-    }
-    n.card.classList.add('ao-done');
-  }
-  function notifPlay() {
-    notifReset();
-    NOTIF.forEach(function (item) {
-      var n = notifCard(item); if (!n || !n.card || !n.p) return;
-      if (!n.p.dataset.aoOrig) n.p.dataset.aoOrig = n.p.innerHTML;
-      if (REDUCED) { notifFinish(item, n); return; }
-      notifTimers.push(setTimeout(function () {
-        var t = document.createElement('div');
-        t.className = 'ao-typing'; t.textContent = 'печатает…';
-        n.p.parentNode.appendChild(t);
-        notifTimers.push(setTimeout(function () { t.remove(); notifFinish(item, n); }, 1000));
-      }, item.delay + 900));
-    });
-  }
-  function initNotifications() {
-    var stage = $('.cta-notifications-stage');
-    if (!stage) return;
-    var replay = document.getElementById('aoReplay');
-    if (replay) replay.addEventListener('click', notifPlay);
-    if (!('IntersectionObserver' in window)) { notifPlay(); return; }
-    var io = new IntersectionObserver(function (entries) {
-      if (entries[0].isIntersecting) { notifPlay(); io.disconnect(); }
-    }, { threshold: 0.35 });
-    io.observe(stage);
   }
 
   /* =================================================================
@@ -286,7 +214,6 @@
   function ready(fn) { if (document.readyState !== 'loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
   ready(function () {
     timeLine(); setInterval(timeLine, 30000);
-    initNotifications();
     initRoles();
     initResults();
   });

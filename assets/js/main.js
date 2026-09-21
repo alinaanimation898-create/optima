@@ -2570,7 +2570,6 @@
     
     // 1. «САЙТ ЗНАЕТ, КОТОРЫЙ ЧАС»: ДИНАМИЧЕСКАЯ СТРОКА ВРЕМЕНИ
     function initHeroDynamicTime() {
-      const badge = document.getElementById('heroLiveTimeBadge');
       const textEl = document.getElementById('heroLiveTimeText');
       if (!textEl) return;
 
@@ -2587,71 +2586,20 @@
         message = `Сейчас ${timeStr}. Ваши менеджеры спят. Он на смене.`;
       } else if (isWeekend) {
         message = `${dayName}, ${timeStr}. У отдела продаж выходной, у него — самые горячие часы.`;
-      } else {
+      } else if (hours < 10) {
+        message = `Сейчас ${timeStr}. Отдел продаж ещё в пути, а он уже ответил первым клиентам.`;
+      } else if (hours < 19) {
         message = `Сейчас ${timeStr}. Пока менеджер на звонке, он уже ответил пятерым.`;
+      } else {
+        message = `Сейчас ${timeStr}. Рабочий день закончился, а клиенты продолжают писать. Он на связи.`;
       }
 
-      textEl.textContent = message;
+      textEl.innerHTML = message;
     }
 
     // 2. ОЖИВАЮЩИЕ УВЕДОМЛЕНИЯ В HERO: МИНИ-ИСТОРИЯ «ДО → ПОСЛЕ»
     function initLivingNotificationsStory() {
-      const ctaSection = document.getElementById('cta-final');
-      if (!ctaSection) return;
-
-      let hasAnimated = false;
-
-      function runStory() {
-        if (hasAnimated) return;
-        hasAnimated = true;
-
-        const steps = [
-          { id: 'notifCard1', delay: 800, typingDuration: 1200 }, // Анна
-          { id: 'notifCard3', delay: 2400, typingDuration: 1000 }, // Олег
-          { id: 'notifCard4', delay: 4200, typingDuration: 0 },    // Битрикс24
-          { id: 'notifCard5', delay: 5600, typingDuration: 0 },    // Дмитрий
-          { id: 'notifCard2', delay: 7000, typingDuration: 1000 }  // Мария
-        ];
-
-        steps.forEach(step => {
-          setTimeout(() => {
-            const card = document.getElementById(step.id);
-            if (!card) return;
-            const liveArea = card.querySelector('.notif-live-area');
-            const typingEl = card.querySelector('.notif-typing');
-            const solvedEl = card.querySelector('.notif-solved');
-
-            if (liveArea) liveArea.classList.remove('hidden');
-
-            if (step.typingDuration > 0 && typingEl) {
-              typingEl.classList.remove('hidden');
-              setTimeout(() => {
-                if (typingEl) typingEl.classList.add('hidden');
-                if (solvedEl) solvedEl.classList.remove('hidden');
-                card.classList.add('is-solved');
-              }, step.typingDuration);
-            } else {
-              if (typingEl) typingEl.classList.add('hidden');
-              if (solvedEl) solvedEl.classList.remove('hidden');
-              card.classList.add('is-solved');
-            }
-          }, step.delay);
-        });
-      }
-
-      if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              runStory();
-              observer.disconnect();
-            }
-          });
-        }, { threshold: 0.15 });
-        observer.observe(ctaSection);
-      } else {
-        setTimeout(runStory, 1200);
-      }
+      // Статичные чистые уведомления без симуляции ответов ИИ
     }
 
     // 3. ИНТЕРАКТИВНАЯ ПАСХАЛКА «БРАТ»
