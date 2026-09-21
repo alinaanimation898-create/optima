@@ -2903,15 +2903,13 @@
           },
           {
             id: 'tg',
-            label: 'Telegram*',
-            sub: 'в России с ограничениями',
+            label: 'Telegram',
             defaultChecked: false,
             iconSvg: `<img src="assets/logos/tg_logo.webp" alt="Telegram" class="w-8 h-8 rounded-full object-contain shadow-xs shrink-0">`
           },
           {
             id: 'wa',
-            label: 'WhatsApp*',
-            sub: 'основной канал для клиентов из СНГ',
+            label: 'WhatsApp',
             defaultChecked: false,
             iconSvg: `<div class="w-8 h-8 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-xs shrink-0">
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -2921,7 +2919,7 @@
           },
           {
             id: 'inst',
-            label: 'Instagram**',
+            label: 'Instagram',
             defaultChecked: false,
             iconSvg: `<img src="assets/logos/inst_logo.webp" alt="Instagram" class="w-8 h-8 rounded-full object-contain shadow-xs shrink-0">`
           },

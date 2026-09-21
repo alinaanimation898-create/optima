@@ -1488,161 +1488,23 @@
     #constructor .cfg-card {
       position: relative;
       background: #ffffff;
-      border-radius: 24px;
-      overflow: hidden;
-      z-index: 1;
-      isolation: isolate;
-      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 0 0 1px rgba(226, 232, 240, 0.7);
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      padding: 20px 22px;
-    }
-    #constructor .cfg-card > * {
-      position: relative;
-      z-index: 2;
-    }
-    #constructor .cfg-card::before {
-      content: '';
-      position: absolute;
-      top: -100%;
-      left: -100%;
-      width: 300%;
-      height: 300%;
-      animation: borderBeamRotate 6s linear infinite;
-      z-index: -2;
-    }
-    #constructor .cfg-card::after {
-      content: '';
-      position: absolute;
-      inset: 2px;
-      background: #ffffff;
-      border-radius: 22px;
-      z-index: -1;
-      transition: background-color 0.3s ease;
+      border-radius: 20px;
+      border: 1.5px solid rgba(226, 232, 240, 0.9);
+      box-shadow: 0 2px 12px rgba(15, 23, 42, 0.04);
+      transition: all 0.2s ease;
+      padding: 18px 20px;
     }
     #constructor .cfg-card:hover {
-      transform: translateY(-3px);
+      border-color: #bae6fd;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.08);
     }
-
-    /* 0. КАРТОЧКА ВВОДНОГО ТЕКСТА (ДЕЛИКАТНЫЙ СИНИЙ КОНТУР) */
-    #constructor .cfg-card-intro::before {
-      animation-duration: 8s;
-      background: conic-gradient(
-        from 0deg,
-        rgba(226, 232, 240, 0.5) 0deg,
-        rgba(226, 232, 240, 0.5) 220deg,
-        rgba(56, 189, 248, 0.18) 250deg,
-        rgba(14, 165, 233, 0.7) 290deg,
-        #38bdf8 335deg,
-        rgba(226, 232, 240, 0.5) 360deg
-      );
-    }
-    #constructor .cfg-card-intro h3 {
-      background: linear-gradient(135deg, #075985 0%, #0284c7 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    #constructor .cfg-card-intro h3::before {
-      background: #0284c7;
-      box-shadow: 0 0 8px rgba(2, 132, 199, 0.7);
-    }
-
-    /* 1. КАРТОЧКА КАНАЛОВ (СВЕТЯЩИЙСЯ CYAN / SKY КОНТУР) */
-    #constructor .cfg-card-channels::before {
-      animation-duration: 6s;
-      background: conic-gradient(
-        from 0deg,
-        rgba(226, 232, 240, 0.5) 0deg,
-        rgba(226, 232, 240, 0.5) 220deg,
-        rgba(56, 189, 248, 0.2) 250deg,
-        rgba(14, 165, 233, 0.8) 290deg,
-        #38bdf8 335deg,
-        rgba(226, 232, 240, 0.5) 360deg
-      );
-    }
-    #constructor .cfg-card-channels:hover {
-      box-shadow: 0 18px 38px -8px rgba(14, 165, 233, 0.18), 0 0 22px 0 rgba(56, 189, 248, 0.25);
-    }
-    #constructor .cfg-card-channels h3 {
-      background: linear-gradient(135deg, #075985 0%, #0284c7 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    #constructor .cfg-card-channels h3::before {
-      background: #0284c7;
-      box-shadow: 0 0 8px rgba(2, 132, 199, 0.7);
-    }
-
-    /* 2. КАРТОЧКА CRM (СВЕТЯЩИЙСЯ ИЗУМРУДНЫЙ / EMERALD КОНТУР) */
-    #constructor .cfg-card-crms::before {
-      animation-duration: 6.5s;
-      animation-delay: -2.2s;
-      background: conic-gradient(
-        from 0deg,
-        rgba(226, 232, 240, 0.5) 0deg,
-        rgba(226, 232, 240, 0.5) 220deg,
-        rgba(52, 211, 153, 0.2) 250deg,
-        rgba(16, 185, 129, 0.8) 290deg,
-        #34d399 335deg,
-        rgba(226, 232, 240, 0.5) 360deg
-      );
-    }
-    #constructor .cfg-card-crms:hover {
-      box-shadow: 0 18px 38px -8px rgba(16, 185, 129, 0.18), 0 0 22px 0 rgba(52, 211, 153, 0.25);
-    }
-    #constructor .cfg-card-crms h3 {
-      background: linear-gradient(135deg, #065f46 0%, #059669 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    #constructor .cfg-card-crms h3::before {
-      background: #10b981;
-      box-shadow: 0 0 8px rgba(16, 185, 129, 0.7);
-    }
-
-    /* 3. КАРТОЧКА ОБЪЕМА ДИАЛОГОВ (СВЕТЯЩИЙСЯ ЯНТАРНЫЙ / AMBER КОНТУР) */
-    #constructor .cfg-card-volume::before {
-      animation-duration: 7.5s;
-      animation-delay: -5.2s;
-      background: conic-gradient(
-        from 0deg,
-        rgba(226, 232, 240, 0.5) 0deg,
-        rgba(226, 232, 240, 0.5) 220deg,
-        rgba(245, 158, 11, 0.2) 250deg,
-        rgba(234, 88, 12, 0.8) 290deg,
-        #f59e0b 335deg,
-        rgba(226, 232, 240, 0.5) 360deg
-      );
-    }
-    #constructor .cfg-card-volume:hover {
-      box-shadow: 0 18px 38px -8px rgba(245, 158, 11, 0.18), 0 0 22px 0 rgba(245, 158, 11, 0.25);
-    }
-    #constructor .cfg-card-volume h3 {
-      background: linear-gradient(135deg, #7c2d12 0%, #d97706 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    #constructor .cfg-card-volume h3::before {
-      background: #f59e0b;
-      box-shadow: 0 0 8px rgba(245, 158, 11, 0.7);
-    }
-
     #constructor .cfg-card h3 {
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: .06em;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 7px;
-    }
-    #constructor .cfg-card h3::before {
-      content: '';
-      display: inline-block;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      flex-shrink: 0;
+      letter-spacing: .05em;
+      color: #0f172a;
+      margin-bottom: 8px;
     }
 
     #constructor .cfg-row {
@@ -1760,31 +1622,23 @@
     #constructor .cfg-tariffs-strip {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      padding-top: 14px;
-      align-items: stretch;
-    }
-    /* ПОЛОСА ТАРИФОВ (ЛЕСТНИЦА ВЫСОТЫ, СТУПЕНИ ЦВЕТА, ШКАЛА ОБЪЁМА) */
-    #constructor .cfg-tariffs-strip {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      align-items: end;
       gap: 14px;
       width: 100%;
-      padding-top: 16px;
+      padding-top: 14px;
       padding-bottom: 4px;
+      align-items: stretch;
     }
 
     @media (max-width: 767px) {
       #constructor .cfg-tariffs-strip {
         display: flex;
-        align-items: flex-end;
+        align-items: stretch;
         gap: 10px;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
-        padding-top: 18px;
+        padding-top: 14px;
         padding-bottom: 8px;
         padding-left: 2px;
         padding-right: 2px;
@@ -1797,178 +1651,56 @@
     /* Базовая карточка тарифа */
     #constructor .cfg-tariff-card {
       position: relative;
-      border-radius: 20px;
-      padding: 16px 16px 16px 16px;
+      border-radius: 18px;
+      padding: 14px 16px;
       cursor: pointer;
       user-select: none;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, background 0.25s ease;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       box-sizing: border-box;
-      backdrop-filter: blur(8px);
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+      min-height: 110px;
     }
 
-    /* Десктопные высоты лестницы */
-    @media (min-width: 768px) {
-      #constructor .cfg-tariff-card[data-tariff="start"]   { height: 130px; min-height: 130px; }
-      #constructor .cfg-tariff-card[data-tariff="business"]{ height: 160px; min-height: 160px; }
-      #constructor .cfg-tariff-card[data-tariff="stream"]  { height: 190px; min-height: 190px; }
-      #constructor .cfg-tariff-card[data-tariff="empire"]  { height: 220px; min-height: 220px; }
-    }
-
-    /* Мобильные высоты и ширина (scroll-snap) */
     @media (max-width: 767px) {
       #constructor .cfg-tariff-card {
-        flex: 0 0 calc(42% - 6px);
-        min-width: 145px;
+        flex: 0 0 calc(50% - 6px);
+        min-width: 140px;
         scroll-snap-align: start;
-        padding: 14px 12px 14px 12px;
+        padding: 12px 12px;
+        min-height: 105px;
       }
-      #constructor .cfg-tariff-card[data-tariff="start"]   { height: 120px; min-height: 120px; }
-      #constructor .cfg-tariff-card[data-tariff="business"]{ height: 145px; min-height: 145px; }
-      #constructor .cfg-tariff-card[data-tariff="stream"]  { height: 170px; min-height: 170px; }
-      #constructor .cfg-tariff-card[data-tariff="empire"]  { height: 195px; min-height: 195px; }
     }
 
-    /* 1. Ступень 1: Старт */
-    #constructor .cfg-tariff-card[data-tariff="start"] {
-      background: linear-gradient(165deg, #ffffff 0%, #f0f9ff 100%);
-      border: 1.5px solid #bae6fd;
-      color: #0369a1;
-      box-shadow: 0 4px 18px -2px rgba(2, 132, 199, 0.08);
-    }
-    #constructor .cfg-tariff-card[data-tariff="start"] .cfg-tariff-name {
-      color: #0c4a6e;
+    /* Все 4 тарифа в едином благородном стиле */
+    #constructor .cfg-tariff-card .cfg-tariff-name {
+      color: #0f172a;
       font-weight: 800;
     }
-    #constructor .cfg-tariff-card[data-tariff="start"] .cfg-tariff-limit {
-      color: #0284c7;
+    #constructor .cfg-tariff-card .cfg-tariff-limit {
+      color: #64748b;
       font-weight: 600;
     }
-    #constructor .cfg-tariff-card[data-tariff="start"] .cfg-tariff-price {
+    #constructor .cfg-tariff-card .cfg-tariff-price {
       color: #0284c7;
       font-weight: 900;
     }
-    #constructor .cfg-tariff-card[data-tariff="start"] .cfg-tariff-period {
+    #constructor .cfg-tariff-card .cfg-tariff-period {
       color: #64748b;
     }
-    #constructor .cfg-tariff-card[data-tariff="start"] .cfg-vol-seg {
-      background: rgba(2, 132, 199, 0.15);
+    #constructor .cfg-tariff-card .cfg-vol-seg {
+      background: #e2e8f0;
     }
-    #constructor .cfg-tariff-card[data-tariff="start"] .cfg-vol-seg.active {
-      background: linear-gradient(90deg, #38bdf8, #0284c7);
-    }
-    #constructor .cfg-tariff-card[data-tariff="start"] .cfg-tariff-check {
-      color: #0284c7;
-      background: #e0f2fe;
-    }
-
-    /* 2. Ступень 2: Бизнес */
-    #constructor .cfg-tariff-card[data-tariff="business"] {
-      background: linear-gradient(165deg, #e0f2fe 0%, #bae6fd 40%, #ffffff 100%);
-      border: 2px solid #0284c7;
-      color: #075985;
-      box-shadow: 0 8px 24px -4px rgba(2, 132, 199, 0.22);
-    }
-    #constructor .cfg-tariff-card[data-tariff="business"] .cfg-tariff-name {
-      color: #0c4a6e;
-      font-weight: 800;
-    }
-    #constructor .cfg-tariff-card[data-tariff="business"] .cfg-tariff-limit {
-      color: #0284c7;
-      font-weight: 700;
-    }
-    #constructor .cfg-tariff-card[data-tariff="business"] .cfg-tariff-price {
-      color: #0369a1;
-      font-weight: 900;
-    }
-    #constructor .cfg-tariff-card[data-tariff="business"] .cfg-tariff-period {
-      color: #075985;
-    }
-    #constructor .cfg-tariff-card[data-tariff="business"] .cfg-vol-seg {
-      background: rgba(2, 132, 199, 0.2);
-    }
-    #constructor .cfg-tariff-card[data-tariff="business"] .cfg-vol-seg.active {
-      background: linear-gradient(90deg, #0284c7, #0369a1);
-    }
-    #constructor .cfg-tariff-card[data-tariff="business"] .cfg-tariff-check {
-      color: #ffffff;
+    #constructor .cfg-tariff-card .cfg-vol-seg.active {
       background: #0284c7;
     }
-
-    /* 3. Ступень 3: Поток */
-    #constructor .cfg-tariff-card[data-tariff="stream"] {
-      background: linear-gradient(165deg, #0ea5e9 0%, #0284c7 50%, #0369a1 100%);
-      border: 2px solid #38bdf8;
+    #constructor .cfg-tariff-card .cfg-tariff-check {
       color: #ffffff;
-      box-shadow: 0 10px 30px -4px rgba(2, 132, 199, 0.35);
-    }
-    #constructor .cfg-tariff-card[data-tariff="stream"] .cfg-tariff-name {
-      color: #ffffff;
-      font-weight: 800;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    }
-    #constructor .cfg-tariff-card[data-tariff="stream"] .cfg-tariff-limit {
-      color: #e0f2fe;
-      font-weight: 600;
-    }
-    #constructor .cfg-tariff-card[data-tariff="stream"] .cfg-tariff-price {
-      color: #ffffff;
-      font-weight: 900;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-    }
-    #constructor .cfg-tariff-card[data-tariff="stream"] .cfg-tariff-period {
-      color: #bae6fd;
-    }
-    #constructor .cfg-tariff-card[data-tariff="stream"] .cfg-vol-seg {
-      background: rgba(255, 255, 255, 0.25);
-    }
-    #constructor .cfg-tariff-card[data-tariff="stream"] .cfg-vol-seg.active {
-      background: #ffffff;
-      box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
-    }
-    #constructor .cfg-tariff-card[data-tariff="stream"] .cfg-tariff-check {
-      color: #0284c7;
-      background: #ffffff;
-    }
-
-    /* 4. Ступень 4: Империя */
-    #constructor .cfg-tariff-card[data-tariff="empire"] {
-      background: linear-gradient(165deg, #07192d 0%, #0b2545 50%, #031525 100%);
-      border: 2px solid #38bdf8;
-      color: #e0f2fe;
-      box-shadow: 0 12px 35px -5px rgba(2, 6, 23, 0.5), inset 0 1px 1px rgba(56, 189, 248, 0.35);
-    }
-    #constructor .cfg-tariff-card[data-tariff="empire"] .cfg-tariff-name {
-      color: #38bdf8;
-      font-weight: 800;
-      text-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
-    }
-    #constructor .cfg-tariff-card[data-tariff="empire"] .cfg-tariff-limit {
-      color: #93c5fd;
-      font-weight: 600;
-    }
-    #constructor .cfg-tariff-card[data-tariff="empire"] .cfg-tariff-price {
-      color: #38bdf8;
-      font-weight: 900;
-      text-shadow: 0 0 14px rgba(56, 189, 248, 0.5);
-    }
-    #constructor .cfg-tariff-card[data-tariff="empire"] .cfg-tariff-from,
-    #constructor .cfg-tariff-card[data-tariff="empire"] .cfg-tariff-period {
-      color: #94a3b8;
-    }
-    #constructor .cfg-tariff-card[data-tariff="empire"] .cfg-vol-seg {
-      background: rgba(255, 255, 255, 0.15);
-    }
-    #constructor .cfg-tariff-card[data-tariff="empire"] .cfg-vol-seg.active {
-      background: linear-gradient(90deg, #38bdf8, #0ea5e9);
-      box-shadow: 0 0 8px rgba(56, 189, 248, 0.7);
-    }
-    #constructor .cfg-tariff-card[data-tariff="empire"] .cfg-tariff-check {
-      color: #07192d;
-      background: #38bdf8;
-      box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+      background: #0284c7;
     }
 
     /* Шкала объёма */
@@ -1978,69 +1710,66 @@
       justify-content: space-between;
       gap: 6px;
       width: 100%;
-      margin-bottom: auto;
+      margin-bottom: 8px;
     }
     #constructor .cfg-vol-scale {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 4px;
-      height: 6px;
+      gap: 3px;
+      height: 4px;
       flex-grow: 1;
       max-width: calc(100% - 24px);
     }
     #constructor .cfg-vol-seg {
-      height: 6px;
+      height: 4px;
       border-radius: 999px;
       display: block;
-      transition: background-color 0.2s ease, box-shadow 0.2s ease;
+      transition: background-color 0.2s ease;
     }
 
     /* Иконка галочки выбранного тарифа */
     #constructor .cfg-tariff-check {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       border-radius: 50%;
       display: none;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 1px 4px rgba(2, 132, 199, 0.3);
     }
 
-    /* Выбранный тариф: яркое свечение + подъем */
+    /* Выбранный тариф: деликатный акцент */
     #constructor .cfg-tariff-card.active {
-      transform: translateY(-3px);
-      box-shadow: 0 0 0 3px #0284c7, 0 12px 28px -4px rgba(2, 132, 199, 0.4) !important;
+      background: #f0f9ff;
       border-color: #0284c7 !important;
-    }
-    #constructor .cfg-tariff-card[data-tariff="empire"].active {
-      box-shadow: 0 0 0 3px #38bdf8, 0 0 25px rgba(56, 189, 248, 0.45) !important;
-      border-color: #38bdf8 !important;
+      box-shadow: 0 4px 18px rgba(2, 132, 199, 0.15) !important;
+      transform: translateY(-2px);
     }
     #constructor .cfg-tariff-card.active .cfg-tariff-check {
       display: flex;
     }
 
     #constructor .cfg-tariff-card:hover:not(.active) {
-      box-shadow: 0 8px 20px -2px rgba(2, 132, 199, 0.2);
-      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.08);
+      border-color: #93c5fd;
+      transform: translateY(-1px);
     }
 
-    /* Бейдж «выбирают чаще» всегда над Бизнесом */
+    /* Бейдж «выбирают чаще» */
     #constructor .cfg-tariff-badge {
       position: absolute;
-      top: -12px;
+      top: -10px;
       left: 12px;
-      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      background: #0284c7;
       color: #FFFFFF;
-      font-size: 9.5px;
+      font-size: 9px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      padding: 3px 10px;
+      letter-spacing: 0.04em;
+      padding: 2px 8px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.45);
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
       white-space: nowrap;
       pointer-events: none;
       z-index: 10;
