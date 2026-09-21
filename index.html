@@ -1442,6 +1442,21 @@
       margin-top: 1px;
       line-height: 1.35;
     }
+    #constructor .cfg-channel-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    #constructor .cfg-card-crms .cfg-channel-icon {
+      background: #ecfdf5;
+      border-color: #a7f3d0;
+    }
     #constructor .cfg-row-right {
       display: flex;
       align-items: center;
@@ -7175,22 +7190,48 @@
     <!-- 8.9 СЕКЦИЯ: КОНСТРУКТОР ТАРИФА -->
     <section id="constructor" class="max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 font-inter space-y-8 sm:space-y-10 lg:space-y-12 py-10 sm:py-14">
       
-      <!-- 2.1. ТЕКСТОВЫЙ БЛОК ПЕРЕД ТАРИФАМИ -->
-      <div class="cfg-card cfg-card-intro max-w-5xl mx-auto mb-6 sm:mb-8">
-        <h3>МЫ ПОСТАВИЛИ МИНИМАЛЬНУЮ ЦЕНУ ВХОДА</h3>
-        <div class="space-y-3 sm:space-y-3.5 text-xs sm:text-sm md:text-[15px] text-slate-600 leading-relaxed font-normal">
+      <!-- 2.1. ТЕКСТОВЫЙ БЛОК-ЦИТАТА ПЕРЕД ТАРИФАМИ -->
+      <div class="cfg-card cfg-card-intro max-w-5xl mx-auto mb-6 sm:mb-8 relative overflow-hidden bg-gradient-to-b from-white to-sky-50/20 border border-sky-100">
+        <!-- Декоративная фоновая кавычка -->
+        <div class="absolute -right-2 -top-6 text-sky-200/40 select-none pointer-events-none text-9xl font-serif font-black leading-none" aria-hidden="true">“</div>
+
+        <div class="relative z-10 flex items-center justify-between gap-3 mb-3">
+          <h3 class="!mb-0">МЫ ПОСТАВИЛИ МИНИМАЛЬНУЮ ЦЕНУ ВХОДА</h3>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-sky-700 bg-sky-100/70 px-2.5 py-0.5 rounded-full border border-sky-200 shrink-0">
+            Прямая речь
+          </span>
+        </div>
+
+        <blockquote class="relative z-10 pl-3.5 sm:pl-4.5 border-l-2 sm:border-l-[3px] border-sky-500 my-3.5 space-y-3 sm:space-y-3.5 text-xs sm:text-sm md:text-[15px] text-slate-700 leading-relaxed font-normal">
           <p>
             Запуск ИИ-продавца стоит 29&nbsp;000&nbsp;₽ — примерно во столько он обходится нам самим. На внедрении мы не зарабатываем и не пытаемся.
           </p>
           <p>
             Мы зарабатываем на подписке. А подписку платят только те, кому продукт приносит деньги каждый месяц. Значит, наш заработок начинается там же, где ваш: когда ИИ-продавец отвечает вашим клиентам ночью, доводит их до менеджера и приносит сделки.
           </p>
-          <p>
-            Поэтому мы не просим вас рисковать крупной суммой на старте. Мы просим месяц. Дальше вы решаете сами: подписка помесячная, без обязательного срока и штрафов за отключение, а база знаний и переписки остаются вашими и выгружаются по первому запросу.
-          </p>
           <p class="font-bold text-slate-900">
-            Мы уверены в продукте настолько, что готовы зарабатывать только тогда, когда вы им пользуетесь.
+            Поэтому мы кровно заинтересованы, чтобы он работал и продавал. Если у вас не пойдёт — мы потеряем клиента. Если пойдёт — будем работать годами.
           </p>
+        </blockquote>
+
+        <!-- АВТОРСКАЯ ПОДПИСЬ -->
+        <div class="relative z-10 mt-4 pt-3.5 border-t border-slate-200/80 flex items-center justify-between flex-wrap gap-3">
+          <div class="flex items-center gap-2.5 sm:gap-3">
+            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-tr from-sky-600 via-sky-500 to-blue-600 flex items-center justify-center text-white font-extrabold text-sm sm:text-base shadow-sm ring-2 ring-white shrink-0">
+              ⚡
+            </div>
+            <div>
+              <div class="text-xs sm:text-sm font-extrabold text-slate-900 leading-tight">
+                Алина и Давид
+              </div>
+              <div class="text-[11px] sm:text-xs text-sky-700 font-semibold">
+                главные движки Altai Optima
+              </div>
+            </div>
+          </div>
+          <div class="text-[11px] sm:text-xs text-slate-400 font-normal">
+            основатели проекта
+          </div>
         </div>
       </div>
 
@@ -10774,7 +10815,6 @@
           }, { threshold: 0.1 });
           obs.observe(ctorSec);
         }
-      })();
     });
   </script>
 
