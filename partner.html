@@ -126,8 +126,8 @@
       height: 1px;
       background: linear-gradient(90deg, transparent 0%, rgba(14, 165, 233, 0.22) 20%, rgba(56, 189, 248, 0.45) 50%, rgba(14, 165, 233, 0.22) 80%, transparent 100%);
       overflow: visible;
-      margin-top: 3.5rem;
-      margin-bottom: 3.5rem;
+      margin-top: 5rem;
+      margin-bottom: 5rem;
     }
     .section-neon-divider .section-neon-beam {
       position: absolute;
@@ -201,32 +201,77 @@
       transform: translateY(-1px);
     }
 
-    /* Сегментированный переключатель калькулятора */
-    .calc-seg {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      background: rgba(4, 18, 42, 0.7);
-      border: 1px solid rgba(56, 189, 248, 0.35);
+    /* КНОПКА С АНИМИРОВАННЫМ БЛИКОМ */
+    .btn-shimmer {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #ffffff;
+      color: #065f46;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.8125rem;
+      padding: 14px 28px;
       border-radius: 9999px;
-      padding: 4px;
-      gap: 4px;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12), 0 0 15px rgba(255, 255, 255, 0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      white-space: nowrap;
     }
-    .calc-seg input { position: absolute; opacity: 0; width: 1px; height: 1px; }
-    .calc-seg label {
+    .btn-shimmer:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18), 0 0 25px rgba(255, 255, 255, 0.7);
+    }
+    .btn-shimmer::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.8) 50%,
+        transparent 100%
+      );
+      transform: rotate(25deg);
+      animation: btnGleam 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+    @keyframes btnGleam {
+      0% { left: -70%; }
+      35% { left: 140%; }
+      100% { left: 140%; }
+    }
+
+    /* Сегментированные переключатели калькулятора (светлая версия) */
+    .calc-seg-light {
+      display: grid;
+      background: #e2e8f0;
+      border-radius: 9999px;
+      padding: 3px;
+      gap: 3px;
+      position: relative;
+    }
+    .calc-seg-light input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .calc-seg-light label {
       text-align: center;
-      padding: 10px 4px;
+      padding: 9px 4px;
       border-radius: 9999px;
       font-size: 13px;
       font-weight: 700;
-      color: #94a3b8;
+      color: #64748b;
       cursor: pointer;
       transition: all 0.2s;
       white-space: nowrap;
     }
-    .calc-seg input:checked + label {
-      background: linear-gradient(135deg, #0284c7, #38bdf8);
-      color: #ffffff;
-      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+    .calc-seg-light input:checked + label {
+      background: #ffffff;
+      color: #0284c7;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
 
     /* Формы */
@@ -279,14 +324,6 @@
 
     .hero-amount { font-size: clamp(1.75rem, 5.6vw, 3.5rem); line-height: 1.08; }
 
-    /* Таблица примера */
-    .ex-table { width: 100%; min-width: 520px; border-collapse: collapse; font-size: 13px; }
-    .ex-table th { text-align: left; font-size: 11px; font-weight: 700; color: #64748b; padding: 8px 10px; border-bottom: 1.5px solid #bae6fd; }
-    .ex-table td { padding: 9px 10px; border-bottom: 1px solid #e2e8f0; color: #334155; font-variant-numeric: tabular-nums; }
-    .ex-table td:last-child { font-weight: 900; color: #0f172a; }
-    .ex-row-up td { background: #ecfdf5; }
-    .ex-row-up td:last-child { color: #047857; }
-
     /* Доступность */
     a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid #0284c7; outline-offset: 3px; }
     @media (prefers-reduced-motion: reduce) {
@@ -320,6 +357,10 @@
         <a href="./index.html" class="px-2.5 py-1 text-sky-700 hover:text-sky-900 bg-sky-50 rounded-full font-extrabold transition-colors">
           ← ГЛАВНАЯ
         </a>
+        <span class="text-slate-300">•</span>
+        <a href="#product" class="px-2 py-1 hover:text-sky-600 transition-colors">О ПРОДУКТЕ</a>
+        <span class="text-slate-300">•</span>
+        <a href="#money" class="px-2 py-1 hover:text-sky-600 transition-colors">ОТКУДА ДЕНЬГИ</a>
         <span class="text-slate-300">•</span>
         <a href="#ways" class="px-2 py-1 hover:text-sky-600 transition-colors">СПОСОБЫ ЗАРАБОТКА</a>
         <span class="text-slate-300">•</span>
@@ -356,131 +397,179 @@
   <!-- Мобильное меню -->
   <div id="mobile-menu-drawer" class="fixed inset-x-3 top-20 z-40 bg-white/95 backdrop-blur-2xl border border-sky-200 rounded-2xl p-5 shadow-2xl hidden xl:hidden space-y-2 text-sm font-semibold">
     <a href="./index.html" class="block py-2 px-3 rounded-lg bg-sky-50 font-bold text-sky-800">← Главная страница сайта</a>
-    <a href="#simple" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Схема в 3 шага</a>
+    <a href="#product" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Что вы продаёте</a>
     <a href="#money" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Откуда ваши деньги</a>
     <a href="#ways" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Способы заработка</a>
-    <a href="#example" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Пример на цифрах</a>
     <a href="#ladder" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Рост статуса</a>
     <a href="#calc" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Калькулятор дохода</a>
     <a href="#kit" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Стартовый набор</a>
     <a href="#how" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Как это работает</a>
-    <a href="#product" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Что делает ИИ-продавец</a>
     <a href="#fit" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Кому предлагать</a>
     <a href="#faq" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Вопросы и ответы</a>
     <a href="#join" onclick="toggleMobileMenu()" class="block py-2.5 px-3 rounded-lg bg-sky-600 text-white font-bold text-center mt-2">Стать партнёром</a>
   </div>
 
-  <main class="relative z-10 pt-24 sm:pt-32 pb-24 bg-grid-cyber">
+  <main class="relative z-10 pt-24 sm:pt-32 pb-28 bg-grid-cyber">
 
     <!-- 1. ПЕРВЫЙ ЭКРАН -->
-    <section id="top" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-14 sm:mb-16 relative">
+    <section id="top" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 sm:mb-28 relative">
       <div class="max-w-5xl mx-auto text-center">
 
-        <h1 class="font-benzin tracking-tight mb-3 uppercase max-w-5xl mx-auto">
+        <h1 class="font-benzin tracking-tight mb-4 uppercase max-w-5xl mx-auto">
           <span class="block font-black hero-amount partner-hero-animated-title">
             66&nbsp;600&nbsp;₽ за&nbsp;одного клиента
           </span>
-          <span class="block text-base sm:text-2xl md:text-3xl lg:text-[32px] font-black tracking-tight leading-[1.2] mt-2 text-slate-900">
+          <span class="block text-base sm:text-2xl md:text-3xl lg:text-[32px] font-black tracking-tight leading-[1.2] mt-3 text-slate-900">
             или 6&nbsp;600&nbsp;₽ каждый месяц, пока он платит
           </span>
         </h1>
 
-        <p class="text-[11px] sm:text-xs text-slate-500 font-semibold mb-6">
+        <p class="text-[11px] sm:text-xs text-slate-500 font-semibold mb-8">
           Пример для агента: клиент на тарифе «Бизнес». Годовая оплата — выплата в&nbsp;течение 5&nbsp;рабочих дней.
         </p>
 
-        <p class="text-sm sm:text-base md:text-lg text-slate-700 max-w-3xl mx-auto mb-8 font-medium leading-relaxed">
+        <p class="text-sm sm:text-base md:text-lg text-slate-700 max-w-3xl mx-auto mb-10 font-medium leading-relaxed">
           Рекомендуйте бизнесу ИИ-продавца, который отвечает клиентам за 30–60 секунд днём и ночью и&nbsp;ставит сделки в&nbsp;CRM. Продаём, внедряем и сопровождаем мы&nbsp;— вы получаете процент с&nbsp;каждой оплаты клиента.
         </p>
 
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
           <a href="#join" class="btn-optic w-full sm:w-auto">Стать партнёром</a>
           <a href="#calc" class="btn-neon-contour w-full sm:w-auto py-3.5 px-7 text-xs font-bold uppercase tracking-wider">Рассчитать свой доход</a>
         </div>
 
         <ul class="flex flex-wrap justify-center gap-2 text-[11px] sm:text-xs font-medium text-slate-600">
-          <li class="px-3 py-1 rounded-full bg-white/70 backdrop-blur-xs border border-sky-200/80">Официальный агентский договор</li>
-          <li class="px-3 py-1 rounded-full bg-white/70 backdrop-blur-xs border border-sky-200/80">Без вступительных взносов</li>
-          <li class="px-3 py-1 rounded-full bg-white/70 backdrop-blur-xs border border-sky-200/80">Выплаты ИП, ООО, самозанятым и физлицам</li>
-          <li class="px-3 py-1 rounded-full bg-white/70 backdrop-blur-xs border border-sky-200/80">Подписка — ежемесячно до 10-го числа</li>
+          <li class="px-3.5 py-1.5 rounded-full bg-white/70 backdrop-blur-xs border border-sky-200/80">Официальный агентский договор</li>
+          <li class="px-3.5 py-1.5 rounded-full bg-white/70 backdrop-blur-xs border border-sky-200/80">Без вступительных взносов</li>
+          <li class="px-3.5 py-1.5 rounded-full bg-white/70 backdrop-blur-xs border border-sky-200/80">Выплаты ИП, ООО, самозанятым и физлицам</li>
+          <li class="px-3.5 py-1.5 rounded-full bg-white/70 backdrop-blur-xs border border-sky-200/80">Подписка — ежемесячно до 10-го числа</li>
         </ul>
       </div>
     </section>
 
-    <!-- 1.1 ВСЯ СХЕМА В 3 ШАГА: ШАГИ 1 И 2 НА ПРОЗРАЧНОМ ФОНЕ, ШАГ 3 — АКЦЕНТНЫЙ -->
-    <section id="simple" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-14 relative">
-      <h2 class="text-center text-lg sm:text-xl font-black text-slate-900 mb-6">Вся схема — в три шага</h2>
-      <ol class="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch list-none m-0 p-0">
-        
-        <!-- Шаг 1: прозрачный фон -->
-        <li class="flex flex-col p-4 rounded-2xl border border-dashed border-sky-300/80 bg-transparent">
-          <div class="flex items-center gap-3 mb-2.5">
-            <span class="w-8 h-8 rounded-full bg-sky-500 text-white font-black text-xs flex items-center justify-center shrink-0">1</span>
-            <span class="text-xs font-bold uppercase tracking-wider text-sky-800">Шаг первый</span>
+    <!-- 2. ВТОРОЙ БЛОК: ЧТО ВЫ ПРОДАЕТЕ (ПЕРЕМЕЩЕНО НА 2-Е МЕСТО) -->
+    <section id="product" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 sm:mb-28 scroll-mt-28 relative">
+      
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 max-w-3xl mx-auto mb-12 text-center sm:text-left">
+        <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 border-2 border-sky-400 bg-gradient-to-tr from-sky-400 to-blue-600 shadow-lg relative shrink-0">
+          <div class="w-full h-full rounded-full overflow-hidden bg-slate-900">
+            <img src="avatar_eva.webp" alt="Эва — ИИ-продавец" loading="lazy" class="w-full h-full object-cover object-[center_12%]">
           </div>
-          <h3 class="text-base font-extrabold text-slate-900 mb-1.5">Знакомите с бизнесом</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Отправляете контакт собственника через форму или даёте ему свою ссылку. Больше от вас ничего не требуется.
-          </p>
-        </li>
-
-        <!-- Шаг 2: прозрачный фон -->
-        <li class="flex flex-col p-4 rounded-2xl border border-dashed border-sky-300/80 bg-transparent">
-          <div class="flex items-center gap-3 mb-2.5">
-            <span class="w-8 h-8 rounded-full bg-blue-600 text-white font-black text-xs flex items-center justify-center shrink-0">2</span>
-            <span class="text-xs font-bold uppercase tracking-wider text-blue-800">Шаг второй</span>
+          <div class="absolute bottom-0 right-0 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-emerald-500 border-2 border-white shadow-xs flex items-center justify-center" title="В сети 24/7">
+            <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
           </div>
-          <h3 class="text-base font-extrabold text-slate-900 mb-1.5">Мы продаём и запускаем</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Показываем демо, считаем окупаемость, подписываем договор и запускаем ИИ-продавца — от 3 дней.
-          </p>
-        </li>
+        </div>
 
-        <!-- Шаг 3: акцентная карточка результата -->
-        <li class="flex flex-col p-5 rounded-2xl bg-gradient-to-br from-white to-emerald-50 border-2 border-emerald-400 shadow-md">
-          <div class="flex items-center justify-between gap-2 mb-2.5">
-            <div class="flex items-center gap-2">
-              <span class="w-8 h-8 rounded-full bg-emerald-500 text-white font-black text-xs flex items-center justify-center shrink-0">3</span>
-              <span class="text-xs font-black uppercase tracking-wider text-emerald-800">Результат</span>
-            </div>
-            <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">Каждый месяц</span>
+        <div class="space-y-1.5 flex-1">
+          <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase grad-heading">
+            ЧТО ВЫ ПРОДАЕТЕ
+          </h2>
+          <p class="text-xs sm:text-sm md:text-base text-slate-700 leading-relaxed font-medium">
+            Виртуальный сотрудник, который за 30–60 секунд отвечает клиентам в чатах, на Авито и сайте днём и ночью, квалифицирует лид и заводит готовую сделку в CRM.
+          </p>
+        </div>
+      </div>
+
+      <!-- КЛЮЧЕВЫЕ ВОЗМОЖНОСТИ -->
+      <div class="p-6 sm:p-8 rounded-3xl bg-white border border-sky-200/90 shadow-sm mb-8">
+        <h3 class="text-sm font-black text-slate-900 uppercase tracking-wider mb-6 flex items-center gap-2">
+          <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-black">✓</span>
+          Ключевые возможности ИИ-продавца:
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs sm:text-sm text-slate-700">
+          <div>
+            <div class="font-bold text-slate-900 mb-1">Мгновенный захват лида</div>
+            <p class="text-slate-600 text-xs leading-relaxed">Ответ за 30–60 секунд 24/7 без очередей и потерь ночных заявок.</p>
           </div>
-          <h3 class="text-base font-black text-emerald-950 mb-1.5">Вы получаете деньги</h3>
-          <p class="text-xs text-slate-700 leading-relaxed">
-            Процент с запуска сразу, а затем каждый месяц — пока клиент пользуется сервисом.
-          </p>
-        </li>
+          <div>
+            <div class="font-bold text-slate-900 mb-1">Квалификация по регламентам</div>
+            <p class="text-slate-600 text-xs leading-relaxed">Выясняет задачу, бюджет, сроки строго по базе знаний компании.</p>
+          </div>
+          <div>
+            <div class="font-bold text-slate-900 mb-1">Голосовые сообщения</div>
+            <p class="text-slate-600 text-xs leading-relaxed">Свободно распознаёт аудиосообщения и общается живым человеческим голосом.</p>
+          </div>
+          <div>
+            <div class="font-bold text-slate-900 mb-1">Бесшовная CRM-интеграция</div>
+            <p class="text-slate-600 text-xs leading-relaxed">Автоматически создаёт сделку, сохраняет диалог и ставит задачу менеджеру.</p>
+          </div>
+        </div>
+      </div>
 
-      </ol>
-    </section>
+      <!-- ТАРИФЫ КЛИЕНТА -->
+      <div class="p-6 sm:p-8 rounded-3xl bg-white border border-sky-200/90 shadow-sm mb-8">
+        <div class="flex items-center justify-between flex-wrap gap-2 mb-6">
+          <h3 class="text-sm font-black text-slate-900 uppercase tracking-wider">Тарифы для клиентов:</h3>
+          <span class="text-xs font-bold text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">CRM и каналы бесплатно</span>
+        </div>
 
-    <!-- 2. КОМУ ПОДХОДИТ ПАРТНЁРСТВО: БЕЗ ТЯЖЁЛОЙ ПЛАШКИ -->
-    <section id="who" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-14 relative text-center">
-      <p class="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-500 mb-3">
-        Кому подходит партнёрство — тем, кто уже общается с бизнесом
-      </p>
-      <div class="flex flex-wrap justify-center gap-2 text-xs font-semibold">
-        <span class="px-3 py-1.5 rounded-full bg-white border border-sky-200 text-slate-700 shadow-xs">Маркетологи и таргетологи</span>
-        <span class="px-3 py-1.5 rounded-full bg-white border border-sky-200 text-slate-700 shadow-xs">Интеграторы amoCRM и Битрикс24</span>
-        <span class="px-3 py-1.5 rounded-full bg-white border border-sky-200 text-slate-700 shadow-xs">Веб-студии и digital-агентства</span>
-        <span class="px-3 py-1.5 rounded-full bg-white border border-sky-200 text-slate-700 shadow-xs">Бизнес-консультанты и трекеры</span>
-        <span class="px-3 py-1.5 rounded-full bg-white border border-sky-200 text-slate-700 shadow-xs">Бухгалтеры на аутсорсе</span>
-        <span class="px-3 py-1.5 rounded-full bg-white border border-sky-200 text-slate-700 shadow-xs">Руководители отделов продаж</span>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
+            <div class="font-bold text-slate-900 text-sm">«Старт»</div>
+            <div class="text-[11px] text-slate-500 mb-2">до 200 диалогов/мес</div>
+            <div class="text-lg font-black text-slate-900">22&nbsp;000&nbsp;₽<span class="text-[10px] font-normal text-slate-500">/мес</span></div>
+            <div class="text-[11px] font-bold text-sky-700 mt-1">222&nbsp;000&nbsp;₽/год</div>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-emerald-50/80 border-2 border-emerald-400">
+            <div class="font-black text-emerald-950 text-sm">«Бизнес»</div>
+            <div class="text-[11px] text-emerald-700 mb-2 font-semibold">до 600 диалогов/мес</div>
+            <div class="text-lg font-black text-emerald-950">33&nbsp;000&nbsp;₽<span class="text-[10px] font-normal text-slate-500">/мес</span></div>
+            <div class="text-[11px] font-black text-emerald-700 mt-1">333&nbsp;000&nbsp;₽/год</div>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
+            <div class="font-bold text-slate-900 text-sm">«Поток»</div>
+            <div class="text-[11px] text-slate-500 mb-2">до 1500 диалогов/мес</div>
+            <div class="text-lg font-black text-slate-900">55&nbsp;000&nbsp;₽<span class="text-[10px] font-normal text-slate-500">/мес</span></div>
+            <div class="text-[11px] font-bold text-sky-700 mt-1">555&nbsp;000&nbsp;₽/год</div>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
+            <div class="font-bold text-slate-900 text-sm">«Империя»</div>
+            <div class="text-[11px] text-slate-500 mb-2">от 1500 диалогов/мес</div>
+            <div class="text-lg font-black text-slate-900">от 88&nbsp;000&nbsp;₽<span class="text-[10px] font-normal text-slate-500">/мес</span></div>
+            <div class="text-[11px] font-bold text-sky-700 mt-1">от 888&nbsp;000&nbsp;₽/год</div>
+          </div>
+        </div>
+
+        <p class="text-xs text-slate-600 mt-5 pt-3 border-t border-slate-100 leading-relaxed">
+          <strong>Запуск:</strong> 29&nbsp;000&nbsp;₽ разово при любом наборе каналов и CRM. Договор с юридическими лицами.
+        </p>
+      </div>
+
+      <!-- КАНАЛЫ СВЯЗИ -->
+      <div class="flex flex-wrap items-center justify-between gap-3 p-4 rounded-2xl bg-white/70 border border-slate-200 text-xs">
+        <span class="font-bold text-slate-900">Каналы и CRM:</span>
+        <div class="flex flex-wrap gap-1.5 font-semibold text-slate-700">
+          <span class="px-2.5 py-1 rounded-full bg-blue-50 text-blue-800 font-bold border border-blue-200">ВКонтакте (VK)</span>
+          <span class="px-2.5 py-1 rounded-full bg-white border border-slate-200">Telegram</span>
+          <span class="px-2.5 py-1 rounded-full bg-white border border-slate-200">WhatsApp</span>
+          <span class="px-2.5 py-1 rounded-full bg-white border border-slate-200">Авито</span>
+          <span class="px-2.5 py-1 rounded-full bg-white border border-slate-200">Сайт</span>
+          <span class="px-2.5 py-1 rounded-full bg-white border border-slate-200">amoCRM</span>
+          <span class="px-2.5 py-1 rounded-full bg-white border border-slate-200">Битрикс24</span>
+          <span class="px-2.5 py-1 rounded-full bg-white border border-slate-200">1С</span>
+        </div>
       </div>
     </section>
 
-    <!-- 2.1 ОТКУДА ВАШИ ДЕНЬГИ: ЦЕНТРАЛЬНАЯ КАРТОЧКА АКЦЕНТНАЯ, БОКОВЫЕ ЛЕГЧЕ -->
-    <section id="money" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 scroll-mt-28 relative">
-      <div class="text-center max-w-3xl mx-auto mb-7">
+    <!-- Тонкий неоновый разделитель -->
+    <div class="section-neon-divider max-w-6xl mx-auto opacity-75">
+      <div class="section-neon-beam" style="--divider-duration: 8s;"></div>
+    </div>
+
+    <!-- 3. ОТКУДА ВАШИ ДЕНЬГИ -->
+    <section id="money" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 sm:mb-28 scroll-mt-28 relative">
+      <div class="text-center max-w-3xl mx-auto mb-10">
         <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase grad-heading">
           Откуда ваши деньги
         </h2>
-        <p class="text-sm sm:text-base text-slate-600 font-medium mt-1.5">
+        <p class="text-sm sm:text-base text-slate-600 font-medium mt-2">
           Клиент платит нам за сервис. С каждой его оплаты часть уходит вам. Оплаты бывают трёх видов:
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
         
         <!-- Запуск: лёгкая карточка на прозрачном фоне -->
         <div class="p-6 rounded-3xl border border-slate-200/90 bg-white/50 backdrop-blur-xs flex flex-col justify-between">
@@ -531,23 +620,23 @@
         </div>
 
       </div>
-      <p class="text-[11px] sm:text-xs text-slate-500 mt-3 text-center">* Суммы для тарифа «Бизнес» (33&nbsp;000&nbsp;₽/мес). Меньшая — для скаута, большая — для агента.</p>
+      <p class="text-[11px] sm:text-xs text-slate-500 mt-4 text-center">* Суммы для тарифа «Бизнес» (33&nbsp;000&nbsp;₽/мес). Меньшая — для скаута, большая — для агента.</p>
     </section>
 
-    <!-- 3. ЧЕТЫРЕ СПОСОБА ЗАРАБОТАТЬ: РАЗНЫЕ ЦВЕТА КАРТОЧЕК И БЕЗ ВЛОЖЕННЫХ ПЛАШЕК -->
-    <section id="ways" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-14 scroll-mt-28 relative">
-      <div class="text-center max-w-3xl mx-auto mb-8">
+    <!-- 4. ЧЕТЫРЕ СПОСОБА ЗАРАБОТАТЬ -->
+    <section id="ways" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 sm:mb-28 scroll-mt-28 relative">
+      <div class="text-center max-w-3xl mx-auto mb-10">
         <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase grad-heading">
           4 способа заработать
         </h2>
-        <p class="text-sm sm:text-base text-slate-600 font-medium mt-1.5">
+        <p class="text-sm sm:text-base text-slate-600 font-medium mt-2">
           Разница — в том, сколько работы вы берёте на себя. Суммы указаны с одного клиента на тарифе «Бизнес».
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
 
-        <!-- 1. СКАУТ (Небесный / легкий) -->
+        <!-- 1. СКАУТ -->
         <article class="p-6 rounded-3xl bg-white/80 border border-sky-200 shadow-sm flex flex-col justify-between">
           <div>
             <div class="text-[11px] font-bold text-sky-700 uppercase tracking-wider mb-1">Минимум действий</div>
@@ -561,7 +650,6 @@
               <div><strong class="text-slate-900">Мы:</strong> демо, договор, запуск и поддержка</div>
             </div>
 
-            <!-- Доход без вложенных плашек -->
             <div class="py-3 border-y border-slate-100 mb-4">
               <div class="text-[11px] font-bold text-slate-400 uppercase">Ежемесячно</div>
               <div class="text-2xl font-black text-sky-700 tabular-nums">4&nbsp;950&nbsp;₽<span class="text-xs font-normal text-slate-500">/мес</span></div>
@@ -575,7 +663,7 @@
           <a href="#join" onclick="selectPartnerTier('scout')" class="btn-neon-contour w-full py-3 text-xs font-bold uppercase tracking-wider">Стать скаутом</a>
         </article>
 
-        <!-- 2. АГЕНТ (Изумрудный / Выделенный хит) -->
+        <!-- 2. АГЕНТ -->
         <article class="p-6 rounded-3xl bg-gradient-to-b from-white to-emerald-50/60 border-2 border-emerald-500 shadow-xl flex flex-col justify-between relative transform lg:-translate-y-2">
           <div class="absolute -top-3 right-6 px-3 py-0.5 rounded-full bg-emerald-500 text-white font-extrabold text-[10px] uppercase tracking-wider shadow-xs">
             Выбирают чаще
@@ -592,7 +680,6 @@
               <div><strong class="text-slate-950">Мы:</strong> договор, запуск и поддержка</div>
             </div>
 
-            <!-- Доход без вложенных плашек -->
             <div class="py-3 border-y border-emerald-200/80 mb-4">
               <div class="text-[11px] font-bold text-emerald-800 uppercase">Ежемесячно</div>
               <div class="text-2xl font-black text-emerald-700 tabular-nums">6&nbsp;600&nbsp;₽<span class="text-xs font-normal text-slate-500">/мес</span></div>
@@ -606,7 +693,7 @@
           <a href="#join" onclick="selectPartnerTier('agent')" class="btn-optic w-full">Стать агентом</a>
         </article>
 
-        <!-- 3. ЛИДЕР СЕТИ (Фиолетовый оттенок) -->
+        <!-- 3. ЛИДЕР СЕТИ -->
         <article class="p-6 rounded-3xl bg-gradient-to-b from-white to-purple-50/70 border border-purple-300 shadow-sm flex flex-col justify-between">
           <div>
             <div class="text-[11px] font-bold text-purple-700 uppercase tracking-wider mb-1">Доход с команды</div>
@@ -620,7 +707,6 @@
               <div><strong class="text-slate-900">Они:</strong> приводят клиентов и зарабатывают</div>
             </div>
 
-            <!-- Доход без вложенных плашек -->
             <div class="py-3 border-y border-purple-200 mb-4">
               <div class="text-[11px] font-bold text-purple-800 uppercase">С каждого их клиента</div>
               <div class="text-2xl font-black text-purple-700 tabular-nums">1&nbsp;650&nbsp;₽<span class="text-xs font-normal text-slate-500">/мес</span></div>
@@ -634,7 +720,7 @@
           <a href="#join" onclick="selectPartnerTier('leader')" class="btn-neon-contour w-full py-3 text-xs font-bold uppercase tracking-wider text-purple-700 border-purple-300 hover:bg-purple-50">Собрать команду</a>
         </article>
 
-        <!-- 4. WHITE LABEL (Темный премиальный графит) -->
+        <!-- 4. WHITE LABEL -->
         <article id="whitelabel" class="p-6 rounded-3xl bg-gradient-to-br from-[#0c182c] to-[#1a2538] text-white border border-slate-700 shadow-xl flex flex-col justify-between scroll-mt-28">
           <div>
             <div class="text-[11px] font-bold text-sky-400 uppercase tracking-wider mb-1">Свой бренд</div>
@@ -648,7 +734,6 @@
               <div><strong class="text-white">Мы:</strong> отдаём сервис за 9&nbsp;000&nbsp;₽/запуск</div>
             </div>
 
-            <!-- Доход без вложенных плашек -->
             <div class="py-3 border-y border-white/10 mb-4">
               <div class="text-[11px] font-bold text-sky-300 uppercase">Ежемесячно</div>
               <div class="text-2xl font-black text-white tabular-nums">9&nbsp;900&nbsp;₽<span class="text-xs font-normal text-slate-400">/мес</span></div>
@@ -665,147 +750,49 @@
       </div>
     </section>
 
-    <!-- 3.1 ПРИМЕР: ПЕРВЫЕ 6 МЕСЯЦЕВ (ЧИСТЫЙ СТИЛЬ) -->
-    <section id="example" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-14 scroll-mt-28 relative">
-      <div class="bg-white border border-sky-200/90 rounded-3xl p-5 sm:p-8 shadow-sm">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 font-inter mb-1">Пример: 1 клиент в месяц</h2>
-        <p class="text-xs sm:text-sm text-slate-600 mb-5 leading-relaxed">
-          Вы работаете скаутом и приводите одного клиента в месяц на тариф «Бизнес». С каждым месяцем в вашей базе на одного платящего клиента больше:
-        </p>
-        <div class="overflow-x-auto">
-          <table class="ex-table">
-            <thead>
-              <tr><th>Месяц</th><th>Клиентов в базе</th><th>С нового запуска</th><th>С подписок базы</th><th>Итого за месяц</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>1-й</td><td>1</td><td>7&nbsp;250&nbsp;₽</td><td>1 × 4&nbsp;950&nbsp;₽</td><td>12&nbsp;200&nbsp;₽</td></tr>
-              <tr><td>2-й</td><td>2</td><td>7&nbsp;250&nbsp;₽</td><td>2 × 4&nbsp;950&nbsp;₽</td><td>17&nbsp;150&nbsp;₽</td></tr>
-              <tr><td>3-й</td><td>3</td><td>7&nbsp;250&nbsp;₽</td><td>3 × 4&nbsp;950&nbsp;₽</td><td>22&nbsp;100&nbsp;₽</td></tr>
-              <tr><td>4-й</td><td>4</td><td>7&nbsp;250&nbsp;₽</td><td>4 × 4&nbsp;950&nbsp;₽</td><td>27&nbsp;050&nbsp;₽</td></tr>
-              <tr class="ex-row-up"><td>5-й</td><td>5 — новый статус</td><td>7&nbsp;250&nbsp;₽</td><td>5 × <b>6&nbsp;600&nbsp;₽</b></td><td>40&nbsp;250&nbsp;₽</td></tr>
-              <tr class="ex-row-up"><td>6-й</td><td>6</td><td>7&nbsp;250&nbsp;₽</td><td>6 × <b>6&nbsp;600&nbsp;₽</b></td><td>46&nbsp;850&nbsp;₽</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="text-xs sm:text-sm text-slate-700 mt-4 leading-relaxed">
-          <strong>Что произошло на 5-м месяце:</strong> стало 5 клиентов, и ставка с подписки выросла с 15% до 20% — на всех клиентов сразу, включая первых четырёх. Доход подскочил на 13&nbsp;200&nbsp;₽ за месяц.
-        </p>
-      </div>
-    </section>
-
-    <!-- 4. БЫСТРЫЙ СТАРТ: ЯРКИЙ ИЗУМРУДНЫЙ БАННЕР (РАЗРЫВАЕТ ТЕМНОТУ) -->
-    <section id="fast-start" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-14 relative">
-      <div class="rounded-3xl p-6 sm:p-7 bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 text-white border border-emerald-300/40 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
-        <div class="space-y-1.5 max-w-2xl">
-          <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-white/20 text-emerald-100 text-[10px] font-black uppercase tracking-wider">
+    <!-- 5. БЫСТРЫЙ СТАРТ: СВЕТЛАЯ КНОПКА С БЛИКОМ -->
+    <section id="fast-start" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 sm:mb-28 relative">
+      <div class="rounded-3xl p-6 sm:p-8 bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 text-white border border-emerald-300/40 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div class="space-y-2 max-w-2xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-emerald-100 text-[10px] font-black uppercase tracking-wider">
             <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
             <span>Бонус быстрого старта</span>
           </div>
-          <h3 class="text-lg sm:text-xl font-black font-inter text-white">
+          <h3 class="text-lg sm:text-2xl font-black font-inter text-white">
             Первый клиент за 30 дней — +5&nbsp;000&nbsp;₽ к выплате
           </h3>
           <p class="text-xs sm:text-sm text-emerald-50/90 leading-relaxed font-medium">
             Если ваш первый клиент оплатит запуск в течение 30 дней после подписания договора, начислим 5&nbsp;000&nbsp;₽ сверх обычного процента. Действует для скаутов и агентов.
           </p>
         </div>
-        <a href="#join" class="btn-optic bg-white text-emerald-900 border-none shrink-0 w-full md:w-auto hover:bg-emerald-50">Начать сейчас</a>
+        <a href="#join" class="btn-shimmer shrink-0 w-full md:w-auto">Начать сейчас</a>
       </div>
     </section>
 
-    <!-- 5. ГОДОВОЙ КОНТРАКТ: ТЕМНО-САПФИРОВАЯ ТАБЛИЦА -->
-    <section id="annual" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 scroll-mt-28 relative">
-      <div id="annual-deal" class="rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-[#061838] via-[#0a2550] to-[#041228] text-white border border-sky-400/30 shadow-2xl relative overflow-hidden">
-        <div class="max-w-3xl mb-6">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-400/20 text-sky-300 border border-sky-400/40 text-[11px] font-black uppercase tracking-wider mb-2.5">
-            <span>Самая выгодная сделка</span>
-          </div>
-          <h3 class="text-xl sm:text-2xl md:text-3xl font-black font-benzin uppercase tracking-tight text-white">
-            Сколько вы получите с годового контракта
-          </h3>
-          <p class="text-xs sm:text-sm text-sky-100/90 mt-1 font-medium leading-relaxed">
-            Когда клиент оплачивает год вперёд, вы получаете процент со всей суммы в течение 5 рабочих дней после поступления денег.
-          </p>
-        </div>
-
-        <div class="overflow-x-auto -mx-2 sm:mx-0">
-          <table class="w-full text-left text-xs sm:text-sm border-collapse min-w-[340px] sm:min-w-[560px]">
-            <thead>
-              <tr class="border-b border-sky-400/30 text-[11px] sm:text-xs text-sky-200 uppercase tracking-wider">
-                <th class="py-3 px-2 sm:px-3 font-bold">Тариф клиента</th>
-                <th class="py-3 px-2 sm:px-3 font-bold">Год вперёд</th>
-                <th class="py-3 px-2 sm:px-3 font-bold text-sky-300">Скаут (15%)</th>
-                <th class="py-3 px-2 sm:px-3 font-bold text-emerald-300">Агент (20%)</th>
-                <th class="py-3 px-2 sm:px-3 font-bold text-purple-300">White Label (30%)</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-white/10 font-mono text-[11px] sm:text-xs">
-              <tr class="hover:bg-white/5 transition">
-                <td class="py-3 px-2 sm:px-3 font-bold font-inter text-white">Старт <span class="hidden sm:inline text-[10px] text-slate-400 font-normal">(до 200 диал.)</span></td>
-                <td class="py-3 px-2 sm:px-3 text-slate-300">222&nbsp;000&nbsp;₽</td>
-                <td class="py-3 px-2 sm:px-3 font-bold text-sky-300">33&nbsp;300&nbsp;₽</td>
-                <td class="py-3 px-2 sm:px-3 font-bold text-emerald-300">44&nbsp;400&nbsp;₽</td>
-                <td class="py-3 px-2 sm:px-3 font-bold text-purple-300">66&nbsp;600&nbsp;₽</td>
-              </tr>
-              <tr class="bg-emerald-500/10 hover:bg-emerald-500/15 transition border-y border-emerald-400/30">
-                <td class="py-3 px-2 sm:px-3 font-black font-inter text-white flex items-center gap-1.5">
-                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                  <span>Бизнес <span class="hidden sm:inline text-[10px] text-emerald-200 font-normal">(до 600 диал.)</span></span>
-                </td>
-                <td class="py-3 px-2 sm:px-3 font-bold text-slate-200">333&nbsp;000&nbsp;₽</td>
-                <td class="py-3 px-2 sm:px-3 font-black text-sky-300">49&nbsp;950&nbsp;₽</td>
-                <td class="py-3 px-2 sm:px-3 font-black text-emerald-300 text-sm">66&nbsp;600&nbsp;₽</td>
-                <td class="py-3 px-2 sm:px-3 font-black text-purple-300">99&nbsp;900&nbsp;₽</td>
-              </tr>
-              <tr class="hover:bg-white/5 transition">
-                <td class="py-3 px-2 sm:px-3 font-bold font-inter text-white">Поток <span class="hidden sm:inline text-[10px] text-slate-400 font-normal">(до 1500 диал.)</span></td>
-                <td class="py-3 px-2 sm:px-3 text-slate-300">555&nbsp;000&nbsp;₽</td>
-                <td class="py-3 px-2 sm:px-3 font-bold text-sky-300">83&nbsp;250&nbsp;₽</td>
-                <td class="py-3 px-2 sm:px-3 font-bold text-emerald-300">111&nbsp;000&nbsp;₽</td>
-                <td class="py-3 px-2 sm:px-3 font-bold text-purple-300">166&nbsp;500&nbsp;₽</td>
-              </tr>
-              <tr class="hover:bg-white/5 transition">
-                <td class="py-3 px-2 sm:px-3 font-bold font-inter text-white">Империя <span class="hidden sm:inline text-[10px] text-slate-400 font-normal">(от 1500 диал.)</span></td>
-                <td class="py-3 px-2 sm:px-3 text-slate-300">от 888&nbsp;000&nbsp;₽</td>
-                <td class="py-3 px-2 sm:px-3 font-bold text-sky-300">от 133&nbsp;200&nbsp;₽</td>
-                <td class="py-3 px-2 sm:px-3 font-bold text-emerald-300">от 177&nbsp;600&nbsp;₽</td>
-                <td class="py-3 px-2 sm:px-3 font-bold text-purple-300">от 266&nbsp;400&nbsp;₽</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="mt-4 pt-3 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[11px] text-sky-200/80">
-          <span>Плюс процент с запуска клиента. От 5 активных клиентов ставка с подписки вырастает ещё на 5 п.п.</span>
-          <a href="#join" class="text-sky-300 hover:text-white font-bold underline shrink-0">Стать партнёром</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. РОСТ СТАТУСА: СВЕТЛЫЙ ОТКРЫТЫЙ БЛОК (БЕЗ ТЕМНОЙ ОБОЛОЧКИ) -->
-    <section id="ladder" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 scroll-mt-28 relative">
-      <div class="text-center max-w-3xl mx-auto mb-8">
+    <!-- 6. РОСТ СТАТУСА -->
+    <section id="ladder" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 sm:mb-28 scroll-mt-28 relative">
+      <div class="text-center max-w-3xl mx-auto mb-10">
         <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase grad-heading">
           Рост статуса
         </h2>
-        <p class="text-sm sm:text-base text-slate-600 font-medium mt-1.5">
+        <p class="text-sm sm:text-base text-slate-600 font-medium mt-2">
           Чем больше активных клиентов, тем выше процент. Новая ставка действует сразу на всю вашу базу.
         </p>
       </div>
 
-      <!-- 3 РАЗНОЦВЕТНЫХ ШАГА НАПРЯМУЮ НА СВЕТЛОМ ФОНЕ -->
-      <ol class="grid grid-cols-1 md:grid-cols-3 gap-5 list-none m-0 p-0 mb-5">
+      <ol class="grid grid-cols-1 md:grid-cols-3 gap-6 list-none m-0 p-0 mb-6">
 
         <!-- 1. СТАРТ -->
         <li class="p-6 rounded-3xl bg-white border border-sky-200 shadow-sm flex flex-col justify-between">
           <div>
-            <div class="flex items-center gap-3 mb-3">
-              <span class="w-8 h-8 rounded-full bg-sky-500 text-white font-black text-xs flex items-center justify-center shrink-0">1</span>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-9 h-9 rounded-full bg-sky-500 text-white font-black text-xs flex items-center justify-center shrink-0">1</span>
               <div>
                 <div class="text-lg font-black text-slate-900">Старт</div>
                 <div class="text-xs font-semibold text-slate-500">1–4 активных клиента</div>
               </div>
             </div>
-            <div class="space-y-1.5 text-xs text-slate-700 py-3 border-y border-slate-100">
+            <div class="space-y-2 text-xs text-slate-700 py-3 border-y border-slate-100">
               <div><span class="text-slate-400 font-bold inline-block w-14">Скаут</span> 25% запуск · 15% подписка</div>
               <div><span class="text-slate-400 font-bold inline-block w-14">Агент</span> 35% запуск · 20% подписка</div>
             </div>
@@ -815,17 +802,17 @@
           </div>
         </li>
 
-        <!-- 2. ПАРТНЁР (Изумрудный акцент) -->
+        <!-- 2. ПАРТНЁР -->
         <li class="p-6 rounded-3xl bg-gradient-to-b from-white to-emerald-50/70 border-2 border-emerald-400 shadow-md flex flex-col justify-between">
           <div>
-            <div class="flex items-center gap-3 mb-3">
-              <span class="w-8 h-8 rounded-full bg-emerald-500 text-white font-black text-xs flex items-center justify-center shrink-0">2</span>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-9 h-9 rounded-full bg-emerald-500 text-white font-black text-xs flex items-center justify-center shrink-0">2</span>
               <div>
                 <div class="text-lg font-black text-emerald-950">Партнёр</div>
                 <div class="text-xs font-bold text-emerald-700">от 5 активных клиентов</div>
               </div>
             </div>
-            <div class="space-y-1.5 text-xs text-slate-800 py-3 border-y border-emerald-200">
+            <div class="space-y-2 text-xs text-slate-800 py-3 border-y border-emerald-200">
               <div><span class="text-slate-400 font-bold inline-block w-14">Скаут</span> 25% запуск · <b class="text-emerald-700 font-black">+5 п.п. (20%)</b></div>
               <div><span class="text-slate-400 font-bold inline-block w-14">Агент</span> 35% запуск · <b class="text-emerald-700 font-black">+5 п.п. (25%)</b></div>
             </div>
@@ -835,17 +822,17 @@
           </div>
         </li>
 
-        <!-- 3. ЛИДЕР (Фиолетовый акцент) -->
+        <!-- 3. ЛИДЕР -->
         <li class="p-6 rounded-3xl bg-gradient-to-b from-white to-purple-50/70 border-2 border-purple-300 shadow-md flex flex-col justify-between">
           <div>
-            <div class="flex items-center gap-3 mb-3">
-              <span class="w-8 h-8 rounded-full bg-purple-600 text-white font-black text-xs flex items-center justify-center shrink-0">3</span>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-9 h-9 rounded-full bg-purple-600 text-white font-black text-xs flex items-center justify-center shrink-0">3</span>
               <div>
                 <div class="text-lg font-black text-purple-950">Лидер</div>
                 <div class="text-xs font-bold text-purple-700">от 15 активных клиентов</div>
               </div>
             </div>
-            <div class="space-y-1.5 text-xs text-slate-800 py-3 border-y border-purple-200">
+            <div class="space-y-2 text-xs text-slate-800 py-3 border-y border-purple-200">
               <div><span class="text-slate-400 font-bold inline-block w-14">Скаут</span> <b class="text-purple-700 font-black">+5 п.п. (30%)</b> · 20%</div>
               <div><span class="text-slate-400 font-bold inline-block w-14">Агент</span> <b class="text-purple-700 font-black">+5 п.п. (40%)</b> · 25%</div>
             </div>
@@ -862,17 +849,17 @@
       </div>
     </section>
 
-    <!-- 7. БОНУС С КОМАНДЫ: ФИОЛЕТОВЫЙ ТЕМНЫЙ БЛОК -->
-    <section id="network" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 scroll-mt-28 relative">
-      <div class="rounded-[32px] p-6 sm:p-8 bg-gradient-to-br from-[#1a0a33] via-[#261348] to-[#110622] text-white border border-purple-400/40 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+    <!-- 7. БОНУС С КОМАНДЫ -->
+    <section id="network" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 sm:mb-28 scroll-mt-28 relative">
+      <div class="rounded-[32px] p-6 sm:p-8 bg-gradient-to-br from-[#1a0a33] via-[#261348] to-[#110622] text-white border border-purple-400/40 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         <div class="lg:col-span-6">
-          <h2 class="text-xl sm:text-2xl font-black text-white mb-2 font-inter">
+          <h2 class="text-xl sm:text-2xl font-black text-white mb-3 font-inter">
             Бонус с команды
           </h2>
-          <p class="text-xs sm:text-sm text-purple-100/90 mb-4 leading-relaxed font-medium">
+          <p class="text-xs sm:text-sm text-purple-100/90 mb-5 leading-relaxed font-medium">
             Пригласите коллег по своей ссылке. Когда они приводят клиентов, вы получаете <strong class="text-purple-200">7% с запуска и 5% с каждой оплаты подписки</strong> — пока клиент пользуется сервисом.
           </p>
-          <div class="p-3.5 bg-white/5 rounded-xl border border-white/10 text-xs text-purple-100 space-y-1.5">
+          <div class="p-4 bg-white/5 rounded-2xl border border-white/10 text-xs text-purple-100 space-y-2">
             <div class="font-bold text-white">Пример расчёта:</div>
             <p class="text-[12px] text-purple-100">Вы пригласили маркетолога. Он привёл клиента на тариф «Бизнес».</p>
             <p class="text-[12px] text-purple-200">Маркетолог получает своё полностью: 7&nbsp;250&nbsp;₽ с запуска и 4&nbsp;950&nbsp;₽ каждый месяц.</p>
@@ -885,7 +872,7 @@
           </ul>
         </div>
         <div class="lg:col-span-6">
-          <div class="bg-black/40 rounded-2xl p-3 border border-purple-400/30">
+          <div class="bg-black/40 rounded-2xl p-4 border border-purple-400/30">
             <svg viewBox="0 0 440 120" class="w-full h-auto block select-none" role="img" aria-label="Схема: вы, ваши партнёры и их клиенты">
               <defs>
                 <linearGradient id="netFlow" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -916,119 +903,115 @@
       </div>
     </section>
 
-    <!-- 8. КАЛЬКУЛЯТОР: СИНИЙ ТЕМНЫЙ КОКПИТ БЕЗ ЛИШНИХ ВЛОЖЕННЫХ БЛОКОВ -->
-    <section id="calc" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 scroll-mt-28 relative">
-      <div class="rounded-[36px] p-6 sm:p-10 border border-sky-400/40 relative overflow-hidden shadow-[0_24px_60px_-10px_rgba(2,132,199,0.35)] text-white" style="background: linear-gradient(145deg, #075985 0%, #0369a1 45%, #082f49 100%);">
+    <!-- 8. КАЛЬКУЛЯТОР: БЕЗ ФОНОВОЙ ПОДЛОЖКИ (ОТКРЫТЫЙ СВЕТЛЫЙ ДИЗАЙН) -->
+    <section id="calc" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 sm:mb-28 scroll-mt-28 relative">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase grad-heading">
+          Рассчитайте свой доход
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 font-medium mt-2">
+          Выберите параметры — расчёт автоматически учтёт ступени 5 и 15 клиентов
+        </p>
+      </div>
 
-        <div class="text-center max-w-2xl mx-auto mb-8">
-          <h2 class="font-benzin text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white tracking-tight uppercase">
-            Рассчитайте свой доход
-          </h2>
-          <p class="text-xs sm:text-sm text-sky-100 font-medium mt-1">
-            Выберите параметры — расчёт автоматически учтёт ступени 5 и 15 клиентов
-          </p>
+      <div class="space-y-6">
+
+        <!-- Параметры -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          <fieldset class="border-0 m-0 p-0">
+            <legend class="block text-xs font-bold text-slate-700 mb-2">Ваш формат</legend>
+            <div class="calc-seg-light grid-cols-2" style="grid-template-columns: repeat(2, 1fr);">
+              <input type="radio" name="c-fmt" id="c-fmt-scout" value="scout"><label for="c-fmt-scout">Скаут</label>
+              <input type="radio" name="c-fmt" id="c-fmt-agent" value="agent" checked><label for="c-fmt-agent">Агент</label>
+            </div>
+          </fieldset>
+          <fieldset class="border-0 m-0 p-0">
+            <legend class="block text-xs font-bold text-slate-700 mb-2">Тариф клиентов</legend>
+            <div class="calc-seg-light">
+              <input type="radio" name="c-tariff" id="c-t-start" value="22000"><label for="c-t-start">Старт</label>
+              <input type="radio" name="c-tariff" id="c-t-business" value="33000" checked><label for="c-t-business">Бизнес</label>
+              <input type="radio" name="c-tariff" id="c-t-flow" value="55000"><label for="c-t-flow">Поток</label>
+            </div>
+          </fieldset>
+          <fieldset class="border-0 m-0 p-0">
+            <legend class="block text-xs font-bold text-slate-700 mb-2">Клиентов в месяц</legend>
+            <div class="calc-seg-light">
+              <input type="radio" name="c-pace" id="c-p-1" value="1"><label for="c-p-1">1</label>
+              <input type="radio" name="c-pace" id="c-p-3" value="3" checked><label for="c-p-3">3</label>
+              <input type="radio" name="c-pace" id="c-p-5" value="5"><label for="c-p-5">5</label>
+            </div>
+          </fieldset>
+          <fieldset class="border-0 m-0 p-0">
+            <legend class="block text-xs font-bold text-slate-700 mb-2">Отток базы</legend>
+            <div class="calc-seg-light grid-cols-2" style="grid-template-columns: repeat(2, 1fr);">
+              <input type="radio" name="c-churn" id="c-ch-0" value="0"><label for="c-ch-0">0%</label>
+              <input type="radio" name="c-churn" id="c-ch-5" value="0.05" checked><label for="c-ch-5">5%/мес</label>
+            </div>
+          </fieldset>
         </div>
 
-        <div class="max-w-4xl mx-auto space-y-6">
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <fieldset class="border-0 m-0 p-0">
-              <legend class="block text-xs font-bold text-sky-100 mb-2">Ваш формат</legend>
-              <div class="calc-seg grid-cols-2" style="grid-template-columns: repeat(2, 1fr);">
-                <input type="radio" name="c-fmt" id="c-fmt-scout" value="scout"><label for="c-fmt-scout">Скаут</label>
-                <input type="radio" name="c-fmt" id="c-fmt-agent" value="agent" checked><label for="c-fmt-agent">Агент</label>
-              </div>
-            </fieldset>
-            <fieldset class="border-0 m-0 p-0">
-              <legend class="block text-xs font-bold text-sky-100 mb-2">Тариф ваших клиентов</legend>
-              <div class="calc-seg">
-                <input type="radio" name="c-tariff" id="c-t-start" value="22000"><label for="c-t-start">Старт</label>
-                <input type="radio" name="c-tariff" id="c-t-business" value="33000" checked><label for="c-t-business">Бизнес</label>
-                <input type="radio" name="c-tariff" id="c-t-flow" value="55000"><label for="c-t-flow">Поток</label>
-              </div>
-            </fieldset>
-            <fieldset class="border-0 m-0 p-0">
-              <legend class="block text-xs font-bold text-sky-100 mb-2">Новых клиентов в месяц</legend>
-              <div class="calc-seg">
-                <input type="radio" name="c-pace" id="c-p-1" value="1"><label for="c-p-1">1</label>
-                <input type="radio" name="c-pace" id="c-p-3" value="3" checked><label for="c-p-3">3</label>
-                <input type="radio" name="c-pace" id="c-p-5" value="5"><label for="c-p-5">5</label>
-              </div>
-            </fieldset>
-            <fieldset class="border-0 m-0 p-0">
-              <legend class="block text-xs font-bold text-sky-100 mb-2">Часть клиентов уходит?</legend>
-              <div class="calc-seg grid-cols-2" style="grid-template-columns: repeat(2, 1fr);">
-                <input type="radio" name="c-churn" id="c-ch-0" value="0"><label for="c-ch-0">Нет</label>
-                <input type="radio" name="c-churn" id="c-ch-5" value="0.05" checked><label for="c-ch-5">Да, 5%/мес</label>
-              </div>
-            </fieldset>
+        <!-- Результаты расчёта -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5" aria-live="polite">
+          
+          <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 block mb-1">С запусков за 6 месяцев</span>
+              <div class="text-2xl sm:text-3xl font-black text-slate-900 font-inter tabular-nums mt-1" id="calc-out-start">—</div>
+            </div>
+            <p class="text-[11px] text-slate-500 mt-4 pt-3 border-t border-slate-100 leading-snug">Выплачивается после каждого запуска</p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4" aria-live="polite">
-            <div class="bg-white/10 rounded-2xl p-5 border border-white/15 flex flex-col justify-between">
-              <div>
-                <span class="text-[11px] font-bold uppercase tracking-wider text-sky-200 block mb-1">С запусков за 6 месяцев</span>
-                <div class="text-2xl sm:text-3xl font-black text-white font-inter tabular-nums mt-1" id="calc-out-start">—</div>
-              </div>
-              <p class="text-[11px] text-sky-200/80 mt-3 pt-2.5 border-t border-white/10 leading-snug">После каждого запуска</p>
+          <div class="bg-gradient-to-b from-white to-emerald-50 rounded-3xl p-6 border-2 border-emerald-400 shadow-md flex flex-col justify-between">
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-700 block mb-1">Через 6 месяцев</span>
+              <div class="text-2xl sm:text-3xl font-black text-emerald-800 font-inter tabular-nums mt-1"><span id="calc-out-sub6">—</span><span class="text-sm font-normal text-emerald-600">/мес</span></div>
             </div>
-            <div class="bg-emerald-500/20 rounded-2xl p-5 border-2 border-emerald-400/50 shadow-lg flex flex-col justify-between">
-              <div>
-                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-200 block mb-1">Через 6 месяцев</span>
-                <div class="text-2xl sm:text-3xl font-black text-emerald-300 font-inter tabular-nums mt-1"><span id="calc-out-sub6">—</span><span class="text-sm font-normal text-emerald-200">/мес</span></div>
-              </div>
-              <p class="text-[11px] text-emerald-100/90 mt-3 pt-2.5 border-t border-emerald-400/30 leading-snug" id="calc-out-base6">С подписок базы</p>
-            </div>
-            <div class="bg-sky-500/20 rounded-2xl p-5 border-2 border-sky-400/50 shadow-lg flex flex-col justify-between">
-              <div>
-                <span class="text-[11px] font-bold uppercase tracking-wider text-sky-200 block mb-1">Через 12 месяцев</span>
-                <div class="text-2xl sm:text-3xl font-black text-sky-300 font-inter tabular-nums mt-1"><span id="calc-out-sub12">—</span><span class="text-sm font-normal text-sky-200">/мес</span></div>
-              </div>
-              <p class="text-[11px] text-sky-100/90 mt-3 pt-2.5 border-t border-sky-400/30 leading-snug" id="calc-out-base12">С подписок базы</p>
-            </div>
+            <p class="text-[11px] text-emerald-800 font-medium mt-4 pt-3 border-t border-emerald-200 leading-snug" id="calc-out-base6">С подписок базы</p>
           </div>
 
-          <!-- ОБРАТНЫЙ КАЛЬКУЛЯТОР -->
-          <div class="pt-4 border-t border-white/15 flex flex-col md:flex-row md:items-center justify-between gap-4">
-            <fieldset class="border-0 m-0 p-0 md:w-1/2">
-              <legend class="block text-xs font-bold text-sky-100 mb-2">Сколько хотите получать в месяц?</legend>
-              <div class="calc-seg">
-                <input type="radio" name="c-goal" id="c-g-50" value="50000"><label for="c-g-50">50 000 ₽</label>
-                <input type="radio" name="c-goal" id="c-g-100" value="100000" checked><label for="c-g-100">100 000 ₽</label>
-                <input type="radio" name="c-goal" id="c-g-200" value="200000"><label for="c-g-200">200 000 ₽</label>
-              </div>
-            </fieldset>
-            <div class="flex-1 md:text-right">
-              <div class="text-lg sm:text-xl font-black text-white font-inter" id="calc-goal-clients">—</div>
-              <p class="text-xs sm:text-sm text-sky-200 mt-1" id="calc-goal-time">—</p>
+          <div class="bg-gradient-to-b from-white to-sky-50 rounded-3xl p-6 border-2 border-sky-400 shadow-md flex flex-col justify-between">
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-sky-700 block mb-1">Через 12 месяцев</span>
+              <div class="text-2xl sm:text-3xl font-black text-sky-800 font-inter tabular-nums mt-1"><span id="calc-out-sub12">—</span><span class="text-sm font-normal text-sky-600">/мес</span></div>
             </div>
-          </div>
-
-          <div class="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p class="text-[11px] text-sky-200/80 leading-relaxed">
-              Расчёт ориентировочный: доход зависит от числа привлечённых клиентов. Бонус с команды и годовые оплаты не включены.
-            </p>
-            <a href="#join" class="btn-optic shrink-0 w-full sm:w-auto">Стать партнёром</a>
+            <p class="text-[11px] text-sky-800 font-medium mt-4 pt-3 border-t border-sky-200 leading-snug" id="calc-out-base12">С подписок базы</p>
           </div>
 
         </div>
+
+        <!-- Обратный расчёт от цели -->
+        <div class="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <fieldset class="border-0 m-0 p-0 md:w-1/2">
+            <legend class="block text-xs font-bold text-slate-700 mb-2">Сколько хотите получать в месяц?</legend>
+            <div class="calc-seg-light">
+              <input type="radio" name="c-goal" id="c-g-50" value="50000"><label for="c-g-50">50 000 ₽</label>
+              <input type="radio" name="c-goal" id="c-g-100" value="100000" checked><label for="c-g-100">100 000 ₽</label>
+              <input type="radio" name="c-goal" id="c-g-200" value="200000"><label for="c-g-200">200 000 ₽</label>
+            </div>
+          </fieldset>
+          <div class="flex-1 md:text-right">
+            <div class="text-lg sm:text-xl font-black text-slate-900 font-inter" id="calc-goal-clients">—</div>
+            <p class="text-xs sm:text-sm text-slate-600 mt-1" id="calc-goal-time">—</p>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- 9. СТАРТОВЫЙ НАБОР: ЛЁГКАЯ СЕТКА БЕЗ ТЯЖЁЛЫХ ПЛАШЕК -->
-    <section id="kit" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 scroll-mt-28 relative">
-      <div class="text-center max-w-3xl mx-auto mb-8">
+    <!-- 9. СТАРТОВЫЙ НАБОР -->
+    <section id="kit" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 sm:mb-28 scroll-mt-28 relative">
+      <div class="text-center max-w-3xl mx-auto mb-10">
         <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase grad-heading">
           Уметь продавать не обязательно
         </h2>
-        <p class="text-sm sm:text-base text-slate-600 font-medium mt-1.5">
+        <p class="text-sm sm:text-base text-slate-600 font-medium mt-2">
           После подписания договора вы получаете партнёрский набор. Его достаточно для первого разговора уже сегодня.
         </p>
       </div>
 
-      <!-- Лёгкий список материалов без 6 тяжелых плашек -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-        <div class="p-4 rounded-2xl bg-white/70 border border-sky-100 flex items-start gap-3">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+        <div class="p-5 rounded-2xl bg-white border border-sky-100 flex items-start gap-3.5 shadow-xs">
           <span class="w-8 h-8 rounded-full bg-sky-100 text-sky-700 font-black text-xs flex items-center justify-center shrink-0">01</span>
           <div>
             <h3 class="text-sm font-bold text-slate-900 mb-0.5">Личный код и ссылка</h3>
@@ -1036,7 +1019,7 @@
           </div>
         </div>
 
-        <div class="p-4 rounded-2xl bg-white/70 border border-sky-100 flex items-start gap-3">
+        <div class="p-5 rounded-2xl bg-white border border-sky-100 flex items-start gap-3.5 shadow-xs">
           <span class="w-8 h-8 rounded-full bg-sky-100 text-sky-700 font-black text-xs flex items-center justify-center shrink-0">02</span>
           <div>
             <h3 class="text-sm font-bold text-slate-900 mb-0.5">Презентация для клиента</h3>
@@ -1044,7 +1027,7 @@
           </div>
         </div>
 
-        <div class="p-4 rounded-2xl bg-white/70 border border-sky-100 flex items-start gap-3">
+        <div class="p-5 rounded-2xl bg-white border border-sky-100 flex items-start gap-3.5 shadow-xs">
           <span class="w-8 h-8 rounded-full bg-sky-100 text-sky-700 font-black text-xs flex items-center justify-center shrink-0">03</span>
           <div>
             <h3 class="text-sm font-bold text-slate-900 mb-0.5">Демо ИИ-продавца</h3>
@@ -1052,7 +1035,7 @@
           </div>
         </div>
 
-        <div class="p-4 rounded-2xl bg-white/70 border border-sky-100 flex items-start gap-3">
+        <div class="p-5 rounded-2xl bg-white border border-sky-100 flex items-start gap-3.5 shadow-xs">
           <span class="w-8 h-8 rounded-full bg-sky-100 text-sky-700 font-black text-xs flex items-center justify-center shrink-0">04</span>
           <div>
             <h3 class="text-sm font-bold text-slate-900 mb-0.5">Скрипт первого разговора</h3>
@@ -1060,7 +1043,7 @@
           </div>
         </div>
 
-        <div class="p-4 rounded-2xl bg-white/70 border border-sky-100 flex items-start gap-3">
+        <div class="p-5 rounded-2xl bg-white border border-sky-100 flex items-start gap-3.5 shadow-xs">
           <span class="w-8 h-8 rounded-full bg-sky-100 text-sky-700 font-black text-xs flex items-center justify-center shrink-0">05</span>
           <div>
             <h3 class="text-sm font-bold text-slate-900 mb-0.5">Чек-лист «подходит ли клиент»</h3>
@@ -1068,7 +1051,7 @@
           </div>
         </div>
 
-        <div class="p-4 rounded-2xl bg-white/70 border border-sky-100 flex items-start gap-3">
+        <div class="p-5 rounded-2xl bg-white border border-sky-100 flex items-start gap-3.5 shadow-xs">
           <span class="w-8 h-8 rounded-full bg-sky-100 text-sky-700 font-black text-xs flex items-center justify-center shrink-0">06</span>
           <div>
             <h3 class="text-sm font-bold text-slate-900 mb-0.5">Чат партнёров</h3>
@@ -1077,8 +1060,8 @@
         </div>
       </div>
 
-      <!-- ЧИСТЫЙ ШАБЛОН СООБЩЕНИЯ (БЕЗ ДВОЙНОЙ ВЛОЖЕННОСТИ) -->
-      <div class="p-6 rounded-3xl bg-white border border-sky-200/90 shadow-sm max-w-3xl mx-auto">
+      <!-- ШАБЛОН СООБЩЕНИЯ -->
+      <div class="p-6 sm:p-8 rounded-3xl bg-white border border-sky-200/90 shadow-sm max-w-3xl mx-auto">
         <div class="flex items-center justify-between mb-3">
           <h3 class="text-sm font-black text-slate-900 uppercase tracking-wider">Что написать собственнику</h3>
           <span class="text-xs text-slate-500">Готовый шаблон для мессенджера</span>
@@ -1093,53 +1076,52 @@
     </section>
 
     <!-- 10. КАК ЭТО РАБОТАЕТ -->
-    <section id="how" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 scroll-mt-28 relative">
+    <section id="how" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 sm:mb-28 scroll-mt-28 relative">
       <div class="text-center max-w-3xl mx-auto mb-10">
         <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase grad-heading">
           КАК ЭТО РАБОТАЕТ
         </h2>
-        <p class="text-sm sm:text-base text-slate-600 font-medium mt-1.5">
+        <p class="text-sm sm:text-base text-slate-600 font-medium mt-2">
           От первой заявки до регулярных выплат — 4 простых шага
         </p>
       </div>
 
-      <!-- 4 разноцветных шага -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch mb-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch mb-10">
         
-        <div class="p-5 rounded-2xl bg-white border border-sky-200/80 shadow-xs flex flex-col justify-between">
+        <div class="p-6 rounded-3xl bg-white border border-sky-200/80 shadow-xs flex flex-col justify-between">
           <div>
-            <span class="text-[11px] font-black uppercase tracking-wider text-sky-700 bg-sky-50 px-2 py-0.5 rounded mb-3 inline-block">01. Заявка</span>
-            <h3 class="text-base font-bold text-slate-900 mb-1.5">Регистрация</h3>
+            <span class="text-[11px] font-black uppercase tracking-wider text-sky-700 bg-sky-50 px-2.5 py-0.5 rounded mb-3 inline-block">01. Заявка</span>
+            <h3 class="text-base font-bold text-slate-900 mb-2">Регистрация</h3>
             <p class="text-xs text-slate-600 leading-relaxed">
               Заполняете форму. Подписываем договор и отправляем набор с личным кодом.
             </p>
           </div>
         </div>
 
-        <div class="p-5 rounded-2xl bg-white border border-emerald-200/80 shadow-xs flex flex-col justify-between">
+        <div class="p-6 rounded-3xl bg-white border border-emerald-200/80 shadow-xs flex flex-col justify-between">
           <div>
-            <span class="text-[11px] font-black uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded mb-3 inline-block">02. Контакт</span>
-            <h3 class="text-base font-bold text-slate-900 mb-1.5">Передача клиента</h3>
+            <span class="text-[11px] font-black uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded mb-3 inline-block">02. Контакт</span>
+            <h3 class="text-base font-bold text-slate-900 mb-2">Передача клиента</h3>
             <p class="text-xs text-slate-600 leading-relaxed">
               Отправляете контакт или даёте ссылку. Закрепляем клиента за 1 день на 90 дней.
             </p>
           </div>
         </div>
 
-        <div class="p-5 rounded-2xl bg-white border border-blue-200/80 shadow-xs flex flex-col justify-between">
+        <div class="p-6 rounded-3xl bg-white border border-blue-200/80 shadow-xs flex flex-col justify-between">
           <div>
-            <span class="text-[11px] font-black uppercase tracking-wider text-blue-700 bg-blue-50 px-2 py-0.5 rounded mb-3 inline-block">03. Сделка</span>
-            <h3 class="text-base font-bold text-slate-900 mb-1.5">Демо и запуск</h3>
+            <span class="text-[11px] font-black uppercase tracking-wider text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded mb-3 inline-block">03. Сделка</span>
+            <h3 class="text-base font-bold text-slate-900 mb-2">Демо и запуск</h3>
             <p class="text-xs text-slate-600 leading-relaxed">
               Показываем демо, считаем окупаемость и запускаем ИИ-продавца от 3 дней.
             </p>
           </div>
         </div>
 
-        <div class="p-5 rounded-2xl bg-white border border-purple-200/80 shadow-xs flex flex-col justify-between">
+        <div class="p-6 rounded-3xl bg-white border border-purple-200/80 shadow-xs flex flex-col justify-between">
           <div>
-            <span class="text-[11px] font-black uppercase tracking-wider text-purple-700 bg-purple-50 px-2 py-0.5 rounded mb-3 inline-block">04. Выплаты</span>
-            <h3 class="text-base font-bold text-slate-900 mb-1.5">Регулярный доход</h3>
+            <span class="text-[11px] font-black uppercase tracking-wider text-purple-700 bg-purple-50 px-2.5 py-0.5 rounded mb-3 inline-block">04. Выплаты</span>
+            <h3 class="text-base font-bold text-slate-900 mb-2">Регулярный доход</h3>
             <p class="text-xs text-slate-600 leading-relaxed">
               С запуска — за 5 рабочих дней. С помесячной подписки — до 10-го числа.
             </p>
@@ -1148,8 +1130,8 @@
 
       </div>
 
-      <!-- ПРАВИЛА ВЫПЛАТ: ЧИСТЫЙ СТИЛЬ БЕЗ ГРОМОЗДКОЙ ПЛАШКИ -->
-      <div class="pt-5 border-t border-slate-200/70">
+      <!-- ПРАВИЛА ВЫПЛАТ -->
+      <div class="pt-6 border-t border-slate-200/70">
         <div class="flex items-center justify-between mb-4">
           <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider">Когда и как приходят выплаты</h4>
           <a href="partner-rules.html" class="text-xs font-bold text-sky-700 hover:text-sky-900">
@@ -1173,134 +1155,26 @@
       </div>
     </section>
 
-    <!-- 11. ЧТО ДЕЛАЕТ ИИ-ПРОДАВЕЦ (#product): ЧИСТЫЕ СТРУКТУРЫ БЕЗ «ПЛАШКА В ПЛАШКЕ» -->
-    <section id="product" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 scroll-mt-28 relative">
-      
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 max-w-3xl mx-auto mb-10 text-center sm:text-left">
-        <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 border-2 border-sky-400 bg-gradient-to-tr from-sky-400 to-blue-600 shadow-lg relative shrink-0">
-          <div class="w-full h-full rounded-full overflow-hidden bg-slate-900">
-            <img src="avatar_eva.webp" alt="Эва — ИИ-продавец" loading="lazy" class="w-full h-full object-cover object-[center_12%]">
-          </div>
-          <div class="absolute bottom-0 right-0 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-emerald-500 border-2 border-white shadow-xs flex items-center justify-center" title="В сети 24/7">
-            <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
-          </div>
-        </div>
-
-        <div class="space-y-1 flex-1">
-          <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase grad-heading">
-            ЧТО ВЫ РЕКОМЕНДУЕТЕ
-          </h2>
-          <p class="text-xs sm:text-sm md:text-base text-slate-700 leading-relaxed font-medium">
-            Виртуальный сотрудник, который за 30–60 секунд отвечает клиентам в чатах, на Авито и сайте днём и ночью, квалифицирует лид и заводит готовую сделку в CRM.
-          </p>
-        </div>
-      </div>
-
-      <!-- ЧИСТЫЙ СПИСОК ВОЗМОЖНОСТЕЙ -->
-      <div class="p-6 sm:p-8 rounded-3xl bg-white border border-sky-200/90 shadow-sm mb-8">
-        <h3 class="text-sm font-black text-slate-900 uppercase tracking-wider mb-5 flex items-center gap-2">
-          <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-black">✓</span>
-          Ключевые возможности ИИ-продавца:
-        </h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 text-xs sm:text-sm text-slate-700">
-          <div>
-            <div class="font-bold text-slate-900 mb-1">Мгновенный захват лида</div>
-            <p class="text-slate-600 text-xs leading-relaxed">Ответ за 30–60 секунд 24/7 без очередей и потерь ночных заявок.</p>
-          </div>
-          <div>
-            <div class="font-bold text-slate-900 mb-1">Квалификация по регламентам</div>
-            <p class="text-slate-600 text-xs leading-relaxed">Выясняет задачу, бюджет, сроки строго по базе знаний компании.</p>
-          </div>
-          <div>
-            <div class="font-bold text-slate-900 mb-1">Голосовые сообщения</div>
-            <p class="text-slate-600 text-xs leading-relaxed">Свободно распознаёт аудиосообщения и общается живым человеческим голосом.</p>
-          </div>
-          <div>
-            <div class="font-bold text-slate-900 mb-1">Бесшовная CRM-интеграция</div>
-            <p class="text-slate-600 text-xs leading-relaxed">Автоматически создаёт сделку, сохраняет диалог и ставит задачу менеджеру.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- ТАРИФЫ КЛИЕНТА В 4 СТОЛБЦА (ЧИСТО, БЕЗ ЛИШНИХ ВЛОЖЕНИЙ) -->
-      <div class="p-6 sm:p-8 rounded-3xl bg-white border border-sky-200/90 shadow-sm mb-8">
-        <div class="flex items-center justify-between flex-wrap gap-2 mb-5">
-          <h3 class="text-sm font-black text-slate-900 uppercase tracking-wider">Тарифы для клиентов:</h3>
-          <span class="text-xs font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">CRM и каналы бесплатно</span>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
-          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-            <div class="font-bold text-slate-900 text-sm">«Старт»</div>
-            <div class="text-[11px] text-slate-500 mb-2">до 200 диалогов/мес</div>
-            <div class="text-lg font-black text-slate-900">22&nbsp;000&nbsp;₽<span class="text-[10px] font-normal text-slate-500">/мес</span></div>
-            <div class="text-[11px] font-bold text-sky-700 mt-1">222&nbsp;000&nbsp;₽/год</div>
-          </div>
-
-          <div class="p-4 rounded-2xl bg-emerald-50/80 border-2 border-emerald-400">
-            <div class="font-black text-emerald-950 text-sm">«Бизнес»</div>
-            <div class="text-[11px] text-emerald-700 mb-2 font-semibold">до 600 диалогов/мес</div>
-            <div class="text-lg font-black text-emerald-950">33&nbsp;000&nbsp;₽<span class="text-[10px] font-normal text-slate-500">/мес</span></div>
-            <div class="text-[11px] font-black text-emerald-700 mt-1">333&nbsp;000&nbsp;₽/год</div>
-          </div>
-
-          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-            <div class="font-bold text-slate-900 text-sm">«Поток»</div>
-            <div class="text-[11px] text-slate-500 mb-2">до 1500 диалогов/мес</div>
-            <div class="text-lg font-black text-slate-900">55&nbsp;000&nbsp;₽<span class="text-[10px] font-normal text-slate-500">/мес</span></div>
-            <div class="text-[11px] font-bold text-sky-700 mt-1">555&nbsp;000&nbsp;₽/год</div>
-          </div>
-
-          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-            <div class="font-bold text-slate-900 text-sm">«Империя»</div>
-            <div class="text-[11px] text-slate-500 mb-2">от 1500 диалогов/мес</div>
-            <div class="text-lg font-black text-slate-900">от 88&nbsp;000&nbsp;₽<span class="text-[10px] font-normal text-slate-500">/мес</span></div>
-            <div class="text-[11px] font-bold text-sky-700 mt-1">от 888&nbsp;000&nbsp;₽/год</div>
-          </div>
-        </div>
-
-        <p class="text-xs text-slate-600 mt-4 pt-3 border-t border-slate-100 leading-relaxed">
-          <strong>Запуск:</strong> 29&nbsp;000&nbsp;₽ разово при любом наборе каналов и CRM. Договор с юридическими лицами.
-        </p>
-      </div>
-
-      <!-- КАНАЛЫ СВЯЗИ -->
-      <div class="flex flex-wrap items-center justify-between gap-3 p-4 rounded-2xl bg-white/70 border border-slate-200 text-xs">
-        <span class="font-bold text-slate-900">Каналы и CRM:</span>
-        <div class="flex flex-wrap gap-1.5 font-semibold text-slate-700">
-          <span class="px-2.5 py-1 rounded-full bg-blue-50 text-blue-800 font-bold border border-blue-200">ВКонтакте (VK)</span>
-          <span class="px-2.5 py-1 rounded-full bg-white border border-slate-200">Telegram</span>
-          <span class="px-2.5 py-1 rounded-full bg-white border border-slate-200">WhatsApp</span>
-          <span class="px-2.5 py-1 rounded-full bg-white border border-slate-200">Авито</span>
-          <span class="px-2.5 py-1 rounded-full bg-white border border-slate-200">Сайт</span>
-          <span class="px-2.5 py-1 rounded-full bg-white border border-slate-200">amoCRM</span>
-          <span class="px-2.5 py-1 rounded-full bg-white border border-slate-200">Битрикс24</span>
-          <span class="px-2.5 py-1 rounded-full bg-white border border-slate-200">1С</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- 12. КОМУ ПРЕДЛАГАТЬ (#fit): ЛЕВАЯ КАРТОЧКА НА ПОДЛОЖКЕ, ПРАВАЯ — НА ПРОЗРАЧНОМ ФОНЕ -->
-    <section id="fit" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 scroll-mt-28 relative">
-      <div class="text-center max-w-3xl mx-auto mb-8">
+    <!-- 11. КОМУ ПРЕДЛАГАТЬ (#fit) -->
+    <section id="fit" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 sm:mb-28 scroll-mt-28 relative">
+      <div class="text-center max-w-3xl mx-auto mb-10">
         <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase grad-heading">
           КОМУ ПРЕДЛАГАТЬ ИИ-ПРОДАВЦА
         </h2>
-        <p class="text-sm sm:text-base text-slate-600 font-medium mt-1.5">
+        <p class="text-sm sm:text-base text-slate-600 font-medium mt-2">
           Довольный клиент платит годами, а неподходящий уходит через пару месяцев — отсекайте нецелевых сразу.
         </p>
       </div>
 
-      <!-- ЛЕВАЯ КАРТОЧКА — АКЦЕНТНАЯ, ПРАВАЯ — ПРОЗРАЧНЫЙ ФОН (РАЗГРУЖАЕМ СТРАНИЦУ) -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         
-        <!-- ПРЕДЛАГАЙТЕ: акцентная изумрудная плашка -->
-        <div class="p-6 sm:p-7 rounded-3xl bg-gradient-to-b from-white to-emerald-50/60 border-2 border-emerald-400 shadow-sm">
-          <div class="flex items-center gap-2 mb-4 text-emerald-800 font-bold text-sm uppercase tracking-wider">
+        <!-- ПРЕДЛАГАЙТЕ -->
+        <div class="p-6 sm:p-8 rounded-3xl bg-gradient-to-b from-white to-emerald-50/60 border-2 border-emerald-400 shadow-sm">
+          <div class="flex items-center gap-2 mb-5 text-emerald-800 font-bold text-sm uppercase tracking-wider">
             <span class="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center font-black text-xs">✓</span>
             <span>Предлагайте, если у компании:</span>
           </div>
-          <ul class="space-y-3 text-xs sm:text-sm text-slate-700 font-medium">
+          <ul class="space-y-3.5 text-xs sm:text-sm text-slate-700 font-medium">
             <li class="flex items-start gap-2.5">
               <span class="text-emerald-600 font-bold">✓</span>
               <span><strong>От 100 обращений в месяц</strong> в чатах, на Авито или через сайт.</span>
@@ -1320,13 +1194,13 @@
           </ul>
         </div>
 
-        <!-- НЕ ПРЕДЛАГАЙТЕ: прозрачный контурный фон -->
-        <div class="p-6 sm:p-7 rounded-3xl border border-dashed border-rose-300 bg-transparent">
-          <div class="flex items-center gap-2 mb-4 text-rose-800 font-bold text-sm uppercase tracking-wider">
+        <!-- НЕ ПРЕДЛАГАЙТЕ -->
+        <div class="p-6 sm:p-8 rounded-3xl border border-dashed border-rose-300 bg-transparent">
+          <div class="flex items-center gap-2 mb-5 text-rose-800 font-bold text-sm uppercase tracking-wider">
             <span class="w-6 h-6 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center font-black text-xs">✕</span>
             <span>Не предлагайте, если:</span>
           </div>
-          <ul class="space-y-3 text-xs sm:text-sm text-slate-600 font-medium">
+          <ul class="space-y-3.5 text-xs sm:text-sm text-slate-600 font-medium">
             <li class="flex items-start gap-2.5">
               <span class="text-rose-500 font-bold">✕</span>
               <span><strong>Меньше 100 обращений и чек ниже 20&nbsp;000&nbsp;₽</strong> — сервис не окупится.</span>
@@ -1348,21 +1222,21 @@
 
       </div>
 
-      <!-- ЧИСТЫЙ ПРИМЕР ОКУПАЕМОСТИ -->
-      <div class="p-5 rounded-2xl bg-sky-50/70 border border-sky-200 text-xs sm:text-sm text-slate-800">
+      <!-- ПРИМЕР ОКУПАЕМОСТИ -->
+      <div class="p-6 rounded-3xl bg-sky-50/70 border border-sky-200 text-xs sm:text-sm text-slate-800 leading-relaxed">
         <strong>В цифрах:</strong> компания с 400 обращениями и чеком 50&nbsp;000&nbsp;₽ при росте конверсии всего на 10% получает <strong>+60&nbsp;000&nbsp;₽ валовой прибыли в месяц</strong> при подписке 33&nbsp;000&nbsp;₽. Запуск окупается в первый месяц.
       </div>
     </section>
 
-    <!-- 13. ЧАСТЫЕ ВОПРОСЫ -->
-    <section id="faq" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 scroll-mt-28 relative">
-      <div class="text-center max-w-2xl mx-auto mb-8">
+    <!-- 12. ЧАСТЫЕ ВОПРОСЫ -->
+    <section id="faq" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 sm:mb-28 scroll-mt-28 relative">
+      <div class="text-center max-w-2xl mx-auto mb-10">
         <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase grad-heading">
           Частые вопросы
         </h2>
       </div>
 
-      <div class="space-y-3">
+      <div class="space-y-4">
 
         <details class="bg-white border border-slate-200/90 rounded-2xl p-5 transition hover:border-sky-300">
           <summary class="flex justify-between items-center cursor-pointer font-bold text-slate-900 text-sm sm:text-base select-none">
@@ -1428,20 +1302,20 @@
       </div>
     </section>
 
-    <!-- 14. ФОРМА ЗАЯВКИ / СТАТЬ ПАРТНЕРОМ (#join) -->
-    <section id="join" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 scroll-mt-28 relative">
+    <!-- 13. ФОРМА ЗАЯВКИ / СТАТЬ ПАРТНЕРОМ (#join) -->
+    <section id="join" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 scroll-mt-28 relative">
       
       <div class="text-center max-w-xl mx-auto mb-8">
         <h2 class="font-benzin text-2xl sm:text-3xl font-black tracking-tight uppercase grad-heading">
           Стать партнёром
         </h2>
-        <p class="text-xs sm:text-sm text-slate-600 mt-1">
+        <p class="text-xs sm:text-sm text-slate-600 mt-2">
           Заполните форму или напишите в Telegram. Свяжемся за 1 рабочий день, подпишем договор и отправим материалы.
         </p>
       </div>
 
       <!-- ВКЛАДКИ -->
-      <div class="flex border border-sky-200 rounded-full p-1 bg-white mb-6 gap-1 max-w-md mx-auto" role="tablist">
+      <div class="flex border border-sky-200 rounded-full p-1 bg-white mb-8 gap-1 max-w-md mx-auto" role="tablist">
         <button type="button" role="tab" id="tab-apply" aria-controls="panel-apply" aria-selected="true" class="flex-1 py-2.5 px-4 rounded-full font-bold text-xs sm:text-sm text-center transition-all bg-sky-600 text-white shadow-xs">
           Стать партнёром
         </button>
@@ -1557,7 +1431,7 @@
   </main>
 
   <!-- ФУТЕР -->
-  <footer class="pt-10 pb-16 text-slate-600 relative overflow-hidden z-20 border-t border-sky-200/50 font-inter bg-transparent">
+  <footer class="pt-12 pb-16 text-slate-600 relative overflow-hidden z-20 border-t border-sky-200/50 font-inter bg-transparent">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
       
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 text-center md:text-left">
