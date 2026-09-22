@@ -3358,13 +3358,18 @@
             wrappers.forEach((wrap, idx) => {
               setTimeout(() => {
                 wrap.classList.add('card-revealed');
+                const card = wrap.querySelector('.cta-push-card');
+                if (card) {
+                  card.classList.add('card-nudge');
+                  setTimeout(() => card.classList.remove('card-nudge'), 300);
+                }
                 setTimeout(() => {
                   wrap.classList.add('card-floating');
-                }, 650);
-              }, idx * 150);
+                }, 450);
+              }, idx * 180);
             });
 
-            // Периодическое вздрагивание одной карточки раз в 4 с по очереди (scale 1 -> 1.02 -> 1 за 0.3 с)
+            // Периодическое активное вздрагивание входящих сообщений в час пик
             let nudgeIdx = 0;
             setInterval(() => {
               if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -3380,7 +3385,7 @@
                 }, 350);
               }
               nudgeIdx++;
-            }, 4000);
+            }, 2200);
           }
 
           // IntersectionObserver на видимость секции
