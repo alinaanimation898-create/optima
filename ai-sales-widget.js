@@ -157,7 +157,7 @@
           timeStr,
           statusText: `Сейчас ${timeStr} • Отвечаю за 3 сек`,
           headerStatus: `Сейчас ${timeStr} • Онлайн`,
-          teaserPill: `Сейчас ${timeStr} — разгар дня! Помогаю отделу продаж отвечать за 3 секунды без пропущенных клиентов.`,
+          teaserPill: `Сейчас ${timeStr} — разгар дня! Помогаю отделу продаж, чтобы каждый клиент получил ответ за 3 секунды.`,
           welcomeTitle: `Здравствуйте!`,
           welcomeText: `Сейчас <strong>${timeStr}</strong>. Я персональный консультант <strong>ALTAI Optima</strong>. Помогу рассчитать сроки и стоимость установки софта и интеграции с вашей CRM.`
         };
@@ -671,15 +671,26 @@
     // Periodic live ticker update for time & contextual greetings
     setInterval(updateSmartTimeUI, 15000);
 
-    // Schedule proactive teaser if not dismissed previously
+    // Schedule proactive teaser: 25s delay OR after first user scroll (> 150px)
     const teaserDismissed = sessionStorage.getItem(CONFIG.storageKeyTeaserDismissed);
     if (!teaserDismissed) {
-      setTimeout(() => {
-        if (!isOpen) {
-          const teaser = document.getElementById('altaiWidgetTeaser');
-          if (teaser) teaser.classList.remove('hidden');
+      let teaserShown = false;
+      function showTeaserOnce() {
+        if (teaserShown || isOpen) return;
+        teaserShown = true;
+        const teaser = document.getElementById('altaiWidgetTeaser');
+        if (teaser) teaser.classList.remove('hidden');
+        window.removeEventListener('scroll', onFirstScroll);
+      }
+
+      function onFirstScroll() {
+        if (window.scrollY > 150) {
+          showTeaserOnce();
         }
-      }, 3500);
+      }
+
+      window.addEventListener('scroll', onFirstScroll, { passive: true });
+      setTimeout(showTeaserOnce, 25000);
     }
   }
 

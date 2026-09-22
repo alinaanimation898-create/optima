@@ -3425,3 +3425,11 @@
           obs.observe(ctorSec);
         }
     });
+  // Dynamic --ao-sunset scroll handler for Alpenglow background
+  function updateAltaiSunset() {
+    const scrollH = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollH > 0 ? Math.min(Math.max(window.scrollY / scrollH, 0), 1) : 0;
+    document.documentElement.style.setProperty('--ao-sunset', progress.toFixed(3));
+  }
+  window.addEventListener('scroll', updateAltaiSunset, { passive: true });
+  updateAltaiSunset();
