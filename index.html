@@ -40,7 +40,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-  <link rel="stylesheet" href="assets/css/style.css?v=3.2">
+  <link rel="stylesheet" href="assets/css/style.css?v=3.3">
   <link rel="stylesheet" href="assets/css/altai-refresh.css?v=3.2">
 </head>
 <body class="selection:bg-sky-200 selection:text-sky-950 overflow-x-clip">
@@ -2179,6 +2179,20 @@
             </div>
           </div>
         </div>
+
+        <!-- Мобильная пагинация и подсказка свайпа -->
+        <div class="cfg-mobile-pagination md:hidden" aria-hidden="true">
+          <div class="cfg-mobile-swipe-text">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            <span>Листайте тарифы (всего 4)</span>
+          </div>
+          <div class="cfg-mobile-dots" id="cfgMobileDots">
+            <button type="button" class="cfg-mobile-dot" data-index="0" aria-label="Тариф Старт"></button>
+            <button type="button" class="cfg-mobile-dot active" data-index="1" aria-label="Тариф Бизнес"></button>
+            <button type="button" class="cfg-mobile-dot" data-index="2" aria-label="Тариф Поток"></button>
+            <button type="button" class="cfg-mobile-dot" data-index="3" aria-label="Тариф Империя"></button>
+          </div>
+        </div>
       </div>
 
       <!-- 2.3 - 2.6 КОНСТРУКТОР ТАРИФА -->
@@ -2714,7 +2728,7 @@
     </footer>
   </div>
 
-  <script defer src="assets/js/main.js?v=3.2"></script>
+  <script defer src="assets/js/main.js?v=3.3"></script>
   <!-- Обновление 21.09.2026: новые механики (после main.js) -->
   <script defer src="assets/js/altai-refresh.js?v=3.2"></script>
 

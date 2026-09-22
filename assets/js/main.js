@@ -3076,7 +3076,18 @@
         renderChannelsList();
         renderCrmsList();
 
-        // Синхронизация полосы тарифов при клике или клавиатуре
+        // Синхронизация полосы тарифов при клике или клавиатуре + мобильные точки
+        const mobileDots = document.getElementById('cfgMobileDots');
+        const tariffCards = tariffsStrip ? Array.from(tariffsStrip.querySelectorAll('.cfg-tariff-card')) : [];
+
+        function updateMobileDots(activeIndex) {
+          if (!mobileDots) return;
+          const dots = mobileDots.querySelectorAll('.cfg-mobile-dot');
+          dots.forEach((dot, idx) => {
+            dot.classList.toggle('active', idx === activeIndex);
+          });
+        }
+
         if (tariffsStrip) {
           tariffsStrip.addEventListener('click', e => {
             const card = e.target.closest('.cfg-tariff-card');
@@ -3099,6 +3110,46 @@
               }
             }
           });
+
+          // Интерактивные мобильные точки
+          if (mobileDots) {
+            mobileDots.addEventListener('click', e => {
+              const dot = e.target.closest('.cfg-mobile-dot');
+              if (!dot) return;
+              const idx = parseInt(dot.dataset.index, 10);
+              if (!isNaN(idx) && tariffCards[idx]) {
+                const sliderTarget = parseInt(tariffCards[idx].dataset.slider, 10);
+                if (!isNaN(sliderTarget)) {
+                  setVolume(sliderTarget);
+                }
+                tariffCards[idx].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                updateMobileDots(idx);
+              }
+            });
+
+            // Отслеживание свайпа на мобильных для плавной подсветки точек
+            let isScrolling;
+            tariffsStrip.addEventListener('scroll', () => {
+              clearTimeout(isScrolling);
+              isScrolling = setTimeout(() => {
+                if (window.innerWidth > 767) return;
+                const stripRect = tariffsStrip.getBoundingClientRect();
+                const stripCenter = stripRect.left + stripRect.width / 2;
+                let closestIdx = 0;
+                let minDiff = Infinity;
+                tariffCards.forEach((card, idx) => {
+                  const cardRect = card.getBoundingClientRect();
+                  const cardCenter = cardRect.left + cardRect.width / 2;
+                  const diff = Math.abs(cardCenter - stripCenter);
+                  if (diff < minDiff) {
+                    minDiff = diff;
+                    closestIdx = idx;
+                  }
+                });
+                updateMobileDots(closestIdx);
+              }, 40);
+            }, { passive: true });
+          }
         }
 
         // Синхронизация ползунка
@@ -3172,13 +3223,21 @@
             tariffBadge.textContent = `тариф «${tariff.name}»`;
           }
 
-          // 2. Подсветка активной карточки тарифа в полосе
+          // 2. Подсветка активной карточки тарифа в полосе и синхронизация точек
           if (tariffsStrip) {
-            tariffsStrip.querySelectorAll('.cfg-tariff-card').forEach(card => {
+            let activeIdx = 0;
+            tariffCards.forEach((card, idx) => {
               const isActive = (card.dataset.tariff === tariff.id);
               card.classList.toggle('active', isActive);
               card.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+              if (isActive) {
+                activeIdx = idx;
+                if (window.innerWidth <= 767 && document.activeElement === sliderEl) {
+                  card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                }
+              }
             });
+            updateMobileDots(activeIdx);
           }
 
           // 3. Стоимости
