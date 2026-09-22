@@ -2400,20 +2400,15 @@
       100% { transform: scale(1); }
     }
 
-#scrollProblemTitle {
-      overflow: visible !important;
-      line-height: 1.15 !important;
-    }
+#scrollProblemTitle,
     #scrollProblemTitle .scroll-gradient-line {
       display: inline-block;
       width: 100%;
-      background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      box-decoration-break: clone;
-      -webkit-box-decoration-break: clone;
-      overflow: visible !important;
-      filter: drop-shadow(0 2px 8px rgba(15, 23, 42, 0.08)) !important;
+      color: #B4232F !important;
+      -webkit-text-fill-color: #B4232F !important;
+      background: none !important;
+      text-shadow: none !important;
+      filter: drop-shadow(0 2px 10px rgba(180, 35, 47, 0.15)) !important;
     }
 
     /* СКРОЛЛ-ГРАДИЕНТ ДЛЯ ЦИФР В КАРТОЧКАХ УТЕЧЕК (-40%, -80%, -20%) СЛЕВА НАПРАВО */
