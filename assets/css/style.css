@@ -69,6 +69,32 @@
   filter: none !important;
 }
 
+/* Перламутровый сапфировый градиент заголовков */
+.pearl-title-gradient {
+  background: linear-gradient(
+    135deg,
+    #075985 0%,
+    #0284c7 25%,
+    #38bdf8 45%,
+    #0284c7 65%,
+    #082f49 85%,
+    #075985 100%
+  ) !important;
+  background-size: 240% 240% !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  animation: pearlTitleGradientGlide 6s ease-in-out infinite !important;
+  filter: drop-shadow(0 4px 14px rgba(2, 132, 199, 0.18));
+  display: inline;
+}
+@keyframes pearlTitleGradientGlide {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
 /* Shadow Rock Header Navigation Button */
 .ao-nav-cta {
   background: #0f172a !important;
