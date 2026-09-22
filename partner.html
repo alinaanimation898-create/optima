@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Партнёрская программа Altai Optima — процент с каждого платежа клиента</title>
-  <meta name="description" content="Рекомендуйте ИИ-продавца Altai Optima бизнесу и получайте от 25% с запуска и от 15% с каждого платежа клиента — пока он пользуется сервисом. С годового контракта — процент сразу. Без взносов, по договору.">
+  <title>Партнёрская программа Altai Optima — доход с каждого платежа клиента</title>
+  <meta name="description" content="До 66 600 ₽ с одного клиента сразу или до 6 600 ₽ каждый месяц, пока он платит. Рекомендуйте бизнесу ИИ-продавца Altai Optima — продаём и внедряем мы. Без взносов, по договору.">
   <meta name="theme-color" content="#020817">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Партнёрская программа Altai Optima">
-  <meta property="og:description" content="От 25% с запуска и от 15% с каждого ежемесячного платежа клиента — пока он пользуется сервисом. С годового контракта — процент сразу.">
+  <meta property="og:description" content="До 66 600 ₽ с одного клиента сразу или до 6 600 ₽ каждый месяц, пока он пользуется сервисом.">
   <meta property="og:url" content="https://optima.altaiweb.online/partner.html">
   <link rel="canonical" href="https://optima.altaiweb.online/partner.html">
 
@@ -20,7 +20,7 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = {
+    if (window.tailwind) tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
@@ -335,6 +335,77 @@
     details summary .faq-icon { transition: transform 0.25s ease; }
     details[open] summary .faq-icon { transform: rotate(45deg); color: #0284c7; }
   </style>
+
+  <style>
+    /* ===== Дополнения к дизайну (пересборка страницы) ===== */
+    .grad-heading {
+      background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-amount { font-size: clamp(1.75rem, 5.6vw, 3.5rem); line-height: 1.08; }
+
+    /* Карточки «4 способа заработать» */
+    .way-money { margin-bottom: 12px; }
+    .way-money-main { font-size: 2rem; line-height: 1.1; font-weight: 900; font-variant-numeric: tabular-nums; }
+    .way-money-main span { font-size: 0.875rem; font-weight: 600; color: #64748b; margin-left: 2px; }
+    .way-money-sub { font-size: 0.8125rem; font-weight: 700; color: #334155; margin-top: 4px; }
+    .way-annual {
+      display: flex; flex-direction: column; gap: 2px;
+      padding: 10px 12px; border-width: 1px; border-style: solid; border-radius: 12px;
+      font-size: 11px; color: #475569; margin-bottom: 12px;
+    }
+    .way-annual strong { font-size: 1rem; font-weight: 900; }
+    .way-rates { font-size: 11px; color: #64748b; font-weight: 600; margin-bottom: 18px; line-height: 1.45; }
+    .way-card-wl { background: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%); border-color: #cbd5e1; }
+    .way-btn-purple { color: #7e22ce; border-color: #d8b4fe; }
+    .way-btn-purple:hover { color: #6b21a8; border-color: #a855f7; background: #faf5ff; }
+
+    /* Лестница статусов */
+    .ladder { display: grid; grid-template-columns: 1fr; gap: 12px; list-style: none; margin: 0; padding: 0; }
+    @media (min-width: 900px) { .ladder { grid-template-columns: repeat(3, 1fr); } }
+    .ladder-step {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px; padding: 18px; display: flex; flex-direction: column; gap: 12px;
+    }
+    .ladder-step-accent { background: rgba(16,185,129,0.16); border-color: rgba(52,211,153,0.5); }
+    .ladder-head { display: flex; align-items: center; gap: 12px; }
+    .ladder-num {
+      width: 34px; height: 34px; border-radius: 9999px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #38bdf8, #0284c7); color: #fff; font-weight: 900; font-size: 14px;
+    }
+    .ladder-name { font-size: 1.25rem; font-weight: 900; color: #fff; line-height: 1.1; }
+    .ladder-cond { font-size: 12px; font-weight: 700; color: #7dd3fc; }
+    .ladder-rates { display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: #cbd5e1; }
+    .ladder-rates b { color: #fff; font-weight: 800; }
+    .ladder-role { display: inline-block; min-width: 54px; font-size: 11px; font-weight: 700; color: #94a3b8; }
+    .ladder-money { font-size: 12px; font-weight: 700; color: #6ee7b7; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: auto; }
+
+    /* Калькулятор */
+    .calc-field { border: 0; margin: 0; padding: 0; min-width: 0; }
+    .calc-field legend { display: block; font-size: 13px; font-weight: 800; color: #fff; margin-bottom: 8px; padding: 0; }
+    .calc-seg { position: relative; }
+    .calc-seg.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .calc-seg input:focus-visible + label { outline: 2px solid #7dd3fc; outline-offset: 2px; }
+
+    /* Стартовый набор */
+    .kit-item {
+      background: #fff; border: 1.5px solid #bae6fd; border-radius: 20px; padding: 18px 20px;
+      box-shadow: 0 10px 30px -4px rgba(2,132,199,0.08);
+    }
+    .kit-item h3 { font-size: 15px; font-weight: 800; color: #0f172a; margin-bottom: 4px; }
+    .kit-item p { font-size: 13px; color: #475569; line-height: 1.5; }
+
+    .pulse-avatar-node { transform-box: fill-box; }
+
+    /* Доступность */
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid #0284c7; outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
 </head>
 <body class="bg-[#f1f5fa] text-[#061224] antialiased selection:bg-sky-500 selection:text-white relative">
 
@@ -350,7 +421,7 @@
     <div class="relative bg-white/95 backdrop-blur-2xl border border-slate-200 shadow-[0_12px_36px_rgba(15,23,42,0.09)] rounded-full px-4 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between gap-3 text-xs text-slate-800 pointer-events-auto w-full max-w-6xl">
       
       <!-- ЛОГОТИП — ПЕРЕХОД НА ГЛАВНУЮ -->
-      <a href="./index.html" class="flex items-center gap-2 group shrink-0" title="На главную страницу ALTAI OPTIMA">
+      <a href="index.html" class="flex items-center gap-2 group shrink-0" title="На главную страницу ALTAI OPTIMA">
         <img src="brand_logo.webp" alt="ALTAI OPTIMA" class="h-5 sm:h-6 w-auto object-contain transition-transform duration-200 group-hover:scale-105" loading="lazy">
         <span class="hidden sm:inline-block text-[11px] font-black uppercase tracking-wider bg-gradient-to-r from-sky-500 via-blue-600 to-sky-700 bg-clip-text text-transparent select-none">
           PARTNER
@@ -359,13 +430,13 @@
 
       <!-- ДЕСКТОП НАВИГАЦИЯ -->
       <nav class="hidden xl:flex items-center space-x-3 text-[11px] font-bold tracking-wider uppercase text-slate-700 whitespace-nowrap">
-        <a href="./index.html" class="px-2.5 py-1 text-sky-700 hover:text-sky-900 bg-sky-50 rounded-full font-extrabold transition-colors">
+        <a href="index.html" class="px-2.5 py-1 text-sky-700 hover:text-sky-900 bg-sky-50 rounded-full font-extrabold transition-colors">
           ← ГЛАВНАЯ
         </a>
         <span class="text-slate-300">•</span>
-        <a href="#rewards" class="px-2 py-1 hover:text-sky-600 transition-colors">КАРЬЕРНАЯ СЕТКА</a>
+        <a href="#ways" class="px-2 py-1 hover:text-sky-600 transition-colors">СПОСОБЫ ЗАРАБОТКА</a>
         <span class="text-slate-300">•</span>
-        <a href="#whitelabel" class="px-2 py-1 hover:text-sky-600 transition-colors">WHITE LABEL</a>
+        <a href="#ladder" class="px-2 py-1 hover:text-sky-600 transition-colors">РОСТ СТАТУСА</a>
         <span class="text-slate-300">•</span>
         <a href="#calc" class="px-2 py-1 hover:text-sky-600 transition-colors">КАЛЬКУЛЯТОР</a>
         <span class="text-slate-300">•</span>
@@ -379,7 +450,7 @@
       <!-- ПРАВАЯ ЧАСТЬ: TG + CTA КНОПКА -->
       <div class="flex items-center gap-2.5 shrink-0 whitespace-nowrap">
         <a href="https://t.me/altaioptima" target="_blank" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-sky-50 text-[#229ED9] hover:bg-sky-100 font-bold text-[11px] transition shrink-0" title="Telegram">
-          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"></path></svg>
           <span>@altaioptima</span>
         </a>
 
@@ -397,213 +468,199 @@
 
   <!-- Мобильное меню -->
   <div id="mobile-menu-drawer" class="fixed inset-x-3 top-20 z-40 bg-white/95 backdrop-blur-2xl border border-sky-200 rounded-2xl p-5 shadow-2xl hidden xl:hidden space-y-2 text-sm font-semibold">
-    <a href="./index.html" class="block py-2 px-3 rounded-lg bg-sky-50 font-bold text-sky-800">← Главная страница сайта</a>
-    <a href="#rewards" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Карьерная сетка</a>
-    <a href="#whitelabel" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">White Label</a>
+    <a href="index.html" class="block py-2 px-3 rounded-lg bg-sky-50 font-bold text-sky-800">← Главная страница сайта</a>
+    <a href="#ways" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Способы заработка</a>
+    <a href="#ladder" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Рост статуса</a>
     <a href="#calc" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Калькулятор дохода</a>
+    <a href="#kit" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Стартовый набор</a>
     <a href="#how" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Как это работает</a>
-    <a href="#fit" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Кому предлагать</a>
     <a href="#product" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Что делает ИИ-продавец</a>
+    <a href="#fit" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Кому предлагать</a>
     <a href="#faq" onclick="toggleMobileMenu()" class="block py-2 px-3 rounded-lg hover:bg-sky-50 text-slate-800">Вопросы и ответы</a>
     <a href="#join" onclick="toggleMobileMenu()" class="block py-2.5 px-3 rounded-lg bg-sky-600 text-white font-bold text-center mt-2">Стать партнёром</a>
   </div>
 
   <main class="relative z-10 pt-24 sm:pt-32 pb-24 bg-grid-cyber">
-    
-    <!-- 1. ПЕРВЫЙ ЭКРАН: ЗАГОЛОВОК СТРОГО В 2 СТРОКИ + СРАЗУ ТАРИФЫ СО 100% ПОНЯТНОЙ МАТЕМАТИКОЙ -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-20 relative" id="rewards">
+
+    <!-- 1. ПЕРВЫЙ ЭКРАН: СУММА В РУБЛЯХ + ЧТО ПРОДАЁТЕ + 2 ДЕЙСТВИЯ -->
+    <section id="top" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-14 sm:mb-16 relative">
       <div class="max-w-5xl mx-auto text-center">
 
-        <!-- ЗАГОЛОВОК СТРОГО В 2 СТРОКИ -->
-        <h1 class="font-benzin tracking-tight mb-4 uppercase select-none max-w-5xl mx-auto">
-          <span class="block text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-[46px] font-black leading-[1.12] partner-hero-animated-title">
-            РЕКОМЕНДУЙТЕ ИИ-ПРОДАВЦА
+        <h1 class="font-benzin tracking-tight mb-3 uppercase max-w-5xl mx-auto">
+          <span class="block font-black hero-amount partner-hero-animated-title">
+            66&nbsp;600&nbsp;₽ за&nbsp;одного клиента
           </span>
-          <span class="block text-base sm:text-2xl md:text-3xl lg:text-[32px] xl:text-[35px] font-black tracking-tight leading-[1.2] mt-1.5 sm:mt-2 text-slate-900">
-            И ПОЛУЧАЙТЕ % С КАЖДОГО ПЛАТЕЖА КЛИЕНТА
+          <span class="block text-base sm:text-2xl md:text-3xl lg:text-[32px] font-black tracking-tight leading-[1.2] mt-2 text-slate-900">
+            или 6&nbsp;600&nbsp;₽ каждый месяц, пока он платит
           </span>
         </h1>
 
-        <p class="text-sm sm:text-base md:text-lg text-slate-700 max-w-3xl mx-auto mb-10 font-medium leading-relaxed">
-          Вы передаете контакт заинтересованного бизнеса. Мы закрываем сделку, внедряем систему и ведем клиента. Вы получаете до 35% с запуска и до 20% ежемесячно со всех оплат подписки, пока клиент пользуется сервисом.
+        <p class="text-[11px] sm:text-xs text-slate-500 font-semibold mb-6">
+          Пример для агента: клиент на тарифе «Бизнес». Годовая оплата — выплата в&nbsp;течение 5&nbsp;рабочих дней.
         </p>
 
+        <p class="text-sm sm:text-base md:text-lg text-slate-700 max-w-3xl mx-auto mb-8 font-medium leading-relaxed">
+          Рекомендуйте бизнесу ИИ-продавца, который отвечает клиентам за 30–60 секунд днём и ночью и&nbsp;ставит сделки в&nbsp;CRM. Продаём, внедряем и сопровождаем мы&nbsp;— вы получаете процент с&nbsp;каждой оплаты клиента.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
+          <a href="#join" class="btn-optic w-full sm:w-auto">Стать партнёром</a>
+          <a href="#calc" class="btn-neon-contour w-full sm:w-auto py-3.5 px-7 text-xs font-bold uppercase tracking-wider">Рассчитать свой доход</a>
+        </div>
+
+        <ul class="flex flex-wrap justify-center gap-2 text-[11px] sm:text-xs font-semibold text-slate-700">
+          <li class="px-3 py-1.5 rounded-full bg-white border border-sky-200 shadow-sm">Официальный агентский договор</li>
+          <li class="px-3 py-1.5 rounded-full bg-white border border-sky-200 shadow-sm">Без вступительных взносов</li>
+          <li class="px-3 py-1.5 rounded-full bg-white border border-sky-200 shadow-sm">Выплаты ИП, ООО, самозанятым и физлицам</li>
+          <li class="px-3 py-1.5 rounded-full bg-white border border-sky-200 shadow-sm">Подписка — ежемесячно до 10-го числа</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 2. КОМУ ПОДХОДИТ ПАРТНЁРСТВО -->
+    <section id="who" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 relative">
+      <div class="card-tier-standard p-5 sm:p-6 text-center">
+        <p class="text-sm sm:text-base font-bold text-slate-900 mb-3">
+          Программа для тех, кто уже общается с собственниками бизнеса
+        </p>
+        <div class="flex flex-wrap justify-center gap-2 text-xs font-semibold">
+          <span class="px-3 py-1 rounded-full bg-sky-50 border border-sky-200 text-sky-800">Маркетологи и таргетологи</span>
+          <span class="px-3 py-1 rounded-full bg-sky-50 border border-sky-200 text-sky-800">Интеграторы amoCRM и Битрикс24</span>
+          <span class="px-3 py-1 rounded-full bg-sky-50 border border-sky-200 text-sky-800">Веб-студии и digital-агентства</span>
+          <span class="px-3 py-1 rounded-full bg-sky-50 border border-sky-200 text-sky-800">Бизнес-консультанты и трекеры</span>
+          <span class="px-3 py-1 rounded-full bg-sky-50 border border-sky-200 text-sky-800">Бухгалтеры на аутсорсе</span>
+          <span class="px-3 py-1 rounded-full bg-sky-50 border border-sky-200 text-sky-800">Руководители отделов продаж</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. ЧЕТЫРЕ СПОСОБА ЗАРАБОТАТЬ -->
+    <section id="ways" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 scroll-mt-28 relative">
+      <div class="text-center max-w-3xl mx-auto mb-8">
+        <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase grad-heading">
+          4 способа заработать
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600 font-medium mt-1.5">
+          Выберите, сколько хотите делать сами. Все суммы — с одного клиента на тарифе «Бизнес» (запуск 29&nbsp;000&nbsp;₽, подписка 33&nbsp;000&nbsp;₽/мес).
+        </p>
       </div>
 
-      <!-- 2. ЧЕТКАЯ КАРЬЕРНАЯ СЕТКА (ВМЕСТО ПУТАНИЦЫ С ТАРИФАМИ) -->
-      <div class="max-w-6xl mx-auto">
-        
-        <div class="text-center mb-8">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 text-sky-700 border border-sky-200 text-xs font-black uppercase tracking-wider mb-2">
-            <span>СТАТУСЫ И СТАВКИ ВОЗНАГРАЖДЕНИЯ</span>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
+
+        <!-- СКАУТ -->
+        <article class="card-tier-standard p-6 flex flex-col">
+          <div class="text-[11px] font-semibold text-slate-500 mb-1">Минимум действий</div>
+          <h3 class="text-2xl font-black text-slate-900 font-inter">Скаут</h3>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1.5 mb-5 leading-relaxed">
+            Передаёте контакт собственника или руководителя. Демо, договор и запуск — на нас.
+          </p>
+          <div class="way-money">
+            <div class="way-money-main text-sky-700">4&nbsp;950&nbsp;₽<span>/мес</span></div>
+            <div class="way-money-sub">+ 7&nbsp;250&nbsp;₽ с запуска</div>
           </div>
-          <h2 class="font-benzin text-2xl sm:text-3xl font-black tracking-tight uppercase text-slate-950">
-            КАРЬЕРНАЯ СЕТКА ПАРТНЁРА
-          </h2>
-          <p class="text-xs sm:text-sm text-slate-600 mt-1 max-w-xl mx-auto">
-            Прозрачные правила и понятная математика с каждого привлечённого клиента
+          <div class="way-annual bg-sky-50 border-sky-200">
+            <span>Если клиент оплатил год</span>
+            <strong class="text-blue-900">49&nbsp;950&nbsp;₽ сразу</strong>
+          </div>
+          <div class="way-rates">25% с запуска · 15% с подписки</div>
+          <a href="#join" onclick="selectPartnerTier('scout')" class="btn-neon-contour w-full py-3 text-xs font-bold uppercase tracking-wider mt-auto">Стать скаутом</a>
+        </article>
+
+        <!-- АГЕНТ -->
+        <article class="card-tier-featured p-6 flex flex-col">
+          <div class="flex items-center justify-between gap-2 mb-1">
+            <span class="text-[11px] font-semibold text-emerald-700">Максимум с клиента</span>
+            <span class="text-[10px] font-extrabold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full">Выбирают чаще</span>
+          </div>
+          <h3 class="text-2xl font-black text-slate-950 font-inter">Агент</h3>
+          <p class="text-xs sm:text-sm text-slate-700 mt-1.5 mb-5 leading-relaxed">
+            Сами проводите презентацию и доводите клиента до счёта. Запуск и сопровождение — на нас.
+          </p>
+          <div class="way-money">
+            <div class="way-money-main text-emerald-700">6&nbsp;600&nbsp;₽<span>/мес</span></div>
+            <div class="way-money-sub">+ 10&nbsp;150&nbsp;₽ с запуска</div>
+          </div>
+          <div class="way-annual bg-emerald-50 border-emerald-300">
+            <span>Если клиент оплатил год</span>
+            <strong class="text-emerald-950">66&nbsp;600&nbsp;₽ сразу</strong>
+          </div>
+          <div class="way-rates">35% с запуска · 20% с подписки</div>
+          <a href="#join" onclick="selectPartnerTier('agent')" class="btn-optic w-full mt-auto">Стать агентом</a>
+        </article>
+
+        <!-- ЛИДЕР СЕТИ -->
+        <article class="card-tier-pro p-6 flex flex-col">
+          <div class="text-[11px] font-semibold text-purple-600 mb-1">Доход с команды</div>
+          <h3 class="text-2xl font-black text-slate-900 font-inter">Лидер сети</h3>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1.5 mb-5 leading-relaxed">
+            Приглашаете коллег в программу. С каждого их клиента получаете бонус — сверх их вознаграждения.
+          </p>
+          <div class="way-money">
+            <div class="way-money-main text-purple-700">1&nbsp;650&nbsp;₽<span>/мес</span></div>
+            <div class="way-money-sub">+ 2&nbsp;030&nbsp;₽ с запуска — с каждого клиента партнёра</div>
+          </div>
+          <div class="way-annual bg-purple-50 border-purple-200">
+            <span>Если клиент партнёра оплатил год</span>
+            <strong class="text-purple-900">16&nbsp;650&nbsp;₽ сразу</strong>
+          </div>
+          <div class="way-rates">7% с запуска · 5% с подписки. Нужен хотя бы 1 свой активный клиент</div>
+          <a href="#join" onclick="selectPartnerTier('leader')" class="btn-neon-contour w-full py-3 text-xs font-bold uppercase tracking-wider mt-auto way-btn-purple">Собрать команду</a>
+        </article>
+
+        <!-- WHITE LABEL -->
+        <article id="whitelabel" class="card-tier-standard way-card-wl p-6 flex flex-col scroll-mt-28">
+          <div class="text-[11px] font-semibold text-slate-500 mb-1">Под своим брендом</div>
+          <h3 class="text-2xl font-black text-slate-900 font-inter">Агентство</h3>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1.5 mb-5 leading-relaxed">
+            Для интеграторов CRM и digital-агентств. Продаёте ИИ-продавца по своей цене, мы даём техническую основу.
+          </p>
+          <div class="way-money">
+            <div class="way-money-main text-slate-900">9&nbsp;900&nbsp;₽<span>/мес</span></div>
+            <div class="way-money-sub">+ всё, что выше 9&nbsp;000&nbsp;₽ за запуск</div>
+          </div>
+          <div class="way-annual bg-slate-50 border-slate-200">
+            <span>Если клиент оплатил год</span>
+            <strong class="text-slate-900">99&nbsp;900&nbsp;₽ сразу</strong>
+          </div>
+          <div class="way-rates">Ваша цена запуска · 30% с подписки</div>
+          <a href="https://t.me/altaioptima?text=%D0%94%D0%BE%D0%B1%D1%80%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20White%20Label%20%D0%B4%D0%BB%D1%8F%20%D0%B0%D0%B3%D0%B5%D0%BD%D1%82%D1%81%D1%82%D0%B2%D0%B0" target="_blank" rel="noopener" class="btn-neon-contour w-full py-3 text-xs font-bold uppercase tracking-wider mt-auto">Обсудить White Label</a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 4. БЫСТРЫЙ СТАРТ -->
+    <section id="fast-start" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative">
+      <div class="rounded-2xl p-5 sm:p-6 bg-gradient-to-r from-[#081a36] via-[#0b244d] to-[#061224] text-white border border-emerald-400/40 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
+        <div class="space-y-1.5 max-w-2xl">
+          <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-emerald-400/20 text-emerald-300 border border-emerald-400/40 text-[10px] font-black uppercase tracking-wider">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Бонус быстрого старта</span>
+          </div>
+          <h3 class="text-lg sm:text-xl font-black font-inter text-white">
+            Первый клиент за 30 дней — +5&nbsp;000&nbsp;₽ к выплате
+          </h3>
+          <p class="text-xs sm:text-sm text-sky-100/90 leading-relaxed font-medium">
+            Если ваш первый клиент оплатит запуск в течение 30 дней после подписания партнёрского договора, начислим 5&nbsp;000&nbsp;₽ сверх обычного процента. Действует для скаутов и агентов.
           </p>
         </div>
+        <a href="#join" class="btn-optic shrink-0 w-full md:w-auto">Начать сейчас</a>
+      </div>
+    </section>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch max-w-5xl mx-auto mb-6">
-          
-          <!-- УРОВЕНЬ 1: СКАУТ -->
-          <div class="card-tier-standard p-6 sm:p-8 flex flex-col justify-between">
-            <div class="space-y-4">
-              <div class="flex items-center justify-between gap-2">
-                <span class="text-xs font-black uppercase tracking-wider text-sky-700 bg-sky-100/80 px-2.5 py-1 rounded-full">Уровень 1</span>
-                <span class="text-[11px] font-semibold text-slate-500">Минимум действий</span>
-              </div>
+    <!-- 5. ГОДОВОЙ КОНТРАКТ: ТАБЛИЦА ПО ВСЕМ ТАРИФАМ -->
+    <section id="annual" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-4 scroll-mt-28 relative">
 
-              <div>
-                <h3 class="text-2xl sm:text-3xl font-black text-slate-900 font-inter">Скаут</h3>
-                <p class="text-xs sm:text-sm text-slate-600 mt-1.5 font-medium leading-relaxed">
-                  <strong class="text-slate-800">Формат:</strong> просто передал контакт руководителя или собственника.
-                </p>
-              </div>
-
-              <!-- Цифры ставок -->
-              <div class="py-4 border-y border-sky-100 space-y-3">
-                <div class="flex justify-between items-baseline">
-                  <span class="text-xs sm:text-sm text-slate-600 font-medium">С разового запуска:</span>
-                  <div class="text-right">
-                    <span class="text-2xl sm:text-3xl font-black text-sky-600">25%</span>
-                    <span class="text-xs font-bold text-slate-500 ml-1.5">(7&nbsp;250&nbsp;₽)</span>
-                  </div>
-                </div>
-                <div class="flex justify-between items-baseline">
-                  <span class="text-xs sm:text-sm text-slate-600 font-medium">С абонентской платы:</span>
-                  <div class="text-right">
-                    <span class="text-2xl sm:text-3xl font-black text-emerald-600">15% <span class="text-xs font-normal text-slate-400">/ мес</span></span>
-                    <div class="text-[11px] font-semibold text-slate-500 mt-0.5">от 4&nbsp;950&nbsp;₽/мес с одного клиента</div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- При оплате клиентом за год -->
-              <div class="p-4 bg-gradient-to-r from-sky-50 to-blue-50/80 rounded-xl text-xs border border-sky-200/80 flex items-center justify-between">
-                <div>
-                  <div class="text-[10px] uppercase font-bold text-sky-700 tracking-wider">При оплате клиентом за год:</div>
-                  <div class="text-slate-700 font-medium mt-0.5">Выплата со всей суммы контракта</div>
-                </div>
-                <div class="text-right">
-                  <div class="text-base sm:text-lg font-black text-blue-900">49&nbsp;950&nbsp;₽</div>
-                  <div class="text-[10px] font-bold text-sky-700">выплачиваются сразу</div>
-                </div>
-              </div>
-            </div>
-
-            <a href="#join" onclick="selectPartnerTier('scout')" class="btn-neon-contour w-full py-3.5 text-xs font-bold uppercase tracking-wider text-center mt-6">
-              Выбрать «Скаут»
-            </a>
-          </div>
-
-          <!-- УРОВЕНЬ 2: АГЕНТ -->
-          <div class="card-tier-featured p-6 sm:p-8 flex flex-col justify-between">
-            <div class="space-y-4">
-              <div class="flex items-center justify-between gap-2">
-                <span class="text-xs font-black uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2.5 py-1 rounded-full">Уровень 2</span>
-                <span class="text-[11px] font-extrabold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Максимум дохода</span>
-              </div>
-
-              <div>
-                <h3 class="text-2xl sm:text-3xl font-black text-slate-950 font-inter">Агент</h3>
-                <p class="text-xs sm:text-sm text-slate-700 mt-1.5 font-medium leading-relaxed">
-                  <strong class="text-slate-900">Формат:</strong> сам провел презентацию и довел клиента до выставления счета.
-                </p>
-              </div>
-
-              <!-- Цифры ставок -->
-              <div class="py-4 border-y border-emerald-100 space-y-3">
-                <div class="flex justify-between items-baseline">
-                  <span class="text-xs sm:text-sm text-slate-700 font-medium">С разового запуска:</span>
-                  <div class="text-right">
-                    <span class="text-2xl sm:text-3xl font-black text-sky-600">35%</span>
-                    <span class="text-xs font-bold text-slate-600 ml-1.5">(10&nbsp;150&nbsp;₽)</span>
-                  </div>
-                </div>
-                <div class="flex justify-between items-baseline">
-                  <span class="text-xs sm:text-sm text-slate-700 font-medium">С абонентской платы:</span>
-                  <div class="text-right">
-                    <span class="text-2xl sm:text-3xl font-black text-emerald-600">20% <span class="text-xs font-normal text-slate-400">/ мес</span></span>
-                    <div class="text-[11px] font-semibold text-slate-600 mt-0.5">от 6&nbsp;600&nbsp;₽/мес с клиента</div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- При оплате клиентом за год -->
-              <div class="p-4 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-xl text-xs border border-emerald-300 flex items-center justify-between">
-                <div>
-                  <div class="text-[10px] uppercase font-bold text-emerald-800 tracking-wider">При оплате клиентом за год:</div>
-                  <div class="text-slate-800 font-medium mt-0.5">Выплата со всей суммы контракта</div>
-                </div>
-                <div class="text-right">
-                  <div class="text-base sm:text-lg font-black text-emerald-950">66&nbsp;600&nbsp;₽</div>
-                  <div class="text-[10px] font-black text-emerald-700">выплачиваются сразу</div>
-                </div>
-              </div>
-            </div>
-
-            <a href="#join" onclick="selectPartnerTier('agent')" class="btn-optic w-full py-3.5 text-xs font-black uppercase tracking-wider text-center mt-6 shadow-md">
-              ВЫБРАТЬ «АГЕНТ»
-            </a>
-          </div>
-
-        </div>
-
-        <!-- БОНУС ЛИДЕРА СЕТИ (ВТОРОЙ УРОВЕНЬ) -->
-        <div class="max-w-5xl mx-auto mb-6 rounded-2xl p-5 sm:p-6 bg-gradient-to-r from-[#170e2c] via-[#231242] to-[#100720] text-white border border-purple-400/40 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-5 relative overflow-hidden">
-          <div class="space-y-1.5 max-w-2xl relative z-10">
-            <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-purple-400/20 text-purple-300 border border-purple-400/40 text-[10px] font-black uppercase tracking-wider">
-              <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
-              <span>ВТОРОЙ УРОВЕНЬ</span>
-            </div>
-            <h3 class="text-lg sm:text-xl font-black font-inter text-white">
-              Бонус лидера сети (Второй уровень)
-            </h3>
-            <p class="text-xs sm:text-sm text-purple-100/90 leading-relaxed font-medium">
-              <span class="text-purple-200">Формат:</span> пригласил коллегу или партнера развивать сеть.<br>
-              <span class="text-purple-200">Доход:</span> получаете <strong class="text-emerald-300 font-extrabold text-sm">5%</strong> со всех платежей его клиентов пожизненно.
-            </p>
-          </div>
-          <div class="shrink-0 relative z-10 w-full md:w-auto">
-            <a href="#join" onclick="selectPartnerTier('leader')" class="btn-neon-contour py-2.5 px-5 text-xs font-bold uppercase tracking-wider inline-block w-full md:w-auto text-center border-purple-400/50 text-purple-200 hover:text-white">
-              Развивать сеть
-            </a>
-          </div>
-        </div>
-
-        <!-- 3. ВЫНОС WHITE LABEL В ОТДЕЛЬНУЮ ПЛАШКУ (ВНИЗУ ТАРИФОВ) -->
-        <div id="whitelabel" class="max-w-5xl mx-auto mb-12 rounded-2xl p-6 sm:p-7 bg-gradient-to-r from-sky-50 via-slate-50 to-indigo-50/70 border-2 border-sky-300/80 shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative">
-          <div class="space-y-2 max-w-2xl">
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-100 text-sky-800 border border-sky-200 text-[10px] font-black uppercase tracking-wider">
-              <span>ИНТЕГРАЦИЯ И АГЕНТСТВА</span>
-            </div>
-            <h3 class="text-lg sm:text-xl font-black font-inter text-slate-900">
-              Интеграторам CRM и Digital-агентствам (White Label)
-            </h3>
-            <p class="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
-              Хотите продавать ИИ-продавца под собственным брендом по своей цене? Предоставляем готовую инфраструктуру: наш технический запуск фиксированно 9 000 ₽, все, что сверху, забираете себе, плюс 30% с абонентской платы.
-            </p>
-          </div>
-          <div class="shrink-0 w-full md:w-auto">
-            <a href="https://t.me/altaioptima?text=%D0%94%D0%BE%D0%B1%D1%80%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20White%20Label%20%D0%B4%D0%BB%D1%8F%20%D0%B0%D0%B3%D0%B5%D0%BD%D1%82%D1%81%D1%82%D0%B2%D0%B0" target="_blank" class="btn-optic py-3 px-6 text-xs font-black uppercase tracking-wider inline-flex items-center justify-center shadow-lg w-full md:w-auto text-center">
-              <span>Обсудить White Label</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- 4. ГОДОВОЙ КОНТРАКТ — САМАЯ ВЫГОДНАЯ СДЕЛКА (#annual-deal) -->
-        <div id="annual-deal" class="mb-14 rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-[#081a36] via-[#0b244d] to-[#061224] text-white border border-sky-400/30 shadow-2xl relative overflow-hidden">
+        <div id="annual-deal" class="rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-[#081a36] via-[#0b244d] to-[#061224] text-white border border-sky-400/30 shadow-2xl relative overflow-hidden">
           <div class="max-w-3xl mb-6">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-400/20 text-sky-300 border border-sky-400/40 text-[11px] font-black uppercase tracking-wider mb-2.5">
-              <span>★ МАКСИМАЛЬНАЯ ВЫГОДА</span>
+              <span>Самая выгодная сделка</span>
             </div>
             <h3 class="text-xl sm:text-2xl md:text-3xl font-black font-benzin uppercase tracking-tight text-white">
-              ГОДОВОЙ КОНТРАКТ — САМАЯ ВЫГОДНАЯ СДЕЛКА
+              Сколько вы получите с годового контракта
             </h3>
             <p class="text-xs sm:text-sm text-sky-100/90 mt-1 font-medium leading-relaxed">
-              Когда клиент оплачивает год вперёд, вы получаете процент со всей суммы в течение 5 рабочих дней после поступления денег.
+              Когда клиент оплачивает год вперёд, вы получаете процент со всей суммы в течение 5 рабочих дней после поступления денег. Предлагайте клиенту годовую оплату — это выгодно и ему, и вам.
             </p>
           </div>
 
@@ -656,300 +713,133 @@
           </div>
 
           <div class="mt-4 pt-3 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[11px] text-sky-200/80">
-            <span>* Дополнительно начисляется процент с разовой оплаты запуска клиента. С ростом базы активных клиентов (от 5) ставка по подписке растёт на +5&nbsp;п.п.</span>
-            <a href="#join" class="text-sky-300 hover:text-white font-bold underline shrink-0">Стать партнёром →</a>
+            <span>Плюс процент с запуска клиента. Суммы — по базовым ставкам: от 5 активных клиентов ставка с подписки выше на 5 п.п., и суммы вырастут.</span>
+            <a href="#join" class="text-sky-300 hover:text-white font-bold underline shrink-0">Стать партнёром</a>
           </div>
         </div>
-        </div>
-
-        <!-- 2 ПЕРЕРАБОТАННЫХ БОНУСА: В ТЕМНОМ СТИЛЬНОМ HIGH-TECH ОФОРМЛЕНИИ (НЕ ТЕРЯЮТСЯ НА ФОНЕ ТАРИФОВ) -->
-        <div id="growth" class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch scroll-mt-28">
-          
-          <!-- 1. АВТОМАТИЧЕСКИЙ РОСТ СТАВОК (КОНТРАСТНЫЙ ДИЗАЙН) -->
-          <div class="lg:col-span-6 rounded-[32px] p-6 sm:p-8 bg-gradient-to-br from-[#061e38] via-[#082a4d] to-[#041427] text-white border border-sky-400/30 shadow-xl flex flex-col justify-between relative overflow-hidden">
-            <div class="relative z-10">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-400/20 text-emerald-300 border border-emerald-400/40 text-xs font-black uppercase tracking-wider mb-4">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>МАСШТАБИРОВАНИЕ</span>
-              </div>
-              
-              <h3 class="text-xl sm:text-2xl font-black text-white mb-2 font-inter">
-                Автоматический рост ставок
-              </h3>
-              
-              <p class="text-xs sm:text-sm text-sky-100/80 mb-5 leading-relaxed font-medium">
-                Больше клиентов в базе — выше процент со <strong class="text-white">ВСЕХ</strong> ваших клиентов:
-              </p>
-
-              <!-- Лестница уровней -->
-              <div class="space-y-2.5">
-                
-                <div class="p-3 bg-white/5 rounded-xl border border-white/10 flex items-center justify-between">
-                  <div>
-                    <span class="text-[10px] font-bold text-sky-300 uppercase">1–4 клиента</span>
-                    <div class="text-xs font-bold text-slate-200">Базовый старт</div>
-                  </div>
-                  <div class="text-right">
-                    <span class="text-xs font-bold text-white">15% подписка</span>
-                    <span class="text-[11px] text-slate-400 ml-1">· 25% запуск</span>
-                  </div>
-                </div>
-
-                <div class="p-3.5 bg-emerald-500/20 rounded-xl border border-emerald-400/50 flex items-center justify-between shadow-inner">
-                  <div>
-                    <span class="text-[10px] font-black text-emerald-300 uppercase tracking-wide">От 5 клиентов в базе</span>
-                    <div class="text-xs sm:text-sm font-black text-white">+5% к ежемесячной подписке</div>
-                  </div>
-                  <div class="text-right">
-                    <span class="text-base font-black text-emerald-300">20% со всех</span>
-                    <div class="text-[10px] text-emerald-200">клиентов в базе</div>
-                  </div>
-                </div>
-
-                <div class="p-3 bg-sky-500/20 rounded-xl border border-sky-400/40 flex items-center justify-between">
-                  <div>
-                    <span class="text-[10px] font-black text-sky-300 uppercase tracking-wide">От 15 клиентов в базе</span>
-                    <div class="text-xs font-bold text-white">+5% дополнительно к запуску</div>
-                  </div>
-                  <div class="text-right">
-                    <span class="text-sm font-black text-sky-300">30% запуск</span>
-                    <div class="text-[10px] text-sky-200">(на Сделке — 40%)</div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-            <p class="text-[11px] text-sky-200/60 mt-4 pt-3 border-t border-white/10 relative z-10">
-              Повышенная ставка применяется ко всей базе клиентов, включая тех, кого вы привели ранее.
-            </p>
-          </div>
-
-          <!-- 2. ПАССИВНЫЙ ДОХОД С ПАРТНЁРОВ (АНИМИРОВАННАЯ СЕТЬ БЕЗ СЪЕХАВШИХ ТЕКСТОВ) -->
-          <div class="lg:col-span-6 rounded-[32px] p-6 sm:p-8 bg-gradient-to-br from-[#190d33] via-[#241348] to-[#120826] text-white border border-purple-400/40 shadow-xl flex flex-col justify-between relative overflow-hidden">
-            <div class="relative z-10">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-400/20 text-purple-300 border border-purple-400/40 text-xs font-black uppercase tracking-wider mb-4">
-                <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
-                <span>СЕТЬ ПАРТНЁРОВ</span>
-              </div>
-              
-              <h3 class="text-xl sm:text-2xl font-black text-white mb-2 font-inter">
-                Пассивный доход с приглашённых партнёров
-              </h3>
-              
-              <p class="text-xs sm:text-sm text-purple-100/80 mb-4 leading-relaxed font-medium">
-                Поделитесь ссылкой с коллегами. Когда они приводят клиентов — <strong class="text-purple-200">вы получаете 7% с запуска и 5% с каждой подписки</strong>:
-              </p>
-
-              <!-- АНИМИРОВАННАЯ ИНФОГРАФИКА РАСШИРЕНИЯ СЕТИ -->
-              <div class="bg-black/40 rounded-2xl p-3 border border-purple-400/30 text-white my-2">
-                <svg viewBox="0 0 440 120" class="w-full h-auto block select-none">
-                  <defs>
-                    <linearGradient id="netFlow" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stop-color="#38bdf8"/>
-                      <stop offset="100%" stop-color="#c084fc"/>
-                    </linearGradient>
-                  </defs>
-
-                  <!-- Линии с анимацией потока дохода -->
-                  <line x1="70" y1="60" x2="210" y2="30" stroke="url(#netFlow)" stroke-width="2" class="pulse-beam-active"/>
-                  <line x1="70" y1="60" x2="210" y2="90" stroke="url(#netFlow)" stroke-width="2" class="pulse-beam-active"/>
-                  
-                  <line x1="210" y1="30" x2="350" y2="18" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="3 3"/>
-                  <line x1="210" y1="30" x2="350" y2="42" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="3 3"/>
-                  <line x1="210" y1="90" x2="350" y2="78" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="3 3"/>
-                  <line x1="210" y1="90" x2="350" y2="102" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="3 3"/>
-
-                  <!-- УЗЕЛ 1: ВЫ -->
-                  <g transform="translate(70, 60)" class="pulse-avatar-node">
-                    <circle r="30" fill="#0284c7" stroke="#38bdf8" stroke-width="2.5"/>
-                    <text text-anchor="middle" y="4" fill="#ffffff" font-size="12" font-weight="900" font-family="Inter">ВЫ</text>
-                  </g>
-
-                  <!-- УЗЕЛ 2: Партнёр 1 -->
-                  <g transform="translate(210, 30)">
-                    <circle r="18" fill="#1e1b4b" stroke="#c084fc" stroke-width="2"/>
-                    <text text-anchor="middle" y="4" fill="#e2e8f0" font-size="8" font-weight="700" font-family="Inter">Партнёр</text>
-                  </g>
-
-                  <!-- УЗЕЛ 3: Партнёр 2 -->
-                  <g transform="translate(210, 90)">
-                    <circle r="18" fill="#1e1b4b" stroke="#c084fc" stroke-width="2"/>
-                    <text text-anchor="middle" y="4" fill="#e2e8f0" font-size="8" font-weight="700" font-family="Inter">Партнёр</text>
-                  </g>
-
-                  <!-- Клиенты -->
-                  <g transform="translate(350, 18)"><circle r="10" fill="#0f172a" stroke="#64748b"/><text text-anchor="middle" y="3" fill="#94a3b8" font-size="7">Клиент</text></g>
-                  <g transform="translate(350, 42)"><circle r="10" fill="#0f172a" stroke="#64748b"/><text text-anchor="middle" y="3" fill="#94a3b8" font-size="7">Клиент</text></g>
-                  <g transform="translate(350, 78)"><circle r="10" fill="#0f172a" stroke="#64748b"/><text text-anchor="middle" y="3" fill="#94a3b8" font-size="7">Клиент</text></g>
-                  <g transform="translate(350, 102)"><circle r="10" fill="#0f172a" stroke="#64748b"/><text text-anchor="middle" y="3" fill="#94a3b8" font-size="7">Клиент</text></g>
-
-                  <!-- Бейдж бонуса -->
-                  <g transform="translate(70, 105)">
-                    <text text-anchor="middle" fill="#34d399" font-size="10" font-weight="800" font-family="Inter">+7% и +5%</text>
-                  </g>
-                </svg>
-              </div>
-
-              <div class="p-3.5 bg-white/5 rounded-xl border border-white/10 text-xs text-purple-100 space-y-1">
-                <div class="font-bold text-white">Пример наставника (клиент на тарифе «Бизнес»):</div>
-                <p class="text-[11px] text-purple-200">
-                  Ваш приглашённый партнёр получает <strong class="text-white">7&nbsp;250&nbsp;₽ с запуска и 4&nbsp;950&nbsp;₽/мес</strong>.
-                </p>
-                <p class="text-[11px] text-emerald-300 font-bold">
-                  Вы получаете 2&nbsp;030&nbsp;₽ с запуска и 1&nbsp;650&nbsp;₽/мес, а если клиент оплатил год — 16&nbsp;650&nbsp;₽ сразу.
-                </p>
-              </div>
-            </div>
-
-            <p class="text-[11px] text-purple-200/60 mt-4 pt-3 border-t border-white/10 relative z-10">
-              Бонус выплачивается из прибыли сервиса Altai Optima и не уменьшает ставку вашего партнёра.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
     </section>
-
-            <!-- РЕГИОНАЛЬНЫЙ ПАРТНЁР -->
-        <div class="mt-6 p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-sky-900/40 via-blue-900/30 to-indigo-950/40 border border-sky-400/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-white">
-          <div class="space-y-1">
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-400/20 text-sky-300 text-[10px] font-black uppercase tracking-wider">
-              <span>СНГ И РЕГИОНЫ</span>
-            </div>
-            <h4 class="text-base sm:text-lg font-bold font-inter text-white">Региональный партнёр: 5% со всей территории</h4>
-            <p class="text-xs text-sky-100/80 max-w-2xl leading-relaxed">
-              Для стран СНГ и крупных регионов РФ: развитие сети партнёров, маркетинг на территории и первая линия поддержки. Вы получаете 5% со всех оплат клиентов на закреплённой территории в дополнение к личным сделкам.
-            </p>
-          </div>
-          <a href="#join" class="btn-optic py-2.5 px-5 text-xs font-bold uppercase tracking-wider shrink-0 whitespace-nowrap">
-            Обсудить регион
-          </a>
-        </div>
 
     <!-- Тонкий неоновый разделитель -->
     <div class="section-neon-divider max-w-6xl mx-auto opacity-75">
       <div class="section-neon-beam" style="--divider-duration: 7.5s;"></div>
     </div>
 
-    <!-- 2. ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР ДОХОДА (#calc) -->
-    <section id="calc" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 scroll-mt-28 relative">
-      <div class="rounded-[36px] p-6 sm:p-10 max-w-5xl mx-auto border border-sky-400/40 relative overflow-hidden shadow-[0_24px_60px_-10px_rgba(2,132,199,0.35)] text-white" style="background: linear-gradient(145deg, #075985 0%, #0369a1 45%, #082f49 100%);">
-        
-        <div class="text-center max-w-2xl mx-auto mb-8 relative z-10">
-          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-sky-200 border border-white/15 text-[11px] font-bold uppercase tracking-wider mb-2.5">
-            <span>ПРОСТОЙ РАСЧЁТ ДОХОДА</span>
-          </div>
-          <!-- ЗАГОЛОВОК СТРОГО В ОДНУ СТРОКУ -->
-          <h2 class="font-benzin text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white tracking-tight uppercase whitespace-nowrap">
-            РАССЧИТАЙТЕ СВОЙ ДОХОД
+    <!-- 6. РОСТ СТАТУСА: ОДНА ЛЕСТНИЦА -->
+    <section id="ladder" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 scroll-mt-28 relative">
+      <div class="text-center max-w-3xl mx-auto mb-8">
+        <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase grad-heading">
+          Рост статуса
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600 font-medium mt-1.5">
+          Чем больше у вас активных клиентов, тем выше ставка. Новая ставка сразу действует на всю вашу базу, включая клиентов, которых вы привели раньше.
+        </p>
+      </div>
+
+      <div class="rounded-[32px] p-5 sm:p-8 bg-gradient-to-br from-[#061e38] via-[#082a4d] to-[#041427] text-white border border-sky-400/30 shadow-xl">
+        <ol class="ladder">
+
+          <li class="ladder-step">
+            <div class="ladder-head">
+              <span class="ladder-num">1</span>
+              <div>
+                <div class="ladder-name">Старт</div>
+                <div class="ladder-cond">1–4 активных клиента</div>
+              </div>
+            </div>
+            <div class="ladder-rates">
+              <div><span class="ladder-role">Скаут</span><b>25%</b> запуск · <b>15%</b> подписка</div>
+              <div><span class="ladder-role">Агент</span><b>35%</b> запуск · <b>20%</b> подписка</div>
+            </div>
+            <div class="ladder-money">Агент: 6&nbsp;600&nbsp;₽/мес с клиента «Бизнес»</div>
+          </li>
+
+          <li class="ladder-step ladder-step-accent">
+            <div class="ladder-head">
+              <span class="ladder-num">2</span>
+              <div>
+                <div class="ladder-name">Партнёр</div>
+                <div class="ladder-cond">от 5 активных клиентов</div>
+              </div>
+            </div>
+            <div class="ladder-rates">
+              <div><span class="ladder-role">Скаут</span><b>25%</b> запуск · <b class="text-emerald-300">20%</b> подписка</div>
+              <div><span class="ladder-role">Агент</span><b>35%</b> запуск · <b class="text-emerald-300">25%</b> подписка</div>
+            </div>
+            <div class="ladder-money">Агент: 8&nbsp;250&nbsp;₽/мес с клиента «Бизнес»</div>
+          </li>
+
+          <li class="ladder-step">
+            <div class="ladder-head">
+              <span class="ladder-num">3</span>
+              <div>
+                <div class="ladder-name">Лидер</div>
+                <div class="ladder-cond">от 15 активных клиентов</div>
+              </div>
+            </div>
+            <div class="ladder-rates">
+              <div><span class="ladder-role">Скаут</span><b class="text-emerald-300">30%</b> запуск · <b>20%</b> подписка</div>
+              <div><span class="ladder-role">Агент</span><b class="text-emerald-300">40%</b> запуск · <b>25%</b> подписка</div>
+            </div>
+            <div class="ladder-money">Агент: 11&nbsp;600&nbsp;₽ с каждого нового запуска</div>
+          </li>
+
+        </ol>
+        <p class="text-[11px] text-sky-200/70 mt-5 pt-3 border-t border-white/10">
+          Активный клиент — тот, кто оплатил текущий месяц или год. Если клиентов становится меньше порога, ставка возвращается к предыдущей ступени.
+        </p>
+      </div>
+    </section>
+
+    <!-- 7. БОНУС С КОМАНДЫ -->
+    <section id="network" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 scroll-mt-28 relative">
+      <div class="rounded-[32px] p-6 sm:p-8 bg-gradient-to-br from-[#190d33] via-[#241348] to-[#120826] text-white border border-purple-400/40 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        <div class="lg:col-span-6">
+          <h2 class="text-xl sm:text-2xl font-black text-white mb-2 font-inter">
+            Бонус с команды
           </h2>
-          <p class="text-xs sm:text-sm text-sky-100 font-medium mt-1">
-            Выберите темп подключения клиентов и посмотрите результат за полгода и год
+          <p class="text-xs sm:text-sm text-purple-100/80 mb-4 leading-relaxed font-medium">
+            Пригласите коллег по своей ссылке. Когда они приводят клиентов, вы получаете <strong class="text-purple-200">7% с запуска и 5% с каждой оплаты подписки</strong> — пока клиент пользуется сервисом.
           </p>
+          <div class="p-3.5 bg-white/5 rounded-xl border border-white/10 text-xs text-purple-100 space-y-1.5">
+            <div class="font-bold text-white">Пример: партнёр привёл клиента на «Бизнес»</div>
+            <p class="text-[12px] text-purple-200">Партнёр получает своё вознаграждение полностью: 7&nbsp;250&nbsp;₽ с запуска и 4&nbsp;950&nbsp;₽/мес.</p>
+            <p class="text-[12px] text-emerald-300 font-bold">Вы дополнительно получаете 2&nbsp;030&nbsp;₽ с запуска и 1&nbsp;650&nbsp;₽/мес. Если клиент оплатил год — 16&nbsp;650&nbsp;₽ сразу.</p>
+          </div>
+          <ul class="mt-4 space-y-1.5 text-[12px] text-purple-100/90">
+            <li>Бонус платим мы — ставка вашего партнёра не уменьшается.</li>
+            <li>Условие: у вас есть хотя бы 1 свой активный клиент.</li>
+            <li>Бонус начисляется только с первой линии — с тех, кого пригласили лично вы.</li>
+          </ul>
         </div>
-
-        <div class="max-w-4xl mx-auto relative z-10 space-y-6">
-          
-          <!-- ПАРАМЕТР: «Сколько клиентов подключается с вашей помощью в месяц?» -->
-          <div class="bg-black/25 rounded-2xl p-5 sm:p-6 border border-white/15 text-center">
-            <label class="block text-sm sm:text-base font-extrabold text-white mb-3.5">
-              Сколько клиентов подключается с вашей помощью в месяц?
-            </label>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl mx-auto" role="radiogroup" aria-label="Количество клиентов в месяц">
-              
-              <button type="button" onclick="setSimpleClients(1)" id="btn-client-1" class="calc-btn-option py-3.5 px-4 rounded-xl border border-white/20 bg-white/10 hover:bg-white/20 text-white font-bold text-sm transition flex flex-col items-center justify-center">
-                <span class="text-lg font-black font-inter">1 клиент</span>
-                <span class="text-[11px] text-sky-200 font-normal mt-0.5">в месяц</span>
-              </button>
-
-              <button type="button" onclick="setSimpleClients(3)" id="btn-client-3" class="calc-btn-option active py-3.5 px-4 rounded-xl border-2 border-emerald-400 bg-emerald-500/30 text-white font-bold text-sm transition flex flex-col items-center justify-center shadow-lg relative">
-                <span class="absolute -top-2.5 px-2 py-0.5 rounded-full bg-emerald-400 text-slate-950 font-black text-[9px] uppercase tracking-wider shadow-xs">Оптимально</span>
-                <span class="text-lg font-black font-inter text-emerald-200">3 клиента</span>
-                <span class="text-[11px] text-emerald-100 font-normal mt-0.5">в месяц</span>
-              </button>
-
-              <button type="button" onclick="setSimpleClients(5)" id="btn-client-5" class="calc-btn-option py-3.5 px-4 rounded-xl border border-white/20 bg-white/10 hover:bg-white/20 text-white font-bold text-sm transition flex flex-col items-center justify-center">
-                <span class="text-lg font-black font-inter">5 клиентов</span>
-                <span class="text-[11px] text-sky-200 font-normal mt-0.5">в месяц</span>
-              </button>
-
-            </div>
+        <div class="lg:col-span-6">
+          <div class="bg-black/40 rounded-2xl p-3 border border-purple-400/30">
+            <svg viewBox="0 0 440 120" class="w-full h-auto block select-none" role="img" aria-label="Схема: вы, ваши партнёры и их клиенты">
+              <defs>
+                <linearGradient id="netFlow" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#38bdf8"></stop>
+                  <stop offset="100%" stop-color="#c084fc"></stop>
+                </linearGradient>
+              </defs>
+              <line x1="70" y1="60" x2="210" y2="30" stroke="url(#netFlow)" stroke-width="2" class="pulse-beam-active"></line>
+              <line x1="70" y1="60" x2="210" y2="90" stroke="url(#netFlow)" stroke-width="2" class="pulse-beam-active"></line>
+              <line x1="210" y1="30" x2="350" y2="18" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="3 3"></line>
+              <line x1="210" y1="30" x2="350" y2="42" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="3 3"></line>
+              <line x1="210" y1="90" x2="350" y2="78" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="3 3"></line>
+              <line x1="210" y1="90" x2="350" y2="102" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="3 3"></line>
+              <g transform="translate(70, 60)"><g class="pulse-avatar-node">
+                <circle r="30" fill="#0284c7" stroke="#38bdf8" stroke-width="2.5"></circle>
+                <text text-anchor="middle" y="4" fill="#ffffff" font-size="12" font-weight="900" font-family="Inter">ВЫ</text>
+              </g></g>
+              <g transform="translate(210, 30)"><circle r="18" fill="#1e1b4b" stroke="#c084fc" stroke-width="2"></circle><text text-anchor="middle" y="4" fill="#e2e8f0" font-size="8" font-weight="700" font-family="Inter">Партнёр</text></g>
+              <g transform="translate(210, 90)"><circle r="18" fill="#1e1b4b" stroke="#c084fc" stroke-width="2"></circle><text text-anchor="middle" y="4" fill="#e2e8f0" font-size="8" font-weight="700" font-family="Inter">Партнёр</text></g>
+              <g transform="translate(350, 18)"><circle r="10" fill="#0f172a" stroke="#64748b"></circle><text text-anchor="middle" y="3" fill="#94a3b8" font-size="7">Клиент</text></g>
+              <g transform="translate(350, 42)"><circle r="10" fill="#0f172a" stroke="#64748b"></circle><text text-anchor="middle" y="3" fill="#94a3b8" font-size="7">Клиент</text></g>
+              <g transform="translate(350, 78)"><circle r="10" fill="#0f172a" stroke="#64748b"></circle><text text-anchor="middle" y="3" fill="#94a3b8" font-size="7">Клиент</text></g>
+              <g transform="translate(350, 102)"><circle r="10" fill="#0f172a" stroke="#64748b"></circle><text text-anchor="middle" y="3" fill="#94a3b8" font-size="7">Клиент</text></g>
+              <g transform="translate(70, 108)"><text text-anchor="middle" fill="#34d399" font-size="10" font-weight="800" font-family="Inter">+7% и +5%</text></g>
+            </svg>
           </div>
-
-          <!-- ВЫВОД РЕЗУЛЬТАТА: 3 КАРТОЧКИ -->
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            
-            <!-- Разовый доход со стартов за полгода -->
-            <div class="bg-white/10 rounded-2xl p-5 border border-white/15 backdrop-blur-xs flex flex-col justify-between">
-              <div>
-                <span class="text-[11px] font-bold uppercase tracking-wider text-sky-200 block mb-1">
-                  Разовый доход со стартов за полгода:
-                </span>
-                <div class="text-2xl sm:text-3xl font-black text-white font-inter tabular-nums mt-1" id="calc-out-start">
-                  130&nbsp;500&nbsp;₽
-                </div>
-              </div>
-              <p class="text-[11px] text-sky-200/80 mt-3 pt-2.5 border-t border-white/10 leading-snug">
-                Выплачивается сразу при каждом запуске
-              </p>
-            </div>
-
-            <!-- Ежемесячный пассивный доход через 6 месяцев -->
-            <div class="bg-emerald-500/20 rounded-2xl p-5 border-2 border-emerald-400/50 backdrop-blur-xs shadow-lg flex flex-col justify-between">
-              <div>
-                <div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-400/20 text-emerald-300 text-[10px] font-bold uppercase tracking-wider mb-2">
-                  <span>Через 6 месяцев</span>
-                </div>
-                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-200 block mb-1">
-                  Ежемесячный пассивный доход через 6 месяцев:
-                </span>
-                <div class="text-2xl sm:text-3xl font-black text-emerald-300 font-inter tabular-nums mt-1" id="calc-out-sub6">
-                  89&nbsp;100&nbsp;₽<span class="text-sm font-normal text-emerald-200">/мес</span>
-                </div>
-              </div>
-              <p class="text-[11px] text-emerald-100/90 mt-3 pt-2.5 border-t border-emerald-400/30 leading-snug">
-                Регулярный доход с подписок накопленной базы
-              </p>
-            </div>
-
-            <!-- Ежемесячный пассивный доход через 12 месяцев -->
-            <div class="bg-sky-500/20 rounded-2xl p-5 border-2 border-sky-400/50 backdrop-blur-xs shadow-lg flex flex-col justify-between">
-              <div>
-                <div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-sky-400/20 text-sky-200 text-[10px] font-bold uppercase tracking-wider mb-2">
-                  <span>Через 12 месяцев</span>
-                </div>
-                <span class="text-[11px] font-bold uppercase tracking-wider text-sky-200 block mb-1">
-                  Ежемесячный пассивный доход через 12 месяцев:
-                </span>
-                <div class="text-2xl sm:text-3xl font-black text-sky-300 font-inter tabular-nums mt-1" id="calc-out-sub12">
-                  178&nbsp;200&nbsp;₽<span class="text-sm font-normal text-sky-200">/мес</span>
-                </div>
-              </div>
-              <p class="text-[11px] text-sky-100/90 mt-3 pt-2.5 border-t border-sky-400/30 leading-snug">
-                Пассивный доход со всех подключённых клиентов
-              </p>
-            </div>
-
-          </div>
-
-          <!-- ПОДПИСЬ ПО ТЗ -->
-          <div class="bg-slate-950/50 rounded-2xl p-4 sm:p-5 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div class="flex items-center gap-3 text-left">
-              <span class="w-6 h-6 rounded-full bg-emerald-400/20 text-emerald-300 border border-emerald-400/40 flex items-center justify-center font-black text-xs shrink-0">✓</span>
-              <p class="text-xs sm:text-sm text-sky-100 font-medium leading-relaxed">
-                Выплаты производятся официально на счет ИП, ООО или самозанятого каждый месяц до 10-го числа.
-              </p>
-            </div>
-            <a href="#join" class="btn-optic py-3 px-6 text-xs font-black uppercase tracking-wider shrink-0 whitespace-nowrap shadow-lg text-center w-full sm:w-auto">
-              Стать партнёром
-            </a>
-          </div>
-
         </div>
-
       </div>
     </section>
 
@@ -958,10 +848,141 @@
       <div class="section-neon-beam" style="--divider-duration: 8s;"></div>
     </div>
 
-    <!-- 3. КАК ЭТО РАБОТАЕТ (#how) -->
+    <!-- 8. КАЛЬКУЛЯТОР: ПРЯМОЙ И ОБРАТНЫЙ -->
+    <section id="calc" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 scroll-mt-28 relative">
+      <div class="rounded-[36px] p-6 sm:p-10 max-w-5xl mx-auto border border-sky-400/40 relative overflow-hidden shadow-[0_24px_60px_-10px_rgba(2,132,199,0.35)] text-white" style="background: linear-gradient(145deg, #075985 0%, #0369a1 45%, #082f49 100%);">
+
+        <div class="text-center max-w-2xl mx-auto mb-8">
+          <h2 class="font-benzin text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white tracking-tight uppercase">
+            Рассчитайте свой доход
+          </h2>
+          <p class="text-xs sm:text-sm text-sky-100 font-medium mt-1">
+            Расчёт учитывает рост ставки после 5 и 15 активных клиентов
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto space-y-6">
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <fieldset class="calc-field">
+              <legend>Как вы работаете</legend>
+              <div class="calc-seg cols-2">
+                <input type="radio" name="c-fmt" id="c-fmt-scout" value="scout"><label for="c-fmt-scout">Скаут</label>
+                <input type="radio" name="c-fmt" id="c-fmt-agent" value="agent" checked><label for="c-fmt-agent">Агент</label>
+              </div>
+            </fieldset>
+            <fieldset class="calc-field">
+              <legend>Тариф ваших клиентов</legend>
+              <div class="calc-seg">
+                <input type="radio" name="c-tariff" id="c-t-start" value="22000"><label for="c-t-start">Старт</label>
+                <input type="radio" name="c-tariff" id="c-t-business" value="33000" checked><label for="c-t-business">Бизнес</label>
+                <input type="radio" name="c-tariff" id="c-t-flow" value="55000"><label for="c-t-flow">Поток</label>
+              </div>
+            </fieldset>
+            <fieldset class="calc-field">
+              <legend>Новых клиентов в месяц</legend>
+              <div class="calc-seg">
+                <input type="radio" name="c-pace" id="c-p-1" value="1"><label for="c-p-1">1</label>
+                <input type="radio" name="c-pace" id="c-p-3" value="3" checked><label for="c-p-3">3</label>
+                <input type="radio" name="c-pace" id="c-p-5" value="5"><label for="c-p-5">5</label>
+              </div>
+            </fieldset>
+            <fieldset class="calc-field">
+              <legend>Отток клиентов</legend>
+              <div class="calc-seg cols-2">
+                <input type="radio" name="c-churn" id="c-ch-0" value="0"><label for="c-ch-0">Без оттока</label>
+                <input type="radio" name="c-churn" id="c-ch-5" value="0.05" checked><label for="c-ch-5">5% в месяц</label>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4" aria-live="polite">
+            <div class="bg-white/10 rounded-2xl p-5 border border-white/15 flex flex-col justify-between">
+              <div>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-sky-200 block mb-1">С запусков за 6 месяцев</span>
+                <div class="text-2xl sm:text-3xl font-black text-white font-inter tabular-nums mt-1" id="calc-out-start">—</div>
+              </div>
+              <p class="text-[11px] text-sky-200/80 mt-3 pt-2.5 border-t border-white/10 leading-snug">Выплачивается после каждого запуска</p>
+            </div>
+            <div class="bg-emerald-500/20 rounded-2xl p-5 border-2 border-emerald-400/50 shadow-lg flex flex-col justify-between">
+              <div>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-200 block mb-1">Ежемесячно через 6 месяцев</span>
+                <div class="text-2xl sm:text-3xl font-black text-emerald-300 font-inter tabular-nums mt-1"><span id="calc-out-sub6">—</span><span class="text-sm font-normal text-emerald-200">/мес</span></div>
+              </div>
+              <p class="text-[11px] text-emerald-100/90 mt-3 pt-2.5 border-t border-emerald-400/30 leading-snug" id="calc-out-base6">С подписок вашей базы</p>
+            </div>
+            <div class="bg-sky-500/20 rounded-2xl p-5 border-2 border-sky-400/50 shadow-lg flex flex-col justify-between">
+              <div>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-sky-200 block mb-1">Ежемесячно через 12 месяцев</span>
+                <div class="text-2xl sm:text-3xl font-black text-sky-300 font-inter tabular-nums mt-1"><span id="calc-out-sub12">—</span><span class="text-sm font-normal text-sky-200">/мес</span></div>
+              </div>
+              <p class="text-[11px] text-sky-100/90 mt-3 pt-2.5 border-t border-sky-400/30 leading-snug" id="calc-out-base12">С подписок вашей базы</p>
+            </div>
+          </div>
+
+          <!-- ОБРАТНЫЙ КАЛЬКУЛЯТОР: ОТ ЦЕЛИ -->
+          <div class="bg-black/25 rounded-2xl p-5 sm:p-6 border border-white/15">
+            <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
+              <fieldset class="calc-field md:w-1/2 shrink-0">
+                <legend>Сколько хотите получать в месяц</legend>
+                <div class="calc-seg">
+                  <input type="radio" name="c-goal" id="c-g-50" value="50000"><label for="c-g-50">50 000 ₽</label>
+                  <input type="radio" name="c-goal" id="c-g-100" value="100000" checked><label for="c-g-100">100 000 ₽</label>
+                  <input type="radio" name="c-goal" id="c-g-200" value="200000"><label for="c-g-200">200 000 ₽</label>
+                </div>
+              </fieldset>
+              <div class="flex-1">
+                <div class="text-lg sm:text-xl font-black text-white font-inter" id="calc-goal-clients">—</div>
+                <p class="text-xs sm:text-sm text-sky-100 mt-1" id="calc-goal-time">—</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-slate-950/50 rounded-2xl p-4 sm:p-5 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-[11px] sm:text-xs text-sky-100/90 leading-relaxed">
+              Это прогноз, а не гарантия дохода: всё зависит от того, сколько клиентов вы приведёте и как долго они будут пользоваться сервисом. Бонусы с команды и годовые оплаты в расчёт не входят.
+            </p>
+            <a href="#join" class="btn-optic shrink-0 w-full sm:w-auto">Стать партнёром</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Тонкий неоновый разделитель -->
+    <div class="section-neon-divider max-w-6xl mx-auto opacity-75">
+      <div class="section-neon-beam" style="--divider-duration: 8.2s;"></div>
+    </div>
+
+    <!-- 9. СТАРТОВЫЙ НАБОР ПАРТНЁРА -->
+    <section id="kit" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 scroll-mt-28 relative">
+      <div class="text-center max-w-3xl mx-auto mb-8">
+        <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase grad-heading">
+          Продавать не обязательно уметь
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600 font-medium mt-1.5">
+          После подписания договора вы получаете партнёрский набор. Его достаточно, чтобы провести первый разговор с клиентом уже сегодня.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="kit-item"><h3>Личный код и ссылка</h3><p>Клиенты и партнёры закрепляются за вами автоматически.</p></div>
+        <div class="kit-item"><h3>Презентация для клиента</h3><p>Короткая, с расчётом окупаемости — можно отправить собственнику в мессенджер.</p></div>
+        <div class="kit-item"><h3>Демо ИИ-продавца</h3><p>Покажите, как он отвечает клиентам, прямо на встрече или по видеосвязи.</p></div>
+        <div class="kit-item"><h3>Скрипт первого разговора</h3><p>Какие вопросы задать собственнику и как перейти к демо.</p></div>
+        <div class="kit-item"><h3>Чек-лист «подходит ли клиент»</h3><p>Отсекает компании, которым сервис не окупится, до того как вы потратите время.</p></div>
+        <div class="kit-item"><h3>Чат партнёров</h3><p>Ответы на вопросы и помощь с демо от нашей команды.</p></div>
+      </div>
+    </section>
+
+    <!-- Тонкий неоновый разделитель -->
+    <div class="section-neon-divider max-w-6xl mx-auto opacity-75">
+      <div class="section-neon-beam" style="--divider-duration: 7.8s;"></div>
+    </div>
+
+    <!-- 10. КАК ЭТО РАБОТАЕТ -->
     <section id="how" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 scroll-mt-28 relative">
       <div class="text-center max-w-3xl mx-auto mb-10">
-        <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase grad-heading">
           КАК ЭТО РАБОТАЕТ
         </h2>
         <p class="text-sm sm:text-base text-slate-600 font-medium mt-1.5">
@@ -969,14 +990,14 @@
         </p>
       </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch mb-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch mb-8">
         
         <div class="card-tier-standard p-5 flex flex-col justify-between border-t-4 border-t-sky-500">
           <div>
             <span class="text-xs font-black uppercase tracking-wider text-sky-600 bg-sky-50 px-2.5 py-1 rounded mb-3 inline-block">01. Заявка</span>
             <h3 class="text-base font-bold text-slate-900 mb-2">Регистрация в программе</h3>
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Заполняете форму на сайте. Подписываем официальный договор и выдаём вам личный код и ссылку.
+              Заполняете форму на сайте. Подписываем договор и отправляем партнёрский набор с личным кодом и ссылкой.
             </p>
           </div>
         </div>
@@ -1006,7 +1027,7 @@
             <span class="text-xs font-black uppercase tracking-wider text-purple-600 bg-purple-50 px-2.5 py-1 rounded mb-3 inline-block">04. Выплаты</span>
             <h3 class="text-base font-bold text-slate-900 mb-2">Регулярный доход</h3>
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Процент с запуска и с годовой оплаты — в течение 5 рабочих дней. С помесячной подписки и наставничества — ежемесячно до 10-го числа.
+              Процент с запуска и с годовой оплаты — в течение 5 рабочих дней. С помесячной подписки и бонуса с команды — ежемесячно до 10-го числа.
             </p>
           </div>
         </div>
@@ -1019,7 +1040,6 @@
           <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wider">Ключевые правила выплат и закрепления</h4>
           <a href="partner-rules.html" class="text-xs font-bold text-sky-700 hover:text-sky-900 flex items-center gap-1">
             <span>Полные правила программы</span>
-            <span>→</span>
           </a>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-slate-600">
@@ -1032,12 +1052,11 @@
             Комиссия с годовой оплаты выплачивается сразу. При досрочном возврате денег клиенту за неиспользованные месяцы сумма удерживается из будущих выплат.
           </div>
           <div>
-            <strong class="text-slate-900 block mb-1">Бессрочный доход:</strong>
+            <strong class="text-slate-900 block mb-1">Доход, пока клиент платит:</strong>
             Выплаты с подписки продолжаются, пока клиент платит — даже если вы временно не приводите новых клиентов.
           </div>
         </div>
       </div>
-
 
     </section>
 
@@ -1046,13 +1065,13 @@
       <div class="section-neon-beam" style="--divider-duration: 8.2s;"></div>
     </div>
 
-    <!-- 4. ЧТО ДЕЛАЕТ ИИ-ПРОДАВЕЦ (#product) С КАНАЛАМИ VK И ИНДИВИДУАЛЬНЫМИ ТАРИФАМИ -->
+    <!-- 11. ЧТО ДЕЛАЕТ ИИ-ПРОДАВЕЦ (#product) -->
     <section id="product" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 scroll-mt-28 relative">
       
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 max-w-3xl mx-auto mb-10 text-center sm:text-left">
         <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 border-2 border-sky-400 bg-gradient-to-tr from-sky-400 to-blue-600 shadow-lg relative shrink-0">
           <div class="w-full h-full rounded-full overflow-hidden bg-slate-900">
-            <img src="avatar_eva.webp" alt="Эва — ИИ-продавец" loading="lazy" class="w-full h-full object-cover object-[center_12%]"/>
+            <img src="avatar_eva.webp" alt="Эва — ИИ-продавец" loading="lazy" class="w-full h-full object-cover object-[center_12%]">
           </div>
           <div class="absolute bottom-0 right-0 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-emerald-500 border-2 border-white shadow-xs flex items-center justify-center" title="В сети 24/7">
             <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
@@ -1060,7 +1079,7 @@
         </div>
 
         <div class="space-y-1 flex-1">
-          <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+          <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase grad-heading">
             ЧТО ВЫ РЕКОМЕНДУЕТЕ
           </h2>
           <p class="text-xs sm:text-sm md:text-base text-slate-700 leading-relaxed font-medium">
@@ -1095,12 +1114,12 @@
         </div>
       </div>
 
-            <!-- ЦЕНА ДЛЯ КЛИЕНТА -->
+      <!-- ЦЕНА ДЛЯ КЛИЕНТА -->
       <div class="card-tier-featured p-6 sm:p-7 rounded-[28px] max-w-4xl mx-auto mb-8">
         <div class="flex items-center justify-between flex-wrap gap-2 mb-4">
           <h3 class="text-sm font-black text-slate-950 uppercase tracking-wider flex items-center gap-2">
             <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-black">₽</span>
-            Новая тарифная модель для клиента:
+            Тарифы для клиента:
           </h3>
           <span class="text-[11px] font-bold text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full">CRM и каналы бесплатно</span>
         </div>
@@ -1161,7 +1180,7 @@
             <strong class="text-sky-950">Индивидуальные тарифы:</strong> Для нестандартных CRM, сложных отраслевых сценариев или сетей у нас есть кастомные тарифы — давайте обсуждать!
           </div>
           <a href="https://t.me/altaioptima" target="_blank" class="px-3 py-1.5 rounded-lg bg-sky-600 text-white font-bold text-xs shrink-0 hover:bg-sky-500 transition">
-            Обсудить проект →
+            Обсудить проект
           </a>
         </div>
       </div>
@@ -1173,15 +1192,10 @@
       <div class="section-neon-beam" style="--divider-duration: 8.5s;"></div>
     </div>
 
-        <!-- Тонкий неоновый разделитель -->
-    <div class="section-neon-divider max-w-6xl mx-auto opacity-75">
-      <div class="section-neon-beam" style="--divider-duration: 8s;"></div>
-    </div>
-
-    <!-- 5. КОМУ ПРЕДЛАГАТЬ ИИ-ПРОДАВЦА (#fit) -->
+    <!-- 12. КОМУ ПРЕДЛАГАТЬ ИИ-ПРОДАВЦА (#fit) -->
     <section id="fit" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 scroll-mt-28 relative">
       <div class="text-center max-w-3xl mx-auto mb-10">
-        <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase grad-heading">
           КОМУ ПРЕДЛАГАТЬ ИИ-ПРОДАВЦА
         </h2>
         <p class="text-sm sm:text-base text-slate-600 font-medium mt-1.5">
@@ -1261,64 +1275,113 @@
 
     </section>
 
-    <!-- 5. ЧАСТЫЕ ВОПРОСЫ (#faq) -->
+    <!-- 10. ИСТОРИИ ПАРТНЁРОВ (СКРЫТО АТРИБУТОМ hidden) -->
+    <section id="stories" hidden class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 scroll-mt-28 relative">
+      <div class="text-center max-w-3xl mx-auto mb-8">
+        <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase grad-heading">
+          Партнёры уже зарабатывают
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <figure class="card-tier-standard p-6">
+          <figcaption class="font-bold text-slate-900">[Имя, профессия]</figcaption>
+          <div class="text-2xl font-black text-emerald-700 mt-2">[сумма] ₽/мес</div>
+          <p class="text-xs text-slate-500">[N клиентов за N месяцев, статус]</p>
+          <blockquote class="text-sm text-slate-700 mt-3 leading-relaxed">[Как нашёл первого клиента — 2–3 предложения словами партнёра]</blockquote>
+        </figure>
+        <figure class="card-tier-standard p-6">
+          <figcaption class="font-bold text-slate-900">[Имя, профессия]</figcaption>
+          <div class="text-2xl font-black text-emerald-700 mt-2">[сумма] ₽/мес</div>
+          <p class="text-xs text-slate-500">[N клиентов за N месяцев, статус]</p>
+          <blockquote class="text-sm text-slate-700 mt-3 leading-relaxed">[Цитата партнёра]</blockquote>
+        </figure>
+        <figure class="card-tier-standard p-6">
+          <figcaption class="font-bold text-slate-900">[Имя, профессия]</figcaption>
+          <div class="text-2xl font-black text-emerald-700 mt-2">[сумма] ₽/мес</div>
+          <p class="text-xs text-slate-500">[N клиентов за N месяцев, статус]</p>
+          <blockquote class="text-sm text-slate-700 mt-3 leading-relaxed">[Цитата партнёра]</blockquote>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 13. ЧАСТЫЕ ВОПРОСЫ -->
     <section id="faq" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 scroll-mt-28 relative">
       <div class="text-center max-w-2xl mx-auto mb-10">
-        <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-          ЧАСТЫЕ ВОПРОСЫ
+        <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase grad-heading">
+          Частые вопросы
         </h2>
       </div>
 
       <div class="space-y-3">
-        
-        <details class="card-tier-standard rounded-2xl p-5 group transition">
+
+        <details class="card-tier-standard rounded-2xl p-5">
           <summary class="flex justify-between items-center cursor-pointer font-bold text-slate-900 text-sm sm:text-base select-none">
             <span>Сколько я получу с одного клиента?</span>
-            <span class="faq-icon text-sky-600 font-bold text-xl ml-3">+</span>
+            <span class="faq-icon text-sky-600 font-bold text-xl ml-3" aria-hidden="true">+</span>
           </summary>
           <div class="mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed space-y-1.5">
-            <p>Зависит от статуса и тарифа клиента. С клиента на тарифе «Бизнес» (запуск 29&nbsp;000&nbsp;₽, подписка 33&nbsp;000&nbsp;₽/мес) рекомендатель получает <strong>7&nbsp;250&nbsp;₽ с запуска и 4&nbsp;950&nbsp;₽ каждый месяц</strong>, агент — <strong>10&nbsp;150&nbsp;₽ и 6&nbsp;600&nbsp;₽</strong>.</p>
-            <p>Если клиент оплатил год вперёд, процент с годовой суммы приходит сразу: <strong>49&nbsp;950&nbsp;₽ рекомендателю и 66&nbsp;600&nbsp;₽ агенту</strong>. На тарифах «Поток» и «Империя» суммы ещё выше.</p>
+            <p>С клиента на тарифе «Бизнес» (запуск 29&nbsp;000&nbsp;₽, подписка 33&nbsp;000&nbsp;₽/мес) скаут получает <strong>7&nbsp;250&nbsp;₽ с запуска и 4&nbsp;950&nbsp;₽ каждый месяц</strong>, агент — <strong>10&nbsp;150&nbsp;₽ и 6&nbsp;600&nbsp;₽</strong>.</p>
+            <p>Если клиент оплатил год вперёд, процент с годовой суммы приходит сразу: <strong>49&nbsp;950&nbsp;₽ скауту и 66&nbsp;600&nbsp;₽ агенту</strong>. На тарифе «Старт» суммы меньше, на «Потоке» и «Империи» — больше. От 5 активных клиентов ставка с подписки растёт.</p>
           </div>
         </details>
 
-        <details class="card-tier-standard rounded-2xl p-5 group transition">
+        <details class="card-tier-standard rounded-2xl p-5">
           <summary class="flex justify-between items-center cursor-pointer font-bold text-slate-900 text-sm sm:text-base select-none">
-            <span>Почему процент с запуска небольшой?</span>
-            <span class="faq-icon text-sky-600 font-bold text-xl ml-3">+</span>
+            <span>Чем скаут отличается от агента?</span>
+            <span class="faq-icon text-sky-600 font-bold text-xl ml-3" aria-hidden="true">+</span>
           </summary>
           <div class="mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Потому что запуск стоит клиенту 29&nbsp;000&nbsp;₽ — почти по себестоимости. Мы специально сделали вход доступным: так проще закрыть сделку, а основной долгосрочный доход идёт с абонентской платы. Годовой контракт на «Бизнесе» приносит агенту 66&nbsp;600&nbsp;₽ одним платежом.
+            Скаут только знакомит нас с собственником — демо и переговоры проводим мы. Агент сам показывает сервис и доводит клиента до счёта, поэтому получает больше. Формат можно выбирать под каждую сделку.
           </div>
         </details>
 
-        <details class="card-tier-standard rounded-2xl p-5 group transition">
+        <details class="card-tier-standard rounded-2xl p-5">
+          <summary class="flex justify-between items-center cursor-pointer font-bold text-slate-900 text-sm sm:text-base select-none">
+            <span>Нужно ли платить за участие?</span>
+            <span class="faq-icon text-sky-600 font-bold text-xl ml-3" aria-hidden="true">+</span>
+          </summary>
+          <div class="mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Нет. Вступительных взносов, обязательных закупок и планов продаж нет. Вы получаете деньги только с реальных оплат клиентов за сервис.
+          </div>
+        </details>
+
+        <details class="card-tier-standard rounded-2xl p-5">
+          <summary class="flex justify-between items-center cursor-pointer font-bold text-slate-900 text-sm sm:text-base select-none">
+            <span>Это сетевой маркетинг?</span>
+            <span class="faq-icon text-sky-600 font-bold text-xl ml-3" aria-hidden="true">+</span>
+          </summary>
+          <div class="mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Это партнёрская программа с одной линией бонуса. Мы не платим за приглашение людей: бонус с команды начисляется только тогда, когда приглашённый вами партнёр привёл платящего клиента. Глубоких структур и «доходов с низов» нет.
+          </div>
+        </details>
+
+        <details class="card-tier-standard rounded-2xl p-5">
           <summary class="flex justify-between items-center cursor-pointer font-bold text-slate-900 text-sm sm:text-base select-none">
             <span>Как закрепляется клиент?</span>
-            <span class="faq-icon text-sky-600 font-bold text-xl ml-3">+</span>
+            <span class="faq-icon text-sky-600 font-bold text-xl ml-3" aria-hidden="true">+</span>
           </summary>
           <div class="mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Передайте контакт через форму или дайте персональную ссылку. Закрепление подтверждается за 1 рабочий день на 90 дней (с продлением на 60 дней при участии в переговорах).
+            Передайте контакт через форму или дайте клиенту персональную ссылку. Закрепление подтверждаем за 1 рабочий день на 90 дней, при участии в переговорах продлеваем ещё на 60 дней.
           </div>
         </details>
 
-        <details class="card-tier-standard rounded-2xl p-5 group transition">
+        <details class="card-tier-standard rounded-2xl p-5">
           <summary class="flex justify-between items-center cursor-pointer font-bold text-slate-900 text-sm sm:text-base select-none">
-            <span>Что если я временно перестану привлекать новых клиентов?</span>
-            <span class="faq-icon text-sky-600 font-bold text-xl ml-3">+</span>
+            <span>Что если я временно перестану привлекать клиентов?</span>
+            <span class="faq-icon text-sky-600 font-bold text-xl ml-3" aria-hidden="true">+</span>
           </summary>
           <div class="mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Выплаты с подписок ранее приведённых клиентов продолжают поступать в полном объёме каждый месяц, пока они пользуются сервисом.
+            Выплаты с подписок уже приведённых клиентов продолжаются каждый месяц, пока они пользуются сервисом. Если число активных клиентов опустится ниже порога статуса, ставка вернётся к предыдущей ступени.
           </div>
         </details>
 
-        <details class="card-tier-standard rounded-2xl p-5 group transition">
+        <details class="card-tier-standard rounded-2xl p-5">
           <summary class="flex justify-between items-center cursor-pointer font-bold text-slate-900 text-sm sm:text-base select-none">
-            <span>Как оформляются выплаты и закрывающие документы?</span>
-            <span class="faq-icon text-sky-600 font-bold text-xl ml-3">+</span>
+            <span>Как оформляются выплаты и документы?</span>
+            <span class="faq-icon text-sky-600 font-bold text-xl ml-3" aria-hidden="true">+</span>
           </summary>
           <div class="mt-3 pt-3 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Работаем официально по агентскому договору с ИП, ООО, самозанятыми и физлицами. Выплаты на расчётный счёт с ежемесячным актом и отчётом.
+            Работаем по агентскому договору с ИП, ООО, самозанятыми и физлицами. Выплаты на расчётный счёт с ежемесячным актом и отчётом.
           </div>
         </details>
 
@@ -1330,15 +1393,15 @@
       <div class="section-neon-beam" style="--divider-duration: 8.5s;"></div>
     </div>
 
-    <!-- 6. ФОРМА ЗАЯВКИ / СТАТЬ ПАРТНЕРОМ (#join) — БЕЗ ЛИШНЕЙ ПОДЛОЖКИ КАРТОЧКИ -->
+    <!-- 14. ФОРМА ЗАЯВКИ / СТАТЬ ПАРТНЕРОМ (#join) -->
     <section id="join" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 scroll-mt-28 relative">
       
       <div class="text-center max-w-xl mx-auto mb-8">
-        <h2 class="font-benzin text-2xl sm:text-3xl font-black tracking-tight uppercase" style="background: linear-gradient(135deg, #075985 0%, #0284c7 45%, #082f49 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-          ПОДКЛЮЧИТЬСЯ К ПРОГРАММЕ
+        <h2 class="font-benzin text-2xl sm:text-3xl font-black tracking-tight uppercase grad-heading">
+          Стать партнёром
         </h2>
         <p class="text-xs sm:text-sm text-slate-600 mt-1">
-          Заполните форму или напишите напрямую в Telegram — свяжемся за 1 рабочий день и вышлем партнёрский набор
+          Заполните форму или напишите в Telegram. Свяжемся за 1 рабочий день, подпишем договор и отправим партнёрский набор.
         </p>
       </div>
 
@@ -1359,26 +1422,27 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label class="block text-xs font-semibold text-slate-700 mb-1" for="a-name">Имя и фамилия *</label>
-              <input type="text" id="a-name" name="name" data-label="Имя" required class="form-input" placeholder="Иван Иванов">
+              <input type="text" id="a-name" name="name" data-label="Имя" required="" class="form-input" placeholder="Иван Иванов">
             </div>
             <div>
               <label class="block text-xs font-semibold text-slate-700 mb-1" for="a-phone">Телефон / Telegram *</label>
-              <input type="tel" id="a-phone" name="phone" data-label="Телефон" required class="form-input" placeholder="+7 900 000-00-00">
+              <input type="tel" id="a-phone" name="phone" data-label="Телефон" required="" class="form-input" placeholder="+7 900 000-00-00">
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label class="block text-xs font-semibold text-slate-700 mb-1" for="p-status">Желаемый уровень</label>
-              <select id="p-status" name="status" data-label="Уровень" class="form-input">
-                <option value="scout">Уровень 1: Скаут (25% запуск + 15%/мес)</option>
-                <option value="agent">Уровень 2: Агент (35% запуск + 20%/мес)</option>
-                <option value="whitelabel">White Label (запуск от 9 000 ₽ + 30%/мес)</option>
+              <label class="block text-xs font-semibold text-slate-700 mb-1" for="p-status">Как хотите работать</label>
+              <select id="p-status" name="status" data-label="Формат" class="form-input">
+                <option value="scout">Скаут — передаю контакты</option>
+                <option value="agent">Агент — сам провожу презентации</option>
+                <option value="leader">Лидер сети — хочу собрать команду</option>
+                <option value="whitelabel">Агентство — White Label под своим брендом</option>
               </select>
             </div>
             <div>
               <label class="block text-xs font-semibold text-slate-700 mb-1" for="a-city">Город *</label>
-              <input type="text" id="a-city" name="city" data-label="Город" required class="form-input" placeholder="Москва">
+              <input type="text" id="a-city" name="city" data-label="Город" required="" class="form-input" placeholder="Москва">
             </div>
           </div>
 
@@ -1388,7 +1452,7 @@
           </div>
 
           <label class="flex items-start gap-2 text-[11px] text-slate-600 cursor-pointer pt-1">
-            <input type="checkbox" name="consentPD" required data-label="Согласие ПДн" class="mt-0.5 rounded text-sky-600">
+            <input type="checkbox" name="consentPD" required="" data-label="Согласие ПДн" class="mt-0.5 rounded text-sky-600">
             <span>Согласен на обработку персональных данных по <a href="документы/3.%20Политика%20обработки%20персональных%20данных.docx" class="text-sky-600 underline">Политике</a> *</span>
           </label>
 
@@ -1413,22 +1477,22 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label class="block text-xs font-semibold text-slate-700 mb-1" for="r-code">Ваш код партнёра *</label>
-              <input type="text" id="r-code" name="partnerCode" data-label="Код партнёра" required class="form-input" placeholder="OPT-XXXX">
+              <input type="text" id="r-code" name="partnerCode" data-label="Код партнёра" required="" class="form-input" placeholder="OPT-XXXX">
             </div>
             <div>
               <label class="block text-xs font-semibold text-slate-700 mb-1" for="r-pname">Ваше имя *</label>
-              <input type="text" id="r-pname" name="partnerName" data-label="Имя партнёра" required class="form-input" placeholder="Иван">
+              <input type="text" id="r-pname" name="partnerName" data-label="Имя партнёра" required="" class="form-input" placeholder="Иван">
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label class="block text-xs font-semibold text-slate-700 mb-1" for="r-company">Компания клиента *</label>
-              <input type="text" id="r-company" name="company" data-label="Компания" required class="form-input" placeholder="ООО «Вектор»">
+              <input type="text" id="r-company" name="company" data-label="Компания" required="" class="form-input" placeholder="ООО «Вектор»">
             </div>
             <div>
               <label class="block text-xs font-semibold text-slate-700 mb-1" for="r-cphone">Телефон контакта *</label>
-              <input type="text" id="r-cphone" name="contactInfo" data-label="Контакт" required class="form-input" placeholder="+7 900 000-00-00">
+              <input type="text" id="r-cphone" name="contactInfo" data-label="Контакт" required="" class="form-input" placeholder="+7 900 000-00-00">
             </div>
           </div>
 
@@ -1438,7 +1502,7 @@
           </div>
 
           <label class="flex items-start gap-2 text-[11px] text-slate-600 cursor-pointer pt-1">
-            <input type="checkbox" name="clientConsent" required data-label="Клиент согласен" class="mt-0.5 rounded text-sky-600">
+            <input type="checkbox" name="clientConsent" required="" data-label="Клиент согласен" class="mt-0.5 rounded text-sky-600">
             <span>Клиент согласен на передачу контакта и звонок от Altai Optima *</span>
           </label>
 
@@ -1464,14 +1528,14 @@
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 text-center md:text-left">
         
         <div class="md:col-span-5 space-y-2">
-          <a href="./index.html" class="inline-flex items-center gap-2 group py-1" title="ALTAI OPTIMA">
+          <a href="index.html" class="inline-flex items-center gap-2 group py-1" title="ALTAI OPTIMA">
             <img src="brand_logo.webp" alt="ALTAI OPTIMA" class="h-6 w-auto object-contain" loading="lazy">
             <span class="text-[10px] font-black uppercase tracking-wider bg-gradient-to-r from-sky-500 to-blue-700 bg-clip-text text-transparent">
               PARTNER
             </span>
           </a>
           <p class="text-xs text-slate-500 max-w-sm">
-            Программа не является инвестиционной. Доход партнёра зависит от фактических оплат привлечённых клиентов.
+            Программа не является инвестиционной. Доход партнёра зависит от фактических оплат привлечённых клиентов. Суммы на странице — примеры расчёта, а не гарантия дохода.
           </p>
         </div>
 
@@ -1483,10 +1547,10 @@
 
         <div class="md:col-span-3 space-y-1 text-xs text-slate-400">
           <div class="text-[11px] uppercase tracking-wider font-bold text-slate-400 font-mono mb-2">Документы</div>
-          <div><a href="./index.html" class="text-sky-700 font-bold hover:underline">Главная страница сайта</a></div>
+          <div><a href="index.html" class="text-sky-700 font-bold hover:underline">Главная страница сайта</a></div>
           <div><a href="partner-rules.html" class="text-sky-700 font-bold hover:underline">Правила программы</a></div>
-          <div><a href="документы/1.%20Публичная%20оферта%20Altai%20Optima.docx" download class="hover:underline">Публичная оферта</a></div>
-          <div><a href="документы/3.%20Политика%20обработки%20персональных%20данных.docx" download class="hover:underline">Политика обработки данных</a></div>
+          <div><a href="документы/1.%20Публичная%20оферта%20Altai%20Optima.docx" download="" class="hover:underline">Публичная оферта</a></div>
+          <div><a href="документы/3.%20Политика%20обработки%20персональных%20данных.docx" download="" class="hover:underline">Политика обработки данных</a></div>
         </div>
 
       </div>
@@ -1518,82 +1582,100 @@
       if (drawer) drawer.classList.toggle('hidden');
     }
 
-    const RATES = {
-      recommender: { setup: 0.25, sub: 0.15, rank: true,  name: 'Рекомендатель' },
-      agent:       { setup: 0.35, sub: 0.20, rank: true,  name: 'Агент' },
-      integrator:  { setup: 1.00, sub: 0.30, rank: false, name: 'Интегратор' }
+    /* ======= ПРАВИЛА ВОЗНАГРАЖДЕНИЯ (единый источник для калькулятора) ======= */
+    const LAUNCH_PRICE = 29000;
+    const BASE_RATES = {
+      scout: { setup: 0.25, sub: 0.15 },
+      agent: { setup: 0.35, sub: 0.20 }
     };
-    const MENTOR = { setup: 0.07, sub: 0.05 };
-    const TECH_FEE = 9000;          // технический запуск, который интегратор платит нам
-    const YEAR_FACTOR = 111 / 11;   // годовая цена = месячная × 10,09 (33 000 → 333 000)
-    const MONTHS = 24;
+    const STEP_PARTNER = 5;    // от 5 активных клиентов: +5 п.п. к подписке
+    const STEP_LEADER = 15;    // от 15 активных клиентов: +5 п.п. к запуску
 
-    const fmt = new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 0 });
-    const rub = (v) => fmt.format(Math.round(v / 100) * 100) + '\u00A0₽';
-    const numVal = (id, def) => {
-      const el = document.getElementById(id);
-      if (!el) return def;
-      const v = parseFloat(String(el.value).replace(',', '.'));
-      return isFinite(v) && v >= 0 ? v : def;
+    function ratesFor(format, activeClients) {
+      const r = { ...BASE_RATES[format] };
+      if (activeClients >= STEP_PARTNER) r.sub += 0.05;
+      if (activeClients >= STEP_LEADER) r.setup += 0.05;
+      return r;
+    }
+
+    const fmtNum = new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 0 });
+    const rub = (v) => fmtNum.format(Math.round(v / 100) * 100) + '\u00A0₽';
+    const plural = (n, one, few, many) => {
+      const m10 = n % 10, m100 = n % 100;
+      if (m10 === 1 && m100 !== 11) return one;
+      if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return few;
+      return many;
     };
-    const S_churn = (k, c) => k <= 0 ? 0 : (c <= 0 ? k : (1 - Math.pow(1 - c, k)) / c);
+    const radioVal = (name) => {
+      const el = document.querySelector('input[name="' + name + '"]:checked');
+      return el ? el.value : null;
+    };
 
-    const CALC_PRESETS = {
-      1: {
-        start: '43\u00A0500\u00A0₽',
-        sub6: '29\u00A0700\u00A0₽',
-        sub12: '59\u00A0400\u00A0₽'
-      },
-      3: {
-        start: '130\u00A0500\u00A0₽',
-        sub6: '89\u00A0100\u00A0₽',
-        sub12: '178\u00A0200\u00A0₽'
-      },
-      5: {
-        start: '217\u00A0500\u00A0₽',
-        sub6: '148\u00A0500\u00A0₽',
-        sub12: '297\u00A0000\u00A0₽'
+    /* Помесячная модель: клиенты приходят в начале месяца, часть базы уходит (отток) */
+    function simulate(format, sub, pace, churn, months) {
+      let active = 0, launch6 = 0;
+      const monthly = [];
+      for (let m = 1; m <= months; m++) {
+        active = active * (1 - churn) + pace;
+        const r = ratesFor(format, Math.floor(active + 1e-9));
+        if (m <= 6) launch6 += pace * LAUNCH_PRICE * r.setup;
+        monthly.push({ active, income: active * sub * r.sub });
       }
-    };
+      return { launch6, monthly };
+    }
 
-    function setSimpleClients(n) {
-      [1, 3, 5].forEach(k => {
-        const btn = document.getElementById('btn-client-' + k);
-        if (!btn) return;
-        if (k === n) {
-          btn.classList.add('active', 'border-2', 'border-emerald-400', 'bg-emerald-500/30');
-          btn.classList.remove('border-white/20', 'bg-white/10');
-          const span = btn.querySelector('.font-inter');
-          if (span) {
-            span.classList.add('text-emerald-200');
-          }
-        } else {
-          btn.classList.remove('active', 'border-2', 'border-emerald-400', 'bg-emerald-500/30');
-          btn.classList.add('border-white/20', 'bg-white/10');
-          const span = btn.querySelector('.font-inter');
-          if (span) {
-            span.classList.remove('text-emerald-200');
-          }
-        }
-      });
+    function clientsForGoal(format, sub, goal) {
+      for (let n = 1; n <= 500; n++) {
+        if (n * sub * ratesFor(format, n).sub >= goal) return n;
+      }
+      return null;
+    }
 
-      const data = CALC_PRESETS[n] || CALC_PRESETS[3];
-      const elStart = document.getElementById('calc-out-start');
-      const elSub6 = document.getElementById('calc-out-sub6');
-      const elSub12 = document.getElementById('calc-out-sub12');
+    function updateCalc() {
+      const format = radioVal('c-fmt') || 'agent';
+      const sub = parseFloat(radioVal('c-tariff') || '33000');
+      const pace = parseFloat(radioVal('c-pace') || '3');
+      const churn = parseFloat(radioVal('c-churn') || '0.05');
+      const goal = parseFloat(radioVal('c-goal') || '100000');
 
-      if (elStart) elStart.innerHTML = data.start;
-      if (elSub6) elSub6.innerHTML = data.sub6 + '<span class="text-sm font-normal text-emerald-200">/мес</span>';
-      if (elSub12) elSub12.innerHTML = data.sub12 + '<span class="text-sm font-normal text-sky-200">/мес</span>';
+      const sim = simulate(format, sub, pace, churn, 60);
+      const m6 = sim.monthly[5], m12 = sim.monthly[11];
+
+      document.getElementById('calc-out-start').textContent = rub(sim.launch6);
+      document.getElementById('calc-out-sub6').textContent = rub(m6.income);
+      document.getElementById('calc-out-sub12').textContent = rub(m12.income);
+      const a6 = Math.round(m6.active), a12 = Math.round(m12.active);
+      document.getElementById('calc-out-base6').textContent =
+        'С подписок базы ≈ ' + a6 + ' ' + plural(a6, 'клиент', 'клиента', 'клиентов');
+      document.getElementById('calc-out-base12').textContent =
+        'С подписок базы ≈ ' + a12 + ' ' + plural(a12, 'клиент', 'клиента', 'клиентов');
+
+      const need = clientsForGoal(format, sub, goal);
+      const goalClientsEl = document.getElementById('calc-goal-clients');
+      const goalTimeEl = document.getElementById('calc-goal-time');
+      if (!need) {
+        goalClientsEl.textContent = 'Цель недостижима на этом тарифе';
+        goalTimeEl.textContent = '';
+        return;
+      }
+      goalClientsEl.textContent = 'Нужно ' + need + ' ' + plural(need, 'активный клиент', 'активных клиента', 'активных клиентов');
+      const idx = sim.monthly.findIndex(x => x.income >= goal);
+      if (idx === -1) {
+        goalTimeEl.textContent = 'При таком темпе и оттоке база не дорастёт до цели — увеличьте число новых клиентов в месяц.';
+      } else {
+        const mm = idx + 1;
+        goalTimeEl.textContent = 'При вашем темпе — примерно через ' + mm + ' ' + plural(mm, 'месяц', 'месяца', 'месяцев') + '.';
+      }
+    }
+
+    function initCalc() {
+      document.querySelectorAll('#calc input[type=radio]').forEach(el => el.addEventListener('change', updateCalc));
+      updateCalc();
     }
 
     function selectPartnerTier(tier) {
       const sel = document.getElementById('p-status');
-      if (sel) {
-        if (tier === 'scout') sel.value = 'scout';
-        else if (tier === 'agent') sel.value = 'agent';
-        else if (tier === 'whitelabel') sel.value = 'whitelabel';
-      }
+      if (sel && ['scout', 'agent', 'leader', 'whitelabel'].includes(tier)) sel.value = tier;
     }
 
     function initTabs() {
@@ -1728,7 +1810,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       initTabs();
       initFormHandlers();
-      setSimpleClients(3);
+      initCalc();
     });
   </script>
 </body>
