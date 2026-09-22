@@ -2412,8 +2412,9 @@
       </a>
     </div>
 
-    <!-- БЛОК: КАК ЭТО РАБОТАЕТ (3 ШАГА ВНЕДРЕНИЯ) -->
-    <section id="solutions" class="space-y-8 sm:space-y-10 py-10 sm:py-14 lg:py-18 relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- БЛОК: КАК ЭТО РАБОТАЕТ / ПУТЬ НОВОГО СОТРУДНИКА -->
+    <section id="solutions" class="space-y-8 sm:space-y-12 py-10 sm:py-14 lg:py-20 relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div id="how" class="scroll-mt-24"></div>
       
       <!-- ШАПКА: КАК ЭТО РАБОТАЕТ -->
       <div class="text-center max-w-4xl mx-auto space-y-2.5 pb-2">
@@ -2421,62 +2422,108 @@
           КАК ЭТО <span class="pearl-title-gradient">РАБОТАЕТ</span>
         </h2>
         <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto font-inter">
-          Всего 3 простых шага: от первой встречи до первой закрытой сделки ночью
+          Как с новым сотрудником, только стажировка короче, а смена круглосуточная.
         </p>
       </div>
 
-      <!-- 3 ШАГА ВНЕДРЕНИЯ В КАРТОЧКАХ -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto font-inter">
+      <!-- ЛЕСЕНКА ЭТАПОВ: ПУТЬ НОВОГО СОТРУДНИКА -->
+      <div class="relative max-w-7xl mx-auto font-inter pt-2 md:pt-6 pb-2 md:pb-24">
         
-        <!-- ШАГ 1 -->
-        <div class="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200/90 shadow-sm relative overflow-hidden flex flex-col justify-between space-y-4 hover:border-sky-300 transition-colors">
-          <div class="space-y-3">
-            <div class="w-11 h-11 rounded-2xl bg-sky-50 border border-sky-200 flex items-center justify-center font-black text-sky-700 text-xl shadow-2xs">
-              1
-            </div>
-            <h3 class="text-lg sm:text-xl font-bold text-slate-950">Вы рассказываете</h3>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
-              Созвон на 1 час плюс регламенты, прайс и ответы на частые вопросы. Вы передаёте нам всё, что должен знать первоклассный продавец.
-            </p>
-          </div>
-          <div class="text-[11px] font-mono text-sky-700 font-bold uppercase pt-3 border-t border-slate-100 flex items-center gap-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
-            <span>1 час вашего времени</span>
-          </div>
+        <!-- ЛИНИЯ ПОДЪЁМА МЕЖДУ КАРТОЧКАМИ (ВИДНА НА ДЕСКТОПЕ) -->
+        <div class="hidden md:block absolute inset-x-8 lg:inset-x-16 top-0 bottom-0 pointer-events-none -z-1 overflow-visible">
+          <svg class="w-full h-full" viewBox="0 0 1000 380" fill="none" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="employeePathGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#6A9BC2" stop-opacity="0.3"/>
+                <stop offset="50%" stop-color="#6A9BC2" stop-opacity="0.8"/>
+                <stop offset="100%" stop-color="#2F4F3F" stop-opacity="0.95"/>
+              </linearGradient>
+            </defs>
+            <path d="M 160,260 C 330,260 340,180 500,180 C 660,180 670,95 840,95" 
+                  stroke="#6A9BC2" stroke-width="2" stroke-dasharray="6 6" opacity="0.6"/>
+            <path d="M 160,260 C 330,260 340,180 500,180 C 660,180 670,95 840,95" 
+                  stroke="url(#employeePathGrad)" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="160" cy="260" r="4.5" fill="#6A9BC2"/>
+            <circle cx="500" cy="180" r="4.5" fill="#6A9BC2"/>
+            <circle cx="840" cy="95" r="5.5" fill="#2F4F3F"/>
+          </svg>
         </div>
 
-        <!-- ШАГ 2 -->
-        <div class="p-6 sm:p-7 rounded-3xl bg-gradient-to-b from-sky-50/70 to-white border border-sky-300 shadow-sm relative overflow-hidden flex flex-col justify-between space-y-4">
-          <div class="space-y-3">
-            <div class="w-11 h-11 rounded-2xl bg-sky-600 text-white flex items-center justify-center font-black text-xl shadow-md">
-              2
+        <!-- 3 КАРТОЧКИ ЛЕСЕНКОЙ ВВЕРХ -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+          
+          <!-- ЭТАП 1: ЗНАКОМСТВО (НИЖНИЙ УРОВЕНЬ) -->
+          <div class="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200/90 shadow-sm relative overflow-hidden flex flex-col justify-between space-y-5 hover:border-sky-300 transition-all md:translate-y-20">
+            <div class="space-y-4">
+              <!-- Аватар + Статус -->
+              <div class="flex items-center justify-between gap-3">
+                <div class="relative w-10 h-10 rounded-full overflow-hidden shrink-0 ring-2 ring-slate-100 shadow-2xs bg-slate-100">
+                  <img src="avatar_eva.webp" onerror="this.src='eva-portrait.jpg'" alt="Эва" class="w-full h-full object-cover object-center">
+                </div>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-sky-50 text-sky-700 border border-sky-200/80">
+                  <span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
+                  Новичок
+                </span>
+              </div>
+              <h3 class="text-lg sm:text-xl font-bold text-slate-950">Знакомство</h3>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+                Вы рассказываете о&nbsp;бизнесе так, как рассказали бы&nbsp;новому продавцу: что продаёте, кому, как отвечаете на&nbsp;частые вопросы и&nbsp;когда пора передать клиента менеджеру. Мы&nbsp;задаём вопросы, собираем регламенты и&nbsp;прайс в&nbsp;базу знаний.
+              </p>
             </div>
-            <h3 class="text-lg sm:text-xl font-bold text-slate-950">Мы обучаем за 3 дня</h3>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
-              Загружаем базу, подключаем каналы и CRM. ИИ изучает <strong class="text-slate-900 font-bold">абсолютно все ваши реальные переписки</strong> с клиентами и за пару дней становится главным экспертом по вашим продуктам.
-            </p>
+            <div class="text-[12px] sm:text-[13px] text-sky-800 font-medium pt-3.5 border-t border-slate-100 flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-sky-500 shrink-0"></span>
+              <span>Ваша задача — рассказать. Остальное берём на&nbsp;себя.</span>
+            </div>
           </div>
-          <div class="text-[11px] font-mono text-emerald-800 font-bold uppercase pt-3 border-t border-sky-100 flex items-center gap-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>Изучает реальные диалоги ✓</span>
-          </div>
-        </div>
 
-        <!-- ШАГ 3 -->
-        <div class="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200/90 shadow-sm relative overflow-hidden flex flex-col justify-between space-y-4 hover:border-emerald-300 transition-colors">
-          <div class="space-y-3">
-            <div class="w-11 h-11 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 flex items-center justify-center font-black text-xl shadow-2xs">
-              3
+          <!-- ЭТАП 2: СТАЖИРОВКА (СРЕДНИЙ УРОВЕНЬ, +40px) -->
+          <div class="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200/90 shadow-sm relative overflow-hidden flex flex-col justify-between space-y-5 hover:border-sky-300 transition-all md:translate-y-10">
+            <div class="space-y-4">
+              <!-- Аватар + Статус -->
+              <div class="flex items-center justify-between gap-3">
+                <div class="relative w-10 h-10 rounded-full overflow-hidden shrink-0 ring-2 ring-slate-100 shadow-2xs bg-slate-100">
+                  <img src="avatar_eva.webp" onerror="this.src='eva-portrait.jpg'" alt="Эва" class="w-full h-full object-cover object-center">
+                </div>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-sky-50 text-sky-700 border border-sky-200/80">
+                  <span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
+                  Стажёр
+                </span>
+              </div>
+              <h3 class="text-lg sm:text-xl font-bold text-slate-950">Стажировка</h3>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+                Он изучает все ваши переписки с&nbsp;клиентами: как вы&nbsp;здороваетесь, как называете товары, как отвечаете на&nbsp;«дорого». Мы&nbsp;проверяем его на&nbsp;трудных клиентах и&nbsp;вместе с&nbsp;вами доводим ответы до&nbsp;вашего стиля.
+              </p>
             </div>
-            <h3 class="text-lg sm:text-xl font-bold text-slate-950">Он продаёт 24/7</h3>
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
-              Мгновенный ответ за &lt;60 секунд во всех каналах, квалификация лида по регламенту и передача горячего клиента менеджеру с пометкой «готов, пора звонить».
-            </p>
+            <div class="text-[12px] sm:text-[13px] text-sky-800 font-medium pt-3.5 border-t border-slate-100 flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-sky-500 shrink-0"></span>
+              <span>Вы принимаете работу до&nbsp;запуска.</span>
+            </div>
           </div>
-          <div class="text-[11px] font-mono text-emerald-800 font-bold uppercase pt-3 border-t border-slate-100 flex items-center gap-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-            <span>Сделки 24 часа в сутки ✓</span>
+
+          <!-- ЭТАП 3: ВЫХОД НА СМЕНУ (ВЫСШИЙ УРОВЕНЬ, ВЫДЕЛЕННАЯ КАРТОЧКА РЕЗУЛЬТАТА) -->
+          <div class="p-6 sm:p-7 rounded-3xl bg-gradient-to-b from-[#F0F7F4] via-white to-white border-2 border-[#2F4F3F]/35 shadow-[0_16px_40px_rgba(47,79,63,0.08)] relative overflow-hidden flex flex-col justify-between space-y-5 md:translate-y-0 ring-1 ring-[#2F4F3F]/15">
+            <div class="space-y-4">
+              <!-- Аватар + Статус (Зелёный #2F4F3F на #DCE7E0) -->
+              <div class="flex items-center justify-between gap-3">
+                <div class="relative w-10 h-10 rounded-full overflow-hidden shrink-0 ring-2 ring-emerald-200 shadow-2xs bg-slate-100">
+                  <img src="avatar_eva.webp" onerror="this.src='eva-portrait.jpg'" alt="Эва" class="w-full h-full object-cover object-center">
+                </div>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold text-[#2F4F3F] bg-[#DCE7E0] border border-[#2F4F3F]/20 shadow-2xs">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#2F4F3F] animate-pulse"></span>
+                  В штате
+                </span>
+              </div>
+              <h3 class="text-lg sm:text-xl font-bold text-slate-950">Выход на смену</h3>
+              <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+                Он отвечает во&nbsp;всех каналах днём и&nbsp;ночью, заполняет CRM и&nbsp;передаёт менеджеру горячего клиента с&nbsp;пометкой «готов, пора звонить».
+              </p>
+            </div>
+            <div class="text-[12px] sm:text-[13px] text-[#2F4F3F] font-semibold pt-3.5 border-t border-[#DCE7E0] flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#2F4F3F] shrink-0 animate-pulse"></span>
+              <span>Смена круглосуточная, выходных нет.</span>
+            </div>
           </div>
+
         </div>
 
       </div>
