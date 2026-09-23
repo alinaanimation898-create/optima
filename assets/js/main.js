@@ -2874,60 +2874,49 @@
           ]
         };
 
-        // 2. КАНАЛЫ СВЯЗИ (фирменные цвета и логотипы)
+        // 2. КАНАЛЫ СВЯЗИ (фирменные цвета брендов без логотипов)
         const CHANNELS = [
           {
             id: 'site_chat',
             label: 'Чат на сайте',
-            defaultChecked: true,
-            iconSvg: `<img src="assets/logos/widget_chat_logo.webp" alt="Чат на сайте" class="w-8 h-8 rounded-full object-contain shadow-xs shrink-0">`
+            color: '#0284c7',
+            defaultChecked: true
           },
           {
             id: 'max',
             label: 'MAX',
-            defaultChecked: true,
-            iconSvg: `<img src="assets/logos/max_logo.webp" alt="MAX" class="w-8 h-8 rounded-full object-contain shadow-xs shrink-0">`
+            color: '#6366f1',
+            defaultChecked: true
           },
           {
             id: 'avito',
             label: 'Авито',
-            defaultChecked: false,
-            iconSvg: `<div class="w-8 h-8 rounded-full bg-white border border-slate-200/80 flex items-center justify-center shadow-xs shrink-0 p-1">
-              <svg class="w-6 h-6" viewBox="0 0 48 48" fill="none">
-                <circle cx="14" cy="15" r="8.5" fill="#97D900"/>
-                <circle cx="32" cy="15" r="7.5" fill="#00AAFF"/>
-                <circle cx="16" cy="32" r="6.5" fill="#FF6163"/>
-                <circle cx="32" cy="31" r="10" fill="#A259FF"/>
-              </svg>
-            </div>`
+            color: '#00AAFF',
+            defaultChecked: false
           },
           {
             id: 'tg',
             label: 'Telegram',
-            defaultChecked: false,
-            iconSvg: `<img src="assets/logos/tg_logo.webp" alt="Telegram" class="w-8 h-8 rounded-full object-contain shadow-xs shrink-0">`
+            color: '#229ED9',
+            defaultChecked: false
           },
           {
             id: 'wa',
             label: 'WhatsApp',
-            defaultChecked: false,
-            iconSvg: `<div class="w-8 h-8 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-xs shrink-0">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12.004 2c-5.523 0-10 4.477-10 10 0 1.767.459 3.427 1.261 4.872L2 22l5.282-1.229A9.957 9.957 0 0012.004 22c5.523 0 10-4.477 10-10s-4.477-10-10-10zm5.669 14.161c-.244.686-1.218 1.258-1.701 1.309-.457.049-1.049.073-1.696-.134-.393-.126-.897-.291-1.55-.573-2.73-1.181-4.509-3.955-4.646-4.137-.137-.183-1.111-1.48-1.111-2.823 0-1.343.7-2.005.949-2.274.249-.269.544-.337.725-.337.181 0 .363.002.52.01.167.008.39-.063.61.465.228.547.776 1.895.845 2.033.069.137.115.297.023.48-.091.183-.137.297-.274.457-.137.16-.288.358-.412.48-.137.137-.28.286-.12.56.16.274.712 1.173 1.528 1.901 1.05.936 1.935 1.226 2.209 1.363.274.137.434.114.594-.069.16-.183.686-.799.869-1.074.183-.274.366-.228.61-.137.244.091 1.55.731 1.817.868.267.137.446.206.514.32.069.114.069.663-.175 1.349z"/>
-              </svg>
-            </div>`
+            color: '#25D366',
+            defaultChecked: false
           },
           {
             id: 'inst',
             label: 'Instagram',
-            defaultChecked: false,
-            iconSvg: `<img src="assets/logos/inst_logo.webp" alt="Instagram" class="w-8 h-8 rounded-full object-contain shadow-xs shrink-0">`
+            color: '#E1306C',
+            defaultChecked: false
           },
           {
             id: 'email',
             label: 'Электронная почта',
-            defaultChecked: false,
-            iconSvg: `<img src="assets/logos/email_logo.webp" alt="Электронная почта" class="w-8 h-8 rounded-full object-contain shadow-xs shrink-0">`
+            color: '#0284c7',
+            defaultChecked: false
           }
         ];
 
@@ -3036,10 +3025,9 @@
           if (!channelsEl) return;
           channelsEl.innerHTML = CHANNELS.map(c => `
             <div class="cfg-row" data-row="${c.id}">
-              <div class="flex items-center gap-3 min-w-0">
-                ${c.iconSvg}
+              <div class="flex items-center min-w-0">
                 <div>
-                  <div class="cfg-row-label"><span>${c.label}</span></div>
+                  <div class="cfg-row-label text-sm sm:text-[15px] font-bold tracking-tight" style="color: ${c.color};"><span>${c.label}</span></div>
                   ${c.sub ? `<div class="cfg-row-sub">${c.sub}</div>` : ''}
                 </div>
               </div>
@@ -3159,7 +3147,7 @@
           const max = parseInt(sliderEl.max, 10) || 3000;
           const val = state.sliderValue;
           const pct = ((val - min) / (max - min)) * 100;
-          sliderEl.style.background = `linear-gradient(to right, #0284c7 0%, #0284c7 ${pct}%, #E2E8F0 ${pct}%, #E2E8F0 100%)`;
+          sliderEl.style.background = `linear-gradient(to right, #059669 0%, #059669 ${pct}%, #E2E8F0 ${pct}%, #E2E8F0 100%)`;
           sliderEl.value = val;
           sliderEl.setAttribute('aria-valuenow', val);
         }
@@ -3247,7 +3235,6 @@
 
           const subPrefixEl = document.getElementById('cfgSubPrefix');
           const monthlyTotalEl = document.getElementById('monthlyTotal');
-          const earlyBirdRowEl = document.getElementById('cfgEarlyBirdRow');
 
           if (subPrefixEl) {
             subPrefixEl.classList.toggle('hidden', !isEmpire);
@@ -3255,11 +3242,6 @@
 
           if (monthlyTotalEl) {
             monthlyTotalEl.textContent = formatPrice(monthly);
-          }
-
-          if (earlyBirdRowEl) {
-            const earlyPrefix = isEmpire ? 'от\u00A0' : '';
-            earlyBirdRowEl.innerHTML = `Цена первых клиентов: ${earlyPrefix}${formatPrice(earlyBird)}\u00A0₽/мес навсегда. Осталось 20 мест`;
           }
 
           // 4. Итог за первый год убран по требованию
