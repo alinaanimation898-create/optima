@@ -288,7 +288,7 @@
         '<div class="ao-metrics-title">РЕЗУЛЬТАТ В ЦИФРАХ</div>' +
         '<div class="ao-metrics-grid">' + metricsHtml + '</div>' +
         '<div class="ao-case-cta">' +
-          '<a href="#calculator" class="ao-case-btn">Рассчитать для своего бизнеса →</a>' +
+          '<a href="#calculator" class="ao-case-btn">Рассчитать для своего бизнеса</a>' +
         '</div>' +
       '</div>';
 

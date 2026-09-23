@@ -2012,7 +2012,6 @@
         <div class="col-span-1 lg:col-span-12 pt-1 sm:pt-2">
           <a href="#calculator" onclick="closeCaseModal()" class="w-full py-3.5 px-5 rounded-2xl bg-gradient-to-r from-sky-600 via-sky-500 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white font-extrabold text-xs sm:text-sm font-inter tracking-wide uppercase shadow-[0_8px_24px_rgba(2,132,199,0.35)] hover:shadow-[0_12px_32px_rgba(2,132,199,0.5)] transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 text-center">
             <span>Рассчитать окупаемость для моей компании</span>
-            <span class="text-base font-bold">→</span>
           </a>
         </div>
       `;
