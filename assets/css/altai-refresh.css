@@ -436,7 +436,7 @@
   color: #64748b;
 }
 .ao-case-sidebar {
-  background: linear-gradient(145deg, #07172C 0%, #0B1928 100%);
+  background: linear-gradient(145deg, #059669 0%, #047857 50%, #064e3b 100%);
   color: #ffffff;
   padding: 1.75rem;
   border-radius: 1.25rem;
@@ -444,8 +444,8 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 1.25rem;
-  box-shadow: 0 10px 30px rgba(7, 23, 44, 0.25);
-  border: 1px solid rgba(56, 189, 248, 0.2);
+  box-shadow: 0 14px 38px rgba(5, 150, 105, 0.28);
+  border: 1px solid rgba(52, 211, 153, 0.38);
 }
 .ao-metrics-title {
   font-size: 0.6875rem;
@@ -453,9 +453,9 @@
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #38bdf8;
+  color: #a7f3d0;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 .ao-metrics-grid {
   display: flex;
@@ -469,25 +469,26 @@
 }
 .ao-metric-label {
   font-size: 0.75rem;
-  color: #94a3b8;
+  color: #d1fae5;
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  opacity: 0.9;
 }
 .ao-metric-val {
   font-size: 1.25rem;
   font-weight: 800;
-  color: #e0f2fe;
+  color: #ffffff;
 }
 .ao-metric-val.highlight {
   font-size: 1.85rem;
   font-weight: 900;
-  color: #38bdf8;
+  color: #ffffff;
   letter-spacing: -0.02em;
-  text-shadow: 0 0 16px rgba(56, 189, 248, 0.35);
+  text-shadow: 0 0 18px rgba(255, 255, 255, 0.55), 0 2px 8px rgba(4, 120, 87, 0.4);
 }
 .ao-case-cta {
   padding-top: 0.75rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 .ao-case-btn {
   display: block;
@@ -499,15 +500,17 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   text-align: center;
-  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-  color: #ffffff;
+  background: #ffffff;
+  color: #047857;
   text-decoration: none;
-  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.4);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
   transition: all 0.2s ease;
 }
 .ao-case-btn:hover {
-  background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+  background: #ecfdf5;
+  color: #065f46;
   transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.22);
 }
 
 /* --- SECTION: ТРУДНЫЙ КЛИЕНТ (#scenarios) --- */
