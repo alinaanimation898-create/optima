@@ -2056,6 +2056,16 @@
       font-weight: 600;
       margin-left: 2px;
     }
+    #constructor .cfg-tariff-card .cfg-tariff-early {
+      font-size: 10.5px;
+      line-height: 1.25;
+      font-weight: 600;
+      color: #0284c7;
+      margin-top: 4px;
+    }
+    #constructor .cfg-tariff-card[data-tariff="business"] .cfg-tariff-early {
+      color: #d1fae5 !important;
+    }
     #constructor .cfg-tariff-card .cfg-vol-seg {
       background: #e2e8f0;
     }

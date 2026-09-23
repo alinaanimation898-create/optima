@@ -1004,19 +1004,19 @@
 
       // Динамический тариф по объёму лидов:
       let tariffName = '«Старт»';
-      let monthlyTariffPrice = 22000;
+      let monthlyTariffPrice = 25000;
       if (leads <= 200) {
         tariffName = '«Старт»';
-        monthlyTariffPrice = 22000;
+        monthlyTariffPrice = 25000;
       } else if (leads <= 600) {
         tariffName = '«Бизнес»';
-        monthlyTariffPrice = 33000;
+        monthlyTariffPrice = 39000;
       } else if (leads <= 1500) {
         tariffName = '«Поток»';
-        monthlyTariffPrice = 55000;
+        monthlyTariffPrice = 59000;
       } else {
         tariffName = '«Империя»';
-        monthlyTariffPrice = 88000;
+        monthlyTariffPrice = 99000;
       }
 
       const launchPrice = 29000;
@@ -2832,8 +2832,8 @@
               maxLimit: 200,
               limitLabel: 'до 200',
               detailsLimit: 'до 200 в месяц',
-              monthlyPrice: 22000,
-              annualPrice: 222000,
+              monthlyPrice: 25000,
+              earlyBirdPrice: 22000,
               presetSliderValue: 150,
               isCustom: false
             },
@@ -2843,8 +2843,8 @@
               maxLimit: 600,
               limitLabel: 'до 600',
               detailsLimit: 'до 600 в месяц',
-              monthlyPrice: 33000,
-              annualPrice: 333000,
+              monthlyPrice: 39000,
+              earlyBirdPrice: 33000,
               badge: 'выбирают чаще',
               presetSliderValue: 400,
               isCustom: false
@@ -2855,8 +2855,8 @@
               maxLimit: 1500,
               limitLabel: 'до 1500',
               detailsLimit: 'до 1500 в месяц',
-              monthlyPrice: 55000,
-              annualPrice: 555000,
+              monthlyPrice: 59000,
+              earlyBirdPrice: 55000,
               presetSliderValue: 1000,
               isCustom: false
             },
@@ -2866,8 +2866,8 @@
               maxLimit: Infinity,
               limitLabel: 'больше 1500',
               detailsLimit: 'индивидуально',
-              monthlyPrice: 88000,
-              annualPrice: 888000,
+              monthlyPrice: 99000,
+              earlyBirdPrice: 88000,
               presetSliderValue: 2500,
               isCustom: true // приставка "от "
             }
@@ -3243,40 +3243,26 @@
           // 3. Стоимости
           const setup = TARIFF_CONFIG.setupPrice;
           const monthly = tariff.monthlyPrice;
-          const annual = tariff.annualPrice;
-          const savings = (monthly * 11) - annual;
+          const earlyBird = tariff.earlyBirdPrice;
 
           const subPrefixEl = document.getElementById('cfgSubPrefix');
           const monthlyTotalEl = document.getElementById('monthlyTotal');
-          const subPeriodLabelEl = document.getElementById('cfgSubPeriodLabel');
-          const savingsRowEl = document.getElementById('cfgSavingsRow');
+          const earlyBirdRowEl = document.getElementById('cfgEarlyBirdRow');
 
           if (subPrefixEl) {
             subPrefixEl.classList.toggle('hidden', !isEmpire);
           }
 
           if (monthlyTotalEl) {
-            monthlyTotalEl.textContent = formatPrice(isAnnual ? annual : monthly);
+            monthlyTotalEl.textContent = formatPrice(monthly);
           }
 
-          const subUnitLabelEl = document.getElementById('cfgSubUnitLabel');
-          if (subUnitLabelEl) {
-            subUnitLabelEl.textContent = isAnnual ? '/\u00A0год (11 мес)' : '/\u00A0мес';
+          if (earlyBirdRowEl) {
+            const earlyPrefix = isEmpire ? 'от\u00A0' : '';
+            earlyBirdRowEl.innerHTML = `Цена первых клиентов: ${earlyPrefix}${formatPrice(earlyBird)}\u00A0₽/мес навсегда. Осталось 20 мест`;
           }
 
-          if (subPeriodLabelEl) {
-            subPeriodLabelEl.textContent = isAnnual ? 'оплата раз в год (1 месяц бесплатно)' : 'в месяц со 2-го месяца';
-          }
-
-          if (savingsRowEl) {
-            if (!isAnnual) {
-              savingsRowEl.textContent = `Оплатите год вперёд — сэкономите ${prefix}${formatPrice(savings)}\u00A0₽`;
-            } else {
-              savingsRowEl.textContent = `Экономия ${prefix}${formatPrice(savings)}\u00A0₽ — целый месяц работы в подарок`;
-            }
-          }
-
-// 4. Итог за первый год убран по требованию
+          // 4. Итог за первый год убран по требованию
 
           // 5. Раскрывашка «Подробнее»
           const cfgDetailsRowsEl = document.getElementById('cfgDetailsRows');
@@ -3306,7 +3292,7 @@
           const mobMonthlyTotal = document.getElementById('mobMonthlyTotal');
           if (mobSetupTotal) mobSetupTotal.textContent = formatPrice(setup);
           if (mobMonthlyTotal) {
-            mobMonthlyTotal.textContent = `${prefix}${formatPrice(isAnnual ? annual : monthly)}\u00A0₽/${isAnnual ? 'год' : 'мес'}`;
+            mobMonthlyTotal.textContent = `${prefix}${formatPrice(monthly)}\u00A0₽/мес`;
           }
 
           // 7. Кнопка «Запустить ИИ-продавца»
@@ -3314,15 +3300,13 @@
           if (ctaBtn) {
             const activeChNames = CHANNELS.filter(c => state.channels[c.id]).map(c => c.label.replace(/\*+/g, '')).join(', ') || 'Без каналов';
             const activeCrmNames = CRMS.filter(c => state.crms[c.id]).map(c => c.label).join(', ') || 'Без CRM';
-            const billingText = isAnnual ? `Год вперёд (${prefix}${formatPrice(annual)} ₽ за 11 мес)` : `Помесячно (${prefix}${formatPrice(monthly)} ₽/мес)`;
 
             const tgMsg = `Здравствуйте! Хочу запустить ИИ-продавца:
 • Тариф: «${tariff.name}» (${tariff.detailsLimit})
 • Объём: ~${state.sliderValue} диалогов в месяц
-• Оплата: ${billingText}
+• Подписка: ${prefix}${formatPrice(monthly)} ₽/мес
 • Каналы: ${activeChNames}
 • Учёт клиентов: ${activeCrmNames}
-• Итого за первый год: ${prefix}${formatPrice(firstYearSum)} ₽
 Готов обсудить запуск!`;
 
             ctaBtn.href = `${TARIFF_CONFIG.ctaUrl}?text=${encodeURIComponent(tgMsg)}`;
