@@ -368,358 +368,39 @@
   <!-- ОСНОВНОЙ КОНТЕНТ В ЦЕНТРАЛЬНОМ КОНТЕЙНЕРЕ -->
   <div class="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8 pt-5 sm:pt-6 space-y-12 sm:space-y-14 md:space-y-18 pb-20 sm:pb-24">
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ВИТИЕВАТАЯ ТРОПА К БЛОКУ «ЗНАКОМО?» -->
-    <div class="curved-path-container pt-2 sm:pt-4 pb-1">
-      <a href="#cta-final" class="curved-path-link" title="Знакомо?">
-        <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="gradPath1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
-              <stop offset="50%" stop-color="#0284c7" stop-opacity="0.85"/>
-              <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
-            </linearGradient>
-            <filter id="glowPath1" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="3.5" result="blur"/>
-              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-            </filter>
-          </defs>
-          <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
-                stroke="url(#gradPath1)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
-          <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
-                class="curved-path-flow" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPath1)"/>
-          <circle cx="30" cy="6" r="3" fill="#38bdf8" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
-          <circle cx="30" cy="6" r="2.5" fill="#0284c7"/>
-          <path d="M 93,55 L 100,64 L 107,55" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-    </div>
-
-    <!-- 1. ПЕРВЫЙ ЭКРАН: заголовок, оживающие уведомления из мессенджеров и CRM -->
-    <section id="cta-final" class="ao-band ao-band--glacial relative py-[40px] lg:py-[80px] px-4 sm:px-6 lg:px-10 overflow-hidden">
-      <div class="max-w-[1200px] mx-auto relative z-10">
-        <div class="cta-final-grid">
-
-          <!-- ЛЕВАЯ КОЛОНКА (На мобильных: 1. Претайтл -> 2. Уведомления -> 3. Стрелка) -->
-          <div class="cta-col-left">
-            
-            <!-- 1. Претайтл «Знакомо?» с акцентной полоской 24px -->
-            <div class="cta-pretitle-block">
-              <span class="cta-pretitle-line" aria-hidden="true"></span>
-              <span class="cta-pretitle-text">Знакомо?</span>
-            </div>
-
-            <!-- Фоновое свечение (за карточками) -->
-            <div class="cta-cards-glow" aria-hidden="true"></div>
-
-            <!-- 2. Сетка уведомлений (WhatsApp, Авито, MAX, Instagram, МойСклад) -->
-            <div class="cta-notifications-stage">
-
-              <!-- Левая колонка (на десктопе): карточки 1, 2, 3 -->
-              <div class="cta-notif-col-left">
-
-                <!-- Карточка 1: WhatsApp · 23:48 -->
-                <div class="cta-push-wrapper cta-push-wrap-1" style="--notif-order-mob: 1; --notif-rot-desk: -1deg; --notif-rot-mob: -0.4deg;">
-                  <div class="cta-push-card" style="--curr-rot: -1deg;">
-                    <div class="w-[38px] h-[38px] rounded-[9px] bg-[#25D366] flex items-center justify-center shrink-0 shadow-xs">
-                      <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.68 12.04 3.68C14.24 3.68 16.31 4.54 17.87 6.1C19.42 7.66 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15ZM16.56 14.36C16.31 14.24 15.09 13.64 14.86 13.56C14.63 13.48 14.47 13.44 14.3 13.69C14.14 13.94 13.67 14.49 13.52 14.66C13.38 14.83 13.23 14.85 12.98 14.73C12.74 14.61 11.95 14.35 11.01 13.51C10.28 12.86 9.78 12.05 9.64 11.8C9.5 11.56 9.62 11.42 9.75 11.3C9.86 11.02 10 11.02 10.12 10.88C10.24 10.74 10.28 10.64 10.36 10.47C10.44 10.31 10.4 10.16 10.34 10.04C10.28 9.92 9.8 8.74 9.6 8.25C9.4 7.78 9.21 7.84 9.06 7.83C8.92 7.82 8.76 7.82 8.6 7.82C8.44 7.82 8.17 7.88 7.95 8.12C7.73 8.36 7.1 8.95 7.1 10.16C7.1 11.37 7.98 12.54 8.1 12.7C8.22 12.87 9.83 15.34 12.3 16.4C12.89 16.65 13.35 16.8 13.7 16.91C14.3 17.1 14.84 17.07 15.27 17.01C15.75 16.94 16.74 16.41 16.95 15.82C17.15 15.23 17.15 14.73 17.09 14.62C17.03 14.51 16.81 14.48 16.56 14.36Z"></path></svg>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                      <div class="flex items-center justify-between gap-2">
-                        <span class="text-[15px] font-semibold text-black leading-tight truncate">Анна · WhatsApp</span>
-                        <span class="text-[13px] text-[#3c3c4399] font-normal leading-none shrink-0">23:48</span>
-                      </div>
-                      <p class="text-[15px] text-black font-normal leading-[1.3] line-clamp-2 mt-0.5">
-                        Здравствуйте! Готова оплатить прямо сейчас, отправьте реквизиты или ссылку на счет
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Карточка 2: Авито · 02:15 -->
-                <div class="cta-push-wrapper cta-push-wrap-2" style="--notif-order-mob: 2; --notif-rot-desk: 1.2deg; --notif-rot-mob: 0.2deg;">
-                  <div class="cta-push-card" style="--curr-rot: 1.2deg;">
-                    <div class="w-[38px] h-[38px] rounded-[9px] bg-white border border-slate-200/80 flex items-center justify-center p-1 shrink-0 shadow-xs">
-                      <svg class="w-6 h-6" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="10" cy="11" r="5" fill="#4B92FF"/>
-                        <circle cx="21" cy="10" r="4.2" fill="#00D287"/>
-                        <circle cx="21.5" cy="20.5" r="4.8" fill="#FF5252"/>
-                        <circle cx="11" cy="21" r="3.8" fill="#9644FF"/>
-                      </svg>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                      <div class="flex items-center justify-between gap-2">
-                        <span class="text-[15px] font-semibold text-black leading-tight truncate">Алексей · Авито</span>
-                        <span class="text-[13px] text-[#3c3c4399] font-normal leading-none shrink-0">02:15</span>
-                      </div>
-                      <p class="text-[15px] text-black font-normal leading-[1.3] line-clamp-2 mt-0.5">
-                        Цена актуальна? За 40&nbsp;000 отдадите? Могу забрать самовывозом через пару часов
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Карточка 3: Telegram · 07:12 -->
-                <div class="cta-push-wrapper cta-push-wrap-3" style="--notif-order-mob: 3; --notif-rot-desk: -0.8deg; --notif-rot-mob: -0.3deg;">
-                  <div class="cta-push-card" style="--curr-rot: -0.8deg;">
-                    <div class="w-[38px] h-[38px] rounded-[9px] bg-[#229ED9] flex items-center justify-center shrink-0 shadow-xs">
-                      <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                      <div class="flex items-center justify-between gap-2">
-                        <span class="text-[15px] font-semibold text-black leading-tight truncate">Илья · Telegram</span>
-                        <span class="text-[13px] text-[#3c3c4399] font-normal leading-none shrink-0">07:12</span>
-                      </div>
-                      <p class="text-[15px] text-black font-normal leading-[1.3] line-clamp-2 mt-0.5">
-                        Доброе утро. Срочно нужен расчет сметы до 9:00, иначе отдаем заказ другой компании
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-              <!-- Правая колонка (на десктопе со сдвигом вниз 40px): карточки 4, 5, 6 -->
-              <div class="cta-notif-col-right" style="margin-top: 40px;">
-
-                <!-- Карточка 4: Instagram · 09:30 -->
-                <div class="cta-push-wrapper cta-push-wrap-4" style="--notif-order-mob: 4; --notif-rot-desk: 1.4deg; --notif-rot-mob: 0.3deg;">
-                  <div class="cta-push-card" style="--curr-rot: 1.4deg;">
-                    <div class="w-[38px] h-[38px] rounded-[9px] flex items-center justify-center shrink-0 shadow-xs" style="background: linear-gradient(45deg, #feda75 0%, #fa7e1e 25%, #d62976 50%, #962fbf 75%, #4f5bd5 100%);">
-                      <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                      <div class="flex items-center justify-between gap-2">
-                        <span class="text-[15px] font-semibold text-black leading-tight truncate">Мария · Instagram</span>
-                        <span class="text-[13px] text-[#3c3c4399] font-normal leading-none shrink-0">09:30</span>
-                      </div>
-                      <p class="text-[15px] text-black font-normal leading-[1.3] line-clamp-2 mt-0.5">
-                        Добрый день! Писала вам вчера под постом и&nbsp;в&nbsp;директ, никто не&nbsp;отвечает... Есть в&nbsp;наличии?
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Карточка 5: Чат MAX · 14:05 -->
-                <div class="cta-push-wrapper cta-push-wrap-5" style="--notif-order-mob: 5; --notif-rot-desk: -1.1deg; --notif-rot-mob: -0.2deg;">
-                  <div class="cta-push-card" style="--curr-rot: -1.1deg;">
-                    <div class="w-[38px] h-[38px] rounded-[9px] bg-white border border-slate-200/80 flex items-center justify-center p-0.5 shrink-0 shadow-xs overflow-hidden">
-                      <img src="assets/logos/max_logo.webp" alt="MAX" class="w-full h-full object-contain select-none" loading="lazy">
-                    </div>
-                    <div class="flex-1 min-w-0">
-                      <div class="flex items-center justify-between gap-2">
-                        <span class="text-[15px] font-semibold text-black leading-tight truncate">Елена · Чат MAX</span>
-                        <span class="text-[13px] text-[#3c3c4399] font-normal leading-none shrink-0">14:05</span>
-                      </div>
-                      <p class="text-[15px] text-black font-normal leading-[1.3] line-clamp-2 mt-0.5">
-                        Сижу у&nbsp;вас на&nbsp;сайте. Помогите быстро подобрать комплектацию под наш бюджет
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Карточка 6: Telegram · 19:40 -->
-                <div class="cta-push-wrapper cta-push-wrap-6" style="--notif-order-mob: 6; --notif-rot-desk: 0.9deg; --notif-rot-mob: 0.4deg;">
-                  <div class="cta-push-card" style="--curr-rot: 0.9deg;">
-                    <div class="w-[38px] h-[38px] rounded-[9px] bg-[#229ED9] flex items-center justify-center shrink-0 shadow-xs">
-                      <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                      <div class="flex items-center justify-between gap-2">
-                        <span class="text-[15px] font-semibold text-black leading-tight truncate">Дмитрий · Telegram</span>
-                        <span class="text-[13px] text-[#3c3c4399] font-normal leading-none shrink-0">19:40</span>
-                      </div>
-                      <p class="text-[15px] text-black font-normal leading-[1.3] line-clamp-2 mt-0.5">
-                        Менеджер обещал перезвонить до 18:00 и&nbsp;пропал. Сделка вообще состоится или нет?
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
-
-            <!-- 3. Стрелка вниз на мобильной версии (после уведомлений) -->
-            <div class="cta-mob-arrow flex lg:hidden items-center justify-center my-1">
-              <div class="blue-path-track block" style="height: 55px;">
-                <div class="blue-path-arrow text-sky-500">
-                  <svg class="w-6 h-6 filter drop-shadow-[0_0_10px_rgba(56,189,248,0.95)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- ПРАВАЯ КОЛОНКА (На мобильных: 4. Подзаголовок -> 5. Заголовок) -->
-          <div class="cta-col-right">
-            
-            <!-- Заголовок H2 -->
-            <div class="cta-title-block">
-              <h2 class="font-benzin font-black uppercase tracking-tight text-2xl sm:text-3xl md:text-4xl lg:text-[44px] leading-tight text-[#0f172a] overflow-visible">
-                <span class="pearl-title-gradient">ИИ‑ПРОДАВЕЦ РАБОТАЕТ,</span> ПОКА ВЫ ОТДЫХАЕТЕ
-              </h2>
-            </div>
-
-            <!-- Подзаголовок -->
-            <div class="cta-subtitle-block max-w-[540px]">
-              <p class="text-[17px] sm:text-[19px] leading-[1.6] text-[#3A4A5E] font-normal">
-                Рутинные вопросы берёт на&nbsp;себя ИИ‑продавец. Менеджеры закрывают сделки, <span class="font-semibold text-[#0F172A]">а&nbsp;вы наконец выпускаете телефон из&nbsp;рук</span>
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ВИТИЕВАТАЯ ТРОПА К ТОЧКАМ СЛИВА ВЫРУЧКИ -->
-    <div class="curved-path-container pt-3 sm:pt-6 pb-1">
-      <a href="#scrollProblemTitle" class="curved-path-link" title="Где бизнес теряет деньги">
-        <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="gradPath2" x1="100%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
-              <stop offset="50%" stop-color="#0284c7" stop-opacity="0.85"/>
-              <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
-            </linearGradient>
-            <filter id="glowPath2" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="3.5" result="blur"/>
-              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-            </filter>
-          </defs>
-          <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
-                stroke="url(#gradPath2)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
-          <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
-                class="curved-path-flow" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPath2)"/>
-          <circle cx="170" cy="6" r="3" fill="#38bdf8" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
-          <circle cx="170" cy="6" r="2.5" fill="#0284c7"/>
-          <path d="M 93,55 L 100,64 L 107,55" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-    </div>
-
-    <!-- СЕКЦИЯ: ГДЕ БИЗНЕС ТЕРЯЕТ ДЕНЬГИ (HBR ИССЛЕДОВАНИЕ) -->
-    <section id="leaks" class="max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 font-inter py-10 sm:py-16">
-      <div class="text-center max-w-4xl mx-auto space-y-3 sm:space-y-4 mb-8 sm:mb-12">
-        <h2 id="scrollProblemTitle" class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl lg:text-[54px] leading-tight select-none" style="color: #B4232F !important; -webkit-text-fill-color: #B4232F !important; background: none !important;">
-          ГДЕ БИЗНЕС ТЕРЯЕТ ДЕНЬГИ
-        </h2>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
-        <!-- КАРТОЧКА 1 -->
-        <div class="leak-card rounded-[28px] bg-white/95 border-2 border-slate-200/90 shadow-[0_10px_30px_rgba(15,23,42,0.06),inset_0_1px_0_#ffffff] p-7 flex flex-col justify-between transition-all duration-300 font-inter">
-          <div class="space-y-4">
-            <div class="flex items-center justify-start pb-4 border-b border-slate-100">
-              <div class="text-3xl sm:text-4xl font-black tracking-tight font-inter text-[#B4232F] whitespace-nowrap">42 часа</div>
-            </div>
-            <div>
-              <h4 class="text-base sm:text-lg font-bold text-slate-900 mb-2">Среднее время ответа</h4>
-              <p class="text-slate-600 text-sm sm:text-[14.5px] leading-relaxed">
-                Столько в среднем ждут ответа клиенты тех компаний, которые всё-таки отвечают. За это время клиент успевает купить у того, кто ответил первым
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- КАРТОЧКА 2 -->
-        <div class="leak-card rounded-[28px] bg-white/95 border-2 border-slate-200/90 shadow-[0_10px_30px_rgba(15,23,42,0.06),inset_0_1px_0_#ffffff] p-7 flex flex-col justify-between transition-all duration-300 font-inter">
-          <div class="space-y-4">
-            <div class="flex items-center justify-start pb-4 border-b border-slate-100">
-              <div class="text-3xl sm:text-4xl font-black tracking-tight font-inter text-[#B4232F] whitespace-nowrap">23%</div>
-            </div>
-            <div>
-              <h4 class="text-base sm:text-lg font-bold text-slate-900 mb-2">Остаются без ответа</h4>
-              <p class="text-slate-600 text-sm sm:text-[14.5px] leading-relaxed">
-                Почти каждая четвёртая компания оставляет заявку с сайта без ответа. Клиент уходит к тем, кто ответил
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- КАРТОЧКА 3 -->
-        <div class="leak-card rounded-[28px] bg-white/95 border-2 border-slate-200/90 shadow-[0_10px_30px_rgba(15,23,42,0.06),inset_0_1px_0_#ffffff] p-7 flex flex-col justify-between transition-all duration-300 font-inter">
-          <div class="space-y-4">
-            <div class="flex items-center justify-start pb-4 border-b border-slate-100">
-              <div class="text-3xl sm:text-4xl font-black tracking-tight font-inter text-[#B4232F] whitespace-nowrap">в 60 раз</div>
-            </div>
-            <div>
-              <h4 class="text-base sm:text-lg font-bold text-slate-900 mb-2">Выше шанс на сделку</h4>
-              <p class="text-slate-600 text-sm sm:text-[14.5px] leading-relaxed">
-                Ответ в первый час даёт в 7 раз больше шансов дойти до разговора с клиентом, чем ответ позже, и в 60 раз больше, чем ответ через сутки
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- СНОСКА ПОД КАРТОЧКАМИ -->
-      <div class="text-center max-w-3xl mx-auto pt-6 text-[12.5px] text-[#7D7063] leading-relaxed">
-        Источник: исследование Harvard Business Review (HBR) — делового журнала Гарвардской школы бизнеса. «The Short Life of Online Sales Leads», 2011 г., аудит 2 241 компании в США.
-      </div>
-
-      <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: 3 КРАСНО-ЗЕЛЕНЫЕ СТРЕЛКИ -> ВАША НОВАЯ РЕАЛЬНОСТЬ -> ИЗУМРУДНАЯ СТРЕЛКА К 100% -->
-      <div class="flex flex-col items-center justify-center pt-8 sm:pt-14 pb-1 relative z-20">
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ЕДИНЫЙ ПЛАВНЫЙ ПОТОК (3 ЛИНИИ ОТ КАРТОЧЕК -> ВАША НОВАЯ РЕАЛЬНОСТЬ -> 100%) -->
+      <div class="flex flex-col items-center justify-center pt-3 sm:pt-6 pb-2 relative z-20">
         
-        <!-- 1. Сходящиеся тропы от 3 карточек потерь: из красного в изумрудный -->
-        <div class="relative w-full max-w-5xl mx-auto pt-4 pb-2 select-none">
-          <a href="#manifesto" class="block w-full text-center group cursor-pointer" title="Ваша новая реальность">
-            <svg class="w-full h-auto max-h-[110px] overflow-visible" viewBox="0 0 800 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="gradRedToGreenLeft" x1="160" y1="6" x2="400" y2="98" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#E11D48" stop-opacity="0.95"/>
-                  <stop offset="30%" stop-color="#F59E0B" stop-opacity="0.85"/>
-                  <stop offset="70%" stop-color="#10B981" stop-opacity="0.95"/>
-                  <stop offset="100%" stop-color="#059669" stop-opacity="1"/>
-                </linearGradient>
-                <linearGradient id="gradRedToGreenCenter" x1="400" y1="6" x2="400" y2="98" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#E11D48" stop-opacity="0.95"/>
-                  <stop offset="35%" stop-color="#F59E0B" stop-opacity="0.85"/>
-                  <stop offset="70%" stop-color="#10B981" stop-opacity="0.95"/>
-                  <stop offset="100%" stop-color="#059669" stop-opacity="1"/>
-                </linearGradient>
-                <linearGradient id="gradRedToGreenRight" x1="640" y1="6" x2="400" y2="98" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#E11D48" stop-opacity="0.95"/>
-                  <stop offset="30%" stop-color="#F59E0B" stop-opacity="0.85"/>
-                  <stop offset="70%" stop-color="#10B981" stop-opacity="0.95"/>
-                  <stop offset="100%" stop-color="#059669" stop-opacity="1"/>
-                </linearGradient>
-                <filter id="glowRedGreen" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="3.5" result="blur"/>
-                  <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-                </filter>
-              </defs>
-              <!-- Фоновые пунктирные направляющие -->
-              <path d="M 160,8 C 160,50 310,65 396,98" stroke="url(#gradRedToGreenLeft)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-              <path d="M 400,8 C 400,45 400,65 400,98" stroke="url(#gradRedToGreenCenter)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-              <path d="M 640,8 C 640,50 490,65 404,98" stroke="url(#gradRedToGreenRight)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+        <!-- 1. Верхний перетекающий поток: 3 плавные линии от карточек к заголовку -->
+        <div class="w-full max-w-5xl mx-auto select-none pointer-events-none">
+          <svg class="w-full h-auto max-h-[110px] overflow-visible" viewBox="0 0 1000 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <!-- Мягкий гармоничный переход из приглушённого бордового в благородный изумрудный -->
+              <linearGradient id="gradFlowRedToGreen" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#E11D48" stop-opacity="0.6" />
+                <stop offset="45%" stop-color="#BE123C" stop-opacity="0.65" />
+                <stop offset="85%" stop-color="#059669" stop-opacity="0.85" />
+                <stop offset="100%" stop-color="#10B981" stop-opacity="0.95" />
+              </linearGradient>
+              <filter id="glowFlowSmooth" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="2.5" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+            </defs>
+            <!-- 3 плавные базовые линии без шариков и точек -->
+            <path d="M 165,0 C 165,55 265,90 350,130" stroke="url(#gradFlowRedToGreen)" stroke-width="1.8" stroke-linecap="round" opacity="0.32"/>
+            <path d="M 500,0 L 500,130" stroke="url(#gradFlowRedToGreen)" stroke-width="1.8" stroke-linecap="round" opacity="0.32"/>
+            <path d="M 835,0 C 835,55 735,90 650,130" stroke="url(#gradFlowRedToGreen)" stroke-width="1.8" stroke-linecap="round" opacity="0.32"/>
 
-              <!-- Живые анимированные импульсы по 3 тропам из красного в зеленый -->
-              <path d="M 160,8 C 160,50 310,65 396,98" class="curved-path-flow-redgreen" stroke="url(#gradRedToGreenLeft)" stroke-width="2.8" stroke-linecap="round" filter="url(#glowRedGreen)"/>
-              <path d="M 400,8 C 400,45 400,65 400,98" class="curved-path-flow-redgreen" stroke="url(#gradRedToGreenCenter)" stroke-width="2.8" stroke-linecap="round" filter="url(#glowRedGreen)" style="animation-delay: 0.4s;"/>
-              <path d="M 640,8 C 640,50 490,65 404,98" class="curved-path-flow-redgreen" stroke="url(#gradRedToGreenRight)" stroke-width="2.8" stroke-linecap="round" filter="url(#glowRedGreen)" style="animation-delay: 0.8s;"/>
-
-              <!-- Исходные красные точки под карточками -->
-              <circle cx="160" cy="8" r="3.5" fill="#E11D48" class="animate-ping opacity-75" style="animation-duration: 2.8s;"/>
-              <circle cx="160" cy="8" r="3" fill="#E11D48"/>
-              <circle cx="400" cy="8" r="3.5" fill="#E11D48" class="animate-ping opacity-75" style="animation-duration: 2.8s; animation-delay: 0.4s;"/>
-              <circle cx="400" cy="8" r="3" fill="#E11D48"/>
-              <circle cx="640" cy="8" r="3.5" fill="#E11D48" class="animate-ping opacity-75" style="animation-duration: 2.8s; animation-delay: 0.8s;"/>
-              <circle cx="640" cy="8" r="3" fill="#E11D48"/>
-
-              <!-- Сходящаяся изумрудная стрелка в центре внизу -->
-              <circle cx="400" cy="98" r="3" fill="#10B981" class="animate-ping opacity-90" style="animation-duration: 2s;"/>
-              <path d="M 392,88 L 400,99 L 408,88" stroke="#10B981" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
+            <!-- 3 мягких световых потока (плавный импульс энергии, без шариков) -->
+            <path d="M 165,0 C 165,55 265,90 350,130" class="flow-stream-beam" stroke="url(#gradFlowRedToGreen)" stroke-width="2.5" stroke-linecap="round" filter="url(#glowFlowSmooth)"/>
+            <path d="M 500,0 L 500,130" class="flow-stream-beam" stroke="url(#gradFlowRedToGreen)" stroke-width="2.5" stroke-linecap="round" filter="url(#glowFlowSmooth)" style="animation-delay: 0.25s;"/>
+            <path d="M 835,0 C 835,55 735,90 650,130" class="flow-stream-beam" stroke="url(#gradFlowRedToGreen)" stroke-width="2.5" stroke-linecap="round" filter="url(#glowFlowSmooth)" style="animation-delay: 0.5s;"/>
+          </svg>
         </div>
 
-        <!-- 2. Подзаголовок: ВАША НОВАЯ РЕАЛЬНОСТЬ (окрашенный в изумрудный) + барабан -->
-        <div class="relative z-20 my-4 sm:my-6 text-center select-none font-inter">
+        <!-- 2. Подзаголовок: ВАША НОВАЯ РЕАЛЬНОСТЬ (в изумрудном тоне) + контурный барабан -->
+        <div class="relative z-20 my-2 sm:my-3 text-center select-none font-inter">
           <div class="inline-flex items-center justify-center flex-wrap gap-2.5 sm:gap-3.5 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black font-inter tracking-tight uppercase leading-tight">
             <span class="emerald-title-gradient">ВАША НОВАЯ РЕАЛЬНОСТЬ</span>
 
@@ -762,28 +443,29 @@
           </div>
         </div>
 
-        <!-- 3. Изумрудная стрелочка к «100% ОБРАБОТАННЫХ ЗАЯВОК» -->
-        <div class="curved-path-container pt-1 pb-1">
-          <a href="#manifesto" class="curved-path-link" title="Перейти к 100% обработанных заявок">
-            <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- 3. Нижний перетекающий поток: 3 плавные линии сходятся в стрелку к «100%» -->
+        <div class="w-full max-w-5xl mx-auto select-none">
+          <a href="#manifesto" class="block w-full text-center group cursor-pointer" title="Перейти к 100% обработанных заявок">
+            <svg class="w-full h-auto max-h-[105px] overflow-visible" viewBox="0 0 1000 120" fill="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <linearGradient id="gradPathEmeraldManifesto" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#34d399" stop-opacity="0.3"/>
-                  <stop offset="50%" stop-color="#10b981" stop-opacity="0.85"/>
-                  <stop offset="100%" stop-color="#047857" stop-opacity="1"/>
+                <linearGradient id="gradFlowEmeraldOnly" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#10B981" stop-opacity="0.95" />
+                  <stop offset="60%" stop-color="#059669" stop-opacity="0.85" />
+                  <stop offset="100%" stop-color="#047857" stop-opacity="1" />
                 </linearGradient>
-                <filter id="glowPathEmeraldManifesto" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="3.5" result="blur"/>
-                  <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-                </filter>
               </defs>
-              <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
-                    stroke="url(#gradPathEmeraldManifesto)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
-              <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
-                    class="curved-path-flow-emerald" stroke="#34d399" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathEmeraldManifesto)"/>
-              <circle cx="30" cy="6" r="3" fill="#34d399" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
-              <circle cx="30" cy="6" r="2.5" fill="#10b981"/>
-              <path d="M 93,55 L 100,64 L 107,55" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- 3 плавные базовые линии без шариков -->
+              <path d="M 350,0 C 375,45 465,80 500,110" stroke="url(#gradFlowEmeraldOnly)" stroke-width="1.8" stroke-linecap="round" opacity="0.35"/>
+              <path d="M 500,0 L 500,110" stroke="url(#gradFlowEmeraldOnly)" stroke-width="1.8" stroke-linecap="round" opacity="0.35"/>
+              <path d="M 650,0 C 625,45 535,80 500,110" stroke="url(#gradFlowEmeraldOnly)" stroke-width="1.8" stroke-linecap="round" opacity="0.35"/>
+
+              <!-- 3 мягких световых потока -->
+              <path d="M 350,0 C 375,45 465,80 500,110" class="flow-stream-beam-emerald" stroke="url(#gradFlowEmeraldOnly)" stroke-width="2.5" stroke-linecap="round" filter="url(#glowFlowSmooth)"/>
+              <path d="M 500,0 L 500,110" class="flow-stream-beam-emerald" stroke="url(#gradFlowEmeraldOnly)" stroke-width="2.5" stroke-linecap="round" filter="url(#glowFlowSmooth)" style="animation-delay: 0.25s;"/>
+              <path d="M 650,0 C 625,45 535,80 500,110" class="flow-stream-beam-emerald" stroke="url(#gradFlowEmeraldOnly)" stroke-width="2.5" stroke-linecap="round" filter="url(#glowFlowSmooth)" style="animation-delay: 0.5s;"/>
+
+              <!-- Чистый лаконичный наконечник стрелки без шариков -->
+              <path d="M 491,98 L 500,112 L 509,98" stroke="#10B981" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
             </svg>
           </a>
         </div>
@@ -878,28 +560,31 @@
       </div>
     </section>
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ПЛАВНЫЙ НАПРАВЛЯЮЩИЙ ИЗГИБ К ЗАГОЛОВКУ ДЕМО-ЧАТА -->
-    <div class="curved-path-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 items-center lg:items-start lg:pl-12 pt-4 sm:pt-7 pb-1">
-      <a href="#scenarios" class="curved-path-link" title="Почувствуйте разницу">
-        <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ПЛАВНОЕ ПЕРЕТЕКАНИЕ СПРАВА НАЛЕВО -->
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-3.5 select-none">
+      <a href="#scenarios" class="flowing-connector-link group" title="Почувствуйте разницу">
+        <svg class="w-full h-auto max-h-[85px] sm:max-h-[105px] overflow-visible" viewBox="0 0 1000 115" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="gradPathScenarios" x1="100%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
-              <stop offset="50%" stop-color="#0284c7" stop-opacity="0.85"/>
-              <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
+            <linearGradient id="gradFlowScenarios" x1="820" y1="10" x2="190" y2="106" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.35"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="1"/>
             </linearGradient>
-            <filter id="glowPathScenarios" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="3.5" result="blur"/>
+            <filter id="glowFlowScenarios" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2.5" result="blur"/>
               <feComposite in="SourceGraphic" in2="blur" operator="over"/>
             </filter>
           </defs>
-          <path d="M 160,6 C 120,4 50,22 45,46 C 42,54 48,56 50,64" 
-                stroke="url(#gradPathScenarios)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
-          <path d="M 160,6 C 120,4 50,22 45,46 C 42,54 48,56 50,64" 
-                class="curved-path-flow" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathScenarios)"/>
-          <circle cx="160" cy="6" r="3" fill="#38bdf8" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
-          <circle cx="160" cy="6" r="2.5" fill="#0284c7"/>
-          <path d="M 43,55 L 50,64 L 57,55" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Базовая плавная траектория перетекания: от правого края к левому (без шариков) -->
+          <path d="M 820,10 C 660,18 340,32 205,75 C 195,88 190,98 190,106" 
+                stroke="url(#gradFlowScenarios)" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="6 6" opacity="0.45"/>
+          <!-- Плавный световой импульс энергии -->
+          <path d="M 820,10 C 660,18 340,32 205,75 C 195,88 190,98 190,106" 
+                class="flowing-connector-beam" stroke="url(#gradFlowScenarios)" stroke-width="2.6" stroke-linecap="round" filter="url(#glowFlowScenarios)"/>
+          <!-- Неброская точка старта -->
+          <circle cx="820" cy="10" r="2.5" fill="#0284C7" opacity="0.75"/>
+          <!-- Аккуратный шеврон стрелки -->
+          <path d="M 183,97 L 190,107 L 197,97" stroke="#0369A1" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -1057,28 +742,31 @@
 
 
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ВИТИЕВАТАЯ ТРОПА К КНИГАМ -->
-    <div class="curved-path-container pt-4 sm:pt-7 pb-1">
-      <a href="#psychology" class="curved-path-link" title="На чём воспитан ИИ‑продавец">
-        <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ПЛАВНОЕ ПЕРЕТЕКАНИЕ СПРАВА НАЛЕВО -->
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-3.5 select-none">
+      <a href="#psychology" class="flowing-connector-link group" title="Интеллект ИИ‑продавца">
+        <svg class="w-full h-auto max-h-[85px] sm:max-h-[105px] overflow-visible" viewBox="0 0 1000 115" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="gradPathPsychology" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
-              <stop offset="50%" stop-color="#0284c7" stop-opacity="0.85"/>
-              <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
+            <linearGradient id="gradFlowPsychology" x1="820" y1="10" x2="190" y2="106" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.35"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="1"/>
             </linearGradient>
-            <filter id="glowPathPsychology" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="3.5" result="blur"/>
+            <filter id="glowFlowPsychology" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2.5" result="blur"/>
               <feComposite in="SourceGraphic" in2="blur" operator="over"/>
             </filter>
           </defs>
-          <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
-                stroke="url(#gradPathPsychology)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
-          <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
-                class="curved-path-flow" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathPsychology)"/>
-          <circle cx="30" cy="6" r="3" fill="#38bdf8" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
-          <circle cx="30" cy="6" r="2.5" fill="#0284c7"/>
-          <path d="M 93,55 L 100,64 L 107,55" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Базовая плавная траектория перетекания: от правого края к левому (без шариков) -->
+          <path d="M 820,10 C 660,18 340,32 205,75 C 195,88 190,98 190,106" 
+                stroke="url(#gradFlowPsychology)" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="6 6" opacity="0.45"/>
+          <!-- Плавный световой импульс энергии -->
+          <path d="M 820,10 C 660,18 340,32 205,75 C 195,88 190,98 190,106" 
+                class="flowing-connector-beam" stroke="url(#gradFlowPsychology)" stroke-width="2.6" stroke-linecap="round" filter="url(#glowFlowPsychology)"/>
+          <!-- Неброская точка старта -->
+          <circle cx="820" cy="10" r="2.5" fill="#0284C7" opacity="0.75"/>
+          <!-- Аккуратный шеврон стрелки -->
+          <path d="M 183,97 L 190,107 L 197,97" stroke="#0369A1" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -1229,28 +917,31 @@
 
     </section>
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД К БЛОКУ «ВАША БАЗА В НАДЕЖНЫХ РУКАХ» -->
-    <div class="curved-path-container pt-4 sm:pt-7 pb-1">
-      <a href="#crm" class="curved-path-link" title="Ваша база в надежных руках">
-        <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ПЛАВНОЕ ПЕРЕТЕКАНИЕ СПРАВА НАЛЕВО -->
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-3.5 select-none">
+      <a href="#crm" class="flowing-connector-link group" title="Ваша база в надежных руках">
+        <svg class="w-full h-auto max-h-[85px] sm:max-h-[105px] overflow-visible" viewBox="0 0 1000 115" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="gradPathCrm" x1="100%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
-              <stop offset="50%" stop-color="#0284c7" stop-opacity="0.85"/>
-              <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
+            <linearGradient id="gradFlowCrm" x1="820" y1="10" x2="190" y2="106" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.35"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="1"/>
             </linearGradient>
-            <filter id="glowPathCrm" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="3.5" result="blur"/>
+            <filter id="glowFlowCrm" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2.5" result="blur"/>
               <feComposite in="SourceGraphic" in2="blur" operator="over"/>
             </filter>
           </defs>
-          <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
-                stroke="url(#gradPathCrm)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
-          <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
-                class="curved-path-flow" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathCrm)"/>
-          <circle cx="170" cy="6" r="3" fill="#38bdf8" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
-          <circle cx="170" cy="6" r="2.5" fill="#0284c7"/>
-          <path d="M 93,55 L 100,64 L 107,55" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Базовая плавная траектория перетекания: от правого края к левому (без шариков) -->
+          <path d="M 820,10 C 660,18 340,32 205,75 C 195,88 190,98 190,106" 
+                stroke="url(#gradFlowCrm)" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="6 6" opacity="0.45"/>
+          <!-- Плавный световой импульс энергии -->
+          <path d="M 820,10 C 660,18 340,32 205,75 C 195,88 190,98 190,106" 
+                class="flowing-connector-beam" stroke="url(#gradFlowCrm)" stroke-width="2.6" stroke-linecap="round" filter="url(#glowFlowCrm)"/>
+          <!-- Неброская точка старта -->
+          <circle cx="820" cy="10" r="2.5" fill="#0284C7" opacity="0.75"/>
+          <!-- Аккуратный шеврон стрелки -->
+          <path d="M 183,97 L 190,107 L 197,97" stroke="#0369A1" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -1411,28 +1102,31 @@
       </div>
     </section>
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ВИТИЕВАТАЯ ТРОПА К КАЛЬКУЛЯТОРУ -->
-    <div class="curved-path-container pt-4 sm:pt-7 pb-1">
-      <a href="#calculator" class="curved-path-link" title="Посчитайте свои потери">
-        <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ПЛАВНОЕ ПЕРЕТЕКАНИЕ СЛЕВА НАПРАВО -->
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-3.5 select-none">
+      <a href="#calculator" class="flowing-connector-link group" title="Посчитайте свои потери">
+        <svg class="w-full h-auto max-h-[85px] sm:max-h-[105px] overflow-visible" viewBox="0 0 1000 115" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="gradPathCalculator" x1="100%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
-              <stop offset="50%" stop-color="#0284c7" stop-opacity="0.85"/>
-              <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
+            <linearGradient id="gradFlowCalculator" x1="180" y1="10" x2="810" y2="106" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.35"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="1"/>
             </linearGradient>
-            <filter id="glowPathCalculator" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="3.5" result="blur"/>
+            <filter id="glowFlowCalculator" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2.5" result="blur"/>
               <feComposite in="SourceGraphic" in2="blur" operator="over"/>
             </filter>
           </defs>
-          <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
-                stroke="url(#gradPathCalculator)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
-          <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
-                class="curved-path-flow" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathCalculator)"/>
-          <circle cx="170" cy="6" r="3" fill="#38bdf8" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
-          <circle cx="170" cy="6" r="2.5" fill="#0284c7"/>
-          <path d="M 93,55 L 100,64 L 107,55" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Базовая плавная траектория перетекания: от левого края к правому (без шариков) -->
+          <path d="M 180,10 C 340,18 660,32 795,75 C 805,88 810,98 810,106" 
+                stroke="url(#gradFlowCalculator)" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="6 6" opacity="0.45"/>
+          <!-- Плавный световой импульс энергии -->
+          <path d="M 180,10 C 340,18 660,32 795,75 C 805,88 810,98 810,106" 
+                class="flowing-connector-beam" stroke="url(#gradFlowCalculator)" stroke-width="2.6" stroke-linecap="round" filter="url(#glowFlowCalculator)"/>
+          <!-- Неброская точка старта -->
+          <circle cx="180" cy="10" r="2.5" fill="#0284C7" opacity="0.75"/>
+          <!-- Аккуратный шеврон стрелки -->
+          <path d="M 803,97 L 810,107 L 817,97" stroke="#0369A1" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -1724,28 +1418,31 @@
       </div>
     </section>
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ВИТИЕВАТАЯ ТРОПА К СРАВНЕНИЮ С МЕНЕДЖЕРОМ -->
-    <div class="curved-path-container pt-4 sm:pt-7 pb-1">
-      <a href="#unit-economics" class="curved-path-link" title="Сравнение с менеджером">
-        <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ПЛАВНОЕ ПЕРЕТЕКАНИЕ СПРАВА НАЛЕВО -->
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-3.5 select-none">
+      <a href="#unit-economics" class="flowing-connector-link group" title="Сравнение с менеджером">
+        <svg class="w-full h-auto max-h-[85px] sm:max-h-[105px] overflow-visible" viewBox="0 0 1000 115" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="gradPathUnitEco" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#34d399" stop-opacity="0.3"/>
-              <stop offset="50%" stop-color="#10b981" stop-opacity="0.85"/>
-              <stop offset="100%" stop-color="#047857" stop-opacity="1"/>
+            <linearGradient id="gradFlowUnitEco" x1="820" y1="10" x2="190" y2="106" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#34D399" stop-opacity="0.35"/>
+              <stop offset="50%" stop-color="#10B981" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#059669" stop-opacity="1"/>
             </linearGradient>
-            <filter id="glowPathUnitEco" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="3.5" result="blur"/>
+            <filter id="glowFlowUnitEco" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2.5" result="blur"/>
               <feComposite in="SourceGraphic" in2="blur" operator="over"/>
             </filter>
           </defs>
-          <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
-                stroke="url(#gradPathUnitEco)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
-          <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
-                class="curved-path-flow-emerald" stroke="#34d399" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathUnitEco)"/>
-          <circle cx="30" cy="6" r="3" fill="#34d399" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
-          <circle cx="30" cy="6" r="2.5" fill="#10b981"/>
-          <path d="M 93,55 L 100,64 L 107,55" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Базовая плавная траектория перетекания: от правого края к левому (без шариков) -->
+          <path d="M 820,10 C 660,18 340,32 205,75 C 195,88 190,98 190,106" 
+                stroke="url(#gradFlowUnitEco)" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="6 6" opacity="0.45"/>
+          <!-- Плавный световой импульс энергии -->
+          <path d="M 820,10 C 660,18 340,32 205,75 C 195,88 190,98 190,106" 
+                class="flowing-connector-beam-emerald" stroke="url(#gradFlowUnitEco)" stroke-width="2.6" stroke-linecap="round" filter="url(#glowFlowUnitEco)"/>
+          <!-- Неброская точка старта -->
+          <circle cx="820" cy="10" r="2.5" fill="#10B981" opacity="0.75"/>
+          <!-- Аккуратный шеврон стрелки -->
+          <path d="M 183,97 L 190,107 L 197,97" stroke="#059669" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -2018,28 +1715,31 @@
 
     </section>
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ВИТИЕВАТАЯ ТРОПА К ТАРИФАМ -->
-    <div class="curved-path-container pt-4 sm:pt-7 pb-1">
-      <a href="#constructor" class="curved-path-link" title="Тарифы">
-        <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ПЛАВНОЕ ПЕРЕТЕКАНИЕ СЛЕВА НАПРАВО -->
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-3.5 select-none">
+      <a href="#constructor" class="flowing-connector-link group" title="Тарифы">
+        <svg class="w-full h-auto max-h-[85px] sm:max-h-[105px] overflow-visible" viewBox="0 0 1000 115" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="gradPathConstructor" x1="100%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
-              <stop offset="50%" stop-color="#0284c7" stop-opacity="0.85"/>
-              <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
+            <linearGradient id="gradFlowConstructor" x1="180" y1="10" x2="810" y2="106" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.35"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="1"/>
             </linearGradient>
-            <filter id="glowPathConstructor" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="3.5" result="blur"/>
+            <filter id="glowFlowConstructor" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2.5" result="blur"/>
               <feComposite in="SourceGraphic" in2="blur" operator="over"/>
             </filter>
           </defs>
-          <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
-                stroke="url(#gradPathConstructor)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
-          <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
-                class="curved-path-flow" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathConstructor)"/>
-          <circle cx="170" cy="6" r="3" fill="#38bdf8" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
-          <circle cx="170" cy="6" r="2.5" fill="#0284c7"/>
-          <path d="M 93,55 L 100,64 L 107,55" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Базовая плавная траектория перетекания: от левого края к правому (без шариков) -->
+          <path d="M 180,10 C 340,18 660,32 795,75 C 805,88 810,98 810,106" 
+                stroke="url(#gradFlowConstructor)" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="6 6" opacity="0.45"/>
+          <!-- Плавный световой импульс энергии -->
+          <path d="M 180,10 C 340,18 660,32 795,75 C 805,88 810,98 810,106" 
+                class="flowing-connector-beam" stroke="url(#gradFlowConstructor)" stroke-width="2.6" stroke-linecap="round" filter="url(#glowFlowConstructor)"/>
+          <!-- Неброская точка старта -->
+          <circle cx="180" cy="10" r="2.5" fill="#0284C7" opacity="0.75"/>
+          <!-- Аккуратный шеврон стрелки -->
+          <path d="M 803,97 L 810,107 L 817,97" stroke="#0369A1" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -2326,28 +2026,31 @@
 
     </section>
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ВИТИЕВАТАЯ ТРОПА К ПРИМЕРАМ ВНЕДРЕНИЯ -->
-    <div class="curved-path-container pt-4 sm:pt-7 pb-1">
-      <a href="#cases" class="curved-path-link" title="Примеры внедрения">
-        <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ПЛАВНОЕ ПЕРЕТЕКАНИЕ СПРАВА НАЛЕВО -->
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-3.5 select-none">
+      <a href="#cases" class="flowing-connector-link group" title="Примеры внедрения">
+        <svg class="w-full h-auto max-h-[85px] sm:max-h-[105px] overflow-visible" viewBox="0 0 1000 115" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="gradPathCases" x1="100%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
-              <stop offset="50%" stop-color="#0284c7" stop-opacity="0.85"/>
-              <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
+            <linearGradient id="gradFlowCases" x1="820" y1="10" x2="190" y2="106" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.35"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="1"/>
             </linearGradient>
-            <filter id="glowPathCases" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="3.5" result="blur"/>
+            <filter id="glowFlowCases" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2.5" result="blur"/>
               <feComposite in="SourceGraphic" in2="blur" operator="over"/>
             </filter>
           </defs>
-          <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
-                stroke="url(#gradPathCases)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
-          <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
-                class="curved-path-flow" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathCases)"/>
-          <circle cx="170" cy="6" r="3" fill="#38bdf8" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
-          <circle cx="170" cy="6" r="2.5" fill="#0284c7"/>
-          <path d="M 93,55 L 100,64 L 107,55" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Базовая плавная траектория перетекания: от правого края к левому (без шариков) -->
+          <path d="M 820,10 C 660,18 340,32 205,75 C 195,88 190,98 190,106" 
+                stroke="url(#gradFlowCases)" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="6 6" opacity="0.45"/>
+          <!-- Плавный световой импульс энергии -->
+          <path d="M 820,10 C 660,18 340,32 205,75 C 195,88 190,98 190,106" 
+                class="flowing-connector-beam" stroke="url(#gradFlowCases)" stroke-width="2.6" stroke-linecap="round" filter="url(#glowFlowCases)"/>
+          <!-- Неброская точка старта -->
+          <circle cx="820" cy="10" r="2.5" fill="#0284C7" opacity="0.75"/>
+          <!-- Аккуратный шеврон стрелки -->
+          <path d="M 183,97 L 190,107 L 197,97" stroke="#0369A1" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -2368,28 +2071,31 @@
       </div>
     </section>
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД К БЛОКУ «КАК ЭТО РАБОТАЕТ» -->
-    <div class="curved-path-container pt-4 sm:pt-7 pb-1">
-      <a href="#solutions" class="curved-path-link" title="Как это работает">
-        <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ПЛАВНОЕ ПЕРЕТЕКАНИЕ СЛЕВА НАПРАВО -->
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-3.5 select-none">
+      <a href="#solutions" class="flowing-connector-link group" title="Как это работает">
+        <svg class="w-full h-auto max-h-[85px] sm:max-h-[105px] overflow-visible" viewBox="0 0 1000 115" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="gradPathSolutions" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
-              <stop offset="50%" stop-color="#0284c7" stop-opacity="0.85"/>
-              <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
+            <linearGradient id="gradFlowSolutions" x1="180" y1="10" x2="810" y2="106" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.35"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="1"/>
             </linearGradient>
-            <filter id="glowPathSolutions" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="3.5" result="blur"/>
+            <filter id="glowFlowSolutions" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2.5" result="blur"/>
               <feComposite in="SourceGraphic" in2="blur" operator="over"/>
             </filter>
           </defs>
-          <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
-                stroke="url(#gradPathSolutions)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
-          <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
-                class="curved-path-flow" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathSolutions)"/>
-          <circle cx="30" cy="6" r="3" fill="#38bdf8" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
-          <circle cx="30" cy="6" r="2.5" fill="#0284c7"/>
-          <path d="M 93,55 L 100,64 L 107,55" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Базовая плавная траектория перетекания: от левого края к правому (без шариков) -->
+          <path d="M 180,10 C 340,18 660,32 795,75 C 805,88 810,98 810,106" 
+                stroke="url(#gradFlowSolutions)" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="6 6" opacity="0.45"/>
+          <!-- Плавный световой импульс энергии -->
+          <path d="M 180,10 C 340,18 660,32 795,75 C 805,88 810,98 810,106" 
+                class="flowing-connector-beam" stroke="url(#gradFlowSolutions)" stroke-width="2.6" stroke-linecap="round" filter="url(#glowFlowSolutions)"/>
+          <!-- Неброская точка старта -->
+          <circle cx="180" cy="10" r="2.5" fill="#0284C7" opacity="0.75"/>
+          <!-- Аккуратный шеврон стрелки -->
+          <path d="M 803,97 L 810,107 L 817,97" stroke="#0369A1" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -2482,28 +2188,31 @@
 
     </section>
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ВИТИЕВАТАЯ ТРОПА К ПИСЬМУ ОСНОВАТЕЛЕЙ -->
-    <div class="curved-path-container pt-4 sm:pt-7 pb-1">
-      <a href="#founders-letter" class="curved-path-link" title="Письмо основателей">
-        <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ПЛАВНОЕ ПЕРЕТЕКАНИЕ СПРАВА НАЛЕВО -->
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-3.5 select-none">
+      <a href="#founders-letter" class="flowing-connector-link group" title="Письмо основателей">
+        <svg class="w-full h-auto max-h-[85px] sm:max-h-[105px] overflow-visible" viewBox="0 0 1000 115" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="gradPathFounders" x1="100%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
-              <stop offset="50%" stop-color="#0284c7" stop-opacity="0.85"/>
-              <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
+            <linearGradient id="gradFlowFounders" x1="820" y1="10" x2="190" y2="106" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.35"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="1"/>
             </linearGradient>
-            <filter id="glowPathFounders" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="3.5" result="blur"/>
+            <filter id="glowFlowFounders" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2.5" result="blur"/>
               <feComposite in="SourceGraphic" in2="blur" operator="over"/>
             </filter>
           </defs>
-          <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
-                stroke="url(#gradPathFounders)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
-          <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
-                class="curved-path-flow" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathFounders)"/>
-          <circle cx="170" cy="6" r="3" fill="#38bdf8" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
-          <circle cx="170" cy="6" r="2.5" fill="#0284c7"/>
-          <path d="M 93,55 L 100,64 L 107,55" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Базовая плавная траектория перетекания: от правого края к левому (без шариков) -->
+          <path d="M 820,10 C 660,18 340,32 205,75 C 195,88 190,98 190,106" 
+                stroke="url(#gradFlowFounders)" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="6 6" opacity="0.45"/>
+          <!-- Плавный световой импульс энергии -->
+          <path d="M 820,10 C 660,18 340,32 205,75 C 195,88 190,98 190,106" 
+                class="flowing-connector-beam" stroke="url(#gradFlowFounders)" stroke-width="2.6" stroke-linecap="round" filter="url(#glowFlowFounders)"/>
+          <!-- Неброская точка старта -->
+          <circle cx="820" cy="10" r="2.5" fill="#0284C7" opacity="0.75"/>
+          <!-- Аккуратный шеврон стрелки -->
+          <path d="M 183,97 L 190,107 L 197,97" stroke="#0369A1" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>

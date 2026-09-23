@@ -1409,6 +1409,27 @@
       animation: curvedPathFlowPulse 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     }
     
+    
+    /* Плавный световой импульс по линиям перетекания (без шариков и разноцветия) */
+    @keyframes smoothFlowBeam {
+      0% {
+        stroke-dashoffset: 400;
+        opacity: 0.15;
+      }
+      35%, 65% {
+        opacity: 0.95;
+      }
+      100% {
+        stroke-dashoffset: 0;
+        opacity: 0.15;
+      }
+    }
+    .flow-stream-beam,
+    .flow-stream-beam-emerald {
+      stroke-dasharray: 90 310;
+      animation: smoothFlowBeam 3.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
     .curved-path-flow-redgreen {
       stroke-dasharray: 65 195;
       animation: curvedPathFlowPulse 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
@@ -4525,4 +4546,49 @@
     input[type="number"] {
       -moz-appearance: textfield;
       appearance: textfield;
+    }
+    /* ==========================================================================
+       WIDE FLOWING SECTION CONNECTORS (Логика вытекает и перетекает)
+       Плавные диагональные переходы между блоками по референсу (без шариков и разноцветия)
+       ========================================================================== */
+    .flowing-connector-container {
+      position: relative;
+      width: 100%;
+      display: block;
+      z-index: 20;
+      overflow: visible;
+      user-select: none;
+    }
+    .flowing-connector-link {
+      position: relative;
+      display: block;
+      width: 100%;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .flowing-connector-link:hover {
+      transform: translateY(2px);
+      filter: drop-shadow(0 4px 18px rgba(2, 132, 199, 0.28));
+    }
+    @keyframes flowingConnectorSweep {
+      0% {
+        stroke-dashoffset: 820;
+        opacity: 0.12;
+      }
+      30%, 70% {
+        opacity: 0.95;
+      }
+      100% {
+        stroke-dashoffset: -80;
+        opacity: 0.12;
+      }
+    }
+    .flowing-connector-beam {
+      stroke-dasharray: 120 720;
+      animation: flowingConnectorSweep 3.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+    .flowing-connector-beam-emerald {
+      stroke-dasharray: 120 720;
+      animation: flowingConnectorSweep 3.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     }
