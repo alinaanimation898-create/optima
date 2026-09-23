@@ -484,7 +484,7 @@
   font-weight: 900;
   color: #ffffff;
   letter-spacing: -0.02em;
-  text-shadow: 0 0 18px rgba(255, 255, 255, 0.55), 0 2px 8px rgba(4, 120, 87, 0.4);
+  text-shadow: none !important;
 }
 .ao-case-cta {
   padding-top: 0.75rem;

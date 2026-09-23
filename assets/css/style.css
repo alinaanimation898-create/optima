@@ -1872,7 +1872,7 @@
       box-shadow: 0 2px 8px rgba(2, 132, 199, 0.45);
     }
 
-    /* Базовая объемная 3D карточка тарифа — все в свежих зеленых оттенках */
+    /* Базовая объемная карточка тарифа — чистый белый фон без зеленой подсветки */
     #constructor .cfg-tariff-card {
       position: relative;
       border-radius: 20px;
@@ -1884,10 +1884,10 @@
       justify-content: space-between;
       transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, background 0.25s ease;
       box-sizing: border-box;
-      background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%);
+      background: #ffffff;
       box-shadow: 
-        0 10px 24px -4px rgba(16, 185, 129, 0.08), 
-        0 4px 8px -2px rgba(15, 23, 42, 0.04), 
+        0 4px 14px rgba(15, 23, 42, 0.05), 
+        0 1px 3px rgba(15, 23, 42, 0.03), 
         inset 0 1.5px 0 #ffffff;
       min-height: 120px;
       z-index: 1;
@@ -1919,43 +1919,32 @@
       border: 2px solid #f59e0b; /* Золотисто-янтарный */
     }
 
-    /* Наведение */
+    /* Наведение без агрессивного цветного свечения */
     #constructor .cfg-tariff-card:hover:not(.active) {
-      transform: translateY(-5px);
-    }
-    #constructor .cfg-tariff-card[data-tariff="start"]:hover:not(.active) {
-      box-shadow: 0 16px 32px -4px rgba(2, 132, 199, 0.22);
-    }
-    #constructor .cfg-tariff-card[data-tariff="business"]:hover:not(.active) {
-      box-shadow: 0 16px 32px -4px rgba(16, 185, 129, 0.25);
-    }
-    #constructor .cfg-tariff-card[data-tariff="stream"]:hover:not(.active) {
-      box-shadow: 0 16px 32px -4px rgba(139, 92, 246, 0.22);
-    }
-    #constructor .cfg-tariff-card[data-tariff="empire"]:hover:not(.active) {
-      box-shadow: 0 16px 32px -4px rgba(245, 158, 11, 0.22);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px -4px rgba(15, 23, 42, 0.09);
     }
 
-    /* Активные карточки с цветными границами и акцентным свечением */
+    /* Активные карточки с цветными границами и аккуратной тенью */
     #constructor .cfg-tariff-card.active {
       transform: translateY(-4px) scale(1.02);
-      background: linear-gradient(180deg, #ffffff 0%, #ecfdf5 100%) !important;
+      background: #ffffff !important;
     }
     #constructor .cfg-tariff-card[data-tariff="start"].active {
       border-color: #0284c7 !important;
-      box-shadow: 0 18px 36px -4px rgba(2, 132, 199, 0.32), inset 0 -3px 0 #0284c7 !important;
+      box-shadow: 0 12px 24px -4px rgba(2, 132, 199, 0.2), inset 0 -3px 0 #0284c7 !important;
     }
     #constructor .cfg-tariff-card[data-tariff="business"].active {
       border-color: #10b981 !important;
-      box-shadow: 0 18px 36px -4px rgba(16, 185, 129, 0.38), inset 0 -3px 0 #10b981 !important;
+      box-shadow: 0 12px 24px -4px rgba(16, 185, 129, 0.2), inset 0 -3px 0 #10b981 !important;
     }
     #constructor .cfg-tariff-card[data-tariff="stream"].active {
       border-color: #8b5cf6 !important;
-      box-shadow: 0 18px 36px -4px rgba(139, 92, 246, 0.32), inset 0 -3px 0 #8b5cf6 !important;
+      box-shadow: 0 12px 24px -4px rgba(139, 92, 246, 0.2), inset 0 -3px 0 #8b5cf6 !important;
     }
     #constructor .cfg-tariff-card[data-tariff="empire"].active {
       border-color: #f59e0b !important;
-      box-shadow: 0 18px 36px -4px rgba(245, 158, 11, 0.32), inset 0 -3px 0 #f59e0b !important;
+      box-shadow: 0 12px 24px -4px rgba(245, 158, 11, 0.2), inset 0 -3px 0 #f59e0b !important;
     }
 
     #constructor .cfg-tariff-card.active .cfg-tariff-check {
@@ -2032,8 +2021,8 @@
       background: #e2e8f0;
     }
     #constructor .cfg-tariff-card .cfg-vol-seg.active {
-      background: linear-gradient(180deg, #34d399 0%, #059669 100%) !important;
-      box-shadow: 0 1px 3px rgba(5, 150, 105, 0.4) !important;
+      background: #059669 !important;
+      box-shadow: none !important;
     }
     #constructor .cfg-tariff-card .cfg-tariff-check {
       width: 18px;

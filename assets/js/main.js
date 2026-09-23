@@ -2891,7 +2891,7 @@
           {
             id: 'avito',
             label: 'Авито',
-            color: '#00AAFF',
+            color: '#000000',
             defaultChecked: false
           },
           {
@@ -2909,58 +2909,48 @@
           {
             id: 'inst',
             label: 'Instagram',
-            color: '#E1306C',
+            gradient: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)',
             defaultChecked: false
           },
           {
             id: 'email',
             label: 'Электронная почта',
-            color: '#0284c7',
+            color: '#1e3a8a',
             defaultChecked: false
           }
         ];
 
-        // 3. CRM И УЧЁТНЫЕ СИСТЕМЫ (актуальные фирменные логотипы)
+        // 3. CRM И УЧЁТНЫЕ СИСТЕМЫ (фирменные цвета без логотипов)
         const CRMS = [
           {
             id: 'table',
             label: 'Таблица (Google / Excel Online)',
-            defaultChecked: true,
-            iconSvg: `<div class="w-9 h-9 rounded-full bg-[#0F9D58] flex items-center justify-center text-white shadow-xs shrink-0">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="3" y1="9" x2="21" y2="9"></line>
-                <line x1="3" y1="15" x2="21" y2="15"></line>
-                <line x1="9" y1="3" x2="9" y2="21"></line>
-                <line x1="15" y1="3" x2="15" y2="21"></line>
-              </svg>
-            </div>`
+            color: '#107C41',
+            defaultChecked: true
           },
           {
             id: 'amo',
             label: 'amoCRM',
-            defaultChecked: false,
-            iconSvg: `<img src="assets/logos/amocrm_logo.webp" alt="amoCRM" class="w-9 h-9 rounded-full object-contain shadow-xs shrink-0">`
+            color: '#1b74e4',
+            defaultChecked: false
           },
           {
             id: 'bitrix',
             label: 'Битрикс24',
-            defaultChecked: false,
-            iconSvg: `<div class="w-9 h-9 rounded-full bg-white border border-slate-200/80 flex items-center justify-center p-1 shadow-xs shrink-0 overflow-hidden">
-              <img src="assets/logos/bitrix24_logo.webp" alt="Битрикс24" class="w-full h-auto object-contain">
-            </div>`
+            color: '#00aeef',
+            defaultChecked: false
           },
           {
             id: '1c',
             label: '1С',
-            defaultChecked: false,
-            iconSvg: `<img src="assets/logos/1c_logo.webp" alt="1С" class="w-9 h-9 rounded-full object-contain shadow-xs shrink-0">`
+            color: '#e31e24',
+            defaultChecked: false
           },
           {
             id: 'moysklad',
             label: 'МойСклад',
-            defaultChecked: false,
-            iconSvg: `<img src="assets/logos/moysklad_logo.webp" alt="МойСклад" class="w-9 h-9 rounded-full object-contain shadow-xs shrink-0">`
+            color: '#1885d3',
+            defaultChecked: false
           }
         ];
 
@@ -3027,7 +3017,7 @@
             <div class="cfg-row" data-row="${c.id}">
               <div class="flex items-center min-w-0">
                 <div>
-                  <div class="cfg-row-label text-sm sm:text-[15px] font-bold tracking-tight" style="color: ${c.color};"><span>${c.label}</span></div>
+                  <div class="cfg-row-label text-sm sm:text-[15px] font-bold tracking-tight" style="${c.gradient ? `background: ${c.gradient}; -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block;` : `color: ${c.color};`}"><span>${c.label}</span></div>
                   ${c.sub ? `<div class="cfg-row-sub">${c.sub}</div>` : ''}
                 </div>
               </div>
@@ -3045,10 +3035,9 @@
           if (!crmsEl) return;
           crmsEl.innerHTML = CRMS.map(c => `
             <div class="cfg-row" data-row="${c.id}">
-              <div class="flex items-center gap-3 min-w-0">
-                ${c.iconSvg}
+              <div class="flex items-center min-w-0">
                 <div>
-                  <div class="cfg-row-label"><span>${c.label}</span></div>
+                  <div class="cfg-row-label text-sm sm:text-[15px] font-bold tracking-tight" style="color: ${c.color};"><span>${c.label}</span></div>
                 </div>
               </div>
               <div class="cfg-row-right">
