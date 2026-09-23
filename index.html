@@ -318,7 +318,7 @@
         <div class="relative p-4 sm:p-6 rounded-2xl bg-slate-950/85 border border-white/20 backdrop-blur-2xl text-white shadow-[0_16px_48px_rgba(0,0,0,0.55)] overflow-hidden">
           
           <p class="relative z-10 text-xs sm:text-sm md:text-[15px] lg:text-[15.5px] leading-relaxed text-slate-100 font-medium font-inter drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
-            Сервис пятизвездочного уровня без&nbsp;усталости и&nbsp;больничных. Мгновенно окружает заботой каждого клиента и&nbsp;поднимает конверсию в&nbsp;сделку на&nbsp;30–40%.
+            Сервис пятизвездочного уровня без&nbsp;усталости и&nbsp;больничных. Мгновенно окружает заботой каждого клиента и&nbsp;поднимает конверсию в&nbsp;сделку на&nbsp;30–40%
           </p>
 
           <!-- Бегущий неоновый луч-разделитель -->
@@ -413,6 +413,20 @@
 
             <!-- 2. Сетка уведомлений (WhatsApp, Авито, MAX, Instagram, МойСклад) -->
             <div class="cta-notifications-stage">
+                <!-- Индикатор завала входящих заявок -->
+                <div class="cta-flood-badge-wrap flex items-center justify-between px-3.5 py-1.5 mb-3 rounded-full bg-slate-900/85 backdrop-blur-md text-white text-xs border border-white/10 shadow-md max-w-[290px] mx-auto select-none">
+                  <div class="flex items-center gap-2">
+                    <span class="relative flex h-2.5 w-2.5">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500"></span>
+                    </span>
+                    <span class="font-bold text-[11px] sm:text-xs tracking-wide">Входящий поток: <span id="ctaFloodCounter" class="tabular-nums font-black text-sky-400">1</span>/6</span>
+                  </div>
+                  <span class="text-[10px] text-slate-300 font-mono flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>час пик</span>
+                  </span>
+                </div>
 
               <!-- Левая колонка (на десктопе): карточки 1, 2, 3 -->
               <div class="cta-notif-col-left">
@@ -565,7 +579,7 @@
             <!-- Подзаголовок -->
             <div class="cta-subtitle-block max-w-[540px]">
               <p class="text-[17px] sm:text-[19px] leading-[1.6] text-[#3A4A5E] font-normal">
-                Рутинные вопросы берёт на&nbsp;себя ИИ‑продавец. Менеджеры закрывают сделки, <span class="font-semibold text-[#0F172A]">а&nbsp;вы наконец выпускаете телефон из&nbsp;рук.</span>
+                Рутинные вопросы берёт на&nbsp;себя ИИ‑продавец. Менеджеры закрывают сделки, <span class="font-semibold text-[#0F172A]">а&nbsp;вы наконец выпускаете телефон из&nbsp;рук</span>
               </p>
 
             </div>
@@ -662,115 +676,127 @@
         Источник: исследование Harvard Business Review (HBR) — делового журнала Гарвардской школы бизнеса. «The Short Life of Online Sales Leads», 2011 г., аудит 2 241 компании в США.
       </div>
 
-      <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: СИНЯЯ СТРЕЛКА -> ПЛАШКА -> ЗЕЛЕНАЯ СТРЕЛКА С РУБЛЕМ -> +30% -->
+      <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: 3 КРАСНО-ЗЕЛЕНЫЕ СТРЕЛКИ -> ВАША НОВАЯ РЕАЛЬНОСТЬ -> ИЗУМРУДНАЯ СТРЕЛКА К 100% -->
       <div class="flex flex-col items-center justify-center pt-8 sm:pt-14 pb-1 relative z-20">
         
-        <!-- 1. Витиеватая лазурная тропа до «ВАША НОВАЯ РЕАЛЬНОСТЬ» -->
-        <div class="curved-path-container pt-2 pb-1">
-          <a href="#manifesto" class="curved-path-link" title="Ваша новая реальность">
-            <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- 1. Сходящиеся тропы от 3 карточек потерь: из красного в изумрудный -->
+        <div class="relative w-full max-w-5xl mx-auto pt-4 pb-2 select-none">
+          <a href="#manifesto" class="block w-full text-center group cursor-pointer" title="Ваша новая реальность">
+            <svg class="w-full h-auto max-h-[110px] overflow-visible" viewBox="0 0 800 110" fill="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <linearGradient id="gradPathDrum1" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
-                  <stop offset="50%" stop-color="#0284c7" stop-opacity="0.85"/>
-                  <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
+                <linearGradient id="gradRedToGreenLeft" x1="160" y1="6" x2="400" y2="98" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#E11D48" stop-opacity="0.95"/>
+                  <stop offset="30%" stop-color="#F59E0B" stop-opacity="0.85"/>
+                  <stop offset="70%" stop-color="#10B981" stop-opacity="0.95"/>
+                  <stop offset="100%" stop-color="#059669" stop-opacity="1"/>
                 </linearGradient>
-                <filter id="glowPathDrum1" x="-20%" y="-20%" width="140%" height="140%">
+                <linearGradient id="gradRedToGreenCenter" x1="400" y1="6" x2="400" y2="98" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#E11D48" stop-opacity="0.95"/>
+                  <stop offset="35%" stop-color="#F59E0B" stop-opacity="0.85"/>
+                  <stop offset="70%" stop-color="#10B981" stop-opacity="0.95"/>
+                  <stop offset="100%" stop-color="#059669" stop-opacity="1"/>
+                </linearGradient>
+                <linearGradient id="gradRedToGreenRight" x1="640" y1="6" x2="400" y2="98" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#E11D48" stop-opacity="0.95"/>
+                  <stop offset="30%" stop-color="#F59E0B" stop-opacity="0.85"/>
+                  <stop offset="70%" stop-color="#10B981" stop-opacity="0.95"/>
+                  <stop offset="100%" stop-color="#059669" stop-opacity="1"/>
+                </linearGradient>
+                <filter id="glowRedGreen" x="-20%" y="-20%" width="140%" height="140%">
                   <feGaussianBlur stdDeviation="3.5" result="blur"/>
                   <feComposite in="SourceGraphic" in2="blur" operator="over"/>
                 </filter>
               </defs>
-              <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
-                    stroke="url(#gradPathDrum1)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
-              <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
-                    class="curved-path-flow" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathDrum1)"/>
-              <circle cx="30" cy="6" r="3" fill="#38bdf8" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
-              <circle cx="30" cy="6" r="2.5" fill="#0284c7"/>
-              <path d="M 93,55 L 100,64 L 107,55" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- Фоновые пунктирные направляющие -->
+              <path d="M 160,8 C 160,50 310,65 396,98" stroke="url(#gradRedToGreenLeft)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+              <path d="M 400,8 C 400,45 400,65 400,98" stroke="url(#gradRedToGreenCenter)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+              <path d="M 640,8 C 640,50 490,65 404,98" stroke="url(#gradRedToGreenRight)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+
+              <!-- Живые анимированные импульсы по 3 тропам из красного в зеленый -->
+              <path d="M 160,8 C 160,50 310,65 396,98" class="curved-path-flow-redgreen" stroke="url(#gradRedToGreenLeft)" stroke-width="2.8" stroke-linecap="round" filter="url(#glowRedGreen)"/>
+              <path d="M 400,8 C 400,45 400,65 400,98" class="curved-path-flow-redgreen" stroke="url(#gradRedToGreenCenter)" stroke-width="2.8" stroke-linecap="round" filter="url(#glowRedGreen)" style="animation-delay: 0.4s;"/>
+              <path d="M 640,8 C 640,50 490,65 404,98" class="curved-path-flow-redgreen" stroke="url(#gradRedToGreenRight)" stroke-width="2.8" stroke-linecap="round" filter="url(#glowRedGreen)" style="animation-delay: 0.8s;"/>
+
+              <!-- Исходные красные точки под карточками -->
+              <circle cx="160" cy="8" r="3.5" fill="#E11D48" class="animate-ping opacity-75" style="animation-duration: 2.8s;"/>
+              <circle cx="160" cy="8" r="3" fill="#E11D48"/>
+              <circle cx="400" cy="8" r="3.5" fill="#E11D48" class="animate-ping opacity-75" style="animation-duration: 2.8s; animation-delay: 0.4s;"/>
+              <circle cx="400" cy="8" r="3" fill="#E11D48"/>
+              <circle cx="640" cy="8" r="3.5" fill="#E11D48" class="animate-ping opacity-75" style="animation-duration: 2.8s; animation-delay: 0.8s;"/>
+              <circle cx="640" cy="8" r="3" fill="#E11D48"/>
+
+              <!-- Сходящаяся изумрудная стрелка в центре внизу -->
+              <circle cx="400" cy="98" r="3" fill="#10B981" class="animate-ping opacity-90" style="animation-duration: 2s;"/>
+              <path d="M 392,88 L 400,99 L 408,88" stroke="#10B981" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
         </div>
 
-        <!-- 2. Текст: ВАША НОВАЯ РЕАЛЬНОСТЬ + АНИМИРОВАННАЯ БАРАБАННАЯ ДРОБЬ -->
-        <div class="relative z-20 my-5 sm:my-7 text-center select-none font-inter">
+        <!-- 2. Подзаголовок: ВАША НОВАЯ РЕАЛЬНОСТЬ (окрашенный в изумрудный) + барабан -->
+        <div class="relative z-20 my-4 sm:my-6 text-center select-none font-inter">
           <div class="inline-flex items-center justify-center flex-wrap gap-2.5 sm:gap-3.5 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black font-inter tracking-tight uppercase leading-tight">
-            <span class="pearl-title-gradient">ВАША НОВАЯ РЕАЛЬНОСТЬ</span>
+            <span class="emerald-title-gradient">ВАША НОВАЯ РЕАЛЬНОСТЬ</span>
 
-            <!-- ЧИСТЫЙ КОНТУРНЫЙ ВЕКТОРНЫЙ БАРАБАН (MINIMALIST LINE-ART DRUM) -->
+            <!-- ЧИСТЫЙ КОНТУРНЫЙ ВЕКТОРНЫЙ БАРАБАН В ИЗУМРУДНОЙ ПАЛИТРЕ -->
             <span class="inline-flex items-center justify-center relative w-9 h-9 sm:w-11 sm:h-11 align-middle ml-1.5 shrink-0 transform -translate-y-0.5">
               <svg class="w-full h-full overflow-visible" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                  <!-- Линейный градиент для контуров барабана -->
-                  <linearGradient id="drumOutlineGrad" x1="4" y1="16" x2="44" y2="40" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stop-color="#0284c7" />
-                    <stop offset="50%" stop-color="#0ea5e9" />
-                    <stop offset="100%" stop-color="#0369a1" />
+                  <linearGradient id="drumEmeraldGrad" x1="4" y1="16" x2="44" y2="40" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#10B981" />
+                    <stop offset="50%" stop-color="#34D399" />
+                    <stop offset="100%" stop-color="#059669" />
                   </linearGradient>
-                  <linearGradient id="drumStickGrad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#0f172a" />
-                    <stop offset="100%" stop-color="#0284c7" />
+                  <linearGradient id="drumEmeraldStickGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#064E3B" />
+                    <stop offset="100%" stop-color="#10B981" />
                   </linearGradient>
                 </defs>
 
-                <!-- Контурная микро-волна от удара -->
-                <ellipse cx="24" cy="23" rx="17" ry="6" class="drum-sound-wave" stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="3 3" fill="none" />
-
-                <!-- Контурный корпус барабана (чистые линии без заливки) -->
-                <path d="M7 23 V33 C7 36.8 14.6 39.5 24 39.5 C33.4 39.5 41 36.8 41 33 V23" stroke="url(#drumOutlineGrad)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-                
-                <!-- Зигзагообразная контурная натяжка струн барабана (классический snare drum) -->
-                <path d="M7 23 L12 36 L18 24.5 L24 37 L30 24.5 L36 36 L41 23" stroke="#38bdf8" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" opacity="0.75" fill="none" />
-                
-                <!-- Маленькие узловые точки натяжения (микро-акценты) -->
-                <circle cx="12" cy="36" r="1" fill="#0284c7" />
-                <circle cx="18" cy="24.5" r="1" fill="#0284c7" />
-                <circle cx="24" cy="37" r="1.1" fill="#0284c7" />
-                <circle cx="30" cy="24.5" r="1" fill="#0284c7" />
-                <circle cx="36" cy="36" r="1" fill="#0284c7" />
-
-                <!-- Нижний контурный обод -->
-                <path d="M7 33 C7 36.8 14.6 39.5 24 39.5 C33.4 39.5 41 36.8 41 33" stroke="url(#drumOutlineGrad)" stroke-width="1.5" stroke-linecap="round" fill="none" />
-
-                <!-- Верхний контурный обод и мембрана -->
-                <ellipse cx="24" cy="23" rx="17" ry="6" stroke="url(#drumOutlineGrad)" stroke-width="1.6" class="drum-head-pulse" fill="none" />
-                <ellipse cx="24" cy="23" rx="11" ry="3.8" stroke="#38bdf8" stroke-width="0.8" stroke-dasharray="2.5 2.5" opacity="0.5" fill="none" />
-
-                <!-- Изящные контурные барабанные палочки с анимацией дроби -->
+                <ellipse cx="24" cy="23" rx="17" ry="6" class="drum-sound-wave" stroke="#34D399" stroke-width="1.2" stroke-dasharray="3 3" fill="none" />
+                <path d="M7 23 V33 C7 36.8 14.6 39.5 24 39.5 C33.4 39.5 41 36.8 41 33 V23" stroke="url(#drumEmeraldGrad)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                <path d="M7 23 L12 36 L18 24.5 L24 37 L30 24.5 L36 36 L41 23" stroke="#34D399" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" opacity="0.75" fill="none" />
+                <circle cx="12" cy="36" r="1" fill="#10B981" />
+                <circle cx="18" cy="24.5" r="1" fill="#10B981" />
+                <circle cx="24" cy="37" r="1.1" fill="#10B981" />
+                <circle cx="30" cy="24.5" r="1" fill="#10B981" />
+                <circle cx="36" cy="36" r="1" fill="#10B981" />
+                <path d="M7 33 C7 36.8 14.6 39.5 24 39.5 C33.4 39.5 41 36.8 41 33" stroke="url(#drumEmeraldGrad)" stroke-width="1.5" stroke-linecap="round" fill="none" />
+                <ellipse cx="24" cy="23" rx="17" ry="6" stroke="url(#drumEmeraldGrad)" stroke-width="1.6" class="drum-head-pulse" fill="none" />
+                <ellipse cx="24" cy="23" rx="11" ry="3.8" stroke="#34D399" stroke-width="0.8" stroke-dasharray="2.5 2.5" opacity="0.5" fill="none" />
                 <g class="drumstick-left">
-                  <line x1="8" y1="5" x2="22" y2="22" stroke="url(#drumStickGrad)" stroke-width="1.6" stroke-linecap="round" />
-                  <circle cx="22" cy="22" r="1.8" fill="#0284c7" stroke="#38bdf8" stroke-width="0.8" />
+                  <line x1="8" y1="5" x2="22" y2="22" stroke="url(#drumEmeraldStickGrad)" stroke-width="1.6" stroke-linecap="round" />
+                  <circle cx="22" cy="22" r="1.8" fill="#10B981" stroke="#34D399" stroke-width="0.8" />
                 </g>
                 <g class="drumstick-right">
-                  <line x1="40" y1="5" x2="26" y2="22" stroke="url(#drumStickGrad)" stroke-width="1.6" stroke-linecap="round" />
-                  <circle cx="26" cy="22" r="1.8" fill="#0284c7" stroke="#38bdf8" stroke-width="0.8" />
+                  <line x1="40" y1="5" x2="26" y2="22" stroke="url(#drumEmeraldStickGrad)" stroke-width="1.6" stroke-linecap="round" />
+                  <circle cx="26" cy="22" r="1.8" fill="#10B981" stroke="#34D399" stroke-width="0.8" />
                 </g>
               </svg>
             </span>
-
           </div>
         </div>
 
-        <!-- 3. Изумрудная витиеватая тропа к блоку манифеста -->
+        <!-- 3. Изумрудная стрелочка к «100% ОБРАБОТАННЫХ ЗАЯВОК» -->
         <div class="curved-path-container pt-1 pb-1">
-          <a href="#manifesto" class="curved-path-link" title="Перейти к манифесту">
+          <a href="#manifesto" class="curved-path-link" title="Перейти к 100% обработанных заявок">
             <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <linearGradient id="gradPathEmerald" x1="100%" y1="0%" x2="0%" y2="100%">
+                <linearGradient id="gradPathEmeraldManifesto" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stop-color="#34d399" stop-opacity="0.3"/>
                   <stop offset="50%" stop-color="#10b981" stop-opacity="0.85"/>
                   <stop offset="100%" stop-color="#047857" stop-opacity="1"/>
                 </linearGradient>
-                <filter id="glowPathEmerald" x="-20%" y="-20%" width="140%" height="140%">
+                <filter id="glowPathEmeraldManifesto" x="-20%" y="-20%" width="140%" height="140%">
                   <feGaussianBlur stdDeviation="3.5" result="blur"/>
                   <feComposite in="SourceGraphic" in2="blur" operator="over"/>
                 </filter>
               </defs>
-              <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
-                    stroke="url(#gradPathEmerald)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
-              <path d="M 170,6 C 80,4 15,26 60,42 C 100,54 108,52 100,64" 
-                    class="curved-path-flow-emerald" stroke="#34d399" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathEmerald)"/>
-              <circle cx="170" cy="6" r="3" fill="#34d399" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
-              <circle cx="170" cy="6" r="2.5" fill="#10b981"/>
+              <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
+                    stroke="url(#gradPathEmeraldManifesto)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
+              <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
+                    class="curved-path-flow-emerald" stroke="#34d399" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathEmeraldManifesto)"/>
+              <circle cx="30" cy="6" r="3" fill="#34d399" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
+              <circle cx="30" cy="6" r="2.5" fill="#10b981"/>
               <path d="M 93,55 L 100,64 L 107,55" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
@@ -791,11 +817,6 @@
           <h2 class="uppercase tracking-tight font-black text-3xl sm:text-5xl md:text-6xl font-benzin select-none leading-tight overflow-visible">
             <span class="pearl-title-gradient">100% ОБРАБОТАННЫХ<br>ЗАЯВОК</span>
           </h2>
-        </div>
-        <div class="max-w-4xl mx-auto font-inter mt-6 sm:mt-4 pt-2 sm:pt-0">
-          <p class="text-slate-800 text-base sm:text-lg md:text-xl font-medium leading-snug sm:leading-relaxed">
-            ИИ‑продавец подхватывает диалог за&nbsp;60&nbsp;секунд, фильтрует спам и&nbsp;доводит клиентов до&nbsp;оплаты круглые сутки без усталости, выходных и&nbsp;выгорания
-          </p>
         </div>
       </div>
 
@@ -871,12 +892,12 @@
       </div>
     </section>
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ВИТИЕВАТАЯ ТРОПА К ДЕМО-ЧАТУ -->
-    <div class="curved-path-container pt-4 sm:pt-7 pb-1">
-      <a href="#scenarios" class="curved-path-link" title="Проверьте сами">
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ПЛАВНЫЙ НАПРАВЛЯЮЩИЙ ИЗГИБ К ЗАГОЛОВКУ ДЕМО-ЧАТА -->
+    <div class="curved-path-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 items-center lg:items-start lg:pl-12 pt-4 sm:pt-7 pb-1">
+      <a href="#scenarios" class="curved-path-link" title="Почувствуйте разницу">
         <svg class="curved-path-svg" viewBox="0 0 200 68" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="gradPathScenarios" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient id="gradPathScenarios" x1="100%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
               <stop offset="50%" stop-color="#0284c7" stop-opacity="0.85"/>
               <stop offset="100%" stop-color="#0369a1" stop-opacity="1"/>
@@ -886,13 +907,13 @@
               <feComposite in="SourceGraphic" in2="blur" operator="over"/>
             </filter>
           </defs>
-          <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
+          <path d="M 160,6 C 120,4 50,22 45,46 C 42,54 48,56 50,64" 
                 stroke="url(#gradPathScenarios)" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.4"/>
-          <path d="M 30,6 C 120,4 185,26 140,42 C 100,54 92,52 100,64" 
+          <path d="M 160,6 C 120,4 50,22 45,46 C 42,54 48,56 50,64" 
                 class="curved-path-flow" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" filter="url(#glowPathScenarios)"/>
-          <circle cx="30" cy="6" r="3" fill="#38bdf8" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
-          <circle cx="30" cy="6" r="2.5" fill="#0284c7"/>
-          <path d="M 93,55 L 100,64 L 107,55" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="160" cy="6" r="3" fill="#38bdf8" class="animate-ping opacity-75" style="animation-duration: 3s;"/>
+          <circle cx="160" cy="6" r="2.5" fill="#0284c7"/>
+          <path d="M 43,55 L 50,64 L 57,55" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </a>
     </div>
@@ -1141,8 +1162,8 @@
               </p>
             </div>
 
-            <div class="relative pl-3.5 border-l-3 border-sky-500 py-1 space-y-0.5 pr-2">
-              <div class="text-[9px] font-mono font-bold uppercase tracking-wider text-sky-600 flex items-center gap-1">
+            <div class="relative pl-3.5 border-l-3 border-sky-500 py-1 space-y-0.5 pr-2 min-h-[82px] sm:min-h-[88px] flex flex-col justify-center">
+              <div class="text-[9px] font-mono font-bold uppercase tracking-wider text-sky-600 flex items-center gap-1 mb-0.5">
                 <span>- ЛУЧШАЯ МЫСЛЬ -</span>
               </div>
               <blockquote id="activeBookQuote" class="text-xs sm:text-sm font-bold text-slate-900 leading-snug italic">
@@ -1151,7 +1172,7 @@
             </div>
           </div>
 
-          <div class="order-4 lg:order-none pt-2.5 border-t border-slate-100 space-y-2 active-book-subpart transition-opacity duration-300">
+          <div class="order-4 lg:order-none pt-2.5 border-t border-slate-100 space-y-2 active-book-subpart transition-opacity duration-300 min-h-[110px] sm:min-h-[118px] flex flex-col justify-start">
             <div class="space-y-1">
               <div class="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-800">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -1250,60 +1271,55 @@
 
     <!-- СЕКЦИЯ: ВАША БАЗА В НАДЕЖНЫХ РУКАХ + ИНТЕГРАЦИЯ CRM -->
     <section id="crm" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-18 relative z-20 font-inter">
+
+      <!-- ЛОГОТИПЫ ПОДДЕРЖИВАЕМЫХ CRM: КРУПНО НАД БЛОКОМ -->
+      <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-10 md:gap-14 mb-7 sm:mb-9">
+        <div class="flex items-center gap-2.5 sm:gap-3 px-4 py-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md transition-all">
+          <img src="assets/logos/amocrm_logo.webp" alt="amoCRM" class="h-7 sm:h-9 md:h-10 w-auto object-contain" loading="lazy">
+          <span class="text-sm sm:text-base md:text-lg font-extrabold text-slate-800">amoCRM</span>
+        </div>
+        <div class="flex items-center gap-2.5 sm:gap-3 px-4 py-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md transition-all">
+          <img src="assets/logos/bitrix24_logo.webp" alt="Битрикс24" class="h-7 sm:h-9 md:h-10 w-auto object-contain" loading="lazy">
+          <span class="text-sm sm:text-base md:text-lg font-extrabold text-slate-800">Битрикс24</span>
+        </div>
+        <div class="flex items-center gap-2.5 sm:gap-3 px-4 py-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md transition-all">
+          <img src="assets/logos/1c_logo.webp" alt="1С:Предприятие" class="h-7 sm:h-9 md:h-10 w-auto object-contain" loading="lazy">
+          <span class="text-sm sm:text-base md:text-lg font-extrabold text-slate-800">1С:Предприятие</span>
+        </div>
+        <div class="flex items-center gap-2.5 sm:gap-3 px-4 py-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md transition-all">
+          <img src="assets/logos/moysklad_logo.svg" alt="МойСклад" class="h-7 sm:h-9 md:h-10 w-auto object-contain" loading="lazy">
+          <span class="text-sm sm:text-base md:text-lg font-extrabold text-slate-800">МойСклад</span>
+        </div>
+      </div>
+
+      <!-- ЗАГОЛОВОК СЕКЦИИ ПОД ЛОГОТИПАМИ -->
+      <div class="text-center max-w-4xl mx-auto space-y-2 mb-8 sm:mb-12">
+        <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[44px] leading-tight text-[#0f172a] overflow-visible">
+          <span class="pearl-title-gradient">ВАША БАЗА</span> В&nbsp;НАДЕЖНЫХ РУКАХ
+        </h2>
+      </div>
+
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
-        <!-- ЛЕВАЯ КОЛОНКА: СРАВНЕНИЕ И ЛОГОТИПЫ -->
-        <div class="lg:col-span-6 space-y-6 text-center lg:text-left font-inter">
-          
-          <div>
-            <h3 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[40px] leading-tight text-[#0f172a] overflow-visible">
-              <span class="pearl-title-gradient">ВАША БАЗА</span> В&nbsp;НАДЕЖНЫХ РУКАХ
-            </h3>
-          </div>
-
-          <!-- БЛОК СРАВНЕНИЯ: БЫЛО vs СТАЛО БЕЗ ПОДЛОЖЕК -->
+        <!-- ЛЕВАЯ КОЛОНКА: СРАВНЕНИЕ БЫЛО vs СТАЛО -->
+        <div class="lg:col-span-6 space-y-6 text-left font-inter">
           <div class="space-y-4 max-w-xl mx-auto lg:mx-0 text-left">
-            
             <!-- Было (человеческий фактор) -->
-            <div class="flex items-start gap-3.5">
+            <div class="flex items-start gap-3.5 p-4 sm:p-5 rounded-2xl bg-rose-50/70 border border-rose-100/90 shadow-xs">
               <span class="w-6 h-6 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center font-black text-xs shrink-0 mt-0.5">✕</span>
               <div class="text-sm sm:text-base text-slate-700 leading-relaxed">
-                <strong class="font-bold text-slate-950">Человеческий фактор:</strong> менеджеры устают, забывают внести контакт, путают этапы воронки и теряют историю переписки.
+                <strong class="font-bold text-slate-950">Человеческий фактор:</strong> менеджеры устают, забывают внести контакт, путают этапы воронки и теряют историю переписки
               </div>
             </div>
 
             <!-- Стало (с Altai Optima) -->
-            <div class="flex items-start gap-3.5">
+            <div class="flex items-start gap-3.5 p-4 sm:p-5 rounded-2xl bg-emerald-50/70 border border-emerald-100/90 shadow-xs">
               <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-black text-xs shrink-0 mt-0.5">✓</span>
               <div class="text-sm sm:text-base text-slate-700 leading-relaxed">
-                <strong class="font-bold text-slate-950">С Altai Optima:</strong> ИИ моментально создаёт сделку, валидирует телефон, присваивает тег «Готов к КП» и сохраняет саммари диалога.
-              </div>
-            </div>
-
-          </div>
-
-          <!-- ЛОГОТИПЫ ПОДДЕРЖИВАЕМЫХ CRM БЕЗ ПОДЛОЖЕК -->
-          <div class="pt-2">
-            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-5 sm:gap-6">
-              <div class="flex items-center gap-2">
-                <img src="assets/logos/amocrm_logo.webp" alt="amoCRM" class="h-5 sm:h-6 w-auto object-contain" loading="lazy">
-                <span class="text-xs sm:text-sm font-bold text-slate-800">amoCRM</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <img src="assets/logos/bitrix24_logo.webp" alt="Битрикс24" class="h-5 sm:h-6 w-auto object-contain" loading="lazy">
-                <span class="text-xs sm:text-sm font-bold text-slate-800">Битрикс24</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <img src="assets/logos/1c_logo.webp" alt="1С:Предприятие" class="h-5 sm:h-6 w-auto object-contain" loading="lazy">
-                <span class="text-xs sm:text-sm font-bold text-slate-800">1С</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <img src="assets/logos/moysklad_logo.svg" alt="МойСклад" class="h-5 sm:h-6 w-auto object-contain" loading="lazy">
-                <span class="text-xs sm:text-sm font-bold text-slate-800">МойСклад</span>
+                <strong class="font-bold text-slate-950">С Altai Optima:</strong> ИИ моментально создаёт сделку, валидирует телефон, присваивает тег «Готов к КП» и сохраняет саммари диалога
               </div>
             </div>
           </div>
-
         </div>
 
         <!-- ПРАВАЯ КОЛОНКА: АУТЕНТИЧНЫЙ ИНТЕРФЕЙС AMOCRM С ЖИВЫМИ ДАННЫМИ -->

@@ -3355,18 +3355,27 @@
             if (hasAnimated) return;
             hasAnimated = true;
 
+            const counterEl = document.getElementById('ctaFloodCounter');
+
+            // Имитация лавины входящих уведомлений в час пик (эффект завала на телефоне)
+            const delays = [150, 600, 1100, 1600, 2100, 2600];
+
             wrappers.forEach((wrap, idx) => {
+              const delay = delays[idx] || (idx * 450);
               setTimeout(() => {
                 wrap.classList.add('card-revealed');
+                if (counterEl) {
+                  counterEl.textContent = (idx + 1);
+                }
                 const card = wrap.querySelector('.cta-push-card');
                 if (card) {
                   card.classList.add('card-nudge');
-                  setTimeout(() => card.classList.remove('card-nudge'), 300);
+                  setTimeout(() => card.classList.remove('card-nudge'), 350);
                 }
                 setTimeout(() => {
                   wrap.classList.add('card-floating');
-                }, 450);
-              }, idx * 180);
+                }, 500);
+              }, delay);
             });
 
             // Периодическое активное вздрагивание входящих сообщений в час пик

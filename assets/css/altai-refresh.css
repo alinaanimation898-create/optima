@@ -313,12 +313,12 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
-  background: #ffffff;
-  border: 1.5px solid rgba(186, 230, 253, 0.9);
+  background: linear-gradient(135deg, #f0f7fe 0%, #ffffff 50%, #eaf4fd 100%);
+  border: 1.5px solid rgba(186, 230, 253, 0.95);
   border-radius: 1.75rem;
   padding: 1.75rem;
   text-align: left;
-  box-shadow: 0 20px 50px -10px rgba(2, 132, 199, 0.12);
+  box-shadow: 0 20px 50px -10px rgba(2, 132, 199, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 @media (min-width: 1024px) {
   .ao-case {
@@ -397,11 +397,12 @@
   color: #16a34a;
 }
 .ao-case-quote-box {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(186, 230, 253, 0.7);
   border-radius: 1.25rem;
   padding: 1.25rem;
   margin-top: 1rem;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.05);
 }
 .ao-case-quote {
   font-size: 0.875rem;
@@ -475,13 +476,14 @@
 .ao-metric-val {
   font-size: 1.25rem;
   font-weight: 800;
-  color: #f8fafc;
+  color: #e0f2fe;
 }
 .ao-metric-val.highlight {
   font-size: 1.85rem;
   font-weight: 900;
-  color: #34d399;
+  color: #38bdf8;
   letter-spacing: -0.02em;
+  text-shadow: 0 0 16px rgba(56, 189, 248, 0.35);
 }
 .ao-case-cta {
   padding-top: 0.75rem;

@@ -181,8 +181,8 @@
           books.forEach((b, i) => {
             const card = document.createElement("div");
             card.className = "book-3d-item absolute cursor-pointer select-none flex flex-col justify-between p-4 sm:p-5 rounded-2xl transition-all duration-500 ease-out overflow-hidden";
-            card.style.width = "170px";
-            card.style.height = "244px";
+            card.style.width = "178px";
+            card.style.height = "248px";
             card.style.background = b.gradient;
             card.style.border = `1.5px solid ${b.border}55`;
             card.style.boxShadow = `0 15px 35px -10px rgba(0,0,0,0.6), inset 5px 0 15px -3px rgba(255,255,255,0.15), inset -5px 0 15px -3px rgba(0,0,0,0.5)`;
@@ -192,7 +192,7 @@
             card.innerHTML = `
               <div class="relative z-10 flex flex-col h-full justify-between text-white pointer-events-none">
                 <div>
-                  <h4 class="text-base sm:text-lg font-extrabold leading-snug text-white mt-2 drop-shadow-sm">
+                  <h4 class="font-extrabold leading-snug text-white mt-1.5 drop-shadow-sm" style="font-size: ${b.title.length > 22 ? '13px' : (b.title.length > 15 ? '14.5px' : '16px')}; hyphens: auto; word-break: normal;">
                     ${b.title}
                   </h4>
                 </div>

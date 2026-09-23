@@ -70,6 +70,27 @@
 }
 
 /* Перламутровый сапфировый градиент заголовков */
+
+/* Изумрудный перламутровый градиент (для «ВАША НОВАЯ РЕАЛЬНОСТЬ») */
+.emerald-title-gradient {
+  background: linear-gradient(
+    135deg,
+    #065f46 0%,
+    #059669 25%,
+    #34d399 45%,
+    #10b981 65%,
+    #047857 85%,
+    #065f46 100%
+  ) !important;
+  background-size: 240% 240% !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  animation: pearlTitleGradientGlide 6s ease-in-out infinite !important;
+  filter: drop-shadow(0 4px 14px rgba(16, 185, 129, 0.25));
+  display: inline;
+}
+
 .pearl-title-gradient {
   background: linear-gradient(
     135deg,
@@ -1387,6 +1408,11 @@
       stroke-dasharray: 65 195;
       animation: curvedPathFlowPulse 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     }
+    
+    .curved-path-flow-redgreen {
+      stroke-dasharray: 65 195;
+      animation: curvedPathFlowPulse 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
     .curved-path-flow-emerald {
       stroke-dasharray: 65 195;
       animation: curvedPathFlowPulse 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
@@ -1842,63 +1868,65 @@
       }
     }
 
-    /* 3D эффект при наведении */
+    /* 3D эффект при наведении: мягкий изумрудный оттенок */
     #constructor .cfg-tariff-card:hover:not(.active):not([data-tariff="business"]) {
       transform: translateY(-5px);
-      border-color: #7dd3fc;
-      background: linear-gradient(180deg, #ffffff 0%, #f0f9ff 100%);
+      border-color: #6ee7b7;
+      background: linear-gradient(180deg, #ffffff 0%, #ecfdf5 100%);
       box-shadow: 
-        0 18px 34px -4px rgba(2, 132, 199, 0.20), 
+        0 18px 34px -4px rgba(16, 185, 129, 0.18), 
         0 6px 14px rgba(15, 23, 42, 0.06), 
         inset 0 1.5px 0 #ffffff, 
-        inset 0 -3px 0 rgba(56, 189, 248, 0.4);
+        inset 0 -3px 0 rgba(52, 211, 153, 0.4);
     }
 
-    /* Выбранный активный тариф: яркий 3D акцент */
+    /* Выбранный активный тариф: благородный изумрудный 3D акцент */
     #constructor .cfg-tariff-card.active:not([data-tariff="business"]) {
       background: #ffffff;
-      border-color: #0284c7 !important;
+      border-color: #059669 !important;
       box-shadow: 
-        0 14px 28px -4px rgba(2, 132, 199, 0.22), 
-        0 4px 10px rgba(2, 132, 199, 0.12), 
+        0 14px 28px -4px rgba(16, 185, 129, 0.22), 
+        0 4px 10px rgba(16, 185, 129, 0.12), 
         inset 0 1.5px 0 #ffffff, 
-        inset 0 -3px 0 #0284c7 !important;
+        inset 0 -3px 0 #059669 !important;
       transform: translateY(-3px) scale(1.015);
     }
 
     #constructor .cfg-tariff-card.active .cfg-tariff-check {
       display: flex;
+      background: #059669;
+      color: #ffffff;
     }
 
-    /* ТАРИФ «БИЗНЕС»: ДЕЛИКАТНЫЙ СИНИЙ АКЦЕНТ С БЕЛЫМ ЧИТАЕМЫМ ТЕКСТОМ */
+    /* ТАРИФ «БИЗНЕС»: БЛАГОРОДНЫЙ ИЗУМРУДНЫЙ АКЦЕНТ В СТИЛЕ «ВАШ РАСЧЁТ» */
     #constructor .cfg-tariff-card[data-tariff="business"] {
       position: relative;
       z-index: 2;
-      background: linear-gradient(145deg, #0284c7 0%, #0369a1 100%) !important;
-      border: 1.5px solid #0284c7 !important;
+      background: linear-gradient(145deg, #059669 0%, #047857 100%) !important;
+      border: 1.5px solid #10b981 !important;
       box-shadow: 
-        0 12px 28px -4px rgba(2, 132, 199, 0.28), 
+        0 14px 32px -4px rgba(16, 185, 129, 0.35), 
         0 4px 10px rgba(15, 23, 42, 0.08), 
-        inset 0 1.5px 0 rgba(255, 255, 255, 0.35), 
-        inset 0 -3px 0 rgba(2, 44, 80, 0.4) !important;
+        inset 0 1.5px 0 rgba(255, 255, 255, 0.4), 
+        inset 0 -3.5px 0 #064e3b !important;
       color: #ffffff !important;
     }
 
     #constructor .cfg-tariff-card[data-tariff="business"]:hover {
       transform: translateY(-4px);
       box-shadow: 
-        0 16px 34px -4px rgba(2, 132, 199, 0.35), 
+        0 18px 38px -4px rgba(16, 185, 129, 0.42), 
         0 6px 14px rgba(15, 23, 42, 0.1), 
-        inset 0 1.5px 0 rgba(255, 255, 255, 0.4) !important;
+        inset 0 1.5px 0 rgba(255, 255, 255, 0.5) !important;
     }
 
     #constructor .cfg-tariff-card[data-tariff="business"].active {
       transform: translateY(-4px) scale(1.02);
       box-shadow: 
-        0 18px 38px -4px rgba(2, 132, 199, 0.4), 
-        0 6px 16px rgba(2, 132, 199, 0.2), 
-        inset 0 1.5px 0 rgba(255, 255, 255, 0.5), 
-        inset 0 -3.5px 0 #075985 !important;
+        0 20px 42px -4px rgba(16, 185, 129, 0.48), 
+        0 6px 16px rgba(16, 185, 129, 0.25), 
+        inset 0 1.5px 0 rgba(255, 255, 255, 0.55), 
+        inset 0 -3.5px 0 #064e3b !important;
     }
 
     /* Белый контрастный текст для тарифа Бизнес */
@@ -1924,7 +1952,7 @@
     }
     #constructor .cfg-tariff-card[data-tariff="business"] .cfg-tariff-check {
       background: #ffffff !important;
-      color: #0284c7 !important;
+      color: #059669 !important;
     }
 
     /* Бейдж «ВЫБИРАЮТ ЧАЩЕ» */
