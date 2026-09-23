@@ -2450,12 +2450,146 @@
 
     </section>
 
-            <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ИЗЯЩНАЯ ТРАЕКТОРИЯ ПЕРЕТЕКАНИЯ -->
+            <!-- СВЯЗУЮЩИЙ ПЕРЕХОД 1: ОТ 'КАК ЭТО РАБОТАЕТ' К 'ПОПРОБОВАТЬ 7 ДНЕЙ' -->
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-1 sm:py-2 select-none">
+      <a href="#trial" class="flowing-connector-link group" title="Попробовать 7 дней">
+        <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradFlowTrial" x1="780" y1="10" x2="240" y2="150" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
+            </linearGradient>
+            <filter id="glowFlowTrial" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <!-- 1. Тонкая изящная базовая линия (пунктир 4 4 по референсу) -->
+          <path d="M 780,10 C 710,65 480,50 330,95 C 265,115 240,132 240,150" 
+                stroke="url(#gradFlowTrial)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <!-- 2. Невесомый световой импульс энергии без визуального шума -->
+          <path d="M 780,10 C 710,65 480,50 330,95 C 265,115 240,132 240,150" 
+                class="delicate-connector-beam" stroke="url(#gradFlowTrial)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowFlowTrial)"/>
+          <!-- 3. Деликатная стартовая точка -->
+          <circle cx="780" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
+          <!-- 4. Тонкий, острый шеврон-наконечник строго по референсу -->
+          <path d="M 234.5,142.5 L 240,150 L 245.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- ==========================================================================
+         БЛОК ТЕСТ-ДРАЙВА: ПОПРОБОВАТЬ 7 ДНЕЙ БЕЗ РЕГИСТРАЦИЙ И ПОДПИСОК
+         ========================================================================== -->
+    <section id="trial" class="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 select-text">
+      <div class="trial-card bg-white/90 backdrop-blur-2xl border border-sky-200/80 shadow-[0_20px_60px_rgba(2,132,199,0.12),inset_0_1px_1px_rgba(255,255,255,0.95)] rounded-[32px] sm:rounded-[36px] p-6 sm:p-10 md:p-12 text-center relative overflow-hidden">
+        
+        <!-- ДЕЛИКАТНЫЙ ЖИВОЙ БЛИК (SPECULAR SHEEN) -->
+        <div class="trial-card-glare" aria-hidden="true"></div>
+
+        <!-- КОНТЕНТ КАРТОЧКИ -->
+        <div class="relative z-10 max-w-2xl mx-auto space-y-6">
+          
+          <!-- МЕТКА / ТЕГ ТЕСТ -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200/80 text-[11px] sm:text-xs font-mono font-bold uppercase tracking-widest text-sky-700 shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>ТЕСТ 7 ДНЕЙ</span>
+          </div>
+
+          <!-- ЗАГОЛОВОК -->
+          <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#042C53] tracking-tight uppercase leading-tight">
+            <span class="pearl-title-gradient">ПОПРОБОВАТЬ 7 ДНЕЙ</span><br class="hidden sm:inline" /> БЕЗ&nbsp;РЕГИСТРАЦИЙ И&nbsp;ПОДПИСОК
+          </h2>
+
+          <!-- ПОДЗАГОЛОВОК -->
+          <p class="font-serif-letter text-[#0C447C] text-base sm:text-lg leading-relaxed max-w-xl mx-auto">
+            Подключим ИИ‑продавца к вашим соцсетям или настроим тестовый стенд. Оцените живые диалоги и первые заказы до оплаты тарифа
+          </p>
+
+          <!-- ФОРМА ЗАЯВКИ НА ТЕСТ -->
+          <form id="trialForm" onsubmit="handleTrialSubmit(event)" class="pt-2 max-w-xl mx-auto space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
+              <div>
+                <label for="trialName" class="block text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-500 mb-1.5 pl-1">
+                  Ваше имя
+                </label>
+                <input 
+                  type="text" 
+                  id="trialName" 
+                  name="name" 
+                  required 
+                  placeholder="Алексей" 
+                  class="trial-input w-full px-4 py-3 rounded-xl bg-slate-50/80 border border-slate-200/90 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white"
+                />
+              </div>
+
+              <div>
+                <label for="trialContact" class="block text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-500 mb-1.5 pl-1">
+                  Телефон или ник в Telegram
+                </label>
+                <input 
+                  type="text" 
+                  id="trialContact" 
+                  name="contact" 
+                  required 
+                  placeholder="+7 (999) 000-00-00 или @username" 
+                  class="trial-input w-full px-4 py-3 rounded-xl bg-slate-50/80 border border-slate-200/90 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white"
+                />
+              </div>
+            </div>
+
+            <!-- КНОПКА ОТПРАВКИ -->
+            <button 
+              type="submit" 
+              class="btn-optic w-full sm:w-auto px-8 py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl shadow-lg shadow-sky-500/20 hover:shadow-sky-500/35 transition-all flex items-center justify-center gap-2 mx-auto cursor-pointer"
+            >
+              <span>Получить доступ на 7 дней</span>
+              <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+              </svg>
+            </button>
+
+            <!-- ПЛАШКА УСПЕХА -->
+            <div id="trialSuccess" class="hidden p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm font-medium animate-fadeIn">
+              ✨ Заявка принята! Переходим в диалог с инженером Altai Optima...
+            </div>
+
+            <!-- МИКРО-ГАРАНТИИ ПОД ФОРМОЙ -->
+            <div class="flex flex-wrap items-center justify-center gap-y-2 gap-x-5 pt-2 text-[11.5px] sm:text-xs text-slate-500">
+              <span class="inline-flex items-center gap-1.5 text-emerald-700 font-medium">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Без привязки карты
+              </span>
+              <span class="inline-flex items-center gap-1.5 text-emerald-700 font-medium">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Без сложных настроек
+              </span>
+              <span class="inline-flex items-center gap-1.5 text-slate-600">
+                <svg class="w-3.5 h-3.5 text-sky-500" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                </svg>
+                Запуск за 24 часа
+              </span>
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД 2: ОТ 'ПОПРОБОВАТЬ 7 ДНЕЙ' К 'ПИСЬМО ОСНОВАТЕЛЕЙ' -->
     <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-1 sm:py-2 select-none">
       <a href="#founders-letter" class="flowing-connector-link group" title="Письмо основателей">
         <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="gradFlowFounders" x1="780" y1="10" x2="240" y2="150" gradientUnits="userSpaceOnUse">
+            <linearGradient id="gradFlowFounders" x1="240" y1="10" x2="760" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
               <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
               <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
@@ -2466,15 +2600,15 @@
             </filter>
           </defs>
           <!-- 1. Тонкая изящная базовая линия (пунктир 4 4 по референсу) -->
-          <path d="M 780,10 C 710,65 480,50 330,95 C 265,115 240,132 240,150" 
+          <path d="M 240,10 C 310,60 540,40 680,85 C 740,105 760,125 760,150" 
                 stroke="url(#gradFlowFounders)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
           <!-- 2. Невесомый световой импульс энергии без визуального шума -->
-          <path d="M 780,10 C 710,65 480,50 330,95 C 265,115 240,132 240,150" 
+          <path d="M 240,10 C 310,60 540,40 680,85 C 740,105 760,125 760,150" 
                 class="delicate-connector-beam" stroke="url(#gradFlowFounders)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowFlowFounders)"/>
           <!-- 3. Деликатная стартовая точка -->
-          <circle cx="780" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
+          <circle cx="240" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
           <!-- 4. Тонкий, острый шеврон-наконечник строго по референсу -->
-          <path d="M 234.5,142.5 L 240,150 L 245.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 754.5,142.5 L 760,150 L 765.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -2701,5 +2835,24 @@
 
   <!-- Интерактивный виджет живого общения с&nbsp;ИИ‑продавцом по установке софта -->
   <script src="ai-sales-widget.js?v=2.2"></script>
+
+  <!-- Обработчик формы заявки на тест-драйв 7 дней -->
+  <script>
+    function handleTrialSubmit(event) {
+      event.preventDefault();
+      var form = event.target;
+      var name = (form.name ? form.name.value : '').trim();
+      var contact = (form.contact ? form.contact.value : '').trim();
+      var successEl = document.getElementById('trialSuccess');
+      if (successEl) {
+        successEl.classList.remove('hidden');
+      }
+      var message = 'Здравствуйте! Хочу попробовать ИИ-продавца бесплатно на 7 дней.\nИмя: ' + (name || 'Клиент') + '\nКонтакты: ' + contact;
+      var tgUrl = 'https://t.me/altaioptima?text=' + encodeURIComponent(message);
+      setTimeout(function() {
+        window.open(tgUrl, '_blank');
+      }, 500);
+    }
+  </script>
 </body>
 </html>

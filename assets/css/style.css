@@ -4638,3 +4638,62 @@
       stroke-dasharray: 80 650;
       animation: delicateConnectorBeam 4.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     }
+
+    /* ==========================================================================
+       TRIAL 7-DAY TEST-DRIVE BLOCK (ПОПРОБОВАТЬ 7 ДНЕЙ)
+       Лаконичная карточка с деликатным живым бликом (specular sheen)
+       ========================================================================== */
+    .trial-card {
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .trial-card:hover {
+      border-color: rgba(56, 189, 248, 0.95);
+      box-shadow: 0 24px 70px rgba(2, 132, 199, 0.18), inset 0 1px 1px rgba(255, 255, 255, 0.95);
+    }
+    .trial-card-glare {
+      position: absolute;
+      top: -60%;
+      left: -60%;
+      width: 220%;
+      height: 220%;
+      background: linear-gradient(
+        115deg,
+        transparent 0%,
+        transparent 43%,
+        rgba(255, 255, 255, 0.35) 47%,
+        rgba(56, 189, 248, 0.22) 50%,
+        rgba(255, 255, 255, 0.55) 53%,
+        transparent 57%,
+        transparent 100%
+      );
+      pointer-events: none;
+      transform: rotate(-15deg);
+      animation: trialGlareSweep 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+    @keyframes trialGlareSweep {
+      0% {
+        transform: translate(-100%, -100%) rotate(-15deg);
+        opacity: 0;
+      }
+      12% {
+        opacity: 0.9;
+      }
+      32% {
+        transform: translate(100%, 100%) rotate(-15deg);
+        opacity: 0;
+      }
+      100% {
+        transform: translate(100%, 100%) rotate(-15deg);
+        opacity: 0;
+      }
+    }
+    .trial-input {
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .trial-input:focus {
+      background: #ffffff;
+      border-color: #0284c7;
+      box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.12);
+    }
