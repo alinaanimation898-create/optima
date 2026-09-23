@@ -1096,58 +1096,88 @@
 
       </div>
 
-      <!-- ================= SCENARIO: HOW TO GET 1 000 000 ₽ / MONTH ================= -->
-      <div class="rounded-3xl p-6 sm:p-8 bg-white/70 backdrop-blur-sm border border-slate-200 shadow-xs">
-        <div class="max-w-3xl mb-8">
-          <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-2">
-            Как выйти на доход 1 000 000 ₽ в месяц
+      <!-- ================= SCENARIO: HOW TO GET 1 000 000 ₽ / MONTH (TRANSPARENT, HIGHLIGHTED WITH RUBLE WATERMARKS & GLARES) ================= -->
+      <div class="relative pt-6 pb-2 overflow-hidden">
+        
+        <!-- Ambient Glowing Glares in Background -->
+        <div class="absolute -top-10 -right-10 w-96 h-96 bg-gradient-to-br from-emerald-300/20 via-sky-300/15 to-transparent rounded-full blur-3xl pointer-events-none select-none"></div>
+        <div class="absolute -bottom-10 -left-10 w-96 h-96 bg-gradient-to-tr from-purple-300/20 via-indigo-300/15 to-transparent rounded-full blur-3xl pointer-events-none select-none"></div>
+
+        <!-- Floating Semi-Transparent Ruble Watermarks with subtle glares -->
+        <div class="absolute -top-4 right-8 text-slate-400/[0.12] text-9xl sm:text-[160px] font-black pointer-events-none select-none rotate-12 font-benzin leading-none">
+          ₽
+        </div>
+        <div class="absolute bottom-2 left-4 text-purple-400/[0.10] text-8xl sm:text-[130px] font-black pointer-events-none select-none -rotate-12 font-benzin leading-none">
+          ₽
+        </div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-sky-400/[0.06] text-[200px] font-black pointer-events-none select-none rotate-6 font-benzin leading-none">
+          ₽
+        </div>
+
+        <!-- Section Heading Highlighted with Benzin font & Gradient -->
+        <div class="relative z-10 max-w-3xl mb-10 text-center sm:text-left">
+          <h3 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight mb-3">
+            Как выйти на доход <span class="bg-gradient-to-r from-emerald-600 via-sky-600 to-indigo-600 bg-clip-text text-transparent underline underline-offset-8 decoration-sky-400/40">1 000 000 ₽</span> в месяц
           </h3>
-          <p class="text-xs sm:text-sm text-slate-600">
+          <p class="text-sm sm:text-base text-slate-600 font-medium leading-relaxed">
             Один миллион рублей в месяц на регулярных подписках — достижимая цель за 6–12 месяцев. Вот 3 проверенные стратегии:
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-slate-700">
+        <!-- 3 Strategy Cards (Airy glassmorphism with subtle outlines) -->
+        <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-slate-700">
           
-          <div class="p-6 rounded-2xl bg-white/60 border border-slate-200 flex flex-col justify-between">
+          <!-- Strategy 1 -->
+          <div class="p-7 rounded-3xl bg-white/80 backdrop-blur-md border border-slate-200/90 shadow-sm hover:shadow-lg hover:border-sky-300 transition-all duration-300 flex flex-col justify-between group">
             <div>
-              <div class="text-base font-bold text-slate-900 mb-2">Стратегия 1: Личная база</div>
-              <p class="text-slate-600 leading-relaxed mb-6">
-                На тарифе «Бизнес» (39 000 ₽/мес) ставка агента с 10+ клиентов — <strong>25% (8 250 ₽/мес)</strong> с одного клиента.
+              <div class="flex items-center gap-2 mb-2.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-sky-500"></span>
+                <span class="text-base font-bold text-slate-900">Стратегия 1: Личная база</span>
+              </div>
+              <p class="text-slate-600 leading-relaxed mb-6 text-xs sm:text-sm">
+                На тарифе «Бизнес» (39 000 ₽/мес) ставка агента с 10+ клиентов — <strong class="text-slate-900">25% (9 750 ₽/мес)</strong> с одного клиента.
               </p>
             </div>
             <div class="pt-4 border-t border-slate-200/80">
               <div class="text-slate-500 text-[11px] font-semibold">Нужно в базе:</div>
-              <div class="text-xl font-black text-slate-900 mt-1">~103 активных клиента</div>
-              <div class="text-[11px] text-slate-500 mt-0.5">или по 9 клиентов в месяц за 1 год</div>
+              <div class="text-2xl font-black text-slate-900 mt-1">~103 активных клиента</div>
+              <div class="text-xs text-slate-500 mt-0.5">или по 9 клиентов в месяц за 1 год</div>
             </div>
           </div>
 
-          <div class="p-6 rounded-2xl bg-purple-50/40 border border-purple-200/80 flex flex-col justify-between">
+          <!-- Strategy 2 -->
+          <div class="p-7 rounded-3xl bg-white/85 backdrop-blur-md border-2 border-purple-300/90 shadow-sm hover:shadow-lg hover:border-purple-400 transition-all duration-300 flex flex-col justify-between group">
             <div>
-              <div class="text-base font-bold text-purple-950 mb-2">Стратегия 2: С командой</div>
-              <p class="text-slate-600 leading-relaxed mb-6">
-                15 личных клиентов (123 750 ₽/мес) + 15 субпартнёров в вашей ветке, у каждого по 35 клиентов (866 250 ₽/мес).
+              <div class="flex items-center gap-2 mb-2.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span>
+                <span class="text-base font-bold text-purple-950">Стратегия 2: С командой</span>
+              </div>
+              <p class="text-slate-600 leading-relaxed mb-6 text-xs sm:text-sm">
+                15 личных клиентов (146 250 ₽/мес) + 15 субпартнёров в вашей ветке, у каждого по 30 клиентов (877 500 ₽/мес).
               </p>
             </div>
-            <div class="pt-4 border-t border-purple-200">
-              <div class="text-purple-900/80 text-[11px] font-semibold">Итого со структуры:</div>
-              <div class="text-xl font-black text-purple-700 mt-1">1 000 000 ₽ / месяц</div>
-              <div class="text-[11px] text-purple-800/70 mt-0.5">лидерский бонус +5% делает масштаб быстрым</div>
+            <div class="pt-4 border-t border-purple-200/80">
+              <div class="text-purple-900 text-[11px] font-semibold">Итого со структуры:</div>
+              <div class="text-2xl font-black text-purple-700 mt-1">1 000 000 ₽ / месяц</div>
+              <div class="text-xs text-purple-800/80 mt-0.5">лидерский бонус +5% делает масштаб быстрым</div>
             </div>
           </div>
 
-          <div class="p-6 rounded-2xl bg-emerald-50/40 border border-emerald-200/80 flex flex-col justify-between">
+          <!-- Strategy 3 -->
+          <div class="p-7 rounded-3xl bg-white/85 backdrop-blur-md border-2 border-emerald-300/90 shadow-sm hover:shadow-lg hover:border-emerald-400 transition-all duration-300 flex flex-col justify-between group">
             <div>
-              <div class="text-base font-bold text-emerald-950 mb-2">Стратегия 3: Крупный чек</div>
-              <p class="text-slate-600 leading-relaxed mb-6">
-                Работа с компаниями на тарифах «Поток» (55 000 ₽) и «Империя» (от 88 000 ₽). Выплата от 13 750 до 25 000 ₽/мес с одной компании.
+              <div class="flex items-center gap-2 mb-2.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                <span class="text-base font-bold text-emerald-950">Стратегия 3: Крупный чек</span>
+              </div>
+              <p class="text-slate-600 leading-relaxed mb-6 text-xs sm:text-sm">
+                Работа с компаниями на тарифах «Поток» (59 000 ₽) и «Империя» (от 99 000 ₽). Выплата от 14 750 до 24 750 ₽/мес с одной компании.
               </p>
             </div>
-            <div class="pt-4 border-t border-emerald-200">
-              <div class="text-emerald-900/80 text-[11px] font-semibold">Нужно в базе:</div>
-              <div class="text-xl font-black text-emerald-700 mt-1">~40–45 клиентов</div>
-              <div class="text-[11px] text-emerald-800/70 mt-0.5">высокий средний чек ускоряет цель в 2 раза</div>
+            <div class="pt-4 border-t border-emerald-200/80">
+              <div class="text-emerald-900 text-[11px] font-semibold">Нужно в базе:</div>
+              <div class="text-2xl font-black text-emerald-700 mt-1">~40–45 клиентов</div>
+              <div class="text-xs text-emerald-800/80 mt-0.5">высокий средний чек ускоряет цель в 2 раза</div>
             </div>
           </div>
 
