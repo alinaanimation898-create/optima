@@ -3349,78 +3349,103 @@
             stage.classList.add('cta-cards-js-ready');
           }
 
-          let hasAnimated = false;
+          let loopTimer = null;
+          let isRunning = false;
+          let cycleTimers = [];
 
-          function revealCards() {
-            if (hasAnimated) return;
-            hasAnimated = true;
-
-            const counterEl = document.getElementById('ctaFloodCounter');
-
-            // Имитация лавины входящих уведомлений в час пик (эффект завала на телефоне)
-            const delays = [150, 600, 1100, 1600, 2100, 2600];
-
-            wrappers.forEach((wrap, idx) => {
-              const delay = delays[idx] || (idx * 450);
-              setTimeout(() => {
-                wrap.classList.add('card-revealed');
-                if (counterEl) {
-                  counterEl.textContent = (idx + 1);
-                }
-                const card = wrap.querySelector('.cta-push-card');
-                if (card) {
-                  card.classList.add('card-nudge');
-                  setTimeout(() => card.classList.remove('card-nudge'), 350);
-                }
-                setTimeout(() => {
-                  wrap.classList.add('card-floating');
-                }, 500);
-              }, delay);
-            });
-
-            // Периодическое активное вздрагивание входящих сообщений в час пик
-            let nudgeIdx = 0;
-            setInterval(() => {
-              if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-              const card = cards[nudgeIdx % cards.length];
-              if (card) {
-                const isDesktop = window.innerWidth >= 1024;
-                const wrapper = card.closest('.cta-push-wrapper');
-                const rot = wrapper ? (isDesktop ? wrapper.style.getPropertyValue('--notif-rot-desk') : wrapper.style.getPropertyValue('--notif-rot-mob')) : '0deg';
-                card.style.setProperty('--curr-rot', rot || '0deg');
-                card.classList.add('card-nudge');
-                setTimeout(() => {
-                  card.classList.remove('card-nudge');
-                }, 350);
-              }
-              nudgeIdx++;
-            }, 2200);
+          function clearTimers() {
+            cycleTimers.forEach(t => clearTimeout(t));
+            cycleTimers = [];
+            if (loopTimer) {
+              clearTimeout(loopTimer);
+              loopTimer = null;
+            }
           }
 
-          // IntersectionObserver на видимость секции
+          function resetCards() {
+            wrappers.forEach(wrap => {
+              wrap.classList.remove('card-revealed', 'card-floating', 'card-fading-out');
+            });
+          }
+
+          function playArrivalLoop() {
+            clearTimers();
+            resetCards();
+
+            // Очередь завала: уведомления падают одно за другим
+            const delays = [150, 650, 1150, 1650, 2150, 2650];
+
+            wrappers.forEach((wrap, idx) => {
+              const delay = delays[idx] || (idx * 500);
+              const t = setTimeout(() => {
+                wrap.classList.remove('card-fading-out');
+                wrap.classList.add('card-revealed');
+                const card = wrap.querySelector('.cta-push-card');
+                if (card) {
+                  const isDesktop = window.innerWidth >= 1024;
+                  const rot = isDesktop ? wrap.style.getPropertyValue('--notif-rot-desk') : wrap.style.getPropertyValue('--notif-rot-mob');
+                  card.style.setProperty('--curr-rot', rot || '0deg');
+                  card.classList.add('card-nudge');
+                  const tn = setTimeout(() => card.classList.remove('card-nudge'), 350);
+                  cycleTimers.push(tn);
+                }
+                const tf = setTimeout(() => {
+                  wrap.classList.add('card-floating');
+                }, 500);
+                cycleTimers.push(tf);
+              }, delay);
+              cycleTimers.push(t);
+            });
+
+            // Микро-всплеск входящего сообщения на полном завале
+            const tNudgeExtra = setTimeout(() => {
+              const card = cards[Math.floor(Math.random() * cards.length)];
+              if (card) {
+                card.classList.add('card-nudge');
+                setTimeout(() => card.classList.remove('card-nudge'), 350);
+              }
+            }, 4500);
+            cycleTimers.push(tNudgeExtra);
+
+            // Плавное растворение карточек после паузы для чтения (через 7.2 сек)
+            const tFade = setTimeout(() => {
+              wrappers.forEach(wrap => {
+                wrap.classList.remove('card-floating');
+                wrap.classList.add('card-fading-out');
+              });
+            }, 7200);
+            cycleTimers.push(tFade);
+
+            // Перезапуск цикла лавины сообщений (через 8.0 сек)
+            loopTimer = setTimeout(() => {
+              if (isRunning) {
+                playArrivalLoop();
+              }
+            }, 8000);
+          }
+
+          // IntersectionObserver: запускаем цикл только когда блок в поле зрения
           if ('IntersectionObserver' in window) {
             const observer = new IntersectionObserver((entries) => {
               entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                  revealCards();
-                  observer.unobserve(section);
+                  isRunning = true;
+                  playArrivalLoop();
+                } else {
+                  isRunning = false;
+                  clearTimers();
+                  wrappers.forEach(wrap => {
+                    wrap.classList.add('card-revealed');
+                    wrap.classList.remove('card-fading-out');
+                  });
                 }
               });
             }, { threshold: 0.15 });
             observer.observe(section);
+          } else {
+            isRunning = true;
+            playArrivalLoop();
           }
-
-          // Fallback при скролле
-          function checkScrollFallback() {
-            if (hasAnimated) return;
-            const rect = section.getBoundingClientRect();
-            if (rect.top < window.innerHeight * 0.85 && rect.bottom > 0) {
-              revealCards();
-              window.removeEventListener('scroll', checkScrollFallback);
-            }
-          }
-          window.addEventListener('scroll', checkScrollFallback, { passive: true });
-          checkScrollFallback();
         })();
 
         // Mobile Floating Bar observer
