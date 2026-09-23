@@ -56,7 +56,12 @@
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: #F8FAFC;
+      background:
+        radial-gradient(60% 45% at 95% 5%, rgba(214, 208, 236, 0.4) 0%, transparent 65%),
+        radial-gradient(55% 40% at 0% 100%, rgba(236, 214, 222, 0.35) 0%, transparent 65%),
+        radial-gradient(90% 70% at 30% 20%, rgba(201, 223, 235, 0.85) 0%, transparent 70%),
+        linear-gradient(180deg, #D9E8F1 0%, #E6EFF5 40%, #EEF2F6 100%);
+      background-attachment: fixed;
       color: #0F172A;
       overflow-x: hidden;
     }
@@ -69,7 +74,7 @@
       -webkit-text-fill-color: transparent;
     }
     .hero-glow {
-      background: radial-gradient(circle at 50% 25%, rgba(14, 165, 233, 0.10) 0%, rgba(99, 102, 241, 0.04) 50%, transparent 70%);
+      background: radial-gradient(circle at 50% 25%, rgba(14, 165, 233, 0.12) 0%, rgba(99, 102, 241, 0.05) 50%, transparent 70%);
     }
     .btn-shimmer {
       position: relative;
@@ -94,53 +99,49 @@
     .card-3d-mint {
       background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%);
       border: 1px solid #bbf7d0;
-      box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.12), 0 8px 10px -6px rgba(16, 185, 129, 0.08), inset 0 1px 0 rgba(255,255,255,0.9);
+      box-shadow: 0 12px 28px -5px rgba(16, 185, 129, 0.16), 0 8px 10px -6px rgba(16, 185, 129, 0.08), inset 0 1px 0 rgba(255,255,255,0.9);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .card-3d-mint:hover {
       transform: translateY(-4px);
-      box-shadow: 0 20px 35px -8px rgba(16, 185, 129, 0.22), inset 0 1px 0 rgba(255,255,255,1);
+      box-shadow: 0 22px 38px -8px rgba(16, 185, 129, 0.25), inset 0 1px 0 rgba(255,255,255,1);
     }
     .card-3d-vibrant {
       background: linear-gradient(145deg, #059669 0%, #047857 50%, #0f766e 100%);
       color: #ffffff;
-      border-top: 1px solid rgba(255, 255, 255, 0.4);
-      border-left: 1px solid rgba(255, 255, 255, 0.2);
+      border-top: 1px solid rgba(255, 255, 255, 0.45);
+      border-left: 1px solid rgba(255, 255, 255, 0.25);
       border-right: 1px solid rgba(0, 0, 0, 0.1);
       border-bottom: 2px solid rgba(0, 0, 0, 0.2);
-      box-shadow: 0 20px 40px -10px rgba(5, 150, 105, 0.45), 0 10px 15px -5px rgba(5, 150, 105, 0.2), inset 0 1px 1px rgba(255,255,255,0.4);
+      box-shadow: 0 22px 42px -10px rgba(5, 150, 105, 0.48), 0 10px 15px -5px rgba(5, 150, 105, 0.22), inset 0 1px 1px rgba(255,255,255,0.45);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .card-3d-vibrant:hover {
       transform: translateY(-6px);
-      box-shadow: 0 28px 50px -12px rgba(5, 150, 105, 0.55), inset 0 1px 1px rgba(255,255,255,0.6);
+      box-shadow: 0 30px 52px -12px rgba(5, 150, 105, 0.6), inset 0 1px 1px rgba(255,255,255,0.65);
     }
     .card-3d-outline {
       background: rgba(255, 255, 255, 0.95);
       border: 2px solid #059669;
-      box-shadow: 0 12px 28px -6px rgba(5, 150, 105, 0.15), inset 0 0 0 1px rgba(16, 185, 129, 0.2);
+      box-shadow: 0 14px 30px -6px rgba(5, 150, 105, 0.18), inset 0 0 0 1px rgba(16, 185, 129, 0.2);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .card-3d-outline:hover {
       transform: translateY(-4px);
-      box-shadow: 0 22px 38px -8px rgba(5, 150, 105, 0.25);
+      box-shadow: 0 24px 40px -8px rgba(5, 150, 105, 0.28);
     }
   </style>
 </head>
 <body class="min-h-screen antialiased selection:bg-sky-500 selection:text-white">
 
-  <!-- ================= HEADER ================= -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-white/85 backdrop-blur-md border-b border-slate-200/80 transition-all duration-300">
+  <!-- ================= HEADER (MATCHING MAIN SITE) ================= -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-sky-200/60 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
+      <!-- Logo image from main site -->
       <a href="./index.html" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 to-indigo-600 flex items-center justify-center text-white font-black text-xl shadow-md group-hover:scale-105 transition-transform">
-          ⚡
-        </div>
-        <div class="flex flex-col">
-          <span class="font-benzin text-lg font-black tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">ALTAI OPTIMA</span>
-          <span class="text-[10px] tracking-widest uppercase font-bold text-sky-600">Партнёрская программа</span>
-        </div>
+        <img src="./brand_logo.webp" alt="ALTAI OPTIMA" class="h-7 sm:h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
+        <span class="text-[10px] tracking-widest uppercase font-bold text-sky-800 bg-sky-100/70 px-2 py-0.5 rounded-full border border-sky-200/80">PARTNER</span>
       </a>
 
       <!-- Desktop Navigation -->
@@ -210,7 +211,7 @@
 
         <!-- Descriptive Paragraph in Inter -->
         <p class="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto font-normal leading-relaxed mb-10">
-          Вера — ИИ-продавец галактического уровня. Общается как ваш лучший менеджер, отвечает клиентам за минуту днём и ночью и передаёт в CRM готовые сделки. Собственник пишет ей и за пару минут лично убеждается в ценности. Демо, запуск и сопровождение берёт на себя наша команда.
+          Вера — ИИ-продавец галактического уровня. Общается как ваш лучший менеджер, отвечает клиентам за минуту днём и ночью и передаёт в CRM готовые сделки. Демо, запуск и сопровождение берёт на себя наша команда.
         </p>
 
         <!-- Actions -->
@@ -223,34 +224,47 @@
           </a>
         </div>
 
-        <!-- Estimated Earnings Cards (Inter font) -->
+        <!-- Estimated Earnings Cards with Clear Plain Explanations -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 text-left">
+          
           <div class="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
             <div class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Разово за запуск</div>
             <div class="text-3xl font-black text-slate-900 tracking-tight">8 700 ₽</div>
-            <div class="text-xs text-slate-500 font-medium mt-2">с каждого клиента на тарифе «Бизнес»</div>
+            <div class="text-xs text-slate-600 font-normal mt-2 leading-relaxed">
+              Клиент платит разово 29 000 ₽ за настройку. Ваша выплата 30% = 8 700 ₽ за каждого нового клиента.
+            </div>
           </div>
+
           <div class="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-            <div class="text-xs font-semibold text-sky-700 uppercase tracking-wider mb-2">Каждый месяц</div>
+            <div class="text-xs font-semibold text-sky-700 uppercase tracking-wider mb-2">С подписки</div>
             <div class="text-3xl font-black text-sky-600 tracking-tight">до 8 250 ₽/мес</div>
-            <div class="text-xs text-slate-500 font-medium mt-2">с каждой активной подписки в вашей базе</div>
+            <div class="text-xs text-slate-600 font-normal mt-2 leading-relaxed">
+              Клиент платит 33 000 ₽/мес за «Бизнес». Вы получаете от 20% (6 600 ₽) до 25% (8 250 ₽) каждый месяц с каждого.
+            </div>
           </div>
+
           <div class="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
             <div class="text-xs font-semibold text-emerald-700 uppercase tracking-wider mb-2">База 10 клиентов</div>
             <div class="text-3xl font-black text-emerald-600 tracking-tight">~ 90 000 ₽/мес</div>
-            <div class="text-xs text-slate-500 font-medium mt-2">регулярный пассивный доход без плана продаж</div>
+            <div class="text-xs text-slate-600 font-normal mt-2 leading-relaxed">
+              10 клиентов × 8 250 ₽ = 82 500 ₽ пассивного дохода каждый месяц со старых подписок + доход с новых подключений.
+            </div>
           </div>
+
           <div class="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
             <div class="text-xs font-semibold text-indigo-700 uppercase tracking-wider mb-2">База 30 клиентов</div>
             <div class="text-3xl font-black text-indigo-600 tracking-tight">~ 250 000 ₽/мес</div>
-            <div class="text-xs text-slate-500 font-medium mt-2">максимальная ставка 25% + доход со структуры</div>
+            <div class="text-xs text-slate-600 font-normal mt-2 leading-relaxed">
+              30 постоянных клиентов в базе приносят 247 500 ₽ чистыми каждый месяц просто с регулярных продлений.
+            </div>
           </div>
+
         </div>
 
       </div>
     </section>
 
-    <!-- ================= 2. SECTION: ЧТО ВЫ ПРОДАЕТЕ (WITH VERA'S PORTRAIT) ================= -->
+    <!-- ================= 2. SECTION: ЧТО ВЫ ПРОДАЕТЕ (CLEAN, NO DARK POD AROUND VERA) ================= -->
     <section id="product" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-28 sm:mb-36 scroll-mt-28 relative">
       <div class="text-center max-w-3xl mx-auto mb-14">
         <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase grad-heading">
@@ -261,18 +275,18 @@
         </p>
       </div>
 
-      <!-- Main Product Feature Showcase with Vera Portrait -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-10">
+      <!-- Main Showcase: Vera's Portrait without heavy dark pod -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-12">
         
-        <!-- Left: Vera AI Portrait & Identity Card -->
-        <div class="lg:col-span-7 rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white border border-slate-700 shadow-xl flex flex-col md:flex-row gap-6 items-center">
+        <!-- Left: Vera AI Portrait & Description directly on light canvas -->
+        <div class="lg:col-span-7 flex flex-col sm:flex-row gap-6 items-center sm:items-start p-2">
           
           <!-- Vera Image -->
-          <div class="w-full md:w-52 flex-shrink-0 flex flex-col items-center">
-            <div class="relative w-44 h-56 sm:w-48 sm:h-60 rounded-2xl overflow-hidden shadow-2xl border-2 border-sky-400/40">
+          <div class="flex-shrink-0">
+            <div class="relative w-48 sm:w-56 h-60 sm:h-72 rounded-3xl overflow-hidden shadow-xl border-4 border-white">
               <img src="./vera_ai_portrait.webp" alt="ИИ-продавец Вера" class="w-full h-full object-cover object-top">
-              <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent p-2 text-center">
-                <span class="inline-flex items-center gap-1.5 text-[11px] font-bold text-emerald-400">
+              <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-900/90 via-slate-900/60 to-transparent p-2.5 text-center">
+                <span class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-300">
                   <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                   Вера · В сети 24/7
                 </span>
@@ -280,33 +294,33 @@
             </div>
           </div>
 
-          <!-- Vera Bio & Skills -->
-          <div class="flex-1 space-y-4">
+          <!-- Vera Bio & Skills (in clean dark slate typography) -->
+          <div class="flex-1 space-y-3.5 text-slate-800">
             <div>
-              <div class="text-xl sm:text-2xl font-bold text-white">ИИ-продавец «Вера»</div>
-              <div class="text-xs text-sky-300 font-medium mt-0.5">Автономный специалист первой линии продаж</div>
+              <div class="text-2xl font-bold text-slate-900">ИИ-продавец «Вера»</div>
+              <div class="text-xs text-sky-700 font-semibold mt-0.5">Автономный специалист первой линии продаж 24/7</div>
             </div>
 
-            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
-              Вера общается как живой квалифицированный менеджер: помнит контекст, выявляет потребности, отвечает на возражения по стандартам сервиса и передаёт готовую сделку в CRM.
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              Вера общается как ваш лучший менеджер: помнит контекст, выявляет потребности, отвечает на возражения по стандартам сервиса и передаёт готовую сделку в CRM.
             </p>
 
-            <div class="space-y-2 text-xs text-slate-200">
+            <div class="space-y-2 text-xs text-slate-700 pt-1">
               <div class="flex items-center gap-2">
-                <span class="text-sky-400 font-bold">✓</span>
+                <span class="text-emerald-600 font-bold">✓</span>
                 <span>WhatsApp, Telegram, Instagram, Авито, MAX, Сайт</span>
               </div>
               <div class="flex items-center gap-2">
-                <span class="text-sky-400 font-bold">✓</span>
+                <span class="text-emerald-600 font-bold">✓</span>
                 <span>amoCRM, Битрикс24, 1С, МойСклад, Google Таблицы</span>
               </div>
               <div class="flex items-center gap-2">
-                <span class="text-sky-400 font-bold">✓</span>
-                <span>Живая речь и понимание аудиосообщений любой длины</span>
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span>Живая речь и понимание голосовых сообщений любой длины</span>
               </div>
               <div class="flex items-center gap-2">
-                <span class="text-sky-400 font-bold">✓</span>
-                <span>Бесплатный тест 7 дней на одном канале клиента</span>
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span>Перед договором — бесплатный тест 7 дней на одном канале клиента</span>
               </div>
             </div>
           </div>
@@ -320,7 +334,7 @@
               Тарифная сетка для клиентов
             </h3>
             <p class="text-xs text-slate-500 mb-5">
-              Клиент оплачивает разово настройку + ежемесячную подписку:
+              Клиент оплачивает разово запуск + ежемесячную подписку:
             </p>
 
             <div class="space-y-3">
@@ -384,13 +398,13 @@
           <div>
             <h3 class="text-xl font-bold text-slate-900 mb-2">Запуск — один раз</h3>
             <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
-              Клиент платит 29 000 ₽ один раз за настройку Веры под свой бизнес.
+              Клиент платит 29 000 ₽ разово за настройку Веры под свой бизнес. Вы получаете от 20% (5 800 ₽ для скаута) до 30% (8 700 ₽ для агента) в течение 5 рабочих дней после оплаты клиента.
             </p>
           </div>
           <div class="pt-4 border-t border-slate-100">
-            <div class="text-xs text-slate-500 font-medium">Ваша выплата:</div>
+            <div class="text-xs text-slate-500 font-medium">Ваша выплата за каждого клиента:</div>
             <div class="text-2xl font-black text-slate-900 mt-1">5 800 – 8 700 ₽</div>
-            <div class="text-xs text-slate-500 mt-0.5">в течение 5 рабочих дней после оплаты</div>
+            <div class="text-xs text-slate-500 mt-0.5">разово сразу после оплаты запуска</div>
           </div>
         </div>
 
@@ -399,13 +413,13 @@
           <div>
             <h3 class="text-xl font-bold text-slate-900 mb-2">Подписка — каждый месяц</h3>
             <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
-              Клиенты копятся, и выплата растёт с каждым месяцем, пока они платят абонентскую плату.
+              Главный источник дохода. Клиенты продлевают сервис каждый месяц (от 22 000 до 88 000 ₽/мес). Вы получаете свой процент с каждой оплаты, пока клиент пользуется сервисом.
             </p>
           </div>
           <div class="pt-4 border-t border-sky-200/60">
-            <div class="text-xs text-slate-600 font-medium">Ваша выплата:</div>
+            <div class="text-xs text-slate-600 font-medium">Ваша выплата каждый месяц:</div>
             <div class="text-2xl font-black text-sky-700 mt-1">3 300 – 8 250 ₽/мес*</div>
-            <div class="text-xs text-sky-700/80 mt-0.5">с каждого клиента каждый месяц</div>
+            <div class="text-xs text-sky-700/80 mt-0.5">с каждого клиента в вашей базе</div>
           </div>
         </div>
 
@@ -414,20 +428,20 @@
           <div>
             <h3 class="text-xl font-bold text-slate-900 mb-2">С команды</h3>
             <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
-              Приглашайте партнёров и получайте +5% со всех подписок их клиентов. Клиенты ваших партнёров платят от 22 000 ₽ в месяц.
+              Приглашайте партнёров и получайте +5% со всех подписок их клиентов. Например, с каждого клиента на тарифе «Бизнес» (33 000 ₽ × 5% = 1 650 ₽/мес).
             </p>
           </div>
           <div class="pt-4 border-t border-slate-100">
-            <div class="text-xs text-slate-500 font-medium">Ваша выплата:</div>
+            <div class="text-xs text-slate-500 font-medium">Ваша выплата с субпартнёров:</div>
             <div class="text-2xl font-black text-purple-700 mt-1">+1 650 ₽/мес*</div>
-            <div class="text-xs text-slate-500 mt-0.5">с каждого клиента на «Бизнесе» в структуре</div>
+            <div class="text-xs text-slate-500 mt-0.5">с каждого клиента в структуре команды</div>
           </div>
         </div>
 
       </div>
 
       <div class="mt-8 text-center text-xs text-slate-500">
-        * Суммы для тарифа «Бизнес» (33 000 ₽/мес). Меньшая — для скаута, большая — для агента с 10+ клиентами. Процент считается от оплаты без НДС.
+        * Суммы для тарифа «Бизнес» (33 000 ₽/мес). Меньшая — для скаута (10%), большая — для агента с 10+ клиентами (25%). Процент считается от оплаты без НДС.
       </div>
     </section>
 
@@ -570,19 +584,42 @@
 
       </div>
 
-      <!-- ================= SCHEMATIC TEAM BONUS BLOCK (LIGHT WITH PURPLE BORDER) ================= -->
-      <div class="rounded-[32px] p-6 sm:p-10 bg-white border-2 border-purple-400 shadow-xl relative overflow-hidden">
+      <!-- ================= SCHEMATIC TEAM BONUS BLOCK: SUPER CLEAR FOR SCHOOL KIDS ================= -->
+      <div class="rounded-3xl p-6 sm:p-10 bg-white/95 border-2 border-purple-400 shadow-xl relative overflow-hidden">
         
-        <div class="text-center max-w-2xl mx-auto mb-10">
-          <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-2">
+        <div class="text-center max-w-3xl mx-auto mb-8">
+          <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">
             Лидер сети: доход с команды
           </h3>
-          <p class="text-xs sm:text-sm text-slate-600">
-            Приглашайте маркетологов, веб-разработчиков и продажников. Вы получаете +5% со всех ежемесячных подписок клиентов ваших партнёров — сверх их собственной комиссии.
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Приглашайте маркетологов, веб-разработчиков и специалистов по продажам в партнёрскую сеть. Вы получаете <strong>+5% со всех ежемесячных подписок</strong> клиентов ваших партнёров — сверх их собственной комиссии.
           </p>
-          <div class="mt-3 inline-block px-3.5 py-1 rounded-full bg-purple-50 border border-purple-200 text-purple-800 text-xs font-semibold">
-            Условие: у вас 5 и больше своих активных клиентов
+        </div>
+
+        <!-- Plain English / School-Level Explanation Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          
+          <div class="p-5 rounded-2xl bg-purple-50/70 border border-purple-200">
+            <div class="text-xs font-bold text-purple-900 uppercase tracking-wider mb-1">Шаг 1. Вы позвали агента</div>
+            <p class="text-xs text-slate-700 leading-relaxed">
+              Вы дали ссылку знакомому маркетологу или CRM-щику. Он стал партнёром в вашей команде.
+            </p>
           </div>
+
+          <div class="p-5 rounded-2xl bg-purple-50/70 border border-purple-200">
+            <div class="text-xs font-bold text-purple-900 uppercase tracking-wider mb-1">Шаг 2. Агент находит клиента</div>
+            <p class="text-xs text-slate-700 leading-relaxed">
+              Клиент платит за тариф «Бизнес» <strong>33 000 ₽/мес</strong>. Агент забирает свои 20% (6 600 ₽/мес).
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-purple-50/70 border border-purple-200">
+            <div class="text-xs font-bold text-purple-900 uppercase tracking-wider mb-1">Шаг 3. Вам начисляется +5%</div>
+            <p class="text-xs text-slate-700 leading-relaxed">
+              Компания платит вам <strong>1 650 ₽/мес</strong> с каждого клиента этого агента (33 000 ₽ × 5% = 1 650 ₽).
+            </p>
+          </div>
+
         </div>
 
         <!-- Visual Hierarchy & Branching Tree -->
@@ -593,7 +630,7 @@
             <div class="px-6 py-4 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg text-center border border-purple-300">
               <div class="text-xs uppercase tracking-wider font-semibold text-purple-200">Глава структуры</div>
               <div class="text-xl font-black">ВЫ (Партнёр)</div>
-              <div class="text-xs text-purple-100 font-medium mt-0.5">+5% со всей базы субпартнёров пожизненно</div>
+              <div class="text-xs text-purple-100 font-medium mt-0.5">Получаете +5% с каждого клиента команды</div>
             </div>
             
             <!-- Connector Line Down -->
@@ -616,43 +653,44 @@
           <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 sm:gap-4 mt-2">
             <div class="p-3.5 rounded-xl bg-purple-50/60 border border-purple-200 text-center">
               <div class="text-xs font-bold text-purple-900">Агент 1</div>
-              <div class="text-[11px] text-slate-500 mt-1">4 клиента</div>
-              <div class="text-[10px] text-purple-700 font-semibold">132 000 ₽ оборот</div>
+              <div class="text-[11px] text-slate-500 mt-0.5">4 клиента</div>
+              <div class="text-[10px] text-purple-700 font-semibold mt-1">вам +6 600 ₽/мес</div>
             </div>
             <div class="p-3.5 rounded-xl bg-purple-50/60 border border-purple-200 text-center">
               <div class="text-xs font-bold text-purple-900">Агент 2</div>
-              <div class="text-[11px] text-slate-500 mt-1">4 клиента</div>
-              <div class="text-[10px] text-purple-700 font-semibold">132 000 ₽ оборот</div>
+              <div class="text-[11px] text-slate-500 mt-0.5">4 клиента</div>
+              <div class="text-[10px] text-purple-700 font-semibold mt-1">вам +6 600 ₽/мес</div>
             </div>
             <div class="p-3.5 rounded-xl bg-purple-50/60 border border-purple-200 text-center">
               <div class="text-xs font-bold text-purple-900">Агент 3</div>
-              <div class="text-[11px] text-slate-500 mt-1">4 клиента</div>
-              <div class="text-[10px] text-purple-700 font-semibold">132 000 ₽ оборот</div>
+              <div class="text-[11px] text-slate-500 mt-0.5">4 клиента</div>
+              <div class="text-[10px] text-purple-700 font-semibold mt-1">вам +6 600 ₽/мес</div>
             </div>
             <div class="p-3.5 rounded-xl bg-purple-50/60 border border-purple-200 text-center">
               <div class="text-xs font-bold text-purple-900">Агент 4</div>
-              <div class="text-[11px] text-slate-500 mt-1">4 клиента</div>
-              <div class="text-[10px] text-purple-700 font-semibold">132 000 ₽ оборот</div>
+              <div class="text-[11px] text-slate-500 mt-0.5">4 клиента</div>
+              <div class="text-[10px] text-purple-700 font-semibold mt-1">вам +6 600 ₽/мес</div>
             </div>
             <div class="col-span-2 sm:col-span-1 p-3.5 rounded-xl bg-purple-50/60 border border-purple-200 text-center">
               <div class="text-xs font-bold text-purple-900">Агент 5</div>
-              <div class="text-[11px] text-slate-500 mt-1">4 клиента</div>
-              <div class="text-[10px] text-purple-700 font-semibold">132 000 ₽ оборот</div>
+              <div class="text-[11px] text-slate-500 mt-0.5">4 клиента</div>
+              <div class="text-[10px] text-purple-700 font-semibold mt-1">вам +6 600 ₽/мес</div>
             </div>
           </div>
 
-          <!-- Total Calculation Breakdown -->
+          <!-- Total Calculation Breakdown for Kids -->
           <div class="mt-8 p-6 rounded-2xl bg-slate-50 border border-purple-200 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="space-y-1 text-center md:text-left">
-              <div class="text-xs font-semibold text-slate-500">Математика структуры:</div>
+              <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">Откуда берутся 33 000 ₽:</div>
               <div class="text-sm text-slate-700 font-medium">
-                5 партнёров × 4 клиента = <strong>20 клиентов</strong> на тарифе «Бизнес» (660 000 ₽/мес оборот)
+                5 партнёров × 4 клиента = <strong>20 клиентов</strong> на тарифе «Бизнес».<br>
+                20 клиентов × 1 650 ₽ (ваш бонус 5%) = <strong>33 000 ₽ каждый месяц!</strong>
               </div>
             </div>
             <div class="text-center md:text-right">
-              <div class="text-xs text-slate-500">Ваш доход с команды:</div>
+              <div class="text-xs text-slate-500 font-medium">Ваш доход с команды:</div>
               <div class="text-3xl font-black text-purple-700">+33 000 ₽ в месяц</div>
-              <div class="text-[11px] text-slate-400 mt-0.5">Сверх дохода с ваших собственных клиентов</div>
+              <div class="text-xs text-slate-500 mt-0.5">Сверх дохода с ваших собственных клиентов</div>
             </div>
           </div>
 
@@ -662,12 +700,12 @@
 
     </section>
 
-    <!-- ================= 5. SECTION: БОНУС БЫСТРОГО СТАРТА ================= -->
+    <!-- ================= 5. SECTION: БОНУС БЫСТРОГО СТАРТА (INTER FONT) ================= -->
     <section id="fast-start" class="w-full mb-28 sm:mb-36 relative">
       <div class="w-full bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 py-10 sm:py-12 px-4 sm:px-6 lg:px-8 border-y border-emerald-400/40 shadow-xl">
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
           <div class="space-y-3 text-center lg:text-left max-w-3xl text-white">
-            <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-white">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight text-white font-inter">
               Первый клиент за 30 дней — <span class="text-amber-300 underline underline-offset-4 decoration-amber-300/60">+5 000 ₽ к выплате</span>
             </h2>
             <p class="text-emerald-50 text-sm sm:text-base leading-relaxed">
@@ -683,7 +721,7 @@
       </div>
     </section>
 
-    <!-- ================= 6. SECTION: РОСТ СТАТУСА ================= -->
+    <!-- ================= 6. SECTION: РОСТ СТАТУСА (DETAILED FOR DUMMIES) ================= -->
     <section id="ladder" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-28 sm:mb-36 scroll-mt-28 relative">
       <div class="text-center max-w-3xl mx-auto mb-14">
         <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase grad-heading">
@@ -706,13 +744,17 @@
               <div class="rounded-2xl p-4 bg-slate-50 border border-slate-100">
                 <div class="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1">Комиссия за запуск (разово)</div>
                 <div class="text-xl font-bold text-slate-900">20% запуск</div>
-                <div class="text-xs text-slate-500 mt-0.5">5 800 ₽ с каждого нового клиента</div>
+                <div class="text-xs text-slate-500 mt-0.5">5 800 ₽ с каждого нового клиента (29 000 ₽ × 20%)</div>
               </div>
 
               <div class="rounded-2xl p-4 bg-slate-50 border border-slate-100">
                 <div class="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1">Комиссия с абонентской платы</div>
                 <div class="text-xl font-bold text-sky-700">10% подписка</div>
-                <div class="text-xs text-slate-500 mt-0.5">3 300 ₽/мес с «Бизнеса» (от 2 200 до 8 800 ₽/мес)</div>
+                <div class="text-xs text-slate-600 mt-1 leading-relaxed">
+                  • С «Старт» (22 000 ₽) = <strong>2 200 ₽/мес</strong><br>
+                  • С «Бизнес» (33 000 ₽) = <strong>3 300 ₽/мес</strong><br>
+                  • С «Империя» (88 000 ₽) = <strong>8 800 ₽/мес</strong>
+                </div>
               </div>
             </div>
           </div>
@@ -732,13 +774,17 @@
               <div class="rounded-2xl p-4 bg-sky-50/50 border border-sky-100">
                 <div class="text-[10px] font-bold uppercase tracking-wider text-sky-800 mb-1">Комиссия за запуск (разово)</div>
                 <div class="text-xl font-bold text-slate-900">30% запуск</div>
-                <div class="text-xs text-slate-600 mt-0.5">8 700 ₽ с каждого нового клиента</div>
+                <div class="text-xs text-slate-600 mt-0.5">8 700 ₽ с каждого нового клиента (29 000 ₽ × 30%)</div>
               </div>
 
               <div class="rounded-2xl p-4 bg-sky-50/50 border border-sky-100">
                 <div class="text-[10px] font-bold uppercase tracking-wider text-sky-800 mb-1">Комиссия с абонентской платы</div>
                 <div class="text-xl font-bold text-sky-700">20% подписка</div>
-                <div class="text-xs text-slate-600 mt-0.5">6 600 ₽/мес с «Бизнеса» (от 4 400 до 17 600 ₽/мес)</div>
+                <div class="text-xs text-slate-700 mt-1 leading-relaxed">
+                  • С «Старт» (22 000 ₽) = <strong>4 400 ₽/мес</strong><br>
+                  • С «Бизнес» (33 000 ₽) = <strong>6 600 ₽/мес</strong><br>
+                  • С «Империя» (88 000 ₽) = <strong>17 600 ₽/мес</strong>
+                </div>
               </div>
             </div>
           </div>
@@ -764,13 +810,17 @@
               <div class="rounded-2xl p-4 bg-slate-900 border border-slate-800">
                 <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">Комиссия с абонентской платы</div>
                 <div class="text-xl font-bold text-emerald-400">25% подписка</div>
-                <div class="text-xs text-slate-400 mt-0.5">8 250 ₽/мес с «Бизнеса» (до 22 000 ₽) — на всю базу</div>
+                <div class="text-xs text-slate-300 mt-1 leading-relaxed">
+                  • С «Старт» (22 000 ₽) = <strong>5 500 ₽/мес</strong><br>
+                  • С «Бизнес» (33 000 ₽) = <strong>8 250 ₽/мес</strong><br>
+                  • С «Империя» (88 000 ₽) = <strong>22 000 ₽/мес</strong>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="mt-6 pt-4 border-t border-slate-800 text-xs text-purple-300">
-            Максимальная ставка. С 5 своих клиентов можно собирать команду и получать +5% с её подписок.
+            Максимальная ставка 25% действует сразу на ВСЮ вашу накопленную базу!
           </div>
         </div>
 
@@ -785,7 +835,7 @@
           Рассчитайте свой доход
         </h2>
         <p class="text-sm sm:text-base text-slate-600 font-medium mt-3">
-          Расчёт учитывает отток 5% клиентов в месяц и переход на ставку 25%. Выберите любое количество клиентов или цель.
+          Выберите параметры — калькулятор детально покажет разовый заработок и постоянный ежемесячный пассив с базы.
         </p>
       </div>
 
@@ -836,7 +886,7 @@
                 <label class="cursor-pointer block">
                   <input type="radio" name="c-sub" value="33000" class="peer sr-only" checked>
                   <div class="p-3 rounded-xl border border-slate-700 bg-slate-800/80 peer-checked:border-sky-400 peer-checked:bg-sky-500/20 transition-all text-center">
-                    <div class="font-bold text-xs text-sky-300">Бизнес</div>
+                    <div class="font-bold text-xs text-sky-300">Бизнес ★</div>
                     <div class="text-[10px] text-slate-400 mt-0.5">33 000 ₽</div>
                   </div>
                 </label>
@@ -861,9 +911,9 @@
             <div>
               <div class="flex items-center justify-between mb-2">
                 <label class="text-xs font-bold uppercase tracking-wider text-slate-400">
-                  3. Число клиентов в базе / темп привлечения:
+                  3. Темп подключения новых клиентов:
                 </label>
-                <span id="calc-client-count-badge" class="text-xs font-bold text-sky-400">1 новый в месяц</span>
+                <span id="calc-client-count-badge" class="text-xs font-bold text-sky-400">1 клиент в месяц</span>
               </div>
 
               <!-- Quick Presets -->
@@ -882,11 +932,11 @@
 
           </div>
 
-          <!-- Outputs (Right) -->
+          <!-- Outputs (Right) - Explained with Crystal Clear Russian Labels -->
           <div class="lg:col-span-5 space-y-4">
             
             <div class="rounded-2xl p-5 bg-slate-800/90 border border-slate-700">
-              <div class="text-xs text-slate-400 mb-1">Доход в 1-й месяц (запуск):</div>
+              <div class="text-xs text-slate-400 mb-1">Доход в 1-й месяц (только запуск):</div>
               <div id="calc-out-m1" class="text-3xl font-black text-white">8 700 ₽</div>
               <div id="calc-out-m1-formula" class="text-xs text-sky-400 mt-1.5 font-medium">
                 1 × 8 700 ₽ за запуск, подписка — со 2-го месяца
@@ -894,23 +944,26 @@
             </div>
 
             <div class="rounded-2xl p-5 bg-slate-800/90 border border-emerald-500/50 shadow-lg">
-              <div class="text-xs text-emerald-400 font-semibold mb-1">Доход в 6-й месяц (накопленная база):</div>
+              <div class="text-xs text-emerald-400 font-semibold mb-1">Ваш ежемесячный доход через полгода (6-й месяц):</div>
               <div id="calc-out-m6" class="text-3xl font-black text-emerald-400">41 700 ₽/мес</div>
               <div id="calc-out-base6" class="text-xs text-slate-300 mt-1.5 font-medium">
-                С подписок базы ≈ 5 клиентов
+                За новый запуск + пассивный доход с базы ≈ 5 клиентов
+              </div>
+              <div class="text-[11px] text-slate-400 mt-2 border-t border-slate-700/60 pt-2 leading-relaxed">
+                Почему сумма выросла? Старые клиенты продолжают платить абонентскую плату, база растёт, и вы получаете деньги сразу со всех!
               </div>
             </div>
 
             <div class="rounded-2xl p-5 bg-slate-800/90 border border-slate-700">
-              <div class="text-xs text-slate-400 mb-1">Доход в 12-й месяц (пассивный доход):</div>
+              <div class="text-xs text-slate-400 mb-1">Ваш ежемесячный доход через 1 год (12-й месяц):</div>
               <div id="calc-out-m12" class="text-3xl font-black text-white">82 950 ₽/мес</div>
               <div id="calc-out-base12" class="text-xs text-purple-300 mt-1.5 font-medium">
-                С подписок базы ≈ 9 клиентов
+                С подписок базы ≈ 9 постоянных клиентов
               </div>
             </div>
 
             <div class="rounded-xl p-3.5 bg-slate-950 border border-slate-800 text-center text-xs text-slate-300">
-              Суммарно за первый год: <strong id="calc-out-sum" class="text-sky-400 text-sm font-black">~ 530 000 ₽</strong>
+              Суммарно заработано за первый год: <strong id="calc-out-sum" class="text-sky-400 text-sm font-black">~ 530 000 ₽</strong>
             </div>
 
           </div>
@@ -996,63 +1049,13 @@
 
     </section>
 
-    <!-- ================= 8. SECTION: ПАРТНЁРСКИЙ НАБОР (CLEAN GRID, NO EMOJIS, NO PLATES) ================= -->
-    <section id="kit" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-28 sm:mb-36 scroll-mt-28 relative">
+    <!-- ================= 8. SECTION: ПАРТНЁРСКИЙ НАБОР (CLEAN, NO REDUNDANT CARDS) ================= -->
+    <section id="kit" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-28 sm:mb-36 scroll-mt-28 relative">
       
-      <div class="text-center max-w-3xl mx-auto mb-14">
+      <div class="text-center max-w-3xl mx-auto mb-10">
         <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase grad-heading">
           После подписания договора вы получаете готовый партнёрский набор. Техническая часть, демо и запуск — на нашей команде.
         </h2>
-        <p class="text-sm sm:text-base text-slate-600 font-medium mt-3">
-          Всё необходимое для первых рекомендаций и проведения показов с первого дня.
-        </p>
-      </div>
-
-      <!-- Minimalist Clean Grid without filled boxes and without emojis -->
-      <div class="border border-slate-200 rounded-3xl overflow-hidden bg-white shadow-xs divide-y sm:divide-y-0 sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-px sm:bg-slate-200 mb-12">
-        
-        <div class="p-7 bg-white">
-          <h3 class="text-base font-bold text-slate-900 mb-2">Официальный договор и статус</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Электронный агентский договор, акты и выплаты на расчётный счёт или карту самозанятого. Всё официально и прозрачно.
-          </p>
-        </div>
-
-        <div class="p-7 bg-white">
-          <h3 class="text-base font-bold text-slate-900 mb-2">Живой демо-робот</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Ссылка на Веру в Telegram. Собственник сам пишет ей как клиент и за пару минут видит, как она работает.
-          </p>
-        </div>
-
-        <div class="p-7 bg-white">
-          <h3 class="text-base font-bold text-slate-900 mb-2">Презентация с вашими контактами</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            PDF-презентация с цифрами и расчётом окупаемости для собственников бизнеса. Брендируется вашими реквизитами.
-          </p>
-        </div>
-
-        <div class="p-7 bg-white">
-          <h3 class="text-base font-bold text-slate-900 mb-2">Калькулятор окупаемости</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Инструмент для клиента: сколько денег бизнес теряет на пропущенных звонках и за сколько месяцев окупается внедрение.
-          </p>
-        </div>
-
-        <div class="p-7 bg-white">
-          <h3 class="text-base font-bold text-slate-900 mb-2">Готовые продающие сообщения</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Короткие продающие тексты для знакомых предпринимателей, проверенные на высокой конверсии в ответ.
-          </p>
-        </div>
-
-        <div class="p-7 bg-white">
-          <h3 class="text-base font-bold text-slate-900 mb-2">Личный куратор</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Прямой чат с командой: поможем ответить на сложный вопрос клиента, составить КП и закрыть сделку.
-          </p>
-        </div>
-
       </div>
 
       <!-- Engaging Pitch Script Card -->
@@ -1060,7 +1063,7 @@
         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
           <div>
             <h3 class="text-lg sm:text-xl font-bold text-white">Шаблон сообщения собственнику бизнеса</h3>
-            <p class="text-xs text-slate-400 mt-1">Отправьте в Telegram или WhatsApp — дальше работает демо</p>
+            <p class="text-xs text-slate-400 mt-1">Отправьте знакомому в Telegram или WhatsApp — дальше работает демо</p>
           </div>
           <button id="pitch-copy" type="button" class="px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-xs">
             Скопировать текст
@@ -1150,102 +1153,22 @@
 
     </section>
 
-    <!-- ================= 10. SECTION: КОМУ ПРЕДЛАГАТЬ (ЛЮБОЙ БИЗНЕС С ТРАФИКОМ) ================= -->
-    <section id="fit" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-28 sm:mb-36 scroll-mt-28 relative">
-      <div class="text-center max-w-3xl mx-auto mb-14">
+    <!-- ================= 10. SECTION: КОМУ ПРЕДЛАГАТЬ (CONCISE, AIRY) ================= -->
+    <section id="fit" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-28 sm:mb-36 scroll-mt-28 relative">
+      <div class="text-center max-w-3xl mx-auto mb-10">
         <h2 class="font-benzin text-2xl sm:text-3xl md:text-4xl font-black tracking-tight uppercase grad-heading">
           Целевая аудитория: кто угодно, у кого есть бизнес на входящем трафике
         </h2>
-        <p class="text-sm sm:text-base text-slate-600 font-medium mt-3">
-          Если компании звонят или пишут в мессенджеры, на Авито или через сайт — Вера окупается в первый же месяц.
+      </div>
+
+      <div class="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-6 text-slate-700 text-sm leading-relaxed">
+        <p class="text-base text-slate-900 font-semibold">
+          Любая компания, которая получает звонки или сообщения от клиентов (сфера услуг, медицина, недвижимость, стройка, опт, онлайн-торговля). Если у бизнеса есть входящие заявки — Вера окупается в первый же месяц.
         </p>
-      </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-        
-        <!-- Target Audience: YES -->
-        <div class="p-8 rounded-3xl bg-white border border-emerald-200 shadow-xs">
-          <div class="text-lg font-bold text-emerald-800 mb-5">
-            Предлагайте любому бизнесу, где есть входящие обращения:
-          </div>
-          <ul class="space-y-3.5 text-xs sm:text-sm text-slate-700">
-            <li class="flex items-start gap-3">
-              <span class="text-emerald-600 font-bold text-base">•</span>
-              <div>
-                <strong>Сфера услуг и медицина:</strong> клиники, стоматологии, косметология, салоны красоты, фитнес-клубы, автосервисы (запись клиентов 24/7).
-              </div>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-emerald-600 font-bold text-base">•</span>
-              <div>
-                <strong>Недвижимость, стройка и ремонт:</strong> агентства недвижимости, застройщики, ремонт квартир, продажа строительных материалов.
-              </div>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-emerald-600 font-bold text-base">•</span>
-              <div>
-                <strong>B2B-продажи и опт:</strong> квалификация входящих запросов, отправка КП, сбор ТЗ, вывод на звонок с менеджером.
-              </div>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-emerald-600 font-bold text-base">•</span>
-              <div>
-                <strong>Онлайн-школы и инфобизнес:</strong> обработка заявок с рекламы и вебинаров без потери горячих лидов ночью.
-              </div>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-emerald-600 font-bold text-base">•</span>
-              <div>
-                <strong>Авито-магазины и интернет-торговля:</strong> моментальные ответы на однотипные вопросы по наличию, ценам и доставке.
-              </div>
-            </li>
-          </ul>
+        <div class="p-4 rounded-2xl bg-amber-50/70 border border-amber-200 text-xs text-amber-900">
+          <strong>Кому пока рано:</strong> только тем компаниям, у которых вообще нет входящих обращений (меньше 2–3 в день).
         </div>
-
-        <!-- Target Audience: NO / WAIT -->
-        <div class="p-8 rounded-3xl bg-white border border-rose-200 shadow-xs flex flex-col justify-between">
-          <div>
-            <div class="text-lg font-bold text-rose-800 mb-5">
-              Лучше подождать, если:
-            </div>
-            <ul class="space-y-3.5 text-xs sm:text-sm text-slate-700">
-              <li class="flex items-start gap-3">
-                <span class="text-rose-500 font-bold text-base">•</span>
-                <div>
-                  <strong>Практически нет входящего трафика:</strong> меньше 2–3 обращений в день — пока Вера будет избыточна.
-                </div>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-rose-500 font-bold text-base">•</span>
-                <div>
-                  <strong>Цель — полностью уволить людей:</strong> Вера захватывает, греет и квалифицирует лида, а ключевую сделку закрывает человек.
-                </div>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-rose-500 font-bold text-base">•</span>
-                <div>
-                  <strong>Нет регламентов и прайса:</strong> правила пока только в голове у собственника — сначала их нужно оцифровать.
-                </div>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-rose-500 font-bold text-base">•</span>
-                <div>
-                  <strong>Сложные регулируемые сферы:</strong> медицина высоких рисков, финансы — только после персонального согласования.
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <div class="mt-6 p-4 rounded-2xl bg-rose-50/60 border border-rose-200 text-xs text-rose-900">
-            Главный маркер: если у компании есть поток лидов и менеджеры не успевают отвечать — Вера идеальна.
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Scenario -->
-      <div class="rounded-2xl p-6 bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-700 leading-relaxed">
-        <strong>Расчётный сценарий:</strong> 400 обращений в месяц, 10% становятся покупками, средний чек 50 000 ₽. Если быстрый ответ поднимет конверсию всего с 10% до 11%, это <strong>+4 сделки и +200 000 ₽ выручки в месяц</strong> при подписке 33 000 ₽.
       </div>
     </section>
 
@@ -1358,13 +1281,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
       
       <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded-lg bg-sky-600 flex items-center justify-center text-white font-black text-sm">
-          ⚡
-        </div>
-        <div>
-          <div class="font-bold text-white text-sm">ALTAI OPTIMA</div>
-          <div class="text-[10px] text-slate-500">Автопилот продаж и партнёрская сеть</div>
-        </div>
+        <img src="./brand_logo.webp" alt="ALTAI OPTIMA" class="h-6 w-auto object-contain brightness-0 invert" loading="lazy">
+        <span class="text-[10px] tracking-widest uppercase font-bold text-slate-400">PARTNER</span>
       </div>
 
       <div class="flex flex-wrap items-center justify-center gap-6 text-[11px] font-medium">
@@ -1416,7 +1334,6 @@
       const slider = document.getElementById('c-vol-slider');
       if (slider) slider.value = num;
 
-      // Update button styles
       document.querySelectorAll('.calc-preset-btn').forEach(btn => {
         const valText = parseInt(btn.textContent, 10);
         if (valText === num) {
@@ -1446,7 +1363,7 @@
       const m = [];
 
       for (let i = 1; i <= 12; i++) {
-        if (i > 1) base = base * (1 - CHURN) + per; // подписка со 2-го месяца
+        if (i > 1) base = base * (1 - CHURN) + per;
         const activeCount = Math.floor(base + 1e-9);
         const rate = r.sub(activeCount);
         const launch = per * LAUNCH_PRICE * r.setup;
@@ -1462,7 +1379,7 @@
       setText('calc-out-m1-formula', per + ' × ' + fmt(LAUNCH_PRICE * r.setup) + ' за запуск, подписка — со 2-го месяца');
       
       setText('calc-out-m6', fmt(m[5].launch + m[5].subInc) + '/мес');
-      setText('calc-out-base6', 'С подписок базы ≈ ' + b6 + ' ' + plural(b6, 'клиент', 'клиента', 'клиентов') + ' (' + Math.round(m[5].rate * 100) + '%)');
+      setText('calc-out-base6', 'За новый запуск + пассив с базы ≈ ' + b6 + ' ' + plural(b6, 'клиент', 'клиента', 'клиентов') + ' (' + Math.round(m[5].rate * 100) + '%)');
 
       setText('calc-out-m12', fmt(m[11].launch + m[11].subInc) + '/мес');
       setText('calc-out-base12', 'С подписок базы ≈ ' + b12 + ' ' + plural(b12, 'клиент', 'клиента', 'клиентов') + ' (' + Math.round(m[11].rate * 100) + '%)');
@@ -1564,7 +1481,7 @@
 
         const text = formToText(form);
         const subject = form.dataset.subject || 'Заявка Altai Optima';
-        const successMsg = form.dataset.success || 'Заявка отправлена!';
+        const successMsg = form.dataset.success || 'Заявка принята! Мы скоро свяжемся с вами.';
         const statusBox = form.querySelector('.form-status');
 
         if (statusBox) {
