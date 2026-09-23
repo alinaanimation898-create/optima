@@ -115,6 +115,23 @@
   100% { background-position: 0% 50%; }
 }
 
+.manifesto-stat-gradient {
+  background: linear-gradient(
+    135deg,
+    #0284c7 0%,
+    #38bdf8 30%,
+    #0369a1 60%,
+    #0284c7 100%
+  ) !important;
+  background-size: 200% 200% !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  animation: pearlTitleGradientGlide 5s ease-in-out infinite !important;
+  filter: drop-shadow(0 2px 8px rgba(2, 132, 199, 0.2));
+  display: inline;
+}
+
 
 /* Shadow Rock Header Navigation Button */
 .ao-nav-cta {
