@@ -948,41 +948,22 @@
 
     <!-- СЕКЦИЯ: ВАША БАЗА В НАДЕЖНЫХ РУКАХ + ИНТЕГРАЦИЯ CRM -->
     <section id="crm" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-18 relative z-20 font-inter">
-
-      <!-- ЛОГОТИПЫ ПОДДЕРЖИВАЕМЫХ CRM: КРУПНО НАД БЛОКОМ -->
-      <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-10 md:gap-14 mb-7 sm:mb-9">
-        <div class="flex items-center gap-2.5 sm:gap-3 px-4 py-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md transition-all">
-          <img src="assets/logos/amocrm_logo.webp" alt="amoCRM" class="h-7 sm:h-9 md:h-10 w-auto object-contain" loading="lazy">
-          <span class="text-sm sm:text-base md:text-lg font-extrabold text-slate-800">amoCRM</span>
-        </div>
-        <div class="flex items-center gap-2.5 sm:gap-3 px-4 py-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md transition-all">
-          <img src="assets/logos/bitrix24_logo.webp" alt="Битрикс24" class="h-7 sm:h-9 md:h-10 w-auto object-contain" loading="lazy">
-          <span class="text-sm sm:text-base md:text-lg font-extrabold text-slate-800">Битрикс24</span>
-        </div>
-        <div class="flex items-center gap-2.5 sm:gap-3 px-4 py-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md transition-all">
-          <img src="assets/logos/1c_logo.webp" alt="1С:Предприятие" class="h-7 sm:h-9 md:h-10 w-auto object-contain" loading="lazy">
-          <span class="text-sm sm:text-base md:text-lg font-extrabold text-slate-800">1С:Предприятие</span>
-        </div>
-        <div class="flex items-center gap-2.5 sm:gap-3 px-4 py-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md transition-all">
-          <img src="assets/logos/moysklad_logo.svg" alt="МойСклад" class="h-7 sm:h-9 md:h-10 w-auto object-contain" loading="lazy">
-          <span class="text-sm sm:text-base md:text-lg font-extrabold text-slate-800">МойСклад</span>
-        </div>
-      </div>
-
-      <!-- ЗАГОЛОВОК СЕКЦИИ ПОД ЛОГОТИПАМИ -->
-      <div class="text-center max-w-4xl mx-auto space-y-2 mb-8 sm:mb-12">
-        <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[44px] leading-tight text-[#0f172a] overflow-visible">
-          <span class="pearl-title-gradient">ВАША БАЗА</span> В&nbsp;НАДЕЖНЫХ РУКАХ
-        </h2>
-      </div>
-
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
-        <!-- ЛЕВАЯ КОЛОНКА: СРАВНЕНИЕ БЫЛО vs СТАЛО -->
-        <div class="lg:col-span-6 space-y-6 text-left font-inter">
+        <!-- ЛЕВАЯ КОЛОНКА: ЗАГОЛОВОК, СРАВНЕНИЕ И ЛОГОТИПЫ БЕЗ ПОДЛОЖЕК -->
+        <div class="lg:col-span-6 space-y-6 text-center lg:text-left font-inter">
+          
+          <div>
+            <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[40px] leading-tight text-[#0f172a] overflow-visible">
+              <span class="pearl-title-gradient">ВАША БАЗА</span> В&nbsp;НАДЕЖНЫХ РУКАХ
+            </h2>
+          </div>
+
+          <!-- БЛОК СРАВНЕНИЯ: БЫЛО vs СТАЛО БЕЗ ПОДЛОЖЕК -->
           <div class="space-y-4 max-w-xl mx-auto lg:mx-0 text-left">
+            
             <!-- Было (человеческий фактор) -->
-            <div class="flex items-start gap-3.5 p-4 sm:p-5 rounded-2xl bg-rose-50/70 border border-rose-100/90 shadow-xs">
+            <div class="flex items-start gap-3.5">
               <span class="w-6 h-6 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center font-black text-xs shrink-0 mt-0.5">✕</span>
               <div class="text-sm sm:text-base text-slate-700 leading-relaxed">
                 <strong class="font-bold text-slate-950">Человеческий фактор:</strong> менеджеры устают, забывают внести контакт, путают этапы воронки и теряют историю переписки
@@ -990,13 +971,37 @@
             </div>
 
             <!-- Стало (с Altai Optima) -->
-            <div class="flex items-start gap-3.5 p-4 sm:p-5 rounded-2xl bg-emerald-50/70 border border-emerald-100/90 shadow-xs">
+            <div class="flex items-start gap-3.5">
               <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-black text-xs shrink-0 mt-0.5">✓</span>
               <div class="text-sm sm:text-base text-slate-700 leading-relaxed">
                 <strong class="font-bold text-slate-950">С Altai Optima:</strong> ИИ моментально создаёт сделку, валидирует телефон, присваивает тег «Готов к КП» и сохраняет саммари диалога
               </div>
             </div>
+
           </div>
+
+          <!-- ЛОГОТИПЫ ПОДДЕРЖИВАЕМЫХ CRM БЕЗ ПОДЛОЖЕК -->
+          <div class="pt-2">
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-5 sm:gap-6">
+              <div class="flex items-center gap-2">
+                <img src="assets/logos/amocrm_logo.webp" alt="amoCRM" class="h-5 sm:h-6 w-auto object-contain" loading="lazy">
+                <span class="text-xs sm:text-sm font-bold text-slate-800">amoCRM</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <img src="assets/logos/bitrix24_logo.webp" alt="Битрикс24" class="h-5 sm:h-6 w-auto object-contain" loading="lazy">
+                <span class="text-xs sm:text-sm font-bold text-slate-800">Битрикс24</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <img src="assets/logos/1c_logo.webp" alt="1С:Предприятие" class="h-5 sm:h-6 w-auto object-contain" loading="lazy">
+                <span class="text-xs sm:text-sm font-bold text-slate-800">1С</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <img src="assets/logos/moysklad_logo.svg" alt="МойСклад" class="h-5 sm:h-6 w-auto object-contain" loading="lazy">
+                <span class="text-xs sm:text-sm font-bold text-slate-800">МойСклад</span>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         <!-- ПРАВАЯ КОЛОНКА: АУТЕНТИЧНЫЙ ИНТЕРФЕЙС AMOCRM С ЖИВЫМИ ДАННЫМИ -->
