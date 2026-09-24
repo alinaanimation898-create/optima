@@ -133,13 +133,20 @@
       transform: translateY(-4px);
       box-shadow: 0 24px 40px -8px rgba(5, 150, 105, 0.28);
     }
-      @keyframes flowDash {
-      0% { stroke-dashoffset: 24; }
-      100% { stroke-dashoffset: 0; }
+    @keyframes flowingGlow {
+      0%, 100% {
+        stroke: #a855f7;
+        filter: drop-shadow(0 0 2px rgba(168, 85, 247, 0.4));
+        opacity: 0.75;
+      }
+      50% {
+        stroke: #d946ef;
+        filter: drop-shadow(0 0 8px rgba(217, 70, 239, 0.95));
+        opacity: 1;
+      }
     }
-    .animate-flow-dash {
-      stroke-dasharray: 6 6;
-      animation: flowDash 1.2s linear infinite;
+    .animate-solid-flow {
+      animation: flowingGlow 2s ease-in-out infinite;
     }
     @keyframes pulseGlow {
       0%, 100% { opacity: 0.5; filter: drop-shadow(0 0 3px rgba(168, 85, 247, 0.5)); }
@@ -752,39 +759,53 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
               <div class="text-xs text-purple-100 font-medium mt-0.5">Получаете +5% со всех клиентов команды</div>
             </div>
             
-            <!-- Animated SVG Running Line Going Down -->
-            <div class="w-8 h-10 flex items-center justify-center my-0.5">
-              <svg class="w-2 h-10 overflow-visible" viewBox="0 0 2 40">
-                <line x1="1" y1="0" x2="1" y2="40" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" class="animate-flow-dash" />
+            <!-- Animated Solid SVG Running Line Going Down (No dashes / no пунктир) -->
+            <div class="w-8 h-8 sm:h-10 flex items-center justify-center my-0.5">
+              <svg class="w-2 h-8 sm:h-10 overflow-visible" viewBox="0 0 2 40">
+                <line x1="1" y1="0" x2="1" y2="40" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" class="animate-solid-flow" />
               </svg>
             </div>
           </div>
 
-          <!-- Animated Running Line Distribution Bar for Desktop -->
+          <!-- Animated Solid Line Distribution Bar for Desktop -->
           <div class="relative w-full hidden sm:block -mt-1 mb-2">
             <svg class="w-full h-12 overflow-visible" preserveAspectRatio="none" viewBox="0 0 800 48">
               <!-- Horizontal Distribution Line -->
-              <line x1="80" y1="1" x2="720" y2="1" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" class="animate-flow-dash" />
+              <line x1="80" y1="1" x2="720" y2="1" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" class="animate-solid-flow" />
               <!-- 5 Branch Lines Down to Subagents -->
-              <line x1="80" y1="1" x2="80" y2="48" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" class="animate-flow-dash" />
-              <line x1="240" y1="1" x2="240" y2="48" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" class="animate-flow-dash" />
-              <line x1="400" y1="1" x2="400" y2="48" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" class="animate-flow-dash" />
-              <line x1="560" y1="1" x2="560" y2="48" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" class="animate-flow-dash" />
-              <line x1="720" y1="1" x2="720" y2="48" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" class="animate-flow-dash" />
+              <line x1="80" y1="1" x2="80" y2="48" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" class="animate-solid-flow" />
+              <line x1="240" y1="1" x2="240" y2="48" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" class="animate-solid-flow" />
+              <line x1="400" y1="1" x2="400" y2="48" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" class="animate-solid-flow" />
+              <line x1="560" y1="1" x2="560" y2="48" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" class="animate-solid-flow" />
+              <line x1="720" y1="1" x2="720" y2="48" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" class="animate-solid-flow" />
             </svg>
           </div>
 
-          <!-- 5 Sub-Agents Grid -->
-          <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 sm:gap-4 mt-2">
+          <!-- Animated Solid Line Distribution Bar for Mobile -->
+          <div class="relative w-full block sm:hidden -mt-1 mb-2">
+            <svg class="w-full h-8 overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 24">
+              <!-- Horizontal Branch between col 1 (25%) and col 2 (75%) -->
+              <line x1="25" y1="1" x2="75" y2="1" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" class="animate-solid-flow" />
+              <!-- Center stem from top -->
+              <line x1="50" y1="0" x2="50" y2="1" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" class="animate-solid-flow" />
+              <!-- Left branch down to Agent 1 -->
+              <line x1="25" y1="1" x2="25" y2="24" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" class="animate-solid-flow" />
+              <!-- Right branch down to Agent 2 -->
+              <line x1="75" y1="1" x2="75" y2="24" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" class="animate-solid-flow" />
+            </svg>
+          </div>
+
+          <!-- DESKTOP 5 Sub-Agents Grid -->
+          <div class="hidden sm:grid sm:grid-cols-5 gap-3 sm:gap-4 mt-2">
             <div class="p-4 rounded-2xl bg-white/80 backdrop-blur-sm border-2 border-purple-300 text-center shadow-xs hover:border-purple-500 hover:shadow-md transition-all">
               <div class="text-xs font-bold text-purple-950">Агент 1</div>
-              <div class="text-[11px] text-slate-500 mt-0.5">4 клиента</div>
-              <div class="text-[11px] text-purple-700 font-extrabold mt-1">вам +7 800 ₽/мес</div>
+              <div class="text-[11px] text-slate-500 mt-0.5">6 клиентов</div>
+              <div class="text-[11px] text-purple-700 font-extrabold mt-1">вам +11 700 ₽/мес</div>
             </div>
             <div class="p-4 rounded-2xl bg-white/80 backdrop-blur-sm border-2 border-purple-300 text-center shadow-xs hover:border-purple-500 hover:shadow-md transition-all">
               <div class="text-xs font-bold text-purple-950">Агент 2</div>
-              <div class="text-[11px] text-slate-500 mt-0.5">4 клиента</div>
-              <div class="text-[11px] text-purple-700 font-extrabold mt-1">вам +7 800 ₽/мес</div>
+              <div class="text-[11px] text-slate-500 mt-0.5">5 клиентов</div>
+              <div class="text-[11px] text-purple-700 font-extrabold mt-1">вам +9 750 ₽/мес</div>
             </div>
             <div class="p-4 rounded-2xl bg-white/80 backdrop-blur-sm border-2 border-purple-300 text-center shadow-xs hover:border-purple-500 hover:shadow-md transition-all">
               <div class="text-xs font-bold text-purple-950">Агент 3</div>
@@ -793,30 +814,101 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
             </div>
             <div class="p-4 rounded-2xl bg-white/80 backdrop-blur-sm border-2 border-purple-300 text-center shadow-xs hover:border-purple-500 hover:shadow-md transition-all">
               <div class="text-xs font-bold text-purple-950">Агент 4</div>
-              <div class="text-[11px] text-slate-500 mt-0.5">4 клиента</div>
-              <div class="text-[11px] text-purple-700 font-extrabold mt-1">вам +7 800 ₽/мес</div>
+              <div class="text-[11px] text-slate-500 mt-0.5">3 клиента</div>
+              <div class="text-[11px] text-purple-700 font-extrabold mt-1">вам +5 850 ₽/мес</div>
             </div>
-            <div class="col-span-2 sm:col-span-1 p-4 rounded-2xl bg-white/80 backdrop-blur-sm border-2 border-purple-300 text-center shadow-xs hover:border-purple-500 hover:shadow-md transition-all">
+            <div class="p-4 rounded-2xl bg-white/80 backdrop-blur-sm border-2 border-purple-300 text-center shadow-xs hover:border-purple-500 hover:shadow-md transition-all">
               <div class="text-xs font-bold text-purple-950">Агент 5</div>
-              <div class="text-[11px] text-slate-500 mt-0.5">4 клиента</div>
-              <div class="text-[11px] text-purple-700 font-extrabold mt-1">вам +7 800 ₽/мес</div>
+              <div class="text-[11px] text-slate-500 mt-0.5">2 клиента</div>
+              <div class="text-[11px] text-purple-700 font-extrabold mt-1">вам +3 900 ₽/мес</div>
             </div>
           </div>
 
-          <!-- Total Calculation Breakdown -->
-          <div class="mt-8 p-6 rounded-2xl bg-white/90 backdrop-blur-sm border-2 border-purple-400/80 shadow-md flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="space-y-1 text-center md:text-left">
-              <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">Откуда берутся 39 000 ₽</div>
-              <div class="text-sm text-slate-800 font-medium leading-relaxed">
-                5 партнёров × 4 клиента = <strong class="text-purple-950">20 клиентов</strong> на тарифе «Бизнес».<br>
-                20 клиентов × 1 950 ₽ (ваш бонус 5%) = <strong class="text-purple-700 font-bold">39 000 ₽ каждый месяц!</strong>
+          <!-- MOBILE Connected Tree Structure with Flowing Lines -->
+          <div class="block sm:hidden space-y-0 mt-1">
+            <!-- Row 1: Agent 1 & Agent 2 -->
+            <div class="grid grid-cols-2 gap-3">
+              <div class="p-3.5 rounded-2xl bg-white/85 backdrop-blur-sm border-2 border-purple-300 text-center shadow-xs">
+                <div class="text-xs font-bold text-purple-950">Агент 1</div>
+                <div class="text-[11px] text-slate-500 mt-0.5">6 клиентов</div>
+                <div class="text-[11px] text-purple-700 font-extrabold mt-1">вам +11 700 ₽/мес</div>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-white/85 backdrop-blur-sm border-2 border-purple-300 text-center shadow-xs">
+                <div class="text-xs font-bold text-purple-950">Агент 2</div>
+                <div class="text-[11px] text-slate-500 mt-0.5">5 клиентов</div>
+                <div class="text-[11px] text-purple-700 font-extrabold mt-1">вам +9 750 ₽/мес</div>
               </div>
             </div>
-            <div class="text-center md:text-right shrink-0">
-              <div class="text-xs text-slate-500 font-medium">Ваш доход со структуры</div>
-              <div class="text-3xl sm:text-4xl font-black text-purple-700">+39 000 ₽/мес</div>
-              <div class="text-xs text-slate-500 mt-0.5">Сверх дохода с ваших собственных клиентов</div>
+
+            <!-- Flowing Connector 1 (Agent 1 -> Agent 3, Agent 2 -> Agent 4) -->
+            <div class="relative w-full my-0.5">
+              <svg class="w-full h-5 overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 20">
+                <line x1="25" y1="0" x2="25" y2="20" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" class="animate-solid-flow" />
+                <line x1="75" y1="0" x2="75" y2="20" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" class="animate-solid-flow" />
+              </svg>
             </div>
+
+            <!-- Row 2: Agent 3 & Agent 4 -->
+            <div class="grid grid-cols-2 gap-3">
+              <div class="p-3.5 rounded-2xl bg-white/85 backdrop-blur-sm border-2 border-purple-300 text-center shadow-xs">
+                <div class="text-xs font-bold text-purple-950">Агент 3</div>
+                <div class="text-[11px] text-slate-500 mt-0.5">4 клиента</div>
+                <div class="text-[11px] text-purple-700 font-extrabold mt-1">вам +7 800 ₽/мес</div>
+              </div>
+              <div class="p-3.5 rounded-2xl bg-white/85 backdrop-blur-sm border-2 border-purple-300 text-center shadow-xs">
+                <div class="text-xs font-bold text-purple-950">Агент 4</div>
+                <div class="text-[11px] text-slate-500 mt-0.5">3 клиента</div>
+                <div class="text-[11px] text-purple-700 font-extrabold mt-1">вам +5 850 ₽/мес</div>
+              </div>
+            </div>
+
+            <!-- Flowing Connector 2 (Converging into Agent 5) -->
+            <div class="relative w-full my-0.5">
+              <svg class="w-full h-6 overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 24">
+                <line x1="25" y1="0" x2="25" y2="10" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" class="animate-solid-flow" />
+                <line x1="25" y1="10" x2="50" y2="10" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" class="animate-solid-flow" />
+                <line x1="75" y1="0" x2="75" y2="10" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" class="animate-solid-flow" />
+                <line x1="75" y1="10" x2="50" y2="10" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" class="animate-solid-flow" />
+                <line x1="50" y1="10" x2="50" y2="24" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" class="animate-solid-flow" />
+              </svg>
+            </div>
+
+            <!-- Row 3: Agent 5 -->
+            <div class="max-w-[200px] mx-auto">
+              <div class="p-3.5 rounded-2xl bg-white/85 backdrop-blur-sm border-2 border-purple-300 text-center shadow-xs">
+                <div class="text-xs font-bold text-purple-950">Агент 5</div>
+                <div class="text-[11px] text-slate-500 mt-0.5">2 клиента</div>
+                <div class="text-[11px] text-purple-700 font-extrabold mt-1">вам +3 900 ₽/мес</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Total Calculation Breakdown (Clean text without heavy white pod) -->
+          <div class="mt-10 text-center max-w-2xl mx-auto space-y-3">
+            
+            <!-- 1. Ваш доход со структуры (First, on top) -->
+            <div>
+              <div class="text-xs font-bold text-purple-900 uppercase tracking-wider mb-1">
+                Ваш доход со структуры
+              </div>
+              <div class="text-4xl sm:text-5xl font-black text-purple-700 tracking-tight font-sans">
+                +39 000 ₽/мес
+              </div>
+              <div class="text-xs text-slate-600 mt-1">
+                Сверх дохода с ваших собственных клиентов
+              </div>
+            </div>
+
+            <!-- Subtle decorative separator -->
+            <div class="w-16 h-0.5 bg-purple-300/80 mx-auto my-3"></div>
+
+            <!-- 2. Откуда берутся 39 000 ₽ (Below it) -->
+            <div class="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+              <span class="font-bold text-purple-950">Откуда берутся 39 000 ₽:</span><br class="sm:hidden">
+              5 партнёров привлекли 20 клиентов (6 + 5 + 4 + 3 + 2) на тарифе «Бизнес».<br>
+              20 клиентов × 1 950 ₽ (ваш бонус 5%) = <strong class="text-purple-700 font-bold">39 000 ₽ каждый месяц!</strong>
+            </div>
+
           </div>
 
         </div>
