@@ -715,7 +715,7 @@
 
     if (messages.length === 0) {
       const timeData = getSmartTimeData(currentLang);
-      // Render clean starter card + suggested question chips with dynamic live time badge
+      // Render clean starter card with dynamic live time badge
       const starterHtml = `
         <div style="display: flex; flex-direction: column; gap: 12px; animation: fadeIn 0.3s ease-out;">
           <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 18px; padding: 14px; color: #0f172a; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
@@ -728,26 +728,6 @@
               <span style="font-size: 13px; font-weight: 700; color: #0f172a;">${timeData.welcomeTitle}</span>
             </div>
             <p style="font-size: 12px; line-height: 1.5; color: #334155; margin: 0;">${timeData.welcomeText}</p>
-          </div>
-
-          <div>
-            <div style="font-size: 10.5px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; padding-left: 2px;">
-              ${T.quickQuestionsTitle}
-            </div>
-            <div style="display: flex; flex-direction: column; gap: 6px;">
-              ${CONFIG.suggestedQuestions.map(q => `
-                <button 
-                  type="button" 
-                  onclick="window.sendAiSalesWidgetQuestion('${q.replace(/'/g, "\\'")}')" 
-                  style="text-align: left; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 9px 12px; color: #1e293b; font-size: 11.5px; line-height: 1.35; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: space-between; gap: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.02);"
-                  onmouseover="this.style.borderColor='#0284c7'; this.style.background='#f0f9ff'; this.style.color='#0284c7';"
-                  onmouseout="this.style.borderColor='#e2e8f0'; this.style.background='#ffffff'; this.style.color='#1e293b';"
-                >
-                  <span>${q}</span>
-                  <span style="color: #0284c7; font-size: 12px; flex-shrink: 0;">→</span>
-                </button>
-              `).join('')}
-            </div>
           </div>
         </div>
       `;

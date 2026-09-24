@@ -40,7 +40,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-  <link rel="stylesheet" href="assets/css/style.css?v=3.8">
+  <link rel="stylesheet" href="assets/css/style.css?v=4.0">
   <link rel="stylesheet" href="assets/css/altai-refresh.css?v=3.4">
 </head>
 <body class="selection:bg-sky-200 selection:text-sky-950 overflow-x-clip">
@@ -533,9 +533,9 @@
     </section>
 
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ИЗЯЩНАЯ ТРОПА К БЛОКУ ПОТЕРЬ -->
-    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-1 sm:py-2 select-none">
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
       <a href="#scrollProblemTitle" class="flowing-connector-link group" title="Где бизнес теряет деньги">
-        <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gradFlowLosses" x1="210" y1="10" x2="780" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
@@ -558,8 +558,8 @@
     </div>
 
     <!-- 3. СЕКЦИЯ: ГДЕ БИЗНЕС ТЕРЯЕТ ДЕНЬГИ (3 КАРТОЧКИ) -->
-    <section id="losses" class="space-y-7 sm:space-y-8 py-2 sm:py-0 relative z-20">
-      <div class="text-center max-w-5xl mx-auto space-y-3 sm:space-y-4 pb-2 sm:pb-4">
+    <section id="losses" class="py-8 sm:py-12 relative z-20">
+      <div class="text-center max-w-5xl mx-auto space-y-3 sm:space-y-4 mb-10 sm:mb-14 lg:mb-16">
         <h2 id="scrollProblemTitle" class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl lg:text-[54px] leading-tight break-words select-none overflow-visible py-0.5 text-[#0f172a]">
           <span class="pearl-title-gradient">ГДЕ БИЗНЕС</span> ТЕРЯЕТ ДЕНЬГИ
         </h2>
@@ -567,9 +567,9 @@
 
       <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
         <!-- КАРТОЧКА 1: БЕЗ ОТВЕТА (23%) -->
-        <div class="leak-card leak-card-rose rounded-[36px] bg-[linear-gradient(160deg,#FFF1F2_0%,#FFFFFF_100%)] border-2 border-rose-200/90 shadow-[0_4px_24px_rgba(244,63,94,0.05)] p-7 flex flex-col justify-between transition-all duration-500 font-inter">
+        <div class="leak-card leak-card-rose rounded-[36px] bg-white border-2 border-slate-200/90 shadow-[0_4px_24px_rgba(0,0,0,0.04)] p-7 flex flex-col justify-between transition-all duration-500 font-inter">
           <div class="space-y-4">
-            <div class="flex items-center justify-between pb-4 border-b border-rose-100">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-100">
               <span class="leak-label text-xs sm:text-sm font-bold uppercase tracking-wider text-rose-600 transition-colors">БЕЗ ОТВЕТА</span>
               <div id="leakMetric1" class="text-3xl sm:text-4xl font-extrabold tracking-tight font-inter leak-metric-gradient-rose whitespace-nowrap">23%</div>
             </div>
@@ -582,9 +582,9 @@
         </div>
 
         <!-- КАРТОЧКА 2: ДОЛГОЕ ОЖИДАНИЕ (42 ч) -->
-        <div class="leak-card leak-card-amber rounded-[36px] bg-[linear-gradient(160deg,#FFFBEB_0%,#FFFFFF_100%)] border-2 border-amber-200/90 shadow-[0_4px_24px_rgba(245,158,11,0.05)] p-7 flex flex-col justify-between transition-all duration-500 font-inter">
+        <div class="leak-card leak-card-amber rounded-[36px] bg-white border-2 border-slate-200/90 shadow-[0_4px_24px_rgba(0,0,0,0.04)] p-7 flex flex-col justify-between transition-all duration-500 font-inter">
           <div class="space-y-4">
-            <div class="flex items-center justify-between pb-4 border-b border-amber-100">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-100">
               <span class="leak-label text-xs sm:text-sm font-bold uppercase tracking-wider text-amber-600 transition-colors">ДОЛГОЕ ОЖИДАНИЕ</span>
               <div id="leakMetric2" class="text-3xl sm:text-4xl font-extrabold tracking-tight font-inter leak-metric-gradient-amber whitespace-nowrap">42&nbsp;ч</div>
             </div>
@@ -597,9 +597,9 @@
         </div>
 
         <!-- КАРТОЧКА 3: ОТВЕТ ЗА ЧАС (×7) -->
-        <div class="leak-card leak-card-rose rounded-[36px] bg-[linear-gradient(160deg,#FFF1F2_0%,#FFFFFF_100%)] border-2 border-rose-200/90 shadow-[0_4px_24px_rgba(244,63,94,0.05)] p-7 flex flex-col justify-between transition-all duration-500 font-inter">
+        <div class="leak-card leak-card-rose rounded-[36px] bg-white border-2 border-slate-200/90 shadow-[0_4px_24px_rgba(0,0,0,0.04)] p-7 flex flex-col justify-between transition-all duration-500 font-inter">
           <div class="space-y-4">
-            <div class="flex items-center justify-between pb-4 border-b border-rose-100">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-100">
               <span class="leak-label text-xs sm:text-sm font-bold uppercase tracking-wider text-rose-600 transition-colors">ОТВЕТ ЗА ЧАС</span>
               <div id="leakMetric3" class="text-3xl sm:text-4xl font-extrabold tracking-tight font-inter leak-metric-gradient-rose whitespace-nowrap">×7</div>
             </div>
@@ -619,14 +619,14 @@
     </section>
 
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОДНА ИЗЯЩНАЯ СТРЕЛКА -> ВАША НОВАЯ РЕАЛЬНОСТЬ -> ОДНА ИЗЯЩНАЯ СТРЕЛКА -> 100% -->
-    <div class="flex flex-col items-center justify-center pt-6 sm:pt-10 pb-4 relative z-20">
+    <div class="flex flex-col items-center justify-center pt-10 sm:pt-14 pb-8 sm:pb-12 relative z-20">
       
       <!-- 1. Верхняя одиночная стрелка: от карточек к плашке «ВАША НОВАЯ РЕАЛЬНОСТЬ» -->
       <div class="flowing-connector-container w-full max-w-md mx-auto px-4 select-none">
         <a href="#newRealityBadge" class="flowing-connector-link group block" title="Ваша новая реальность">
-          <svg class="w-full h-auto max-h-[75px] sm:max-h-[90px] overflow-visible" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="w-full h-auto max-h-[140px] sm:max-h-[160px] overflow-visible" viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <linearGradient id="gradFlowToReality" x1="200" y1="0" x2="200" y2="75" gradientUnits="userSpaceOnUse">
+              <linearGradient id="gradFlowToReality" x1="200" y1="0" x2="200" y2="132" gradientUnits="userSpaceOnUse">
                 <stop offset="0%" stop-color="#E11D48" stop-opacity="0.5"/>
                 <stop offset="50%" stop-color="#0284C7" stop-opacity="0.8"/>
                 <stop offset="100%" stop-color="#10B981" stop-opacity="0.95"/>
@@ -636,16 +636,16 @@
                 <feComposite in="SourceGraphic" in2="blur" operator="over"/>
               </filter>
             </defs>
-            <path d="M 200,6 L 200,72" stroke="url(#gradFlowToReality)" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-            <path d="M 200,6 L 200,72" class="delicate-connector-beam" stroke="url(#gradFlowToReality)" stroke-width="1.8" stroke-linecap="round" filter="url(#glowFlowReality)"/>
-            <circle cx="200" cy="6" r="2.2" fill="#E11D48" opacity="0.85"/>
-            <path d="M 194.5,65 L 200,72 L 205.5,65" stroke="#10B981" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M 200,6 L 200,130" stroke="url(#gradFlowToReality)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5 5" opacity="0.45"/>
+            <path d="M 200,6 L 200,130" class="delicate-connector-beam" stroke="url(#gradFlowToReality)" stroke-width="2" stroke-linecap="round" filter="url(#glowFlowReality)"/>
+            <circle cx="200" cy="6" r="2.4" fill="#E11D48" opacity="0.85"/>
+            <path d="M 194,122 L 200,130 L 206,122" stroke="#10B981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
           </svg>
         </a>
       </div>
 
       <!-- 2. Подзаголовок: ВАША НОВАЯ РЕАЛЬНОСТЬ (в изумрудном тоне) + контурный барабан -->
-      <div id="newRealityBadge" class="relative z-20 my-3 sm:my-4 text-center select-none font-inter">
+      <div id="newRealityBadge" class="relative z-20 my-4 sm:my-6 text-center select-none font-inter">
         <div class="inline-flex items-center justify-center flex-wrap gap-2.5 sm:gap-3.5 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black font-inter tracking-tight uppercase leading-tight">
           <span class="emerald-title-gradient">ВАША НОВАЯ РЕАЛЬНОСТЬ</span>
 
@@ -691,9 +691,9 @@
       <!-- 3. Нижняя одиночная стрелка: от плашки к заголовку «100% ОБРАБОТАННЫХ ЗАЯВОК» -->
       <div class="flowing-connector-container w-full max-w-md mx-auto px-4 select-none">
         <a href="#manifesto" class="flowing-connector-link group block" title="Перейти к 100% обработанных заявок">
-          <svg class="w-full h-auto max-h-[75px] sm:max-h-[90px] overflow-visible" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="w-full h-auto max-h-[140px] sm:max-h-[160px] overflow-visible" viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <linearGradient id="gradFlowTo100" x1="200" y1="0" x2="200" y2="75" gradientUnits="userSpaceOnUse">
+              <linearGradient id="gradFlowTo100" x1="200" y1="0" x2="200" y2="132" gradientUnits="userSpaceOnUse">
                 <stop offset="0%" stop-color="#10B981" stop-opacity="0.95"/>
                 <stop offset="60%" stop-color="#059669" stop-opacity="0.85"/>
                 <stop offset="100%" stop-color="#047857" stop-opacity="1"/>
@@ -703,10 +703,10 @@
                 <feComposite in="SourceGraphic" in2="blur" operator="over"/>
               </filter>
             </defs>
-            <path d="M 200,6 L 200,72" stroke="url(#gradFlowTo100)" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-            <path d="M 200,6 L 200,72" class="delicate-connector-beam" stroke="url(#gradFlowTo100)" stroke-width="1.8" stroke-linecap="round" filter="url(#glowFlow100)"/>
-            <circle cx="200" cy="6" r="2.2" fill="#10B981" opacity="0.9"/>
-            <path d="M 194.5,65 L 200,72 L 205.5,65" stroke="#047857" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M 200,6 L 200,130" stroke="url(#gradFlowTo100)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5 5" opacity="0.45"/>
+            <path d="M 200,6 L 200,130" class="delicate-connector-beam" stroke="url(#gradFlowTo100)" stroke-width="2" stroke-linecap="round" filter="url(#glowFlow100)"/>
+            <circle cx="200" cy="6" r="2.4" fill="#10B981" opacity="0.9"/>
+            <path d="M 194,122 L 200,130 L 206,122" stroke="#047857" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
           </svg>
         </a>
       </div>
@@ -802,9 +802,9 @@
     </section>
 
             <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ИЗЯЩНАЯ ТРАЕКТОРИЯ ПЕРЕТЕКАНИЯ -->
-    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-1 sm:py-2 select-none">
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
       <a href="#scenarios" class="flowing-connector-link group" title="Почувствуйте разницу">
-        <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gradFlowScenarios" x1="790" y1="10" x2="220" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
@@ -986,30 +986,30 @@
          ПОСЛЕ 'ПОЧУВСТВУЙТЕ РАЗНИЦУ' ВО ВСЮ ШИРИНУ ЭКРАНА
          ========================================================================== -->
     <style id="trial-divine-style">
-      /* БОЖЕСТВЕННЫЙ ЗНАК: ПЛАВАЮЩЕЕ СВЕЧЕНИЕ И ОРЕОЛ ТЕСТ 7 ДНЕЙ */
+      /* ДЕЛИКАТНОЕ ПЛАВАЮЩЕЕ СВЕЧЕНИЕ И ОРЕОЛ ТЕСТ 7 ДНЕЙ */
       .trial-divine-aura {
         position: absolute;
-        top: -30%;
-        left: -10%;
-        width: 650px;
+        top: -35%;
+        left: -15%;
+        width: 750px;
         max-width: 100vw;
-        height: 500px;
+        height: 550px;
         background: radial-gradient(
-          ellipse at 40% 50%,
-          rgba(255, 255, 255, 0.35) 0%,
-          rgba(186, 230, 253, 0.25) 35%,
-          rgba(56, 189, 248, 0.15) 60%,
+          ellipse at 45% 50%,
+          rgba(255, 255, 255, 0.22) 0%,
+          rgba(186, 230, 253, 0.15) 35%,
+          rgba(56, 189, 248, 0.08) 60%,
           transparent 75%
         );
-        filter: blur(45px);
+        filter: blur(60px);
         pointer-events: none;
-        animation: divineAuraDrift 8s ease-in-out infinite alternate;
+        animation: divineAuraDrift 9s ease-in-out infinite alternate;
         z-index: 0;
       }
       @keyframes divineAuraDrift {
-        0% { transform: translate(-15px, -10px) scale(0.92); opacity: 0.6; }
-        50% { transform: translate(25px, 15px) scale(1.08); opacity: 0.95; }
-        100% { transform: translate(-5px, 20px) scale(0.98); opacity: 0.7; }
+        0% { transform: translate(-20px, -15px) scale(0.95); opacity: 0.5; }
+        50% { transform: translate(20px, 15px) scale(1.05); opacity: 0.8; }
+        100% { transform: translate(-10px, 10px) scale(0.98); opacity: 0.6; }
       }
       .divine-title-wrap {
         position: relative;
@@ -1020,73 +1020,56 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 140%;
-        height: 220%;
+        width: 170%;
+        height: 280%;
         transform: translate(-50%, -50%);
         background: radial-gradient(
           ellipse at center,
-          rgba(255, 255, 255, 0.9) 0%,
-          rgba(186, 230, 253, 0.65) 28%,
-          rgba(56, 189, 248, 0.4) 55%,
-          rgba(2, 132, 199, 0) 75%
+          rgba(255, 255, 255, 0.35) 0%,
+          rgba(186, 230, 253, 0.22) 35%,
+          rgba(56, 189, 248, 0.08) 60%,
+          transparent 80%
         );
-        filter: blur(20px);
+        filter: blur(38px);
         pointer-events: none;
-        animation: divineHaloFloat 5s ease-in-out infinite alternate;
+        animation: divineHaloFloat 6s ease-in-out infinite alternate;
         z-index: 0;
       }
       @keyframes divineHaloFloat {
-        0% { transform: translate(-54%, -53%) scale(0.92); opacity: 0.7; }
-        50% { transform: translate(-46%, -47%) scale(1.15); opacity: 1; }
-        100% { transform: translate(-50%, -50%) scale(1.02); opacity: 0.85; }
+        0% { transform: translate(-52%, -51%) scale(0.96); opacity: 0.45; }
+        50% { transform: translate(-48%, -49%) scale(1.06); opacity: 0.75; }
+        100% { transform: translate(-50%, -50%) scale(1.0); opacity: 0.55; }
       }
       .divine-beam {
         position: absolute;
-        top: -20%;
-        left: -10%;
-        width: 140px;
-        height: 140%;
+        top: -10%;
+        left: -15%;
+        width: 160px;
+        height: 120%;
         background: linear-gradient(
           90deg,
           transparent 0%,
-          rgba(255, 255, 255, 0.5) 50%,
+          rgba(255, 255, 255, 0.2) 50%,
           transparent 100%
         );
-        filter: blur(14px);
+        filter: blur(22px);
         pointer-events: none;
-        animation: divineBeamWander 7s ease-in-out infinite alternate;
+        animation: divineBeamWander 8s ease-in-out infinite alternate;
         z-index: 1;
       }
       @keyframes divineBeamWander {
-        0% { transform: translateX(-20px) rotate(-6deg); opacity: 0.35; }
-        50% { transform: translateX(180px) rotate(6deg); opacity: 0.95; }
-        100% { transform: translateX(80px) rotate(-2deg); opacity: 0.55; }
+        0% { transform: translateX(-15px) rotate(-4deg); opacity: 0.25; }
+        50% { transform: translateX(160px) rotate(4deg); opacity: 0.6; }
+        100% { transform: translateX(60px) rotate(-1deg); opacity: 0.35; }
       }
       .divine-title-text {
         position: relative;
         z-index: 2;
         display: inline-block;
         color: #ffffff !important;
-        background: linear-gradient(
-          115deg,
-          #ffffff 0%,
-          #ffffff 35%,
-          #c7f0ff 55%,
-          #ffffff 75%,
-          #ffffff 100%
-        );
-        background-size: 200% auto;
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: divineTextShimmer 6s ease-in-out infinite;
-        filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.95))
-                drop-shadow(0 0 35px rgba(56, 189, 248, 0.8))
-                drop-shadow(0 2px 6px rgba(2, 44, 84, 0.5));
-      }
-      @keyframes divineTextShimmer {
-        0%, 100% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
+        filter: drop-shadow(0 2px 8px rgba(2, 44, 84, 0.3))
+                drop-shadow(0 0 12px rgba(255, 255, 255, 0.25));
+        letter-spacing: -0.01em;
       }
     </style>
     <section id="trial" class="relative z-20 w-full py-10 sm:py-14 my-6 sm:my-10 select-text overflow-hidden bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 border-y border-sky-300/30 shadow-[0_16px_50px_rgba(2,132,199,0.22)]">
@@ -1104,7 +1087,7 @@
               <div class="divine-halo" aria-hidden="true"></div>
               <div class="divine-beam" aria-hidden="true"></div>
               <h2 class="font-benzin text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight uppercase leading-[1.1] relative text-white">
-                <span class="divine-title-text text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.95)]" style="color: #ffffff !important; display: inline-block;">ТЕСТ 7 ДНЕЙ</span>
+                <span class="divine-title-text text-white" style="color: #ffffff !important; display: inline-block;">ТЕСТ 7 ДНЕЙ</span>
               </h2>
             </div>
 
@@ -1185,9 +1168,9 @@
     </section>
 
             <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ИЗЯЩНАЯ ТРАЕКТОРИЯ ПЕРЕТЕКАНИЯ -->
-    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-1 sm:py-2 select-none">
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
       <a href="#psychology" class="flowing-connector-link group" title="Интеллект ИИ‑продавца">
-        <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gradFlowPsychology" x1="205" y1="10" x2="235" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
@@ -1360,9 +1343,9 @@
     </section>
 
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ИЗЯЩНАЯ ТРАЕКТОРИЯ ПЕРЕТЕКАНИЯ -->
-    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-1 sm:py-2 select-none">
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
       <a href="#crm" class="flowing-connector-link group" title="Ваша база в надежных руках">
-        <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gradFlowCrm" x1="790" y1="10" x2="240" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
@@ -1550,9 +1533,9 @@
     </section>
 
             <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ИЗЯЩНАЯ ТРАЕКТОРИЯ ПЕРЕТЕКАНИЯ -->
-    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-1 sm:py-2 select-none">
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
       <a href="#calculator" class="flowing-connector-link group" title="Посчитайте свои потери">
-        <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gradFlowCalculator" x1="210" y1="10" x2="780" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
@@ -1865,9 +1848,9 @@
     </section>
 
             <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ИЗЯЩНАЯ ТРАЕКТОРИЯ ПЕРЕТЕКАНИЯ -->
-    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-1 sm:py-2 select-none">
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
       <a href="#unit-economics" class="flowing-connector-link group" title="Сравнение с менеджером">
-        <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gradFlowUnitEco" x1="790" y1="10" x2="220" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#34D399" stop-opacity="0.4"/>
@@ -2162,9 +2145,9 @@
     </section>
 
             <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ИЗЯЩНАЯ ТРАЕКТОРИЯ ПЕРЕТЕКАНИЯ -->
-    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-1 sm:py-2 select-none">
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
       <a href="#constructor" class="flowing-connector-link group" title="Тарифы">
-        <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gradFlowConstructor" x1="210" y1="10" x2="780" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
@@ -2459,9 +2442,9 @@
     </section>
 
             <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ИЗЯЩНАЯ ТРАЕКТОРИЯ ПЕРЕТЕКАНИЯ -->
-    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-1 sm:py-2 select-none">
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
       <a href="#cases" class="flowing-connector-link group" title="Примеры внедрения">
-        <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gradFlowCases" x1="790" y1="10" x2="220" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
@@ -2504,9 +2487,9 @@
     </section>
 
             <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ИЗЯЩНАЯ ТРАЕКТОРИЯ ПЕРЕТЕКАНИЯ -->
-    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-1 sm:py-2 select-none">
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
       <a href="#solutions" class="flowing-connector-link group" title="Как начать">
-        <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gradFlowSolutions" x1="210" y1="10" x2="780" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
@@ -2660,9 +2643,9 @@
     </section>
 
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ 'КАК НАЧАТЬ' К 'ПИСЬМО ОСНОВАТЕЛЕЙ' -->
-    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-1 sm:py-2 select-none">
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
       <a href="#founders-letter" class="flowing-connector-link group" title="Письмо основателей">
-        <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gradFlowFounders" x1="780" y1="10" x2="240" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
@@ -2761,22 +2744,31 @@
       </div>
     </section>
 
-    <!-- СТРЕЛКА-УКАЗАТЕЛЬ, ВЕДУЩАЯ К ФИНАЛЬНОЙ КНОПКЕ -->
-    <div class="flex flex-col items-center justify-center pt-8 pb-3 sm:pt-10 sm:pb-4 select-none">
+    <!-- СТРЕЛКА-УКАЗАТЕЛЬ, ВЕДУЩАЯ К ФИНАЛЬНОЙ КНОПКЕ (УДЛИНЕННАЯ) -->
+    <div class="flex flex-col items-center justify-center pt-8 pb-4 sm:pt-12 sm:pb-6 select-none">
       <div class="flex flex-col items-center gap-1 text-sky-500">
-        <svg class="w-6 h-16 sm:w-7 sm:h-20 text-sky-500 animate-bounce" viewBox="0 0 24 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2V62M12 62L5 53M12 62L19 53" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg class="w-7 h-28 sm:w-8 sm:h-36 lg:h-44 text-sky-500 animate-bounce" viewBox="0 0 24 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 4 V126 M12 126 L4.5 114 M12 126 L19.5 114" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
     </div>
 
     <!-- 13. ФИНАЛЬНЫЙ ПРИЗЫВ С БОЛЬШИМ ВОЗДУХОМ ПЕРЕД ФУТЕРОМ -->
-    <section id="final" class="relative z-20 pt-2 pb-24 sm:pb-32 lg:pb-40 text-center">
+    <section id="final" class="relative z-20 pt-2 pb-14 sm:pb-20 lg:pb-28 text-center">
       <div class="max-w-xl mx-auto px-4 flex flex-col items-center">
         <a href="https://t.me/altaioptima?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%AF%20%D1%85%D0%BE%D1%87%D1%83%20%D0%BD%D0%B0%D1%87%D0%B0%D1%82%D1%8C" target="_blank" rel="noopener" class="btn-earn-shine inline-flex items-center justify-center font-benzin uppercase tracking-wider font-bold text-sm sm:text-base md:text-lg text-white bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 hover:from-sky-400 hover:to-blue-500 active:scale-95 px-10 sm:px-16 py-4 sm:py-5 rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-sky-500/30 transition-all transform hover:-translate-y-0.5 relative overflow-hidden">
           <span class="relative z-10">Начать</span>
           <span class="earn-slow-glare" aria-hidden="true"></span>
         </a>
+
+        <!-- УДЛИНЕННАЯ СТРЕЛКА ПОСЛЕ КНОПКИ НАЧАТЬ -->
+        <div class="flex flex-col items-center justify-center pt-8 sm:pt-12 select-none">
+          <div class="flex flex-col items-center gap-1 text-sky-500">
+            <svg class="w-7 h-28 sm:w-8 sm:h-36 lg:h-44 text-sky-500 animate-bounce" viewBox="0 0 24 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 4 V126 M12 126 L4.5 114 M12 126 L19.5 114" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -2916,7 +2908,7 @@
   <script defer src="assets/js/altai-refresh.js?v=3.2"></script>
 
   <!-- Интерактивный виджет живого общения с&nbsp;ИИ‑продавцом по установке софта -->
-  <script src="ai-sales-widget.js?v=2.2"></script>
+  <script src="ai-sales-widget.js?v=2.4"></script>
 
   <!-- Обработчик формы заявки на тест-драйв 7 дней -->
   <script>
