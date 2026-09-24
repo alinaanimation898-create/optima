@@ -2235,7 +2235,7 @@
     function handleStickyNavScroll() {
       const nav = document.getElementById('stickyNavDock');
       if (!nav) return;
-      if (window.scrollY > 220) {
+      if (window.scrollY > 25) {
         nav.classList.remove('opacity-0', '-translate-y-6', 'pointer-events-none');
         nav.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
       } else {
