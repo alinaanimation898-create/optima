@@ -2012,16 +2012,18 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
 
       </div>
 
-      <!-- Engaging Pitch Script Card (Altai Stone & Katun Sky Tint) -->
-      <div class="mt-4 p-6 sm:p-8 rounded-3xl bg-[linear-gradient(160deg,#F8FAFC_0%,#F0F9FF_100%)] border border-sky-200/80 shadow-sm max-w-4xl mx-auto">
-        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-5">
+      <!-- Engaging Pitch Script Card (WhatsApp Chat Showcase Style) -->
+      <div class="mt-4 p-6 sm:p-8 rounded-3xl bg-[linear-gradient(160deg,#F8FAFC_0%,#F0F9FF_100%)] border border-sky-200/80 shadow-sm max-w-4xl mx-auto font-inter">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
           <div>
             <h3 class="text-lg sm:text-xl font-bold text-slate-900 font-sans tracking-tight">
               Шаблон сообщения собственнику бизнеса
             </h3>
-            <p class="text-xs text-slate-500 mt-1">Отправьте знакомому в Telegram или WhatsApp - дальше работает демо</p>
+            <p class="text-xs sm:text-sm text-slate-600 mt-1">
+              Просто скопируйте текст, отправьте знакомому владельцу бизнеса или РОП, и начните зарабатывать
+            </p>
           </div>
-          <button id="pitch-copy" type="button" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-sky-600 text-white font-semibold text-xs transition-all shadow-xs shrink-0 cursor-pointer">
+          <button id="pitch-copy" type="button" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-[#25D366] hover:text-slate-950 text-white font-bold text-xs transition-all shadow-xs shrink-0 cursor-pointer">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
               <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -2030,13 +2032,51 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
           </button>
         </div>
 
-        <div id="pitch-text" class="rounded-2xl p-5 sm:p-6 bg-white/90 border border-sky-100 text-xs sm:text-sm text-slate-800 leading-relaxed font-sans select-all whitespace-pre-line">[Имя], привет! Хочу рассказать тебе про продукт, который снимет с тебя головную боль с продажами.
+        <!-- WhatsApp Chat Window -->
+        <div class="rounded-2xl border border-slate-200/90 shadow-md overflow-hidden bg-[#EFEAE2]/70 font-sans">
+          
+          <!-- WhatsApp Chat Header -->
+          <div class="bg-[#075E54] text-white px-4 py-3 flex items-center justify-between select-none">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-[#128C7E] flex items-center justify-center font-bold text-sm text-white shadow-inner">
+                💼
+              </div>
+              <div>
+                <div class="font-bold text-xs sm:text-sm text-white flex items-center gap-1.5">
+                  Знакомый собственник / РОП
+                  <span class="w-2 h-2 rounded-full bg-[#25D366]"></span>
+                </div>
+                <div class="text-[10px] text-emerald-100/90">в сети</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-1 text-xs text-emerald-100 font-medium px-2.5 py-1 rounded-full bg-black/15">
+              <svg class="w-3.5 h-3.5 fill-current text-[#25D366]" viewBox="0 0 24 24">
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2Z"/>
+              </svg>
+              <span>WhatsApp</span>
+            </div>
+          </div>
+
+          <!-- WhatsApp Chat Body with Message Bubble -->
+          <div class="p-4 sm:p-6 flex justify-end">
+            <!-- Outgoing message bubble (WhatsApp Green) -->
+            <div class="max-w-2xl bg-[#E7FFDB] border border-[#d2f3c0] rounded-2xl rounded-tr-xs p-4 sm:p-5 shadow-xs relative text-slate-900 font-sans">
+              <div id="pitch-text" class="text-xs sm:text-[13.5px] leading-relaxed select-all whitespace-pre-line text-slate-800">[Имя], привет! Хочу рассказать тебе про продукт, который снимет с тебя головную боль с продажами.
 
 Это ИИ-продавец Вера - и это гораздо больше, чем бот. Она общается как живой человек, знает всё о компании и филигранно ведёт каждого клиента от первого сообщения до сделки в CRM. Всегда на связи: без отпусков, выходных и больничных.
 
 Мир стремительно движется в сторону ИИ, и я предлагаю тебе оказаться на острие технологий раньше конкурентов. Я сам тестировал, как Вера ведёт диалог, - в полном восторге.
- 
+
 Давай расскажу подробнее?</div>
+              
+              <div class="flex items-center justify-end gap-1 mt-2 text-[11px] text-slate-400 select-none">
+                <span>12:45</span>
+                <span class="text-[#53bdeb] font-bold">✓✓</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
 
     </section>
