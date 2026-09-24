@@ -2873,37 +2873,19 @@
           ]
         };
 
-        // 2. КАНАЛЫ СВЯЗИ (фирменные цвета брендов без логотипов)
+        // 2. КАНАЛЫ СВЯЗИ (WhatsApp, Telegram, Instagram, MAX, Авито, Email, Чат на сайте)
         const CHANNELS = [
           {
-            id: 'site_chat',
-            label: 'Чат на сайте',
-            color: '#0284c7',
+            id: 'wa',
+            label: 'WhatsApp',
+            color: '#25D366',
             defaultChecked: true
-          },
-          {
-            id: 'max',
-            label: 'MAX',
-            color: '#6366f1',
-            defaultChecked: true
-          },
-          {
-            id: 'avito',
-            label: 'Авито',
-            color: '#000000',
-            defaultChecked: false
           },
           {
             id: 'tg',
             label: 'Telegram',
             color: '#229ED9',
-            defaultChecked: false
-          },
-          {
-            id: 'wa',
-            label: 'WhatsApp',
-            color: '#25D366',
-            defaultChecked: false
+            defaultChecked: true
           },
           {
             id: 'inst',
@@ -2912,9 +2894,27 @@
             defaultChecked: false
           },
           {
+            id: 'max',
+            label: 'MAX',
+            color: '#6366f1',
+            defaultChecked: false
+          },
+          {
+            id: 'avito',
+            label: 'Авито',
+            color: '#000000',
+            defaultChecked: false
+          },
+          {
             id: 'email',
             label: 'Электронная почта',
             color: '#1e3a8a',
+            defaultChecked: false
+          },
+          {
+            id: 'site_chat',
+            label: 'Чат на сайте',
+            color: '#0284c7',
             defaultChecked: false
           }
         ];

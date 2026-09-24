@@ -1662,15 +1662,66 @@
     #constructor .cfg-card {
       position: relative;
       background: #ffffff;
-      border-radius: 20px;
-      border: 1.5px solid rgba(226, 232, 240, 0.9);
-      box-shadow: 0 2px 12px rgba(15, 23, 42, 0.04);
-      transition: all 0.2s ease;
-      padding: 18px 20px;
+      border-radius: 24px;
+      overflow: hidden;
+      z-index: 1;
+      isolation: isolate;
+      box-shadow: 0 8px 24px -6px rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(226, 232, 240, 0.7);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 20px 22px;
+    }
+    #constructor .cfg-card > * {
+      position: relative;
+      z-index: 2;
+    }
+    #constructor .cfg-card::before {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: -100%;
+      width: 300%;
+      height: 300%;
+      background: conic-gradient(
+        from 0deg,
+        rgba(226, 232, 240, 0.6) 0deg,
+        rgba(226, 232, 240, 0.6) 220deg,
+        rgba(56, 189, 248, 0.15) 250deg,
+        rgba(14, 165, 233, 0.7) 290deg,
+        #38bdf8 335deg,
+        rgba(226, 232, 240, 0.6) 360deg
+      );
+      animation: borderBeamRotate 6s linear infinite;
+      z-index: -2;
+    }
+    #constructor .cfg-card-crms::before {
+      animation-duration: 6.5s;
+      animation-delay: -2.2s;
+      background: conic-gradient(
+        from 0deg,
+        rgba(226, 232, 240, 0.6) 0deg,
+        rgba(226, 232, 240, 0.6) 220deg,
+        rgba(52, 211, 153, 0.15) 250deg,
+        rgba(16, 185, 129, 0.7) 290deg,
+        #34d399 335deg,
+        rgba(226, 232, 240, 0.6) 360deg
+      );
+    }
+    #constructor .cfg-card::after {
+      content: '';
+      position: absolute;
+      inset: 2px;
+      background: #ffffff;
+      border-radius: 22px;
+      z-index: -1;
+      transition: background-color 0.3s ease;
     }
     #constructor .cfg-card:hover {
-      border-color: #bae6fd;
-      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.08);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px -8px rgba(2, 132, 199, 0.12), 0 0 20px 0 rgba(56, 189, 248, 0.2) !important;
+    }
+    #constructor .cfg-card-crms:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px -8px rgba(16, 185, 129, 0.12), 0 0 20px 0 rgba(52, 211, 153, 0.2) !important;
     }
     #constructor .cfg-card h3 {
       font-size: 13px;
@@ -1783,6 +1834,14 @@
       background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
       box-shadow: 0 0 10px rgba(2, 132, 199, 0.35) !important;
     }
+    #constructor .cfg-card-channels input:checked + .cfg-track {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
+      box-shadow: 0 0 10px rgba(2, 132, 199, 0.35) !important;
+    }
+    #constructor .cfg-card-crms input:checked + .cfg-track {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.35) !important;
+    }
     #constructor .cfg-switch input:focus-visible + .cfg-track {
       outline: 2px solid #0284c7;
       outline-offset: 2px;
@@ -1872,7 +1931,7 @@
       box-shadow: 0 2px 8px rgba(2, 132, 199, 0.45);
     }
 
-    /* Базовая объемная карточка тарифа — чистый белый фон без зеленой подсветки */
+    /* Базовая объемная карточка тарифа — свежий зеленый фон Алтая */
     #constructor .cfg-tariff-card {
       position: relative;
       border-radius: 20px;
@@ -1884,11 +1943,12 @@
       justify-content: space-between;
       transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, background 0.25s ease;
       box-sizing: border-box;
-      background: #ffffff;
+      background: linear-gradient(160deg, #F0FDF4 0%, #ECFDF5 100%);
+      border: 1.5px solid rgba(16, 185, 129, 0.25);
       box-shadow: 
-        0 4px 14px rgba(15, 23, 42, 0.05), 
+        0 4px 14px rgba(16, 185, 129, 0.06), 
         0 1px 3px rgba(15, 23, 42, 0.03), 
-        inset 0 1.5px 0 #ffffff;
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
       min-height: 120px;
       z-index: 1;
     }
@@ -1904,47 +1964,21 @@
       }
     }
 
-    /* РАЗНЫЕ ЦВЕТА ГРАНИЦ ДЛЯ КАЖДОЙ КАРТОЧКИ ТАРИФА */
-    #constructor .cfg-tariff-card[data-tariff="start"] {
-      border: 2px solid #0284c7; /* Синий / Altai sky */
-    }
-    #constructor .cfg-tariff-card[data-tariff="business"] {
-      border: 2px solid #10b981; /* Изумрудный */
-      z-index: 2;
-    }
-    #constructor .cfg-tariff-card[data-tariff="stream"] {
-      border: 2px solid #8b5cf6; /* Фиолетовый / Индиго */
-    }
-    #constructor .cfg-tariff-card[data-tariff="empire"] {
-      border: 2px solid #f59e0b; /* Золотисто-янтарный */
-    }
-
-    /* Наведение без агрессивного цветного свечения */
+    /* Наведение на карточки тарифов */
     #constructor .cfg-tariff-card:hover:not(.active) {
       transform: translateY(-4px);
-      box-shadow: 0 12px 24px -4px rgba(15, 23, 42, 0.09);
+      background: linear-gradient(160deg, #ECFDF5 0%, #E6FBF0 100%);
+      border-color: rgba(16, 185, 129, 0.45);
+      box-shadow: 0 12px 24px -4px rgba(16, 185, 129, 0.15);
     }
 
-    /* Активные карточки с цветными границами и аккуратной тенью */
+    /* Активная карточка тарифа с изумрудной подсветкой */
     #constructor .cfg-tariff-card.active {
       transform: translateY(-4px) scale(1.02);
-      background: #ffffff !important;
-    }
-    #constructor .cfg-tariff-card[data-tariff="start"].active {
-      border-color: #0284c7 !important;
-      box-shadow: 0 12px 24px -4px rgba(2, 132, 199, 0.2), inset 0 -3px 0 #0284c7 !important;
-    }
-    #constructor .cfg-tariff-card[data-tariff="business"].active {
-      border-color: #10b981 !important;
-      box-shadow: 0 12px 24px -4px rgba(16, 185, 129, 0.2), inset 0 -3px 0 #10b981 !important;
-    }
-    #constructor .cfg-tariff-card[data-tariff="stream"].active {
-      border-color: #8b5cf6 !important;
-      box-shadow: 0 12px 24px -4px rgba(139, 92, 246, 0.2), inset 0 -3px 0 #8b5cf6 !important;
-    }
-    #constructor .cfg-tariff-card[data-tariff="empire"].active {
-      border-color: #f59e0b !important;
-      box-shadow: 0 12px 24px -4px rgba(245, 158, 11, 0.2), inset 0 -3px 0 #f59e0b !important;
+      background: linear-gradient(160deg, #ECFDF5 0%, #D1FAE5 100%) !important;
+      border: 2px solid #10b981 !important;
+      box-shadow: 0 12px 26px -4px rgba(16, 185, 129, 0.28), 0 0 0 1px #10b981, inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+      z-index: 3;
     }
 
     #constructor .cfg-tariff-card.active .cfg-tariff-check {
