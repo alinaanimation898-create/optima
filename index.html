@@ -985,35 +985,40 @@
          БЛОК ТЕСТ-ДРАЙВА: 2 СТОЛБИКА, ТЕСТ 7 ДНЕЙ С БЛИКОМ + ФОРМА
          ПОСЛЕ 'ПОЧУВСТВУЙТЕ РАЗНИЦУ' ВО ВСЮ ШИРИНУ ЭКРАНА
          ========================================================================== -->
-    <section id="trial" class="relative z-20 w-full py-10 sm:py-14 my-6 sm:my-10 select-text overflow-hidden bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 sm:from-sky-50/70 sm:via-white/85 sm:to-sky-50/70 backdrop-blur-xl border-y border-sky-400/40 sm:border-sky-200/80 shadow-[0_12px_40px_rgba(2,132,199,0.15)] sm:shadow-[0_12px_40px_rgba(2,132,199,0.06)]">
-      <!-- ДЕЛИКАТНЫЙ ЖИВОЙ БЛИК (SPECULAR SHEEN) НА ВСЮ ШИРИНУ -->
-      <div class="trial-card-glare" aria-hidden="true"></div>
+    <section id="trial" class="relative z-20 w-full py-10 sm:py-14 my-6 sm:my-10 select-text overflow-hidden bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 border-y border-sky-300/30 shadow-[0_16px_50px_rgba(2,132,199,0.22)]">
+      <!-- ДЕЛИКАТНОЕ ПЛАВАЮЩЕЕ БОЖЕСТВЕННОЕ СВЕЧЕНИЕ ВНУТРИ БЛОКА -->
+      <div class="trial-divine-aura" aria-hidden="true"></div>
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          <!-- ЛЕВЫЙ СТОЛБИК: ТЕСТ 7 ДНЕЙ С БЛИКОМ + ОПИСАНИЕ + ГАРАНТИИ -->
+          <!-- ЛЕВЫЙ СТОЛБИК: ТЕСТ 7 ДНЕЙ С БОЖЕСТВЕННЫМ ЗНАКОМ + ОПИСАНИЕ + ГАРАНТИИ -->
           <div class="lg:col-span-5 space-y-4 text-center lg:text-left font-inter">
             
-            <h2 class="font-benzin text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight uppercase leading-[1.1]">
-              <span class="text-white drop-shadow-sm sm:manifesto-stat-gradient">ТЕСТ 7 ДНЕЙ</span>
-            </h2>
+            <div class="divine-title-wrap">
+              <!-- ОРЕОЛ И ПЛАВАЮЩИЙ БЛИК БОЖЕСТВЕННОГО ЗНАКА ВОКРУГ ТЕКСТА -->
+              <div class="divine-halo" aria-hidden="true"></div>
+              <div class="divine-beam" aria-hidden="true"></div>
+              <h2 class="font-benzin text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight uppercase leading-[1.1] relative">
+                <span class="divine-title-text">ТЕСТ 7 ДНЕЙ</span>
+              </h2>
+            </div>
 
-            <p class="font-serif-letter text-white/95 sm:text-[#0C447C] text-sm sm:text-base lg:text-[17px] leading-relaxed max-w-md mx-auto lg:mx-0">
+            <p class="font-serif-letter text-white/95 text-sm sm:text-base lg:text-[17px] leading-relaxed max-w-md mx-auto lg:mx-0">
               Подключим ИИ-продавца к одному вашему каналу и соберём заявки в таблицу. Неделя живых диалогов до оплаты тарифа
             </p>
 
-            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-4 pt-2 text-xs text-white/90 sm:text-slate-500">
-              <span class="inline-flex items-center gap-1.5 text-emerald-200 sm:text-emerald-700 font-medium">
-                <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-4 pt-2 text-xs text-white/90">
+              <span class="inline-flex items-center gap-1.5 text-emerald-200 font-medium">
+                <svg class="w-3.5 h-3.5 text-emerald-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
                 Без привязки карты
               </span>
-              <span class="inline-flex items-center gap-1.5 text-emerald-200 sm:text-emerald-700 font-medium">
-                <svg class="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+              <span class="inline-flex items-center gap-1.5 text-emerald-200 font-medium">
+                <svg class="w-3.5 h-3.5 text-emerald-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
                 Без сложных настроек
               </span>
-              <span class="inline-flex items-center gap-1.5 text-sky-100 sm:text-slate-600">
-                <svg class="w-3.5 h-3.5 text-sky-200 sm:text-sky-500" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+              <span class="inline-flex items-center gap-1.5 text-sky-100">
+                <svg class="w-3.5 h-3.5 text-sky-200" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
                 Запуск за сутки
               </span>
             </div>
@@ -1025,7 +1030,7 @@
             <form id="trialForm" onsubmit="handleTrialSubmit(event)" class="space-y-4 max-w-lg mx-auto lg:max-w-none">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-left">
                 <div>
-                  <label for="trialName" class="block text-[11px] font-mono font-semibold uppercase tracking-wider text-sky-100 sm:text-slate-500 mb-1.5 pl-1">
+                  <label for="trialName" class="block text-[11px] font-mono font-semibold uppercase tracking-wider text-sky-100 mb-1.5 pl-1">
                     Ваше имя
                   </label>
                   <input 
@@ -1034,12 +1039,12 @@
                     name="name" 
                     required 
                     placeholder="Алексей" 
-                    class="trial-input w-full px-4 py-3.5 rounded-2xl bg-white/95 border border-slate-200/90 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white shadow-2xs"
+                    class="trial-input w-full px-4 py-3.5 rounded-2xl bg-white/95 border border-white/30 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-sky-300 shadow-sm"
                   />
                 </div>
 
                 <div>
-                  <label for="trialContact" class="block text-[11px] font-mono font-semibold uppercase tracking-wider text-sky-100 sm:text-slate-500 mb-1.5 pl-1">
+                  <label for="trialContact" class="block text-[11px] font-mono font-semibold uppercase tracking-wider text-sky-100 mb-1.5 pl-1">
                     Телефон или ник в Telegram
                   </label>
                   <input 
@@ -1048,7 +1053,7 @@
                     name="contact" 
                     required 
                     placeholder="+7 (999) 000-00-00 или @username" 
-                    class="trial-input w-full px-4 py-3.5 rounded-2xl bg-white/95 border border-slate-200/90 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white shadow-2xs"
+                    class="trial-input w-full px-4 py-3.5 rounded-2xl bg-white/95 border border-white/30 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-sky-300 shadow-sm"
                   />
                 </div>
               </div>
@@ -1057,14 +1062,14 @@
               <div class="pt-1">
                 <button 
                   type="submit" 
-                  class="w-full sm:w-auto px-10 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider rounded-2xl shadow-xl transition-all flex items-center justify-center gap-2.5 cursor-pointer bg-white text-[#0369a1] hover:bg-sky-50 active:scale-95 sm:btn-optic sm:text-white"
+                  class="w-full sm:w-auto px-10 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider rounded-2xl shadow-xl transition-all flex items-center justify-center gap-2.5 cursor-pointer bg-white text-[#0284c7] hover:bg-sky-50 hover:shadow-2xl hover:scale-[1.02] active:scale-95"
                 >
                   <span>Получить доступ на 7 дней</span>
                 </button>
               </div>
 
               <!-- ПЛАШКА УСПЕХА -->
-              <div id="trialSuccess" class="hidden p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm font-medium animate-fadeIn">
+              <div id="trialSuccess" class="hidden p-3.5 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 text-white text-xs sm:text-sm font-medium animate-fadeIn">
                 ✨ Заявка принята! Переходим в диалог с инженером Altai Optima...
               </div>
 
@@ -2664,8 +2669,8 @@
     <!-- 13. ФИНАЛЬНЫЙ ПРИЗЫВ С БОЛЬШИМ ВОЗДУХОМ ПЕРЕД ФУТЕРОМ -->
     <section id="final" class="relative z-20 pt-2 pb-24 sm:pb-32 lg:pb-40 text-center">
       <div class="max-w-xl mx-auto px-4 flex flex-col items-center">
-        <a href="https://t.me/altaioptima?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%94%D0%B0%D0%B2%D0%B0%D0%B9%D1%82%D0%B5%20%D0%B7%D0%B0%D1%80%D0%B0%D0%B1%D0%B0%D1%82%D1%8B%D0%B2%D0%B0%D1%82%D1%8C%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B5" target="_blank" rel="noopener" class="btn-earn-shine inline-flex items-center justify-center font-benzin uppercase tracking-wider font-bold text-sm sm:text-base md:text-lg text-white bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 hover:from-sky-400 hover:to-blue-500 active:scale-95 px-8 sm:px-12 py-4 sm:py-5 rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-sky-500/30 transition-all transform hover:-translate-y-0.5 relative overflow-hidden">
-          <span class="relative z-10">Давайте зарабатывать вместе</span>
+        <a href="https://t.me/altaioptima?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%AF%20%D1%85%D0%BE%D1%87%D1%83%20%D0%BD%D0%B0%D1%87%D0%B0%D1%82%D1%8C" target="_blank" rel="noopener" class="btn-earn-shine inline-flex items-center justify-center font-benzin uppercase tracking-wider font-bold text-sm sm:text-base md:text-lg text-white bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 hover:from-sky-400 hover:to-blue-500 active:scale-95 px-10 sm:px-16 py-4 sm:py-5 rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-sky-500/30 transition-all transform hover:-translate-y-0.5 relative overflow-hidden">
+          <span class="relative z-10">Начать</span>
           <span class="earn-slow-glare" aria-hidden="true"></span>
         </a>
       </div>
