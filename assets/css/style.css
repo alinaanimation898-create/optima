@@ -4621,29 +4621,29 @@
       z-index: 20;
       overflow: visible;
       user-select: none;
-      padding-top: 2rem;
-      padding-bottom: 2rem;
+      padding-top: 1.75rem;
+      padding-bottom: 1.75rem;
     }
     @media (max-width: 640px) {
       .flowing-connector-container {
-        padding-top: 3rem !important;
-        padding-bottom: 3rem !important;
-        margin-top: 0.75rem;
-        margin-bottom: 0.75rem;
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+        margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
       }
       .flowing-connector-container svg {
-        min-height: 110px;
-        transform: scaleY(1.45);
+        min-height: 85px;
+        transform: scaleY(1.15);
         transform-origin: center;
       }
     }
     @media (min-width: 641px) {
       .flowing-connector-container {
-        padding-top: 2.5rem;
-        padding-bottom: 2.5rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
       }
       .flowing-connector-container svg {
-        min-height: 90px;
+        min-height: 85px;
       }
     }
     .flowing-connector-link {
