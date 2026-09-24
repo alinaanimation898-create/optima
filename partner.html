@@ -1548,24 +1548,27 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
         </p>
       </div>
 
-            <!-- People Silhouettes & Audience Niches Visualization (10 Popular Niches, 2 balanced rows, airy on canvas) -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-8 gap-x-4 sm:gap-6 pt-4 pb-14 text-center">
+      <!-- People Silhouettes & Audience Niches Visualization (Compact cards on mobile, 5 cols with large icons on desktop) -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-6 gap-y-2.5 sm:gap-y-8 pt-2 sm:pt-4 pb-8 sm:pb-14 text-center">
         
         <!-- 1. Services -->
-        <div class="flex flex-col items-center group">
-          <div class="w-12 h-12 text-sky-600 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
+          <div class="hidden sm:flex w-12 h-12 text-sky-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
             <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
               <circle cx="12" cy="7" r="4"></circle>
             </svg>
           </div>
-          <div class="text-sm font-bold text-slate-900 mb-0.5">Сфера услуг</div>
-          <div class="text-xs text-slate-500">Салоны, клининг, бытовые услуги</div>
+          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-sky-500 shrink-0 sm:hidden"></span>
+            <span>Сфера услуг</span>
+          </div>
+          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Салоны, клининг, быт</div>
         </div>
 
         <!-- 2. Medicine -->
-        <div class="flex flex-col items-center group">
-          <div class="w-12 h-12 text-emerald-600 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
+          <div class="hidden sm:flex w-12 h-12 text-emerald-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
             <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
               <circle cx="9" cy="7" r="4"></circle>
@@ -1573,13 +1576,16 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
               <path d="M22 11h-6"></path>
             </svg>
           </div>
-          <div class="text-sm font-bold text-slate-900 mb-0.5">Медицина</div>
-          <div class="text-xs text-slate-500">Клиники, стоматологии, косметология</div>
+          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0 sm:hidden"></span>
+            <span>Медицина</span>
+          </div>
+          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Клиники, стоматологии</div>
         </div>
 
         <!-- 3. Real Estate -->
-        <div class="flex flex-col items-center group">
-          <div class="w-12 h-12 text-indigo-600 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
+          <div class="hidden sm:flex w-12 h-12 text-indigo-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
             <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M3 21h18"></path>
               <path d="M19 21v-4"></path>
@@ -1587,24 +1593,30 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
               <path d="M9 21v-6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v6"></path>
             </svg>
           </div>
-          <div class="text-sm font-bold text-slate-900 mb-0.5">Недвижимость</div>
-          <div class="text-xs text-slate-500">Агентства, застройщики, аренда</div>
+          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500 shrink-0 sm:hidden"></span>
+            <span>Недвижимость</span>
+          </div>
+          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Агентства, застройщики</div>
         </div>
 
         <!-- 4. Construction & Repair -->
-        <div class="flex flex-col items-center group">
-          <div class="w-12 h-12 text-amber-600 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
+          <div class="hidden sm:flex w-12 h-12 text-amber-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
             <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
             </svg>
           </div>
-          <div class="text-sm font-bold text-slate-900 mb-0.5">Стройка и ремонт</div>
-          <div class="text-xs text-slate-500">Ремонт квартир, дома, материалы</div>
+          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0 sm:hidden"></span>
+            <span>Стройка и ремонт</span>
+          </div>
+          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Ремонт квартир, дома</div>
         </div>
 
         <!-- 5. Wholesale & B2B -->
-        <div class="flex flex-col items-center group">
-          <div class="w-12 h-12 text-purple-600 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
+          <div class="hidden sm:flex w-12 h-12 text-purple-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
             <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
               <circle cx="9" cy="7" r="4"></circle>
@@ -1612,13 +1624,16 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
               <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
             </svg>
           </div>
-          <div class="text-sm font-bold text-slate-900 mb-0.5">Опт и B2B</div>
-          <div class="text-xs text-slate-500">Поставки, дистрибуция, заводы</div>
+          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0 sm:hidden"></span>
+            <span>Опт и B2B</span>
+          </div>
+          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Поставки, заводы, дистрибуция</div>
         </div>
 
         <!-- 6. Automotive -->
-        <div class="flex flex-col items-center group">
-          <div class="w-12 h-12 text-blue-600 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
+          <div class="hidden sm:flex w-12 h-12 text-blue-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
             <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="7" width="20" height="11" rx="2"></rect>
               <circle cx="7" cy="18" r="2"></circle>
@@ -1626,38 +1641,47 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
               <path d="M5 7l2-4h10l2 4"></path>
             </svg>
           </div>
-          <div class="text-sm font-bold text-slate-900 mb-0.5">Автобизнес</div>
-          <div class="text-xs text-slate-500">Автосалоны, детейлинг, СТО, выкуп</div>
+          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0 sm:hidden"></span>
+            <span>Автобизнес</span>
+          </div>
+          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Автосалоны, СТО, детейлинг</div>
         </div>
 
         <!-- 7. E-commerce -->
-        <div class="flex flex-col items-center group">
-          <div class="w-12 h-12 text-rose-600 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
+          <div class="hidden sm:flex w-12 h-12 text-rose-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
             <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="9" cy="21" r="1"></circle>
               <circle cx="20" cy="21" r="1"></circle>
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
             </svg>
           </div>
-          <div class="text-sm font-bold text-slate-900 mb-0.5">E-commerce</div>
-          <div class="text-xs text-slate-500">Интернет-магазины, бренды</div>
+          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0 sm:hidden"></span>
+            <span>E-commerce</span>
+          </div>
+          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Интернет-магазины, бренды</div>
         </div>
 
         <!-- 8. Education -->
-        <div class="flex flex-col items-center group">
-          <div class="w-12 h-12 text-teal-600 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
+          <div class="hidden sm:flex w-12 h-12 text-teal-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
             <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
               <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
             </svg>
           </div>
-          <div class="text-sm font-bold text-slate-900 mb-0.5">Образование</div>
-          <div class="text-xs text-slate-500">Онлайн-школы, курсы, детские центры</div>
+          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0 sm:hidden"></span>
+            <span>Образование</span>
+          </div>
+          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Онлайн-школы, курсы</div>
         </div>
 
         <!-- 9. Legal & Consulting -->
-        <div class="flex flex-col items-center group">
-          <div class="w-12 h-12 text-violet-600 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
+          <div class="hidden sm:flex w-12 h-12 text-violet-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
             <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 3v18"></path>
               <path d="M6 8l6-5 6 5"></path>
@@ -1665,20 +1689,26 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
               <path d="M18 16l-3-6h6l-3 6z"></path>
             </svg>
           </div>
-          <div class="text-sm font-bold text-slate-900 mb-0.5">Юристы и аудит</div>
-          <div class="text-xs text-slate-500">Банкротство, право, налоги, консалтинг</div>
+          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-violet-500 shrink-0 sm:hidden"></span>
+            <span>Юристы и аудит</span>
+          </div>
+          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Право, банкротство, налоги</div>
         </div>
 
         <!-- 10. Tourism & Hospitality -->
-        <div class="flex flex-col items-center group">
-          <div class="w-12 h-12 text-orange-600 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
+          <div class="hidden sm:flex w-12 h-12 text-orange-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
             <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M3 17l6-6 4 4 8-8"></path>
               <path d="M14 7h7v7"></path>
             </svg>
           </div>
-          <div class="text-sm font-bold text-slate-900 mb-0.5">Туризм и отели</div>
-          <div class="text-xs text-slate-500">Отели, глэмпинги, базы отдыха, туры</div>
+          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-orange-500 shrink-0 sm:hidden"></span>
+            <span>Туризм и отели</span>
+          </div>
+          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Отели, глэмпинги, туры</div>
         </div>
 
       </div>
