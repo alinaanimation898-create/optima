@@ -1146,7 +1146,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
           </div>
 
           <!-- Total Calculation Breakdown (Clean text without heavy white pod) -->
-          <div class="mt-10 text-center max-w-2xl mx-auto space-y-3">
+          <div class="mt-10 text-center max-w-3xl mx-auto space-y-3 font-inter">
             
             <!-- 1. Ваш доход со структуры (First, on top) -->
             <div>
@@ -1164,11 +1164,14 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
             <!-- Subtle decorative separator -->
             <div class="w-16 h-0.5 bg-purple-300/80 mx-auto my-3"></div>
 
-            <!-- 2. Откуда берутся 39 000 ₽ (Below it) -->
+            <!-- 2. Откуда берутся 39 000 ₽ (Строго 2 строчки) -->
             <div class="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
-              <span class="font-bold text-purple-950">Откуда берутся 39 000 ₽:</span><br class="sm:hidden">
-              5 партнёров привлекли 20 клиентов (6 + 5 + 4 + 3 + 2) на тарифе «Бизнес».<br>
-              20 клиентов × 1 950 ₽ (ваш бонус 5%) = <strong class="text-purple-700 font-bold">39 000 ₽ каждый месяц!</strong>
+              <p class="mb-1">
+                <span class="font-bold text-purple-950">Откуда берутся 39&nbsp;000&nbsp;₽:</span> 5&nbsp;партнёров привлекли 20&nbsp;клиентов (6&nbsp;+&nbsp;5&nbsp;+&nbsp;4&nbsp;+&nbsp;3&nbsp;+&nbsp;2) на&nbsp;тарифе «Бизнес».
+              </p>
+              <p>
+                20&nbsp;клиентов × 1&nbsp;950&nbsp;₽ (ваш бонус 5%) = <strong class="text-purple-700 font-extrabold whitespace-nowrap">39&nbsp;000&nbsp;₽ каждый месяц!</strong>
+              </p>
             </div>
 
           </div>
