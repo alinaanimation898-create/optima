@@ -40,7 +40,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-  <link rel="stylesheet" href="assets/css/style.css?v=3.7">
+  <link rel="stylesheet" href="assets/css/style.css?v=3.8">
   <link rel="stylesheet" href="assets/css/altai-refresh.css?v=3.4">
 </head>
 <body class="selection:bg-sky-200 selection:text-sky-950 overflow-x-clip">
@@ -985,6 +985,110 @@
          БЛОК ТЕСТ-ДРАЙВА: 2 СТОЛБИКА, ТЕСТ 7 ДНЕЙ С БЛИКОМ + ФОРМА
          ПОСЛЕ 'ПОЧУВСТВУЙТЕ РАЗНИЦУ' ВО ВСЮ ШИРИНУ ЭКРАНА
          ========================================================================== -->
+    <style id="trial-divine-style">
+      /* БОЖЕСТВЕННЫЙ ЗНАК: ПЛАВАЮЩЕЕ СВЕЧЕНИЕ И ОРЕОЛ ТЕСТ 7 ДНЕЙ */
+      .trial-divine-aura {
+        position: absolute;
+        top: -30%;
+        left: -10%;
+        width: 650px;
+        max-width: 100vw;
+        height: 500px;
+        background: radial-gradient(
+          ellipse at 40% 50%,
+          rgba(255, 255, 255, 0.35) 0%,
+          rgba(186, 230, 253, 0.25) 35%,
+          rgba(56, 189, 248, 0.15) 60%,
+          transparent 75%
+        );
+        filter: blur(45px);
+        pointer-events: none;
+        animation: divineAuraDrift 8s ease-in-out infinite alternate;
+        z-index: 0;
+      }
+      @keyframes divineAuraDrift {
+        0% { transform: translate(-15px, -10px) scale(0.92); opacity: 0.6; }
+        50% { transform: translate(25px, 15px) scale(1.08); opacity: 0.95; }
+        100% { transform: translate(-5px, 20px) scale(0.98); opacity: 0.7; }
+      }
+      .divine-title-wrap {
+        position: relative;
+        display: inline-block;
+        z-index: 10;
+      }
+      .divine-halo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 140%;
+        height: 220%;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(
+          ellipse at center,
+          rgba(255, 255, 255, 0.9) 0%,
+          rgba(186, 230, 253, 0.65) 28%,
+          rgba(56, 189, 248, 0.4) 55%,
+          rgba(2, 132, 199, 0) 75%
+        );
+        filter: blur(20px);
+        pointer-events: none;
+        animation: divineHaloFloat 5s ease-in-out infinite alternate;
+        z-index: 0;
+      }
+      @keyframes divineHaloFloat {
+        0% { transform: translate(-54%, -53%) scale(0.92); opacity: 0.7; }
+        50% { transform: translate(-46%, -47%) scale(1.15); opacity: 1; }
+        100% { transform: translate(-50%, -50%) scale(1.02); opacity: 0.85; }
+      }
+      .divine-beam {
+        position: absolute;
+        top: -20%;
+        left: -10%;
+        width: 140px;
+        height: 140%;
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(255, 255, 255, 0.5) 50%,
+          transparent 100%
+        );
+        filter: blur(14px);
+        pointer-events: none;
+        animation: divineBeamWander 7s ease-in-out infinite alternate;
+        z-index: 1;
+      }
+      @keyframes divineBeamWander {
+        0% { transform: translateX(-20px) rotate(-6deg); opacity: 0.35; }
+        50% { transform: translateX(180px) rotate(6deg); opacity: 0.95; }
+        100% { transform: translateX(80px) rotate(-2deg); opacity: 0.55; }
+      }
+      .divine-title-text {
+        position: relative;
+        z-index: 2;
+        display: inline-block;
+        color: #ffffff !important;
+        background: linear-gradient(
+          115deg,
+          #ffffff 0%,
+          #ffffff 35%,
+          #c7f0ff 55%,
+          #ffffff 75%,
+          #ffffff 100%
+        );
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: divineTextShimmer 6s ease-in-out infinite;
+        filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.95))
+                drop-shadow(0 0 35px rgba(56, 189, 248, 0.8))
+                drop-shadow(0 2px 6px rgba(2, 44, 84, 0.5));
+      }
+      @keyframes divineTextShimmer {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+    </style>
     <section id="trial" class="relative z-20 w-full py-10 sm:py-14 my-6 sm:my-10 select-text overflow-hidden bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 border-y border-sky-300/30 shadow-[0_16px_50px_rgba(2,132,199,0.22)]">
       <!-- ДЕЛИКАТНОЕ ПЛАВАЮЩЕЕ БОЖЕСТВЕННОЕ СВЕЧЕНИЕ ВНУТРИ БЛОКА -->
       <div class="trial-divine-aura" aria-hidden="true"></div>
@@ -999,8 +1103,8 @@
               <!-- ОРЕОЛ И ПЛАВАЮЩИЙ БЛИК БОЖЕСТВЕННОГО ЗНАКА ВОКРУГ ТЕКСТА -->
               <div class="divine-halo" aria-hidden="true"></div>
               <div class="divine-beam" aria-hidden="true"></div>
-              <h2 class="font-benzin text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight uppercase leading-[1.1] relative">
-                <span class="divine-title-text">ТЕСТ 7 ДНЕЙ</span>
+              <h2 class="font-benzin text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight uppercase leading-[1.1] relative text-white">
+                <span class="divine-title-text text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.95)]" style="color: #ffffff !important; display: inline-block;">ТЕСТ 7 ДНЕЙ</span>
               </h2>
             </div>
 

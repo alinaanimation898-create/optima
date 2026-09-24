@@ -4677,67 +4677,71 @@
       height: 500px;
       background: radial-gradient(
         ellipse at 40% 50%,
-        rgba(255, 255, 255, 0.28) 0%,
-        rgba(186, 230, 253, 0.22) 35%,
-        rgba(56, 189, 248, 0.12) 60%,
+        rgba(255, 255, 255, 0.35) 0%,
+        rgba(186, 230, 253, 0.25) 35%,
+        rgba(56, 189, 248, 0.15) 60%,
         transparent 75%
       );
-      filter: blur(50px);
+      filter: blur(45px);
       pointer-events: none;
       animation: divineAuraDrift 8s ease-in-out infinite alternate;
-      mix-blend-mode: screen;
+      z-index: 0;
     }
 
     @keyframes divineAuraDrift {
       0% {
         transform: translate(-15px, -10px) scale(0.92);
-        opacity: 0.55;
+        opacity: 0.6;
       }
       50% {
         transform: translate(25px, 15px) scale(1.08);
-        opacity: 0.9;
+        opacity: 0.95;
       }
       100% {
         transform: translate(-5px, 20px) scale(0.98);
-        opacity: 0.65;
+        opacity: 0.7;
       }
     }
 
     .divine-title-wrap {
       position: relative;
       display: inline-block;
+      z-index: 10;
     }
 
     /* БОЖЕСТВЕННЫЙ ОРЕОЛ ВОКРУГ СЛОВ "ТЕСТ 7 ДНЕЙ" */
     .divine-halo {
       position: absolute;
-      inset: -35% -25%;
+      top: 50%;
+      left: 50%;
+      width: 140%;
+      height: 220%;
+      transform: translate(-50%, -50%);
       background: radial-gradient(
-        ellipse at 50% 50%,
-        rgba(255, 255, 255, 0.75) 0%,
-        rgba(186, 230, 253, 0.45) 30%,
-        rgba(56, 189, 248, 0.2) 58%,
-        transparent 75%
+        ellipse at center,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(186, 230, 253, 0.65) 28%,
+        rgba(56, 189, 248, 0.4) 55%,
+        rgba(2, 132, 199, 0) 75%
       );
-      filter: blur(22px);
+      filter: blur(20px);
       pointer-events: none;
       animation: divineHaloFloat 5s ease-in-out infinite alternate;
-      mix-blend-mode: screen;
-      z-index: 1;
+      z-index: 0;
     }
 
     @keyframes divineHaloFloat {
       0% {
-        transform: translate(-5px, -4px) scale(0.94);
-        opacity: 0.65;
+        transform: translate(-54%, -53%) scale(0.92);
+        opacity: 0.7;
       }
       50% {
-        transform: translate(6px, 4px) scale(1.06);
-        opacity: 0.95;
+        transform: translate(-46%, -47%) scale(1.15);
+        opacity: 1;
       }
       100% {
-        transform: translate(-2px, 3px) scale(1.0);
-        opacity: 0.75;
+        transform: translate(-50%, -50%) scale(1.02);
+        opacity: 0.85;
       }
     }
 
@@ -4745,34 +4749,33 @@
     .divine-beam {
       position: absolute;
       top: -20%;
-      left: 10%;
-      width: 120px;
+      left: -10%;
+      width: 140px;
       height: 140%;
       background: linear-gradient(
         90deg,
         transparent 0%,
-        rgba(255, 255, 255, 0.35) 50%,
+        rgba(255, 255, 255, 0.5) 50%,
         transparent 100%
       );
       filter: blur(14px);
       pointer-events: none;
       animation: divineBeamWander 7s ease-in-out infinite alternate;
-      mix-blend-mode: overlay;
-      z-index: 3;
+      z-index: 1;
     }
 
     @keyframes divineBeamWander {
       0% {
-        transform: translateX(-30px) rotate(8deg);
-        opacity: 0.3;
+        transform: translateX(-20px) rotate(-6deg);
+        opacity: 0.35;
       }
       50% {
-        transform: translateX(180px) rotate(-6deg);
-        opacity: 0.85;
+        transform: translateX(180px) rotate(6deg);
+        opacity: 0.95;
       }
       100% {
-        transform: translateX(70px) rotate(4deg);
-        opacity: 0.45;
+        transform: translateX(80px) rotate(-2deg);
+        opacity: 0.55;
       }
     }
 
@@ -4780,13 +4783,13 @@
     .divine-title-text {
       position: relative;
       z-index: 2;
-      color: #ffffff;
+      color: #ffffff !important;
       background: linear-gradient(
         115deg,
         #ffffff 0%,
         #ffffff 35%,
-        #e0f2fe 48%,
-        #ffffff 62%,
+        #c7f0ff 55%,
+        #ffffff 75%,
         #ffffff 100%
       );
       background-size: 200% auto;
@@ -4794,9 +4797,9 @@
       background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: divineTextShimmer 6s ease-in-out infinite;
-      filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.8))
-              drop-shadow(0 0 30px rgba(56, 189, 248, 0.45))
-              drop-shadow(0 2px 8px rgba(3, 30, 65, 0.4));
+      filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.95))
+              drop-shadow(0 0 35px rgba(56, 189, 248, 0.8))
+              drop-shadow(0 2px 6px rgba(2, 44, 84, 0.5));
     }
 
     @keyframes divineTextShimmer {
