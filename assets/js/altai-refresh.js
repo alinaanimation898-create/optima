@@ -261,15 +261,12 @@
         '</div>' +
         '<div class="ao-case-flow">' +
           '<div class="ao-case-step">' +
-            '<span class="ao-case-icon ao-icon-before">✕</span>' +
             '<div><strong>Было:</strong> ' + c.before + '</div>' +
           '</div>' +
           '<div class="ao-case-step">' +
-            '<span class="ao-case-icon ao-icon-solution">⚙</span>' +
             '<div><strong>Что сделали:</strong> ' + c.solution + '</div>' +
           '</div>' +
           '<div class="ao-case-step">' +
-            '<span class="ao-case-icon ao-icon-after">✓</span>' +
             '<div><strong>Результат:</strong> ' + c.after + '</div>' +
           '</div>' +
         '</div>' +
