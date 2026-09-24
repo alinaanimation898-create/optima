@@ -40,7 +40,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-  <link rel="stylesheet" href="assets/css/style.css?v=4.0">
+  <link rel="stylesheet" href="assets/css/style.css?v=4.1">
   <link rel="stylesheet" href="assets/css/altai-refresh.css?v=3.4">
 </head>
 <body class="selection:bg-sky-200 selection:text-sky-950 overflow-x-clip">
@@ -719,7 +719,7 @@
     </div>
 
     <!-- 3. МАНИФЕСТ: 100% ОБРАБОТАННЫХ ЗАЯВОК (С БОЛЬШИМ ВОЗДУХОМ ДО КАРТОЧЕК) -->
-    <section id="manifesto" class="space-y-8 sm:space-y-12 md:space-y-16 text-center relative z-20 pt-4 sm:pt-8 pb-8 sm:pb-12">
+    <section id="manifesto" class="space-y-8 sm:space-y-12 md:space-y-16 text-center relative z-20 pt-8 sm:pt-14 pb-12 sm:pb-16">
       <div class="space-y-4 sm:space-y-6 max-w-5xl mx-auto py-2 sm:py-4">
         <div class="py-2">
           <h2 class="uppercase tracking-tight font-black text-3xl sm:text-5xl md:text-6xl font-benzin select-none leading-tight overflow-visible">
@@ -986,95 +986,145 @@
          ПОСЛЕ 'ПОЧУВСТВУЙТЕ РАЗНИЦУ' ВО ВСЮ ШИРИНУ ЭКРАНА
          ========================================================================== -->
     <style id="trial-divine-style">
-      /* ДЕЛИКАТНОЕ ПЛАВАЮЩЕЕ СВЕЧЕНИЕ И ОРЕОЛ ТЕСТ 7 ДНЕЙ */
+      /* ДЕЛИКАТНОЕ ПЛАВАЮЩЕЕ СВЕЧЕНИЕ ПО ВСЕМУ БЛОКУ */
       .trial-divine-aura {
         position: absolute;
-        top: -35%;
-        left: -15%;
-        width: 750px;
-        max-width: 100vw;
-        height: 550px;
+        top: -15%;
+        left: -10%;
+        width: 550px;
+        max-width: 90vw;
+        height: 380px;
         background: radial-gradient(
-          ellipse at 45% 50%,
-          rgba(255, 255, 255, 0.22) 0%,
-          rgba(186, 230, 253, 0.15) 35%,
-          rgba(56, 189, 248, 0.08) 60%,
+          ellipse at center,
+          rgba(255, 255, 255, 0.16) 0%,
+          rgba(186, 230, 253, 0.11) 40%,
+          rgba(56, 189, 248, 0.04) 65%,
+          transparent 80%
+        );
+        filter: blur(55px);
+        pointer-events: none;
+        animation: divineAuraDrift 22s ease-in-out infinite alternate;
+        z-index: 1;
+      }
+      .trial-divine-aura-2 {
+        position: absolute;
+        bottom: -20%;
+        right: -10%;
+        width: 480px;
+        max-width: 85vw;
+        height: 340px;
+        background: radial-gradient(
+          ellipse at center,
+          rgba(255, 255, 255, 0.13) 0%,
+          rgba(125, 211, 252, 0.08) 45%,
           transparent 75%
         );
-        filter: blur(60px);
+        filter: blur(50px);
         pointer-events: none;
-        animation: divineAuraDrift 9s ease-in-out infinite alternate;
-        z-index: 0;
+        animation: divineAuraDrift2 26s ease-in-out infinite alternate;
+        z-index: 1;
       }
       @keyframes divineAuraDrift {
-        0% { transform: translate(-20px, -15px) scale(0.95); opacity: 0.5; }
-        50% { transform: translate(20px, 15px) scale(1.05); opacity: 0.8; }
-        100% { transform: translate(-10px, 10px) scale(0.98); opacity: 0.6; }
+        0% {
+          transform: translate(0, 0) scale(0.95);
+          opacity: 0.45;
+        }
+        33% {
+          transform: translate(45vw, 15%) scale(1.08);
+          opacity: 0.6;
+        }
+        66% {
+          transform: translate(20vw, 35%) scale(0.98);
+          opacity: 0.5;
+        }
+        100% {
+          transform: translate(65vw, -10%) scale(1.1);
+          opacity: 0.55;
+        }
+      }
+      @keyframes divineAuraDrift2 {
+        0% {
+          transform: translate(0, 0) scale(1);
+          opacity: 0.4;
+        }
+        35% {
+          transform: translate(-40vw, -20%) scale(1.06);
+          opacity: 0.55;
+        }
+        70% {
+          transform: translate(-18vw, -30%) scale(0.96);
+          opacity: 0.45;
+        }
+        100% {
+          transform: translate(-55vw, -5%) scale(1.05);
+          opacity: 0.5;
+        }
       }
       .divine-title-wrap {
         position: relative;
         display: inline-block;
         z-index: 10;
       }
+      /* ДЕЛИКАТНЫЙ ОРЕОЛ — СТРОГО ПО КОНТУРУ ЗАГОЛОВКА, НЕ НАЛЕЗАЕТ НА ТЕКСТ */
       .divine-halo {
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 170%;
-        height: 280%;
+        width: 106%;
+        height: 95%;
         transform: translate(-50%, -50%);
         background: radial-gradient(
           ellipse at center,
-          rgba(255, 255, 255, 0.35) 0%,
-          rgba(186, 230, 253, 0.22) 35%,
-          rgba(56, 189, 248, 0.08) 60%,
-          transparent 80%
+          rgba(255, 255, 255, 0.28) 0%,
+          rgba(186, 230, 253, 0.14) 45%,
+          transparent 75%
         );
-        filter: blur(38px);
+        filter: blur(14px);
         pointer-events: none;
-        animation: divineHaloFloat 6s ease-in-out infinite alternate;
+        animation: divineHaloFloat 5s ease-in-out infinite alternate;
         z-index: 0;
       }
       @keyframes divineHaloFloat {
-        0% { transform: translate(-52%, -51%) scale(0.96); opacity: 0.45; }
-        50% { transform: translate(-48%, -49%) scale(1.06); opacity: 0.75; }
-        100% { transform: translate(-50%, -50%) scale(1.0); opacity: 0.55; }
+        0% { transform: translate(-50%, -50%) scale(0.97); opacity: 0.5; }
+        100% { transform: translate(-50%, -50%) scale(1.03); opacity: 0.8; }
       }
+      /* МЯГКИЙ БЛИК ТОЛЬКО ПО БУКВАМ */
       .divine-beam {
         position: absolute;
-        top: -10%;
+        top: 5%;
         left: -15%;
-        width: 160px;
-        height: 120%;
+        width: 80px;
+        height: 90%;
         background: linear-gradient(
           90deg,
           transparent 0%,
           rgba(255, 255, 255, 0.2) 50%,
           transparent 100%
         );
-        filter: blur(22px);
+        filter: blur(10px);
         pointer-events: none;
-        animation: divineBeamWander 8s ease-in-out infinite alternate;
+        animation: divineBeamWander 7s ease-in-out infinite alternate;
         z-index: 1;
       }
       @keyframes divineBeamWander {
-        0% { transform: translateX(-15px) rotate(-4deg); opacity: 0.25; }
-        50% { transform: translateX(160px) rotate(4deg); opacity: 0.6; }
-        100% { transform: translateX(60px) rotate(-1deg); opacity: 0.35; }
+        0% { transform: translateX(0); opacity: 0.15; }
+        50% { transform: translateX(160px); opacity: 0.55; }
+        100% { transform: translateX(300px); opacity: 0.2; }
       }
       .divine-title-text {
         position: relative;
         z-index: 2;
         display: inline-block;
         color: #ffffff !important;
-        filter: drop-shadow(0 2px 8px rgba(2, 44, 84, 0.3))
-                drop-shadow(0 0 12px rgba(255, 255, 255, 0.25));
+        filter: drop-shadow(0 2px 8px rgba(2, 44, 84, 0.35))
+                drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
         letter-spacing: -0.01em;
       }
     </style>
     <section id="trial" class="relative z-20 w-full py-10 sm:py-14 my-6 sm:my-10 select-text overflow-hidden bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 border-y border-sky-300/30 shadow-[0_16px_50px_rgba(2,132,199,0.22)]">
       <!-- ДЕЛИКАТНОЕ ПЛАВАЮЩЕЕ БОЖЕСТВЕННОЕ СВЕЧЕНИЕ ВНУТРИ БЛОКА -->
       <div class="trial-divine-aura" aria-hidden="true"></div>
+      <div class="trial-divine-aura-2" aria-hidden="true"></div>
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
