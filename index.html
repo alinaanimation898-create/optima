@@ -1113,6 +1113,29 @@
       </div>
     </section>
 
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ОЦЕНКИ / СЦЕНАРИЕВ К БЛОКУ ТЕСТ 7 ДНЕЙ -->
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-8 sm:my-12 lg:my-16">
+      <a href="#trial" class="flowing-connector-link group" title="Тест 7 дней">
+        <svg class="w-full h-auto min-h-[45px] sm:min-h-[55px] max-h-[60px] sm:max-h-[70px] overflow-visible max-w-[140px] sm:max-w-[180px] mx-auto" viewBox="0 0 1000 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradFlowToTrial" x1="500" y1="5" x2="500" y2="80" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
+            </linearGradient>
+            <filter id="glowFlowTrial" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 500,5 L 500,80" stroke="url(#gradFlowToTrial)" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.5"/>
+          <path d="M 500,5 L 500,80" class="delicate-connector-beam-compact" stroke="url(#gradFlowToTrial)" stroke-width="1.8" stroke-linecap="round" filter="url(#glowFlowTrial)"/>
+          <circle cx="500" cy="5" r="2.2" fill="#0284C7" opacity="0.8"/>
+          <path d="M 494.5,73.5 L 500,80 L 505.5,73.5" stroke="#0369A1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </a>
+    </div>
+
     <!-- ==========================================================================
          БЛОК ТЕСТ-ДРАЙВА: 2 СТОЛБИКА, ТЕСТ 7 ДНЕЙ С БЛИКОМ + ФОРМА
          ПОСЛЕ 'ПОЧУВСТВУЙТЕ РАЗНИЦУ' ВО ВСЮ ШИРИНУ ЭКРАНА
@@ -1253,7 +1276,7 @@
         letter-spacing: -0.01em;
       }
     </style>
-    <section id="trial" class="relative z-20 w-full py-10 sm:py-14 my-6 sm:my-10 select-text overflow-hidden bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 border-y border-sky-300/30 shadow-[0_16px_50px_rgba(2,132,199,0.22)]">
+    <section id="trial" class="relative z-20 w-full py-10 sm:py-14 my-6 sm:my-10 select-text overflow-hidden bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 border-y border-sky-300/30 shadow-[0_16px_50px_rgba(2,132,199,0.22)] scroll-mt-28">
       <!-- ДЕЛИКАТНОЕ ПЛАВАЮЩЕЕ БОЖЕСТВЕННОЕ СВЕЧЕНИЕ ВНУТРИ БЛОКА -->
       <div class="trial-divine-aura" aria-hidden="true"></div>
       <div class="trial-divine-aura-2" aria-hidden="true"></div>
