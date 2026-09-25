@@ -2678,131 +2678,68 @@
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
         
-        <!-- СЛЕВА: 7 ТИПОВ БИЗНЕСА -->
-        <div class="lg:col-span-5 space-y-2.5 sm:space-y-3 font-sans" id="casesNichesList">
+        <!-- СЛЕВА: 7 ТИПОВ БИЗНЕСА (БЕЗ ПОДЛОЖЕК И БЕЗ ЭМОДЗИ) -->
+        <div class="lg:col-span-5 space-y-2 font-sans" id="casesNichesList">
           
-          <!-- 1. Салон красоты -->
-          <button type="button" onclick="selectCaseNiche('beauty', this)" class="case-niche-btn active w-full p-3.5 sm:p-4 rounded-2xl bg-white border-2 border-sky-500 shadow-md ring-2 ring-sky-400/20 flex items-center justify-between text-left transition-all duration-200 group cursor-pointer">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-pink-50 border border-pink-100 flex items-center justify-center text-xl shrink-0 group-hover:scale-105 transition-transform">
-                💅
-              </div>
-              <div>
-                <div class="font-bold text-sm sm:text-base text-slate-900 group-hover:text-sky-700 transition-colors">
-                  Салон красоты
-                </div>
-                </div>
-            </div>
+          <!-- 1. Салон красоты: WhatsApp (День 14:20) -->
+          <button type="button" onclick="selectCaseNiche('beauty', this)" class="case-niche-btn active w-full py-3.5 px-4 rounded-xl flex items-center justify-between text-left transition-all duration-200 group cursor-pointer bg-sky-50/80 border-l-4 border-sky-500 font-bold text-sky-950">
+            <span class="text-sm sm:text-base tracking-tight">Салон красоты</span>
             <div class="flex items-center gap-2 shrink-0">
-              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">WhatsApp</span>
+              <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-emerald-50 text-[#075E54] border border-emerald-200/80">WhatsApp</span>
               <span class="text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform">→</span>
             </div>
           </button>
 
-          <!-- 2. Агентство по недвижимости -->
-          <button type="button" onclick="selectCaseNiche('realty', this)" class="case-niche-btn w-full p-3.5 sm:p-4 rounded-2xl bg-white/80 border border-slate-200/90 shadow-2xs flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:border-slate-300 hover:bg-white">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-xl shrink-0 group-hover:scale-105 transition-transform">
-                🏢
-              </div>
-              <div>
-                <div class="font-bold text-sm sm:text-base text-slate-900 group-hover:text-sky-700 transition-colors">
-                  Агентство по недвижимости
-                </div>
-                </div>
-            </div>
+          <!-- 2. Агентство по недвижимости: Telegram (Ночь 02:47) -->
+          <button type="button" onclick="selectCaseNiche('realty', this)" class="case-niche-btn w-full py-3.5 px-4 rounded-xl flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:bg-slate-100/70 border-l-4 border-transparent text-slate-800">
+            <span class="text-sm sm:text-base tracking-tight font-medium group-hover:text-sky-700 transition-colors">Агентство по недвижимости</span>
             <div class="flex items-center gap-2 shrink-0">
-              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-sky-50 text-sky-700 border border-sky-200">Telegram</span>
+              <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-sky-50 text-[#229ED9] border border-sky-200/80">Telegram</span>
               <span class="text-slate-400 group-hover:text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform">→</span>
             </div>
           </button>
 
-          <!-- 3. Онлайн школа -->
-          <button type="button" onclick="selectCaseNiche('education', this)" class="case-niche-btn w-full p-3.5 sm:p-4 rounded-2xl bg-white/80 border border-slate-200/90 shadow-2xs flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:border-slate-300 hover:bg-white">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-xl shrink-0 group-hover:scale-105 transition-transform">
-                🎓
-              </div>
-              <div>
-                <div class="font-bold text-sm sm:text-base text-slate-900 group-hover:text-sky-700 transition-colors">
-                  Онлайн-школа
-                </div>
-                </div>
-            </div>
+          <!-- 3. Онлайн-школа: MAX (Поздний вечер 23:14) -->
+          <button type="button" onclick="selectCaseNiche('education', this)" class="case-niche-btn w-full py-3.5 px-4 rounded-xl flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:bg-slate-100/70 border-l-4 border-transparent text-slate-800">
+            <span class="text-sm sm:text-base tracking-tight font-medium group-hover:text-sky-700 transition-colors">Онлайн-школа</span>
             <div class="flex items-center gap-2 shrink-0">
-              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-sky-50 text-sky-700 border border-sky-200">Telegram</span>
+              <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-indigo-50 text-[#4f46e5] border border-indigo-200/80">MAX</span>
               <span class="text-slate-400 group-hover:text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform">→</span>
             </div>
           </button>
 
-          <!-- 4. Ресторан -->
-          <button type="button" onclick="selectCaseNiche('restaurant', this)" class="case-niche-btn w-full p-3.5 sm:p-4 rounded-2xl bg-white/80 border border-slate-200/90 shadow-2xs flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:border-slate-300 hover:bg-white">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center text-xl shrink-0 group-hover:scale-105 transition-transform">
-                🍽️
-              </div>
-              <div>
-                <div class="font-bold text-sm sm:text-base text-slate-900 group-hover:text-sky-700 transition-colors">
-                  Ресторан
-                </div>
-                </div>
-            </div>
+          <!-- 4. Ресторан: WhatsApp (Вечер 19:15) -->
+          <button type="button" onclick="selectCaseNiche('restaurant', this)" class="case-niche-btn w-full py-3.5 px-4 rounded-xl flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:bg-slate-100/70 border-l-4 border-transparent text-slate-800">
+            <span class="text-sm sm:text-base tracking-tight font-medium group-hover:text-sky-700 transition-colors">Ресторан</span>
             <div class="flex items-center gap-2 shrink-0">
-              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">WhatsApp</span>
+              <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-emerald-50 text-[#075E54] border border-emerald-200/80">WhatsApp</span>
               <span class="text-slate-400 group-hover:text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform">→</span>
             </div>
           </button>
 
-          <!-- 5. Магазин одежды -->
-          <button type="button" onclick="selectCaseNiche('fashion', this)" class="case-niche-btn w-full p-3.5 sm:p-4 rounded-2xl bg-white/80 border border-slate-200/90 shadow-2xs flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:border-slate-300 hover:bg-white">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-fuchsia-50 border border-fuchsia-100 flex items-center justify-center text-xl shrink-0 group-hover:scale-105 transition-transform">
-                👗
-              </div>
-              <div>
-                <div class="font-bold text-sm sm:text-base text-slate-900 group-hover:text-sky-700 transition-colors">
-                  Магазин одежды
-                </div>
-                </div>
-            </div>
+          <!-- 5. Магазин одежды: Instagram Direct (Ночь 01:15, запрос "цена?") -->
+          <button type="button" onclick="selectCaseNiche('fashion', this)" class="case-niche-btn w-full py-3.5 px-4 rounded-xl flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:bg-slate-100/70 border-l-4 border-transparent text-slate-800">
+            <span class="text-sm sm:text-base tracking-tight font-medium group-hover:text-sky-700 transition-colors">Магазин одежды</span>
             <div class="flex items-center gap-2 shrink-0">
-              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-fuchsia-50 text-fuchsia-700 border border-fuchsia-200">Instagram</span>
+              <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-fuchsia-50 text-[#d6249f] border border-fuchsia-200/80">Instagram</span>
               <span class="text-slate-400 group-hover:text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform">→</span>
             </div>
           </button>
 
-          <!-- 6. Доставка -->
-          <button type="button" onclick="selectCaseNiche('delivery', this)" class="case-niche-btn w-full p-3.5 sm:p-4 rounded-2xl bg-white/80 border border-slate-200/90 shadow-2xs flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:border-slate-300 hover:bg-white">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-teal-50 border border-teal-100 flex items-center justify-center text-xl shrink-0 group-hover:scale-105 transition-transform">
-                🚚
-              </div>
-              <div>
-                <div class="font-bold text-sm sm:text-base text-slate-900 group-hover:text-sky-700 transition-colors">
-                  Служба доставки
-                </div>
-                </div>
-            </div>
+          <!-- 6. Служба доставки: MAX (Утро 08:10) -->
+          <button type="button" onclick="selectCaseNiche('delivery', this)" class="case-niche-btn w-full py-3.5 px-4 rounded-xl flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:bg-slate-100/70 border-l-4 border-transparent text-slate-800">
+            <span class="text-sm sm:text-base tracking-tight font-medium group-hover:text-sky-700 transition-colors">Служба доставки</span>
             <div class="flex items-center gap-2 shrink-0">
-              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">WhatsApp</span>
+              <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-indigo-50 text-[#4f46e5] border border-indigo-200/80">MAX</span>
               <span class="text-slate-400 group-hover:text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform">→</span>
             </div>
           </button>
 
-          <!-- 7. Магазин мебели -->
-          <button type="button" onclick="selectCaseNiche('furniture', this)" class="case-niche-btn w-full p-3.5 sm:p-4 rounded-2xl bg-white/80 border border-slate-200/90 shadow-2xs flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:border-slate-300 hover:bg-white">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-orange-50 border border-orange-100 flex items-center justify-center text-xl shrink-0 group-hover:scale-105 transition-transform">
-                🛋️
-              </div>
-              <div>
-                <div class="font-bold text-sm sm:text-base text-slate-900 group-hover:text-sky-700 transition-colors">
-                  Магазин мебели
-                </div>
-                </div>
-            </div>
+          <!-- 7. Магазин мебели: Авито (Поздний вечер 22:30) -->
+          <button type="button" onclick="selectCaseNiche('furniture', this)" class="case-niche-btn w-full py-3.5 px-4 rounded-xl flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:bg-slate-100/70 border-l-4 border-transparent text-slate-800">
+            <span class="text-sm sm:text-base tracking-tight font-medium group-hover:text-sky-700 transition-colors">Магазин мебели</span>
             <div class="flex items-center gap-2 shrink-0">
-              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">WhatsApp</span>
+              <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-800 border border-slate-300/80">Авито</span>
               <span class="text-slate-400 group-hover:text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform">→</span>
             </div>
           </button>

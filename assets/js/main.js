@@ -2290,131 +2290,136 @@
     // =========================================================================
     // 7 НИШ БИЗНЕСА И ДИАЛОГИ ВЕРЫ (СЕКЦИЯ #cases "ПРИМЕРЫ ИНТЕГРАЦИИ")
     // =========================================================================
+    // 5 МЕССЕНДЖЕРОВ: WhatsApp, Telegram, Instagram (светлый), MAX, Авито
+    // РАЗНОЕ ВРЕМЯ (включая ночное: 02:47, 01:15, 23:14)
+    // РАЗНЫЕ ТИПЫ КЛИЕНТОВ: от вежливых развернутых до лаконичных «цена?»
     const CASES_NICHES_DATA = {
       beauty: {
         channel: 'wa',
+        channelBadge: 'WhatsApp',
         companyName: 'Éclat Beauty',
-        nicheIcon: '💅',
-        nicheTitle: 'Салон красоты • WhatsApp',
+        nicheTitle: 'Салон красоты',
         headerBg: 'bg-[#075E54]',
-        barBg: 'bg-[#075E54]/90 border-t border-white/10 text-emerald-100',
-        chatBg: 'bg-[#efeae2]',
+        barBg: 'bg-[#075E54]/95 text-emerald-100 border-t border-white/10',
+        chatBg: 'bg-[#efeae2] chat-bg-wa',
         badgeClass: 'bg-emerald-400/20 text-emerald-100',
-        badgeText: 'Ответ: 2 сек • Запись в салон',
+        badgeText: 'День 14:20 • Ответ 2 сек',
         messages: [
-          { sender: 'user', text: 'Здравствуйте! Хочу записаться на сложное окрашивание аиртач и уход, есть окошки на пятницу после 17:00?', time: '16:40' },
-          { sender: 'vera', text: 'Добрый день. Вера, ваш консультант. Благодарю за обращение в салон красоты Éclat Beauty! Да, на пятницу есть отличное время к топ-стилисту Анне в 17:30 или 18:00. В стоимость входит деликатное осветление, тонирование и восстанавливающий спа-уход для волос. Подскажите, пожалуйста, какая сейчас длина волос?', time: '16:40' },
-          { sender: 'user', text: 'Длина чуть ниже лопаток, волосы густые. В 18:00 мне идеально подходит!', time: '16:41' },
-          { sender: 'vera', text: 'Записала вас на пятницу в 18:00 к топ-стилисту Анне. Адрес салона: Кутузовский проспект, 24. Для вас подготовлен приятный комплимент - массаж рук во время ухода. Ждем вас в гости! Желаю вам отличного дня и до встречи!', time: '16:41' },
-          { type: 'status', text: '✅ Запись подтверждена • Салон Éclat Beauty • Пятница, 18:00' }
+          { sender: 'user', text: 'Здравствуйте! Подскажите, пожалуйста, можно ли записаться на сложное окрашивание AirTouch к топ-мастеру в эту субботу? Длина волос до лопаток.', time: '14:20' },
+          { sender: 'vera', text: 'Добрый день. Вера, ваш консультант. Благодарю за обращение в салон красоты Éclat Beauty! Да, на субботу есть отличное окно к топ-колористу Анне на 11:30. На длину до лопаток работа займет 4 часа, в стоимость входит деликатное осветление, тонирование и уход. Забронировать за вами это время?', time: '14:20' },
+          { sender: 'user', text: 'Да, отлично, запишите меня на 11:30, пожалуйста.', time: '14:21' },
+          { sender: 'vera', text: 'Замечательно! Записала вас на субботу в 11:30. Адрес: Кутузовский проспект, 24. Для вас подготовлен приятный комплимент - спа-уход для рук во время процедуры. Желаю вам прекрасного дня и до скорой встречи!', time: '14:21' },
+          { type: 'status', text: '✅ Запись подтверждена • Суббота, 11:30 • Éclat Beauty' }
         ]
       },
       realty: {
         channel: 'tg',
+        channelBadge: 'Telegram',
         companyName: 'Метры & Партнеры',
-        nicheIcon: '🏢',
-        nicheTitle: 'Недвижимость • Telegram',
-        headerBg: 'bg-[#2481cc]',
-        barBg: 'bg-[#1f73b6] border-t border-white/15 text-sky-100',
-        chatBg: 'bg-[#eef2f5]',
+        nicheTitle: 'Агентство по недвижимости',
+        headerBg: 'bg-[#229ED9]',
+        barBg: 'bg-[#1e8cc0] text-sky-100 border-t border-white/15',
+        chatBg: 'bg-[#eef2f5] chat-bg-tg',
         badgeClass: 'bg-sky-400/20 text-sky-100',
-        badgeText: 'Ответ: 3 сек • Бронь спеццены',
+        badgeText: '🌙 Ночная заявка 02:47 • Ответ 2 сек',
         messages: [
-          { sender: 'user', text: 'Добрый день, ищем 2-комнатную квартиру в новостройке бизнес-класса, бюджет до 18 млн, рассматриваем семейную ипотеку.', time: '14:15' },
-          { sender: 'vera', text: 'Добрый день. Вера, ваш консультант. Благодарю за обращение в компанию Метры & Партнеры! В рамках вашего бюджета есть 3 готовых варианта с отделкой в 10 минутах от парка с субсидированной ставкой по семейной ипотеке от 5%. Платёж составит от 78 000 ₽/мес. Уточните, пожалуйста, какой район Москвы для вас в приоритете?', time: '14:15' },
-          { sender: 'user', text: 'Западный или Юго-Западный округ. А можно получить планировки и расчет по банку?', time: '14:16' },
-          { sender: 'vera', text: 'Отправила подборку из 4 планировок с детальным расчетом ипотеки прямо сейчас вам в чат. Также закрепила за вами старшего брокера Романа для бесплатного бронирования спеццены. Желаю вам отличного дня, процветания и изобилия!', time: '14:16' },
-          { type: 'status', text: '✅ Подборка отправлена • Спеццена зафиксирована • Брокер назначен' }
+          { sender: 'user', text: 'Семейная ипотека под 6% еще действует на двушки в Новой Москве? Есть сдача в этом году?', time: '02:47' },
+          { sender: 'vera', text: 'Доброй ночи! Вера, консультант агентства «Метры & Партнеры». Да, льготная ставка 6% действует! В Новой Москве есть 4 готовых ЖК комфорт- и бизнес-класса со сдачей в IV квартале этого года. Двухкомнатные от 11.8 млн ₽, ежемесячный платеж от 52 000 ₽. Прислать вам презентацию с планировками и расчетом платежей?', time: '02:47' },
+          { sender: 'user', text: 'Да, пришлите в телеграм. И можно ли завтра созвониться с брокером?', time: '02:48' },
+          { sender: 'vera', text: 'Отправила PDF-каталог с планировками прямо сюда в чат! Назначила звонок старшего брокера на завтра на удобное вам время - 11:00 или 14:00? Желаю вам спокойной ночи и продуктивного завтрашнего дня!', time: '02:48' },
+          { type: 'status', text: '🌙 Ночная заявка 02:47 • Каталог отправлен • Брокер назначен' }
         ]
       },
       education: {
-        channel: 'tg',
+        channel: 'max',
+        channelBadge: 'MAX',
         companyName: 'DataPro IT School',
-        nicheIcon: '🎓',
-        nicheTitle: 'Онлайн-школа • Telegram',
-        headerBg: 'bg-[#2481cc]',
-        barBg: 'bg-[#1f73b6] border-t border-white/15 text-sky-100',
-        chatBg: 'bg-[#eef2f5]',
-        badgeClass: 'bg-sky-400/20 text-sky-100',
-        badgeText: 'Ответ: 2 сек • Грант 30% закреплен',
+        nicheTitle: 'Онлайн-школа',
+        headerBg: 'bg-[#4f46e5]',
+        barBg: 'bg-[#4338ca] text-indigo-100 border-t border-white/15',
+        chatBg: 'bg-[#f4f5f9]',
+        badgeClass: 'bg-indigo-400/25 text-indigo-100',
+        badgeText: 'Вечер 23:14 • MAX Бизнес',
         messages: [
-          { sender: 'user', text: 'Здравствуйте, хочу освоить профессию Python-разработчика с нуля. Реально ли совмещать с работой и есть ли рассрочка?', time: '11:20' },
-          { sender: 'vera', text: 'Добрый день. Вера, ваш консультант. Благодарю за обращение в онлайн-школу DataPro IT! Да, программа создана специально для обучения с нуля: занятия проходят онлайн по 5-6 часов в неделю в удобное для вас время. Действует беспроцентная рассрочка от 4 800 ₽/мес без первого взноса, а также доступен грант со скидкой 30% на этот поток. Прислать вам пробный урок и программу курса?', time: '11:20' },
-          { sender: 'user', text: 'Да, пришлите, пожалуйста, и зафиксируйте за мной грант.', time: '11:21' },
-          { sender: 'vera', text: 'Открыла вам доступ к первому практическому модулю и закрепила грант 30% до конца недели. Ваш куратор свяжется с вами для вводного урока. Желаю вам отличного дня и всего наилучшего!', time: '11:21' },
-          { type: 'status', text: '✅ Доступ открыт • Грант 30% активирован • Куратор прикреплен' }
+          { sender: 'user', text: 'Добрый вечер. Подскажите стоимость курса по ИИ для бизнеса. Реально совмещать с работой и есть ли рассрочка без банков?', time: '23:14' },
+          { sender: 'vera', text: 'Добрый вечер! Вера, консультант онлайн-школы DataPro IT. Курс рассчитан на 4 часа в неделю в удобное вам время, 80% студентов успешно совмещают с работой. Действует беспроцентная рассрочка от школы от 5 400 ₽/мес без первого взноса. Прислать вам программу курса и бесплатный вводный урок?', time: '23:14' },
+          { sender: 'user', text: 'Да, отправьте демо-доступ, пожалуйста.', time: '23:15' },
+          { sender: 'vera', text: 'Доступ к первому модулю открыт, ссылка в чате. Также зафиксировала за вами грант 30% на обучение до конца недели. Желаю вам продуктивного вечера, процветания и успехов в учебе!', time: '23:15' },
+          { type: 'status', text: '✅ Демо-доступ открыт • Грант 30% зафиксирован • MAX' }
         ]
       },
       restaurant: {
         channel: 'wa',
+        channelBadge: 'WhatsApp',
         companyName: 'La Terrazza',
-        nicheIcon: '🍽️',
-        nicheTitle: 'Ресторан • WhatsApp',
+        nicheTitle: 'Ресторан',
         headerBg: 'bg-[#075E54]',
-        barBg: 'bg-[#075E54]/90 border-t border-white/10 text-emerald-100',
-        chatBg: 'bg-[#efeae2]',
+        barBg: 'bg-[#075E54]/95 text-emerald-100 border-t border-white/10',
+        chatBg: 'bg-[#efeae2] chat-bg-wa',
         badgeClass: 'bg-emerald-400/20 text-emerald-100',
-        badgeText: 'Ответ: 2 сек • Стол подтвержден',
+        badgeText: 'Вечер 19:15 • Ответ 2 сек',
         messages: [
-          { sender: 'user', text: 'Добрый день! Можно забронировать столик на четверых на субботу в 19:30? У нас годовщина, желательно у панорамного окна.', time: '15:10' },
-          { sender: 'vera', text: 'Добрый день. Вера, ваш консультант. Благодарю за обращение в ресторан La Terrazza! Поздравляем с наступающей годовщиной! Забронировала для вас лучший столик у панорамного окна в тихой зоне на субботу, 19:30, на 4 персоны. От шеф-повара вас ждет фирменный десерт и комплимент к празднику. Есть ли пожелания по предпочтениям в меню?', time: '15:10' },
-          { sender: 'user', text: 'Спасибо огромное, очень приятно! Предпочитаем морепродукты и легкие десерты. Стол подтверждаем.', time: '15:11' },
-          { sender: 'vera', text: 'Замечательный выбор, передала пожелания сомелье и шеф-повару. Бронь №482 подтверждена, будем рады подарить вам незабываемый вечер! Желаю вам отличного дня и до встречи!', time: '15:11' },
+          { sender: 'user', text: 'Добрый вечер! Можно забронировать столик на четверых на субботу в 19:30 у панорамного окна? У нас годовщина.', time: '19:15' },
+          { sender: 'vera', text: 'Добрый вечер! Вера, консультант ресторана La Terrazza. Поздравляем с наступающей годовщиной! Забронировала для вас лучший столик у панорамного окна на субботу, 19:30. От шеф-повара вас ждет комплимент и фирменный десерт к празднику. Бронь подтверждаем?', time: '19:15' },
+          { sender: 'user', text: 'Да, подтверждаем, спасибо огромное за комплимент!', time: '19:16' },
+          { sender: 'vera', text: 'Бронь №482 подтверждена! Будем рады сделать ваш вечер незабываемым. Желаю вам прекрасного вечера и до встречи!', time: '19:16' },
           { type: 'status', text: '✅ Столик забронирован • Стол №12 у окна • Комплимент включен' }
         ]
       },
       fashion: {
         channel: 'ig',
+        channelBadge: 'Instagram',
         companyName: 'lumiere_paris',
-        nicheIcon: '👗',
-        nicheTitle: 'Магазин одежды • Instagram Direct',
-        headerBg: 'bg-[#121212]',
-        barBg: 'bg-[#18181b] border-b border-white/5 text-slate-300',
-        chatBg: 'bg-black',
-        badgeClass: 'bg-pink-400/20 text-pink-200',
-        badgeText: 'Ответ: 2 сек • Заказ оформлен',
+        nicheTitle: 'Магазин одежды',
+        headerBg: 'bg-white border-b border-slate-200 text-slate-900',
+        barBg: 'bg-slate-50 text-slate-700 border-b border-slate-200/80',
+        chatBg: 'bg-white',
+        badgeClass: 'bg-fuchsia-50 text-fuchsia-700 border border-fuchsia-200',
+        badgeText: '🌙 Ночь 01:15 • Запрос «цена?»',
         messages: [
-          { sender: 'user', text: 'Здравствуйте! Очень понравилось шелковое платье в цвете изумруд. На параметры 88-64-94 какой размер лучше взять? И есть ли доставка с примеркой по Москве?', time: '18:05' },
-          { sender: 'vera', text: 'Добрый день. Вера, ваш консультант. Благодарю за обращение в бренд Lumiere Paris! На ваши параметры идеально садится размер S (42-44), лекала разработаны с мягкой посадкой по фигуре. Платье в наличии в нашем бутике. Доставка с примеркой курьером по Москве доступна уже на завтра, курьер может привезти размеры S и M для примерки. Оформить доставку?', time: '18:05' },
-          { sender: 'user', text: 'Да, давайте оба размера на завтра на 14:00, адрес ул. Мосфильмовская, 52.', time: '18:06' },
-          { sender: 'vera', text: 'Заказ оформлен! Курьер предварительно позвонит за 1 час. Добавила к заказу фирменный чехол для бережного хранения. Желаю вам отличного дня и всего наилучшего!', time: '18:06' },
-          { type: 'status', text: '✅ Доставка оформлена • Заказ №LP-924 • Примерка S и M' }
+          { sender: 'user', text: 'цена?', time: '01:15' },
+          { sender: 'vera', text: 'Добрый вечер! Вера, консультант Lumiere Paris. Стоимость платья из натурального шелка - 12 900 ₽. В наличии размеры 42, 44, 46. Доставка с примеркой курьером по Москве доступна уже завтра. Подсказать по меркам и наличию цветов?', time: '01:15' },
+          { sender: 'user', text: 'в черном 44 есть?', time: '01:16' },
+          { sender: 'vera', text: 'Да, в черном цвете остался в наличии! Можем привезти завтра на примерку с 14:00 до 18:00, курьер подождет 15 минут. Оформить заказ?', time: '01:16' },
+          { sender: 'user', text: 'да, ул. Мосфильмовская 52, кв 18', time: '01:17' },
+          { sender: 'vera', text: 'Заказ №LP-924 оформлен на завтра! Курьер предварительно наберет за 1 час. Желаю вам прекрасной ночи и приятных покупок!', time: '01:17' },
+          { type: 'status', text: '🌙 Ночная сделка 01:15 • Заказ №LP-924 • Сделка закрыта' }
         ]
       },
       delivery: {
-        channel: 'wa',
+        channel: 'max',
+        channelBadge: 'MAX',
         companyName: 'Express Delivery',
-        nicheIcon: '🚚',
-        nicheTitle: 'Служба доставки • WhatsApp',
-        headerBg: 'bg-[#075E54]',
-        barBg: 'bg-[#075E54]/90 border-t border-white/10 text-emerald-100',
-        chatBg: 'bg-[#efeae2]',
-        badgeClass: 'bg-emerald-400/20 text-emerald-100',
-        badgeText: 'Ответ: 3 сек • Курьер вызван',
+        nicheTitle: 'Служба доставки',
+        headerBg: 'bg-[#4f46e5]',
+        barBg: 'bg-[#4338ca] text-indigo-100 border-t border-white/15',
+        chatBg: 'bg-[#f4f5f9]',
+        badgeClass: 'bg-indigo-400/25 text-indigo-100',
+        badgeText: 'Утро 08:10 • Экспресс 24ч',
         messages: [
-          { sender: 'user', text: 'Здравствуйте, нужно срочно отправить коробку с документами и образцами весом 4 кг из Москвы в Екатеринбург. Сколько стоит и успеет ли за 2 дня?', time: '12:30' },
-          { sender: 'vera', text: 'Добрый день. Вера, ваш консультант. Благодарю за обращение в службу доставки Express Delivery! Экспресс-тарифом доставим лично в руки получателю за 24-36 часов. Стоимость отправки весом 4 кг составит 1 290 ₽, включая страховку и трекинг в реальном времени. Курьер может забрать отправление у вас сегодня в течение 40 минут. На какой адрес вызвать курьера?', time: '12:30' },
-          { sender: 'user', text: 'Отлично, адрес Ленинградский проспект 39, офис 412, забирайте сегодня.', time: '12:31' },
-          { sender: 'vera', text: 'Накладная №ED-8491 создана, курьер уже назначен и подъедет к вам к 13:40. Ссылка для отслеживания отправлена. Желаю вам отличного дня, процветания и изобилия!', time: '12:31' },
-          { type: 'status', text: '✅ Курьер назначен • Накладная №ED-8491 • Прибытие через 35 мин' }
+          { sender: 'user', text: 'Срочно отправить коробку 4 кг из Москвы в СПб. Сколько стоит и успеет ли за сутки?', time: '08:10' },
+          { sender: 'vera', text: 'Доброе утро! Вера, консультант службы доставки Express Delivery. Экспресс-тарифом доставим лично в руки за 24 часа. Стоимость 1 290 ₽, включая страховку и трекинг. Курьер может забрать отправление у вас уже через 40 минут. На какой адрес вызвать курьера?', time: '08:10' },
+          { sender: 'user', text: 'Ленинградский проспект 39, офис 412. Забирайте.', time: '08:11' },
+          { sender: 'vera', text: 'Накладная №ED-8491 создана, курьер назначен и подъедет к вам к 09:00. Желаю вам отличного дня и оперативных доставок!', time: '08:11' },
+          { type: 'status', text: '✅ Накладная №ED-8491 • Прибытие курьера через 45 мин' }
         ]
       },
       furniture: {
-        channel: 'wa',
+        channel: 'avito',
+        channelBadge: 'Авито',
         companyName: 'WoodCraft Мебель',
-        nicheIcon: '🛋️',
-        nicheTitle: 'Магазин мебели • WhatsApp',
-        headerBg: 'bg-[#075E54]',
-        barBg: 'bg-[#075E54]/90 border-t border-white/10 text-emerald-100',
-        chatBg: 'bg-[#efeae2]',
-        badgeClass: 'bg-emerald-400/20 text-emerald-100',
-        badgeText: 'Ответ: 2 сек • Замер назначен',
+        nicheTitle: 'Магазин мебели',
+        headerBg: 'bg-white border-b border-slate-200 text-slate-900',
+        barBg: 'bg-[#eef9ef] text-slate-700 border-b border-[#d6f2d6]',
+        chatBg: 'bg-[#f2f3f5] chat-bg-avito',
+        badgeClass: 'bg-slate-200 text-slate-800',
+        badgeText: 'Вечер 22:30 • Авито Сделка',
         messages: [
-          { sender: 'user', text: 'Добрый вечер! Нужен встроенный шкаф-купе в прихожую по индивидуальным размерам, длина стены 2.8 метра. Сколько примерно выйдет по стоимости и делаете ли 3D-проект?', time: '19:40' },
-          { sender: 'vera', text: 'Добрый день. Вера, ваш консультант. Благодарю за обращение в компанию WoodCraft Мебель! Шкаф-купе длиной 2.8 м с зеркальными фасадами и австрийской фурнитурой Blum в среднем рассчитывается от 68 000 ₽. Индивидуальный 3D-проект и выезд профессионального замерщика с образцами материалов у нас бесплатны. Подскажите, в какой день вам удобно принять дизайнера-замерщика?', time: '19:40' },
-          { sender: 'user', text: 'В субботу в первой половине дня было бы идеально.', time: '19:41' },
-          { sender: 'vera', text: 'Назначила выезд замерщика на субботу к 11:00. Специалист привезет каталоги и каталог фурнитуры, на месте сделает точный расчет. Желаю вам отличного дня и до встречи!', time: '19:41' },
-          { type: 'status', text: '✅ Выезд замерщика назначен • Суббота, 11:00 • 3D-проект бесплатно' }
+          { sender: 'user', text: 'Здравствуйте! Актуально? Цена шкафа как на фото? И замер платный?', time: '22:30' },
+          { sender: 'vera', text: 'Добрый вечер! Вера, консультант WoodCraft Мебель. Да, объявление актуально! Шкаф-купе как на фото с зеркальными фасадами и доводчиками Blum от 68 000 ₽. Выезд замерщика с образцами материалов и 3D-проект - абсолютно бесплатно. В какой день вам удобно принять мастера?', time: '22:30' },
+          { sender: 'user', text: 'В воскресенье в 12:00 было бы удобно.', time: '22:31' },
+          { sender: 'vera', text: 'Записала вас на воскресенье к 12:00! Мастер привезет раскладки профилей и сделает точный расчет на месте. Желаю вам отличного вечера и уюта в доме!', time: '22:31' },
+          { type: 'status', text: '✅ Замер назначен • Бесплатный 3D-проект • Авито' }
         ]
       }
     };
@@ -2429,10 +2434,16 @@
 
     function renderCaseMessageHTML(msg, channel) {
       if (msg.type === 'status') {
-        const isIg = (channel === 'ig');
-        const pillBg = isIg
-          ? 'bg-white/10 border border-white/15 text-emerald-300'
-          : 'bg-emerald-500/15 border border-emerald-500/30 text-emerald-900';
+        let pillBg = 'bg-slate-100 border border-slate-200 text-slate-800';
+        if (channel === 'wa') {
+          pillBg = 'bg-emerald-500/15 border border-emerald-500/30 text-emerald-900';
+        } else if (channel === 'tg') {
+          pillBg = 'bg-sky-500/15 border border-sky-500/30 text-sky-900';
+        } else if (channel === 'max') {
+          pillBg = 'bg-indigo-500/15 border border-indigo-500/30 text-indigo-900';
+        } else if (channel === 'ig') {
+          pillBg = 'bg-fuchsia-50 border border-fuchsia-200 text-fuchsia-900';
+        }
         return `
           <div class="flex justify-center my-1.5 transition-all duration-300 opacity-0 translate-y-2">
             <div class="px-3 py-1.5 rounded-xl ${pillBg} text-[11px] font-semibold shadow-2xs text-center flex items-center gap-1.5">
@@ -2450,7 +2461,7 @@
                 <p>${msg.text}</p>
                 <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-slate-500">
                   <span>${msg.time || ''}</span>
-                  <span class="text-[#53bdeb]">✓✓</span>
+                  <span class="text-[#53bdeb] font-bold">✓✓</span>
                 </div>
               </div>
             </div>
@@ -2467,13 +2478,39 @@
               </div>
             </div>
           `;
-        } else {
+        } else if (channel === 'max') {
           return `
             <div class="flex justify-end transition-all duration-300 opacity-0 translate-y-2">
-              <div class="max-w-[85%] bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white px-3 py-2 rounded-2xl rounded-br-xs shadow-xs leading-relaxed text-xs">
+              <div class="max-w-[85%] bg-[#ede9fe] text-slate-900 px-3 py-2 rounded-tl-xl rounded-tr-xs rounded-br-xl rounded-bl-xl shadow-xs leading-relaxed text-xs border border-indigo-100">
                 <p>${msg.text}</p>
-                <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-white/70">
+                <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-indigo-800">
                   <span>${msg.time || ''}</span>
+                  <span>✓✓</span>
+                </div>
+              </div>
+            </div>
+          `;
+        } else if (channel === 'ig') {
+          // Instagram Light User Bubble
+          return `
+            <div class="flex justify-end transition-all duration-300 opacity-0 translate-y-2">
+              <div class="max-w-[85%] bg-[#f0f2f5] text-slate-900 px-3 py-2 rounded-2xl rounded-br-xs shadow-2xs leading-relaxed text-xs border border-slate-200/80">
+                <p>${msg.text}</p>
+                <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-slate-400">
+                  <span>${msg.time || ''}</span>
+                </div>
+              </div>
+            </div>
+          `;
+        } else {
+          // Avito
+          return `
+            <div class="flex justify-end transition-all duration-300 opacity-0 translate-y-2">
+              <div class="max-w-[85%] bg-[#e1f3fe] text-slate-900 px-3 py-2 rounded-2xl rounded-tr-xs shadow-2xs leading-relaxed text-xs">
+                <p>${msg.text}</p>
+                <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-[#00aaff]">
+                  <span>${msg.time || ''}</span>
+                  <span>✓✓</span>
                 </div>
               </div>
             </div>
@@ -2506,11 +2543,37 @@
             </div>
           </div>
         `;
-      } else {
+      } else if (channel === 'max') {
         return `
           <div class="flex justify-start transition-all duration-300 opacity-0 translate-y-2">
-            <div class="max-w-[88%] bg-[#262626] text-white px-3 py-2 rounded-2xl rounded-bl-xs shadow-xs leading-relaxed text-xs">
-              <div class="text-[10px] font-bold text-pink-400 mb-0.5">Вера</div>
+            <div class="max-w-[88%] bg-white text-slate-900 px-3 py-2 rounded-tr-xl rounded-tl-xs rounded-br-xl rounded-bl-xl shadow-xs leading-relaxed text-xs border border-indigo-100">
+              <div class="text-[10px] font-bold text-[#4f46e5] mb-0.5">Вера • MAX</div>
+              <p>${msg.text}</p>
+              <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-slate-400">
+                <span>${msg.time || ''}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (channel === 'ig') {
+        // Instagram Light Vera Bubble
+        return `
+          <div class="flex justify-start transition-all duration-300 opacity-0 translate-y-2">
+            <div class="max-w-[88%] bg-white text-slate-900 px-3 py-2.5 rounded-2xl rounded-bl-xs shadow-xs leading-relaxed text-xs border border-slate-200">
+              <div class="text-[10px] font-bold text-pink-600 mb-0.5">Вера</div>
+              <p>${msg.text}</p>
+              <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-slate-400">
+                <span>${msg.time || ''}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        // Avito
+        return `
+          <div class="flex justify-start transition-all duration-300 opacity-0 translate-y-2">
+            <div class="max-w-[88%] bg-white text-slate-900 px-3 py-2 rounded-2xl rounded-tl-xs shadow-xs leading-relaxed text-xs border border-slate-200">
+              <div class="text-[10px] font-bold text-slate-700 mb-0.5">Вера • Авито</div>
               <p>${msg.text}</p>
               <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-slate-400">
                 <span>${msg.time || ''}</span>
@@ -2522,22 +2585,15 @@
     }
 
     function renderCaseTypingHTML(channel) {
-      if (channel === 'ig') {
-        return `
-          <div class="case-typing-indicator flex justify-start my-1 transition-all duration-200">
-            <div class="flex items-center gap-1.5 p-2 bg-[#262626] rounded-2xl max-w-[120px] text-slate-400 text-[11px] shadow-xs">
-              <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce"></span>
-              <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce [animation-delay:150ms]"></span>
-              <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce [animation-delay:300ms]"></span>
-              <span class="ml-1 text-[10px] text-slate-400">Вера...</span>
-            </div>
-          </div>
-        `;
-      }
-      const dotColor = channel === 'tg' ? 'bg-sky-400' : 'bg-emerald-500';
+      let dotColor = 'bg-emerald-500';
+      if (channel === 'tg') dotColor = 'bg-sky-400';
+      else if (channel === 'max') dotColor = 'bg-indigo-500';
+      else if (channel === 'ig') dotColor = 'bg-pink-500';
+      else if (channel === 'avito') dotColor = 'bg-[#00aaff]';
+
       return `
         <div class="case-typing-indicator flex justify-start my-1 transition-all duration-200">
-          <div class="flex items-center gap-1.5 p-2 bg-white rounded-tr-xl rounded-tl-xs rounded-br-xl rounded-bl-xl shadow-xs border border-slate-100 max-w-[120px] text-slate-500 text-[11px]">
+          <div class="flex items-center gap-1.5 p-2 bg-white rounded-2xl shadow-xs border border-slate-200/80 max-w-[120px] text-slate-500 text-[11px]">
             <span class="w-1.5 h-1.5 ${dotColor} rounded-full animate-bounce"></span>
             <span class="w-1.5 h-1.5 ${dotColor} rounded-full animate-bounce [animation-delay:150ms]"></span>
             <span class="w-1.5 h-1.5 ${dotColor} rounded-full animate-bounce [animation-delay:300ms]"></span>
@@ -2552,12 +2608,16 @@
       activeCaseNicheKey = key;
       const data = CASES_NICHES_DATA[key];
 
-      // 1. Обновляем стили кнопок ниш слева
+      // 1. Обновляем стили кнопок ниш слева (без подложек и без эмодзи)
       const listContainer = document.getElementById('casesNichesList');
       if (listContainer) {
         const buttons = listContainer.querySelectorAll('.case-niche-btn');
         buttons.forEach(btn => {
-          btn.className = 'case-niche-btn w-full p-3.5 sm:p-4 rounded-2xl bg-white/80 border border-slate-200/90 shadow-2xs flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:border-slate-300 hover:bg-white';
+          btn.className = 'case-niche-btn w-full py-3.5 px-4 rounded-xl flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:bg-slate-100/70 border-l-4 border-transparent text-slate-800';
+          const titleSpan = btn.querySelector('span:first-child');
+          if (titleSpan) {
+            titleSpan.className = 'text-sm sm:text-base tracking-tight font-medium group-hover:text-sky-700 transition-colors';
+          }
           const arrow = btn.querySelector('.group-hover\\:translate-x-0\\.5');
           if (arrow) {
             arrow.className = 'text-slate-400 group-hover:text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform';
@@ -2567,17 +2627,21 @@
 
       const activeBtn = clickedBtn || (listContainer ? listContainer.querySelector(`button[onclick*="'${key}'"]`) : null);
       if (activeBtn) {
-        activeBtn.className = 'case-niche-btn active w-full p-3.5 sm:p-4 rounded-2xl bg-white border-2 border-sky-500 shadow-md ring-2 ring-sky-400/20 flex items-center justify-between text-left transition-all duration-200 group cursor-pointer';
+        activeBtn.className = 'case-niche-btn active w-full py-3.5 px-4 rounded-xl flex items-center justify-between text-left transition-all duration-200 group cursor-pointer bg-sky-50/80 border-l-4 border-sky-500 font-bold text-sky-950';
+        const titleSpan = activeBtn.querySelector('span:first-child');
+        if (titleSpan) {
+          titleSpan.className = 'text-sm sm:text-base tracking-tight font-bold text-sky-950';
+        }
         const arrow = activeBtn.querySelector('.group-hover\\:translate-x-0\\.5');
         if (arrow) {
           arrow.className = 'text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform';
         }
       }
 
-      // 2. Рендерим Header
+      // 2. Рендерим Header соответствующего мессенджера
       const headerEl = document.getElementById('casePhoneHeader');
       if (headerEl) {
-        headerEl.className = `pt-9 pb-2.5 px-3.5 ${data.headerBg} text-white flex items-center justify-between shrink-0 shadow-xs z-10 transition-colors duration-300`;
+        headerEl.className = `pt-9 pb-2.5 px-3.5 ${data.headerBg} flex items-center justify-between shrink-0 shadow-xs z-10 transition-colors duration-300`;
         
         let headerContent = '';
         if (data.channel === 'wa') {
@@ -2627,28 +2691,75 @@
               <button type="button" onclick="replayCaseChat('${key}')" class="text-[10px] bg-white/20 hover:bg-white/30 text-white px-2 py-0.5 rounded transition-all cursor-pointer font-semibold" title="Перезапустить диалог">↻</button>
             </div>
           `;
-        } else {
-          // Instagram Direct
+        } else if (data.channel === 'max') {
           headerContent = `
             <div class="flex items-center gap-2 min-w-0">
               <div class="text-white/80 cursor-pointer text-xs flex items-center shrink-0">
                 <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg>
               </div>
-              <div class="relative w-8 h-8 rounded-full p-[1.5px] bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] shrink-0 shadow-xs">
-                <img src="assets/images/vera_ai_portrait.webp" onerror="this.src='vera_ai_portrait.webp'" alt="Вера" class="w-full h-full rounded-full object-cover bg-slate-900">
-                <span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-400 border border-black"></span>
+              <div class="relative w-8 h-8 rounded-full border border-white/40 overflow-hidden shrink-0 bg-indigo-900 shadow-xs">
+                <img src="assets/images/vera_ai_portrait.webp" onerror="this.src='vera_ai_portrait.webp'" alt="Вера" class="w-full h-full object-cover">
+                <span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-400 border border-white"></span>
               </div>
               <div class="min-w-0 leading-tight text-left">
                 <div class="text-xs font-bold text-white truncate flex items-center gap-1">
                   <span>${data.companyName}</span>
-                  <svg class="w-3 h-3 text-sky-400 fill-current shrink-0" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg>
+                  <span class="text-[9px] bg-white/25 px-1 py-0.2 rounded font-semibold">MAX</span>
                 </div>
-                <div class="text-[10px] text-slate-300 font-medium">Вера • в сети</div>
+                <div class="text-[10px] text-indigo-100 font-medium">Вера • в сети</div>
               </div>
             </div>
-            <div class="flex items-center gap-2.5 text-white/90 shrink-0">
-              <svg class="w-4 h-4 fill-current opacity-85" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.44-5.15-3.75-6.59-6.58l1.97-1.58a.99.99 0 00.25-1.02c-.36-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3.3 3 3.65 3 4.19 3 13.56 10.44 21 19.81 21c.54 0 .99-.65.99-1.19v-3.44c0-.54-.45-.99-.99-.99z"/></svg>
-              <button type="button" onclick="replayCaseChat('${key}')" class="text-[10px] bg-white/15 hover:bg-white/25 text-white px-2 py-0.5 rounded transition-all cursor-pointer font-semibold" title="Перезапустить диалог">↻</button>
+            <div class="flex items-center gap-2 text-white/90 shrink-0">
+              <button type="button" onclick="replayCaseChat('${key}')" class="text-[10px] bg-white/20 hover:bg-white/30 text-white px-2 py-0.5 rounded transition-all cursor-pointer font-semibold" title="Перезапустить диалог">↻</button>
+            </div>
+          `;
+        } else if (data.channel === 'ig') {
+          // Instagram Light Header
+          headerContent = `
+            <div class="flex items-center gap-2 min-w-0">
+              <div class="text-slate-800 cursor-pointer text-xs flex items-center shrink-0">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg>
+              </div>
+              <div class="relative w-8 h-8 rounded-full p-[1.5px] bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] shrink-0 shadow-xs">
+                <img src="assets/images/vera_ai_portrait.webp" onerror="this.src='vera_ai_portrait.webp'" alt="Вера" class="w-full h-full rounded-full object-cover bg-white">
+                <span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-500 border border-white"></span>
+              </div>
+              <div class="min-w-0 leading-tight text-left">
+                <div class="text-xs font-bold text-slate-900 truncate flex items-center gap-1">
+                  <span>${data.companyName}</span>
+                  <svg class="w-3 h-3 text-sky-500 fill-current shrink-0" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg>
+                </div>
+                <div class="text-[10px] text-slate-500 font-medium">Вера • в сети</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 text-slate-700 shrink-0">
+              <svg class="w-4 h-4 fill-current opacity-70" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.44-5.15-3.75-6.59-6.58l1.97-1.58a.99.99 0 00.25-1.02c-.36-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3.3 3 3.65 3 4.19 3 13.56 10.44 21 19.81 21c.54 0 .99-.65.99-1.19v-3.44c0-.54-.45-.99-.99-.99z"/></svg>
+              <button type="button" onclick="replayCaseChat('${key}')" class="text-[10px] bg-slate-100 hover:bg-slate-200 text-slate-700 px-2 py-0.5 rounded transition-all cursor-pointer font-semibold" title="Перезапустить диалог">↻</button>
+            </div>
+          `;
+        } else {
+          // Avito Header
+          headerContent = `
+            <div class="flex items-center gap-2 min-w-0">
+              <svg class="w-4 h-4 text-slate-800 cursor-pointer fill-current" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+              <div class="w-7 h-7 rounded-lg overflow-hidden border border-slate-200 bg-white shrink-0 p-0.5 flex items-center justify-center">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
+                  <circle cx="7" cy="8" r="4" fill="#00AAFF"/>
+                  <circle cx="17" cy="7" r="3" fill="#04E061"/>
+                  <circle cx="16" cy="16" r="4.5" fill="#FF4053"/>
+                  <circle cx="8" cy="16.5" r="2.5" fill="#9B51E0"/>
+                </svg>
+              </div>
+              <div class="min-w-0 leading-tight text-left">
+                <div class="text-xs font-bold text-slate-900 truncate flex items-center gap-1">
+                  <span>${data.companyName}</span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                </div>
+                <div class="text-[10px] text-slate-500 font-medium">Вера • в сети</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 text-slate-700 shrink-0">
+              <button type="button" onclick="replayCaseChat('${key}')" class="text-[10px] bg-slate-100 hover:bg-slate-200 text-slate-700 px-2 py-0.5 rounded transition-all cursor-pointer font-semibold" title="Перезапустить диалог">↻</button>
             </div>
           `;
         }
@@ -2660,12 +2771,12 @@
       if (nicheBarEl) {
         nicheBarEl.className = `px-3 py-1 flex items-center justify-between text-[11px] font-semibold shrink-0 transition-colors duration-300 ${data.barBg}`;
         nicheBarEl.innerHTML = `
-          <span class="truncate">${data.nicheIcon} ${data.nicheTitle}</span>
+          <span class="truncate font-medium">${data.nicheTitle} • ${data.channelBadge}</span>
           <span class="text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0 ${data.badgeClass}">${data.badgeText}</span>
         `;
       }
 
-      // 4. Рендерим Footer
+      // 4. Рендерим Footer мессенджера
       const footerEl = document.getElementById('casePhoneFooter');
       if (footerEl) {
         if (data.channel === 'wa') {
@@ -2692,20 +2803,45 @@
               <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
             </div>
           `;
-        } else {
-          // Instagram Direct
-          footerEl.className = 'p-2 bg-[#121212] border-t border-white/10 flex items-center gap-2 shrink-0 transition-colors duration-300';
+        } else if (data.channel === 'max') {
+          footerEl.className = 'p-2 bg-white border-t border-slate-200/90 flex items-center gap-1.5 shrink-0 transition-colors duration-300';
           footerEl.innerHTML = `
-            <div class="w-7 h-7 rounded-full bg-[#262626] text-white flex items-center justify-center shrink-0 cursor-pointer">
+            <div class="text-slate-500 p-1 cursor-pointer text-sm leading-none">📎</div>
+            <div class="flex-1 bg-slate-100 rounded-full px-3 py-1.5 flex items-center justify-between text-slate-400 text-xs">
+              <span class="truncate">Написать в MAX...</span>
+              <span class="text-indigo-500 text-xs font-semibold">MAX</span>
+            </div>
+            <div class="w-7 h-7 rounded-full bg-[#4f46e5] text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
+              <svg class="w-3.5 h-3.5 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </div>
+          `;
+        } else if (data.channel === 'ig') {
+          // Instagram Light Footer
+          footerEl.className = 'p-2 bg-white border-t border-slate-200/80 flex items-center gap-2 shrink-0 transition-colors duration-300';
+          footerEl.innerHTML = `
+            <div class="w-7 h-7 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 cursor-pointer">
               <span class="text-xs">📷</span>
             </div>
-            <div class="flex-1 bg-[#262626] rounded-full px-3 py-1.5 flex items-center justify-between text-slate-400 text-xs">
-              <span class="truncate">Написать сообщение...</span>
+            <div class="flex-1 bg-slate-100 rounded-full px-3 py-1.5 flex items-center justify-between text-slate-400 text-xs">
+              <span class="truncate">Сообщение...</span>
               <div class="flex items-center gap-1.5 text-slate-400 text-xs">
                 <span>🎙️</span>
-                <span>🖼️</span>
                 <span>❤️</span>
               </div>
+            </div>
+          `;
+        } else {
+          // Avito
+          footerEl.className = 'p-2 bg-white border-t border-slate-200/80 flex items-center gap-1.5 shrink-0 transition-colors duration-300';
+          footerEl.innerHTML = `
+            <div class="w-7 h-7 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 cursor-pointer text-xs">
+              📷
+            </div>
+            <div class="flex-1 bg-[#f2f3f5] rounded-xl px-3 py-1.5 flex items-center justify-between text-slate-400 text-xs">
+              <span class="truncate">Написать на Авито...</span>
+            </div>
+            <div class="w-7 h-7 rounded-xl bg-[#00aaff] text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
+              <svg class="w-3.5 h-3.5 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
             </div>
           `;
         }
@@ -2718,11 +2854,9 @@
       clearCaseChatTimers();
       msgContainer.className = `flex-1 p-3 space-y-2.5 overflow-y-auto text-xs min-h-[300px] transition-colors duration-300 ${data.chatBg}`;
       
-      const isIg = (data.channel === 'ig');
-      const dateBadgeBg = isIg ? 'bg-white/10 text-slate-400' : 'bg-black/10 text-slate-600';
       msgContainer.innerHTML = `
         <div class="flex justify-center my-1">
-          <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full ${dateBadgeBg}">Сегодня</span>
+          <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-black/10 text-slate-600">Сегодня</span>
         </div>
       `;
 
