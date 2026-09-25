@@ -316,6 +316,22 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
   animation: pulseNodeGlow 2.5s ease-in-out infinite;
 }
 
+  
+    .chat-bg-wa {
+      background-color: #efeae2;
+      background-image: radial-gradient(#d1c7b7 0.8px, transparent 0.8px);
+      background-size: 16px 16px;
+    }
+    .chat-bg-tg {
+      background: linear-gradient(180deg, #d2f1df 0%, #cae4fa 45%, #ebd5f8 100%);
+    }
+    .chat-bg-ig {
+      background-color: #ffffff;
+    }
+    .chat-bg-avito {
+      background-color: #f2f3f5;
+    }
+
   </style>
 </head>
 <body class="min-h-screen antialiased selection:bg-sky-500 selection:text-white">
@@ -1071,8 +1087,447 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
       </div>
     </section>
 
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ДИАЛОГА К ЦЕЛЕВОЙ АУДИТОРИИ (ПУТЬ ПАРТНЁРА) -->
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-4 select-none mb-8 sm:mb-12">
+      <a href="#fit" class="flowing-connector-link group" title="Целевая аудитория">
+        <svg class="w-full h-auto max-h-[80px] sm:max-h-[100px] overflow-visible max-w-[180px] mx-auto" viewBox="0 0 1000 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradFlowTalkToFit" x1="500" y1="5" x2="500" y2="80" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="1"/>
+            </linearGradient>
+            <filter id="glowFlowTalkToFit" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 500,5 L 500,80" stroke="url(#gradFlowTalkToFit)" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <path d="M 500,5 L 500,80" class="delicate-connector-beam-compact" stroke="url(#gradFlowTalkToFit)" stroke-width="1.8" stroke-linecap="round" filter="url(#glowFlowTalkToFit)"/>
+          <circle cx="500" cy="5" r="2.5" fill="#0284C7" opacity="0.9"/>
+          <path d="M 494.5,73.5 L 500,80 L 505.5,73.5" stroke="#0369A1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </a>
+    </div>
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ПРОДУКТА К СПОСОБАМ ЗАРАБОТКА (ПУТЬ ПАРТНЁРА) -->
+    <!-- ================= 8. SECTION: КОМУ ПРЕДЛАГАТЬ И ШАБЛОН СООБЩЕНИЯ ================= -->
+    <section id="fit" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-32 sm:mb-44 lg:mb-48 scroll-mt-28 relative">
+      
+      <!-- Target Audience Heading -->
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[40px] leading-tight overflow-visible">
+          <span class="pearl-title-gradient">Целевая аудитория</span>
+        </h2>
+        <p class="text-sm sm:text-base text-slate-700 font-medium mt-4 leading-relaxed max-w-2xl mx-auto">
+          Любая компания, которая получает звонки или сообщения от клиентов (сфера услуг, медицина, недвижимость, стройка, опт, онлайн-торговля). Если у бизнеса есть входящие заявки - Вера окупается в первый же месяц
+        </p>
+      </div>
+
+      <!-- People Silhouettes & Audience Niches Visualization (Compact cards on mobile, 5 cols with large icons on desktop) -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-6 gap-y-2.5 sm:gap-y-8 pt-2 sm:pt-4 pb-8 sm:pb-14 text-center">
+        
+        <!-- 1. Services -->
+        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
+          <div class="hidden sm:flex w-12 h-12 text-sky-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-sky-500 shrink-0 sm:hidden"></span>
+            <span>Сфера услуг</span>
+          </div>
+          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Салоны, клининг, быт</div>
+        </div>
+
+        <!-- 2. Medicine -->
+        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
+          <div class="hidden sm:flex w-12 h-12 text-emerald-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M19 8v6"></path>
+              <path d="M22 11h-6"></path>
+            </svg>
+          </div>
+          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0 sm:hidden"></span>
+            <span>Медицина</span>
+          </div>
+          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Клиники, стоматологии</div>
+        </div>
+
+        <!-- 3. Real Estate -->
+        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
+          <div class="hidden sm:flex w-12 h-12 text-indigo-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 21h18"></path>
+              <path d="M19 21v-4"></path>
+              <path d="M19 11l-7-7-7 7"></path>
+              <path d="M9 21v-6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v6"></path>
+            </svg>
+          </div>
+          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500 shrink-0 sm:hidden"></span>
+            <span>Недвижимость</span>
+          </div>
+          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Агентства, застройщики</div>
+        </div>
+
+        <!-- 4. Construction & Repair -->
+        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
+          <div class="hidden sm:flex w-12 h-12 text-amber-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+            </svg>
+          </div>
+          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0 sm:hidden"></span>
+            <span>Стройка и ремонт</span>
+          </div>
+          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Ремонт квартир, дома</div>
+        </div>
+
+        <!-- 5. Wholesale & B2B -->
+        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
+          <div class="hidden sm:flex w-12 h-12 text-purple-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0 sm:hidden"></span>
+            <span>Опт и B2B</span>
+          </div>
+          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Поставки, заводы, дистрибуция</div>
+        </div>
+
+        <!-- 6. Automotive -->
+        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
+          <div class="hidden sm:flex w-12 h-12 text-blue-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="11" rx="2"></rect>
+              <circle cx="7" cy="18" r="2"></circle>
+              <circle cx="17" cy="18" r="2"></circle>
+              <path d="M5 7l2-4h10l2 4"></path>
+            </svg>
+          </div>
+          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0 sm:hidden"></span>
+            <span>Автобизнес</span>
+          </div>
+          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Автосалоны, СТО, детейлинг</div>
+        </div>
+
+        <!-- 7. E-commerce -->
+        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
+          <div class="hidden sm:flex w-12 h-12 text-rose-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+          </div>
+          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0 sm:hidden"></span>
+            <span>E-commerce</span>
+          </div>
+          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Интернет-магазины, бренды</div>
+        </div>
+
+        <!-- 8. Education -->
+        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
+          <div class="hidden sm:flex w-12 h-12 text-teal-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+            </svg>
+          </div>
+          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0 sm:hidden"></span>
+            <span>Образование</span>
+          </div>
+          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Онлайн-школы, курсы</div>
+        </div>
+
+        <!-- 9. Legal & Consulting -->
+        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
+          <div class="hidden sm:flex w-12 h-12 text-violet-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3v18"></path>
+              <path d="M6 8l6-5 6 5"></path>
+              <path d="M6 16l-3-6h6l-3 6z"></path>
+              <path d="M18 16l-3-6h6l-3 6z"></path>
+            </svg>
+          </div>
+          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-violet-500 shrink-0 sm:hidden"></span>
+            <span>Юристы и аудит</span>
+          </div>
+          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Право, банкротство, налоги</div>
+        </div>
+
+        <!-- 10. Tourism & Hospitality -->
+        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
+          <div class="hidden sm:flex w-12 h-12 text-orange-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 17l6-6 4 4 8-8"></path>
+              <path d="M14 7h7v7"></path>
+            </svg>
+          </div>
+          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-orange-500 shrink-0 sm:hidden"></span>
+            <span>Туризм и отели</span>
+          </div>
+          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Отели, глэмпинги, туры</div>
+        </div>
+
+      </div>
+
+      <!-- Engaging Pitch Script Card (WhatsApp Chat Showcase Style) -->
+      <div class="mt-4 p-6 sm:p-8 rounded-3xl bg-[linear-gradient(160deg,#F8FAFC_0%,#F0F9FF_100%)] border border-sky-200/80 shadow-sm max-w-4xl mx-auto font-inter">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+          <div>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 font-sans tracking-tight">
+              Шаблон сообщения собственнику бизнеса
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 mt-1">
+              Просто скопируйте текст, отправьте знакомому владельцу бизнеса или РОП, и начните зарабатывать
+            </p>
+          </div>
+          <button id="pitch-copy" type="button" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-[#25D366] hover:text-slate-950 text-white font-bold text-xs transition-all shadow-xs shrink-0 cursor-pointer">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            Скопировать текст
+          </button>
+        </div>
+
+        <!-- WhatsApp Chat Window -->
+        <div class="rounded-2xl border border-slate-200/90 shadow-md overflow-hidden bg-[#EFEAE2]/70 font-sans">
+          
+          <!-- WhatsApp Chat Header -->
+          <div class="bg-[#075E54] text-white px-4 py-3 flex items-center justify-between select-none">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-[#128C7E] flex items-center justify-center font-bold text-sm text-white shadow-inner">
+                💼
+              </div>
+              <div>
+                <div class="font-bold text-xs sm:text-sm text-white flex items-center gap-1.5">
+                  Знакомый собственник / РОП
+                  <span class="w-2 h-2 rounded-full bg-[#25D366]"></span>
+                </div>
+                <div class="text-[10px] text-emerald-100/90">в сети</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-1 text-xs text-emerald-100 font-medium px-2.5 py-1 rounded-full bg-black/15">
+              <svg class="w-3.5 h-3.5 fill-current text-[#25D366]" viewBox="0 0 24 24">
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2Z"/>
+              </svg>
+              <span>WhatsApp</span>
+            </div>
+          </div>
+
+          <!-- WhatsApp Chat Body with Message Bubble -->
+          <div class="p-4 sm:p-6 flex justify-end">
+            <!-- Outgoing message bubble (WhatsApp Green) -->
+            <div class="max-w-2xl bg-[#E7FFDB] border border-[#d2f3c0] rounded-2xl rounded-tr-xs p-4 sm:p-5 shadow-xs relative text-slate-900 font-sans">
+              <div id="pitch-text" class="text-xs sm:text-[13.5px] leading-relaxed select-all whitespace-pre-line text-slate-800">[Имя], привет! Хочу рассказать тебе про продукт, который снимет с тебя головную боль с продажами.
+
+Это ИИ-продавец Вера - и это гораздо больше, чем бот. Она общается как живой человек, знает всё о компании и филигранно ведёт каждого клиента от первого сообщения до сделки в CRM. Всегда на связи: без отпусков, выходных и больничных.
+
+Мир стремительно движется в сторону ИИ, и я предлагаю тебе оказаться на острие технологий раньше конкурентов. Я сам тестировал, как Вера ведёт диалог, - в полном восторге.
+
+Давай расскажу подробнее?</div>
+              
+              <div class="flex items-center justify-end gap-1 mt-2 text-[11px] text-slate-400 select-none">
+                <span>12:45</span>
+                <span class="text-[#53bdeb] font-bold">✓✓</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ АУДИТОРИИ К ПРИМЕРАМ ИНТЕГРАЦИИ (ПУТЬ ПАРТНЁРА) -->
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-4 select-none mb-8 sm:mb-12">
+      <a href="#cases" class="flowing-connector-link group" title="Примеры интеграций">
+        <svg class="w-full h-auto max-h-[80px] sm:max-h-[100px] overflow-visible max-w-[180px] mx-auto" viewBox="0 0 1000 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradFlowFitToCases" x1="500" y1="5" x2="500" y2="80" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="1"/>
+            </linearGradient>
+            <filter id="glowFlowFitToCases" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 500,5 L 500,80" stroke="url(#gradFlowFitToCases)" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <path d="M 500,5 L 500,80" class="delicate-connector-beam-compact" stroke="url(#gradFlowFitToCases)" stroke-width="1.8" stroke-linecap="round" filter="url(#glowFlowFitToCases)"/>
+          <circle cx="500" cy="5" r="2.5" fill="#0284C7" opacity="0.9"/>
+          <path d="M 494.5,73.5 L 500,80 L 505.5,73.5" stroke="#0369A1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- ==========================================================================
+         СЕКЦИЯ: ПРИМЕРЫ ИНТЕГРАЦИИ (7 НИШ БИЗНЕСА И ДИАЛОГИ ВЕРЫ)
+         ========================================================================== -->
+    <section id="cases" class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-18 font-inter">
+      <div class="text-center max-w-4xl mx-auto space-y-2.5 mb-8 sm:mb-12">
+        <h2 class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl lg:text-[50px] leading-tight text-[#0f172a] overflow-visible" style="font-family: 'Benzin', sans-serif !important;">
+          ПРИМЕРЫ <span class="pearl-title-gradient">ИНТЕГРАЦИИ</span>
+        </h2>
+        <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto font-inter">
+          Посмотрите, как Вера общается и доводит до сделки в разных сферах бизнеса
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+        
+        <!-- СЛЕВА: 7 ТИПОВ БИЗНЕСА (БЕЗ ПОДЛОЖЕК И БЕЗ ЭМОДЗИ) -->
+        <div class="lg:col-span-5 space-y-2 font-sans" id="casesNichesList">
+          
+          <!-- 1. Салон красоты: WhatsApp (День 14:20) -->
+          <button type="button" onclick="selectCaseNiche('beauty', this)" class="case-niche-btn active w-full py-3.5 px-4 rounded-xl flex items-center justify-between text-left transition-all duration-200 group cursor-pointer bg-sky-50/80 border-l-4 border-sky-500 font-bold text-sky-950">
+            <span class="text-sm sm:text-base tracking-tight">Салон красоты</span>
+            <div class="flex items-center gap-2 shrink-0">
+              <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-emerald-50 text-[#075E54] border border-emerald-200/80">WhatsApp</span>
+              <span class="text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform">→</span>
+            </div>
+          </button>
+
+          <!-- 2. Агентство по недвижимости: Telegram (Ночь 02:47) -->
+          <button type="button" onclick="selectCaseNiche('realty', this)" class="case-niche-btn w-full py-3.5 px-4 rounded-xl flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:bg-slate-100/70 border-l-4 border-transparent text-slate-800">
+            <span class="text-sm sm:text-base tracking-tight font-medium group-hover:text-sky-700 transition-colors">Агентство по недвижимости</span>
+            <div class="flex items-center gap-2 shrink-0">
+              <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-sky-50 text-[#229ED9] border border-sky-200/80">Telegram</span>
+              <span class="text-slate-400 group-hover:text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform">→</span>
+            </div>
+          </button>
+
+          <!-- 3. Онлайн-школа: MAX (Поздний вечер 23:14) -->
+          <button type="button" onclick="selectCaseNiche('education', this)" class="case-niche-btn w-full py-3.5 px-4 rounded-xl flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:bg-slate-100/70 border-l-4 border-transparent text-slate-800">
+            <span class="text-sm sm:text-base tracking-tight font-medium group-hover:text-sky-700 transition-colors">Онлайн-школа</span>
+            <div class="flex items-center gap-2 shrink-0">
+              <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-indigo-50 text-[#4f46e5] border border-indigo-200/80">MAX</span>
+              <span class="text-slate-400 group-hover:text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform">→</span>
+            </div>
+          </button>
+
+          <!-- 4. Ресторан: WhatsApp (Вечер 19:15) -->
+          <button type="button" onclick="selectCaseNiche('restaurant', this)" class="case-niche-btn w-full py-3.5 px-4 rounded-xl flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:bg-slate-100/70 border-l-4 border-transparent text-slate-800">
+            <span class="text-sm sm:text-base tracking-tight font-medium group-hover:text-sky-700 transition-colors">Ресторан</span>
+            <div class="flex items-center gap-2 shrink-0">
+              <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-emerald-50 text-[#075E54] border border-emerald-200/80">WhatsApp</span>
+              <span class="text-slate-400 group-hover:text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform">→</span>
+            </div>
+          </button>
+
+          <!-- 5. Магазин одежды: Instagram Direct (Ночь 01:15, запрос "цена?") -->
+          <button type="button" onclick="selectCaseNiche('fashion', this)" class="case-niche-btn w-full py-3.5 px-4 rounded-xl flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:bg-slate-100/70 border-l-4 border-transparent text-slate-800">
+            <span class="text-sm sm:text-base tracking-tight font-medium group-hover:text-sky-700 transition-colors">Магазин одежды</span>
+            <div class="flex items-center gap-2 shrink-0">
+              <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-fuchsia-50 text-[#d6249f] border border-fuchsia-200/80">Instagram</span>
+              <span class="text-slate-400 group-hover:text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform">→</span>
+            </div>
+          </button>
+
+          <!-- 6. Служба доставки: MAX (Утро 08:10) -->
+          <button type="button" onclick="selectCaseNiche('delivery', this)" class="case-niche-btn w-full py-3.5 px-4 rounded-xl flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:bg-slate-100/70 border-l-4 border-transparent text-slate-800">
+            <span class="text-sm sm:text-base tracking-tight font-medium group-hover:text-sky-700 transition-colors">Служба доставки</span>
+            <div class="flex items-center gap-2 shrink-0">
+              <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-indigo-50 text-[#4f46e5] border border-indigo-200/80">MAX</span>
+              <span class="text-slate-400 group-hover:text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform">→</span>
+            </div>
+          </button>
+
+          <!-- 7. Магазин мебели: Авито (Поздний вечер 22:30) -->
+          <button type="button" onclick="selectCaseNiche('furniture', this)" class="case-niche-btn w-full py-3.5 px-4 rounded-xl flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:bg-slate-100/70 border-l-4 border-transparent text-slate-800">
+            <span class="text-sm sm:text-base tracking-tight font-medium group-hover:text-sky-700 transition-colors">Магазин мебели</span>
+            <div class="flex items-center gap-2 shrink-0">
+              <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-800 border border-slate-300/80">Авито</span>
+              <span class="text-slate-400 group-hover:text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform">→</span>
+            </div>
+          </button>
+
+        </div>
+
+        <!-- СПРАВА: СМАРТФОН IPHONE 17 С ПРИМЕРОМ ДИАЛОГА ВЕРЫ -->
+        <div class="lg:col-span-7 flex justify-center sticky top-24">
+          <div class="w-full max-w-[440px] flex flex-col h-[640px] sm:h-[670px] rounded-[48px] bg-gradient-to-b from-slate-200 via-slate-300 to-slate-400 p-[3.5px] sm:p-1 shadow-[0_25px_60px_-12px_rgba(15,23,42,0.18),0_0_0_1px_rgba(255,255,255,0.7)] transition-all duration-300">
+            <div class="relative w-full h-full rounded-[44px] overflow-hidden flex flex-col bg-white border border-slate-300/40 shadow-inner">
+              
+              <!-- Dynamic Island Notch -->
+              <div class="absolute top-2.5 left-1/2 -translate-x-1/2 w-[86px] h-[22px] bg-black rounded-full z-30 flex items-center justify-between px-2.5 pointer-events-none shadow-md">
+                <div class="w-2.5 h-2.5 rounded-full bg-[#111827] ring-1 ring-slate-800 flex items-center justify-center">
+                  <div class="w-1 h-1 rounded-full bg-[#1e293b]"></div>
+                </div>
+                <div class="w-2 h-2 rounded-full bg-[#0a0f1d] ring-1 ring-slate-800/80"></div>
+              </div>
+
+              <!-- Header Container -->
+              <div id="casePhoneHeader" class="pt-9 pb-2.5 px-3.5 text-white flex items-center justify-between shrink-0 shadow-xs z-10 transition-colors duration-300">
+                <!-- Injected via JS -->
+              </div>
+
+              <!-- Niche Info Bar -->
+              <div id="casePhoneNicheBar" class="px-3 py-1 flex items-center justify-between text-[11px] font-semibold shrink-0 transition-colors duration-300">
+                <!-- Injected via JS -->
+              </div>
+
+              <!-- Chat Messages Container -->
+              <div id="casePhoneMessages" class="flex-1 p-3 space-y-2.5 overflow-y-auto text-xs min-h-[300px] transition-colors duration-300">
+                <!-- Injected via JS -->
+              </div>
+
+              <!-- Input Footer -->
+              <div id="casePhoneFooter" class="p-2 border-t flex items-center gap-1.5 shrink-0 transition-colors duration-300">
+                <!-- Injected via JS -->
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ПРИМЕРОВ ИНТЕГРАЦИИ К СПОСОБАМ ЗАРАБОТКА (ПУТЬ ПАРТНЁРА) -->
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-4 select-none mb-12 sm:mb-16">
+      <a href="#ways" class="flowing-connector-link group" title="Способы заработать">
+        <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradPartnerFlowFromCases" x1="790" y1="10" x2="220" y2="150" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
+            </linearGradient>
+            <filter id="glowPartnerFlowFromCases" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 790,10 C 710,65 470,50 310,95 C 250,115 220,132 220,150" 
+                stroke="url(#gradPartnerFlowFromCases)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <path d="M 790,10 C 710,65 470,50 310,95 C 250,115 220,132 220,150" 
+                class="delicate-connector-beam" stroke="url(#gradPartnerFlowFromCases)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowPartnerFlowFromCases)"/>
+          <circle cx="790" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
+          <path d="M 214.5,142.5 L 220,150 L 225.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </a>
+    </div>
+
     <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-4 select-none mb-12 sm:mb-16">
       <a href="#ways" class="flowing-connector-link group" title="Способы заработать">
         <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2330,279 +2785,30 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
 
     </section>
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ КАЛЬКУЛЯТОРА К ЦЕЛЕВОЙ АУДИТОРИИ (ПУТЬ ПАРТНЁРА) -->
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ КАЛЬКУЛЯТОРА К ФОРМЕ ЗАЯВКИ (ПУТЬ ПАРТНЁРА) -->
     <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-4 select-none mb-12 sm:mb-16">
-      <a href="#fit" class="flowing-connector-link group" title="Кому предлагать решение">
+      <a href="#form-container" class="flowing-connector-link group" title="Подать заявку в партнёры">
         <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="gradPartnerFlow6" x1="790" y1="10" x2="240" y2="150" gradientUnits="userSpaceOnUse">
+            <linearGradient id="gradPartnerFlowCalcToForm" x1="210" y1="10" x2="500" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
               <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
               <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
             </linearGradient>
-            <filter id="glowPartnerFlow6" x="-20%" y="-20%" width="140%" height="140%">
+            <filter id="glowPartnerFlowCalcToForm" x="-20%" y="-20%" width="140%" height="140%">
               <feGaussianBlur stdDeviation="2" result="blur"/>
               <feComposite in="SourceGraphic" in2="blur" operator="over"/>
             </filter>
           </defs>
-          <path d="M 790,10 C 710,65 480,50 330,95 C 265,115 240,132 240,150" 
-                stroke="url(#gradPartnerFlow6)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-          <path d="M 790,10 C 710,65 480,50 330,95 C 265,115 240,132 240,150" 
-                class="delicate-connector-beam" stroke="url(#gradPartnerFlow6)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowPartnerFlow6)"/>
-          <circle cx="790" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
-          <path d="M 234.5,142.5 L 240,150 L 245.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 210,10 C 290,65 420,55 480,95 C 495,115 500,132 500,150" 
+                stroke="url(#gradPartnerFlowCalcToForm)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <path d="M 210,10 C 290,65 420,55 480,95 C 495,115 500,132 500,150" 
+                class="delicate-connector-beam" stroke="url(#gradPartnerFlowCalcToForm)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowPartnerFlowCalcToForm)"/>
+          <circle cx="210" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
+          <path d="M 494.5,142.5 L 500,150 L 505.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
-
-    <!-- ================= 8. SECTION: КОМУ ПРЕДЛАГАТЬ И ШАБЛОН СООБЩЕНИЯ ================= -->
-    <section id="fit" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-32 sm:mb-44 lg:mb-48 scroll-mt-28 relative">
-      
-      <!-- Target Audience Heading -->
-      <div class="text-center max-w-3xl mx-auto mb-10">
-        <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[40px] leading-tight overflow-visible">
-          <span class="pearl-title-gradient">Целевая аудитория</span>
-        </h2>
-        <p class="text-sm sm:text-base text-slate-700 font-medium mt-4 leading-relaxed max-w-2xl mx-auto">
-          Любая компания, которая получает звонки или сообщения от клиентов (сфера услуг, медицина, недвижимость, стройка, опт, онлайн-торговля). Если у бизнеса есть входящие заявки - Вера окупается в первый же месяц
-        </p>
-      </div>
-
-      <!-- People Silhouettes & Audience Niches Visualization (Compact cards on mobile, 5 cols with large icons on desktop) -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-6 gap-y-2.5 sm:gap-y-8 pt-2 sm:pt-4 pb-8 sm:pb-14 text-center">
-        
-        <!-- 1. Services -->
-        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
-          <div class="hidden sm:flex w-12 h-12 text-sky-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
-              <circle cx="12" cy="7" r="4"></circle>
-            </svg>
-          </div>
-          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-sky-500 shrink-0 sm:hidden"></span>
-            <span>Сфера услуг</span>
-          </div>
-          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Салоны, клининг, быт</div>
-        </div>
-
-        <!-- 2. Medicine -->
-        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
-          <div class="hidden sm:flex w-12 h-12 text-emerald-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-              <circle cx="9" cy="7" r="4"></circle>
-              <path d="M19 8v6"></path>
-              <path d="M22 11h-6"></path>
-            </svg>
-          </div>
-          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0 sm:hidden"></span>
-            <span>Медицина</span>
-          </div>
-          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Клиники, стоматологии</div>
-        </div>
-
-        <!-- 3. Real Estate -->
-        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
-          <div class="hidden sm:flex w-12 h-12 text-indigo-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 21h18"></path>
-              <path d="M19 21v-4"></path>
-              <path d="M19 11l-7-7-7 7"></path>
-              <path d="M9 21v-6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v6"></path>
-            </svg>
-          </div>
-          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500 shrink-0 sm:hidden"></span>
-            <span>Недвижимость</span>
-          </div>
-          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Агентства, застройщики</div>
-        </div>
-
-        <!-- 4. Construction & Repair -->
-        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
-          <div class="hidden sm:flex w-12 h-12 text-amber-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
-            </svg>
-          </div>
-          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0 sm:hidden"></span>
-            <span>Стройка и ремонт</span>
-          </div>
-          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Ремонт квартир, дома</div>
-        </div>
-
-        <!-- 5. Wholesale & B2B -->
-        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
-          <div class="hidden sm:flex w-12 h-12 text-purple-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-              <circle cx="9" cy="7" r="4"></circle>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-            </svg>
-          </div>
-          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0 sm:hidden"></span>
-            <span>Опт и B2B</span>
-          </div>
-          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Поставки, заводы, дистрибуция</div>
-        </div>
-
-        <!-- 6. Automotive -->
-        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
-          <div class="hidden sm:flex w-12 h-12 text-blue-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="7" width="20" height="11" rx="2"></rect>
-              <circle cx="7" cy="18" r="2"></circle>
-              <circle cx="17" cy="18" r="2"></circle>
-              <path d="M5 7l2-4h10l2 4"></path>
-            </svg>
-          </div>
-          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0 sm:hidden"></span>
-            <span>Автобизнес</span>
-          </div>
-          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Автосалоны, СТО, детейлинг</div>
-        </div>
-
-        <!-- 7. E-commerce -->
-        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
-          <div class="hidden sm:flex w-12 h-12 text-rose-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="9" cy="21" r="1"></circle>
-              <circle cx="20" cy="21" r="1"></circle>
-              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-            </svg>
-          </div>
-          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0 sm:hidden"></span>
-            <span>E-commerce</span>
-          </div>
-          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Интернет-магазины, бренды</div>
-        </div>
-
-        <!-- 8. Education -->
-        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
-          <div class="hidden sm:flex w-12 h-12 text-teal-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-            </svg>
-          </div>
-          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0 sm:hidden"></span>
-            <span>Образование</span>
-          </div>
-          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Онлайн-школы, курсы</div>
-        </div>
-
-        <!-- 9. Legal & Consulting -->
-        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
-          <div class="hidden sm:flex w-12 h-12 text-violet-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 3v18"></path>
-              <path d="M6 8l6-5 6 5"></path>
-              <path d="M6 16l-3-6h6l-3 6z"></path>
-              <path d="M18 16l-3-6h6l-3 6z"></path>
-            </svg>
-          </div>
-          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-violet-500 shrink-0 sm:hidden"></span>
-            <span>Юристы и аудит</span>
-          </div>
-          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Право, банкротство, налоги</div>
-        </div>
-
-        <!-- 10. Tourism & Hospitality -->
-        <div class="p-2.5 sm:p-0 rounded-2xl sm:rounded-none bg-white/80 sm:bg-transparent border border-slate-200/80 sm:border-0 shadow-xs sm:shadow-none flex flex-col items-center justify-center group">
-          <div class="hidden sm:flex w-12 h-12 text-orange-600 items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 17l6-6 4 4 8-8"></path>
-              <path d="M14 7h7v7"></path>
-            </svg>
-          </div>
-          <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-0.5 flex items-center justify-center gap-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-orange-500 shrink-0 sm:hidden"></span>
-            <span>Туризм и отели</span>
-          </div>
-          <div class="text-[10px] sm:text-xs text-slate-500 leading-tight">Отели, глэмпинги, туры</div>
-        </div>
-
-      </div>
-
-      <!-- Engaging Pitch Script Card (WhatsApp Chat Showcase Style) -->
-      <div class="mt-4 p-6 sm:p-8 rounded-3xl bg-[linear-gradient(160deg,#F8FAFC_0%,#F0F9FF_100%)] border border-sky-200/80 shadow-sm max-w-4xl mx-auto font-inter">
-        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
-          <div>
-            <h3 class="text-lg sm:text-xl font-bold text-slate-900 font-sans tracking-tight">
-              Шаблон сообщения собственнику бизнеса
-            </h3>
-            <p class="text-xs sm:text-sm text-slate-600 mt-1">
-              Просто скопируйте текст, отправьте знакомому владельцу бизнеса или РОП, и начните зарабатывать
-            </p>
-          </div>
-          <button id="pitch-copy" type="button" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-[#25D366] hover:text-slate-950 text-white font-bold text-xs transition-all shadow-xs shrink-0 cursor-pointer">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-            </svg>
-            Скопировать текст
-          </button>
-        </div>
-
-        <!-- WhatsApp Chat Window -->
-        <div class="rounded-2xl border border-slate-200/90 shadow-md overflow-hidden bg-[#EFEAE2]/70 font-sans">
-          
-          <!-- WhatsApp Chat Header -->
-          <div class="bg-[#075E54] text-white px-4 py-3 flex items-center justify-between select-none">
-            <div class="flex items-center gap-3">
-              <div class="w-9 h-9 rounded-full bg-[#128C7E] flex items-center justify-center font-bold text-sm text-white shadow-inner">
-                💼
-              </div>
-              <div>
-                <div class="font-bold text-xs sm:text-sm text-white flex items-center gap-1.5">
-                  Знакомый собственник / РОП
-                  <span class="w-2 h-2 rounded-full bg-[#25D366]"></span>
-                </div>
-                <div class="text-[10px] text-emerald-100/90">в сети</div>
-              </div>
-            </div>
-            <div class="flex items-center gap-1 text-xs text-emerald-100 font-medium px-2.5 py-1 rounded-full bg-black/15">
-              <svg class="w-3.5 h-3.5 fill-current text-[#25D366]" viewBox="0 0 24 24">
-                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2Z"/>
-              </svg>
-              <span>WhatsApp</span>
-            </div>
-          </div>
-
-          <!-- WhatsApp Chat Body with Message Bubble -->
-          <div class="p-4 sm:p-6 flex justify-end">
-            <!-- Outgoing message bubble (WhatsApp Green) -->
-            <div class="max-w-2xl bg-[#E7FFDB] border border-[#d2f3c0] rounded-2xl rounded-tr-xs p-4 sm:p-5 shadow-xs relative text-slate-900 font-sans">
-              <div id="pitch-text" class="text-xs sm:text-[13.5px] leading-relaxed select-all whitespace-pre-line text-slate-800">[Имя], привет! Хочу рассказать тебе про продукт, который снимет с тебя головную боль с продажами.
-
-Это ИИ-продавец Вера - и это гораздо больше, чем бот. Она общается как живой человек, знает всё о компании и филигранно ведёт каждого клиента от первого сообщения до сделки в CRM. Всегда на связи: без отпусков, выходных и больничных.
-
-Мир стремительно движется в сторону ИИ, и я предлагаю тебе оказаться на острие технологий раньше конкурентов. Я сам тестировал, как Вера ведёт диалог, - в полном восторге.
-
-Давай расскажу подробнее?</div>
-              
-              <div class="flex items-center justify-end gap-1 mt-2 text-[11px] text-slate-400 select-none">
-                <span>12:45</span>
-                <span class="text-[#53bdeb] font-bold">✓✓</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </section>
-
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ АУДИТОРИИ К ФОРМЕ ЗАЯВКИ (ПУТЬ ПАРТНЁРА) -->
     <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-4 select-none mb-12 sm:mb-16">
       <a href="#form-container" class="flowing-connector-link group" title="Подать заявку в партнёры">
         <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -3363,6 +3569,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
 
     function resetPartnerLiveChat() {
       initPartnerLiveChat();
+      selectCaseNiche('beauty');
     }
 
     function escapeHtml(str) {
@@ -3449,12 +3656,650 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
       if (formApply) formApply.addEventListener('submit', handleFormSubmit);
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
+    
+    /* ---------- ПРИМЕРЫ ИНТЕГРАЦИИ (7 НИШ И ДИАЛОГИ ВЕРЫ) ---------- */
+    // 7 НИШ БИЗНЕСА И ДИАЛОГИ ВЕРЫ (СЕКЦИЯ #cases "ПРИМЕРЫ ИНТЕГРАЦИИ")
+    // =========================================================================
+    // 5 МЕССЕНДЖЕРОВ: WhatsApp, Telegram, Instagram (светлый), MAX, Авито
+    // РАЗНОЕ ВРЕМЯ (включая ночное: 02:47, 01:15, 23:14)
+    // РАЗНЫЕ ТИПЫ КЛИЕНТОВ: от вежливых развернутых до лаконичных «цена?»
+    const CASES_NICHES_DATA = {
+      beauty: {
+        channel: 'wa',
+        channelBadge: 'WhatsApp',
+        companyName: 'Éclat Beauty',
+        nicheTitle: 'Салон красоты',
+        headerBg: 'bg-[#075E54]',
+        barBg: 'bg-[#075E54]/95 text-emerald-100 border-t border-white/10',
+        chatBg: 'bg-[#efeae2] chat-bg-wa',
+        badgeClass: 'bg-emerald-400/20 text-emerald-100',
+        badgeText: 'День 14:20 • Ответ 2 сек',
+        messages: [
+          { sender: 'user', text: 'Здравствуйте! Подскажите, пожалуйста, можно ли записаться на сложное окрашивание AirTouch к топ-мастеру в эту субботу? Длина волос до лопаток.', time: '14:20' },
+          { sender: 'vera', text: 'Добрый день. Вера, ваш консультант. Благодарю за обращение в салон красоты Éclat Beauty! Да, на субботу есть отличное окно к топ-колористу Анне на 11:30. На длину до лопаток работа займет 4 часа, в стоимость входит деликатное осветление, тонирование и уход. Забронировать за вами это время?', time: '14:20' },
+          { sender: 'user', text: 'Да, отлично, запишите меня на 11:30, пожалуйста.', time: '14:21' },
+          { sender: 'vera', text: 'Замечательно! Записала вас на субботу в 11:30. Адрес: Кутузовский проспект, 24. Для вас подготовлен приятный комплимент - спа-уход для рук во время процедуры. Желаю вам прекрасного дня и до скорой встречи!', time: '14:21' },
+          { type: 'status', text: '✅ Запись подтверждена • Суббота, 11:30 • Éclat Beauty' }
+        ]
+      },
+      realty: {
+        channel: 'tg',
+        channelBadge: 'Telegram',
+        companyName: 'Метры & Партнеры',
+        nicheTitle: 'Агентство по недвижимости',
+        headerBg: 'bg-[#229ED9]',
+        barBg: 'bg-[#1e8cc0] text-sky-100 border-t border-white/15',
+        chatBg: 'bg-[#eef2f5] chat-bg-tg',
+        badgeClass: 'bg-sky-400/20 text-sky-100',
+        badgeText: '🌙 Ночная заявка 02:47 • Ответ 2 сек',
+        messages: [
+          { sender: 'user', text: 'Семейная ипотека под 6% еще действует на двушки в Новой Москве? Есть сдача в этом году?', time: '02:47' },
+          { sender: 'vera', text: 'Доброй ночи! Вера, консультант агентства «Метры & Партнеры». Да, льготная ставка 6% действует! В Новой Москве есть 4 готовых ЖК комфорт- и бизнес-класса со сдачей в IV квартале этого года. Двухкомнатные от 11.8 млн ₽, ежемесячный платеж от 52 000 ₽. Прислать вам презентацию с планировками и расчетом платежей?', time: '02:47' },
+          { sender: 'user', text: 'Да, пришлите в телеграм. И можно ли завтра созвониться с брокером?', time: '02:48' },
+          { sender: 'vera', text: 'Отправила PDF-каталог с планировками прямо сюда в чат! Назначила звонок старшего брокера на завтра на удобное вам время - 11:00 или 14:00? Желаю вам спокойной ночи и продуктивного завтрашнего дня!', time: '02:48' },
+          { type: 'status', text: '🌙 Ночная заявка 02:47 • Каталог отправлен • Брокер назначен' }
+        ]
+      },
+      education: {
+        channel: 'max',
+        channelBadge: 'MAX',
+        companyName: 'DataPro IT School',
+        nicheTitle: 'Онлайн-школа',
+        headerBg: 'bg-[#4f46e5]',
+        barBg: 'bg-[#4338ca] text-indigo-100 border-t border-white/15',
+        chatBg: 'bg-[#f4f5f9]',
+        badgeClass: 'bg-indigo-400/25 text-indigo-100',
+        badgeText: 'Вечер 23:14 • MAX Бизнес',
+        messages: [
+          { sender: 'user', text: 'Добрый вечер. Подскажите стоимость курса по ИИ для бизнеса. Реально совмещать с работой и есть ли рассрочка без банков?', time: '23:14' },
+          { sender: 'vera', text: 'Добрый вечер! Вера, консультант онлайн-школы DataPro IT. Курс рассчитан на 4 часа в неделю в удобное вам время, 80% студентов успешно совмещают с работой. Действует беспроцентная рассрочка от школы от 5 400 ₽/мес без первого взноса. Прислать вам программу курса и бесплатный вводный урок?', time: '23:14' },
+          { sender: 'user', text: 'Да, отправьте демо-доступ, пожалуйста.', time: '23:15' },
+          { sender: 'vera', text: 'Доступ к первому модулю открыт, ссылка в чате. Также зафиксировала за вами грант 30% на обучение до конца недели. Желаю вам продуктивного вечера, процветания и успехов в учебе!', time: '23:15' },
+          { type: 'status', text: '✅ Демо-доступ открыт • Грант 30% зафиксирован • MAX' }
+        ]
+      },
+      restaurant: {
+        channel: 'wa',
+        channelBadge: 'WhatsApp',
+        companyName: 'La Terrazza',
+        nicheTitle: 'Ресторан',
+        headerBg: 'bg-[#075E54]',
+        barBg: 'bg-[#075E54]/95 text-emerald-100 border-t border-white/10',
+        chatBg: 'bg-[#efeae2] chat-bg-wa',
+        badgeClass: 'bg-emerald-400/20 text-emerald-100',
+        badgeText: 'Вечер 19:15 • Ответ 2 сек',
+        messages: [
+          { sender: 'user', text: 'Добрый вечер! Можно забронировать столик на четверых на субботу в 19:30 у панорамного окна? У нас годовщина.', time: '19:15' },
+          { sender: 'vera', text: 'Добрый вечер! Вера, консультант ресторана La Terrazza. Поздравляем с наступающей годовщиной! Забронировала для вас лучший столик у панорамного окна на субботу, 19:30. От шеф-повара вас ждет комплимент и фирменный десерт к празднику. Бронь подтверждаем?', time: '19:15' },
+          { sender: 'user', text: 'Да, подтверждаем, спасибо огромное за комплимент!', time: '19:16' },
+          { sender: 'vera', text: 'Бронь №482 подтверждена! Будем рады сделать ваш вечер незабываемым. Желаю вам прекрасного вечера и до встречи!', time: '19:16' },
+          { type: 'status', text: '✅ Столик забронирован • Стол №12 у окна • Комплимент включен' }
+        ]
+      },
+      fashion: {
+        channel: 'ig',
+        channelBadge: 'Instagram',
+        companyName: 'lumiere_paris',
+        nicheTitle: 'Магазин одежды',
+        headerBg: 'bg-white border-b border-slate-200 text-slate-900',
+        barBg: 'bg-slate-50 text-slate-700 border-b border-slate-200/80',
+        chatBg: 'bg-white',
+        badgeClass: 'bg-fuchsia-50 text-fuchsia-700 border border-fuchsia-200',
+        badgeText: '🌙 Ночь 01:15 • Запрос «цена?»',
+        messages: [
+          { sender: 'user', text: 'цена?', time: '01:15' },
+          { sender: 'vera', text: 'Добрый вечер! Вера, консультант Lumiere Paris. Стоимость платья из натурального шелка - 12 900 ₽. В наличии размеры 42, 44, 46. Доставка с примеркой курьером по Москве доступна уже завтра. Подсказать по меркам и наличию цветов?', time: '01:15' },
+          { sender: 'user', text: 'в черном 44 есть?', time: '01:16' },
+          { sender: 'vera', text: 'Да, в черном цвете остался в наличии! Можем привезти завтра на примерку с 14:00 до 18:00, курьер подождет 15 минут. Оформить заказ?', time: '01:16' },
+          { sender: 'user', text: 'да, ул. Мосфильмовская 52, кв 18', time: '01:17' },
+          { sender: 'vera', text: 'Заказ №LP-924 оформлен на завтра! Курьер предварительно наберет за 1 час. Желаю вам прекрасной ночи и приятных покупок!', time: '01:17' },
+          { type: 'status', text: '🌙 Ночная сделка 01:15 • Заказ №LP-924 • Сделка закрыта' }
+        ]
+      },
+      delivery: {
+        channel: 'max',
+        channelBadge: 'MAX',
+        companyName: 'Express Delivery',
+        nicheTitle: 'Служба доставки',
+        headerBg: 'bg-[#4f46e5]',
+        barBg: 'bg-[#4338ca] text-indigo-100 border-t border-white/15',
+        chatBg: 'bg-[#f4f5f9]',
+        badgeClass: 'bg-indigo-400/25 text-indigo-100',
+        badgeText: 'Утро 08:10 • Экспресс 24ч',
+        messages: [
+          { sender: 'user', text: 'Срочно отправить коробку 4 кг из Москвы в СПб. Сколько стоит и успеет ли за сутки?', time: '08:10' },
+          { sender: 'vera', text: 'Доброе утро! Вера, консультант службы доставки Express Delivery. Экспресс-тарифом доставим лично в руки за 24 часа. Стоимость 1 290 ₽, включая страховку и трекинг. Курьер может забрать отправление у вас уже через 40 минут. На какой адрес вызвать курьера?', time: '08:10' },
+          { sender: 'user', text: 'Ленинградский проспект 39, офис 412. Забирайте.', time: '08:11' },
+          { sender: 'vera', text: 'Накладная №ED-8491 создана, курьер назначен и подъедет к вам к 09:00. Желаю вам отличного дня и оперативных доставок!', time: '08:11' },
+          { type: 'status', text: '✅ Накладная №ED-8491 • Прибытие курьера через 45 мин' }
+        ]
+      },
+      furniture: {
+        channel: 'avito',
+        channelBadge: 'Авито',
+        companyName: 'WoodCraft Мебель',
+        nicheTitle: 'Магазин мебели',
+        headerBg: 'bg-white border-b border-slate-200 text-slate-900',
+        barBg: 'bg-[#eef9ef] text-slate-700 border-b border-[#d6f2d6]',
+        chatBg: 'bg-[#f2f3f5] chat-bg-avito',
+        badgeClass: 'bg-slate-200 text-slate-800',
+        badgeText: 'Вечер 22:30 • Авито Сделка',
+        messages: [
+          { sender: 'user', text: 'Здравствуйте! Актуально? Цена шкафа как на фото? И замер платный?', time: '22:30' },
+          { sender: 'vera', text: 'Добрый вечер! Вера, консультант WoodCraft Мебель. Да, объявление актуально! Шкаф-купе как на фото с зеркальными фасадами и доводчиками Blum от 68 000 ₽. Выезд замерщика с образцами материалов и 3D-проект - абсолютно бесплатно. В какой день вам удобно принять мастера?', time: '22:30' },
+          { sender: 'user', text: 'В воскресенье в 12:00 было бы удобно.', time: '22:31' },
+          { sender: 'vera', text: 'Записала вас на воскресенье к 12:00! Мастер привезет раскладки профилей и сделает точный расчет на месте. Желаю вам отличного вечера и уюта в доме!', time: '22:31' },
+          { type: 'status', text: '✅ Замер назначен • Бесплатный 3D-проект • Авито' }
+        ]
+      }
+    };
+
+    let activeCaseNicheKey = 'beauty';
+    let caseChatTimers = [];
+
+    function clearCaseChatTimers() {
+      caseChatTimers.forEach(t => clearTimeout(t));
+      caseChatTimers = [];
+    }
+
+    function renderCaseMessageHTML(msg, channel) {
+      if (msg.type === 'status') {
+        let pillBg = 'bg-slate-100 border border-slate-200 text-slate-800';
+        if (channel === 'wa') {
+          pillBg = 'bg-emerald-500/15 border border-emerald-500/30 text-emerald-900';
+        } else if (channel === 'tg') {
+          pillBg = 'bg-sky-500/15 border border-sky-500/30 text-sky-900';
+        } else if (channel === 'max') {
+          pillBg = 'bg-indigo-500/15 border border-indigo-500/30 text-indigo-900';
+        } else if (channel === 'ig') {
+          pillBg = 'bg-fuchsia-50 border border-fuchsia-200 text-fuchsia-900';
+        }
+        return `
+          <div class="flex justify-center my-1.5 transition-all duration-300 opacity-0 translate-y-2">
+            <div class="px-3 py-1.5 rounded-xl ${pillBg} text-[11px] font-semibold shadow-2xs text-center flex items-center gap-1.5">
+              <span>${msg.text}</span>
+            </div>
+          </div>
+        `;
+      }
+
+      if (msg.sender === 'user') {
+        if (channel === 'wa') {
+          return `
+            <div class="flex justify-end transition-all duration-300 opacity-0 translate-y-2">
+              <div class="max-w-[85%] bg-[#d9fdd3] text-slate-900 px-3 py-2 rounded-tl-xl rounded-tr-xs rounded-br-xl rounded-bl-xl shadow-xs leading-relaxed text-xs">
+                <p>${msg.text}</p>
+                <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-slate-500">
+                  <span>${msg.time || ''}</span>
+                  <span class="text-[#53bdeb] font-bold">✓✓</span>
+                </div>
+              </div>
+            </div>
+          `;
+        } else if (channel === 'tg') {
+          return `
+            <div class="flex justify-end transition-all duration-300 opacity-0 translate-y-2">
+              <div class="max-w-[85%] bg-[#effedd] text-slate-900 px-3 py-2 rounded-tl-xl rounded-tr-xs rounded-br-xl rounded-bl-xl shadow-xs leading-relaxed text-xs">
+                <p>${msg.text}</p>
+                <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-emerald-800">
+                  <span>${msg.time || ''}</span>
+                  <span>✓✓</span>
+                </div>
+              </div>
+            </div>
+          `;
+        } else if (channel === 'max') {
+          return `
+            <div class="flex justify-end transition-all duration-300 opacity-0 translate-y-2">
+              <div class="max-w-[85%] bg-[#ede9fe] text-slate-900 px-3 py-2 rounded-tl-xl rounded-tr-xs rounded-br-xl rounded-bl-xl shadow-xs leading-relaxed text-xs border border-indigo-100">
+                <p>${msg.text}</p>
+                <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-indigo-800">
+                  <span>${msg.time || ''}</span>
+                  <span>✓✓</span>
+                </div>
+              </div>
+            </div>
+          `;
+        } else if (channel === 'ig') {
+          // Instagram Light User Bubble
+          return `
+            <div class="flex justify-end transition-all duration-300 opacity-0 translate-y-2">
+              <div class="max-w-[85%] bg-[#f0f2f5] text-slate-900 px-3 py-2 rounded-2xl rounded-br-xs shadow-2xs leading-relaxed text-xs border border-slate-200/80">
+                <p>${msg.text}</p>
+                <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-slate-400">
+                  <span>${msg.time || ''}</span>
+                </div>
+              </div>
+            </div>
+          `;
+        } else {
+          // Avito
+          return `
+            <div class="flex justify-end transition-all duration-300 opacity-0 translate-y-2">
+              <div class="max-w-[85%] bg-[#e1f3fe] text-slate-900 px-3 py-2 rounded-2xl rounded-tr-xs shadow-2xs leading-relaxed text-xs">
+                <p>${msg.text}</p>
+                <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-[#00aaff]">
+                  <span>${msg.time || ''}</span>
+                  <span>✓✓</span>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+      }
+
+      // msg.sender === 'vera'
+      if (channel === 'wa') {
+        return `
+          <div class="flex justify-start transition-all duration-300 opacity-0 translate-y-2">
+            <div class="max-w-[88%] bg-white text-slate-900 px-3 py-2 rounded-tr-xl rounded-tl-xs rounded-br-xl rounded-bl-xl shadow-xs leading-relaxed text-xs border border-slate-100">
+              <div class="text-[10px] font-bold text-emerald-800 mb-0.5">Вера</div>
+              <p>${msg.text}</p>
+              <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-slate-400">
+                <span>${msg.time || ''}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (channel === 'tg') {
+        return `
+          <div class="flex justify-start transition-all duration-300 opacity-0 translate-y-2">
+            <div class="max-w-[88%] bg-white text-slate-900 px-3 py-2 rounded-tr-xl rounded-tl-xs rounded-br-xl rounded-bl-xl shadow-xs leading-relaxed text-xs border border-slate-100">
+              <div class="text-[10px] font-bold text-sky-800 mb-0.5">Вера</div>
+              <p>${msg.text}</p>
+              <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-slate-400">
+                <span>${msg.time || ''}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (channel === 'max') {
+        return `
+          <div class="flex justify-start transition-all duration-300 opacity-0 translate-y-2">
+            <div class="max-w-[88%] bg-white text-slate-900 px-3 py-2 rounded-tr-xl rounded-tl-xs rounded-br-xl rounded-bl-xl shadow-xs leading-relaxed text-xs border border-indigo-100">
+              <div class="text-[10px] font-bold text-[#4f46e5] mb-0.5">Вера • MAX</div>
+              <p>${msg.text}</p>
+              <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-slate-400">
+                <span>${msg.time || ''}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (channel === 'ig') {
+        // Instagram Light Vera Bubble
+        return `
+          <div class="flex justify-start transition-all duration-300 opacity-0 translate-y-2">
+            <div class="max-w-[88%] bg-white text-slate-900 px-3 py-2.5 rounded-2xl rounded-bl-xs shadow-xs leading-relaxed text-xs border border-slate-200">
+              <div class="text-[10px] font-bold text-pink-600 mb-0.5">Вера</div>
+              <p>${msg.text}</p>
+              <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-slate-400">
+                <span>${msg.time || ''}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        // Avito
+        return `
+          <div class="flex justify-start transition-all duration-300 opacity-0 translate-y-2">
+            <div class="max-w-[88%] bg-white text-slate-900 px-3 py-2 rounded-2xl rounded-tl-xs shadow-xs leading-relaxed text-xs border border-slate-200">
+              <div class="text-[10px] font-bold text-slate-700 mb-0.5">Вера • Авито</div>
+              <p>${msg.text}</p>
+              <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-slate-400">
+                <span>${msg.time || ''}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    function renderCaseTypingHTML(channel) {
+      let dotColor = 'bg-emerald-500';
+      if (channel === 'tg') dotColor = 'bg-sky-400';
+      else if (channel === 'max') dotColor = 'bg-indigo-500';
+      else if (channel === 'ig') dotColor = 'bg-pink-500';
+      else if (channel === 'avito') dotColor = 'bg-[#00aaff]';
+
+      return `
+        <div class="case-typing-indicator flex justify-start my-1 transition-all duration-200">
+          <div class="flex items-center gap-1.5 p-2 bg-white rounded-2xl shadow-xs border border-slate-200/80 max-w-[120px] text-slate-500 text-[11px]">
+            <span class="w-1.5 h-1.5 ${dotColor} rounded-full animate-bounce"></span>
+            <span class="w-1.5 h-1.5 ${dotColor} rounded-full animate-bounce [animation-delay:150ms]"></span>
+            <span class="w-1.5 h-1.5 ${dotColor} rounded-full animate-bounce [animation-delay:300ms]"></span>
+            <span class="ml-1 text-[10px] text-slate-400">Вера...</span>
+          </div>
+        </div>
+      `;
+    }
+
+    function selectCaseNiche(key, clickedBtn) {
+      if (!CASES_NICHES_DATA[key]) return;
+      activeCaseNicheKey = key;
+      const data = CASES_NICHES_DATA[key];
+
+      // 1. Обновляем стили кнопок ниш слева (без подложек и без эмодзи)
+      const listContainer = document.getElementById('casesNichesList');
+      if (listContainer) {
+        const buttons = listContainer.querySelectorAll('.case-niche-btn');
+        buttons.forEach(btn => {
+          btn.className = 'case-niche-btn w-full py-3.5 px-4 rounded-xl flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:bg-slate-100/70 border-l-4 border-transparent text-slate-800';
+          const titleSpan = btn.querySelector('span:first-child');
+          if (titleSpan) {
+            titleSpan.className = 'text-sm sm:text-base tracking-tight font-medium group-hover:text-sky-700 transition-colors';
+          }
+          const arrow = btn.querySelector('.group-hover\\:translate-x-0\\.5');
+          if (arrow) {
+            arrow.className = 'text-slate-400 group-hover:text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform';
+          }
+        });
+      }
+
+      const activeBtn = clickedBtn || (listContainer ? listContainer.querySelector(`button[onclick*="'${key}'"]`) : null);
+      if (activeBtn) {
+        activeBtn.className = 'case-niche-btn active w-full py-3.5 px-4 rounded-xl flex items-center justify-between text-left transition-all duration-200 group cursor-pointer bg-sky-50/80 border-l-4 border-sky-500 font-bold text-sky-950';
+        const titleSpan = activeBtn.querySelector('span:first-child');
+        if (titleSpan) {
+          titleSpan.className = 'text-sm sm:text-base tracking-tight font-bold text-sky-950';
+        }
+        const arrow = activeBtn.querySelector('.group-hover\\:translate-x-0\\.5');
+        if (arrow) {
+          arrow.className = 'text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform';
+        }
+      }
+
+      // 2. Рендерим Header соответствующего мессенджера
+      const headerEl = document.getElementById('casePhoneHeader');
+      if (headerEl) {
+        headerEl.className = `pt-9 pb-2.5 px-3.5 ${data.headerBg} flex items-center justify-between shrink-0 shadow-xs z-10 transition-colors duration-300`;
+        
+        let headerContent = '';
+        if (data.channel === 'wa') {
+          headerContent = `
+            <div class="flex items-center gap-2 min-w-0">
+              <div class="text-white/80 cursor-pointer text-xs flex items-center shrink-0">
+                <svg class="w-4 h-4 fill-current mr-0.5" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg>
+                <span class="text-[11px] font-bold">4</span>
+              </div>
+              <div class="relative w-8 h-8 rounded-full border border-white/50 overflow-hidden shrink-0 bg-slate-800 shadow-xs">
+                <img src="assets/images/vera_ai_portrait.webp" onerror="this.src='vera_ai_portrait.webp'" alt="Вера" class="w-full h-full object-cover">
+                <span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-400 border border-white"></span>
+              </div>
+              <div class="min-w-0 leading-tight text-left">
+                <div class="text-xs font-bold text-white truncate flex items-center gap-1">
+                  <span>${data.companyName}</span>
+                  <span class="text-emerald-300 text-[10px]">✓</span>
+                </div>
+                <div class="text-[10px] text-emerald-200 font-medium">Вера • в сети</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 text-white/90 shrink-0">
+              <svg class="w-4 h-4 fill-current opacity-85" viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"></path></svg>
+              <button type="button" onclick="replayCaseChat('${key}')" class="text-[10px] bg-white/20 hover:bg-white/30 text-white px-2 py-0.5 rounded transition-all cursor-pointer font-semibold" title="Перезапустить диалог">↻</button>
+            </div>
+          `;
+        } else if (data.channel === 'tg') {
+          headerContent = `
+            <div class="flex items-center gap-2 min-w-0">
+              <div class="text-white/80 cursor-pointer text-xs flex items-center shrink-0">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg>
+              </div>
+              <div class="relative w-8 h-8 rounded-full border border-white/40 overflow-hidden shrink-0 bg-sky-800 shadow-xs">
+                <img src="assets/images/vera_ai_portrait.webp" onerror="this.src='vera_ai_portrait.webp'" alt="Вера" class="w-full h-full object-cover">
+                <span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-400 border border-white"></span>
+              </div>
+              <div class="min-w-0 leading-tight text-left">
+                <div class="text-xs font-bold text-white truncate flex items-center gap-1">
+                  <span>${data.companyName}</span>
+                  <svg class="w-3 h-3 text-white fill-current shrink-0" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg>
+                </div>
+                <div class="text-[10px] text-sky-100 font-medium">Вера • в сети</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 text-white/90 shrink-0">
+              <svg class="w-4 h-4 fill-current opacity-85" viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+              <button type="button" onclick="replayCaseChat('${key}')" class="text-[10px] bg-white/20 hover:bg-white/30 text-white px-2 py-0.5 rounded transition-all cursor-pointer font-semibold" title="Перезапустить диалог">↻</button>
+            </div>
+          `;
+        } else if (data.channel === 'max') {
+          headerContent = `
+            <div class="flex items-center gap-2 min-w-0">
+              <div class="text-white/80 cursor-pointer text-xs flex items-center shrink-0">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg>
+              </div>
+              <div class="relative w-8 h-8 rounded-full border border-white/40 overflow-hidden shrink-0 bg-indigo-900 shadow-xs">
+                <img src="assets/images/vera_ai_portrait.webp" onerror="this.src='vera_ai_portrait.webp'" alt="Вера" class="w-full h-full object-cover">
+                <span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-400 border border-white"></span>
+              </div>
+              <div class="min-w-0 leading-tight text-left">
+                <div class="text-xs font-bold text-white truncate flex items-center gap-1">
+                  <span>${data.companyName}</span>
+                  <span class="text-[9px] bg-white/25 px-1 py-0.2 rounded font-semibold">MAX</span>
+                </div>
+                <div class="text-[10px] text-indigo-100 font-medium">Вера • в сети</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 text-white/90 shrink-0">
+              <button type="button" onclick="replayCaseChat('${key}')" class="text-[10px] bg-white/20 hover:bg-white/30 text-white px-2 py-0.5 rounded transition-all cursor-pointer font-semibold" title="Перезапустить диалог">↻</button>
+            </div>
+          `;
+        } else if (data.channel === 'ig') {
+          // Instagram Light Header
+          headerContent = `
+            <div class="flex items-center gap-2 min-w-0">
+              <div class="text-slate-800 cursor-pointer text-xs flex items-center shrink-0">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg>
+              </div>
+              <div class="relative w-8 h-8 rounded-full p-[1.5px] bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] shrink-0 shadow-xs">
+                <img src="assets/images/vera_ai_portrait.webp" onerror="this.src='vera_ai_portrait.webp'" alt="Вера" class="w-full h-full rounded-full object-cover bg-white">
+                <span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-500 border border-white"></span>
+              </div>
+              <div class="min-w-0 leading-tight text-left">
+                <div class="text-xs font-bold text-slate-900 truncate flex items-center gap-1">
+                  <span>${data.companyName}</span>
+                  <svg class="w-3 h-3 text-sky-500 fill-current shrink-0" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg>
+                </div>
+                <div class="text-[10px] text-slate-500 font-medium">Вера • в сети</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 text-slate-700 shrink-0">
+              <svg class="w-4 h-4 fill-current opacity-70" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.44-5.15-3.75-6.59-6.58l1.97-1.58a.99.99 0 00.25-1.02c-.36-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3.3 3 3.65 3 4.19 3 13.56 10.44 21 19.81 21c.54 0 .99-.65.99-1.19v-3.44c0-.54-.45-.99-.99-.99z"/></svg>
+              <button type="button" onclick="replayCaseChat('${key}')" class="text-[10px] bg-slate-100 hover:bg-slate-200 text-slate-700 px-2 py-0.5 rounded transition-all cursor-pointer font-semibold" title="Перезапустить диалог">↻</button>
+            </div>
+          `;
+        } else {
+          // Avito Header
+          headerContent = `
+            <div class="flex items-center gap-2 min-w-0">
+              <svg class="w-4 h-4 text-slate-800 cursor-pointer fill-current" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+              <div class="w-7 h-7 rounded-lg overflow-hidden border border-slate-200 bg-white shrink-0 p-0.5 flex items-center justify-center">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
+                  <circle cx="7" cy="8" r="4" fill="#00AAFF"/>
+                  <circle cx="17" cy="7" r="3" fill="#04E061"/>
+                  <circle cx="16" cy="16" r="4.5" fill="#FF4053"/>
+                  <circle cx="8" cy="16.5" r="2.5" fill="#9B51E0"/>
+                </svg>
+              </div>
+              <div class="min-w-0 leading-tight text-left">
+                <div class="text-xs font-bold text-slate-900 truncate flex items-center gap-1">
+                  <span>${data.companyName}</span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                </div>
+                <div class="text-[10px] text-slate-500 font-medium">Вера • в сети</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 text-slate-700 shrink-0">
+              <button type="button" onclick="replayCaseChat('${key}')" class="text-[10px] bg-slate-100 hover:bg-slate-200 text-slate-700 px-2 py-0.5 rounded transition-all cursor-pointer font-semibold" title="Перезапустить диалог">↻</button>
+            </div>
+          `;
+        }
+        headerEl.innerHTML = headerContent;
+      }
+
+      // 3. Рендерим Niche Info Bar
+      const nicheBarEl = document.getElementById('casePhoneNicheBar');
+      if (nicheBarEl) {
+        nicheBarEl.className = `px-3 py-1 flex items-center justify-between text-[11px] font-semibold shrink-0 transition-colors duration-300 ${data.barBg}`;
+        nicheBarEl.innerHTML = `
+          <span class="truncate font-medium">${data.nicheTitle} • ${data.channelBadge}</span>
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0 ${data.badgeClass}">${data.badgeText}</span>
+        `;
+      }
+
+      // 4. Рендерим Footer мессенджера
+      const footerEl = document.getElementById('casePhoneFooter');
+      if (footerEl) {
+        if (data.channel === 'wa') {
+          footerEl.className = 'p-2 bg-[#f0f2f5] border-t border-slate-200/90 flex items-center gap-1.5 shrink-0 transition-colors duration-300';
+          footerEl.innerHTML = `
+            <div class="text-slate-500 p-1 cursor-pointer font-bold text-base leading-none">+</div>
+            <div class="flex-1 bg-white border border-slate-200 rounded-full px-3 py-1.5 flex items-center justify-between text-slate-400 text-xs">
+              <span class="truncate">Сообщение...</span>
+              <span class="text-slate-400 text-xs">📷</span>
+            </div>
+            <div class="w-7 h-7 rounded-full bg-[#00a884] text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
+              <svg class="w-3.5 h-3.5 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
+            </div>
+          `;
+        } else if (data.channel === 'tg') {
+          footerEl.className = 'p-2 bg-[#ffffff] border-t border-slate-200/90 flex items-center gap-1.5 shrink-0 transition-colors duration-300';
+          footerEl.innerHTML = `
+            <div class="text-slate-500 p-1 cursor-pointer text-sm leading-none">📎</div>
+            <div class="flex-1 bg-slate-100 rounded-full px-3 py-1.5 flex items-center justify-between text-slate-400 text-xs">
+              <span class="truncate">Сообщение...</span>
+              <span class="text-slate-400 text-xs">😊</span>
+            </div>
+            <div class="w-7 h-7 rounded-full bg-[#2481cc] text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
+            </div>
+          `;
+        } else if (data.channel === 'max') {
+          footerEl.className = 'p-2 bg-white border-t border-slate-200/90 flex items-center gap-1.5 shrink-0 transition-colors duration-300';
+          footerEl.innerHTML = `
+            <div class="text-slate-500 p-1 cursor-pointer text-sm leading-none">📎</div>
+            <div class="flex-1 bg-slate-100 rounded-full px-3 py-1.5 flex items-center justify-between text-slate-400 text-xs">
+              <span class="truncate">Написать в MAX...</span>
+              <span class="text-indigo-500 text-xs font-semibold">MAX</span>
+            </div>
+            <div class="w-7 h-7 rounded-full bg-[#4f46e5] text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
+              <svg class="w-3.5 h-3.5 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </div>
+          `;
+        } else if (data.channel === 'ig') {
+          // Instagram Light Footer
+          footerEl.className = 'p-2 bg-white border-t border-slate-200/80 flex items-center gap-2 shrink-0 transition-colors duration-300';
+          footerEl.innerHTML = `
+            <div class="w-7 h-7 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 cursor-pointer">
+              <span class="text-xs">📷</span>
+            </div>
+            <div class="flex-1 bg-slate-100 rounded-full px-3 py-1.5 flex items-center justify-between text-slate-400 text-xs">
+              <span class="truncate">Сообщение...</span>
+              <div class="flex items-center gap-1.5 text-slate-400 text-xs">
+                <span>🎙️</span>
+                <span>❤️</span>
+              </div>
+            </div>
+          `;
+        } else {
+          // Avito
+          footerEl.className = 'p-2 bg-white border-t border-slate-200/80 flex items-center gap-1.5 shrink-0 transition-colors duration-300';
+          footerEl.innerHTML = `
+            <div class="w-7 h-7 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 cursor-pointer text-xs">
+              📷
+            </div>
+            <div class="flex-1 bg-[#f2f3f5] rounded-xl px-3 py-1.5 flex items-center justify-between text-slate-400 text-xs">
+              <span class="truncate">Написать на Авито...</span>
+            </div>
+            <div class="w-7 h-7 rounded-xl bg-[#00aaff] text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
+              <svg class="w-3.5 h-3.5 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </div>
+          `;
+        }
+      }
+
+      // 5. Рендерим и анимируем сообщения
+      const msgContainer = document.getElementById('casePhoneMessages');
+      if (!msgContainer) return;
+
+      clearCaseChatTimers();
+      msgContainer.className = `flex-1 p-3 space-y-2.5 overflow-y-auto text-xs min-h-[300px] transition-colors duration-300 ${data.chatBg}`;
+      
+      msgContainer.innerHTML = `
+        <div class="flex justify-center my-1">
+          <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-black/10 text-slate-600">Сегодня</span>
+        </div>
+      `;
+
+      let stepIdx = 0;
+      function showNextMessage() {
+        if (stepIdx >= data.messages.length) return;
+        const msg = data.messages[stepIdx];
+
+        if (msg.sender === 'vera') {
+          // Сначала показываем индикатор печати Веры
+          const typingWrapper = document.createElement('div');
+          typingWrapper.innerHTML = renderCaseTypingHTML(data.channel);
+          const typingElem = typingWrapper.firstElementChild;
+          msgContainer.appendChild(typingElem);
+          msgContainer.scrollTop = msgContainer.scrollHeight;
+
+          const t1 = setTimeout(() => {
+            if (typingElem && typingElem.parentNode) {
+              typingElem.remove();
+            }
+
+            const bubbleWrapper = document.createElement('div');
+            bubbleWrapper.innerHTML = renderCaseMessageHTML(msg, data.channel);
+            const bubbleElem = bubbleWrapper.firstElementChild;
+            msgContainer.appendChild(bubbleElem);
+
+            requestAnimationFrame(() => {
+              bubbleElem.classList.remove('opacity-0', 'translate-y-2');
+              msgContainer.scrollTop = msgContainer.scrollHeight;
+            });
+
+            stepIdx++;
+            const t2 = setTimeout(showNextMessage, 3800);
+            caseChatTimers.push(t2);
+          }, 1400);
+          caseChatTimers.push(t1);
+
+        } else {
+          // Пользователь или статус
+          const bubbleWrapper = document.createElement('div');
+          bubbleWrapper.innerHTML = renderCaseMessageHTML(msg, data.channel);
+          const bubbleElem = bubbleWrapper.firstElementChild;
+          msgContainer.appendChild(bubbleElem);
+
+          requestAnimationFrame(() => {
+            bubbleElem.classList.remove('opacity-0', 'translate-y-2');
+            msgContainer.scrollTop = msgContainer.scrollHeight;
+          });
+
+          stepIdx++;
+          const t3 = setTimeout(showNextMessage, msg.type === 'status' ? 4000 : 2600);
+          caseChatTimers.push(t3);
+        }
+      }
+
+      const tStart = setTimeout(showNextMessage, 200);
+      caseChatTimers.push(tStart);
+    }
+
+    function replayCaseChat(key) {
+      selectCaseNiche(key || activeCaseNicheKey);
+    }
+
+    window.selectCaseNiche = selectCaseNiche;
+    window.replayCaseChat = replayCaseChat;
+
+document.addEventListener('DOMContentLoaded', () => {
       initFormHandlers();
       initCalc();
       initPitchCopy();
       initDemoChats();
       initPartnerLiveChat();
+      selectCaseNiche('beauty');
       try {
         const savedRating = localStorage.getItem('altai_partner_vera_rating');
         if (savedRating) ratePartnerVera(parseInt(savedRating, 10));
