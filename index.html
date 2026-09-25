@@ -56,15 +56,17 @@
 
       <!-- ДЕСКТОП ССЫЛКИ НА СЕКЦИИ -->
       <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-[12px] font-semibold text-slate-800">
-        <a href="#cases" class="px-2.5 py-1 hover:text-slate-900 hover:bg-black/5 rounded-full transition-all whitespace-nowrap">Результаты</a>
+        <a href="#cases" class="px-2.5 py-1 hover:text-slate-900 hover:bg-black/5 rounded-full transition-all whitespace-nowrap">Примеры</a>
         <span class="text-slate-300 select-none">•</span>
-        <a href="#calculator" class="px-2.5 py-1 hover:text-slate-900 hover:bg-black/5 rounded-full transition-all whitespace-nowrap">Посчитать прибыль</a>
+        <a href="#calculator" class="px-2.5 py-1 hover:text-slate-900 hover:bg-black/5 rounded-full transition-all whitespace-nowrap">Посчитать выгоду</a>
         <span class="text-slate-300 select-none">•</span>
         <a href="#constructor" class="px-2.5 py-1 hover:text-slate-900 hover:bg-black/5 rounded-full transition-all whitespace-nowrap">Тарифы</a>
         <span class="text-slate-300 select-none">•</span>
         <a href="#solutions" class="px-2.5 py-1 hover:text-slate-900 hover:bg-black/5 rounded-full transition-all whitespace-nowrap">Как начать</a>
         <span class="text-slate-300 select-none">•</span>
-        <a href="partner.html" class="px-2.5 py-1 hover:text-slate-900 hover:bg-black/5 rounded-full transition-all whitespace-nowrap">Партнерство</a>
+        <a href="partner.html" class="px-3 py-1 rounded-full border border-sky-400/80 bg-gradient-to-r from-sky-50 via-sky-100/50 to-blue-50 hover:border-sky-500 hover:shadow-xs transition-all whitespace-nowrap group">
+          <span class="bg-gradient-to-r from-sky-600 to-blue-700 bg-clip-text text-transparent font-bold group-hover:from-sky-500 group-hover:to-blue-600 transition-colors">Партнерство</span>
+        </a>
       </nav>
 
       <!-- ПРАВЫЙ БЛОК: TG, WA, КНОПКА ЗАЯВКИ И КНОПКА НАВЕРХ -->
@@ -76,8 +78,8 @@
           </svg>
         </a>
 
-        <a href="#scenarios" class="px-3.5 sm:px-4 py-1.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-[11px] sm:text-xs transition-all duration-200 hover:scale-105 shadow-md flex items-center justify-center shrink-0 ao-nav-cta whitespace-nowrap">
-          <span class="hidden sm:inline">Поговорить с&nbsp;ИИ&#8209;продавцом</span><span class="sm:hidden">Написать</span>
+        <a href="#scenarios" class="px-3 sm:px-4 py-1.5 rounded-full bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 hover:from-sky-400 hover:to-blue-500 active:scale-95 text-white font-bold text-[11px] sm:text-xs transition-all duration-200 hover:scale-105 shadow-md shadow-sky-500/25 flex items-center justify-center shrink-0 ao-nav-cta whitespace-nowrap">
+          <span>Поговорить с&nbsp;Верой</span>
         </a>
 
         <!-- КНОПКА НАВЕРХ -->
@@ -95,51 +97,39 @@
 
     <!-- ВЫПАДАЮЩЕЕ МОБИЛЬНОЕ МЕНЮ (СВЕТЛОЕ СТЕКЛО С БЕГАЮЩЕЙ НЕОНОВОЙ ЛИНИЕЙ ПО КОНТУРУ И ВНУТРЕННИМ НЕОНОМ) -->
     <div id="stickyMobileMenu" class="hidden md:hidden mt-2 mobile-menu-neon-card">
-      <div class="mobile-menu-neon-inner p-4 space-y-3.5 text-xs font-inter relative overflow-hidden">
+      <div class="mobile-menu-neon-inner p-3.5 space-y-2.5 text-xs font-inter relative overflow-hidden">
         
         <!-- ДЕЛИКАТНЫЙ ВНУТРЕННИЙ НЕОНОВЫЙ БЛИК СВЕРХУ -->
         <div class="absolute top-0 inset-x-6 h-[1.5px] bg-gradient-to-r from-transparent via-sky-400 to-transparent opacity-90 pointer-events-none"></div>
         <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-36 h-10 bg-sky-400/20 rounded-full blur-xl pointer-events-none"></div>
 
-        <!-- БЫСТРАЯ НАВИГАЦИЯ ПО СТРАНИЦЕ -->
-        <div class="flex items-center justify-around text-[11px] font-bold text-slate-700 pb-2 tracking-wide uppercase">
-          <a href="#cases" onclick="toggleMobileStickyMenu()" class="py-1 px-1.5 hover:text-sky-600 transition">Результаты</a>
-          <span class="text-sky-300">•</span>
-          <a href="#calculator" onclick="toggleMobileStickyMenu()" class="py-1 px-1.5 hover:text-sky-600 transition">Калькулятор</a>
-          <span class="text-sky-300">•</span>
-          <a href="#constructor" onclick="toggleMobileStickyMenu()" class="py-1 px-1.5 text-sky-600 font-extrabold hover:text-sky-700 transition">Тарифы</a>
-        </div>
+        <!-- 1. ПОГОВОРИТЬ С ВЕРОЙ -->
+        <a href="#scenarios" onclick="toggleMobileStickyMenu()" class="w-full py-2.5 px-3.5 rounded-xl bg-slate-50/90 hover:bg-slate-100 border border-slate-200/80 text-slate-800 font-bold text-xs flex items-center justify-between transition-all group">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Поговорить с Верой</span>
+          </div>
+          <span class="text-slate-400 text-[11px] group-hover:translate-x-0.5 transition-transform">→</span>
+        </a>
 
-        <!-- ТОНКИЙ АНИМИРОВАННЫЙ НЕОНОВЫЙ РАЗДЕЛИТЕЛЬ ВНУТРИ МЕНЮ -->
-        <div class="relative w-full h-[1px] bg-sky-100 overflow-hidden">
-          <div class="absolute inset-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent w-full animate-[menuDividerScan_3s_ease-in-out_infinite]"></div>
-        </div>
+        <!-- 2. ПАРТНЕРСКАЯ ПРОГРАММА (ВЫДЕЛЕНА ГРАДИЕНТОМ И ОБВЕДЕНА) -->
+        <a href="partner.html" onclick="toggleMobileStickyMenu()" class="w-full py-2.5 px-3.5 rounded-xl bg-gradient-to-r from-sky-50 via-sky-100/60 to-blue-50 hover:from-sky-100 hover:to-blue-100 border border-sky-400/80 shadow-xs flex items-center justify-between transition-all group">
+          <span class="bg-gradient-to-r from-sky-600 via-sky-700 to-blue-700 bg-clip-text text-transparent font-extrabold text-xs">Партнерская программа</span>
+          <span class="text-sky-600 text-[11px] font-bold group-hover:translate-x-0.5 transition-transform">→</span>
+        </a>
 
-        <!-- БЫСТРЫЕ КОНТАКТЫ (TG, ПОЧТА) -->
-        <div class="grid grid-cols-2 gap-2 w-full pt-1 pb-1 text-center font-inter">
-          <!-- Telegram -->
-          <a href="https://t.me/altaioptima" target="_blank" class="py-1.5 px-2 text-slate-700 hover:text-[#229ED9] font-bold text-[12px] flex items-center justify-center gap-1.5 transition-colors group bg-slate-50 rounded-lg border border-slate-100">
-            <svg class="w-4 h-4 fill-current text-[#229ED9] group-hover:scale-110 transition-transform shrink-0" viewBox="0 0 24 24">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
-            </svg>
-            <span>Telegram</span>
-          </a>
-
-          <!-- Почта -->
-          <a href="mailto:optima@altaiweb.online" class="py-1.5 px-2 text-slate-700 hover:text-sky-600 font-bold text-[12px] flex items-center justify-center gap-1.5 transition-colors group bg-slate-50 rounded-lg border border-slate-100">
-            <svg class="w-4 h-4 text-sky-600 stroke-current group-hover:scale-110 transition-transform shrink-0" fill="none" viewBox="0 0 24 24">
+        <!-- 3. ПОЧТА -->
+        <a href="mailto:optima@altaiweb.online" class="w-full py-2.5 px-3.5 rounded-xl bg-slate-50/90 hover:bg-slate-100 border border-slate-200/80 text-slate-700 font-bold text-xs flex items-center justify-between transition-colors">
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-sky-600 stroke-current shrink-0" fill="none" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
             </svg>
             <span>Почта</span>
-          </a>
-        </div>
-
-        <!-- ПАРТНЕРСКАЯ ПРОГРАММА -->
-        <a href="partner.html" onclick="toggleMobileStickyMenu()" class="w-full py-2.5 px-3.5 rounded-xl bg-sky-50/50 hover:bg-sky-100/70 border border-sky-100 text-sky-900 font-bold text-xs flex items-center justify-between transition-all">
-          <span>Партнерская программа</span>
+          </div>
+          <span class="text-slate-500 text-[11px] font-normal">optima@altaiweb.online</span>
         </a>
 
-        <!-- КНОПКА: СВЯЗАТЬСЯ С КОМАНДОЙ -->
+        <!-- 4. КНОПКА: СВЯЗАТЬСЯ С КОМАНДОЙ -->
         <a href="https://t.me/altaioptima" target="_blank" onclick="toggleMobileStickyMenu()" class="btn-optic w-full group justify-center text-center shadow-md py-3 text-xs font-bold uppercase tracking-wider rounded-xl">
           <span>СВЯЗАТЬСЯ С КОМАНДОЙ</span>
         </a>
@@ -348,8 +338,8 @@
           <a href="#constructor" class="btn-optic group shadow-xl flex-1 sm:flex-initial text-center justify-center">
             <span>РАССЧИТАТЬ СТОИМОСТЬ</span>
           </a>
-          <a href="#scenarios" class="btn-optic-outline group flex-1 sm:flex-initial text-center justify-center">
-            <span>ПОГОВОРИТЬ С&nbsp;ИИ&#8209;ПРОДАВЦОМ</span>
+          <a href="#scenarios" class="btn-optic-outline group flex-1 sm:flex-initial text-center justify-center bg-sky-950/70 hover:bg-sky-900/90 border border-sky-400/50 shadow-md">
+            <span>ПОГОВОРИТЬ С&nbsp;ВЕРОЙ</span>
           </a>
         </div>
       </div>
