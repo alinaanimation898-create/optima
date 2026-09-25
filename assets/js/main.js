@@ -3,7 +3,7 @@
       full_deal: {
         channel: 'WHATSAPP',
         badge: 'WhatsApp',
-        assistantName: 'Вера • WoodCraft Мебель',
+        assistantName: 'Вера',
         headerBg: 'bg-[#075e54]',
         headerSubText: 'text-emerald-200',
         statusText: 'в сети',
@@ -21,10 +21,10 @@
               </div>
               <div class="leading-tight text-left">
                 <div class="text-xs font-bold flex items-center gap-1 text-white">
-                  <span>WoodCraft Мебель</span>
+                  <span>Вера</span>
                   <span class="text-emerald-300 text-[10px]">✓</span>
                 </div>
-                <div class="text-[10px] text-emerald-200 font-medium">Вера • в сети онлайн</div>
+                <div class="text-[10px] text-emerald-200 font-medium">в сети • онлайн</div>
               </div>
             </div>
             <div class="flex items-center gap-2 text-white/90">
@@ -56,9 +56,9 @@
                 </span>
               </div>
               <div class="space-y-0.5 max-w-[270px]">
-                <div class="text-[12.5px] font-black text-slate-800 tracking-tight">WoodCraft Мебель • Вера на связи</div>
+                <div class="text-[12.5px] font-black text-slate-800 tracking-tight">Вера • ИИ-продавец онлайн</div>
                 <p class="text-[10.5px] text-slate-600 leading-snug font-normal">
-                  Напишите любой вопрос по корпусной мебели или выберите готовый:
+                  Напишите любой вопрос или выберите готовый:
                 </p>
               </div>
               <div class="flex flex-col gap-1.5 w-full max-w-[285px]">
@@ -82,7 +82,7 @@
         renderAiBubble: (msg) => `
           <div class="flex justify-start items-end gap-1.5 animate-fade-in">
             <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs border border-slate-200/50">
-              <div class="text-[9.5px] font-bold text-[#075e54] mb-0.5">${msg.author || 'Вера • WoodCraft Мебель'}</div>
+              <div class="text-[9.5px] font-bold text-[#075e54] mb-0.5">${msg.author || 'Вера'}</div>
               <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">${msg.text}</p>
               <div class="text-[9px] text-slate-400 text-right mt-0.5 font-sans flex items-center justify-end gap-1">
                 <span>${msg.time}</span>
@@ -119,7 +119,7 @@
       price_objection: {
         channel: 'TELEGRAM',
         badge: 'Telegram',
-        assistantName: 'Вера • Салон «Éclat Beauty»',
+        assistantName: 'Вера',
         headerBg: 'bg-[#229ED9]',
         headerSubText: 'text-sky-100',
         statusText: 'в сети',
@@ -131,8 +131,8 @@
               <span>12</span>
             </div>
             <div class="px-3 py-0.5 rounded-full bg-white/20 shadow-2xs text-center">
-              <div class="text-[11.5px] font-bold text-white leading-tight">Éclat Beauty Salon</div>
-              <div class="text-[9.5px] text-sky-100 font-medium leading-tight">Вера • в сети онлайн</div>
+              <div class="text-[11.5px] font-bold text-white leading-tight">Вера</div>
+              <div class="text-[9.5px] text-sky-100 font-medium leading-tight">в сети • онлайн</div>
             </div>
             <div class="flex items-center gap-1.5">
               <button type="button" onclick="resetLiveChatDialogue()" class="text-[10px] text-white bg-white/20 hover:bg-white/30 px-2 py-1 rounded-md transition-all cursor-pointer font-semibold">
@@ -148,8 +148,8 @@
                 <span class="bg-black/15 backdrop-blur-xs text-white text-[10px] font-medium px-2.5 py-0.5 rounded-full shadow-2xs">Сегодня</span>
               </div>
               <div class="mx-auto max-w-[94%] bg-[#6c8cf5]/25 border border-white/30 backdrop-blur-md rounded-xl p-2 text-center text-[10px] text-slate-800 leading-snug shadow-2xs">
-                <div class="font-bold text-[#0088cc]">Салон красоты «Éclat Beauty»</div>
-                <div class="text-[9.5px] text-slate-600">Вера на связи 24/7 · Задайте вопрос</div>
+                <div class="font-bold text-[#0088cc]">Вера • ИИ-продавец онлайн</div>
+                <div class="text-[9.5px] text-slate-600">Отвечает мгновенно 24/7</div>
               </div>
             </div>
 
@@ -162,9 +162,9 @@
                 </span>
               </div>
               <div class="space-y-0.5 max-w-[270px]">
-                <div class="text-[12.5px] font-black text-slate-800 tracking-tight">Онлайн-запись в салон</div>
+                <div class="text-[12.5px] font-black text-slate-800 tracking-tight">Вера на связи</div>
                 <p class="text-[10.5px] text-slate-600 leading-snug font-normal">
-                  Задайте вопрос по услугам или выберите готовый:
+                  Задайте любой вопрос или оцените общение:
                 </p>
               </div>
               <div class="flex flex-col gap-1.5 w-full max-w-[285px]">
@@ -185,7 +185,7 @@
           <div class="flex justify-start items-end gap-1.5 animate-fade-in">
             <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs">
               <div class="text-[9.5px] font-bold text-[#0088cc] mb-0.5 flex items-center gap-1">
-                <span>${msg.author || 'Вера • Салон «Éclat Beauty»'}</span>
+                <span>${msg.author || 'Вера'}</span>
                 <span class="text-[8px] bg-sky-100 text-sky-700 px-1 rounded font-normal">ИИ</span>
               </div>
               <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">${msg.text}</p>
@@ -226,7 +226,7 @@
       reanimate: {
         channel: 'INSTAGRAM DIRECT',
         badge: 'Instagram',
-        assistantName: 'tallora.ru • Вера',
+        assistantName: 'Вера',
         headerBg: 'bg-white border-b border-slate-100',
         headerSubText: 'text-slate-400',
         statusText: 'В сети',
@@ -245,7 +245,7 @@
               </div>
               <div class="leading-tight text-left">
                 <div class="text-xs font-extrabold flex items-center gap-1">
-                  <span>tallora.ru</span>
+                  <span>Вера</span>
                   <svg class="w-3 h-3 text-sky-500 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                 </div>
                 <div class="text-[9px] text-slate-400">Вера • В сети онлайн</div>
@@ -268,15 +268,15 @@
               </div>
               <div>
                 <div class="text-xs font-black text-slate-900">tallora.ru</div>
-                <div class="text-[9px] text-slate-400">Магазин обуви · Вера онлайн</div>
+                <div class="text-[9px] text-slate-400">Вера • ИИ-продавец онлайн</div>
               </div>
             </div>
 
             <div class="my-auto py-2 px-2 flex flex-col items-center justify-center text-center space-y-2.5 cursor-pointer select-none" onclick="focusChatInput()">
               <div class="space-y-0.5 max-w-[270px]">
-                <div class="text-[12.5px] font-black text-slate-900 tracking-tight">Магазин обуви tallora.ru</div>
+                <div class="text-[12.5px] font-black text-slate-900 tracking-tight">Вера • ИИ-продавец онлайн</div>
                 <p class="text-[10.5px] text-slate-600 leading-snug font-normal">
-                  Подбор размера, примерка и наличие моделей:
+                  Задайте любой вопрос в direct:
                 </p>
               </div>
               <div class="flex flex-col gap-1.5 w-full max-w-[285px]">
@@ -296,7 +296,7 @@
         renderAiBubble: (msg) => `
           <div class="flex justify-start items-end gap-1.5 animate-fade-in">
             <div class="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 text-white p-3 rounded-2xl rounded-bl-xs max-w-[88%] shadow-xs">
-              <div class="text-[9.5px] font-bold text-pink-100 mb-0.5">${msg.author || 'tallora.ru • Вера'}</div>
+              <div class="text-[9.5px] font-bold text-pink-100 mb-0.5">${msg.author || 'Вера'}</div>
               <p class="leading-relaxed font-normal text-[11.5px] text-white">${msg.text}</p>
               <div class="text-[9px] text-white/80 text-right mt-0.5 font-sans">${msg.time}</div>
             </div>
@@ -330,7 +330,7 @@
       avito_deal: {
         channel: 'AVITO',
         badge: 'Авито',
-        assistantName: 'Sneaker Store • Вера',
+        assistantName: 'Вера',
         headerBg: 'bg-white border-b border-slate-200/80',
         headerSubText: 'text-slate-500',
         statusText: 'в сети',
@@ -349,10 +349,10 @@
               </div>
               <div class="leading-tight text-left">
                 <div class="text-[11.5px] font-bold flex items-center gap-1">
-                  <span>Sneaker Store</span>
+                  <span>Вера</span>
                   <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                 </div>
-                <div class="text-[9.5px] text-slate-500 truncate max-w-[130px]">Вера · Оригинальные кроссовки</div>
+                <div class="text-[9.5px] text-slate-500 truncate max-w-[130px]">в сети • онлайн</div>
               </div>
             </div>
             <div class="flex items-center gap-1.5">
@@ -362,46 +362,7 @@
             </div>
           </div>
         `,
-        renderStarter: () => `
-          <div class="empty-chat-state h-full flex flex-col justify-between items-center text-center animate-fade-in py-1 px-1">
-            <div class="space-y-1.5 w-full">
-              <div class="p-2 rounded-xl bg-slate-50 border border-slate-200/70 text-left flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-slate-200 flex items-center justify-center text-base shrink-0">👟</div>
-                <div class="text-[10px] leading-tight min-w-0">
-                  <div class="font-bold text-slate-800 truncate">New Balance 1906R Original</div>
-                  <div class="text-slate-500 font-semibold">16 900 ₽ · В наличии</div>
-                </div>
-              </div>
-            </div>
 
-            <div class="my-auto py-2 px-2 flex flex-col items-center justify-center text-center space-y-2.5 cursor-pointer select-none" onclick="focusChatInput()">
-              <div class="space-y-0.5 max-w-[270px]">
-                <div class="text-[12.5px] font-black text-slate-800 tracking-tight">Sneaker Store · Вера онлайн</div>
-                <p class="text-[10.5px] text-slate-600 leading-snug font-normal">
-                  Отвечает за секунды, проверяет наличие и оформляет доставку:
-                </p>
-              </div>
-              <div class="flex flex-col gap-1.5 w-full max-w-[285px]">
-                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Оригинал? 42 размер в наличии?')" class="text-left text-[11px] font-medium bg-white hover:bg-slate-50 text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200 shadow-2xs hover:border-[#00aaff] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
-                  <span>«Оригинал? 42 размер в наличии?»</span>
-                  <span class="text-[#00aaff] text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
-                </button>
-              </div>
-            </div>
-
-            <div class="pt-1 pb-1 flex items-center gap-1.5 text-[10.5px] font-bold text-[#00aaff] animate-bounce cursor-pointer select-none" onclick="focusChatInput()">
-              <span>Напишите сообщение продавцу</span>
-              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M11 4h2v12l5.5-5.5 1.42 1.42L12 19.84l-7.92-7.92L5.5 10.5 11 16V4z"/></svg>
-            </div>
-          </div>
-        `,
-            <div class="flex items-center gap-1.5">
-              <button type="button" onclick="resetLiveChatDialogue()" class="text-[10px] text-slate-600 bg-slate-100 hover:bg-slate-200 px-2 py-1 rounded-md transition-all cursor-pointer font-medium">
-                Очистить
-              </button>
-            </div>
-          </div>
-        `,
         renderStarter: () => `
           <div class="empty-chat-state h-full flex flex-col justify-between items-center text-center animate-fade-in py-1 px-1">
             <div class="space-y-2 w-full">
@@ -423,7 +384,7 @@
 
             <div class="my-auto py-2 px-2 flex flex-col items-center justify-center text-center space-y-2.5 cursor-pointer select-none" onclick="focusChatInput()">
               <div class="space-y-0.5 max-w-[270px]">
-                <div class="text-[12.5px] font-black text-slate-900 tracking-tight">Начните диалог с продавцом</div>
+                <div class="text-[12.5px] font-black text-slate-900 tracking-tight">Вера • ИИ-продавец онлайн</div>
                 <p class="text-[10.5px] text-slate-600 leading-snug font-normal">
                   Задайте вопрос по объявлению в строке внизу или выберите готовый:
                 </p>
