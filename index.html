@@ -484,11 +484,11 @@
         </h2>
       </div>
 
-      <!-- 3 КОЛОНКИ: НА МОБИЛЬНЫХ СНАЧАЛА ЦЕНТРАЛЬНЫЙ МАНИФЕСТ, ЗАТЕМ АЛИНА И ДАВИД -->
+      <!-- 3 КОЛОНКИ: НА МОБИЛЬНЫХ СНАЧАЛА АЛИНА, ЗАТЕМ ДАВИД, ЗАТЕМ МАНИФЕСТ -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7 lg:gap-8 items-start">
         
-        <!-- КОЛОНКА 1 (СЛЕВА НА DESKTOP, 2-Я НА MOBILE): АЛИНА -->
-        <div class="flex flex-col space-y-3.5 order-2 md:order-1">
+        <!-- КОЛОНКА 1 (СЛЕВА НА DESKTOP, 1-Я НА MOBILE): АЛИНА -->
+        <div class="flex flex-col space-y-3.5 order-1 md:order-1">
           <div class="relative w-full aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_10px_30px_rgba(4,44,83,0.08)] border-2 border-white bg-white group">
             <img src="assets/images/founder_alina.webp" alt="Алина - сооснователь Altai Optima" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]" loading="lazy">
           </div>
@@ -502,8 +502,23 @@
           </div>
         </div>
 
-        <!-- КОЛОНКА 2 (ПОСЕРЕДИНЕ НА DESKTOP, 1-Я НА MOBILE): МАНИФЕСТ ЦЕННОСТИ ПРОДУКТА (КОМПАКТНЫЙ ШАХМАТНЫЙ БЛОК С БЛИКОМ) -->
-        <div class="card-manifest-shine relative overflow-hidden bg-white/85 backdrop-blur-md rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-sky-100/90 shadow-[0_10px_35px_rgba(2,132,199,0.06)] flex flex-col justify-between space-y-3.5 font-serif-letter text-[#0C447C] text-[13px] sm:text-[13.5px] lg:text-[14px] leading-relaxed order-1 md:order-2 self-start">
+        <!-- КОЛОНКА 3 (СПРАВА НА DESKTOP, 2-Я НА MOBILE): ДАВИД -->
+        <div class="flex flex-col space-y-3.5 order-2 md:order-3">
+          <div class="relative w-full aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_10px_30px_rgba(4,44,83,0.08)] border-2 border-white bg-white group">
+            <img src="assets/images/founder_david.webp" alt="Давид - сооснователь Altai Optima" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]" loading="lazy">
+          </div>
+          <div class="space-y-1.5">
+            <span class="font-signature text-3xl sm:text-4xl text-[#0284c7] select-none leading-none block" style="font-family: 'Caveat', cursive;">
+              Давид
+            </span>
+            <p class="font-serif-letter italic text-slate-800 text-[13px] sm:text-[13.5px] lg:text-[14px] leading-relaxed">
+              «Десять лет на&nbsp;передовой ИИ-технологий, последние три года&nbsp;- в&nbsp;американской компании, создающей софт на&nbsp;базе ИИ. Этот опыт научил меня главному: людям нужен собеседник, а&nbsp;боты с&nbsp;кнопками только раздражают. Поэтому Вера&nbsp;- умный сотрудник: держит контекст, чувствует нюансы и&nbsp;ведёт диалог так же чутко, как ваш лучший эксперт.»
+            </p>
+          </div>
+        </div>
+
+        <!-- КОЛОНКА 2 (ПОСЕРЕДИНЕ НА DESKTOP, 3-Я НА MOBILE ПОСЛЕ ДАВИДА): МАНИФЕСТ ЦЕННОСТИ ПРОДУКТА -->
+        <div class="card-manifest-shine relative overflow-hidden bg-white/85 backdrop-blur-md rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-sky-100/90 shadow-[0_10px_35px_rgba(2,132,199,0.06)] flex flex-col justify-between space-y-3.5 font-serif-letter text-[#0C447C] text-[13px] sm:text-[13.5px] lg:text-[14px] leading-relaxed order-3 md:order-2 self-start">
           <div class="space-y-2.5 relative z-10">
             <p>
               Мы создали Altai Optima на&nbsp;стыке двенадцати лет в&nbsp;продажах и&nbsp;десяти лет разработки передового ИИ.
@@ -525,21 +540,6 @@
 
           <!-- МИНИМАЛИСТИЧНЫЙ МЕДЛЕННЫЙ БЛИК -->
           <span class="card-manifest-glare" aria-hidden="true"></span>
-        </div>
-
-        <!-- КОЛОНКА 3 (СПРАВА НА DESKTOP, 3-Я НА MOBILE): ДАВИД -->
-        <div class="flex flex-col space-y-3.5 order-3 md:order-3">
-          <div class="relative w-full aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_10px_30px_rgba(4,44,83,0.08)] border-2 border-white bg-white group">
-            <img src="assets/images/founder_david.webp" alt="Давид - сооснователь Altai Optima" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]" loading="lazy">
-          </div>
-          <div class="space-y-1.5">
-            <span class="font-signature text-3xl sm:text-4xl text-[#0284c7] select-none leading-none block" style="font-family: 'Caveat', cursive;">
-              Давид
-            </span>
-            <p class="font-serif-letter italic text-slate-800 text-[13px] sm:text-[13.5px] lg:text-[14px] leading-relaxed">
-              «Десять лет на&nbsp;передовой ИИ-технологий, последние три года&nbsp;- в&nbsp;американской компании, создающей софт на&nbsp;базе ИИ. Этот опыт научил меня главному: людям нужен собеседник, а&nbsp;боты с&nbsp;кнопками только раздражают. Поэтому Вера&nbsp;- умный сотрудник: держит контекст, чувствует нюансы и&nbsp;ведёт диалог так же чутко, как ваш лучший эксперт.»
-            </p>
-          </div>
         </div>
 
       </div>
@@ -1023,90 +1023,91 @@
 
             </div>
 
-            <!-- ИНТЕРАКТИВНЫЙ БЛОК: ЗВЕЗДНЫЙ РЕЙТИНГ ВЕРЫ (ОТ 1 ДО 5 ЗВЁЗД) -->
-            <div class="mt-5 p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs max-w-sm sm:max-w-md w-full">
-              <div class="flex items-center justify-between gap-2 mb-1.5">
-                <span class="text-xs sm:text-[13px] font-bold text-slate-800">Оцените профессионализм Веры:</span>
-                <span id="starRatingValue" class="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200/80">★ 5.0</span>
-              </div>
-              <div class="flex items-center gap-1.5" id="starRatingGroup">
-                <button type="button" onclick="rateVera(1)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="1 звезда">★</button>
-                <button type="button" onclick="rateVera(2)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="2 звезды">★</button>
-                <button type="button" onclick="rateVera(3)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="3 звезды">★</button>
-                <button type="button" onclick="rateVera(4)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="4 звезды">★</button>
-                <button type="button" onclick="rateVera(5)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="5 звезд">★</button>
-              </div>
-              <div id="starFeedbackText" class="text-[11px] text-slate-500 mt-1.5 font-medium leading-snug">
-                Нажмите на звезду, чтобы проголосовать за качество ответов
-              </div>
             </div>
-
-          </div>
-
-        </div>
 
         <!-- ПРАВАЯ КОЛОНКА: СМАРТФОН С ДИАЛОГОМ И ЖИВОЙ АНИМАЦИЕЙ -->
-        <div class="lg:col-span-6 flex justify-center phone-perspective-stage">
-          <div class="phone-titanium-shell" id="phoneContainer">
-            <div class="phone-screen-display" id="phoneScreen">
-              
-              <!-- ОСТРОВОК DYNAMIC ISLAND -->
-              <div class="phone-island-notch">
-                <div class="w-2.5 h-2.5 rounded-full bg-[#111827] ring-1 ring-slate-800/80 flex items-center justify-center">
-                  <div class="w-1 h-1 rounded-full bg-[#1e293b]"></div>
+        <div class="lg:col-span-6 flex flex-col items-center">
+          <div class="phone-perspective-stage flex justify-center w-full">
+            <div class="phone-titanium-shell" id="phoneContainer">
+              <div class="phone-screen-display" id="phoneScreen">
+                
+                <!-- ОСТРОВОК DYNAMIC ISLAND -->
+                <div class="phone-island-notch">
+                  <div class="w-2.5 h-2.5 rounded-full bg-[#111827] ring-1 ring-slate-800/80 flex items-center justify-center">
+                    <div class="w-1 h-1 rounded-full bg-[#1e293b]"></div>
+                  </div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-[#0a0f1d] ring-1 ring-slate-800/80"></div>
                 </div>
-                <div class="w-2.5 h-2.5 rounded-full bg-[#0a0f1d] ring-1 ring-slate-800/80"></div>
-              </div>
 
-              <!-- ДИНАМИЧЕСКИЙ ХЕДЕР ЧАТА -->
-              <div id="chatHeader" class="pt-10 pb-2.5 px-3.5 text-white flex items-center justify-between transition-all duration-300 shadow-xs z-10 shrink-0 bg-[#075e54]">
-                <div class="flex items-center gap-2 w-full justify-between">
-                  <div class="flex items-center gap-2">
-                    <div class="flex items-center text-white/90 text-sm font-semibold cursor-pointer">
-                      <svg class="w-4 h-4 mr-0.5 fill-current" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg>
-                      <span class="text-xs">3</span>
-                    </div>
-                    <div class="relative w-8 h-8 rounded-full border border-white/40 overflow-hidden shadow-xs shrink-0 bg-slate-800">
-                      <img src="assets/images/vera_ai_portrait.webp" onerror="this.src='vera_ai_portrait.webp'" alt="Вера" class="w-full h-full object-cover">
-                      <span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-400 border border-white"></span>
-                    </div>
-                    <div class="leading-tight text-left">
-                      <div class="text-xs font-bold flex items-center gap-1 text-white">
-                        <span>Вера</span>
-                        <span class="text-emerald-300 text-[10px]">✓</span>
+                <!-- ДИНАМИЧЕСКИЙ ХЕДЕР ЧАТА -->
+                <div id="chatHeader" class="pt-10 pb-2.5 px-3.5 text-white flex items-center justify-between transition-all duration-300 shadow-xs z-10 shrink-0 bg-[#075e54]">
+                  <div class="flex items-center gap-2 w-full justify-between">
+                    <div class="flex items-center gap-2">
+                      <div class="flex items-center text-white/90 text-sm font-semibold cursor-pointer">
+                        <svg class="w-4 h-4 mr-0.5 fill-current" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg>
+                        <span class="text-xs">3</span>
                       </div>
-                      <div class="text-[10px] text-emerald-200 font-medium">в сети • онлайн</div>
+                      <div class="relative w-8 h-8 rounded-full border border-white/40 overflow-hidden shadow-xs shrink-0 bg-slate-800">
+                        <img src="assets/images/vera_ai_portrait.webp" onerror="this.src='vera_ai_portrait.webp'" alt="Вера" class="w-full h-full object-cover">
+                        <span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-400 border border-white"></span>
+                      </div>
+                      <div class="leading-tight text-left">
+                        <div class="text-xs font-bold flex items-center gap-1 text-white">
+                          <span>Вера</span>
+                          <span class="text-emerald-300 text-[10px]">✓</span>
+                        </div>
+                        <div class="text-[10px] text-emerald-200 font-medium">в сети • онлайн</div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="flex items-center gap-2 text-white/90">
-                    <button type="button" onclick="resetLiveChatDialogue()" class="text-[10px] bg-white/15 hover:bg-white/25 px-2 py-1 rounded-md transition-all cursor-pointer font-medium">
-                      Очистить
-                    </button>
+                    <div class="flex items-center gap-2 text-white/90">
+                      <button type="button" onclick="resetLiveChatDialogue()" class="text-[10px] bg-white/15 hover:bg-white/25 px-2 py-1 rounded-md transition-all cursor-pointer font-medium">
+                        Очистить
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <!-- КОНТЕЙНЕР СООБЩЕНИЙ -->
-              <div id="messagesContainer" class="p-3.5 space-y-3 flex-grow overflow-y-auto text-xs chat-bg-wa transition-colors duration-300 min-h-[320px]">
-                <!-- Сообщения -->
-              </div>
+                <!-- КОНТЕЙНЕР СООБЩЕНИЙ -->
+                <div id="messagesContainer" class="p-3.5 space-y-3 flex-grow overflow-y-auto text-xs chat-bg-wa transition-colors duration-300 min-h-[320px]">
+                  <!-- Сообщения -->
+                </div>
 
-              <!-- ИНТЕРАКТИВНАЯ ПАНЕЛЬ ВВОДА -->
-              <div id="chatFooterBar" class="p-2.5 bg-white border-t border-slate-200/90 flex items-center gap-2 z-10 shrink-0 shadow-xs">
-                <div class="flex items-center gap-1.5 w-full">
-                  <form id="liveChatForm" onsubmit="handleLiveChatSubmit(event)" class="flex-1 flex items-center gap-1.5">
-                    <div class="flex-1 bg-white border border-slate-200/90 rounded-2xl px-3 py-1.5 flex items-center justify-between shadow-2xs live-chat-input-glow">
-                      <input id="liveChatInput" type="text" placeholder="Напишите любой вопрос ИИ‑продавцу…|" autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-xs outline-none">
-                      <span class="text-slate-400 text-sm ml-1">📎</span>
-                    </div>
-                    <button id="liveChatSubmitBtn" type="submit" class="w-8 h-8 rounded-full bg-[#00a884] hover:bg-[#008f6f] active:scale-95 text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
-                      <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
-                    </button>
-                  </form>
+                <!-- ИНТЕРАКТИВНАЯ ПАНЕЛЬ ВВОДА -->
+                <div id="chatFooterBar" class="p-2.5 bg-white border-t border-slate-200/90 flex items-center gap-2 z-10 shrink-0 shadow-xs">
+                  <div class="flex items-center gap-1.5 w-full">
+                    <form id="liveChatForm" onsubmit="handleLiveChatSubmit(event)" class="flex-1 flex items-center gap-1.5">
+                      <div class="flex-1 bg-white border border-slate-200/90 rounded-2xl px-3 py-1.5 flex items-center justify-between shadow-2xs live-chat-input-glow">
+                        <input id="liveChatInput" type="text" placeholder="Напишите любой вопрос ИИ‑продавцу…|" autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-xs outline-none">
+                        <span class="text-slate-400 text-sm ml-1">📎</span>
+                      </div>
+                      <button id="liveChatSubmitBtn" type="submit" class="w-8 h-8 rounded-full bg-[#00a884] hover:bg-[#008f6f] active:scale-95 text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
+                        <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+                      </button>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+
+          <!-- ИНТЕРАКТИВНЫЙ БЛОК: ЗВЕЗДНЫЙ РЕЙТИНГ ВЕРЫ (ПОСЛЕ ЭКРАНА СМАРТФОНА) -->
+          <div class="mt-6 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-slate-200/90 shadow-sm max-w-sm sm:max-w-md w-full mx-auto text-center select-none">
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              <span class="text-xs sm:text-[13px] font-bold text-slate-800">Оцените профессионализм Веры:</span>
+              <span id="starRatingValue" class="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200/80">★ 5.0</span>
+            </div>
+            <div class="flex items-center justify-center gap-1.5" id="starRatingGroup">
+              <button type="button" onclick="rateVera(1)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="1 звезда">★</button>
+              <button type="button" onclick="rateVera(2)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="2 звезды">★</button>
+              <button type="button" onclick="rateVera(3)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="3 звезды">★</button>
+              <button type="button" onclick="rateVera(4)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="4 звезды">★</button>
+              <button type="button" onclick="rateVera(5)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="5 звезд">★</button>
+            </div>
+            <div id="starFeedbackText" class="text-[11px] text-slate-500 mt-1.5 font-medium leading-snug">
+              Нажмите на звезду, чтобы проголосовать за качество ответов
+            </div>
+          </div>
+
         </div>
 
       </div>
@@ -3003,83 +3004,100 @@
 
     </section>
 
-        <!-- ==========================================================================
-         СЕКЦИЯ: НАШ ПРИНЦИП (КОММЕРЧЕСКОЕ ДОВЕРИЕ)
-         ========================================================================== -->
-    <section id="our-principle" class="relative z-20 max-w-5xl xl:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 font-inter">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
-        
-        <!-- Фото основателей (не сильно крупно) -->
-        <div class="md:col-span-4 lg:col-span-4 flex flex-col items-center md:items-start">
-          <div class="relative group max-w-[260px] sm:max-w-[290px] w-full">
-            <div class="relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-[0_12px_36px_rgba(2,132,199,0.12)] border-2 border-white ring-1 ring-sky-200/70">
-              <picture>
-                <source srcset="assets/images/founders_together.webp" type="image/webp">
-                <img src="assets/images/founders_together.jpg" alt="Алина и Давид - основатели Altai Optima" class="w-full aspect-[4/5] object-cover object-top transition-transform duration-500 group-hover:scale-105" loading="lazy">
-              </picture>
-            </div>
-            <div class="mt-3 text-center md:text-left">
-              <div class="text-sm sm:text-base font-bold text-slate-900 tracking-tight">Алина и Давид</div>
-              <div class="text-xs text-sky-700 font-medium">Основатели Altai Optima</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Текст: НАШ ПРИНЦИП (без подложки) -->
-        <div class="md:col-span-8 lg:col-span-8 space-y-4 sm:space-y-5">
-          <div>
-            <div class="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-widest text-sky-700 mb-1">
-              КОММЕРЧЕСКОЕ ДОВЕРИЕ
-            </div>
-            <h3 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl text-[#0f172a] overflow-visible" style="font-family: 'Benzin', sans-serif !important;">
-              НАШ <span class="pearl-title-gradient">ПРИНЦИП</span>
-            </h3>
-          </div>
-
-          <div class="space-y-3.5 text-slate-700 text-sm sm:text-base leading-relaxed font-normal">
-            <p>
-              Мы строим компанию на&nbsp;годы вперед, поэтому наша прибыль напрямую завязана на&nbsp;Вашем удовлетворении.
-            </p>
-            <p>
-              Знакомство начинается с&nbsp;7&nbsp;дней бесплатного тест-драйва, а&nbsp;фиксированный запуск за&nbsp;29&nbsp;000&nbsp;₽ покрывает исключительно себестоимость упаковки Вашей базы знаний и&nbsp;технической интеграции.
-            </p>
-            <p>
-              Настоящая маржинальность нашего бизнеса&nbsp;- в&nbsp;долгом партнерстве и&nbsp;продлении подписки. Подписка приносит нам доход лишь тогда, когда Вера стабильно генерирует сделки и&nbsp;увеличивает Вашу прибыль. Чем дольше мы радуем Вас нашей разработкой, тем увереннее растет Ваш бизнес.
-            </p>
-            <p class="font-semibold text-slate-950 pt-1">
-              Вы абсолютно свободны отключиться от&nbsp;системы в&nbsp;любой момент, но мы уверены: стоит Вам познакомиться с&nbsp;Верой, и&nbsp;это станет любовью с&nbsp;первого сообщения.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД К ФИНАЛЬНОЙ КНОПКЕ -->
-    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none mt-2 sm:mt-4 mb-2 sm:mb-3">
-      <div class="flowing-connector-link group">
-        <svg class="w-full h-auto min-h-[45px] sm:min-h-[55px] max-h-[60px] sm:max-h-[70px] overflow-visible max-w-[140px] sm:max-w-[180px] mx-auto" viewBox="0 0 1000 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ «КАК НАЧАТЬ» К «НАШ ПРИНЦИП» -->
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-8 sm:my-12">
+      <a href="#our-principle" class="flowing-connector-link group" title="Наш принцип">
+        <svg class="w-full h-auto min-h-[45px] sm:min-h-[55px] max-h-[60px] sm:max-h-[70px] overflow-visible max-w-[140px] sm:max-w-[180px] mx-auto" viewBox="0 0 1000 85" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="gradFlowToFinal" x1="500" y1="5" x2="500" y2="115" gradientUnits="userSpaceOnUse">
+            <linearGradient id="gradFlowToPrinciple" x1="500" y1="5" x2="500" y2="80" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
               <stop offset="50%" stop-color="#0284C7" stop-opacity="0.8"/>
               <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
             </linearGradient>
-            <filter id="glowFlowToFinal" x="-20%" y="-20%" width="140%" height="140%">
+            <filter id="glowFlowPrinciple" x="-20%" y="-20%" width="140%" height="140%">
               <feGaussianBlur stdDeviation="2" result="blur"/>
               <feComposite in="SourceGraphic" in2="blur" operator="over"/>
             </filter>
           </defs>
-          <path d="M 500,5 L 500,115" stroke="url(#gradFlowToFinal)" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.5"/>
-          <path d="M 500,5 L 500,115" class="delicate-connector-beam" stroke="url(#gradFlowToFinal)" stroke-width="1.8" stroke-linecap="round" filter="url(#glowFlowToFinal)"/>
+          <path d="M 500,5 L 500,80" stroke="url(#gradFlowToPrinciple)" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.5"/>
+          <path d="M 500,5 L 500,80" class="delicate-connector-beam-compact" stroke="url(#gradFlowToPrinciple)" stroke-width="1.8" stroke-linecap="round" filter="url(#glowFlowPrinciple)"/>
           <circle cx="500" cy="5" r="2.2" fill="#0284C7" opacity="0.8"/>
-          <path d="M 494.5,108.5 L 500,115 L 505.5,108.5" stroke="#0369A1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 494.5,73.5 L 500,80 L 505.5,73.5" stroke="#0369A1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
+      </a>
+    </div>
+
+    <!-- ==========================================================================
+         СЕКЦИЯ: НАШ ПРИНЦИП
+         ========================================================================== -->
+    <section id="our-principle" class="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 font-inter scroll-mt-28">
+      
+      <!-- Шапка секции: фото в аккуратный кружок + заголовок НАШ ПРИНЦИП справа (на мобилке и десктопе в ряд) -->
+      <div class="flex items-center gap-4 sm:gap-6 mb-6 sm:mb-8">
+        <!-- Фото основателей в кружок (компактный размер) -->
+        <div class="relative shrink-0 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full overflow-hidden shadow-lg border-2 border-white ring-2 ring-sky-200/80 bg-slate-100 group">
+          <picture>
+            <source srcset="assets/images/founders_together.webp" type="image/webp">
+            <img src="assets/images/founders_together.jpg" alt="Алина и Давид - основатели Altai Optima" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" loading="lazy">
+          </picture>
+        </div>
+
+        <!-- Заголовок и подпись справа от фото -->
+        <div class="min-w-0">
+          <h3 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl text-[#0f172a] leading-tight overflow-visible" style="font-family: 'Benzin', sans-serif !important;">
+            НАШ <span class="pearl-title-gradient">ПРИНЦИП</span>
+          </h3>
+          <div class="text-xs sm:text-sm font-semibold text-slate-800 tracking-tight mt-1 flex flex-wrap items-center gap-1.5">
+            <span>Алина и Давид</span>
+            <span class="text-slate-400">·</span>
+            <span class="text-sky-700 font-medium">Основатели Altai Optima</span>
+          </div>
+        </div>
       </div>
+
+      <!-- Текст манифеста без подложки -->
+      <div class="space-y-4 text-slate-700 text-sm sm:text-base lg:text-[15.5px] leading-relaxed font-normal">
+        <p>
+          Мы строим компанию на&nbsp;годы вперед, поэтому наша прибыль напрямую завязана на&nbsp;Вашем удовлетворении.
+        </p>
+        <p>
+          Знакомство начинается с&nbsp;7&nbsp;дней бесплатного тест-драйва, а&nbsp;фиксированный запуск за&nbsp;29&nbsp;000&nbsp;₽ покрывает исключительно себестоимость упаковки Вашей базы знаний и&nbsp;технической интеграции.
+        </p>
+        <p>
+          Настоящая маржинальность нашего бизнеса&nbsp;- в&nbsp;долгом партнерстве и&nbsp;продлении подписки. Подписка приносит нам доход лишь тогда, когда Вера стабильно генерирует сделки и&nbsp;увеличивает Вашу прибыль. Чем дольше мы радуем Вас нашей разработкой, тем увереннее растет Ваш бизнес.
+        </p>
+        <p class="font-semibold text-slate-950 pt-1">
+          Вы абсолютно свободны отключиться от&nbsp;системы в&nbsp;любой момент, но мы уверены: стоит Вам познакомиться с&nbsp;Верой, и&nbsp;это станет любовью с&nbsp;первого сообщения.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ «НАШ ПРИНЦИП» К КНОПКЕ «ИНТЕГРИРОВАТЬ ВЕРУ» -->
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-8 sm:my-12">
+      <a href="#final" class="flowing-connector-link group" title="Интегрировать Веру">
+        <svg class="w-full h-auto min-h-[45px] sm:min-h-[55px] max-h-[60px] sm:max-h-[70px] overflow-visible max-w-[140px] sm:max-w-[180px] mx-auto" viewBox="0 0 1000 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradFlowToFinalBtn" x1="500" y1="5" x2="500" y2="80" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
+            </linearGradient>
+            <filter id="glowFlowFinalBtn" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 500,5 L 500,80" stroke="url(#gradFlowToFinalBtn)" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.5"/>
+          <path d="M 500,5 L 500,80" class="delicate-connector-beam-compact" stroke="url(#gradFlowToFinalBtn)" stroke-width="1.8" stroke-linecap="round" filter="url(#glowFlowFinalBtn)"/>
+          <circle cx="500" cy="5" r="2.2" fill="#0284C7" opacity="0.8"/>
+          <path d="M 494.5,73.5 L 500,80 L 505.5,73.5" stroke="#0369A1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </a>
     </div>
 
     <!-- 13. ФИНАЛЬНЫЙ ПРИЗЫВ С БОЛЬШИМ ВОЗДУХОМ ПЕРЕД ФУТЕРОМ -->
-    <section id="final" class="relative z-20 pt-1 pb-24 sm:pb-32 md:pb-40 lg:pb-48 text-center">
+    <section id="final" class="relative z-20 pt-2 pb-36 sm:pb-48 md:pb-60 lg:pb-72 text-center scroll-mt-28">
       <div class="max-w-xl mx-auto px-4 flex flex-col items-center">
         <a href="https://t.me/altaioptima?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%AF%20%D1%85%D0%BE%D1%87%D1%83%20%D0%B8%D0%BD%D1%82%D0%B5%D0%B3%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%92%D0%B5%D1%80%D1%83" target="_blank" rel="noopener" class="btn-earn-shine inline-flex items-center justify-center font-benzin uppercase tracking-wider font-bold text-sm sm:text-base md:text-lg text-white bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 hover:from-sky-400 hover:to-blue-500 active:scale-95 px-8 sm:px-14 py-4 sm:py-5 rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-sky-500/30 transition-all transform hover:-translate-y-0.5 relative overflow-hidden" style="font-family: 'Benzin', sans-serif !important;">
           <span class="relative z-10">Интегрировать Веру</span>
