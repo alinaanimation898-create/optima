@@ -599,7 +599,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
         </div>
 
         <!-- Right: Client Pricing Tiers (4 cols) -->
-        <div class="lg:col-span-4 rounded-[32px] p-6 sm:p-7 bg-white border border-slate-200/90 shadow-xl flex flex-col justify-between font-inter order-3">
+        <div class="lg:col-span-4 flex flex-col justify-between font-inter order-3">
           <div>
             <h3 class="font-inter uppercase tracking-tight font-black text-xl sm:text-2xl text-slate-900 mb-1">
               Тарифная сетка
@@ -685,9 +685,9 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
         
         <!-- Заголовок блока шрифтом Benzin с градиентным акцентом -->
         <div class="relative z-10 max-w-4xl mx-auto mb-10 sm:mb-12 text-center px-4">
-          <h3 class="font-benzin uppercase tracking-tight font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-[46px] text-[#0f172a] mb-3 leading-[1.24]" style="font-family: 'Benzin', sans-serif !important;">
-            ВЕРА в&nbsp;деле <span class="bg-gradient-to-r from-emerald-600 via-sky-500 to-indigo-600 bg-clip-text text-transparent">24/7</span>, бизнес в&nbsp;надежных руках
-          </h3>
+          <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[40px] leading-tight overflow-visible mb-3 text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
+            <span class="pearl-title-gradient">ВЕРА в&nbsp;деле 24/7,</span> <span class="text-[#0f172a]">бизнес в&nbsp;надежных руках</span>
+          </h2>
           <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-sans">
             Посмотрите, как Вера мгновенно отвечает клиентам, консультирует по услугам и товарам и доводит до оплаты без задержек
           </p>
@@ -896,6 +896,181 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
 
       </div>
     </section>
+
+    
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ДЕМОНСТРАЦИИ К ЖИВОМУ ТЕСТУ ВЕРЫ -->
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8">
+      <a href="#talk-to-vera" class="flowing-connector-link group" title="Поговорите с Верой">
+        <svg class="w-full h-auto min-h-[45px] sm:min-h-[55px] max-h-[60px] sm:max-h-[70px] overflow-visible max-w-[140px] sm:max-w-[180px] mx-auto" viewBox="0 0 1000 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradPartnerFlowVeraTalk" x1="500" y1="5" x2="500" y2="80" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="1"/>
+            </linearGradient>
+            <filter id="glowPartnerFlowVeraTalk" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 500,5 L 500,80" stroke="url(#gradPartnerFlowVeraTalk)" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <path d="M 500,5 L 500,80" class="delicate-connector-beam-compact" stroke="url(#gradPartnerFlowVeraTalk)" stroke-width="1.8" stroke-linecap="round" filter="url(#glowPartnerFlowVeraTalk)"/>
+          <circle cx="500" cy="5" r="2.5" fill="#0284C7" opacity="0.9"/>
+          <path d="M 494.5,73.5 L 500,80 L 505.5,73.5" stroke="#0369A1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- ================= 3.2 SECTION: ПОГОВОРИТЕ С ВЕРОЙ ЗДЕСЬ И СЕЙЧАС ================= -->
+    <section id="talk-to-vera" class="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 font-inter scroll-mt-28">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center text-left">
+        
+        <!-- ЛЕВАЯ КОЛОНКА (6 колонок): Заголовок, подзаголовок, стрелка на чат, примеры вопросов, рейтинг -->
+        <div class="lg:col-span-6 space-y-6 sm:space-y-7">
+          
+          <!-- Заголовок и подзаголовок в стандартном стиле Benzin -->
+          <div class="space-y-3 text-center lg:text-left">
+            <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-3xl lg:text-[32px] xl:text-[36px] leading-[1.2] text-[#0f172a] overflow-visible" style="font-family: 'Benzin', sans-serif !important;">
+              <span class="pearl-title-gradient">ПОГОВОРИТЕ С ВЕРОЙ</span> ЗДЕСЬ И&nbsp;СЕЙЧАС
+            </h2>
+            <p class="font-inter text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
+              Напишите в&nbsp;чат все, что угодно, и&nbsp;оцените профессионализм коммуникации нашего ИИ-продавца
+            </p>
+          </div>
+
+          <!-- СТРЕЛОЧКА НА ЧАТ: Акцентный интерактивный баннер-указатель -->
+          <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-sky-50 via-sky-50/80 to-blue-50/50 border-2 border-sky-300 shadow-sm flex items-center justify-between gap-4 group">
+            <div class="space-y-1">
+              <div class="text-xs sm:text-sm font-extrabold text-slate-900 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                <span>Чат активен прямо сейчас</span>
+              </div>
+              <div class="text-[11px] sm:text-xs text-slate-600 leading-snug">
+                Задайте каверзный вопрос или возражение в чат справа
+              </div>
+            </div>
+            
+            <!-- Индикатор-стрелка на чат (десктоп вправо →, мобильный вниз ↓) -->
+            <div class="shrink-0 flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-sky-600 text-white shadow-md group-hover:scale-105 transition-transform">
+              <svg class="hidden lg:block w-6 h-6 animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <svg class="lg:hidden w-6 h-6 animate-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M12 5v14M6 13l6 6 6-6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Быстрые вопросы-подсказки для мгновенного теста -->
+          <div class="space-y-2">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Примеры вопросов для проверки:</span>
+            <div class="flex flex-wrap gap-2">
+              <button type="button" onclick="sendPartnerLiveQuestion('Сколько стоит запуск под ключ и что в него входит?')" class="text-xs px-3 py-1.5 rounded-xl bg-white border border-slate-200/90 hover:border-sky-400 hover:text-sky-700 text-slate-700 transition-all shadow-2xs cursor-pointer text-left">
+                «Сколько стоит запуск под ключ?»
+              </button>
+              <button type="button" onclick="sendPartnerLiveQuestion('А если клиент просит скидку 30%?')" class="text-xs px-3 py-1.5 rounded-xl bg-white border border-slate-200/90 hover:border-sky-400 hover:text-sky-700 text-slate-700 transition-all shadow-2xs cursor-pointer text-left">
+                «А если клиент просит скидку?»
+              </button>
+              <button type="button" onclick="sendPartnerLiveQuestion('Как стать партнером и сколько можно заработать?')" class="text-xs px-3 py-1.5 rounded-xl bg-white border border-slate-200/90 hover:border-sky-400 hover:text-sky-700 text-slate-700 transition-all shadow-2xs cursor-pointer text-left">
+                «Как стать партнером?»
+              </button>
+              <button type="button" onclick="sendPartnerLiveQuestion('Вы работаете с amoCRM, Битрикс24 и 1С?')" class="text-xs px-3 py-1.5 rounded-xl bg-white border border-slate-200/90 hover:border-sky-400 hover:text-sky-700 text-slate-700 transition-all shadow-2xs cursor-pointer text-left">
+                «Интеграция с amoCRM и 1С?»
+              </button>
+            </div>
+          </div>
+
+          <!-- Звездный рейтинг качества ответов Веры -->
+          <div class="p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs">
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              <span class="text-xs sm:text-[13px] font-bold text-slate-800">Оцените профессионализм Веры:</span>
+              <span id="partnerStarRatingValue" class="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200/80">★ 5.0</span>
+            </div>
+            <div class="flex items-center gap-1.5" id="partnerStarRatingGroup">
+              <button type="button" onclick="ratePartnerVera(1)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="1 звезда">★</button>
+              <button type="button" onclick="ratePartnerVera(2)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="2 звезды">★</button>
+              <button type="button" onclick="ratePartnerVera(3)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="3 звезды">★</button>
+              <button type="button" onclick="ratePartnerVera(4)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="4 звезды">★</button>
+              <button type="button" onclick="ratePartnerVera(5)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="5 звезд">★</button>
+            </div>
+            <div id="partnerStarFeedbackText" class="text-[11px] text-slate-500 mt-1 font-medium leading-snug">
+              Нажмите на звезду, чтобы проголосовать за качество ответов
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ПРАВАЯ КОЛОНКА (6 колонок): Смартфон iPhone 17 с живым чатом -->
+        <div class="lg:col-span-6 flex justify-center">
+          <div class="w-full max-w-[420px] flex flex-col h-[620px] sm:h-[650px] rounded-[48px] bg-gradient-to-b from-slate-200 via-slate-300 to-slate-400 p-[3.5px] sm:p-1 shadow-[0_25px_60px_-12px_rgba(15,23,42,0.18),0_0_0_1px_rgba(255,255,255,0.7)] transition-all duration-300">
+            <div class="relative w-full h-full rounded-[44px] overflow-hidden flex flex-col bg-white border border-slate-300/40 shadow-inner">
+              
+              <!-- Dynamic Island Notch -->
+              <div class="absolute top-2.5 left-1/2 -translate-x-1/2 w-[86px] h-[22px] bg-black rounded-full z-30 flex items-center justify-between px-2.5 pointer-events-none shadow-md">
+                <div class="w-2.5 h-2.5 rounded-full bg-[#111827] ring-1 ring-slate-800 flex items-center justify-center">
+                  <div class="w-1 h-1 rounded-full bg-[#1e293b]"></div>
+                </div>
+                <div class="w-2 h-2 rounded-full bg-[#0a0f1d] ring-1 ring-slate-800/80"></div>
+              </div>
+
+              <!-- Header: WhatsApp style -->
+              <div class="pt-9 pb-2.5 px-3.5 bg-[#075E54] text-white flex items-center justify-between shrink-0 shadow-xs z-10">
+                <div class="flex items-center gap-2 min-w-0">
+                  <div class="text-white/80 cursor-pointer text-xs flex items-center shrink-0">
+                    <svg class="w-4 h-4 fill-current mr-0.5" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg>
+                    <span class="text-[11px] font-bold">4</span>
+                  </div>
+                  <div class="relative w-8 h-8 rounded-full border border-white/50 overflow-hidden shrink-0 bg-slate-800 shadow-xs">
+                    <img src="assets/images/vera_ai_portrait.webp" onerror="this.src='vera_ai_portrait.webp'" alt="Вера" class="w-full h-full object-cover">
+                    <span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-400 border border-white"></span>
+                  </div>
+                  <div class="min-w-0 leading-tight text-left">
+                    <div class="text-xs font-bold text-white truncate flex items-center gap-1">
+                      <span>Вера • Altai Optima</span>
+                      <span class="text-emerald-300 text-[10px]">✓</span>
+                    </div>
+                    <div class="text-[10px] text-emerald-200 font-medium">в сети • онлайн</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2 text-white/90 shrink-0">
+                  <button type="button" onclick="resetPartnerLiveChat()" class="text-[10px] bg-white/20 hover:bg-white/30 text-white px-2 py-0.5 rounded transition-all cursor-pointer font-semibold" title="Очистить диалог">
+                    Очистить
+                  </button>
+                </div>
+              </div>
+
+              <!-- Niche/Channel bar -->
+              <div class="bg-[#075E54]/90 border-t border-white/10 px-3 py-1 flex items-center justify-between text-[11px] font-semibold text-emerald-100 shrink-0">
+                <span class="truncate">💬 Живой диалог • WhatsApp</span>
+                <span class="text-[10px] text-emerald-200 font-bold shrink-0">Ответ за 2 сек</span>
+              </div>
+
+              <!-- Messages Container -->
+              <div id="partnerLiveChatMessages" class="flex-1 p-3 space-y-2.5 overflow-y-auto bg-[#efeae2] text-xs min-h-[300px]">
+                <!-- Initial message and dynamic messages injected via JS -->
+              </div>
+
+              <!-- Input Bar -->
+              <div class="p-2 bg-[#f0f2f5] border-t border-slate-200/90 flex items-center gap-1.5 shrink-0">
+                <div class="text-slate-500 p-1 cursor-pointer font-bold text-base leading-none">+</div>
+                <form id="partnerLiveChatForm" onsubmit="handlePartnerLiveChatSubmit(event)" class="flex-1 flex items-center gap-1.5">
+                  <div class="flex-1 bg-white border border-slate-200 rounded-full px-3 py-1.5 flex items-center justify-between text-slate-800 text-xs shadow-2xs">
+                    <input id="partnerLiveChatInput" type="text" placeholder="Напишите всё, что угодно…" autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-xs outline-none">
+                    <span class="text-slate-400 text-xs ml-1">📷</span>
+                  </div>
+                  <button id="partnerLiveChatSubmitBtn" type="submit" class="w-7 h-7 rounded-full bg-[#00a884] hover:bg-[#008f6f] active:scale-95 text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
+                    <svg class="w-3.5 h-3.5 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                  </button>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
 
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ПРОДУКТА К СПОСОБАМ ЗАРАБОТКА (ПУТЬ ПАРТНЁРА) -->
     <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-4 select-none mb-12 sm:mb-16">
@@ -3046,6 +3221,182 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
       observer.observe(section);
     }
 
+    
+    /* ---------- ЖИВОЙ ДЕМО-ЧАТ С ВЕРОЙ НА СТРАНИЦЕ ПАРТНЕРА ---------- */
+    let isPartnerChatSending = false;
+
+    function getPartnerTimeStr() {
+      return new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
+    }
+
+    function initPartnerLiveChat() {
+      const container = document.getElementById('partnerLiveChatMessages');
+      if (!container) return;
+
+      container.innerHTML = `
+        <div class="flex justify-center my-1">
+          <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-black/10 text-slate-600">Сегодня</span>
+        </div>
+        <div class="flex justify-start transition-all duration-300">
+          <div class="max-w-[88%] bg-white text-slate-900 px-3 py-2 rounded-tr-xl rounded-tl-xs rounded-br-xl rounded-bl-xl shadow-xs leading-relaxed text-xs border border-slate-100">
+            <div class="text-[10px] font-bold text-emerald-800 mb-0.5">Вера</div>
+            <p>Добрый день. Вера, ваш консультант. Благодарю за интерес к Altai Optima! Напишите мне в чат абсолютно любой вопрос, протестируйте отработку каверзных возражений или спросите про условия партнерства. Готова пообщаться!</p>
+            <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-slate-400">
+              <span>${getPartnerTimeStr()}</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    async function handlePartnerLiveChatSubmit(event) {
+      if (event) event.preventDefault();
+      const input = document.getElementById('partnerLiveChatInput');
+      const submitBtn = document.getElementById('partnerLiveChatSubmitBtn');
+      const container = document.getElementById('partnerLiveChatMessages');
+      if (!input || !container) return;
+
+      const text = input.value.trim();
+      if (!text || isPartnerChatSending) return;
+
+      const timeStr = getPartnerTimeStr();
+
+      // Рендерим сообщение пользователя
+      const userHtml = `
+        <div class="flex justify-end transition-all duration-300">
+          <div class="max-w-[85%] bg-[#d9fdd3] text-slate-900 px-3 py-2 rounded-tl-xl rounded-tr-xs rounded-br-xl rounded-bl-xl shadow-xs leading-relaxed text-xs">
+            <p>${escapeHtml(text)}</p>
+            <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-slate-500">
+              <span>${timeStr}</span>
+              <span class="text-[#53bdeb]">✓✓</span>
+            </div>
+          </div>
+        </div>
+      `;
+      container.insertAdjacentHTML('beforeend', userHtml);
+      container.scrollTop = container.scrollHeight;
+      input.value = '';
+
+      isPartnerChatSending = true;
+      input.disabled = true;
+      if (submitBtn) submitBtn.disabled = true;
+
+      // Индикатор набора текста
+      const typingHtml = `
+        <div id="partnerTypingIndicator" class="flex justify-start my-1 transition-all duration-200">
+          <div class="flex items-center gap-1.5 p-2 bg-white rounded-tr-xl rounded-tl-xs rounded-br-xl rounded-bl-xl shadow-xs border border-slate-100 max-w-[120px] text-slate-500 text-[11px]">
+            <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-bounce"></span>
+            <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-bounce [animation-delay:150ms]"></span>
+            <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-bounce [animation-delay:300ms]"></span>
+            <span class="ml-1 text-[10px] text-slate-400">Вера...</span>
+          </div>
+        </div>
+      `;
+      container.insertAdjacentHTML('beforeend', typingHtml);
+      container.scrollTop = container.scrollHeight;
+
+      let replyText = '';
+      try {
+        const res = await fetch('https://api.optima.altaiweb.online/api/v1/demo/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: text,
+            tenant_id: 'altai_optima',
+            persona: 'stanislav'
+          })
+        });
+        if (res.ok) {
+          const data = await res.json();
+          replyText = data.assistant_response || data.response || '';
+        }
+      } catch (e) {}
+
+      // Убираем индикатор набора
+      const typingEl = document.getElementById('partnerTypingIndicator');
+      if (typingEl) typingEl.remove();
+
+      // Фоллбэк с умной логикой продаж, если сеть недоступна
+      if (!replyText) {
+        const lower = text.toLowerCase();
+        if (lower.includes('партнер') || lower.includes('заработ') || lower.includes('процент') || lower.includes('доход')) {
+          replyText = 'В партнерской программе Altai Optima вы получаете до 8 700 ₽ за каждый запуск клиента и до 25% с каждой ежемесячной абонентской платы. При этом все технические настройки, интеграции и обучение робота мы берем на себя.';
+        } else if (lower.includes('скидк') || lower.includes('дешев') || lower.includes('дорого')) {
+          replyText = 'Прекрасно понимаю вопрос бюджета. Но давайте сопоставим: один штатный менеджер обходится компании от 80 000 ₽ в месяц и пропускает ночные лиды. Вера стоит от 25 000 ₽, отвечает за 2 секунды 24/7 и окупается за первые 2 недели.';
+        } else if (lower.includes('стоим') || lower.includes('цен') || lower.includes('тариф')) {
+          replyText = 'Запуск под ключ стоит 29 000 ₽ разово при любом количестве каналов. Ежемесячные тарифы начинаются от 25 000 ₽ за 200 лидов в месяц до 59 000 ₽ за 1 500 лидов. Первые 7 дней тестирования на реальном трафике клиента бесплатны!';
+        } else if (lower.includes('crm') || lower.includes('1с') || lower.includes('интеграц') || lower.includes('амо') || lower.includes('битрикс')) {
+          replyText = 'Вера бесшовно интегрируется с amoCRM, Битрикс24, 1С, МойСклад и Google Таблицами. Автоматически создает сделку, квалифицирует лид, проставляет теги и ставит задачу ведущему менеджеру.';
+        } else {
+          replyText = 'Вера отвечает клиентам за 2 секунды, помнит контекст диалога и стандарты компании, уверенно снимает возражения и доводит клиента до целевого действия в CRM. Готовы подключить бесплатный тест на 7 дней!';
+        }
+      }
+
+      // Выводим ответ Веры
+      const replyTime = getPartnerTimeStr();
+      const veraHtml = `
+        <div class="flex justify-start transition-all duration-300">
+          <div class="max-w-[88%] bg-white text-slate-900 px-3 py-2 rounded-tr-xl rounded-tl-xs rounded-br-xl rounded-bl-xl shadow-xs leading-relaxed text-xs border border-slate-100">
+            <div class="text-[10px] font-bold text-emerald-800 mb-0.5">Вера</div>
+            <p>${escapeHtml(replyText)}</p>
+            <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-slate-400">
+              <span>${replyTime}</span>
+            </div>
+          </div>
+        </div>
+      `;
+      container.insertAdjacentHTML('beforeend', veraHtml);
+      container.scrollTop = container.scrollHeight;
+
+      isPartnerChatSending = false;
+      input.disabled = false;
+      if (submitBtn) submitBtn.disabled = false;
+      input.focus();
+    }
+
+    function sendPartnerLiveQuestion(q) {
+      const input = document.getElementById('partnerLiveChatInput');
+      if (!input) return;
+      input.value = q;
+      handlePartnerLiveChatSubmit();
+    }
+
+    function resetPartnerLiveChat() {
+      initPartnerLiveChat();
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+
+    function ratePartnerVera(stars) {
+      const valEl = document.getElementById('partnerStarRatingValue');
+      const textEl = document.getElementById('partnerStarFeedbackText');
+      const group = document.getElementById('partnerStarRatingGroup');
+      if (valEl) valEl.textContent = `★ ${stars}.0`;
+      if (group) {
+        const btns = group.querySelectorAll('button');
+        btns.forEach((btn, idx) => {
+          if (idx < stars) {
+            btn.className = 'star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none';
+          } else {
+            btn.className = 'star-btn text-2xl sm:text-3xl text-slate-200 hover:scale-125 transition-transform cursor-pointer focus:outline-none';
+          }
+        });
+      }
+      if (textEl) {
+        if (stars === 5) textEl.textContent = 'Спасибо за высшую оценку! Вера держит планку 5 звезд.';
+        else if (stars >= 4) textEl.textContent = 'Спасибо за оценку! Мы постоянно совершенствуем скрипты и логику.';
+        else textEl.textContent = 'Спасибо за честный отзыв! Мы учтем ваши замечания при обучении модели.';
+      }
+      try {
+        localStorage.setItem('altai_partner_vera_rating', String(stars));
+      } catch (e) {}
+    }
+
     /* ---------- ОТПРАВКА ФОРМЫ ---------- */
     function initFormHandlers() {
       function formToText(form) {
@@ -3103,6 +3454,11 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
       initCalc();
       initPitchCopy();
       initDemoChats();
+      initPartnerLiveChat();
+      try {
+        const savedRating = localStorage.getItem('altai_partner_vera_rating');
+        if (savedRating) ratePartnerVera(parseInt(savedRating, 10));
+      } catch (e) {}
     });
   </script>
 </body>
