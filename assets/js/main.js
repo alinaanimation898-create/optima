@@ -3,7 +3,7 @@
       full_deal: {
         channel: 'WHATSAPP',
         badge: 'WhatsApp',
-        assistantName: 'Altai Optima • ИИ-Продавец',
+        assistantName: 'Вера • WoodCraft Мебель',
         headerBg: 'bg-[#075e54]',
         headerSubText: 'text-emerald-200',
         statusText: 'в сети',
@@ -16,15 +16,15 @@
                 <span class="text-xs">3</span>
               </div>
               <div class="relative w-8 h-8 rounded-full border border-white/40 overflow-hidden shadow-xs shrink-0 bg-slate-800">
-                <img src="avatar_eva.webp" alt="Эва" class="w-full h-full object-cover" />
+                <img src="assets/images/vera_ai_portrait.webp" onerror="this.src='avatar_eva.webp'" alt="Вера" class="w-full h-full object-cover" />
                 <span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-400 border border-white"></span>
               </div>
               <div class="leading-tight text-left">
                 <div class="text-xs font-bold flex items-center gap-1 text-white">
-                  <span>Altai Optima</span>
+                  <span>WoodCraft Мебель</span>
                   <span class="text-emerald-300 text-[10px]">✓</span>
                 </div>
-                <div class="text-[10px] text-emerald-200 font-medium">в сети • онлайн</div>
+                <div class="text-[10px] text-emerald-200 font-medium">Вера • в сети онлайн</div>
               </div>
             </div>
             <div class="flex items-center gap-2 text-white/90">
@@ -56,22 +56,18 @@
                 </span>
               </div>
               <div class="space-y-0.5 max-w-[270px]">
-                <div class="text-[12.5px] font-black text-slate-800 tracking-tight">Чат с ИИ-продавцом готов</div>
+                <div class="text-[12.5px] font-black text-slate-800 tracking-tight">WoodCraft Мебель • Вера на связи</div>
                 <p class="text-[10.5px] text-slate-600 leading-snug font-normal">
-                  Напишите любой вопрос в строке внизу или нажмите на вариант:
+                  Напишите любой вопрос по корпусной мебели или выберите готовый:
                 </p>
               </div>
               <div class="flex flex-col gap-1.5 w-full max-w-[285px]">
-                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Сколько стоит внедрение под ключ?')" class="text-left text-[11px] font-medium bg-white/95 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#25d366] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
-                  <span>«Сколько стоит внедрение под ключ?»</span>
+                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Сколько стоит встроенный шкаф-купе 2.4 м?')" class="text-left text-[11px] font-medium bg-white/95 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#25d366] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
+                  <span>«Сколько стоит шкаф-купе 2.4 м?»</span>
                   <span class="text-[#075e54] text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
                 </button>
-                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('А если клиент просит скидку?')" class="text-left text-[11px] font-medium bg-white/95 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#25d366] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
-                  <span>«А если клиент просит скидку?»</span>
-                  <span class="text-[#075e54] text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
-                </button>
-                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Как вы подключаетесь к amoCRM?')" class="text-left text-[11px] font-medium bg-white/95 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#25d366] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
-                  <span>«Как вы подключаетесь к amoCRM?»</span>
+                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Выезжает ли замерщик с образцами?')" class="text-left text-[11px] font-medium bg-white/95 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#25d366] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
+                  <span>«Выезжает ли замерщик с образцами?»</span>
                   <span class="text-[#075e54] text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
                 </button>
               </div>
@@ -86,7 +82,7 @@
         renderAiBubble: (msg) => `
           <div class="flex justify-start items-end gap-1.5 animate-fade-in">
             <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs border border-slate-200/50">
-              <div class="text-[9.5px] font-bold text-[#075e54] mb-0.5">${msg.author || 'Altai Optima • ИИ-Продавец'}</div>
+              <div class="text-[9.5px] font-bold text-[#075e54] mb-0.5">${msg.author || 'Вера • WoodCraft Мебель'}</div>
               <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">${msg.text}</p>
               <div class="text-[9px] text-slate-400 text-right mt-0.5 font-sans flex items-center justify-end gap-1">
                 <span>${msg.time}</span>
@@ -123,28 +119,25 @@
       price_objection: {
         channel: 'TELEGRAM',
         badge: 'Telegram',
-        assistantName: 'Altai Optima • ИИ-Продавец',
-        headerBg: 'bg-white/80 backdrop-blur-md border-b border-sky-100',
-        headerSubText: 'text-slate-500',
+        assistantName: 'Вера • Салон «Éclat Beauty»',
+        headerBg: 'bg-[#229ED9]',
+        headerSubText: 'text-sky-100',
         statusText: 'в сети',
         chatBg: 'chat-bg-tg',
         renderHeader: () => `
-          <div class="flex items-center gap-2 w-full justify-between text-slate-800">
-            <div class="flex items-center text-sky-500 font-medium text-xs cursor-pointer">
+          <div class="flex items-center gap-2 w-full justify-between text-white">
+            <div class="flex items-center text-white/80 font-medium text-xs cursor-pointer">
               <svg class="w-4 h-4 mr-0.5 fill-current" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
               <span>12</span>
             </div>
-            <div class="px-3 py-0.5 rounded-full bg-white/90 shadow-2xs border border-sky-100 text-center">
-              <div class="text-[11.5px] font-bold text-slate-900 leading-tight">Altai Optima</div>
-              <div class="text-[9.5px] text-emerald-600 font-medium leading-tight">в сети • онлайн</div>
+            <div class="px-3 py-0.5 rounded-full bg-white/20 shadow-2xs text-center">
+              <div class="text-[11.5px] font-bold text-white leading-tight">Éclat Beauty Salon</div>
+              <div class="text-[9.5px] text-sky-100 font-medium leading-tight">Вера • в сети онлайн</div>
             </div>
             <div class="flex items-center gap-1.5">
-              <button type="button" onclick="resetLiveChatDialogue()" class="text-[10px] text-sky-700 bg-sky-50 hover:bg-sky-100 px-2 py-1 rounded-md transition-all cursor-pointer font-semibold">
+              <button type="button" onclick="resetLiveChatDialogue()" class="text-[10px] text-white bg-white/20 hover:bg-white/30 px-2 py-1 rounded-md transition-all cursor-pointer font-semibold">
                 Очистить
               </button>
-              <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-purple-400 to-pink-400 text-white font-bold text-xs flex items-center justify-center border border-white shadow-2xs">
-                O
-              </div>
             </div>
           </div>
         `,
@@ -155,8 +148,8 @@
                 <span class="bg-black/15 backdrop-blur-xs text-white text-[10px] font-medium px-2.5 py-0.5 rounded-full shadow-2xs">Сегодня</span>
               </div>
               <div class="mx-auto max-w-[94%] bg-[#6c8cf5]/25 border border-white/30 backdrop-blur-md rounded-xl p-2 text-center text-[10px] text-slate-800 leading-snug shadow-2xs">
-                <div class="font-bold text-[#0088cc]">Altai Optima • ИИ-Продавец</div>
-                <div class="text-[9.5px] text-slate-600">Чат свободен · Напишите вопрос для теста</div>
+                <div class="font-bold text-[#0088cc]">Салон красоты «Éclat Beauty»</div>
+                <div class="text-[9.5px] text-slate-600">Вера на связи 24/7 · Задайте вопрос</div>
               </div>
             </div>
 
@@ -169,22 +162,14 @@
                 </span>
               </div>
               <div class="space-y-0.5 max-w-[270px]">
-                <div class="text-[12.5px] font-black text-slate-800 tracking-tight">Чат свободен для общения</div>
+                <div class="text-[12.5px] font-black text-slate-800 tracking-tight">Онлайн-запись в салон</div>
                 <p class="text-[10.5px] text-slate-600 leading-snug font-normal">
-                  Задайте вопрос в строке внизу или выберите готовый сценарий:
+                  Задайте вопрос по услугам или выберите готовый:
                 </p>
               </div>
               <div class="flex flex-col gap-1.5 w-full max-w-[285px]">
-                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('В чем отличие от шаблонных автоответчиков?')" class="text-left text-[11px] font-medium bg-white/95 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#229ed9] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
-                  <span>«В чем отличие от шаблонных автоответчиков?»</span>
-                  <span class="text-sky-600 text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
-                </button>
-                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Как быстро окупается внедрение?')" class="text-left text-[11px] font-medium bg-white/95 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#229ed9] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
-                  <span>«Как быстро окупается внедрение?»</span>
-                  <span class="text-sky-600 text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
-                </button>
-                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Сколько сделок закрывает в месяц?')" class="text-left text-[11px] font-medium bg-white/95 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#229ed9] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
-                  <span>«Сколько сделок закрывает в месяц?»</span>
+                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Есть окна на маникюр сегодня после 18:00?')" class="text-left text-[11px] font-medium bg-white/95 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#229ed9] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
+                  <span>«Есть окна на маникюр сегодня?»</span>
                   <span class="text-sky-600 text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
                 </button>
               </div>
@@ -200,7 +185,7 @@
           <div class="flex justify-start items-end gap-1.5 animate-fade-in">
             <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs">
               <div class="text-[9.5px] font-bold text-[#0088cc] mb-0.5 flex items-center gap-1">
-                <span>${msg.author || 'Altai Optima'}</span>
+                <span>${msg.author || 'Вера • Салон «Éclat Beauty»'}</span>
                 <span class="text-[8px] bg-sky-100 text-sky-700 px-1 rounded font-normal">ИИ</span>
               </div>
               <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">${msg.text}</p>
@@ -229,7 +214,7 @@
             <form id="liveChatForm" onsubmit="handleLiveChatSubmit(event)" class="flex-1 flex items-center gap-1.5">
               <div class="flex-1 bg-white border border-slate-200/90 rounded-2xl px-3 py-1.5 flex items-center justify-between shadow-2xs live-chat-input-glow">
                 <input id="liveChatInput" type="text" placeholder="Сообщение" autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-xs outline-none" />
-                <span class="text-slate-400 text-xs ml-1">🌙</span>
+                <span class="text-slate-400 text-xs ml-1">💅</span>
               </div>
               <button id="liveChatSubmitBtn" type="submit" class="w-8 h-8 rounded-full bg-[#2aabee] hover:bg-[#229ed9] active:scale-95 text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
                 <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
@@ -241,7 +226,7 @@
       reanimate: {
         channel: 'INSTAGRAM DIRECT',
         badge: 'Instagram',
-        assistantName: 'altai.optima',
+        assistantName: 'tallora.ru • Вера',
         headerBg: 'bg-white border-b border-slate-100',
         headerSubText: 'text-slate-400',
         statusText: 'В сети',
@@ -255,15 +240,15 @@
             <div class="flex items-center gap-1.5">
               <div class="p-0.5 rounded-full bg-gradient-to-tr from-amber-400 via-rose-500 to-purple-600 shrink-0">
                 <div class="w-6 h-6 rounded-full overflow-hidden border border-white bg-slate-900">
-                  <img src="avatar_eva.webp" alt="Эва" class="w-full h-full object-cover" />
+                  <img src="assets/images/vera_ai_portrait.webp" onerror="this.src='avatar_eva.webp'" alt="Вера" class="w-full h-full object-cover" />
                 </div>
               </div>
               <div class="leading-tight text-left">
                 <div class="text-xs font-extrabold flex items-center gap-1">
-                  <span>altai.optima</span>
+                  <span>tallora.ru</span>
                   <svg class="w-3 h-3 text-sky-500 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                 </div>
-                <div class="text-[9px] text-slate-400">В сети</div>
+                <div class="text-[9px] text-slate-400">Вера • В сети онлайн</div>
               </div>
             </div>
             <div class="flex items-center gap-1.5">
@@ -278,33 +263,25 @@
             <div class="flex flex-col items-center justify-center text-center p-1 space-y-1">
               <div class="p-0.5 rounded-full bg-gradient-to-tr from-amber-400 via-rose-500 to-purple-600">
                 <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white bg-slate-900">
-                  <img src="avatar_eva.webp" alt="Эва" class="w-full h-full object-cover" />
+                  <img src="assets/images/vera_ai_portrait.webp" onerror="this.src='avatar_eva.webp'" alt="Вера" class="w-full h-full object-cover" />
                 </div>
               </div>
               <div>
-                <div class="text-xs font-black text-slate-900">altai.optima</div>
-                <div class="text-[9px] text-slate-400">Instagram Direct · Чат пуст</div>
+                <div class="text-xs font-black text-slate-900">tallora.ru</div>
+                <div class="text-[9px] text-slate-400">Магазин обуви · Вера онлайн</div>
               </div>
             </div>
 
             <div class="my-auto py-2 px-2 flex flex-col items-center justify-center text-center space-y-2.5 cursor-pointer select-none" onclick="focusChatInput()">
               <div class="space-y-0.5 max-w-[270px]">
-                <div class="text-[12.5px] font-black text-slate-900 tracking-tight">Напишите сообщение в Direct</div>
+                <div class="text-[12.5px] font-black text-slate-900 tracking-tight">Магазин обуви tallora.ru</div>
                 <p class="text-[10.5px] text-slate-600 leading-snug font-normal">
-                  ИИ отвечает мгновенно 24/7. Напечатайте вопрос или кликните вариант:
+                  Подбор размера, примерка и наличие моделей:
                 </p>
               </div>
               <div class="flex flex-col gap-1.5 w-full max-w-[285px]">
-                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Как протестировать на наших товарах?')" class="text-left text-[11px] font-medium bg-slate-50 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-pink-500 active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
-                  <span>«Как протестировать на наших товарах?»</span>
-                  <span class="text-pink-600 text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
-                </button>
-                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Отвечаете ли на реакции в Stories?')" class="text-left text-[11px] font-medium bg-slate-50 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-pink-500 active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
-                  <span>«Отвечаете ли на реакции в Stories?»</span>
-                  <span class="text-pink-600 text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
-                </button>
-                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Как передаются лиды в отдел продаж?')" class="text-left text-[11px] font-medium bg-slate-50 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-pink-500 active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
-                  <span>«Как передаются лиды в отдел продаж?»</span>
+                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Есть кожаные лоферы TL-408 в 38 размере?')" class="text-left text-[11px] font-medium bg-slate-50 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-pink-500 active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
+                  <span>«Есть лоферы TL-408 в 38 размере?»</span>
                   <span class="text-pink-600 text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
                 </button>
               </div>
@@ -319,7 +296,7 @@
         renderAiBubble: (msg) => `
           <div class="flex justify-start items-end gap-1.5 animate-fade-in">
             <div class="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 text-white p-3 rounded-2xl rounded-bl-xs max-w-[88%] shadow-xs">
-              <div class="text-[9.5px] font-bold text-pink-100 mb-0.5">${msg.author || 'altai.optima'}</div>
+              <div class="text-[9.5px] font-bold text-pink-100 mb-0.5">${msg.author || 'tallora.ru • Вера'}</div>
               <p class="leading-relaxed font-normal text-[11.5px] text-white">${msg.text}</p>
               <div class="text-[9px] text-white/80 text-right mt-0.5 font-sans">${msg.time}</div>
             </div>
@@ -341,7 +318,7 @@
             <form id="liveChatForm" onsubmit="handleLiveChatSubmit(event)" class="flex-1 flex items-center gap-1.5">
               <div class="flex-1 bg-slate-100 border border-slate-200/80 rounded-full px-3 py-1.5 flex items-center justify-between live-chat-input-glow">
                 <input id="liveChatInput" type="text" placeholder="Написать сообщение..." autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-xs outline-none" />
-                <span class="text-slate-400 text-xs ml-1">🎙️</span>
+                <span class="text-slate-400 text-xs ml-1">👠</span>
               </div>
               <button id="liveChatSubmitBtn" type="submit" class="w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 active:scale-95 text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
                 <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
@@ -353,7 +330,7 @@
       avito_deal: {
         channel: 'AVITO',
         badge: 'Авито',
-        assistantName: 'Altai Optima | ИИ-Продавец',
+        assistantName: 'Sneaker Store • Вера',
         headerBg: 'bg-white border-b border-slate-200/80',
         headerSubText: 'text-slate-500',
         statusText: 'в сети',
@@ -372,12 +349,52 @@
               </div>
               <div class="leading-tight text-left">
                 <div class="text-[11.5px] font-bold flex items-center gap-1">
-                  <span>Altai Optima</span>
+                  <span>Sneaker Store</span>
                   <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                 </div>
-                <div class="text-[9.5px] text-slate-500 truncate max-w-[130px]">Автономный отдел продаж · 50 000 ₽</div>
+                <div class="text-[9.5px] text-slate-500 truncate max-w-[130px]">Вера · Оригинальные кроссовки</div>
               </div>
             </div>
+            <div class="flex items-center gap-1.5">
+              <button type="button" onclick="resetLiveChatDialogue()" class="text-[10px] text-slate-600 bg-slate-100 hover:bg-slate-200 px-2 py-1 rounded-md transition-all cursor-pointer font-medium">
+                Очистить
+              </button>
+            </div>
+          </div>
+        `,
+        renderStarter: () => `
+          <div class="empty-chat-state h-full flex flex-col justify-between items-center text-center animate-fade-in py-1 px-1">
+            <div class="space-y-1.5 w-full">
+              <div class="p-2 rounded-xl bg-slate-50 border border-slate-200/70 text-left flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-slate-200 flex items-center justify-center text-base shrink-0">👟</div>
+                <div class="text-[10px] leading-tight min-w-0">
+                  <div class="font-bold text-slate-800 truncate">New Balance 1906R Original</div>
+                  <div class="text-slate-500 font-semibold">16 900 ₽ · В наличии</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="my-auto py-2 px-2 flex flex-col items-center justify-center text-center space-y-2.5 cursor-pointer select-none" onclick="focusChatInput()">
+              <div class="space-y-0.5 max-w-[270px]">
+                <div class="text-[12.5px] font-black text-slate-800 tracking-tight">Sneaker Store · Вера онлайн</div>
+                <p class="text-[10.5px] text-slate-600 leading-snug font-normal">
+                  Отвечает за секунды, проверяет наличие и оформляет доставку:
+                </p>
+              </div>
+              <div class="flex flex-col gap-1.5 w-full max-w-[285px]">
+                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Оригинал? 42 размер в наличии?')" class="text-left text-[11px] font-medium bg-white hover:bg-slate-50 text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200 shadow-2xs hover:border-[#00aaff] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
+                  <span>«Оригинал? 42 размер в наличии?»</span>
+                  <span class="text-[#00aaff] text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="pt-1 pb-1 flex items-center gap-1.5 text-[10.5px] font-bold text-[#00aaff] animate-bounce cursor-pointer select-none" onclick="focusChatInput()">
+              <span>Напишите сообщение продавцу</span>
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M11 4h2v12l5.5-5.5 1.42 1.42L12 19.84l-7.92-7.92L5.5 10.5 11 16V4z"/></svg>
+            </div>
+          </div>
+        `,
             <div class="flex items-center gap-1.5">
               <button type="button" onclick="resetLiveChatDialogue()" class="text-[10px] text-slate-600 bg-slate-100 hover:bg-slate-200 px-2 py-1 rounded-md transition-all cursor-pointer font-medium">
                 Очистить
@@ -468,12 +485,136 @@
       }
     };
 
-    // Хранилище сообщений для каждого мессенджера
+    // Хранилище сообщений для каждого мессенджера (4 ниши: Мебель, Салон красоты, Обувь, Кроссовки)
     const channelMessages = {
-      full_deal: [],
-      price_objection: [],
-      reanimate: [],
-      avito_deal: []
+      full_deal: [
+        {
+          sender: 'user',
+          text: 'Здравствуйте! Сколько будет стоить встроенный шкаф-купе в спальню? Размеры примерно 2.4 на 2.6 метра.',
+          time: '14:20'
+        },
+        {
+          sender: 'ai',
+          text: 'Здравствуйте! Меня зовут Вера, мебельная фабрика WoodCraft. С удовольствием рассчитаю точную стоимость! Подскажите, пожалуйста: фасады планируете зеркальные, матовые МДФ или комбинированные? И нужно ли внутреннее наполнение с ящиками и подсветкой?',
+          time: '14:20'
+        },
+        {
+          sender: 'user',
+          text: 'Хотим два зеркала и две двери матовый МДФ графит, внутри 4 выдвижных ящика и брючницу.',
+          time: '14:21'
+        },
+        {
+          sender: 'ai',
+          text: 'Отличный выбор! Графитовый МДФ с зеркалами смотрится очень стильно. С учетом направляющих с доводчиками Blum ориентировочная стоимость составит от 86 000 до 94 000 ₽. Готовы зафиксировать за вами скидку 10% на первый заказ и направить дизайнера-замерщика с образцами материалов?',
+          time: '14:21'
+        },
+        {
+          sender: 'user',
+          text: 'Да, давайте замерщика на субботу.',
+          time: '14:22'
+        },
+        {
+          sender: 'ai',
+          text: 'Договорились! Записала вас на субботу к 12:00. Наш мастер привезет образцы профилей и раскладки МДФ. Отправляю вам подтверждение и карточку проекта! 📋✨',
+          time: '14:22'
+        }
+      ],
+      price_objection: [
+        {
+          sender: 'user',
+          text: 'Здравствуйте! Хочу записаться на сложное окрашивание AirTouch и стрижку кончиков.',
+          time: '15:10'
+        },
+        {
+          sender: 'ai',
+          text: 'Здравствуйте! Рада вас слышать. Меня зовут Вера, студия Éclat Beauty. AirTouch - наш флагманский профиль, плавный перелив цвета без резких границ носится до 8-10 месяцев! На какую дату вам удобнее: будни или выходные?',
+          time: '15:10'
+        },
+        {
+          sender: 'user',
+          text: 'А сколько по времени это займет и по цене? У меня длина волос до лопаток.',
+          time: '15:11'
+        },
+        {
+          sender: 'ai',
+          text: 'На длину до лопаток процедура занимает около 4-4.5 часов, включая бережный молекулярный уход для защиты волос и укладку. Стоимость - 12 500 ₽. В эту пятницу в 14:00 и в воскресенье в 11:30 есть окна к топ-колористу Кристине. Какое время забронировать за вами?',
+          time: '15:11'
+        },
+        {
+          sender: 'user',
+          text: 'Давайте воскресенье в 11:30, пожалуйста.',
+          time: '15:12'
+        },
+        {
+          sender: 'ai',
+          text: 'Замечательно! Записала вас на воскресенье, 11:30, к топ-стилисту Кристине. Накануне пришлю напоминание и схему проезда к нашей парковке. Будем ждать вас! 🌸',
+          time: '15:12'
+        }
+      ],
+      reanimate: [
+        {
+          sender: 'user',
+          text: 'Привет! Подскажите, ботильоны из новой коллекции в бежевом цвете есть в наличии 38 размера?',
+          time: '16:05'
+        },
+        {
+          sender: 'ai',
+          text: 'Приветствуем в Tallora! Да, бежевые ботильоны из натуральной итальянской кожи в 38 размере есть в наличии в двух экземплярах на центральном складе. Модель идет размер в размер с мягкой ортопедической стелькой.',
+          time: '16:05'
+        },
+        {
+          sender: 'user',
+          text: 'Класс! А подошва не скользкая?',
+          time: '16:06'
+        },
+        {
+          sender: 'ai',
+          text: 'Подошва из термополиуретана с антискользящим рифлением, идеально для сезона весна-осень и влажной плитки! Доставка курьером бесплатная: привезет 38 и 39 размеры, оплата только после примерки.',
+          time: '16:06'
+        },
+        {
+          sender: 'user',
+          text: 'Ого, супер сервис! Хочу оформить заказ.',
+          time: '16:07'
+        },
+        {
+          sender: 'ai',
+          text: 'Оформляем! Напишите, пожалуйста, ваш номер телефона и город доставки. Менеджер сразу забронирует пару и согласует удобный интервал примерки! 👠✨',
+          time: '16:07'
+        }
+      ],
+      avito_deal: [
+        {
+          sender: 'user',
+          text: 'Здравствуйте! Кроссовки оригинальные? Есть чек и коробка?',
+          time: '17:30'
+        },
+        {
+          sender: 'ai',
+          text: 'Здравствуйте! Да, 100% оригинал, любые проверки по QR-коду и системе «Честный Знак». Идут в оригинальной коробке с заводскими бирками и чеком от нашего магазина Sneaker Store.',
+          time: '17:30'
+        },
+        {
+          sender: 'user',
+          text: 'Нужен 42 EU размер. Авито Доставкой отправляете сегодня?',
+          time: '17:31'
+        },
+        {
+          sender: 'ai',
+          text: 'Да, 42 EU (26.5 см по стельке) в наличии! Отправляем через Авито Доставку (СДЭК, Boxberry или Яндекс Доставка) в день заказа. Если оформите в течение 40 минут - передадим курьеру сегодня до 18:00.',
+          time: '17:31'
+        },
+        {
+          sender: 'user',
+          text: 'Отлично, оформляю заказ через СДЭК прямо сейчас!',
+          time: '17:32'
+        },
+        {
+          sender: 'ai',
+          text: 'Принято! Как только появится номер накладной, сразу упакуем в двойную защитную коробку, чтобы все доехало идеально. Спасибо за заказ! 👟🔥',
+          time: '17:32'
+        }
+      ]
     };
 
     // AI DEMO CHAT CLIENT (Интеграция с Production API)
@@ -828,6 +969,44 @@
         input.focus();
       }
     }
+
+    // РЕЙТИНГ ЭФФЕКТИВНОСТИ ВЕРЫ (ОТ 1 ДО 5 ЗВЕЗД)
+    function rateVera(stars) {
+      const ratingVal = document.getElementById('starRatingValue');
+      const group = document.getElementById('starRatingGroup');
+      const feedback = document.getElementById('starFeedbackText');
+      if (ratingVal) {
+        ratingVal.textContent = `★ ${Number(stars).toFixed(1)}`;
+      }
+      if (group) {
+        const buttons = group.querySelectorAll('.star-btn');
+        buttons.forEach((btn, idx) => {
+          if (idx < stars) {
+            btn.classList.remove('text-slate-300');
+            btn.classList.add('text-amber-400');
+          } else {
+            btn.classList.remove('text-amber-400');
+            btn.classList.add('text-slate-300');
+          }
+        });
+      }
+      if (feedback) {
+        const texts = [
+          'Спасибо за оценку! Мы постоянно дообучаем Веру на новых кейсах.',
+          'Спасибо за отзыв! Мы анализируем каждый диалог для повышения конверсии.',
+          'Спасибо за обратную связь! Вера адаптируется под специфику бизнеса.',
+          'Отличный выбор! Вера закрывает до 92% обращений без задержек.',
+          'Спасибо за высший балл! Вера общается на уровне сильного менеджера по продажам.'
+        ];
+        feedback.textContent = texts[stars - 1] || 'Спасибо за вашу оценку!';
+        feedback.classList.remove('text-slate-500');
+        feedback.classList.add('text-emerald-600', 'font-semibold');
+      }
+      try {
+        localStorage.setItem('altai_vera_rating', stars);
+      } catch (e) {}
+    }
+    window.rateVera = rateVera;
 
     let currentScenarioBoost = 0.12;
     const calcAnimationFrames = {};
@@ -2702,6 +2881,10 @@
       handleStickyNavScroll();
       applyMessengerTheme('full_deal');
       renderFullBranch('full_deal');
+      try {
+        const savedRating = localStorage.getItem('altai_vera_rating');
+        if (savedRating) rateVera(parseInt(savedRating, 10));
+      } catch (e) {}
       initMobileScrollCardHighlight();
       initSolutionsSequence();
       updateScrollProblemTitle();

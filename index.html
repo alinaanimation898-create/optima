@@ -362,7 +362,396 @@
   </section>
 
   <!-- ОСНОВНОЙ КОНТЕНТ В ЦЕНТРАЛЬНОМ КОНТЕЙНЕРЕ -->
-    <!-- 2. ЭКРАН С УВЕДОМЛЕНИЯМИ: ИИ‑ПРОДАВЕЦ РАБОТАЕТ, ПОКА ВЫ ОТДЫХАЕТЕ -->
+
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ХИРО К БЛОКУ ПОТЕРЬ -->
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-4 sm:my-6">
+      <a href="#losses" class="flowing-connector-link group" title="Где бизнес теряет деньги">
+        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradFlowHeroToLosses" x1="500" y1="10" x2="500" y2="150" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
+            </linearGradient>
+            <filter id="glowFlowHeroToLosses" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 500,10 C 500,60 500,100 500,150" 
+                stroke="url(#gradFlowHeroToLosses)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <path d="M 500,10 C 500,60 500,100 500,150" 
+                class="delicate-connector-beam" stroke="url(#gradFlowHeroToLosses)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowFlowHeroToLosses)"/>
+          <circle cx="500" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
+          <path d="M 494.5,142.5 L 500,150 L 505.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- 2. СЕКЦИЯ: ГДЕ БИЗНЕС ТЕРЯЕТ ДЕНЬГИ (3 КАРТОЧКИ) -->
+    <section id="losses" class="py-8 sm:py-12 relative z-20">
+      <div class="text-center max-w-5xl mx-auto space-y-3 sm:space-y-4 mb-10 sm:mb-14 lg:mb-16">
+        <h2 id="scrollProblemTitle" class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl lg:text-[54px] leading-tight break-words select-none overflow-visible py-0.5 text-[#0f172a]">
+          <span class="pearl-title-gradient">ГДЕ БИЗНЕС</span> ТЕРЯЕТ ДЕНЬГИ
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
+        <!-- КАРТОЧКА 1: БЕЗ ОТВЕТА (23%) -->
+        <div class="leak-card leak-card-rose rounded-[36px] bg-white border-2 border-slate-200/90 shadow-[0_4px_24px_rgba(0,0,0,0.04)] p-7 flex flex-col justify-between transition-all duration-500 font-inter">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+              <span class="leak-label text-xs sm:text-sm font-bold uppercase tracking-wider text-rose-600 transition-colors">БЕЗ ОТВЕТА</span>
+              <div id="leakMetric1" class="text-3xl sm:text-4xl font-extrabold tracking-tight font-inter leak-metric-gradient-rose whitespace-nowrap">23%</div>
+            </div>
+            <div>
+              <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Почти четверть компаний оставили заявку с&nbsp;сайта без ответа. Клиент купил у&nbsp;тех, кто ответил
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- КАРТОЧКА 2: ДОЛГОЕ ОЖИДАНИЕ (42 ч) -->
+        <div class="leak-card leak-card-amber rounded-[36px] bg-white border-2 border-slate-200/90 shadow-[0_4px_24px_rgba(0,0,0,0.04)] p-7 flex flex-col justify-between transition-all duration-500 font-inter">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+              <span class="leak-label text-xs sm:text-sm font-bold uppercase tracking-wider text-amber-600 transition-colors">ДОЛГОЕ ОЖИДАНИЕ</span>
+              <div id="leakMetric2" class="text-3xl sm:text-4xl font-extrabold tracking-tight font-inter leak-metric-gradient-amber whitespace-nowrap">42&nbsp;ч</div>
+            </div>
+            <div>
+              <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Столько в&nbsp;среднем ждали ответа клиенты тех компаний, которые всё-таки ответили. За&nbsp;это время заявка давно остыла
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- КАРТОЧКА 3: ОТВЕТ ЗА ЧАС (×7) -->
+        <div class="leak-card leak-card-rose rounded-[36px] bg-white border-2 border-slate-200/90 shadow-[0_4px_24px_rgba(0,0,0,0.04)] p-7 flex flex-col justify-between transition-all duration-500 font-inter">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+              <span class="leak-label text-xs sm:text-sm font-bold uppercase tracking-wider text-rose-600 transition-colors">ОТВЕТ ЗА ЧАС</span>
+              <div id="leakMetric3" class="text-3xl sm:text-4xl font-extrabold tracking-tight font-inter leak-metric-gradient-rose whitespace-nowrap">×7</div>
+            </div>
+            <div>
+              <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Во&nbsp;столько раз чаще доходят до&nbsp;разговора с&nbsp;ЛПР компании, ответившие в&nbsp;течение часа, по&nbsp;сравнению с&nbsp;теми, кто ответил позже
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Примечание под 3 карточками -->
+      <div class="text-center pt-2 text-xs sm:text-sm text-slate-500 font-inter max-w-4xl mx-auto">
+        Данные: аудит 2&nbsp;241 компании в&nbsp;США. J. Oldroyd, K. McElheran, D. Elkington, «The Short Life of&nbsp;Online Sales Leads», Harvard Business Review, 2011
+      </div>
+    </section>
+
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ПОТЕРЬ К ПИСЬМУ ОСНОВАТЕЛЕЙ -->
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
+      <a href="#founders-letter" class="flowing-connector-link group" title="Письмо основателей">
+        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradFlowLossesToFounders" x1="210" y1="10" x2="780" y2="150" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
+            </linearGradient>
+            <filter id="glowFlowLossesToFounders" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 210,10 C 290,65 520,50 670,95 C 735,115 780,132 780,150" 
+                stroke="url(#gradFlowLossesToFounders)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <path d="M 210,10 C 290,65 520,50 670,95 C 735,115 780,132 780,150" 
+                class="delicate-connector-beam" stroke="url(#gradFlowLossesToFounders)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowFlowLossesToFounders)"/>
+          <circle cx="210" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
+          <path d="M 774.5,142.5 L 780,150 L 785.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- 3. СЕКЦИЯ: ПИСЬМО ОСНОВАТЕЛЕЙ -->
+    <section id="founders-letter" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 relative z-20 select-text">
+      
+      <!-- ВЕРХНЯЯ ШАПКА -->
+      <div class="space-y-1.5 text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+        <div class="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-[0.25em] text-sky-700">
+          THIS IS ALTAI OPTIMA
+        </div>
+        <h2 class="font-serif-letter text-2xl sm:text-3xl md:text-4xl font-bold text-[#042C53] leading-tight tracking-tight">
+          Здравствуйте! Мы&nbsp;- основатели Altai&nbsp;Optima
+        </h2>
+      </div>
+
+      <!-- 3 КОЛОНКИ: СЛЕВА АЛИНА, ПОСЕРЕДИНЕ НАШ ПРИНЦИП, СПРАВА ДАВИД -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7 lg:gap-8 items-stretch">
+        
+        <!-- КОЛОНКА 1 (СЛЕВА): АЛИНА -->
+        <div class="flex flex-col space-y-3.5 order-1">
+          <div class="relative w-full aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_10px_30px_rgba(4,44,83,0.08)] border-2 border-white bg-white group">
+            <img src="assets/images/founder_alina.webp" alt="Алина - сооснователь Altai Optima" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]" loading="lazy">
+          </div>
+          <div class="space-y-1.5">
+            <span class="font-signature text-3xl sm:text-4xl text-[#0284c7] select-none leading-none block" style="font-family: 'Caveat', cursive;">
+              Алина
+            </span>
+            <p class="font-serif-letter italic text-slate-800 text-[13px] sm:text-[13.5px] lg:text-[14px] leading-relaxed">
+              «За двенадцать лет в&nbsp;продажах я&nbsp;видела сотни старательных менеджеров, которые всё равно теряли клиентов: отвечали через три часа, забывали перезвонить или срывались в&nbsp;конце тяжёлого дня. Altai Optima родилась из простого желания: защитить ваш бизнес от этих потерь.»
+            </p>
+          </div>
+        </div>
+
+        <!-- КОЛОНКА 2 (ПОСЕРЕДИНЕ): НАШ ПРИНЦИП -->
+        <div class="bg-white/80 backdrop-blur-md rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-7 border border-sky-100/90 shadow-[0_10px_35px_rgba(2,132,199,0.05)] flex flex-col justify-between space-y-4 font-serif-letter text-[#0C447C] text-[13px] sm:text-[13.5px] lg:text-[14px] leading-relaxed order-3 md:order-2">
+          <div class="space-y-3">
+            <div class="font-sans font-bold text-xs uppercase tracking-widest font-mono text-sky-800 pb-2 border-b border-sky-100/80">
+              Наш принцип
+            </div>
+            <p>
+              Мы строим компанию на&nbsp;годы вперёд, поэтому наша прибыль напрямую завязана на&nbsp;вашем удовлетворении. Знакомство начинается с&nbsp;7&nbsp;дней бесплатного тест-драйва, а&nbsp;фиксированный запуск за&nbsp;29&nbsp;000&nbsp;₽ покрывает исключительно себестоимость упаковки вашей базы знаний и&nbsp;технической интеграции.
+            </p>
+            <p>
+              Настоящая маржинальность нашего бизнеса&nbsp;- в&nbsp;долгом партнёрстве и&nbsp;продлении подписки. Подписка приносит нам доход лишь тогда, когда Вера стабильно генерирует сделки и&nbsp;увеличивает вашу прибыль. Чем дольше мы радуем вас нашей разработкой, тем увереннее растёт ваш бизнес&nbsp;- а&nbsp;значит, счастливы все вокруг.
+            </p>
+            <p>
+              Вы абсолютно свободны отключиться от&nbsp;системы в&nbsp;любой момент, но мы уверены: стоит вам познакомиться с&nbsp;Верой, и&nbsp;это станет любовью с&nbsp;первого сообщения.
+            </p>
+          </div>
+
+          <!-- ПОДПИСЬ -->
+          <div class="pt-3 border-t border-sky-100/90 text-center">
+            <p class="italic text-[13.5px] sm:text-[14.5px] text-slate-700 font-medium">
+              Давайте расти и процветать вместе!)
+            </p>
+          </div>
+        </div>
+
+        <!-- КОЛОНКА 3 (СПРАВА): ДАВИД -->
+        <div class="flex flex-col space-y-3.5 order-2 md:order-3">
+          <div class="relative w-full aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_10px_30px_rgba(4,44,83,0.08)] border-2 border-white bg-white group">
+            <img src="assets/images/founder_david.webp" alt="Давид - сооснователь Altai Optima" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]" loading="lazy">
+          </div>
+          <div class="space-y-1.5">
+            <span class="font-signature text-3xl sm:text-4xl text-[#0284c7] select-none leading-none block" style="font-family: 'Caveat', cursive;">
+              Давид
+            </span>
+            <p class="font-serif-letter italic text-slate-800 text-[13px] sm:text-[13.5px] lg:text-[14px] leading-relaxed">
+              «Десять лет на&nbsp;передовой ИИ-технологий, последние три года&nbsp;- в&nbsp;американской компании, создающей софт на&nbsp;базе ИИ. Этот опыт научил меня главному: людям нужен собеседник, а&nbsp;боты с&nbsp;кнопками только раздражают. Поэтому Вера&nbsp;- умный сотрудник: держит контекст, чувствует нюансы и&nbsp;ведёт диалог так же чутко, как ваш лучший эксперт.»
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ОСНОВАТЕЛЕЙ К НОВОЙ РЕАЛЬНОСТИ И 100% ОБРАБОТАННЫХ ЗАЯВОК -->
+    <div class="flex flex-col items-center justify-center pt-6 sm:pt-8 pb-5 sm:pb-7 relative z-20">
+      
+      <!-- 1. Верхняя одиночная стрелка -->
+      <div class="flowing-connector-container w-full max-w-md mx-auto px-4 select-none">
+        <a href="#newRealityBadge" class="flowing-connector-link group block" title="Ваша новая реальность">
+          <svg class="w-full h-auto max-h-[105px] sm:max-h-[115px] overflow-visible" viewBox="0 0 400 105" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="gradFlowToReality" x1="200" y1="0" x2="200" y2="100" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#E11D48" stop-opacity="0.5"/>
+                <stop offset="50%" stop-color="#0284C7" stop-opacity="0.8"/>
+                <stop offset="100%" stop-color="#10B981" stop-opacity="0.95"/>
+              </linearGradient>
+              <filter id="glowFlowReality" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="2" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+            </defs>
+            <path d="M 200,6 L 200,98" stroke="url(#gradFlowToReality)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+            <path d="M 200,6 L 200,98" class="delicate-connector-beam" stroke="url(#gradFlowToReality)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowReality)"/>
+            <circle cx="200" cy="6" r="2.2" fill="#E11D48" opacity="0.85"/>
+            <path d="M 194.5,91 L 200,98 L 205.5,91" stroke="#10B981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- 2. Подзаголовок: ВАША НОВАЯ РЕАЛЬНОСТЬ (в изумрудном тоне) + контурный барабан -->
+      <div id="newRealityBadge" class="relative z-20 my-3 sm:my-4 text-center select-none font-inter">
+        <div class="inline-flex items-center justify-center flex-wrap gap-2.5 sm:gap-3.5 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black font-inter tracking-tight uppercase leading-tight">
+          <span class="emerald-title-gradient">ВАША НОВАЯ РЕАЛЬНОСТЬ</span>
+
+          <!-- ЧИСТЫЙ КОНТУРНЫЙ ВЕКТОРНЫЙ БАРАБАН В ИЗУМРУДНОЙ ПАЛИТРЕ -->
+          <span class="inline-flex items-center justify-center relative w-9 h-9 sm:w-11 sm:h-11 align-middle ml-1.5 shrink-0 transform -translate-y-0.5">
+            <svg class="w-full h-full overflow-visible" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="drumEmeraldGrad" x1="4" y1="16" x2="44" y2="40" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#10B981" />
+                  <stop offset="50%" stop-color="#34D399" />
+                  <stop offset="100%" stop-color="#059669" />
+                </linearGradient>
+                <linearGradient id="drumEmeraldStickGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#064E3B" />
+                  <stop offset="100%" stop-color="#10B981" />
+                </linearGradient>
+              </defs>
+
+              <ellipse cx="24" cy="23" rx="17" ry="6" class="drum-sound-wave" stroke="#34D399" stroke-width="1.2" stroke-dasharray="3 3" fill="none" />
+              <path d="M7 23 V33 C7 36.8 14.6 39.5 24 39.5 C33.4 39.5 41 36.8 41 33 V23" stroke="url(#drumEmeraldGrad)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+              <path d="M7 23 L12 36 L18 24.5 L24 37 L30 24.5 L36 36 L41 23" stroke="#34D399" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" opacity="0.75" fill="none" />
+              <circle cx="12" cy="36" r="1" fill="#10B981" />
+              <circle cx="18" cy="24.5" r="1" fill="#10B981" />
+              <circle cx="24" cy="37" r="1.1" fill="#10B981" />
+              <circle cx="30" cy="24.5" r="1" fill="#10B981" />
+              <circle cx="36" cy="36" r="1" fill="#10B981" />
+              <path d="M7 33 C7 36.8 14.6 39.5 24 39.5 C33.4 39.5 41 36.8 41 33" stroke="url(#drumEmeraldGrad)" stroke-width="1.5" stroke-linecap="round" fill="none" />
+              <ellipse cx="24" cy="23" rx="17" ry="6" stroke="url(#drumEmeraldGrad)" stroke-width="1.6" class="drum-head-pulse" fill="none" />
+              <ellipse cx="24" cy="23" rx="11" ry="3.8" stroke="#34D399" stroke-width="0.8" stroke-dasharray="2.5 2.5" opacity="0.5" fill="none" />
+              <g class="drumstick-left">
+                <line x1="8" y1="5" x2="22" y2="22" stroke="url(#drumEmeraldStickGrad)" stroke-width="1.6" stroke-linecap="round" />
+                <circle cx="22" cy="22" r="1.8" fill="#10B981" stroke="#34D399" stroke-width="0.8" />
+              </g>
+              <g class="drumstick-right">
+                <line x1="40" y1="5" x2="26" y2="22" stroke="url(#drumEmeraldStickGrad)" stroke-width="1.6" stroke-linecap="round" />
+                <circle cx="26" cy="22" r="1.8" fill="#10B981" stroke="#34D399" stroke-width="0.8" />
+              </g>
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <!-- 3. Нижняя одиночная стрелка: от плашки к заголовку «100% ОБРАБОТАННЫХ ЗАЯВОК» -->
+      <div class="flowing-connector-container w-full max-w-md mx-auto px-4 select-none">
+        <a href="#manifesto" class="flowing-connector-link group block" title="Перейти к 100% обработанных заявок">
+          <svg class="w-full h-auto max-h-[105px] sm:max-h-[115px] overflow-visible" viewBox="0 0 400 105" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="gradFlowTo100" x1="200" y1="0" x2="200" y2="100" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#10B981" stop-opacity="0.95"/>
+                <stop offset="60%" stop-color="#059669" stop-opacity="0.85"/>
+                <stop offset="100%" stop-color="#047857" stop-opacity="1"/>
+              </linearGradient>
+              <filter id="glowFlow100" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="2" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+            </defs>
+            <path d="M 200,6 L 200,98" stroke="url(#gradFlowTo100)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+            <path d="M 200,6 L 200,98" class="delicate-connector-beam" stroke="url(#gradFlowTo100)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlow100)"/>
+            <circle cx="200" cy="6" r="2.2" fill="#10B981" opacity="0.9"/>
+            <path d="M 194.5,91 L 200,98 L 205.5,91" stroke="#047857" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- 4. МАНИФЕСТ: 100% ОБРАБОТАННЫХ ЗАЯВОК -->
+    <section id="manifesto" class="space-y-8 sm:space-y-12 md:space-y-16 text-center relative z-20 pt-8 sm:pt-14 pb-12 sm:pb-16">
+      <div class="space-y-4 sm:space-y-6 max-w-5xl mx-auto py-2 sm:py-4">
+        <div class="py-2">
+          <h2 class="uppercase tracking-tight font-black text-3xl sm:text-5xl md:text-6xl font-benzin select-none leading-tight overflow-visible">
+            <span class="pearl-title-gradient">100% ОБРАБОТАННЫХ<br>ЗАЯВОК</span>
+          </h2>
+        </div>
+      </div>
+
+      <!-- КАРТОЧКИ МАНИФЕСТА -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto text-left pt-6 sm:pt-10 md:pt-12">
+        
+        <!-- Карточка 1: Реакция быстрее мысли -->
+        <div class="manifesto-glass-card p-6 sm:p-7 flex flex-col justify-between space-y-4 group rounded-3xl">
+          <div class="space-y-3.5">
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-950 leading-snug font-sans">
+              Реакция быстрее мысли
+            </h3>
+
+            <div>
+              <div class="manifesto-stat-gradient text-4xl sm:text-5xl font-black tracking-tight leading-none font-sans">
+                &lt; 60 секунд
+              </div>
+            </div>
+
+            <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
+              Мгновенный захват горячего клиента в&nbsp;мессенджерах <strong class="manifesto-highlight-phrase font-extrabold">поднимает конверсию в&nbsp;покупку на&nbsp;40%</strong>
+            </p>
+          </div>
+        </div>
+
+        <!-- Карточка 2: Экспертность в деталях -->
+        <div class="manifesto-glass-card-emerald p-6 sm:p-7 flex flex-col justify-between space-y-4 group rounded-3xl">
+          <div class="space-y-3.5">
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-950 leading-snug font-sans">
+              Экспертность в деталях
+            </h3>
+
+            <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
+              Вежливо снимает вопросы по&nbsp;прайсу и&nbsp;срокам. Распознаёт аудиосообщения любой длины и&nbsp;общается живым языком. <strong class="manifesto-highlight-phrase font-extrabold">Знает досконально всю информацию про компанию и&nbsp;продукт даже лучше собственника</strong>
+            </p>
+          </div>
+        </div>
+
+        <!-- Карточка 3: Мгновенный перехват -->
+        <div class="manifesto-glass-card-amber p-6 sm:p-7 flex flex-col justify-between space-y-4 group rounded-3xl">
+          <div class="space-y-3">
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-950 leading-snug font-sans">
+              Мгновенный перехват
+            </h3>
+
+            <!-- Сетка каналов (6 каналов) -->
+            <div class="grid grid-cols-2 gap-1.5 sm:gap-2 pt-0.5 font-inter text-xs">
+              <div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-white/95 border border-slate-200/80 font-bold text-slate-900 shadow-2xs">
+                <span class="w-2 h-2 rounded-full bg-[#25D366] shrink-0"></span> WhatsApp
+              </div>
+              <div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-white/95 border border-slate-200/80 font-bold text-slate-900 shadow-2xs">
+                <span class="w-2 h-2 rounded-full bg-[#229ED9] shrink-0"></span> Telegram
+              </div>
+              <div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-white/95 border border-slate-200/80 font-bold text-slate-900 shadow-2xs">
+                <span class="w-2 h-2 rounded-full bg-[#E1306C] shrink-0"></span> Instagram
+              </div>
+              <div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-white/95 border border-slate-200/80 font-bold text-slate-900 shadow-2xs">
+                <span class="w-2 h-2 rounded-full bg-[#00AAFF] shrink-0"></span> Авито Чат
+              </div>
+              <div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-white/95 border border-slate-200/80 font-bold text-slate-900 shadow-2xs">
+                <span class="w-2 h-2 rounded-full bg-[#7B2CBF] shrink-0"></span> MAX
+              </div>
+              <div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-white/95 border border-slate-200/80 font-bold text-slate-900 shadow-2xs">
+                <span class="w-2 h-2 rounded-full bg-[#0284c7] shrink-0"></span> Виджет сайта
+              </div>
+            </div>
+
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal pt-1">
+              Система подхватывает обращения в&nbsp;любых мессенджерах одновременно, отправляя в&nbsp;CRM готовые заказы
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ 100% ЗАЯВОК К УВЕДОМЛЕНИЯМ (ИИ-ПРОДАВЕЦ РАБОТАЕТ, ПОКА ВЫ ОТДЫХАЕТЕ) -->
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8">
+      <a href="#cta-final" class="flowing-connector-link group" title="ИИ-продавец работает, пока вы отдыхаете">
+        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradFlowToCtaFinal" x1="210" y1="10" x2="780" y2="150" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#10B981" stop-opacity="0.8"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
+            </linearGradient>
+            <filter id="glowFlowToCtaFinal" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 210,10 C 290,65 520,50 670,95 C 735,115 780,132 780,150" 
+                stroke="url(#gradFlowToCtaFinal)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <path d="M 210,10 C 290,65 520,50 670,95 C 735,115 780,132 780,150" 
+                class="delicate-connector-beam" stroke="url(#gradFlowToCtaFinal)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowFlowToCtaFinal)"/>
+          <circle cx="210" cy="10" r="2.2" fill="#10B981" opacity="0.8"/>
+          <path d="M 774.5,142.5 L 780,150 L 785.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- 5. ЭКРАН С УВЕДОМЛЕНИЯМИ: ИИ‑ПРОДАВЕЦ РАБОТАЕТ, ПОКА ВЫ ОТДЫХАЕТЕ -->
     <section id="cta-final" class="ao-band ao-band--glacial relative py-[40px] lg:py-[60px] px-4 sm:px-6 lg:px-10 overflow-hidden">
       <div class="max-w-[1200px] mx-auto relative z-10">
         <div class="cta-final-grid">
@@ -532,445 +921,76 @@
       </div>
     </section>
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ УВЕДОМЛЕНИЙ К ПИСЬМУ ОСНОВАТЕЛЕЙ -->
-    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
-      <a href="#founders-letter" class="flowing-connector-link group" title="Письмо основателей">
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ УВЕДОМЛЕНИЙ К СЦЕНАРИЯМ (ПОГОВОРИТЕ С ВЕРОЙ) -->
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8">
+      <a href="#scenarios" class="flowing-connector-link group" title="Поговорите с Верой здесь и сейчас">
         <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="gradFlowFounders" x1="780" y1="10" x2="240" y2="150" gradientUnits="userSpaceOnUse">
+            <linearGradient id="gradFlowScenariosFromCta" x1="790" y1="10" x2="220" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
               <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
               <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
             </linearGradient>
-            <filter id="glowFlowFounders" x="-20%" y="-20%" width="140%" height="140%">
+            <filter id="glowFlowScenariosFromCta" x="-20%" y="-20%" width="140%" height="140%">
               <feGaussianBlur stdDeviation="2" result="blur"/>
               <feComposite in="SourceGraphic" in2="blur" operator="over"/>
             </filter>
           </defs>
-          <!-- 1. Тонкая изящная базовая линия (пунктир 4 4 по референсу) -->
-          <path d="M 780,10 C 710,65 480,50 330,95 C 265,115 240,132 240,150" 
-                stroke="url(#gradFlowFounders)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-          <!-- 2. Невесомый световой импульс энергии без визуального шума -->
-          <path d="M 780,10 C 710,65 480,50 330,95 C 265,115 240,132 240,150" 
-                class="delicate-connector-beam" stroke="url(#gradFlowFounders)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowFlowFounders)"/>
-          <!-- 3. Деликатная стартовая точка -->
-          <circle cx="780" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
-          <!-- 4. Тонкий, острый шеврон-наконечник строго по референсу -->
-          <path d="M 234.5,142.5 L 240,150 L 245.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        </svg>
-      </a>
-    </div>
-
-    <!-- 3. СЕКЦИЯ: ПИСЬМО ОСНОВАТЕЛЕЙ -->
-    <section id="founders-letter" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 relative z-20 select-text">
-      
-      <!-- ВЕРХНЯЯ ШАПКА -->
-      <div class="space-y-1.5 text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-        <div class="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-[0.25em] text-sky-700">
-          THIS IS ALTAI OPTIMA
-        </div>
-        <h2 class="font-serif-letter text-2xl sm:text-3xl md:text-4xl font-bold text-[#042C53] leading-tight tracking-tight">
-          Здравствуйте! Мы&nbsp;- основатели Altai&nbsp;Optima
-        </h2>
-      </div>
-
-      <!-- 3 КОЛОНКИ: СЛЕВА АЛИНА, ПОСЕРЕДИНЕ НАШ ПРИНЦИП, СПРАВА ДАВИД -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7 lg:gap-8 items-stretch">
-        
-        <!-- КОЛОНКА 1 (СЛЕВА): АЛИНА -->
-        <div class="flex flex-col space-y-3.5 order-1">
-          <div class="relative w-full aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_10px_30px_rgba(4,44,83,0.08)] border-2 border-white bg-white group">
-            <img src="assets/images/founder_alina.webp" alt="Алина - сооснователь Altai Optima" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]" loading="lazy">
-          </div>
-          <div class="space-y-1.5">
-            <span class="font-signature text-3xl sm:text-4xl text-[#0284c7] select-none leading-none block" style="font-family: 'Caveat', cursive;">
-              Алина
-            </span>
-            <p class="font-serif-letter italic text-slate-800 text-[13px] sm:text-[13.5px] lg:text-[14px] leading-relaxed">
-              «За двенадцать лет в&nbsp;продажах я&nbsp;видела сотни старательных менеджеров, которые всё равно теряли клиентов: отвечали через три часа, забывали перезвонить или срывались в&nbsp;конце тяжёлого дня. Altai Optima родилась из простого желания: защитить ваш бизнес от этих потерь.»
-            </p>
-          </div>
-        </div>
-
-        <!-- КОЛОНКА 2 (ПОСЕРЕДИНЕ): НАШ ПРИНЦИП -->
-        <div class="bg-white/80 backdrop-blur-md rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-7 border border-sky-100/90 shadow-[0_10px_35px_rgba(2,132,199,0.05)] flex flex-col justify-between space-y-4 font-serif-letter text-[#0C447C] text-[13px] sm:text-[13.5px] lg:text-[14px] leading-relaxed order-3 md:order-2">
-          <div class="space-y-3">
-            <div class="font-sans font-bold text-xs uppercase tracking-widest font-mono text-sky-800 pb-2 border-b border-sky-100/80">
-              Наш принцип
-            </div>
-            <p>
-              Мы строим компанию на&nbsp;годы вперёд, поэтому наша прибыль напрямую завязана на&nbsp;вашем удовлетворении. Знакомство начинается с&nbsp;7&nbsp;дней бесплатного тест-драйва, а&nbsp;фиксированный запуск за&nbsp;29&nbsp;000&nbsp;₽ покрывает исключительно себестоимость упаковки вашей базы знаний и&nbsp;технической интеграции.
-            </p>
-            <p>
-              Настоящая маржинальность нашего бизнеса&nbsp;- в&nbsp;долгом партнёрстве и&nbsp;продлении подписки. Подписка приносит нам доход лишь тогда, когда Вера стабильно генерирует сделки и&nbsp;увеличивает вашу прибыль. Чем дольше мы радуем вас нашей разработкой, тем увереннее растёт ваш бизнес&nbsp;- а&nbsp;значит, счастливы все вокруг.
-            </p>
-            <p>
-              Вы абсолютно свободны отключиться от&nbsp;системы в&nbsp;любой момент, но мы уверены: стоит вам познакомиться с&nbsp;Верой, и&nbsp;это станет любовью с&nbsp;первого сообщения.
-            </p>
-          </div>
-
-          <!-- ПОДПИСЬ -->
-          <div class="pt-3 border-t border-sky-100/90 text-center">
-            <p class="italic text-[13.5px] sm:text-[14.5px] text-slate-700 font-medium">
-              Давайте расти и процветать вместе!)
-            </p>
-          </div>
-        </div>
-
-        <!-- КОЛОНКА 3 (СПРАВА): ДАВИД -->
-        <div class="flex flex-col space-y-3.5 order-2 md:order-3">
-          <div class="relative w-full aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_10px_30px_rgba(4,44,83,0.08)] border-2 border-white bg-white group">
-            <img src="assets/images/founder_david.webp" alt="Давид - сооснователь Altai Optima" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]" loading="lazy">
-          </div>
-          <div class="space-y-1.5">
-            <span class="font-signature text-3xl sm:text-4xl text-[#0284c7] select-none leading-none block" style="font-family: 'Caveat', cursive;">
-              Давид
-            </span>
-            <p class="font-serif-letter italic text-slate-800 text-[13px] sm:text-[13.5px] lg:text-[14px] leading-relaxed">
-              «Десять лет на&nbsp;передовой ИИ-технологий, последние три года&nbsp;- в&nbsp;американской компании, создающей софт на&nbsp;базе ИИ. Этот опыт научил меня главному: людям нужен собеседник, а&nbsp;боты с&nbsp;кнопками только раздражают. Поэтому Вера&nbsp;- умный сотрудник: держит контекст, чувствует нюансы и&nbsp;ведёт диалог так же чутко, как ваш лучший эксперт.»
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ИЗЯЩНАЯ ТРОПА К БЛОКУ ПОТЕРЬ -->
-    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
-      <a href="#scrollProblemTitle" class="flowing-connector-link group" title="Где бизнес теряет деньги">
-        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="gradFlowLosses" x1="210" y1="10" x2="780" y2="150" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
-              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
-              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
-            </linearGradient>
-            <filter id="glowFlowLosses" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="2" result="blur"/>
-              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-            </filter>
-          </defs>
-          <path d="M 210,10 C 290,65 520,50 670,95 C 735,115 780,132 780,150" 
-                stroke="url(#gradFlowLosses)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-          <path d="M 210,10 C 290,65 520,50 670,95 C 735,115 780,132 780,150" 
-                class="delicate-connector-beam" stroke="url(#gradFlowLosses)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowFlowLosses)"/>
-          <circle cx="210" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
-          <path d="M 774.5,142.5 L 780,150 L 785.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        </svg>
-      </a>
-    </div>
-
-    <!-- 4. СЕКЦИЯ: ГДЕ БИЗНЕС ТЕРЯЕТ ДЕНЬГИ (3 КАРТОЧКИ) -->
-    <section id="losses" class="py-8 sm:py-12 relative z-20">
-      <div class="text-center max-w-5xl mx-auto space-y-3 sm:space-y-4 mb-10 sm:mb-14 lg:mb-16">
-        <h2 id="scrollProblemTitle" class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl lg:text-[54px] leading-tight break-words select-none overflow-visible py-0.5 text-[#0f172a]">
-          <span class="pearl-title-gradient">ГДЕ БИЗНЕС</span> ТЕРЯЕТ ДЕНЬГИ
-        </h2>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
-        <!-- КАРТОЧКА 1: БЕЗ ОТВЕТА (23%) -->
-        <div class="leak-card leak-card-rose rounded-[36px] bg-white border-2 border-slate-200/90 shadow-[0_4px_24px_rgba(0,0,0,0.04)] p-7 flex flex-col justify-between transition-all duration-500 font-inter">
-          <div class="space-y-4">
-            <div class="flex items-center justify-between pb-4 border-b border-slate-100">
-              <span class="leak-label text-xs sm:text-sm font-bold uppercase tracking-wider text-rose-600 transition-colors">БЕЗ ОТВЕТА</span>
-              <div id="leakMetric1" class="text-3xl sm:text-4xl font-extrabold tracking-tight font-inter leak-metric-gradient-rose whitespace-nowrap">23%</div>
-            </div>
-            <div>
-              <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Почти четверть компаний оставили заявку с&nbsp;сайта без ответа. Клиент купил у&nbsp;тех, кто ответил
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- КАРТОЧКА 2: ДОЛГОЕ ОЖИДАНИЕ (42 ч) -->
-        <div class="leak-card leak-card-amber rounded-[36px] bg-white border-2 border-slate-200/90 shadow-[0_4px_24px_rgba(0,0,0,0.04)] p-7 flex flex-col justify-between transition-all duration-500 font-inter">
-          <div class="space-y-4">
-            <div class="flex items-center justify-between pb-4 border-b border-slate-100">
-              <span class="leak-label text-xs sm:text-sm font-bold uppercase tracking-wider text-amber-600 transition-colors">ДОЛГОЕ ОЖИДАНИЕ</span>
-              <div id="leakMetric2" class="text-3xl sm:text-4xl font-extrabold tracking-tight font-inter leak-metric-gradient-amber whitespace-nowrap">42&nbsp;ч</div>
-            </div>
-            <div>
-              <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Столько в&nbsp;среднем ждали ответа клиенты тех компаний, которые всё-таки ответили. За&nbsp;это время заявка давно остыла
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- КАРТОЧКА 3: ОТВЕТ ЗА ЧАС (×7) -->
-        <div class="leak-card leak-card-rose rounded-[36px] bg-white border-2 border-slate-200/90 shadow-[0_4px_24px_rgba(0,0,0,0.04)] p-7 flex flex-col justify-between transition-all duration-500 font-inter">
-          <div class="space-y-4">
-            <div class="flex items-center justify-between pb-4 border-b border-slate-100">
-              <span class="leak-label text-xs sm:text-sm font-bold uppercase tracking-wider text-rose-600 transition-colors">ОТВЕТ ЗА ЧАС</span>
-              <div id="leakMetric3" class="text-3xl sm:text-4xl font-extrabold tracking-tight font-inter leak-metric-gradient-rose whitespace-nowrap">×7</div>
-            </div>
-            <div>
-              <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Во&nbsp;столько раз чаще доходят до&nbsp;разговора с&nbsp;ЛПР компании, ответившие в&nbsp;течение часа, по&nbsp;сравнению с&nbsp;теми, кто ответил позже
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Примечание под 3 карточками -->
-      <div class="text-center pt-2 text-xs sm:text-sm text-slate-500 font-inter max-w-4xl mx-auto">
-        Данные: аудит 2&nbsp;241 компании в&nbsp;США. J. Oldroyd, K. McElheran, D. Elkington, «The Short Life of&nbsp;Online Sales Leads», Harvard Business Review, 2011
-      </div>
-    </section>
-
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОДНА ИЗЯЩНАЯ СТРЕЛКА -> ВАША НОВАЯ РЕАЛЬНОСТЬ -> ОДНА ИЗЯЩНАЯ СТРЕЛКА -> 100% -->
-    <div class="flex flex-col items-center justify-center pt-6 sm:pt-8 pb-5 sm:pb-7 relative z-20">
-      
-      <!-- 1. Верхняя одиночная стрелка: от карточек к плашке «ВАША НОВАЯ РЕАЛЬНОСТЬ» -->
-      <div class="flowing-connector-container w-full max-w-md mx-auto px-4 select-none">
-        <a href="#newRealityBadge" class="flowing-connector-link group block" title="Ваша новая реальность">
-          <svg class="w-full h-auto max-h-[105px] sm:max-h-[115px] overflow-visible" viewBox="0 0 400 105" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="gradFlowToReality" x1="200" y1="0" x2="200" y2="100" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#E11D48" stop-opacity="0.5"/>
-                <stop offset="50%" stop-color="#0284C7" stop-opacity="0.8"/>
-                <stop offset="100%" stop-color="#10B981" stop-opacity="0.95"/>
-              </linearGradient>
-              <filter id="glowFlowReality" x="-20%" y="-20%" width="140%" height="140%">
-                <feGaussianBlur stdDeviation="2" result="blur"/>
-                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-              </filter>
-            </defs>
-            <path d="M 200,6 L 200,98" stroke="url(#gradFlowToReality)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-            <path d="M 200,6 L 200,98" class="delicate-connector-beam" stroke="url(#gradFlowToReality)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowReality)"/>
-            <circle cx="200" cy="6" r="2.2" fill="#E11D48" opacity="0.85"/>
-            <path d="M 194.5,91 L 200,98 L 205.5,91" stroke="#10B981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          </svg>
-        </a>
-      </div>
-
-      <!-- 2. Подзаголовок: ВАША НОВАЯ РЕАЛЬНОСТЬ (в изумрудном тоне) + контурный барабан -->
-      <div id="newRealityBadge" class="relative z-20 my-3 sm:my-4 text-center select-none font-inter">
-        <div class="inline-flex items-center justify-center flex-wrap gap-2.5 sm:gap-3.5 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black font-inter tracking-tight uppercase leading-tight">
-          <span class="emerald-title-gradient">ВАША НОВАЯ РЕАЛЬНОСТЬ</span>
-
-          <!-- ЧИСТЫЙ КОНТУРНЫЙ ВЕКТОРНЫЙ БАРАБАН В ИЗУМРУДНОЙ ПАЛИТРЕ -->
-          <span class="inline-flex items-center justify-center relative w-9 h-9 sm:w-11 sm:h-11 align-middle ml-1.5 shrink-0 transform -translate-y-0.5">
-            <svg class="w-full h-full overflow-visible" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="drumEmeraldGrad" x1="4" y1="16" x2="44" y2="40" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#10B981" />
-                  <stop offset="50%" stop-color="#34D399" />
-                  <stop offset="100%" stop-color="#059669" />
-                </linearGradient>
-                <linearGradient id="drumEmeraldStickGrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#064E3B" />
-                  <stop offset="100%" stop-color="#10B981" />
-                </linearGradient>
-              </defs>
-
-              <ellipse cx="24" cy="23" rx="17" ry="6" class="drum-sound-wave" stroke="#34D399" stroke-width="1.2" stroke-dasharray="3 3" fill="none" />
-              <path d="M7 23 V33 C7 36.8 14.6 39.5 24 39.5 C33.4 39.5 41 36.8 41 33 V23" stroke="url(#drumEmeraldGrad)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-              <path d="M7 23 L12 36 L18 24.5 L24 37 L30 24.5 L36 36 L41 23" stroke="#34D399" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" opacity="0.75" fill="none" />
-              <circle cx="12" cy="36" r="1" fill="#10B981" />
-              <circle cx="18" cy="24.5" r="1" fill="#10B981" />
-              <circle cx="24" cy="37" r="1.1" fill="#10B981" />
-              <circle cx="30" cy="24.5" r="1" fill="#10B981" />
-              <circle cx="36" cy="36" r="1" fill="#10B981" />
-              <path d="M7 33 C7 36.8 14.6 39.5 24 39.5 C33.4 39.5 41 36.8 41 33" stroke="url(#drumEmeraldGrad)" stroke-width="1.5" stroke-linecap="round" fill="none" />
-              <ellipse cx="24" cy="23" rx="17" ry="6" stroke="url(#drumEmeraldGrad)" stroke-width="1.6" class="drum-head-pulse" fill="none" />
-              <ellipse cx="24" cy="23" rx="11" ry="3.8" stroke="#34D399" stroke-width="0.8" stroke-dasharray="2.5 2.5" opacity="0.5" fill="none" />
-              <g class="drumstick-left">
-                <line x1="8" y1="5" x2="22" y2="22" stroke="url(#drumEmeraldStickGrad)" stroke-width="1.6" stroke-linecap="round" />
-                <circle cx="22" cy="22" r="1.8" fill="#10B981" stroke="#34D399" stroke-width="0.8" />
-              </g>
-              <g class="drumstick-right">
-                <line x1="40" y1="5" x2="26" y2="22" stroke="url(#drumEmeraldStickGrad)" stroke-width="1.6" stroke-linecap="round" />
-                <circle cx="26" cy="22" r="1.8" fill="#10B981" stroke="#34D399" stroke-width="0.8" />
-              </g>
-            </svg>
-          </span>
-        </div>
-      </div>
-
-      <!-- 3. Нижняя одиночная стрелка: от плашки к заголовку «100% ОБРАБОТАННЫХ ЗАЯВОК» -->
-      <div class="flowing-connector-container w-full max-w-md mx-auto px-4 select-none">
-        <a href="#manifesto" class="flowing-connector-link group block" title="Перейти к 100% обработанных заявок">
-          <svg class="w-full h-auto max-h-[105px] sm:max-h-[115px] overflow-visible" viewBox="0 0 400 105" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="gradFlowTo100" x1="200" y1="0" x2="200" y2="100" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#10B981" stop-opacity="0.95"/>
-                <stop offset="60%" stop-color="#059669" stop-opacity="0.85"/>
-                <stop offset="100%" stop-color="#047857" stop-opacity="1"/>
-              </linearGradient>
-              <filter id="glowFlow100" x="-20%" y="-20%" width="140%" height="140%">
-                <feGaussianBlur stdDeviation="2" result="blur"/>
-                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-              </filter>
-            </defs>
-            <path d="M 200,6 L 200,98" stroke="url(#gradFlowTo100)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-            <path d="M 200,6 L 200,98" class="delicate-connector-beam" stroke="url(#gradFlowTo100)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlow100)"/>
-            <circle cx="200" cy="6" r="2.2" fill="#10B981" opacity="0.9"/>
-            <path d="M 194.5,91 L 200,98 L 205.5,91" stroke="#047857" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          </svg>
-        </a>
-      </div>
-
-    </div>
-
-    <!-- 3. МАНИФЕСТ: 100% ОБРАБОТАННЫХ ЗАЯВОК (С БОЛЬШИМ ВОЗДУХОМ ДО КАРТОЧЕК) -->
-    <section id="manifesto" class="space-y-8 sm:space-y-12 md:space-y-16 text-center relative z-20 pt-8 sm:pt-14 pb-12 sm:pb-16">
-      <div class="space-y-4 sm:space-y-6 max-w-5xl mx-auto py-2 sm:py-4">
-        <div class="py-2">
-          <h2 class="uppercase tracking-tight font-black text-3xl sm:text-5xl md:text-6xl font-benzin select-none leading-tight overflow-visible">
-            <span class="pearl-title-gradient">100% ОБРАБОТАННЫХ<br>ЗАЯВОК</span>
-          </h2>
-        </div>
-      </div>
-
-      <!-- КАРТОЧКИ МАНИФЕСТА С ЩЕДРЫМ ОТСТУПОМ СВЕРХУ (ВОЗДУХ) -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto text-left pt-6 sm:pt-10 md:pt-12">
-        
-        <!-- Карточка 1: Реакция быстрее мысли -->
-        <div class="manifesto-glass-card p-6 sm:p-7 flex flex-col justify-between space-y-4 group rounded-3xl">
-          <div class="space-y-3.5">
-            <h3 class="text-xl sm:text-2xl font-bold text-slate-950 leading-snug font-sans">
-              Реакция быстрее мысли
-            </h3>
-
-            <div>
-              <div class="manifesto-stat-gradient text-4xl sm:text-5xl font-black tracking-tight leading-none font-sans">
-                &lt; 60 секунд
-              </div>
-            </div>
-
-            <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
-              Мгновенный захват горячего клиента в&nbsp;мессенджерах <strong class="manifesto-highlight-phrase font-extrabold">поднимает конверсию в&nbsp;покупку на&nbsp;40%</strong>
-            </p>
-          </div>
-        </div>
-
-        <!-- Карточка 2: Экспертность в деталях -->
-        <div class="manifesto-glass-card-emerald p-6 sm:p-7 flex flex-col justify-between space-y-4 group rounded-3xl">
-          <div class="space-y-3.5">
-            <h3 class="text-xl sm:text-2xl font-bold text-slate-950 leading-snug font-sans">
-              Экспертность в деталях
-            </h3>
-
-            <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
-              Вежливо снимает вопросы по&nbsp;прайсу и&nbsp;срокам. Распознаёт аудиосообщения любой длины и&nbsp;общается живым языком. <strong class="manifesto-highlight-phrase font-extrabold">Знает досконально всю информацию про компанию и&nbsp;продукт даже лучше собственника</strong>
-            </p>
-          </div>
-        </div>
-
-        <!-- Карточка 3: Мгновенный перехват -->
-        <div class="manifesto-glass-card-amber p-6 sm:p-7 flex flex-col justify-between space-y-4 group rounded-3xl">
-          <div class="space-y-3">
-            <h3 class="text-xl sm:text-2xl font-bold text-slate-950 leading-snug font-sans">
-              Мгновенный перехват
-            </h3>
-
-            <!-- Сетка каналов (6 каналов) -->
-            <div class="grid grid-cols-2 gap-1.5 sm:gap-2 pt-0.5 font-inter text-xs">
-              <div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-white/95 border border-slate-200/80 font-bold text-slate-900 shadow-2xs">
-                <span class="w-2 h-2 rounded-full bg-[#25D366] shrink-0"></span> WhatsApp
-              </div>
-              <div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-white/95 border border-slate-200/80 font-bold text-slate-900 shadow-2xs">
-                <span class="w-2 h-2 rounded-full bg-[#229ED9] shrink-0"></span> Telegram
-              </div>
-              <div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-white/95 border border-slate-200/80 font-bold text-slate-900 shadow-2xs">
-                <span class="w-2 h-2 rounded-full bg-[#E1306C] shrink-0"></span> Instagram
-              </div>
-              <div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-white/95 border border-slate-200/80 font-bold text-slate-900 shadow-2xs">
-                <span class="w-2 h-2 rounded-full bg-[#00AAFF] shrink-0"></span> Авито Чат
-              </div>
-              <div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-white/95 border border-slate-200/80 font-bold text-slate-900 shadow-2xs">
-                <span class="w-2 h-2 rounded-full bg-[#7B2CBF] shrink-0"></span> MAX
-              </div>
-              <div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-white/95 border border-slate-200/80 font-bold text-slate-900 shadow-2xs">
-                <span class="w-2 h-2 rounded-full bg-[#0284c7] shrink-0"></span> Виджет сайта
-              </div>
-            </div>
-
-            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal pt-1">
-              Система подхватывает обращения в&nbsp;любых мессенджерах одновременно, отправляя в&nbsp;CRM готовые заказы
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-            <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ИЗЯЩНАЯ ТРАЕКТОРИЯ ПЕРЕТЕКАНИЯ -->
-    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
-      <a href="#scenarios" class="flowing-connector-link group" title="Почувствуйте разницу">
-        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="gradFlowScenarios" x1="790" y1="10" x2="220" y2="150" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
-              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
-              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
-            </linearGradient>
-            <filter id="glowFlowScenarios" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="2" result="blur"/>
-              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-            </filter>
-          </defs>
-          <!-- 1. Тонкая изящная базовая линия (пунктир 4 4 по референсу) -->
           <path d="M 790,10 C 710,65 470,50 310,95 C 250,115 220,132 220,150" 
-                stroke="url(#gradFlowScenarios)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-          <!-- 2. Невесомый световой импульс энергии без визуального шума -->
+                stroke="url(#gradFlowScenariosFromCta)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
           <path d="M 790,10 C 710,65 470,50 310,95 C 250,115 220,132 220,150" 
-                class="delicate-connector-beam" stroke="url(#gradFlowScenarios)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowFlowScenarios)"/>
-          <!-- 3. Деликатная стартовая точка -->
+                class="delicate-connector-beam" stroke="url(#gradFlowScenariosFromCta)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowFlowScenariosFromCta)"/>
           <circle cx="790" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
-          <!-- 4. Тонкий, острый шеврон-наконечник строго по референсу -->
           <path d="M 214.5,142.5 L 220,150 L 225.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
 
-    <!-- 5. СЦЕНАРИИ РАБОТЫ В МЕССЕНДЖЕРАХ (ИНТЕРАКТИВНЫЙ СМАРТФОН С ГОТОВЫМИ СЦЕНАРИЯМИ) -->
+    <!-- 6. СЦЕНАРИИ РАБОТЫ В МЕССЕНДЖЕРАХ (ИНТЕРАКТИВНЫЙ СМАРТФОН С ГОТОВЫМИ СЦЕНАРИЯМИ) -->
     <section id="scenarios" class="relative z-20 py-10 sm:py-12 lg:py-16 xl:py-20 max-w-6xl mx-auto font-inter">
       
       <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center text-left">
         
-        <!-- ЛЕВАЯ КОЛОНКА: ЗАГОЛОВОК + ПОДЗАГОЛОВОК + 4 КНОПКИ МЕССЕНДЖЕРОВ -->
+        <!-- ЛЕВАЯ КОЛОНКА: ЗАГОЛОВОК + ПОДЗАГОЛОВОК + 4 КНОПКИ МЕССЕНДЖЕРОВ + ЗВЕЗДНЫЙ РЕЙТИНГ -->
         <div class="lg:col-span-6 space-y-6 sm:space-y-8 lg:pl-4 xl:pl-6 2xl:pl-8">
           
           <!-- ЗАГОЛОВОК + ПОДЗАГОЛОВОК -->
           <div class="space-y-2 sm:space-y-2.5 text-center lg:text-left">
-            <h2 class="ao-sc font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-3xl lg:text-[28px] xl:text-[34px] 2xl:text-[38px] leading-[1.2] hyphens-none overflow-visible text-[#0f172a]">
-              <span class="pearl-title-gradient">ПОЧУВСТВУЙТЕ РАЗНИЦУ</span> МЕЖДУ ОБЫЧНЫМ БОТОМ И&nbsp;<span class="whitespace-nowrap">ИИ&#8209;ПРОДАВЦОМ</span>
+            <h2 class="ao-sc font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-3xl lg:text-[28px] xl:text-[34px] 2xl:text-[38px] leading-[1.2] hyphens-none overflow-visible text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
+              <span class="pearl-title-gradient">ПОГОВОРИТЕ С ВЕРОЙ</span> ЗДЕСЬ И&nbsp;СЕЙЧАС
             </h2>
-            <p class="font-inter text-xs sm:text-sm md:text-base font-normal text-slate-500 tracking-wide leading-relaxed">
-              Задайте абсолютно любой каверзный вопрос. Наблюдайте в&nbsp;реальном времени, как живая логика распутывает тупиковые возражения и&nbsp;превращает ночной саботаж в&nbsp;закрытую сделку
+            <p class="font-inter text-xs sm:text-sm md:text-base font-normal text-slate-600 tracking-wide leading-relaxed">
+              Напишите в&nbsp;чат все, что угодно, и&nbsp;оцените профессионализм коммуникации нашего ИИ-продавца
             </p>
           </div>
 
-          <!-- 4 КНОПКИ СОЦСЕТЕЙ -->
+          <!-- 4 КНОПКИ СОЦСЕТЕЙ И НИШ (МЕБЕЛЬ, ОНЛАЙН-ОБУВЬ, САЛОН КРАСОТЫ, КРОССОВКИ) -->
           <div class="flex flex-col items-center lg:items-start w-full">
             <div class="grid grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-2.5 sm:gap-y-3.5 lg:flex lg:flex-col lg:space-y-4 lg:gap-0 lg:pl-4 xl:pl-6 max-w-sm sm:max-w-md lg:max-w-none w-full px-2 sm:px-0">
               
-              <!-- WhatsApp -->
+              <!-- WhatsApp: Мебель -->
               <button type="button" onclick="selectBranch('full_deal', this)" class="branch-btn branch-btn-wa active flex items-center gap-2.5 sm:gap-3.5 text-left cursor-pointer group py-1.5 px-0.5 whitespace-nowrap">
                 <div class="w-7 h-7 sm:w-8 sm:h-8 text-[#075E54] flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-110">
                   <svg class="w-6 h-6 sm:w-7 sm:h-7 fill-current" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.68 12.04 3.68C14.24 3.68 16.31 4.54 17.87 6.1C19.42 7.66 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15ZM16.56 14.36C16.31 14.24 15.09 13.64 14.86 13.56C14.63 13.48 14.47 13.44 14.3 13.69C14.14 13.94 13.67 14.49 13.52 14.66C13.38 14.83 13.23 14.85 12.98 14.73C12.74 14.61 11.95 14.35 11.01 13.51C10.28 12.86 9.78 12.05 9.64 11.8C9.5 11.56 9.62 11.42 9.75 11.3C9.86 11.02 10 11.02 10.12 10.88C10.24 10.74 10.28 10.64 10.36 10.47C10.44 10.31 10.4 10.16 10.34 10.04C10.28 9.92 9.8 8.74 9.6 8.25C9.4 7.78 9.21 7.84 9.06 7.83C8.92 7.82 8.76 7.82 8.6 7.82C8.44 7.82 8.17 7.88 7.95 8.12C7.73 8.36 7.1 8.95 7.1 10.16C7.1 11.37 7.98 12.54 8.1 12.7C8.22 12.87 9.83 15.34 12.3 16.4C12.89 16.65 13.35 16.8 13.7 16.91C14.3 17.1 14.84 17.07 15.27 17.01C15.75 16.94 16.74 16.41 16.95 15.82C17.15 15.23 17.15 14.73 17.09 14.62C17.03 14.51 16.81 14.48 16.56 14.36Z"></path></svg>
                 </div>
-                <div class="flex flex-col">
+                <div class="flex flex-col text-left">
                   <span class="font-extrabold text-[13.5px] sm:text-base lg:text-lg tracking-tight group-hover:brightness-110 transition-colors" style="color: #075E54;">WhatsApp</span>
+                  <span class="text-[11px] text-slate-500 font-medium">Мебель на заказ</span>
                 </div>
               </button>
 
-              <!-- Telegram -->
+              <!-- Telegram: Салон красоты -->
               <button type="button" onclick="selectBranch('price_objection', this)" class="branch-btn branch-btn-tg flex items-center gap-2.5 sm:gap-3.5 text-left cursor-pointer group py-1.5 px-0.5 whitespace-nowrap">
                 <div class="w-7 h-7 sm:w-8 sm:h-8 text-[#229ED9] flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-110">
                   <svg class="w-6 h-6 sm:w-7 sm:h-7 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"></path></svg>
                 </div>
-                <div class="flex flex-col">
+                <div class="flex flex-col text-left">
                   <span class="font-extrabold text-[13.5px] sm:text-base lg:text-lg tracking-tight group-hover:brightness-110 transition-colors" style="color: #229ED9;">Telegram</span>
+                  <span class="text-[11px] text-slate-500 font-medium">Салон красоты</span>
                 </div>
               </button>
 
-              <!-- Instagram Direct -->
+              <!-- Instagram Direct: Обувь tallora.ru -->
               <button type="button" onclick="selectBranch('reanimate', this)" class="branch-btn branch-btn-ig flex items-center gap-2.5 sm:gap-3.5 text-left cursor-pointer group py-1.5 px-0.5 whitespace-nowrap">
                 <div class="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-110">
                   <svg class="w-6 h-6 sm:w-7 sm:h-7" viewBox="0 0 24 24">
@@ -986,12 +1006,13 @@
                     <path fill="url(#scenariosInstaGradClean)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
                   </svg>
                 </div>
-                <div class="flex flex-col">
+                <div class="flex flex-col text-left">
                   <span class="font-extrabold text-[13.5px] sm:text-base lg:text-lg tracking-tight group-hover:brightness-110 transition-colors" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Instagram Direct</span>
+                  <span class="text-[11px] text-slate-500 font-medium">Обувь tallora.ru</span>
                 </div>
               </button>
 
-              <!-- Авито -->
+              <!-- Авито: Магазин кроссовок -->
               <button type="button" onclick="selectBranch('avito_deal', this)" class="branch-btn branch-btn-avito flex items-center gap-2.5 sm:gap-3.5 text-left cursor-pointer group py-1.5 px-0.5 whitespace-nowrap">
                 <div class="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-110">
                   <svg class="w-6 h-6 sm:w-7 sm:h-7" viewBox="0 0 24 24" fill="none">
@@ -1001,11 +1022,30 @@
                     <circle cx="8" cy="16.5" r="2.5" fill="#9B51E0"></circle>
                   </svg>
                 </div>
-                <div class="flex flex-col">
+                <div class="flex flex-col text-left">
                   <span class="font-extrabold text-[13.5px] sm:text-base lg:text-lg tracking-tight group-hover:text-slate-800 transition-colors" style="color: #000000;">Авито</span>
+                  <span class="text-[11px] text-slate-500 font-medium">Магазин кроссовок</span>
                 </div>
               </button>
 
+            </div>
+
+            <!-- ИНТЕРАКТИВНЫЙ БЛОК: ЗВЕЗДНЫЙ РЕЙТИНГ ВЕРЫ (ОТ 1 ДО 5 ЗВЁЗД) -->
+            <div class="mt-5 p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs max-w-sm sm:max-w-md w-full">
+              <div class="flex items-center justify-between gap-2 mb-1.5">
+                <span class="text-xs sm:text-[13px] font-bold text-slate-800">Оцените профессионализм Веры:</span>
+                <span id="starRatingValue" class="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200/80">★ 5.0</span>
+              </div>
+              <div class="flex items-center gap-1.5" id="starRatingGroup">
+                <button type="button" onclick="rateVera(1)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="1 звезда">★</button>
+                <button type="button" onclick="rateVera(2)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="2 звезды">★</button>
+                <button type="button" onclick="rateVera(3)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="3 звезды">★</button>
+                <button type="button" onclick="rateVera(4)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="4 звезды">★</button>
+                <button type="button" onclick="rateVera(5)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="5 звезд">★</button>
+              </div>
+              <div id="starFeedbackText" class="text-[11px] text-slate-500 mt-1.5 font-medium leading-snug">
+                Нажмите на звезду, чтобы проголосовать за качество ответов
+              </div>
             </div>
 
           </div>
@@ -1548,6 +1588,16 @@
                 <div class="flex items-center gap-2">
                   <img src="assets/logos/moysklad_logo.svg" alt="МойСклад" class="h-5 sm:h-6 w-auto object-contain" loading="lazy">
                   <span class="text-xs sm:text-sm font-bold text-slate-800">МойСклад</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <svg class="h-5 sm:h-6 w-auto aspect-square shrink-0" viewBox="0 0 32 32" fill="none">
+                    <rect x="2" y="4" width="28" height="24" rx="4" fill="#107C41"/>
+                    <rect x="18" y="9" width="9" height="14" fill="#185C37" opacity="0.3"/>
+                    <path d="M18 9h9v4h-9V9zm0 5h9v4h-9v-4zm0 5h9v4h-9v-4z" fill="#fff" opacity="0.25"/>
+                    <rect x="4" y="7" width="13" height="18" rx="2" fill="#107C41" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.25))"/>
+                    <path d="M7.8 11.5l2.2 3.5 2.2-3.5h2.3l-3.3 4.5 3.5 4.5h-2.3l-2.4-3.6-2.4 3.6H5.5l3.5-4.5-3.3-4.5h2.1z" fill="#fff"/>
+                  </svg>
+                  <span class="text-xs sm:text-sm font-bold text-slate-800">Excel</span>
                 </div>
               </div>
             </div>
