@@ -655,7 +655,243 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
 
       </div>
 
-      <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ПРОДУКТА К СЦЕНАРИЯМ (КАК НА ОСНОВНОМ САЙТЕ, С БОЛЬШИМ ВОЗДУХОМ) -->
+      <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ПРОДУКТА К ЖИВЫМ ЧАТАМ ВЕРЫ -->
+      <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-8 sm:my-12">
+        <a href="#vera-live-chats" class="flowing-connector-link group" title="Посмотреть диалоги Веры">
+          <svg class="w-full h-auto min-h-[50px] sm:min-h-[65px] max-h-[80px] overflow-visible max-w-[140px] sm:max-w-[180px] mx-auto" viewBox="0 0 1000 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="gradPartnerFlowVeraChats" x1="500" y1="5" x2="500" y2="80" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
+                <stop offset="50%" stop-color="#0284C7" stop-opacity="0.85"/>
+                <stop offset="100%" stop-color="#0369A1" stop-opacity="1"/>
+              </linearGradient>
+              <filter id="glowPartnerFlowVeraChats" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="2" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+            </defs>
+            <path d="M 500,5 L 500,80" 
+                  stroke="url(#gradPartnerFlowVeraChats)" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+            <path d="M 500,5 L 500,80" 
+                  class="delicate-connector-beam-compact" stroke="url(#gradPartnerFlowVeraChats)" stroke-width="1.8" stroke-linecap="round" filter="url(#glowPartnerFlowVeraChats)"/>
+            <circle cx="500" cy="5" r="2.5" fill="#0284C7" opacity="0.9"/>
+            <path d="M 494.5,73.5 L 500,80 L 505.5,73.5" stroke="#0369A1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- ================= 3.1 SECTION: ВЕРА В ДЕЛЕ 24/7 (3 ЖИВЫХ ЭКРАНА С АНИМАЦИЕЙ) ================= -->
+      <div id="vera-live-chats" class="relative pt-6 sm:pt-8 scroll-mt-28 font-inter">
+        
+        <!-- Заголовок блока шрифтом Benzin с градиентным акцентом -->
+        <div class="relative z-10 max-w-4xl mx-auto mb-10 sm:mb-12 text-center px-4">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200/90 text-sky-700 text-xs font-bold uppercase tracking-wider mb-4 shadow-2xs">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            Живые диалоги в 3 мессенджерах
+          </div>
+          <h3 class="font-benzin uppercase tracking-tight font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-[46px] text-[#0f172a] mb-3 leading-[1.24]" style="font-family: 'Benzin', sans-serif !important;">
+            ВЕРА в&nbsp;деле <span class="bg-gradient-to-r from-emerald-600 via-sky-500 to-indigo-600 bg-clip-text text-transparent">24/7</span>, бизнес в&nbsp;надежных руках
+          </h3>
+          <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-sans">
+            Посмотрите, как ИИ-продавец мгновенно отвечает клиентам, консультирует по услугам и товарам и доводит до оплаты без участия человека
+          </p>
+        </div>
+
+        <!-- Сетка из 3 экранов равной высоты (WhatsApp, Instagram, Telegram) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8 max-w-7xl mx-auto items-stretch font-sans">
+
+          <!-- ================= 1. ЭКРАН: WHATSAPP (САЛОН КРАСОТЫ) ================= -->
+          <div class="flex flex-col h-[590px] sm:h-[620px] rounded-[38px] bg-slate-950 p-2 sm:p-2.5 shadow-[0_20px_50px_rgba(15,23,42,0.16)] border-2 border-slate-700/70 ring-1 ring-white/10 transition-all duration-300 hover:shadow-[0_25px_60px_rgba(2,132,199,0.22)]">
+            <div class="relative w-full h-full rounded-[30px] overflow-hidden flex flex-col bg-white border border-slate-200/80 shadow-inner">
+              
+              <!-- Dynamic Island Notch -->
+              <div class="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-4 bg-slate-950 rounded-full z-30 flex items-center justify-center gap-1.5 px-2 pointer-events-none shadow-xs">
+                <div class="w-1.5 h-1.5 rounded-full bg-slate-800 ring-1 ring-slate-700"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-emerald-500/80"></div>
+              </div>
+
+              <!-- Header: WhatsApp -->
+              <div class="pt-8 pb-2.5 px-3.5 bg-[#075E54] text-white flex items-center justify-between shrink-0 shadow-xs z-10">
+                <div class="flex items-center gap-2 min-w-0">
+                  <div class="text-white/80 cursor-pointer text-xs flex items-center shrink-0">
+                    <svg class="w-3.5 h-3.5 fill-current mr-0.5" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg>
+                    <span class="text-[11px] font-bold">4</span>
+                  </div>
+                  <div class="relative w-8 h-8 rounded-full border border-white/40 overflow-hidden shrink-0 bg-slate-800 shadow-xs">
+                    <img src="assets/images/vera_ai_portrait.webp" onerror="this.src='vera_ai_portrait.webp'" alt="Вера" class="w-full h-full object-cover">
+                    <span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-400 border border-white"></span>
+                  </div>
+                  <div class="min-w-0 leading-tight text-left">
+                    <div class="text-xs font-bold text-white truncate flex items-center gap-1">
+                      <span>Éclat Beauty</span>
+                      <span class="text-emerald-300 text-[10px]">✓</span>
+                    </div>
+                    <div class="text-[10px] text-emerald-200 font-medium">в сети • онлайн</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2 text-white/90 shrink-0">
+                  <span class="px-2 py-0.5 rounded-full bg-white/15 text-[10px] font-semibold tracking-wide">WhatsApp</span>
+                  <button type="button" onclick="replayDemoChat('wa')" class="text-[10px] bg-white/20 hover:bg-white/30 text-white px-2 py-0.5 rounded transition-all cursor-pointer font-semibold" title="Перезапустить диалог">
+                    ↻
+                  </button>
+                </div>
+              </div>
+
+              <!-- Niche Info Bar -->
+              <div class="bg-emerald-900/10 border-b border-emerald-900/10 px-3 py-1 flex items-center justify-between text-[11px] font-semibold text-emerald-950 shrink-0">
+                <span class="truncate">💅 Салон красоты • Запись на услугу</span>
+                <span class="text-[10px] text-emerald-700 font-bold shrink-0">24/7</span>
+              </div>
+
+              <!-- Chat Messages Container -->
+              <div id="chatMessages-wa" class="flex-1 p-3 space-y-2.5 overflow-y-auto chat-bg-wa text-xs min-h-[300px]">
+                <!-- Messages injected via JS -->
+              </div>
+
+              <!-- Chat Input Bar -->
+              <div class="p-2 bg-[#f0f2f5] border-t border-slate-200/90 flex items-center gap-1.5 shrink-0">
+                <div class="flex-1 bg-white border border-slate-200 rounded-full px-3 py-1.5 flex items-center justify-between text-slate-400 text-xs">
+                  <span class="truncate">Сообщение...</span>
+                  <span>📎</span>
+                </div>
+                <div class="w-7 h-7 rounded-full bg-[#00a884] text-white flex items-center justify-center shrink-0 shadow-xs">
+                  <svg class="w-3.5 h-3.5 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ================= 2. ЭКРАН: INSTAGRAM DIRECT (МАГАЗИН ОДЕЖДЫ) ================= -->
+          <div class="flex flex-col h-[590px] sm:h-[620px] rounded-[38px] bg-slate-950 p-2 sm:p-2.5 shadow-[0_20px_50px_rgba(15,23,42,0.16)] border-2 border-slate-700/70 ring-1 ring-white/10 transition-all duration-300 hover:shadow-[0_25px_60px_rgba(217,70,239,0.22)]">
+            <div class="relative w-full h-full rounded-[30px] overflow-hidden flex flex-col bg-white border border-slate-200/80 shadow-inner">
+              
+              <!-- Dynamic Island Notch -->
+              <div class="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-4 bg-slate-950 rounded-full z-30 flex items-center justify-center gap-1.5 px-2 pointer-events-none shadow-xs">
+                <div class="w-1.5 h-1.5 rounded-full bg-slate-800 ring-1 ring-slate-700"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-fuchsia-500/80"></div>
+              </div>
+
+              <!-- Header: Instagram Direct -->
+              <div class="pt-8 pb-2.5 px-3.5 bg-gradient-to-r from-[#18181b] via-[#27272a] to-[#18181b] text-white flex items-center justify-between shrink-0 shadow-xs z-10">
+                <div class="flex items-center gap-2 min-w-0">
+                  <div class="text-white/80 cursor-pointer text-xs flex items-center shrink-0">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg>
+                  </div>
+                  <div class="relative w-8 h-8 rounded-full p-[1.5px] bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] shrink-0 shadow-xs">
+                    <img src="assets/images/vera_ai_portrait.webp" onerror="this.src='vera_ai_portrait.webp'" alt="Вера" class="w-full h-full rounded-full object-cover bg-slate-900">
+                    <span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-400 border border-slate-900"></span>
+                  </div>
+                  <div class="min-w-0 leading-tight text-left">
+                    <div class="text-xs font-bold text-white truncate flex items-center gap-1">
+                      <span>lumiere_paris</span>
+                      <svg class="w-3 h-3 text-sky-400 fill-current shrink-0" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg>
+                    </div>
+                    <div class="text-[10px] text-slate-300 font-medium">Вера • ИИ-консультант</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2 text-white/90 shrink-0">
+                  <span class="px-2 py-0.5 rounded-full bg-gradient-to-r from-[#f09433]/30 via-[#dc2743]/30 to-[#bc1888]/30 border border-pink-500/30 text-[10px] font-semibold tracking-wide text-pink-200">Instagram</span>
+                  <button type="button" onclick="replayDemoChat('ig')" class="text-[10px] bg-white/20 hover:bg-white/30 text-white px-2 py-0.5 rounded transition-all cursor-pointer font-semibold" title="Перезапустить диалог">
+                    ↻
+                  </button>
+                </div>
+              </div>
+
+              <!-- Niche Info Bar -->
+              <div class="bg-fuchsia-950/5 border-b border-fuchsia-950/10 px-3 py-1 flex items-center justify-between text-[11px] font-semibold text-purple-950 shrink-0">
+                <span class="truncate">👗 Магазин одежды • Подбор и заказ</span>
+                <span class="text-[10px] text-purple-700 font-bold shrink-0">24/7</span>
+              </div>
+
+              <!-- Chat Messages Container -->
+              <div id="chatMessages-ig" class="flex-1 p-3 space-y-2.5 overflow-y-auto bg-[#fafafa] text-xs min-h-[300px]">
+                <!-- Messages injected via JS -->
+              </div>
+
+              <!-- Chat Input Bar -->
+              <div class="p-2 bg-white border-t border-slate-200/90 flex items-center gap-1.5 shrink-0">
+                <div class="flex-1 bg-slate-100 border border-slate-200/80 rounded-full px-3 py-1.5 flex items-center justify-between text-slate-400 text-xs">
+                  <span class="truncate">Написать сообщение...</span>
+                  <div class="flex items-center gap-1 text-slate-400 text-xs">
+                    <span>🎙️</span>
+                    <span>🖼️</span>
+                  </div>
+                </div>
+                <div class="w-7 h-7 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white flex items-center justify-center shrink-0 shadow-xs">
+                  <svg class="w-3.5 h-3.5 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ================= 3. ЭКРАН: TELEGRAM (ОНЛАЙН-ШКОЛА) ================= -->
+          <div class="flex flex-col h-[590px] sm:h-[620px] rounded-[38px] bg-slate-950 p-2 sm:p-2.5 shadow-[0_20px_50px_rgba(15,23,42,0.16)] border-2 border-slate-700/70 ring-1 ring-white/10 transition-all duration-300 hover:shadow-[0_25px_60px_rgba(34,158,217,0.22)]">
+            <div class="relative w-full h-full rounded-[30px] overflow-hidden flex flex-col bg-white border border-slate-200/80 shadow-inner">
+              
+              <!-- Dynamic Island Notch -->
+              <div class="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-4 bg-slate-950 rounded-full z-30 flex items-center justify-center gap-1.5 px-2 pointer-events-none shadow-xs">
+                <div class="w-1.5 h-1.5 rounded-full bg-slate-800 ring-1 ring-slate-700"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-sky-400/80"></div>
+              </div>
+
+              <!-- Header: Telegram -->
+              <div class="pt-8 pb-2.5 px-3.5 bg-[#229ED9] text-white flex items-center justify-between shrink-0 shadow-xs z-10">
+                <div class="flex items-center gap-2 min-w-0">
+                  <div class="text-white/80 cursor-pointer text-xs flex items-center shrink-0">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg>
+                  </div>
+                  <div class="relative w-8 h-8 rounded-full border border-white/40 overflow-hidden shrink-0 bg-sky-800 shadow-xs">
+                    <img src="assets/images/vera_ai_portrait.webp" onerror="this.src='vera_ai_portrait.webp'" alt="Вера" class="w-full h-full object-cover">
+                    <span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-400 border border-white"></span>
+                  </div>
+                  <div class="min-w-0 leading-tight text-left">
+                    <div class="text-xs font-bold text-white truncate flex items-center gap-1">
+                      <span>DataPro IT School</span>
+                      <svg class="w-3 h-3 text-white fill-current shrink-0" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path></svg>
+                    </div>
+                    <div class="text-[10px] text-sky-100 font-medium">bot • мгновенный ответ</div>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2 text-white/90 shrink-0">
+                  <span class="px-2 py-0.5 rounded-full bg-white/20 text-[10px] font-semibold tracking-wide">Telegram</span>
+                  <button type="button" onclick="replayDemoChat('tg')" class="text-[10px] bg-white/20 hover:bg-white/30 text-white px-2 py-0.5 rounded transition-all cursor-pointer font-semibold" title="Перезапустить диалог">
+                    ↻
+                  </button>
+                </div>
+              </div>
+
+              <!-- Niche Info Bar -->
+              <div class="bg-sky-950/5 border-b border-sky-950/10 px-3 py-1 flex items-center justify-between text-[11px] font-semibold text-sky-950 shrink-0">
+                <span class="truncate">🎓 Онлайн-школа • Подбор курса</span>
+                <span class="text-[10px] text-sky-700 font-bold shrink-0">24/7</span>
+              </div>
+
+              <!-- Chat Messages Container -->
+              <div id="chatMessages-tg" class="flex-1 p-3 space-y-2.5 overflow-y-auto chat-bg-tg text-xs min-h-[300px]">
+                <!-- Messages injected via JS -->
+              </div>
+
+              <!-- Chat Input Bar -->
+              <div class="p-2 bg-white border-t border-slate-200/90 flex items-center gap-1.5 shrink-0">
+                <div class="flex-1 bg-slate-100 border border-slate-200/80 rounded-full px-3 py-1.5 flex items-center justify-between text-slate-400 text-xs">
+                  <span class="truncate">Сообщение...</span>
+                  <span class="text-sky-500">📎</span>
+                </div>
+                <div class="w-7 h-7 rounded-full bg-[#229ED9] text-white flex items-center justify-center shrink-0 shadow-xs">
+                  <svg class="w-3.5 h-3.5 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ЧАТОВ К СЦЕНАРИЯМ (ВЫЙТИ НА 1 000 000 ₽) -->
       <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-12 sm:my-16 lg:my-20">
         <a href="#scenario1m" class="flowing-connector-link group" title="Выйти на доход 1 000 000 ₽">
           <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2589,6 +2825,216 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
       }
     }
 
+    /* ---------- ЖИВАЯ АНИМАЦИЯ 3 ЧАТОВ ВЕРЫ (WHATSAPP, INSTAGRAM, TELEGRAM) ---------- */
+    const DEMO_CHATS = {
+      wa: {
+        containerId: 'chatMessages-wa',
+        channel: 'wa',
+        messages: [
+          { sender: 'user', time: '11:20', text: 'Здравствуйте! Хочу записаться на сложное окрашивание AirTouch и стрижку на эту субботу. Есть свободные окна?' },
+          { sender: 'vera', time: '11:20', text: 'Здравствуйте! С радостью подберу удобное время ✨ На AirTouch у нас работают топ-стилисты Алина и Екатерина. Подскажите, пожалуйста, какая у вас сейчас длина волос?' },
+          { sender: 'user', time: '11:21', text: 'Волосы чуть ниже лопаток, натуральный русый оттенок.' },
+          { sender: 'vera', time: '11:21', text: 'Отлично! На субботу есть 2 комфортных окна у ведущего колориста Екатерины: в 11:30 и в 15:00. В стоимость уже входит спа-уход и укладка. Какое время забронировать?' },
+          { sender: 'user', time: '11:22', text: 'В 11:30 будет идеально!' },
+          { sender: 'vera', time: '11:22', text: 'Записала вас! 💇‍♀️ Суббота, 11:30, салон на Тверской, мастер Екатерина. Отправила подтверждение и геолокацию в WhatsApp. Ждем вас!' },
+          { type: 'status', text: '⚡ Запись внесена в YClients и amoCRM' }
+        ]
+      },
+      ig: {
+        containerId: 'chatMessages-ig',
+        channel: 'ig',
+        messages: [
+          { sender: 'user', time: '14:15', text: 'Добрый день! Подскажите, шелковое платье-комбинация в цвете изумруд есть в наличии в размере M? И какая у него длина?' },
+          { sender: 'vera', time: '14:15', text: 'Добрый день! 🌿 Да, платье в оттенке Emerald Silk есть в наличии в размере M (длина 118 см, регулируемые бретели). Плотный 100% шелк, не просвечивает и идеально струится по фигуре!' },
+          { sender: 'user', time: '14:16', text: 'А доставка в Санкт-Петербург сколько займет? Успеет к пятнице?' },
+          { sender: 'vera', time: '14:16', text: 'Да! Доставка СДЭК до двери займет всего 1-2 дня. Если оформим прямо сейчас, передадим курьеру сегодня до 17:00. При покупке сегодня дарим брендовый шелковый чехол 🎁 Оформим заказ?' },
+          { sender: 'user', time: '14:17', text: 'Да, давайте оформим!' },
+          { sender: 'vera', time: '14:17', text: 'Сформировала ваш заказ #3982 со скидкой! Ссылка на быструю оплату СБП/картой: <span class="font-bold underline text-purple-700">Оплатить 12 900 ₽</span>. Трек-номер придет сразу после оплаты ✨' },
+          { type: 'status', text: '⚡ Чек пробит, заказ заведен в МойСклад' }
+        ]
+      },
+      tg: {
+        containerId: 'chatMessages-tg',
+        channel: 'tg',
+        messages: [
+          { sender: 'user', time: '18:40', text: 'Привет! Хочу войти в IT, выбираю между Data Science и Аналитикой данных. Что лучше новичку без технического бэкграунда?' },
+          { sender: 'vera', time: '18:40', text: 'Привет! 🚀 Для уверенного старта с нуля рекомендую «Аналитик данных»: здесь быстрый порог входа, упор на SQL, Python и Power BI. Уже через 4 месяца студенты выходят на стажировки с окладом от 90 000 ₽.' },
+          { sender: 'user', time: '18:41', text: 'А сколько часов в неделю нужно учиться? И есть ли гарантия трудоустройства?' },
+          { sender: 'vera', time: '18:41', text: 'Достаточно 6-8 часов в неделю в свободном графике. Гарантия трудоустройства закреплена в договоре: готовим к собеседованиям и организуем офферы. Хотите открыть бесплатный демо-доступ к 1-му модулю?' },
+          { sender: 'user', time: '18:42', text: 'Да, хочу посмотреть программу изнутри!' },
+          { sender: 'vera', time: '18:42', text: 'Открыла вам доступ к платформе и закрепила грант -30% на 48 часов: <span class="font-bold underline text-sky-700">datapro.edu/grant-demo</span>. Куратор уже ждет вас в личном кабинете! 🎓' },
+          { type: 'status', text: '⚡ Лид квалифицирован, передан в GetCourse и CRM' }
+        ]
+      }
+    };
+
+    const chatTimers = {};
+
+    function renderMessageHTML(msg, channel) {
+      if (msg.type === 'status') {
+        return `
+          <div class="my-2 p-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-800 text-[11px] font-bold text-center flex items-center justify-center gap-1.5 shadow-2xs opacity-0 translate-y-2 transition-all duration-300 message-bubble-anim">
+            <span>${msg.text}</span>
+          </div>
+        `;
+      }
+
+      const isUser = msg.sender === 'user';
+      let bubbleClasses = '';
+      let metaHtml = '';
+
+      if (channel === 'wa') {
+        bubbleClasses = isUser 
+          ? 'bg-white text-slate-900 ml-auto rounded-2xl rounded-tr-xs p-2.5 shadow-2xs border border-slate-200/70'
+          : 'bg-[#d9fdd3] text-slate-900 mr-auto rounded-2xl rounded-tl-xs p-2.5 shadow-2xs border border-emerald-200/50';
+        metaHtml = `
+          <div class="text-[10px] text-slate-400 mt-1 flex items-center justify-end gap-1">
+            <span>${msg.time}</span>
+            <span class="text-sky-500 text-[11px] font-bold">✓✓</span>
+          </div>
+        `;
+      } else if (channel === 'ig') {
+        bubbleClasses = isUser
+          ? 'bg-[#efeff4] text-slate-900 ml-auto rounded-[20px] rounded-br-xs px-3.5 py-2 shadow-2xs'
+          : 'bg-white text-slate-900 mr-auto rounded-[20px] rounded-bl-xs px-3.5 py-2 shadow-2xs border border-purple-100';
+        metaHtml = `
+          <div class="text-[10px] text-slate-400 mt-0.5 text-right">
+            <span>${msg.time}</span>
+          </div>
+        `;
+      } else {
+        // tg
+        bubbleClasses = isUser
+          ? 'bg-white text-slate-900 ml-auto rounded-2xl rounded-br-xs p-2.5 shadow-2xs border border-slate-200/70'
+          : 'bg-[#e3f2fd] text-slate-900 mr-auto rounded-2xl rounded-bl-xs p-2.5 shadow-2xs border border-sky-200/60';
+        metaHtml = `
+          <div class="text-[10px] text-slate-400 mt-1 flex items-center justify-end gap-1">
+            <span>${msg.time}</span>
+            <span class="text-sky-500 text-[11px] font-bold">✓✓</span>
+          </div>
+        `;
+      }
+
+      return `
+        <div class="max-w-[88%] leading-relaxed ${bubbleClasses} opacity-0 translate-y-2 transition-all duration-300 message-bubble-anim">
+          <div>${msg.text}</div>
+          ${metaHtml}
+        </div>
+      `;
+    }
+
+    function renderTypingIndicatorHTML(channel) {
+      let bg = channel === 'wa' ? 'bg-[#d9fdd3]' : channel === 'ig' ? 'bg-white border border-purple-100' : 'bg-[#e3f2fd] border border-sky-200/60';
+      return `
+        <div id="typing-${channel}" class="max-w-[80px] ${bg} mr-auto rounded-2xl p-2.5 shadow-2xs flex items-center gap-1.5 opacity-0 translate-y-2 transition-all duration-300 message-bubble-anim">
+          <span class="w-1.5 h-1.5 rounded-full bg-slate-500 animate-bounce" style="animation-delay: 0ms"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-slate-500 animate-bounce" style="animation-delay: 150ms"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-slate-500 animate-bounce" style="animation-delay: 300ms"></span>
+        </div>
+      `;
+    }
+
+    function playDemoChat(key, initialDelay = 0) {
+      if (chatTimers[key]) {
+        clearTimeout(chatTimers[key]);
+      }
+
+      const chatData = DEMO_CHATS[key];
+      if (!chatData) return;
+
+      const container = document.getElementById(chatData.containerId);
+      if (!container) return;
+
+      container.innerHTML = '';
+
+      let currentStep = 0;
+      const msgs = chatData.messages;
+
+      function step() {
+        if (currentStep >= msgs.length) {
+          // Pause 6.5 seconds and loop smoothly
+          chatTimers[key] = setTimeout(() => {
+            playDemoChat(key, 0);
+          }, 6500);
+          return;
+        }
+
+        const msg = msgs[currentStep];
+
+        if (msg.sender === 'vera') {
+          // Show typing indicator for Vera first
+          const typingWrapper = document.createElement('div');
+          typingWrapper.innerHTML = renderTypingIndicatorHTML(chatData.channel);
+          const typingElem = typingWrapper.firstElementChild;
+          container.appendChild(typingElem);
+          
+          requestAnimationFrame(() => {
+            typingElem.classList.remove('opacity-0', 'translate-y-2');
+            container.scrollTop = container.scrollHeight;
+          });
+
+          chatTimers[key] = setTimeout(() => {
+            if (typingElem && typingElem.parentNode) {
+              typingElem.remove();
+            }
+
+            const bubbleWrapper = document.createElement('div');
+            bubbleWrapper.innerHTML = renderMessageHTML(msg, chatData.channel);
+            const bubbleElem = bubbleWrapper.firstElementChild;
+            container.appendChild(bubbleElem);
+
+            requestAnimationFrame(() => {
+              bubbleElem.classList.remove('opacity-0', 'translate-y-2');
+              container.scrollTop = container.scrollHeight;
+            });
+
+            currentStep++;
+            chatTimers[key] = setTimeout(step, 1400);
+          }, 950);
+
+        } else {
+          // User or status message
+          const bubbleWrapper = document.createElement('div');
+          bubbleWrapper.innerHTML = renderMessageHTML(msg, chatData.channel);
+          const bubbleElem = bubbleWrapper.firstElementChild;
+          container.appendChild(bubbleElem);
+
+          requestAnimationFrame(() => {
+            bubbleElem.classList.remove('opacity-0', 'translate-y-2');
+            container.scrollTop = container.scrollHeight;
+          });
+
+          currentStep++;
+          chatTimers[key] = setTimeout(step, msg.type === 'status' ? 1800 : 1200);
+        }
+      }
+
+      chatTimers[key] = setTimeout(step, initialDelay);
+    }
+
+    function replayDemoChat(key) {
+      playDemoChat(key, 0);
+    }
+
+    function initDemoChats() {
+      const section = document.getElementById('vera-live-chats');
+      if (!section) return;
+
+      let hasStarted = false;
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !hasStarted) {
+            hasStarted = true;
+            playDemoChat('wa', 200);
+            playDemoChat('ig', 700);
+            playDemoChat('tg', 1200);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      observer.observe(section);
+    }
+
     /* ---------- ОТПРАВКА ФОРМЫ ---------- */
     function initFormHandlers() {
       function formToText(form) {
@@ -2645,6 +3091,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
       initFormHandlers();
       initCalc();
       initPitchCopy();
+      initDemoChats();
     });
   </script>
 </body>
