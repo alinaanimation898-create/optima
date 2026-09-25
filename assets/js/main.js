@@ -2608,7 +2608,7 @@
       activeCaseNicheKey = key;
       const data = CASES_NICHES_DATA[key];
 
-      // 1. Обновляем стили кнопок ниш слева (без подложек и без эмодзи)
+      // 1. Обновляем стили кнопок ниш слева
       const listContainer = document.getElementById('casesNichesList');
       if (listContainer) {
         const buttons = listContainer.querySelectorAll('.case-niche-btn');
@@ -2618,7 +2618,7 @@
           if (titleSpan) {
             titleSpan.className = 'text-sm sm:text-base tracking-tight font-medium group-hover:text-sky-700 transition-colors';
           }
-          const arrow = btn.querySelector('.group-hover\\:translate-x-0\\.5');
+          const arrow = btn.querySelector('.group-hover\:translate-x-0\.5') || btn.querySelector('.text-sky-500, .text-slate-400');
           if (arrow) {
             arrow.className = 'text-slate-400 group-hover:text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform';
           }
@@ -2632,16 +2632,50 @@
         if (titleSpan) {
           titleSpan.className = 'text-sm sm:text-base tracking-tight font-bold text-sky-950';
         }
-        const arrow = activeBtn.querySelector('.group-hover\\:translate-x-0\\.5');
+        const arrow = activeBtn.querySelector('.text-slate-400, .text-sky-500');
         if (arrow) {
           arrow.className = 'text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform';
         }
       }
 
-      // 2. Рендерим Header соответствующего мессенджера
+      // 2. Обновляем iOS 18 Status Bar (время и цвет)
+      const statusBarEl = document.getElementById('casePhoneStatusBar');
+      const timeEl = document.getElementById('casePhoneTime');
+      const homeBarEl = document.getElementById('casePhoneHomeBar');
+
+      let firstMsgTime = '14:20';
+      if (data.messages && data.messages.length > 0 && data.messages[0].time) {
+        firstMsgTime = data.messages[0].time;
+      }
+      if (timeEl) timeEl.textContent = firstMsgTime;
+
+      let statusBarClasses = 'relative z-30 pt-3 pb-1 px-6 flex items-center justify-between select-none pointer-events-none text-xs font-semibold transition-colors duration-300 ';
+      let homeBarBg = 'bg-[#f0f2f5]';
+
+      if (data.channel === 'wa') {
+        statusBarClasses += 'bg-[#075E54] text-white';
+        homeBarBg = 'bg-[#f0f2f5]';
+      } else if (data.channel === 'tg') {
+        statusBarClasses += 'bg-[#229ED9] text-white';
+        homeBarBg = 'bg-white';
+      } else if (data.channel === 'max') {
+        statusBarClasses += 'bg-[#4f46e5] text-white';
+        homeBarBg = 'bg-white';
+      } else if (data.channel === 'ig') {
+        statusBarClasses += 'bg-white text-slate-800 border-b border-slate-100';
+        homeBarBg = 'bg-white';
+      } else {
+        // Avito
+        statusBarClasses += 'bg-white text-slate-800 border-b border-slate-100';
+        homeBarBg = 'bg-white';
+      }
+      if (statusBarEl) statusBarEl.className = statusBarClasses;
+      if (homeBarEl) homeBarEl.className = `w-full pb-2 pt-1 flex justify-center ${homeBarBg} select-none pointer-events-none transition-colors duration-300`;
+
+      // 3. Рендерим Header соответствующего мессенджера
       const headerEl = document.getElementById('casePhoneHeader');
       if (headerEl) {
-        headerEl.className = `pt-9 pb-2.5 px-3.5 ${data.headerBg} flex items-center justify-between shrink-0 shadow-xs z-10 transition-colors duration-300`;
+        headerEl.className = `pt-1 pb-2.5 px-3.5 ${data.headerBg} flex items-center justify-between shrink-0 shadow-xs z-20 transition-colors duration-300`;
         
         let headerContent = '';
         if (data.channel === 'wa') {
@@ -2714,7 +2748,6 @@
             </div>
           `;
         } else if (data.channel === 'ig') {
-          // Instagram Light Header
           headerContent = `
             <div class="flex items-center gap-2 min-w-0">
               <div class="text-slate-800 cursor-pointer text-xs flex items-center shrink-0">
@@ -2766,13 +2799,6 @@
         headerEl.innerHTML = headerContent;
       }
 
-      // 3. Niche Info Bar удален по запросу
-      const nicheBarEl = document.getElementById('casePhoneNicheBar');
-      if (nicheBarEl) {
-        nicheBarEl.style.display = 'none';
-        nicheBarEl.innerHTML = '';
-      }
-
       // 4. Рендерим Footer мессенджера
       const footerEl = document.getElementById('casePhoneFooter');
       if (footerEl) {
@@ -2813,7 +2839,6 @@
             </div>
           `;
         } else if (data.channel === 'ig') {
-          // Instagram Light Footer
           footerEl.className = 'p-2 bg-white border-t border-slate-200/80 flex items-center gap-2 shrink-0 transition-colors duration-300';
           footerEl.innerHTML = `
             <div class="w-7 h-7 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 cursor-pointer">
@@ -2888,7 +2913,7 @@
             stepIdx++;
             const t2 = setTimeout(showNextMessage, 3800);
             caseChatTimers.push(t2);
-          }, 1400);
+          }, 1200);
           caseChatTimers.push(t1);
 
         } else {
@@ -2904,12 +2929,12 @@
           });
 
           stepIdx++;
-          const t3 = setTimeout(showNextMessage, msg.type === 'status' ? 4000 : 2600);
+          const t3 = setTimeout(showNextMessage, msg.type === 'status' ? 4000 : 2400);
           caseChatTimers.push(t3);
         }
       }
 
-      const tStart = setTimeout(showNextMessage, 200);
+      const tStart = setTimeout(showNextMessage, 150);
       caseChatTimers.push(tStart);
     }
 
