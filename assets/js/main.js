@@ -2766,14 +2766,11 @@
         headerEl.innerHTML = headerContent;
       }
 
-      // 3. Рендерим Niche Info Bar
+      // 3. Niche Info Bar удален по запросу
       const nicheBarEl = document.getElementById('casePhoneNicheBar');
       if (nicheBarEl) {
-        nicheBarEl.className = `px-3 py-1 flex items-center justify-between text-[11px] font-semibold shrink-0 transition-colors duration-300 ${data.barBg}`;
-        nicheBarEl.innerHTML = `
-          <span class="truncate font-medium">${data.nicheTitle} • ${data.channelBadge}</span>
-          <span class="text-[10px] font-bold px-2 py-0.5 rounded-full shrink-0 ${data.badgeClass}">${data.badgeText}</span>
-        `;
+        nicheBarEl.style.display = 'none';
+        nicheBarEl.innerHTML = '';
       }
 
       // 4. Рендерим Footer мессенджера
