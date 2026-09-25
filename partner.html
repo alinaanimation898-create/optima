@@ -941,8 +941,8 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
     <section id="talk-to-vera" class="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 font-inter scroll-mt-28">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center text-left">
         
-        <!-- ЛЕВАЯ КОЛОНКА (6 колонок): Заголовок, подзаголовок, стрелка на чат, примеры вопросов, рейтинг -->
-        <div class="lg:col-span-6 space-y-6 sm:space-y-7">
+        <!-- ЛЕВАЯ КОЛОНКА (6 колонок): Заголовок, подзаголовок, На связи 24/7 со стрелкой, рейтинг без подложки -->
+        <div class="lg:col-span-6 space-y-5 sm:space-y-6">
           
           <!-- Заголовок и подзаголовок в стандартном стиле Benzin -->
           <div class="space-y-3 text-center lg:text-left">
@@ -954,51 +954,16 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
             </p>
           </div>
 
-          <!-- СТРЕЛОЧКА НА ЧАТ: Акцентный интерактивный баннер-указатель -->
-          <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-sky-50 via-sky-50/80 to-blue-50/50 border-2 border-sky-300 shadow-sm flex items-center justify-between gap-4 group">
-            <div class="space-y-1">
-              <div class="text-xs sm:text-sm font-extrabold text-slate-900 flex items-center gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-                <span>Чат активен прямо сейчас</span>
-              </div>
-              <div class="text-[11px] sm:text-xs text-slate-600 leading-snug">
-                Задайте каверзный вопрос или возражение в чат справа
-              </div>
-            </div>
-            
-            <!-- Индикатор-стрелка на чат (десктоп вправо →, мобильный вниз ↓) -->
-            <div class="shrink-0 flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-sky-600 text-white shadow-md group-hover:scale-105 transition-transform">
-              <svg class="hidden lg:block w-6 h-6 animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M5 12h14M13 6l6 6-6 6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <svg class="lg:hidden w-6 h-6 animate-bounce" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M12 5v14M6 13l6 6 6-6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
+          <!-- НА СВЯЗИ 24/7 И СТРЕЛКА ВПРАВО (БЕЗ ЛИШНЕЙ ПЛАШКИ) -->
+          <div class="flex items-center gap-2.5 text-slate-900 font-bold text-base sm:text-lg">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>На связи 24/7</span>
+            <span class="text-sky-600 font-black text-xl">→</span>
           </div>
 
-          <!-- Быстрые вопросы-подсказки для мгновенного теста -->
-          <div class="space-y-2">
-            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500">Примеры вопросов для проверки:</span>
-            <div class="flex flex-wrap gap-2">
-              <button type="button" onclick="sendPartnerLiveQuestion('Сколько стоит запуск под ключ и что в него входит?')" class="text-xs px-3 py-1.5 rounded-xl bg-white border border-slate-200/90 hover:border-sky-400 hover:text-sky-700 text-slate-700 transition-all shadow-2xs cursor-pointer text-left">
-                «Сколько стоит запуск под ключ?»
-              </button>
-              <button type="button" onclick="sendPartnerLiveQuestion('А если клиент просит скидку 30%?')" class="text-xs px-3 py-1.5 rounded-xl bg-white border border-slate-200/90 hover:border-sky-400 hover:text-sky-700 text-slate-700 transition-all shadow-2xs cursor-pointer text-left">
-                «А если клиент просит скидку?»
-              </button>
-              <button type="button" onclick="sendPartnerLiveQuestion('Как стать партнером и сколько можно заработать?')" class="text-xs px-3 py-1.5 rounded-xl bg-white border border-slate-200/90 hover:border-sky-400 hover:text-sky-700 text-slate-700 transition-all shadow-2xs cursor-pointer text-left">
-                «Как стать партнером?»
-              </button>
-              <button type="button" onclick="sendPartnerLiveQuestion('Вы работаете с amoCRM, Битрикс24 и 1С?')" class="text-xs px-3 py-1.5 rounded-xl bg-white border border-slate-200/90 hover:border-sky-400 hover:text-sky-700 text-slate-700 transition-all shadow-2xs cursor-pointer text-left">
-                «Интеграция с amoCRM и 1С?»
-              </button>
-            </div>
-          </div>
-
-          <!-- Звездный рейтинг качества ответов Веры -->
-          <div class="p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-2xs">
-            <div class="flex items-center justify-between gap-2 mb-1.5">
+          <!-- ЗВЕЗДНЫЙ РЕЙТИНГ КАЧЕСТВА ОТВЕТОВ ВЕРЫ (БЕЗ ПОДЛОЖКИ) -->
+          <div class="space-y-2 pt-1 max-w-sm">
+            <div class="flex items-center justify-between gap-2">
               <span class="text-xs sm:text-[13px] font-bold text-slate-800">Оцените профессионализм Веры:</span>
               <span id="partnerStarRatingValue" class="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200/80">★ 5.0</span>
             </div>
@@ -1009,7 +974,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
               <button type="button" onclick="ratePartnerVera(4)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="4 звезды">★</button>
               <button type="button" onclick="ratePartnerVera(5)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="5 звезд">★</button>
             </div>
-            <div id="partnerStarFeedbackText" class="text-[11px] text-slate-500 mt-1 font-medium leading-snug">
+            <div id="partnerStarFeedbackText" class="text-[11px] text-slate-500 font-medium leading-snug">
               Нажмите на звезду, чтобы проголосовать за качество ответов
             </div>
           </div>
@@ -1055,11 +1020,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
                 </div>
               </div>
 
-              <!-- Niche/Channel bar -->
-              <div class="bg-[#075E54]/90 border-t border-white/10 px-3 py-1 flex items-center justify-between text-[11px] font-semibold text-emerald-100 shrink-0">
-                <span class="truncate">💬 Живой диалог • WhatsApp</span>
-                <span class="text-[10px] text-emerald-200 font-bold shrink-0">Ответ за 2 сек</span>
-              </div>
+              
 
               <!-- Messages Container -->
               <div id="partnerLiveChatMessages" class="flex-1 p-3 space-y-2.5 overflow-y-auto bg-[#efeae2] text-xs min-h-[300px]">
