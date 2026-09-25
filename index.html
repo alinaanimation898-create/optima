@@ -2667,19 +2667,210 @@
       </a>
     </div>
 
-    <!-- ПРИМЕРЫ ВНЕДРЕНИЯ -->
-    <section id="cases" class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 font-inter">
-      <div class="ao-results !p-0">
-        <div class="text-center max-w-4xl mx-auto space-y-2.5 mb-6 sm:mb-8">
-          <h2 class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl lg:text-[54px] leading-tight text-[#0f172a] overflow-visible">
-            ПРИМЕРЫ <span class="pearl-title-gradient">ИНТЕГРАЦИИ</span>
-          </h2>
-          <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto font-inter">
-            Посмотрите, как ИИ‑продавец окупает себя в реальном бизнесе с первых недель работы
-          </p>
+    <!-- ==========================================================================
+         СЕКЦИЯ: ПРИМЕРЫ ИНТЕГРАЦИИ (7 НИШ БИЗНЕСА И ДИАЛОГИ ВЕРЫ)
+         ========================================================================== -->
+    <section id="cases" class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-18 font-inter">
+      <div class="text-center max-w-4xl mx-auto space-y-2.5 mb-8 sm:mb-12">
+        <h2 class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl lg:text-[50px] leading-tight text-[#0f172a] overflow-visible" style="font-family: 'Benzin', sans-serif !important;">
+          ПРИМЕРЫ <span class="pearl-title-gradient">ИНТЕГРАЦИИ</span>
+        </h2>
+        <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto font-inter">
+          Посмотрите, как Вера общается и доводит до сделки в разных сферах бизнеса
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+        
+        <!-- СЛЕВА: 7 ТИПОВ БИЗНЕСА -->
+        <div class="lg:col-span-5 space-y-2.5 sm:space-y-3 font-sans" id="casesNichesList">
+          
+          <!-- 1. Салон красоты -->
+          <button type="button" onclick="selectCaseNiche('beauty', this)" class="case-niche-btn active w-full p-3.5 sm:p-4 rounded-2xl bg-white border-2 border-sky-500 shadow-md ring-2 ring-sky-400/20 flex items-center justify-between text-left transition-all duration-200 group cursor-pointer">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-pink-50 border border-pink-100 flex items-center justify-center text-xl shrink-0 group-hover:scale-105 transition-transform">
+                💅
+              </div>
+              <div>
+                <div class="font-bold text-sm sm:text-base text-slate-900 group-hover:text-sky-700 transition-colors">
+                  Салон красоты
+                </div>
+                <div class="text-[11px] sm:text-xs text-slate-500">
+                  Éclat Beauty • Запись на окрашивание и спа
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">WhatsApp</span>
+              <span class="text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform">→</span>
+            </div>
+          </button>
+
+          <!-- 2. Агентство по недвижимости -->
+          <button type="button" onclick="selectCaseNiche('realty', this)" class="case-niche-btn w-full p-3.5 sm:p-4 rounded-2xl bg-white/80 border border-slate-200/90 shadow-2xs flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:border-slate-300 hover:bg-white">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-xl shrink-0 group-hover:scale-105 transition-transform">
+                🏢
+              </div>
+              <div>
+                <div class="font-bold text-sm sm:text-base text-slate-900 group-hover:text-sky-700 transition-colors">
+                  Агентство по недвижимости
+                </div>
+                <div class="text-[11px] sm:text-xs text-slate-500">
+                  Метры &amp; Партнеры • Подбор ЖК и семейная ипотека
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-sky-50 text-sky-700 border border-sky-200">Telegram</span>
+              <span class="text-slate-400 group-hover:text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform">→</span>
+            </div>
+          </button>
+
+          <!-- 3. Онлайн школа -->
+          <button type="button" onclick="selectCaseNiche('education', this)" class="case-niche-btn w-full p-3.5 sm:p-4 rounded-2xl bg-white/80 border border-slate-200/90 shadow-2xs flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:border-slate-300 hover:bg-white">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-xl shrink-0 group-hover:scale-105 transition-transform">
+                🎓
+              </div>
+              <div>
+                <div class="font-bold text-sm sm:text-base text-slate-900 group-hover:text-sky-700 transition-colors">
+                  Онлайн-школа
+                </div>
+                <div class="text-[11px] sm:text-xs text-slate-500">
+                  DataPro IT • Подбор профессии и грант
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-sky-50 text-sky-700 border border-sky-200">Telegram</span>
+              <span class="text-slate-400 group-hover:text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform">→</span>
+            </div>
+          </button>
+
+          <!-- 4. Ресторан -->
+          <button type="button" onclick="selectCaseNiche('restaurant', this)" class="case-niche-btn w-full p-3.5 sm:p-4 rounded-2xl bg-white/80 border border-slate-200/90 shadow-2xs flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:border-slate-300 hover:bg-white">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center text-xl shrink-0 group-hover:scale-105 transition-transform">
+                🍽️
+              </div>
+              <div>
+                <div class="font-bold text-sm sm:text-base text-slate-900 group-hover:text-sky-700 transition-colors">
+                  Ресторан
+                </div>
+                <div class="text-[11px] sm:text-xs text-slate-500">
+                  La Terrazza • Бронь стола у окна и комплимент
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">WhatsApp</span>
+              <span class="text-slate-400 group-hover:text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform">→</span>
+            </div>
+          </button>
+
+          <!-- 5. Магазин одежды -->
+          <button type="button" onclick="selectCaseNiche('fashion', this)" class="case-niche-btn w-full p-3.5 sm:p-4 rounded-2xl bg-white/80 border border-slate-200/90 shadow-2xs flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:border-slate-300 hover:bg-white">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-fuchsia-50 border border-fuchsia-100 flex items-center justify-center text-xl shrink-0 group-hover:scale-105 transition-transform">
+                👗
+              </div>
+              <div>
+                <div class="font-bold text-sm sm:text-base text-slate-900 group-hover:text-sky-700 transition-colors">
+                  Магазин одежды
+                </div>
+                <div class="text-[11px] sm:text-xs text-slate-500">
+                  Lumiere Paris • Подбор размера и быстрая оплата
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-fuchsia-50 text-fuchsia-700 border border-fuchsia-200">Instagram</span>
+              <span class="text-slate-400 group-hover:text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform">→</span>
+            </div>
+          </button>
+
+          <!-- 6. Доставка -->
+          <button type="button" onclick="selectCaseNiche('delivery', this)" class="case-niche-btn w-full p-3.5 sm:p-4 rounded-2xl bg-white/80 border border-slate-200/90 shadow-2xs flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:border-slate-300 hover:bg-white">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-teal-50 border border-teal-100 flex items-center justify-center text-xl shrink-0 group-hover:scale-105 transition-transform">
+                🚚
+              </div>
+              <div>
+                <div class="font-bold text-sm sm:text-base text-slate-900 group-hover:text-sky-700 transition-colors">
+                  Служба доставки
+                </div>
+                <div class="text-[11px] sm:text-xs text-slate-500">
+                  Express Delivery • Расчет тарифа и вызов курьера
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">WhatsApp</span>
+              <span class="text-slate-400 group-hover:text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform">→</span>
+            </div>
+          </button>
+
+          <!-- 7. Магазин мебели -->
+          <button type="button" onclick="selectCaseNiche('furniture', this)" class="case-niche-btn w-full p-3.5 sm:p-4 rounded-2xl bg-white/80 border border-slate-200/90 shadow-2xs flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:border-slate-300 hover:bg-white">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-orange-50 border border-orange-100 flex items-center justify-center text-xl shrink-0 group-hover:scale-105 transition-transform">
+                🛋️
+              </div>
+              <div>
+                <div class="font-bold text-sm sm:text-base text-slate-900 group-hover:text-sky-700 transition-colors">
+                  Магазин мебели
+                </div>
+                <div class="text-[11px] sm:text-xs text-slate-500">
+                  WoodCraft Мебель • Расчет шкафа-купе и замерщик
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">WhatsApp</span>
+              <span class="text-slate-400 group-hover:text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform">→</span>
+            </div>
+          </button>
+
         </div>
-        <div class="ao-tabs" role="tablist" aria-label="Ниши"></div>
-        <div class="ao-case" id="aoCase" role="tabpanel" aria-live="polite"></div>
+
+        <!-- СПРАВА: СМАРТФОН IPHONE 17 С ПРИМЕРОМ ДИАЛОГА ВЕРЫ -->
+        <div class="lg:col-span-7 flex justify-center sticky top-24">
+          <div class="w-full max-w-[440px] flex flex-col h-[640px] sm:h-[670px] rounded-[48px] bg-gradient-to-b from-slate-200 via-slate-300 to-slate-400 p-[3.5px] sm:p-1 shadow-[0_25px_60px_-12px_rgba(15,23,42,0.18),0_0_0_1px_rgba(255,255,255,0.7)] transition-all duration-300">
+            <div class="relative w-full h-full rounded-[44px] overflow-hidden flex flex-col bg-white border border-slate-300/40 shadow-inner">
+              
+              <!-- Dynamic Island Notch -->
+              <div class="absolute top-2.5 left-1/2 -translate-x-1/2 w-[86px] h-[22px] bg-black rounded-full z-30 flex items-center justify-between px-2.5 pointer-events-none shadow-md">
+                <div class="w-2.5 h-2.5 rounded-full bg-[#111827] ring-1 ring-slate-800 flex items-center justify-center">
+                  <div class="w-1 h-1 rounded-full bg-[#1e293b]"></div>
+                </div>
+                <div class="w-2 h-2 rounded-full bg-[#0a0f1d] ring-1 ring-slate-800/80"></div>
+              </div>
+
+              <!-- Header Container -->
+              <div id="casePhoneHeader" class="pt-9 pb-2.5 px-3.5 text-white flex items-center justify-between shrink-0 shadow-xs z-10 transition-colors duration-300">
+                <!-- Injected via JS -->
+              </div>
+
+              <!-- Niche Info Bar -->
+              <div id="casePhoneNicheBar" class="px-3 py-1 flex items-center justify-between text-[11px] font-semibold shrink-0 transition-colors duration-300">
+                <!-- Injected via JS -->
+              </div>
+
+              <!-- Chat Messages Container -->
+              <div id="casePhoneMessages" class="flex-1 p-3 space-y-2.5 overflow-y-auto text-xs min-h-[300px] transition-colors duration-300">
+                <!-- Injected via JS -->
+              </div>
+
+              <!-- Input Footer -->
+              <div id="casePhoneFooter" class="p-2 border-t flex items-center gap-1.5 shrink-0 transition-colors duration-300">
+                <!-- Injected via JS -->
+              </div>
+
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
