@@ -487,11 +487,11 @@
         </h2>
       </div>
 
-      <!-- 3 КОЛОНКИ: СЛЕВА АЛИНА, ПОСЕРЕДИНЕ НАШ ПРИНЦИП, СПРАВА ДАВИД -->
+      <!-- 3 КОЛОНКИ: НА МОБИЛЬНЫХ СНАЧАЛА ЦЕНТРАЛЬНЫЙ МАНИФЕСТ, ЗАТЕМ АЛИНА И ДАВИД -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7 lg:gap-8 items-stretch">
         
-        <!-- КОЛОНКА 1 (СЛЕВА): АЛИНА -->
-        <div class="flex flex-col space-y-3.5 order-1">
+        <!-- КОЛОНКА 1 (СЛЕВА НА DESKTOP, 2-Я НА MOBILE): АЛИНА -->
+        <div class="flex flex-col space-y-3.5 order-2 md:order-1">
           <div class="relative w-full aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_10px_30px_rgba(4,44,83,0.08)] border-2 border-white bg-white group">
             <img src="assets/images/founder_alina.webp" alt="Алина - сооснователь Altai Optima" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]" loading="lazy">
           </div>
@@ -505,33 +505,33 @@
           </div>
         </div>
 
-        <!-- КОЛОНКА 2 (ПОСЕРЕДИНЕ): НАШ ПРИНЦИП -->
-        <div class="bg-white/80 backdrop-blur-md rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-7 border border-sky-100/90 shadow-[0_10px_35px_rgba(2,132,199,0.05)] flex flex-col justify-between space-y-4 font-serif-letter text-[#0C447C] text-[13px] sm:text-[13.5px] lg:text-[14px] leading-relaxed order-3 md:order-2">
+        <!-- КОЛОНКА 2 (ПОСЕРЕДИНЕ НА DESKTOP, 1-Я НА MOBILE): МАНИФЕСТ ЦЕННОСТИ ПРОДУКТА -->
+        <div class="bg-white/80 backdrop-blur-md rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-7 border border-sky-100/90 shadow-[0_10px_35px_rgba(2,132,199,0.05)] flex flex-col justify-between space-y-4 font-serif-letter text-[#0C447C] text-[13px] sm:text-[13.5px] lg:text-[14px] leading-relaxed order-1 md:order-2">
           <div class="space-y-3">
             <div class="font-sans font-bold text-xs uppercase tracking-widest font-mono text-sky-800 pb-2 border-b border-sky-100/80">
-              Наш принцип
+              ПОЧЕМУ МЫ ЭТО ДЕЛАЕМ
             </div>
             <p>
-              Мы строим компанию на&nbsp;годы вперёд, поэтому наша прибыль напрямую завязана на&nbsp;вашем удовлетворении. Знакомство начинается с&nbsp;7&nbsp;дней бесплатного тест-драйва, а&nbsp;фиксированный запуск за&nbsp;29&nbsp;000&nbsp;₽ покрывает исключительно себестоимость упаковки вашей базы знаний и&nbsp;технической интеграции.
+              Мы создали Altai Optima на&nbsp;стыке глубокого опыта в&nbsp;продажах и&nbsp;передовых ИИ-технологий.
             </p>
             <p>
-              Настоящая маржинальность нашего бизнеса&nbsp;- в&nbsp;долгом партнёрстве и&nbsp;продлении подписки. Подписка приносит нам доход лишь тогда, когда Вера стабильно генерирует сделки и&nbsp;увеличивает вашу прибыль. Чем дольше мы радуем вас нашей разработкой, тем увереннее растёт ваш бизнес&nbsp;- а&nbsp;значит, счастливы все вокруг.
+              Наша цель проста: освободить бизнес от&nbsp;рутины и&nbsp;человеческого фактора, дав предпринимателям инструмент, который продает с&nbsp;максимальной отдачей 24/7.
             </p>
             <p>
-              Вы абсолютно свободны отключиться от&nbsp;системы в&nbsp;любой момент, но мы уверены: стоит вам познакомиться с&nbsp;Верой, и&nbsp;это станет любовью с&nbsp;первого сообщения.
+              Мы вкладываем силы в&nbsp;создание живого, чуткого интеллекта, который бережно относится к&nbsp;каждому Вашему лиду и&nbsp;растит прибыль компании.
             </p>
           </div>
 
           <!-- ПОДПИСЬ -->
           <div class="pt-3 border-t border-sky-100/90 text-center">
             <p class="italic text-[13.5px] sm:text-[14.5px] text-slate-700 font-medium">
-              Давайте расти и процветать вместе!)
+              Давайте расти и процветать вместе!
             </p>
           </div>
         </div>
 
-        <!-- КОЛОНКА 3 (СПРАВА): ДАВИД -->
-        <div class="flex flex-col space-y-3.5 order-2 md:order-3">
+        <!-- КОЛОНКА 3 (СПРАВА НА DESKTOP, 3-Я НА MOBILE): ДАВИД -->
+        <div class="flex flex-col space-y-3.5 order-3 md:order-3">
           <div class="relative w-full aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_10px_30px_rgba(4,44,83,0.08)] border-2 border-white bg-white group">
             <img src="assets/images/founder_david.webp" alt="Давид - сооснователь Altai Optima" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]" loading="lazy">
           </div>
@@ -2783,8 +2783,49 @@
 
     </section>
 
+    <!-- ==========================================================================
+         СЕКЦИЯ: НАШ ПРИНЦИП (КОММЕРЧЕСКОЕ ДОВЕРИЕ)
+         ========================================================================== -->
+    <section id="our-principle" class="relative z-20 max-w-5xl xl:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 font-inter">
+      <div class="relative overflow-hidden rounded-3xl sm:rounded-[32px] p-6 sm:p-8 lg:p-10 bg-[linear-gradient(135deg,rgba(255,255,255,0.98)_0%,rgba(240,249,255,0.92)_50%,rgba(224,242,254,0.75)_100%)] border-2 border-sky-200/90 shadow-[0_20px_50px_rgba(2,132,199,0.08)] backdrop-blur-md">
+        
+        <!-- Заголовок блока с акцентной плашкой -->
+        <div class="flex items-center gap-3 sm:gap-3.5 mb-5 sm:mb-6 pb-4 border-b border-sky-100/90">
+          <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-sky-500/10 border border-sky-500/25 flex items-center justify-center shrink-0 text-sky-600 shadow-xs">
+            <svg class="w-5 h-5 sm:w-5.5 sm:h-5.5 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-widest text-sky-700">
+              КОММЕРЧЕСКОЕ ДОВЕРИЕ
+            </div>
+            <h3 class="font-benzin uppercase tracking-tight font-black text-xl sm:text-2xl md:text-3xl text-[#0f172a] overflow-visible" style="font-family: 'Benzin', sans-serif !important;">
+              НАШ <span class="pearl-title-gradient">ПРИНЦИП</span>
+            </h3>
+          </div>
+        </div>
+
+        <!-- Текст блока с аккуратными отступами и читабельным шрифтом -->
+        <div class="space-y-4 text-slate-700 text-sm sm:text-base lg:text-[16px] leading-relaxed font-normal">
+          <p>
+            Мы строим компанию на&nbsp;годы вперед, поэтому наша прибыль напрямую завязана на&nbsp;Вашем удовлетворении.
+          </p>
+          <p>
+            Знакомство начинается с&nbsp;7&nbsp;дней бесплатного тест-драйва, а&nbsp;фиксированный запуск за&nbsp;29&nbsp;000&nbsp;₽ покрывает исключительно себестоимость упаковки Вашей базы знаний и&nbsp;технической интеграции.
+          </p>
+          <p>
+            Настоящая маржинальность нашего бизнеса&nbsp;- в&nbsp;долгом партнерстве и&nbsp;продлении подписки. Подписка приносит нам доход лишь тогда, когда Вера стабильно генерирует сделки и&nbsp;увеличивает Вашу прибыль. Чем дольше мы радуем Вас нашей разработкой, тем увереннее растет Ваш бизнес.
+          </p>
+          <p class="font-medium text-slate-900 pt-1">
+            Вы абсолютно свободны отключиться от&nbsp;системы в&nbsp;любой момент, но мы уверены: стоит Вам познакомиться с&nbsp;Верой, и&nbsp;это станет любовью с&nbsp;первого сообщения.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
             <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ИЗЯЩНАЯ ТРАЕКТОРИЯ ПЕРЕТЕКАНИЯ -->
-        <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ИЗЯЩНАЯ ТРАЕКТОРИЯ ПЕРЕТЕКАНИЯ -->
     <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
       <a href="#solutions" class="flowing-connector-link group" title="Как начать">
         <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
