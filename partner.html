@@ -557,63 +557,74 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
     </div>
 
     <!-- ================= 3. SECTION: ЧТО ВЫ ПРЕДЛАГАЕТЕ ================= -->
-    <section id="product" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32 sm:mb-44 lg:mb-48 scroll-mt-28 relative">
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[40px] leading-tight overflow-visible">
+    <section id="product" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 sm:mb-32 lg:mb-36 scroll-mt-28 relative">
+      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+        <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[40px] leading-tight overflow-visible" style="font-family: 'Benzin', sans-serif !important;">
           <span class="pearl-title-gradient">Что вы предлагаете</span>
         </h2>
-        <p class="text-sm sm:text-base text-slate-600 font-medium mt-3">
+        <p class="text-sm sm:text-base text-slate-600 font-medium mt-3 leading-relaxed">
           Виртуальный сотрудник отдела продаж. Вера отвечает клиентам за минуту в WhatsApp, Telegram, Instagram, на Авито, в MAX и на сайте, выясняет задачу, бюджет и сроки и заводит готовую сделку в&nbsp;CRM
         </p>
       </div>
 
-      <!-- Main Showcase: 3-Column Layout (Vera Text on Left | Centered Video | Pricing on Right) -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 xl:gap-8 items-center mb-14">
+      <!-- Main Showcase: Perfectly Aligned 3-Column Symmetrical Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-6 xl:gap-8 items-stretch mb-8">
         
-        <!-- Left: Vera Bio & Capabilities (Clean, No Plate) -->
-        <div class="lg:col-span-4 flex flex-col justify-center space-y-4 text-slate-800 text-left font-inter order-2 lg:order-1">
+        <!-- Left Column: Vera Capabilities (Exact height match with right side) -->
+        <div class="lg:col-span-4 flex flex-col justify-between font-inter order-2 lg:order-1 text-left">
           <div>
-            <h3 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl leading-tight" style="font-family: 'Benzin', sans-serif !important;">
+            <h3 class="font-benzin uppercase tracking-tight font-black text-xl sm:text-2xl text-slate-900 leading-tight mb-1" style="font-family: 'Benzin', sans-serif !important;">
               <span class="pearl-title-gradient">ИИ-продавец</span> <span class="text-[#0f172a]">«Вера»</span>
             </h3>
-          </div>
+            <p class="text-xs sm:text-sm text-slate-500 mb-3.5 leading-relaxed min-h-[38px] sm:min-h-[40px] flex items-center">
+              Полноценный сотрудник отдела продаж: помнит контекст и ведёт к сделке
+            </p>
 
-          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
-            Вера общается как ваш лучший менеджер: помнит весь контекст, мгновенно квалифицирует заявку, отвечает на возражения по стандартам сервиса и передаёт готовую сделку в CRM.
-          </p>
+            <!-- 4 Structured Cards -->
+            <div class="space-y-2.5">
+              
+              <div class="p-3 rounded-2xl bg-white border border-slate-200/90 flex items-center gap-3 shadow-xs">
+                <span class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 font-bold text-xs border border-emerald-200/60">✓</span>
+                <div class="min-w-0 flex-1">
+                  <div class="font-bold text-xs sm:text-sm text-slate-900 leading-tight">Каналы связи</div>
+                  <div class="text-[11px] text-slate-500 mt-0.5 truncate">WhatsApp, Telegram, Instagram, Авито, MAX, Сайт</div>
+                </div>
+              </div>
 
-          <!-- Key Capabilities -->
-          <div class="space-y-3 text-xs text-slate-700 pt-1">
-            <div class="flex items-start gap-2.5">
-              <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 font-bold text-[11px] mt-0.5">✓</span>
-              <div>
-                <strong class="text-slate-900 font-semibold">Каналы:</strong> WhatsApp, Telegram, Instagram, Авито, MAX, Сайт
+              <div class="p-3 rounded-2xl bg-white border-2 border-sky-400 flex items-center gap-3 shadow-sm relative">
+                <span class="w-8 h-8 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 font-bold text-xs border border-sky-200/60">✓</span>
+                <div class="min-w-0 flex-1">
+                  <div class="flex items-center gap-1.5">
+                    <span class="font-bold text-xs sm:text-sm text-slate-900 leading-tight">Интеграции с CRM</span>
+                    <span class="text-[9px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded bg-sky-600 text-white">Full</span>
+                  </div>
+                  <div class="text-[11px] text-slate-600 mt-0.5 truncate">amoCRM, Битрикс24, 1С, МойСклад, Таблицы</div>
+                </div>
               </div>
-            </div>
-            <div class="flex items-start gap-2.5">
-              <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 font-bold text-[11px] mt-0.5">✓</span>
-              <div>
-                <strong class="text-slate-900 font-semibold">Интеграции:</strong> amoCRM, Битрикс24, 1С, МойСклад, Google Таблицы
+
+              <div class="p-3 rounded-2xl bg-white border border-slate-200/90 flex items-center gap-3 shadow-xs">
+                <span class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 font-bold text-xs border border-emerald-200/60">✓</span>
+                <div class="min-w-0 flex-1">
+                  <div class="font-bold text-xs sm:text-sm text-slate-900 leading-tight">Живая речь и голос</div>
+                  <div class="text-[11px] text-slate-500 mt-0.5 truncate">Понимает любые аудио, отвечает без пауз</div>
+                </div>
               </div>
-            </div>
-            <div class="flex items-start gap-2.5">
-              <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 font-bold text-[11px] mt-0.5">✓</span>
-              <div>
-                <strong class="text-slate-900 font-semibold">Живая речь:</strong> понимает голосовые любой длины и пишет/отвечает без пауз
+
+              <div class="p-3 rounded-2xl bg-white border border-slate-200/90 flex items-center gap-3 shadow-xs">
+                <span class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 font-bold text-xs border border-emerald-200/60">✓</span>
+                <div class="min-w-0 flex-1">
+                  <div class="font-bold text-xs sm:text-sm text-slate-900 leading-tight">Бесплатный тест 7 дней</div>
+                  <div class="text-[11px] text-slate-500 mt-0.5 truncate">Пилот на реальном трафике перед оплатой</div>
+                </div>
               </div>
-            </div>
-            <div class="flex items-start gap-2.5">
-              <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 font-bold text-[11px] mt-0.5">✓</span>
-              <div>
-                <strong class="text-slate-900 font-semibold">Бесплатный тест 7 дней:</strong> пилот на реальном трафике клиента перед оплатой
-              </div>
+
             </div>
           </div>
         </div>
 
-        <!-- Center: Vera Cinematic Video Frame (Centered Showcase) -->
-        <div class="lg:col-span-4 flex items-center justify-center order-1 lg:order-2 w-full">
-          <div class="relative w-full aspect-square lg:aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-white shrink-0 bg-white group mx-auto" style="aspect-ratio: 1 / 1; width: 100%;">
+        <!-- Center Column: Vera Video Frame (Balanced height & proportions) -->
+        <div class="lg:col-span-4 flex flex-col justify-center items-center order-1 lg:order-2 w-full">
+          <div class="relative w-full aspect-square sm:aspect-[4/5] rounded-3xl overflow-hidden shadow-xl border-4 border-white shrink-0 bg-white group mx-auto flex items-center justify-center" style="width: 100%; height: 100%; min-height: 330px;">
             <!-- Video stream -->
             <video 
               src="0906.mp4" 
@@ -623,70 +634,97 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
               loop 
               playsinline 
               preload="metadata"
-              class="w-full h-full object-cover object-[88%_center] select-none pointer-events-none transition-transform duration-700 scale-[1.05] group-hover:scale-110"
-              style="width: 100%; height: 100%; object-fit: cover; object-position: 88% center; transform: scale(1.05) translateZ(0); -webkit-transform: scale(1.05) translateZ(0); will-change: transform;"
+              class="w-full h-full object-cover object-[88%_center] select-none pointer-events-none transition-transform duration-700 scale-[1.03] group-hover:scale-105"
+              style="width: 100%; height: 100%; object-fit: cover; object-position: 88% center; transform: scale(1.03) translateZ(0); -webkit-transform: scale(1.03) translateZ(0); will-change: transform;"
             ></video>
           </div>
         </div>
 
-        <!-- Right: Client Pricing Tiers (4 cols) -->
-        <div class="lg:col-span-4 flex flex-col justify-between font-inter order-3">
+        <!-- Right Column: Client Pricing Tiers (Exact height match with left side) -->
+        <div class="lg:col-span-4 flex flex-col justify-between font-inter order-3 text-left">
           <div>
-            <h3 class="font-inter uppercase tracking-tight font-black text-xl sm:text-2xl text-slate-900 mb-1">
-              Тарифная сетка
+            <h3 class="font-benzin uppercase tracking-tight font-black text-xl sm:text-2xl text-slate-900 leading-tight mb-1" style="font-family: 'Benzin', sans-serif !important;">
+              <span class="pearl-title-gradient">Тарифная</span> <span class="text-[#0f172a]">сетка</span>
             </h3>
-            <p class="text-xs text-slate-500 mb-4">
+            <p class="text-xs sm:text-sm text-slate-500 mb-3.5 leading-relaxed min-h-[38px] sm:min-h-[40px] flex items-center">
               Клиент оплачивает разово запуск + ежемесячную подписку:
             </p>
 
             <div class="space-y-2.5">
               <div class="p-3 rounded-2xl bg-white border border-slate-200/90 flex items-center justify-between shadow-xs">
                 <div>
-                  <div class="font-bold text-sm text-slate-900">Старт</div>
-                  <div class="text-[11px] text-slate-500">До 200 диалогов в месяц</div>
+                  <div class="font-bold text-xs sm:text-sm text-slate-900 leading-tight">Старт</div>
+                  <div class="text-[11px] text-slate-500 mt-0.5">До 200 диалогов в месяц</div>
                 </div>
-                <div class="font-bold text-sm sm:text-base text-slate-900 font-sans whitespace-nowrap">25 000 ₽/мес</div>
+                <div class="font-bold text-xs sm:text-sm text-slate-900 font-sans whitespace-nowrap">25 000 ₽/мес</div>
               </div>
 
               <div class="p-3 rounded-2xl bg-white border-2 border-sky-400 flex items-center justify-between shadow-sm relative">
                 <div>
                   <div class="flex items-center gap-1.5">
-                    <span class="font-bold text-sm text-slate-900">Бизнес</span>
+                    <span class="font-bold text-xs sm:text-sm text-slate-900 leading-tight">Бизнес</span>
                     <span class="text-[9px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded bg-sky-600 text-white">Хит</span>
                   </div>
                   <div class="text-[11px] text-slate-600 mt-0.5">До 600 диалогов + интеграция CRM</div>
                 </div>
-                <div class="font-black text-sm sm:text-base text-sky-700 font-sans whitespace-nowrap">39 000 ₽/мес</div>
+                <div class="font-black text-xs sm:text-sm text-sky-700 font-sans whitespace-nowrap">39 000 ₽/мес</div>
               </div>
 
               <div class="p-3 rounded-2xl bg-white border border-slate-200/90 flex items-center justify-between shadow-xs">
                 <div>
-                  <div class="font-bold text-sm text-slate-900">Поток</div>
-                  <div class="text-[11px] text-slate-500">До 1 500 диалогов в месяц</div>
+                  <div class="font-bold text-xs sm:text-sm text-slate-900 leading-tight">Поток</div>
+                  <div class="text-[11px] text-slate-500 mt-0.5">До 1 500 диалогов в месяц</div>
                 </div>
-                <div class="font-bold text-sm sm:text-base text-slate-900 font-sans whitespace-nowrap">59 000 ₽/мес</div>
+                <div class="font-bold text-xs sm:text-sm text-slate-900 font-sans whitespace-nowrap">59 000 ₽/мес</div>
               </div>
 
               <div class="p-3 rounded-2xl bg-white border border-slate-200/90 flex items-center justify-between shadow-xs">
                 <div>
-                  <div class="font-bold text-sm text-slate-900">Империя</div>
-                  <div class="text-[11px] text-slate-500">Больше 1 500 диалогов</div>
+                  <div class="font-bold text-xs sm:text-sm text-slate-900 leading-tight">Империя</div>
+                  <div class="text-[11px] text-slate-500 mt-0.5">Больше 1 500 диалогов</div>
                 </div>
-                <div class="font-bold text-sm sm:text-base text-slate-900 font-sans whitespace-nowrap">от 99 000 ₽/мес</div>
+                <div class="font-bold text-xs sm:text-sm text-slate-900 font-sans whitespace-nowrap">от 99 000 ₽/мес</div>
               </div>
             </div>
-          </div>
-
-          <div class="mt-5 pt-3.5 border-t border-slate-200/80 text-xs text-slate-600 leading-relaxed space-y-1">
-            <div>• <strong class="text-slate-800">Запуск:</strong> 29 000 ₽ разово при любом наборе каналов и CRM.</div>
-            <div>• <strong class="text-slate-800">Гарантия:</strong> бесплатный тест 7 дней на одном канале клиента.</div>
-            <div>• <strong class="text-slate-800">Формат:</strong> помесячная подписка, работаем официально с юрлицами.</div>
           </div>
         </div>
 
       </div>
 
-      <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ПРОДУКТА К ЖИВЫМ ЧАТАМ ВЕРЫ -->
+      <!-- Clean Horizontal Summary Pods (Evenly distributed under all 3 columns) -->
+      <div class="mt-6 pt-5 border-t border-slate-200/80">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-left">
+          
+          <div class="p-3 sm:p-3.5 rounded-2xl bg-white/80 border border-slate-200/80 shadow-2xs flex items-center gap-2.5 sm:gap-3">
+            <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center font-bold text-xs shrink-0 border border-sky-200/60">⚙</span>
+            <div class="text-xs">
+              <strong class="font-bold text-slate-900 block leading-snug">Запуск: 29 000 ₽</strong>
+              <span class="text-slate-500 text-[11px]">Разово при любом наборе каналов и CRM</span>
+            </div>
+          </div>
+
+          <div class="p-3 sm:p-3.5 rounded-2xl bg-white/80 border border-slate-200/80 shadow-2xs flex items-center gap-2.5 sm:gap-3">
+            <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xs shrink-0 border border-emerald-200/60">🛡</span>
+            <div class="text-xs">
+              <strong class="font-bold text-slate-900 block leading-snug">Гарантия 7 дней</strong>
+              <span class="text-slate-500 text-[11px]">Бесплатный тест на одном канале клиента</span>
+            </div>
+          </div>
+
+          <div class="p-3 sm:p-3.5 rounded-2xl bg-white/80 border border-slate-200/80 shadow-2xs flex items-center gap-2.5 sm:gap-3">
+            <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-xs shrink-0 border border-indigo-200/60">📄</span>
+            <div class="text-xs">
+              <strong class="font-bold text-slate-900 block leading-snug">Формат работы</strong>
+              <span class="text-slate-500 text-[11px]">Помесячная подписка, работа с юрлицами</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ПРОДУКТА К ЖИВЫМ ЧАТАМ ВЕРЫ -->
       <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-8 sm:my-12">
         <a href="#vera-live-chats" class="flowing-connector-link group" title="Посмотреть диалоги Веры">
           <svg class="w-full h-auto min-h-[50px] sm:min-h-[65px] max-h-[80px] overflow-visible max-w-[140px] sm:max-w-[180px] mx-auto" viewBox="0 0 1000 85" fill="none" xmlns="http://www.w3.org/2000/svg">
