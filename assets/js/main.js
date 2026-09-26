@@ -35,50 +35,7 @@
             </div>
           </div>
         `,
-        renderStarter: () => `
-          <div class="empty-chat-state h-full flex flex-col justify-between items-center text-center animate-fade-in py-1 px-1">
-            <div class="space-y-2 w-full">
-              <div class="flex justify-center">
-                <span class="bg-[#e1d9cc]/90 text-slate-700 text-[10px] font-semibold px-2.5 py-0.5 rounded-md shadow-2xs uppercase tracking-wider">СЕГОДНЯ</span>
-              </div>
-              <div class="mx-auto max-w-[94%] bg-[#ffeecd]/90 border border-[#fae2a6] rounded-xl p-2 text-center text-[10px] text-[#544322] leading-snug shadow-2xs flex items-center justify-center gap-1.5">
-                <svg class="w-3.5 h-3.5 shrink-0 fill-current opacity-80" viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
-                <span>Чат пуст. Ответы генерирует автономный ИИ-продавец</span>
-              </div>
-            </div>
-
-            <div class="my-auto py-3 px-2 flex flex-col items-center justify-center text-center space-y-2.5 cursor-pointer select-none" onclick="focusChatInput()">
-              <div class="relative w-11 h-11 rounded-2xl bg-gradient-to-br from-[#25d366]/20 to-[#128c7e]/30 border border-[#25d366]/40 flex items-center justify-center text-[#075e54] shadow-xs">
-                <svg class="w-5 h-5 fill-current animate-pulse" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg>
-                <span class="absolute -top-1 -right-1 flex h-2.5 w-2.5">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-                </span>
-              </div>
-              <div class="space-y-0.5 max-w-[270px]">
-                <div class="text-[12.5px] font-black text-slate-800 tracking-tight">Вера • ИИ-продавец онлайн</div>
-                <p class="text-[10.5px] text-slate-600 leading-snug font-normal">
-                  Напишите любой вопрос или выберите готовый:
-                </p>
-              </div>
-              <div class="flex flex-col gap-1.5 w-full max-w-[285px]">
-                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Сколько стоит встроенный шкаф-купе 2.4 м?')" class="text-left text-[11px] font-medium bg-white/95 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#25d366] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
-                  <span>«Сколько стоит шкаф-купе 2.4 м?»</span>
-                  <span class="text-[#075e54] text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
-                </button>
-                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Выезжает ли замерщик с образцами?')" class="text-left text-[11px] font-medium bg-white/95 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#25d366] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
-                  <span>«Выезжает ли замерщик с образцами?»</span>
-                  <span class="text-[#075e54] text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
-                </button>
-              </div>
-            </div>
-
-            <div class="pt-1 pb-1 flex items-center gap-1.5 text-[10.5px] font-bold text-[#075e54] animate-bounce cursor-pointer select-none" onclick="focusChatInput()">
-              <span>Напечатайте сообщение в поле ниже</span>
-              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M11 4h2v12l5.5-5.5 1.42 1.42L12 19.84l-7.92-7.92L5.5 10.5 11 16V4z"/></svg>
-            </div>
-          </div>
-        `,
+        renderStarter: () => '',
         renderAiBubble: (msg) => `
           <div class="flex justify-start items-end gap-1.5 animate-fade-in">
             <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs border border-slate-200/50">
@@ -141,46 +98,7 @@
             </div>
           </div>
         `,
-        renderStarter: () => `
-          <div class="empty-chat-state h-full flex flex-col justify-between items-center text-center animate-fade-in py-1 px-1">
-            <div class="space-y-2 w-full">
-              <div class="flex justify-center">
-                <span class="bg-black/15 backdrop-blur-xs text-white text-[10px] font-medium px-2.5 py-0.5 rounded-full shadow-2xs">Сегодня</span>
-              </div>
-              <div class="mx-auto max-w-[94%] bg-[#6c8cf5]/25 border border-white/30 backdrop-blur-md rounded-xl p-2 text-center text-[10px] text-slate-800 leading-snug shadow-2xs">
-                <div class="font-bold text-[#0088cc]">Вера • ИИ-продавец онлайн</div>
-                <div class="text-[9.5px] text-slate-600">Отвечает мгновенно 24/7</div>
-              </div>
-            </div>
-
-            <div class="my-auto py-3 px-2 flex flex-col items-center justify-center text-center space-y-2.5 cursor-pointer select-none" onclick="focusChatInput()">
-              <div class="relative w-11 h-11 rounded-2xl bg-sky-500/20 border border-sky-400/50 flex items-center justify-center text-[#0088cc] shadow-xs">
-                <svg class="w-5 h-5 fill-current animate-pulse" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
-                <span class="absolute -top-1 -right-1 flex h-2.5 w-2.5">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-sky-500"></span>
-                </span>
-              </div>
-              <div class="space-y-0.5 max-w-[270px]">
-                <div class="text-[12.5px] font-black text-slate-800 tracking-tight">Вера на связи</div>
-                <p class="text-[10.5px] text-slate-600 leading-snug font-normal">
-                  Задайте любой вопрос или оцените общение:
-                </p>
-              </div>
-              <div class="flex flex-col gap-1.5 w-full max-w-[285px]">
-                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Есть окна на маникюр сегодня после 18:00?')" class="text-left text-[11px] font-medium bg-white/95 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#229ed9] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
-                  <span>«Есть окна на маникюр сегодня?»</span>
-                  <span class="text-sky-600 text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
-                </button>
-              </div>
-            </div>
-
-            <div class="pt-1 pb-1 flex items-center gap-1.5 text-[10.5px] font-bold text-sky-600 animate-bounce cursor-pointer select-none" onclick="focusChatInput()">
-              <span>Напечатайте вопрос в строке ниже</span>
-              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M11 4h2v12l5.5-5.5 1.42 1.42L12 19.84l-7.92-7.92L5.5 10.5 11 16V4z"/></svg>
-            </div>
-          </div>
-        `,
+        renderStarter: () => '',
         renderAiBubble: (msg) => `
           <div class="flex justify-start items-end gap-1.5 animate-fade-in">
             <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs">
@@ -258,41 +176,7 @@
             </div>
           </div>
         `,
-        renderStarter: () => `
-          <div class="empty-chat-state h-full flex flex-col justify-between items-center text-center animate-fade-in py-1 px-1">
-            <div class="flex flex-col items-center justify-center text-center p-1 space-y-1">
-              <div class="p-0.5 rounded-full bg-gradient-to-tr from-amber-400 via-rose-500 to-purple-600">
-                <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white bg-slate-900">
-                  <img src="assets/images/vera_ai_portrait.webp" onerror="this.src='avatar_eva.webp'" alt="Вера" class="w-full h-full object-cover" />
-                </div>
-              </div>
-              <div>
-                <div class="text-xs font-black text-slate-900">tallora.ru</div>
-                <div class="text-[9px] text-slate-400">Вера • ИИ-продавец онлайн</div>
-              </div>
-            </div>
-
-            <div class="my-auto py-2 px-2 flex flex-col items-center justify-center text-center space-y-2.5 cursor-pointer select-none" onclick="focusChatInput()">
-              <div class="space-y-0.5 max-w-[270px]">
-                <div class="text-[12.5px] font-black text-slate-900 tracking-tight">Вера • ИИ-продавец онлайн</div>
-                <p class="text-[10.5px] text-slate-600 leading-snug font-normal">
-                  Задайте любой вопрос в direct:
-                </p>
-              </div>
-              <div class="flex flex-col gap-1.5 w-full max-w-[285px]">
-                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Есть кожаные лоферы TL-408 в 38 размере?')" class="text-left text-[11px] font-medium bg-slate-50 hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-pink-500 active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
-                  <span>«Есть лоферы TL-408 в 38 размере?»</span>
-                  <span class="text-pink-600 text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
-                </button>
-              </div>
-            </div>
-
-            <div class="pt-1 pb-1 flex items-center gap-1.5 text-[10.5px] font-bold text-pink-600 animate-bounce cursor-pointer select-none" onclick="focusChatInput()">
-              <span>Напечатайте сообщение в поле ниже</span>
-              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M11 4h2v12l5.5-5.5 1.42 1.42L12 19.84l-7.92-7.92L5.5 10.5 11 16V4z"/></svg>
-            </div>
-          </div>
-        `,
+        renderStarter: () => '',
         renderAiBubble: (msg) => `
           <div class="flex justify-start items-end gap-1.5 animate-fade-in">
             <div class="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 text-white p-3 rounded-2xl rounded-bl-xs max-w-[88%] shadow-xs">
@@ -363,54 +247,7 @@
           </div>
         `,
 
-        renderStarter: () => `
-          <div class="empty-chat-state h-full flex flex-col justify-between items-center text-center animate-fade-in py-1 px-1">
-            <div class="space-y-2 w-full">
-              <div class="flex justify-center">
-                <span class="text-slate-400 text-[10px] font-medium">Понедельник, 14 сентября</span>
-              </div>
-              <div class="mx-auto max-w-[96%] bg-[#eef9ef] border border-[#d6f2d6] rounded-2xl p-2 text-slate-800 text-[10.5px] leading-snug shadow-2xs flex items-center gap-2">
-                <div class="shrink-0">
-                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none">
-                    <circle cx="7" cy="8" r="4" fill="#00AAFF"/>
-                    <circle cx="17" cy="7" r="3" fill="#04E061"/>
-                    <circle cx="16" cy="16" r="4.5" fill="#FF4053"/>
-                    <circle cx="8" cy="16.5" r="2.5" fill="#9B51E0"/>
-                  </svg>
-                </div>
-                <p class="font-medium text-slate-700 text-[10.5px]">Безопасная сделка на Авито. Чат пуст.</p>
-              </div>
-            </div>
-
-            <div class="my-auto py-2 px-2 flex flex-col items-center justify-center text-center space-y-2.5 cursor-pointer select-none" onclick="focusChatInput()">
-              <div class="space-y-0.5 max-w-[270px]">
-                <div class="text-[12.5px] font-black text-slate-900 tracking-tight">Вера • ИИ-продавец онлайн</div>
-                <p class="text-[10.5px] text-slate-600 leading-snug font-normal">
-                  Задайте вопрос по объявлению в строке внизу или выберите готовый:
-                </p>
-              </div>
-              <div class="flex flex-col gap-1.5 w-full max-w-[285px]">
-                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Здравствуйте, как настроить под ключ?')" class="text-left text-[11px] font-medium bg-[#f2f3f5] hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#00aaff] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
-                  <span>«Здравствуйте, как настроить под ключ?»</span>
-                  <span class="text-[#00aaff] text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
-                </button>
-                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Какая актуальная стоимость тарифа?')" class="text-left text-[11px] font-medium bg-[#f2f3f5] hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#00aaff] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
-                  <span>«Какая актуальная стоимость тарифа?»</span>
-                  <span class="text-[#00aaff] text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
-                </button>
-                <button type="button" onclick="event.stopPropagation(); sendQuickPrompt('Интересует интеграция с 1С')" class="text-left text-[11px] font-medium bg-[#f2f3f5] hover:bg-white text-slate-800 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-[#00aaff] active:scale-98 transition-all flex items-center justify-between group cursor-pointer">
-                  <span>«Интересует интеграция с 1С»</span>
-                  <span class="text-[#00aaff] text-xs opacity-60 group-hover:opacity-100 transition-opacity">→</span>
-                </button>
-              </div>
-            </div>
-
-            <div class="pt-1 pb-1 flex items-center gap-1.5 text-[10.5px] font-bold text-[#00aaff] animate-bounce cursor-pointer select-none" onclick="focusChatInput()">
-              <span>Напечатайте вопрос в строке ниже</span>
-              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M11 4h2v12l5.5-5.5 1.42 1.42L12 19.84l-7.92-7.92L5.5 10.5 11 16V4z"/></svg>
-            </div>
-          </div>
-        `,
+        renderStarter: () => '',
         renderAiBubble: (msg) => `
           <div class="flex justify-start items-end gap-1 animate-fade-in">
             <div class="bg-[#f2f3f5] text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-2xs">
