@@ -936,13 +936,13 @@
     <!-- 6. СЦЕНАРИИ РАБОТЫ В МЕССЕНДЖЕРАХ (ИНТЕРАКТИВНЫЙ СМАРТФОН С ГОТОВЫМИ СЦЕНАРИЯМИ) -->
     <section id="scenarios" class="relative z-20 py-10 sm:py-12 lg:py-16 xl:py-20 max-w-6xl mx-auto font-inter">
       
-      <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center text-left">
+      <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center lg:items-stretch text-left">
         
         <!-- ЛЕВАЯ КОЛОНКА: ЗАГОЛОВОК + ПОДЗАГОЛОВОК + 4 КНОПКИ МЕССЕНДЖЕРОВ + ЗВЕЗДНЫЙ РЕЙТИНГ -->
-        <div class="lg:col-span-6 space-y-6 sm:space-y-8 lg:pl-4 xl:pl-6 2xl:pl-8">
+        <div class="lg:col-span-6 flex flex-col justify-between lg:pl-4 xl:pl-6 2xl:pl-8">
           
-          <!-- ЗАГОЛОВОК + ПОДЗАГОЛОВОК -->
-          <div class="space-y-2 sm:space-y-2.5 text-center lg:text-left">
+          <!-- ЗАГОЛОВОК + ПОДЗАГОЛОВОК (ПОДНЯТ К ВЕРХУ ТЕЛЕФОНА) -->
+          <div class="space-y-2 sm:space-y-2.5 text-center lg:text-left pt-1 lg:pt-2">
             <h2 class="ao-sc font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-3xl lg:text-[28px] xl:text-[34px] 2xl:text-[38px] leading-[1.2] hyphens-none overflow-visible text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
               <span class="pearl-title-gradient">ПОГОВОРИТЕ С ВЕРОЙ</span> ЗДЕСЬ И&nbsp;СЕЙЧАС
             </h2>
@@ -951,8 +951,8 @@
             </p>
           </div>
 
-          <!-- 4 КНОПКИ СОЦСЕТЕЙ И НИШ (МЕБЕЛЬ, ОНЛАЙН-ОБУВЬ, САЛОН КРАСОТЫ, КРОССОВКИ) -->
-          <div class="flex flex-col items-center lg:items-start w-full">
+          <!-- 4 КНОПКИ СОЦСЕТЕЙ И НИШ (МЕБЕЛЬ, ОНЛАЙН-ОБУВЬ, САЛОН КРАСОТЫ, КРОССОВКИ) - ПОСЕРЕДИНЕ ЭКРАНА / ТЕЛЕФОНА -->
+          <div class="flex flex-col items-center lg:items-start w-full my-auto py-4 sm:py-6">
             <div class="grid grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-2.5 sm:gap-y-3.5 lg:flex lg:flex-col lg:space-y-4 lg:gap-0 lg:pl-4 xl:pl-6 max-w-sm sm:max-w-md lg:max-w-none w-full px-2 sm:px-0">
               
               <!-- WhatsApp: Мебель -->
@@ -1014,6 +1014,17 @@
             </div>
 
           </div>
+
+          <!-- БАЛАНСИРОВОЧНЫЙ СПЕЙСЕР (НЕВИДИМЫЙ, ВЫРАВНИВАЕТ СОЦСЕТИ РОВНО ПО ЦЕНТРУ ТЕЛЕФОНА) -->
+          <div class="hidden lg:block invisible pointer-events-none select-none space-y-2 sm:space-y-2.5" aria-hidden="true">
+            <div class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-3xl lg:text-[28px] xl:text-[34px] 2xl:text-[38px] leading-[1.2]">
+              ПОГОВОРИТЕ С ВЕРОЙ ЗДЕСЬ И СЕЙЧАС
+            </div>
+            <p class="font-inter text-xs sm:text-sm md:text-base font-normal tracking-wide leading-relaxed">
+              Напишите в чат все, что угодно, и оцените профессионализм коммуникации нашего ИИ-продавца
+            </p>
+          </div>
+
         </div>
 
         <!-- ПРАВАЯ КОЛОНКА: СМАРТФОН С ДИАЛОГОМ И ЖИВОЙ АНИМАЦИЕЙ -->
@@ -1590,10 +1601,10 @@
         </p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start lg:items-center">
         
         <!-- СЛЕВА: 7 ТИПОВ БИЗНЕСА (БЕЗ ПОДЛОЖЕК И БЕЗ ЭМОДЗИ) -->
-        <div class="lg:col-span-5 space-y-2 font-sans" id="casesNichesList">
+        <div class="lg:col-span-5 space-y-2 font-sans lg:self-center" id="casesNichesList">
           
           <!-- 1. Салон красоты: WhatsApp (День 14:20) -->
           <button type="button" onclick="selectCaseNiche('beauty', this)" class="case-niche-btn active w-full py-3.5 px-4 rounded-2xl flex items-center justify-between text-left transition-all duration-200 group cursor-pointer bg-sky-50/90 shadow-xs border border-sky-200/90 font-bold text-sky-950">
