@@ -459,13 +459,13 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
           <span class="text-sky-600 font-bold">Рекомендуйте бизнесу ИИ-продавца Веру</span> и&nbsp;получайте процент с&nbsp;каждого платежа клиента&nbsp;- за&nbsp;запуск и&nbsp;каждый месяц, пока он пользуется сервисом.
         </p>
 
-        <!-- Actions (Clean, centered side by side: Начать зарабатывать, затем Протестировать Веру) -->
+        <!-- Actions (Clean, centered side by side: Начать зарабатывать, затем Поговорить с Верой) -->
         <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4">
           <a href="#ways" class="w-full sm:w-auto inline-flex items-center justify-center px-8 sm:px-10 py-4 rounded-xl bg-gradient-to-r from-sky-600 to-blue-700 hover:from-sky-500 hover:to-blue-600 text-white font-bold text-sm sm:text-base shadow-lg shadow-sky-600/25 transition-all transform hover:-translate-y-0.5 whitespace-nowrap">
             <span>Начать зарабатывать</span>
           </a>
           <a href="#talk-to-vera" class="btn-earn-shine w-full sm:w-auto inline-flex items-center justify-center px-8 sm:px-10 py-4 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 hover:border-slate-300 font-bold text-sm sm:text-base transition-all shadow-xs hover:shadow-sm relative overflow-hidden whitespace-nowrap">
-            <span class="relative z-10">Протестировать Веру</span>
+            <span class="relative z-10">Поговорить с Верой</span>
             <span class="earn-slow-glare" aria-hidden="true"></span>
           </a>
         </div>
@@ -513,23 +513,23 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
       <!-- Сетка: 2 фото основателей СЛЕВА ОДНО НАД ДРУГИМ (4-5 колонок), текст письма СПРАВА (7-8 колонок) -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-center font-inter">
         
-        <!-- ЛЕВАЯ КОЛОНКА: Фото Алины и Давида ОДНО НАД ДРУГИМ, компактный аккуратный размер -->
+        <!-- ЛЕВАЯ КОЛОНКА: Фото Алины и Давида (в одну строчку на мобилке, друг над другом на десктопе) -->
         <div class="lg:col-span-4 flex justify-center w-full">
-          <div class="flex flex-col gap-3.5 sm:gap-4 w-full max-w-[190px] sm:max-w-[210px] lg:max-w-[220px]">
+          <div class="flex flex-row lg:flex-col gap-3 sm:gap-4 w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[220px]">
             
-            <!-- Фото Алины (сверху) -->
-            <div class="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-[0_12px_30px_rgba(2,132,199,0.12)] border-2 border-white ring-1 ring-sky-200/70 bg-slate-100 group">
-              <img src="assets/images/founder_alina.webp" alt="Алина" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" loading="lazy">
-              <div class="absolute inset-x-0 bottom-0 p-2.5 sm:p-3 bg-gradient-to-t from-slate-950/85 via-slate-950/40 to-transparent">
-                <div class="font-extrabold text-white text-sm sm:text-base leading-tight font-inter tracking-tight">Алина</div>
+            <!-- Фото Алины (слева на мобилке, сверху на десктопе) -->
+            <div class="relative w-1/2 lg:w-full aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_12px_30px_rgba(2,132,199,0.12)] border-2 border-white ring-1 ring-sky-200/70 bg-slate-100 group">
+              <img src="assets/images/founder_alina.webp" alt="Алина" class="w-full h-full object-cover object-[50%_15%] transition-transform duration-700 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-x-0 bottom-0 p-2 sm:p-2.5 lg:p-3 bg-gradient-to-t from-slate-950/85 via-slate-950/40 to-transparent">
+                <div class="font-extrabold text-white text-xs sm:text-sm lg:text-base leading-tight font-inter tracking-tight">Алина</div>
               </div>
             </div>
 
-            <!-- Фото Давида (снизу) -->
-            <div class="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-[0_12px_30px_rgba(2,132,199,0.12)] border-2 border-white ring-1 ring-sky-200/70 bg-slate-100 group">
+            <!-- Фото Давида (справа на мобилке, снизу на десктопе) -->
+            <div class="relative w-1/2 lg:w-full aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_12px_30px_rgba(2,132,199,0.12)] border-2 border-white ring-1 ring-sky-200/70 bg-slate-100 group">
               <img src="assets/images/founder_david.webp" alt="Давид" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" loading="lazy">
-              <div class="absolute inset-x-0 bottom-0 p-2.5 sm:p-3 bg-gradient-to-t from-slate-950/85 via-slate-950/40 to-transparent">
-                <div class="font-extrabold text-white text-sm sm:text-base leading-tight font-inter tracking-tight">Давид</div>
+              <div class="absolute inset-x-0 bottom-0 p-2 sm:p-2.5 lg:p-3 bg-gradient-to-t from-slate-950/85 via-slate-950/40 to-transparent">
+                <div class="font-extrabold text-white text-xs sm:text-sm lg:text-base leading-tight font-inter tracking-tight">Давид</div>
               </div>
             </div>
 
@@ -545,7 +545,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
           </h3>
 
           <p class="text-slate-800 text-sm sm:text-base lg:text-[15.5px] font-medium leading-relaxed">
-            Мы строим честное партнерство: вы зарабатываете вместе с&nbsp;нами на&nbsp;каждом этапе. <span class="text-sky-600 font-bold">Наш флагман&nbsp;- Вера, виртуальный продавец мечты, созданный на&nbsp;передовой ИИ-технологий и&nbsp;двенадцатилетнем опыте реальных продаж.</span>
+            Мы строим честное партнерство: вы зарабатываете вместе с&nbsp;нами на&nbsp;каждом этапе. Наш флагман&nbsp;- <span class="bg-gradient-to-r from-emerald-600 via-sky-500 to-indigo-600 bg-clip-text text-transparent font-extrabold">Вера, виртуальный продавец мечты</span>, созданный на&nbsp;передовой ИИ-технологий и&nbsp;двенадцатилетнем опыте реальных продаж.
           </p>
 
           <ul class="space-y-3 sm:space-y-3.5 pt-1">
@@ -616,11 +616,11 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
       
       <!-- Заголовок и подзаголовок -->
       <div class="text-center max-w-4xl mx-auto mb-10 sm:mb-14">
-        <h2 class="font-benzin uppercase tracking-tight font-black text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[42px] leading-tight overflow-visible text-[#0f172a] whitespace-nowrap" style="font-family: 'Benzin', sans-serif !important;">
+        <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-3xl lg:text-[38px] xl:text-[40px] leading-tight overflow-visible text-[#0f172a] whitespace-nowrap" style="font-family: 'Benzin', sans-serif !important;">
           <span class="pearl-title-gradient">ЧТО ВЫ ПРЕДЛАГАЕТЕ</span> БИЗНЕСУ
         </h2>
         <p class="text-sm sm:text-base md:text-[17px] text-slate-600 font-normal mt-3 leading-relaxed">
-          <strong class="font-bold text-slate-900">Вера&nbsp;- ИИ-продавец с&nbsp;сервисом уровня Ritz-Carlton.</strong> Она окружает каждого входящего клиента заботой, пока собственник бизнеса спокойно отдыхает.
+          <strong class="font-bold text-slate-900">Вера&nbsp;- ИИ-продавец с&nbsp;сервисом уровня Ritz-Carlton.</strong> <br class="sm:hidden">Она окружает каждого входящего клиента заботой, пока собственник бизнеса спокойно отдыхает.
         </p>
       </div>
 
@@ -729,16 +729,16 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
           </div>
 
           <!-- 8. Кнопка «ПОГОВОРИТЬ С ВЕРОЙ → » шрифтом Inter + блик -->
-          <div class="flex flex-wrap items-center gap-4 sm:gap-5 pt-1">
-            <a href="#talk-to-vera" class="btn-earn-shine inline-flex items-center justify-center font-inter uppercase tracking-wide font-extrabold text-xs sm:text-sm text-white bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 hover:from-sky-400 hover:to-blue-500 active:scale-95 px-7 sm:px-8 py-3.5 sm:py-4 rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-sky-500/30 transition-all transform hover:-translate-y-0.5 relative overflow-hidden">
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-5 pt-3 lg:pt-6 lg:mt-auto text-center sm:text-left">
+            <a href="#talk-to-vera" class="btn-earn-shine w-full sm:w-auto inline-flex items-center justify-center font-inter uppercase tracking-wide font-extrabold text-xs sm:text-sm text-white bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 hover:from-sky-400 hover:to-blue-500 active:scale-95 px-7 sm:px-8 py-3.5 sm:py-4 rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-sky-500/30 transition-all transform hover:-translate-y-0.5 relative overflow-hidden">
               <span class="relative z-10 flex items-center gap-1.5">
                 <span>ПОГОВОРИТЬ С ВЕРОЙ</span>
                 <span class="text-sm leading-none">→</span>
               </span>
               <span class="earn-slow-glare" aria-hidden="true"></span>
             </a>
-            <div class="flex items-center gap-2 text-xs sm:text-sm text-slate-600 font-medium">
-              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <div class="flex items-center justify-center gap-2 text-xs sm:text-sm text-slate-600 font-medium text-center">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
               <span>7&nbsp;дней бесплатного теста для каждого клиента</span>
             </div>
           </div>
@@ -862,11 +862,12 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
           <div class="space-y-5">
             <!-- Заголовок и подзаголовок в стандартном стиле Benzin -->
             <div class="space-y-3 text-center lg:text-left">
-              <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-3xl lg:text-[32px] xl:text-[36px] leading-[1.2] text-[#0f172a] overflow-visible" style="font-family: 'Benzin', sans-serif !important;">
-                <span class="pearl-title-gradient">ПОГОВОРИТЕ С ВЕРОЙ</span> ЗДЕСЬ И&nbsp;СЕЙЧАС
+              <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-3xl lg:text-[36px] xl:text-[40px] leading-[1.2] text-[#0f172a] overflow-visible" style="font-family: 'Benzin', sans-serif !important;">
+                <span class="pearl-title-gradient">ПОГОВОРИТЕ</span><br class="hidden lg:inline">
+                <span class="pearl-title-gradient">С&nbsp;ВЕРОЙ</span> ЗДЕСЬ И&nbsp;СЕЙЧАС
               </h2>
               <p class="font-inter text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
-                Напишите в&nbsp;чат все, что угодно. Вера думает, чувствует контекст и&nbsp;ведет диалог как ваш лучший менеджер по&nbsp;продажам
+                Напишите в&nbsp;чат все, что угодно. Вера думает, чувствует контекст и&nbsp;ведет диалог как <span class="whitespace-nowrap">ваш лучший менеджер по&nbsp;продажам</span>
               </p>
             </div>
 
@@ -1015,7 +1016,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
          ========================================================================== -->
     <section id="cases" class="scroll-mt-28 relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-18 font-inter">
       <div class="text-center max-w-4xl mx-auto space-y-2.5 mb-8 sm:mb-12">
-        <h2 class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl lg:text-[50px] leading-tight text-[#0f172a] overflow-visible" style="font-family: 'Benzin', sans-serif !important;">
+        <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[36px] xl:text-[40px] leading-tight text-[#0f172a] overflow-visible" style="font-family: 'Benzin', sans-serif !important;">
           ПРИМЕРЫ <span class="pearl-title-gradient">ИНТЕГРАЦИИ</span>
         </h2>
         <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto font-inter">
@@ -1233,7 +1234,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
           <span class="pearl-title-gradient">Целевая аудитория</span>
         </h2>
         <p class="text-sm sm:text-base text-slate-700 font-medium mt-4 leading-relaxed max-w-2xl mx-auto">
-          Любая компания, которая получает звонки или сообщения от клиентов
+          Любая компания, которая получает звонки<br class="sm:hidden"> или&nbsp;сообщения от&nbsp;клиентов
         </p>
       </div>
 
@@ -1404,16 +1405,16 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
 
       <!-- Engaging Pitch Script Card (WhatsApp Chat Showcase Style, без внешней подложки) -->
       <div class="mt-4 max-w-4xl mx-auto font-inter">
-        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
-          <div>
-            <h3 class="text-lg sm:text-xl font-bold text-slate-900 font-sans tracking-tight">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6 text-center sm:text-left">
+          <div class="w-full sm:w-auto">
+            <h3 class="text-lg sm:text-xl font-bold font-sans tracking-tight text-sky-600 text-center sm:text-left">
               Шаблон сообщения собственнику&nbsp;бизнеса
             </h3>
-            <p class="text-xs sm:text-sm text-slate-600 mt-1">
-              Просто скопируйте текст, отправьте знакомому владельцу бизнеса или РОП, и начните зарабатывать
+            <p class="text-xs sm:text-sm text-slate-600 mt-1 text-center sm:text-left">
+              Просто скопируйте текст, отправьте знакомому владельцу бизнеса или&nbsp;РОП, и&nbsp;начните зарабатывать
             </p>
           </div>
-          <button id="pitch-copy" type="button" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-[#25D366] hover:text-slate-950 text-white font-bold text-xs transition-all shadow-xs shrink-0 cursor-pointer">
+          <button id="pitch-copy" type="button" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-[#25D366] hover:text-slate-950 text-white font-bold text-xs transition-all shadow-xs shrink-0 cursor-pointer">
             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
               <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1466,6 +1467,17 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
             </div>
           </div>
 
+        </div>
+
+        <!-- Кнопка копирования под сообщением на мобилке -->
+        <div class="mt-3.5 flex justify-center sm:hidden">
+          <button id="pitch-copy-mobile" type="button" class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 active:bg-[#25D366] text-white active:text-slate-950 font-bold text-xs transition-all shadow-md cursor-pointer">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            Скопировать текст
+          </button>
         </div>
       </div>
 
@@ -2017,8 +2029,8 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
     <!-- ================= 4. SECTION: ОТКУДА ВАШИ ДЕНЬГИ ================= -->
     <section id="money" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-18 scroll-mt-28 relative">
       <div class="text-center max-w-4xl mx-auto mb-12 sm:mb-14">
-        <h2 class="font-benzin uppercase font-black text-xl sm:text-2xl md:text-3xl lg:text-[34px] leading-[1.25] tracking-[0.01em] overflow-visible text-[#0f172a]">
-          <span class="pearl-title-gradient">Клиент оплачивает сервис&nbsp;-</span> <span class="text-[#0f172a]">вы получаете процент с&nbsp;каждого платежа</span>
+        <h2 class="font-benzin uppercase font-black text-2xl sm:text-3xl md:text-4xl lg:text-[36px] xl:text-[40px] leading-tight tracking-[0.01em] overflow-visible text-[#0f172a]">
+          <span class="pearl-title-gradient">ВЫ ПОЛУЧАЕТЕ ПРОЦЕНТ</span><br class="hidden sm:inline"> <span class="text-[#0f172a]">С&nbsp;КАЖДОГО ПЛАТЕЖА</span>
         </h2>
       </div>
 
@@ -2163,8 +2175,8 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
     <!-- ================= 5. SECTION: РОСТ СТАТУСА ================= -->
     <section id="ladder" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-18 scroll-mt-28 relative">
       <div class="text-center max-w-4xl mx-auto mb-12 sm:mb-14">
-        <h2 class="font-benzin uppercase font-black text-xl sm:text-2xl md:text-3xl lg:text-[34px] leading-[1.25] tracking-[0.01em] overflow-visible text-[#0f172a]">
-          <span class="pearl-title-gradient">Больше клиентов в&nbsp;базе&nbsp;-</span> <span class="text-[#0f172a]">выше ваш процент со&nbsp;всех подписок</span>
+        <h2 class="font-benzin uppercase font-black text-2xl sm:text-3xl md:text-4xl lg:text-[36px] xl:text-[40px] leading-tight tracking-[0.01em] overflow-visible text-[#0f172a]">
+          <span class="pearl-title-gradient">Больше клиентов в&nbsp;базе&nbsp;-</span><br class="hidden sm:inline"> <span class="text-[#0f172a]">выше ваш процент со&nbsp;всех подписок</span>
         </h2>
       </div>
 
@@ -3112,14 +3124,17 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
     /* ---------- КОПИРОВАНИЕ СКРИПТА ---------- */
     function initPitchCopy() {
       const btn = document.getElementById('pitch-copy');
+      const btnMob = document.getElementById('pitch-copy-mobile');
       const txt = document.getElementById('pitch-text');
-      if (!btn || !txt) return;
-      btn.addEventListener('click', () => {
+      if (!txt) return;
+      const doCopy = (targetBtn) => {
         navigator.clipboard.writeText(txt.innerText.trim()).then(() => {
-          btn.textContent = 'Скопировано ✓';
-          setTimeout(() => { btn.textContent = 'Скопировать текст'; }, 2500);
+          if (targetBtn) targetBtn.textContent = 'Скопировано ✓';
+          setTimeout(() => { if (targetBtn) targetBtn.textContent = 'Скопировать текст'; }, 2500);
         });
-      });
+      };
+      if (btn) btn.addEventListener('click', () => doCopy(btn));
+      if (btnMob) btnMob.addEventListener('click', () => doCopy(btnMob));
     }
 
     function selectPartnerTier(tier) {
