@@ -397,8 +397,8 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
 
         <!-- Main Heading in Benzin -->
         <h1 class="hero-main-title font-benzin uppercase font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.15] overflow-visible max-w-4xl mx-auto tracking-tight mb-6" style="font-family: 'Benzin', sans-serif !important;">
-          <span class="pearl-title-gradient">ПРОДУКТ, КОТОРЫЙ</span><br>
-          <span class="text-[#0f172a]">САМ СЕБЯ ПРОДАЁТ</span>
+          <span class="text-[#0f172a]">ПРОДУКТ, КОТОРЫЙ</span><br>
+          <span class="pearl-title-gradient">САМ СЕБЯ ПРОДАЁТ</span>
         </h1>
 
         <!-- Descriptive Paragraph in Inter -->
@@ -421,11 +421,11 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
     </section>
 
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ХЕДЕРА К ПИСЬМУ ОСНОВАТЕЛЕЙ (КОМПАКТНЫЙ АНИМИРОВАННЫЙ КОННЕКТОР) -->
-            <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8 lg:my-10">
+                <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8 lg:my-10">
       <a href="#founders" class="flowing-connector-link group" title="Письмо основателей">
-        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="gradPartnerFlowFounders" x1="500" y1="10" x2="500" y2="150" gradientUnits="userSpaceOnUse">
+            <linearGradient id="gradPartnerFlowFounders" x1="790" y1="10" x2="220" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
               <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
               <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
@@ -435,12 +435,12 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
               <feComposite in="SourceGraphic" in2="blur" operator="over"/>
             </filter>
           </defs>
-          <path d="M 500,10 C 500,60 500,100 500,150" 
+          <path d="M 790,10 C 710,65 470,50 310,95 C 250,115 220,132 220,150" 
                 stroke="url(#gradPartnerFlowFounders)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-          <path d="M 500,10 C 500,60 500,100 500,150" 
+          <path d="M 790,10 C 710,65 470,50 310,95 C 250,115 220,132 220,150" 
                 class="delicate-connector-beam" stroke="url(#gradPartnerFlowFounders)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowPartnerFlowFounders)"/>
-          <circle cx="500" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
-          <path d="M 494.5,142.5 L 500,150 L 505.5,142.5" stroke="#0369A1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="790" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
+          <path d="M 214.5,142.5 L 220,150 L 225.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -451,44 +451,44 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
       <!-- Заголовок для мобильных экранов (над фотографиями) -->
       <div class="block lg:hidden mb-6 px-1 text-center">
         <h3 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl leading-snug" style="font-family: 'Benzin', sans-serif !important;">
-          <span class="pearl-title-gradient">Здравствуйте! Мы&nbsp;- Алина и&nbsp;Давид,</span> <span class="text-[#0f172a]">основатели Altai&nbsp;Optima</span>
+          <span class="pearl-title-gradient">Здравствуйте!</span><br>
+          <span class="pearl-title-gradient whitespace-nowrap">Мы&nbsp;- Алина и&nbsp;Давид,</span><br>
+          <span class="text-[#0f172a]">основатели Altai&nbsp;Optima</span>
         </h3>
       </div>
 
-      <!-- Сетка: 2 фото основателей СЛЕВА (5 колонок), текст письма СПРАВА (7 колонок) -->
+      <!-- Сетка: 2 фото основателей СЛЕВА ОДНО НАД ДРУГИМ (4-5 колонок), текст письма СПРАВА (7-8 колонок) -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-center font-inter">
         
-        <!-- ЛЕВАЯ КОЛОНКА: Фото Алины и Давида в аккуратных портретных карточках -->
-        <div class="lg:col-span-5 flex justify-center w-full">
-          <div class="grid grid-cols-2 gap-3.5 sm:gap-4.5 w-full max-w-sm sm:max-w-md lg:max-w-none">
+        <!-- ЛЕВАЯ КОЛОНКА: Фото Алины и Давида ОДНО НАД ДРУГИМ, просто имена без "сооснователь" -->
+        <div class="lg:col-span-4 flex justify-center w-full">
+          <div class="flex flex-col gap-4 sm:gap-5 w-full max-w-[280px] sm:max-w-[320px] lg:max-w-none">
             
-            <!-- Фото Алины -->
-            <div class="relative aspect-[3/4] sm:aspect-[4/5] rounded-3xl overflow-hidden shadow-[0_16px_40px_rgba(2,132,199,0.14)] border-2 border-white ring-1 ring-sky-200/70 bg-slate-100 group">
-              <img src="assets/images/founder_alina.webp" alt="Алина - сооснователь Altai Optima" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" loading="lazy">
-              <div class="absolute inset-x-0 bottom-0 p-3 sm:p-4 bg-gradient-to-t from-slate-950/85 via-slate-950/40 to-transparent">
-                <div class="font-extrabold text-white text-sm sm:text-base md:text-lg leading-tight font-inter tracking-tight">Алина</div>
-                <div class="text-[10px] sm:text-[11px] text-sky-200 font-medium mt-0.5">Сооснователь</div>
+            <!-- Фото Алины (сверху) -->
+            <div class="relative aspect-[4/3] sm:aspect-[14/11] rounded-3xl overflow-hidden shadow-[0_14px_36px_rgba(2,132,199,0.12)] border-2 border-white ring-1 ring-sky-200/70 bg-slate-100 group">
+              <img src="assets/images/founder_alina.webp" alt="Алина" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-x-0 bottom-0 p-3 sm:p-3.5 bg-gradient-to-t from-slate-950/85 via-slate-950/40 to-transparent">
+                <div class="font-extrabold text-white text-base sm:text-lg leading-tight font-inter tracking-tight">Алина</div>
               </div>
             </div>
 
-            <!-- Фото Давида -->
-            <div class="relative aspect-[3/4] sm:aspect-[4/5] rounded-3xl overflow-hidden shadow-[0_16px_40px_rgba(2,132,199,0.14)] border-2 border-white ring-1 ring-sky-200/70 bg-slate-100 group">
-              <img src="assets/images/founder_david.webp" alt="Давид - сооснователь Altai Optima" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" loading="lazy">
-              <div class="absolute inset-x-0 bottom-0 p-3 sm:p-4 bg-gradient-to-t from-slate-950/85 via-slate-950/40 to-transparent">
-                <div class="font-extrabold text-white text-sm sm:text-base md:text-lg leading-tight font-inter tracking-tight">Давид</div>
-                <div class="text-[10px] sm:text-[11px] text-sky-200 font-medium mt-0.5">Сооснователь</div>
+            <!-- Фото Давида (снизу) -->
+            <div class="relative aspect-[4/3] sm:aspect-[14/11] rounded-3xl overflow-hidden shadow-[0_14px_36px_rgba(2,132,199,0.12)] border-2 border-white ring-1 ring-sky-200/70 bg-slate-100 group">
+              <img src="assets/images/founder_david.webp" alt="Давид" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-x-0 bottom-0 p-3 sm:p-3.5 bg-gradient-to-t from-slate-950/85 via-slate-950/40 to-transparent">
+                <div class="font-extrabold text-white text-base sm:text-lg leading-tight font-inter tracking-tight">Давид</div>
               </div>
             </div>
 
           </div>
         </div>
 
-        <!-- ПРАВАЯ КОЛОНКА: Большой заголовок, текст открытого письма и градиентный призыв -->
-        <div class="lg:col-span-7 flex flex-col space-y-4 sm:space-y-4.5 text-xs sm:text-sm lg:text-[15px] text-slate-700 leading-relaxed font-inter px-1 sm:px-2">
+        <!-- ПРАВАЯ КОЛОНКА: Крупный заголовок с "МЫ - АЛИНА И ДАВИД" на одной строчке + текст -->
+        <div class="lg:col-span-8 flex flex-col space-y-4 sm:space-y-4.5 text-xs sm:text-sm lg:text-[15px] text-slate-700 leading-relaxed font-inter px-1 sm:px-2">
           
-          <!-- Десктопный крупный заголовок -->
-          <h3 class="hidden lg:block font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[34px] xl:text-[38px] leading-[1.2] text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
-            <span class="pearl-title-gradient">Здравствуйте! Мы&nbsp;- Алина и&nbsp;Давид,</span> <span class="text-[#0f172a]">основатели Altai&nbsp;Optima</span>
+          <!-- Десктопный заголовок: МЫ - АЛИНА И ДАВИД строго на одной строчке -->
+          <h3 class="hidden lg:block font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[32px] xl:text-[36px] leading-[1.2] text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
+            <span class="pearl-title-gradient">Здравствуйте!</span> <span class="pearl-title-gradient whitespace-nowrap">Мы&nbsp;- Алина и&nbsp;Давид,</span> <span class="text-[#0f172a]">основатели Altai&nbsp;Optima</span>
           </h3>
 
           <p class="text-slate-800 text-sm sm:text-base lg:text-[15.5px] font-medium leading-relaxed">
@@ -522,7 +522,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
             </li>
           </ul>
 
-          <!-- Выделенный ярким градиентом призыв Давайте расти вместе! -->
+          <!-- Выделенный градиентом призыв Давайте расти вместе! -->
           <div class="pt-3 sm:pt-4">
             <p class="font-benzin uppercase tracking-tight font-black text-xl sm:text-2xl lg:text-[26px] xl:text-[28px] bg-gradient-to-r from-emerald-600 via-sky-500 to-indigo-600 bg-clip-text text-transparent inline-block leading-tight" style="font-family: 'Benzin', sans-serif !important;">
               Давайте расти вместе!
@@ -535,11 +535,11 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
     </section>
 
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ПИСЬМА К ПРОДУКТУ -->
-            <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8 lg:my-10">
+                <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8 lg:my-10">
       <a href="#product" class="flowing-connector-link group" title="Что вы предлагаете бизнесу">
-        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="gradPartnerFlow1" x1="500" y1="10" x2="500" y2="150" gradientUnits="userSpaceOnUse">
+            <linearGradient id="gradPartnerFlow1" x1="210" y1="10" x2="780" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
               <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
               <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
@@ -549,12 +549,12 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
               <feComposite in="SourceGraphic" in2="blur" operator="over"/>
             </filter>
           </defs>
-          <path d="M 500,10 C 500,60 500,100 500,150" 
+          <path d="M 210,10 C 290,65 520,50 670,95 C 735,115 780,132 780,150" 
                 stroke="url(#gradPartnerFlow1)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-          <path d="M 500,10 C 500,60 500,100 500,150" 
+          <path d="M 210,10 C 290,65 520,50 670,95 C 735,115 780,132 780,150" 
                 class="delicate-connector-beam" stroke="url(#gradPartnerFlow1)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowPartnerFlow1)"/>
-          <circle cx="500" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
-          <path d="M 494.5,142.5 L 500,150 L 505.5,142.5" stroke="#0369A1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="210" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
+          <path d="M 774.5,142.5 L 780,150 L 785.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -562,24 +562,24 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
     <!-- ================= 3. SECTION: ЧТО ВЫ ПРЕДЛАГАЕТЕ БИЗНЕСУ ================= -->
     <section id="product" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-16 scroll-mt-28 relative">
       
-      <!-- Заголовок и вводная мысль -->
+      <!-- Заголовок и новый подзаголовок -->
       <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
         <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[42px] leading-tight overflow-visible text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
           <span class="pearl-title-gradient">ЧТО ВЫ ПРЕДЛАГАЕТЕ</span> БИЗНЕСУ
         </h2>
         <p class="text-sm sm:text-base md:text-[17px] text-slate-600 font-normal mt-3 leading-relaxed">
-          Веру&nbsp;- ИИ-продавца с&nbsp;сервисом уровня Ritz-Carlton. Она окружает каждого входящего клиента заботой, пока собственник бизнеса спокойно отдыхает.
+          Вера&nbsp;- ИИ-продавец с&nbsp;сервисом уровня Ritz-Carlton. Она окружает каждого входящего клиента заботой, пока собственник бизнеса спокойно отдыхает
         </p>
       </div>
 
       <!-- 2 колонки: Визуал Веры с диалогом слева, 4 преимущества и характеристики справа -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center mb-16 sm:mb-20">
         
-        <!-- Левая колонка (5 колонок): Визуал Веры + 2 плавающих облачка диалога -->
+        <!-- Левая колонка (5 колонок): Визуал Веры (ВЕРА СТРОГО ПОСЕРЕДИНЕ) + диалог -->
         <div class="lg:col-span-5 flex justify-center w-full">
           <div class="relative w-full max-w-[420px] aspect-[4/5] rounded-[32px] overflow-hidden shadow-2xl border-4 border-white bg-slate-900 group">
             
-            <!-- Фоновое видео/изображение Веры -->
+            <!-- Фоновое видео: Вера строго посередине (object-center) -->
             <video 
               src="0906.mp4" 
               poster="eva_desk_portrait.webp" 
@@ -588,7 +588,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
               loop 
               playsinline 
               preload="metadata"
-              class="w-full h-full object-cover object-[25%_center] select-none pointer-events-none transition-transform duration-700 scale-[1.03] group-hover:scale-105"
+              class="w-full h-full object-cover object-center select-none pointer-events-none transition-transform duration-700 scale-[1.03] group-hover:scale-105"
             ></video>
 
             <!-- Затемнение снизу для контраста диалога -->
@@ -612,87 +612,86 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
           </div>
         </div>
 
-        <!-- Правая колонка (7 колонок): 4 тезиса + акцент + плашка каналов + кнопка -->
-        <div class="lg:col-span-7 space-y-4 sm:space-y-5 font-inter text-left">
+        <!-- Правая колонка (7 колонок): 4 готовых тезиса Веры + полупрозрачная плашка каналов/CRM + кнопка шрифтом Inter -->
+        <div class="lg:col-span-7 space-y-4 sm:space-y-4.5 font-inter text-left">
           
-          <!-- 4 пункта с галочками -->
+          <!-- 4 пункта по тексту пользователя -->
           <div class="space-y-3.5 sm:space-y-4">
             
-            <!-- 1. Отвечает за секунды -->
+            <!-- 1. Отвечает за секунды в 24/7 -->
             <div class="flex items-start gap-3 sm:gap-3.5">
               <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-white border border-sky-200/90 text-sky-600 shadow-2xs flex items-center justify-center shrink-0 font-bold text-xs sm:text-sm mt-0.5">✓</span>
               <div>
-                <h4 class="font-bold text-sm sm:text-base text-slate-900 leading-snug">Отвечает за&nbsp;секунды</h4>
-                <p class="text-xs sm:text-[13px] text-slate-600 mt-0.5 leading-relaxed">Днём, ночью и&nbsp;в&nbsp;выходные. Клиент пишет в&nbsp;23:47&nbsp;- и&nbsp;сразу чувствует, что его здесь ждали.</p>
+                <h4 class="font-bold text-sm sm:text-base text-slate-900 leading-snug">Отвечает за&nbsp;секунды в&nbsp;24/7</h4>
+                <p class="text-xs sm:text-[13.5px] text-slate-600 mt-0.5 leading-relaxed">днем, ночью и&nbsp;в&nbsp;выходные. Лид пишет в&nbsp;23:47&nbsp;- и&nbsp;сразу чувствует персональное внимание.</p>
               </div>
             </div>
 
-            <!-- 2. Общается тепло и по имени -->
+            <!-- 2. Ведет живой диалог и продает -->
             <div class="flex items-start gap-3 sm:gap-3.5">
               <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-white border border-sky-200/90 text-sky-600 shadow-2xs flex items-center justify-center shrink-0 font-bold text-xs sm:text-sm mt-0.5">✓</span>
               <div>
-                <h4 class="font-bold text-sm sm:text-base text-slate-900 leading-snug">Общается тепло и&nbsp;по&nbsp;имени</h4>
-                <p class="text-xs sm:text-[13px] text-slate-600 mt-0.5 leading-relaxed">Узнаёт, как обращаться к&nbsp;клиенту, и&nbsp;разговаривает как ваш лучший менеджер, а&nbsp;не&nbsp;как бот с&nbsp;кнопками.</p>
+                <h4 class="font-bold text-sm sm:text-base text-slate-900 leading-snug">Ведет живой диалог и&nbsp;продает</h4>
+                <p class="text-xs sm:text-[13.5px] text-slate-600 mt-0.5 leading-relaxed">обращается по&nbsp;имени, общается как лучший эксперт компании и&nbsp;бережно доводит человека до&nbsp;сделки, исключая глупые шаблонные отписки с&nbsp;кнопками.</p>
               </div>
             </div>
 
-            <!-- 3. Помнит каждую деталь -->
+            <!-- 3. Фиксирует всё в систему -->
             <div class="flex items-start gap-3 sm:gap-3.5">
               <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-white border border-sky-200/90 text-sky-600 shadow-2xs flex items-center justify-center shrink-0 font-bold text-xs sm:text-sm mt-0.5">✓</span>
               <div>
-                <h4 class="font-bold text-sm sm:text-base text-slate-900 leading-snug">Помнит каждую деталь</h4>
-                <p class="text-xs sm:text-[13px] text-slate-600 mt-0.5 leading-relaxed">Контекст диалога, пожелания, прошлые заказы&nbsp;- всё бережно фиксирует в&nbsp;базу и&nbsp;использует в&nbsp;следующем разговоре.</p>
+                <h4 class="font-bold text-sm sm:text-base text-slate-900 leading-snug">Фиксирует всё в&nbsp;систему</h4>
+                <p class="text-xs sm:text-[13.5px] text-slate-600 mt-0.5 leading-relaxed">сохраняет суть переписки, предпочтения и&nbsp;контакты прямо в&nbsp;CRM, используя эти детали в&nbsp;каждом следующем касании.</p>
               </div>
             </div>
 
-            <!-- 4. Вовремя поздравляет с днём рождения -->
+            <!-- 4. Выстраивает долгосрочную дружбу -->
             <div class="flex items-start gap-3 sm:gap-3.5">
               <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-white border border-sky-200/90 text-sky-600 shadow-2xs flex items-center justify-center shrink-0 font-bold text-xs sm:text-sm mt-0.5">✓</span>
               <div>
-                <h4 class="font-bold text-sm sm:text-base text-slate-900 leading-snug">Вовремя поздравляет с&nbsp;днём рождения</h4>
-                <p class="text-xs sm:text-[13px] text-slate-600 mt-0.5 leading-relaxed">Помнит о&nbsp;важных датах клиента и&nbsp;дарит ему ощущение персонального внимания.</p>
+                <h4 class="font-bold text-sm sm:text-base text-slate-900 leading-snug">Выстраивает долгосрочную дружбу</h4>
+                <p class="text-xs sm:text-[13.5px] text-slate-600 mt-0.5 leading-relaxed">помнит историю заказов, вовремя поздравляет с&nbsp;днем рождения и&nbsp;возвращает клиентов за&nbsp;повторными покупками.</p>
               </div>
             </div>
 
           </div>
 
           <!-- Акцентная строка -->
-          <p class="text-xs sm:text-sm font-bold text-sky-700 leading-snug pt-0.5">
-            Клиент чувствует персональную заботу, пока собственник бизнеса спокойно отдыхает.
+          <p class="text-xs sm:text-sm font-bold text-sky-700 leading-snug pt-1">
+            Клиент чувствует искреннюю заботу, пока собственник бизнеса спокойно отдыхает.
           </p>
 
-          <!-- Каналы и CRM: без подложки, фирменные цвета соцсетей, крупный шрифт + "...и другие;" -->
-          <div class="space-y-3 pt-2 text-sm sm:text-base font-inter">
-            <div class="leading-relaxed">
+          <!-- 9b. ПОЛУПРОЗРАЧНАЯ ПЛАШКА: КАНАЛЫ И ИНТЕГРАЦИИ -->
+          <div class="p-4 sm:p-4.5 rounded-2xl bg-white/50 backdrop-blur-md border border-sky-200/70 shadow-2xs text-xs sm:text-[13px] leading-relaxed space-y-2 font-inter">
+            <div>
               <strong class="font-bold text-slate-900">Каналы:</strong>
               <span class="font-bold text-[#075E54]">WhatsApp</span>,
               <span class="font-bold text-[#229ED9]">Telegram</span>,
+              <span class="font-bold text-[#0077FF]">ВКонтакте</span>,
               <span class="font-bold" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Instagram</span>,
               <span class="font-bold text-[#00AAFF]">Авито</span>,
-              <span class="text-slate-800 font-semibold">MAX</span>,
-              <span class="text-slate-800 font-semibold">сайт</span> ·
-              <span class="text-sky-700 font-medium">понимает голосовые</span>&hellip;
-              <span class="text-slate-500 font-semibold">и&nbsp;другие;</span>
+              <span class="text-slate-800 font-bold">MAX</span>,
+              <span class="text-slate-800 font-medium">виджет на сайте</span> и&nbsp;другие соцсети&nbsp;·
+              <span class="text-sky-700 font-medium">распознает голосовые сообщения</span>
             </div>
-            <div class="leading-relaxed">
-              <strong class="font-bold text-slate-900">CRM:</strong>
-              <span class="text-slate-700 font-medium">amoCRM, Битрикс24, 1С, МойСклад, таблицы</span>&hellip;
-              <span class="text-slate-500 font-semibold">и&nbsp;другие;</span>
+            <div>
+              <strong class="font-bold text-slate-900">Интеграции:</strong>
+              <span class="text-slate-700 font-medium">amoCRM, Битрикс24, 1С, МойСклад, Google&nbsp;Таблицы и&nbsp;другие сервисы</span>
             </div>
           </div>
 
-          <!-- Кнопка «Поговорить с Верой» с ярким акцентом и переливающимся бликом -->
+          <!-- 8. Кнопка «ПОГОВОРИТЬ С ВЕРОЙ → » шрифтом Inter + блик -->
           <div class="flex flex-wrap items-center gap-4 sm:gap-5 pt-2">
-            <a href="#talk-to-vera" class="btn-earn-shine inline-flex items-center justify-center font-benzin uppercase tracking-wider font-bold text-xs sm:text-sm md:text-base text-white bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 hover:from-sky-400 hover:to-blue-500 active:scale-95 px-7 sm:px-9 py-3.5 sm:py-4 rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-sky-500/30 transition-all transform hover:-translate-y-0.5 relative overflow-hidden" style="font-family: 'Benzin', sans-serif !important;">
-              <span class="relative z-10 flex items-center gap-2">
-                <span>Поговорить с&nbsp;Верой</span>
-                <span class="text-sm">→</span>
+            <a href="#talk-to-vera" class="btn-earn-shine inline-flex items-center justify-center font-inter uppercase tracking-wide font-extrabold text-xs sm:text-sm text-white bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 hover:from-sky-400 hover:to-blue-500 active:scale-95 px-7 sm:px-8 py-3.5 sm:py-4 rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-sky-500/30 transition-all transform hover:-translate-y-0.5 relative overflow-hidden">
+              <span class="relative z-10 flex items-center gap-1.5">
+                <span>ПОГОВОРИТЬ С ВЕРОЙ</span>
+                <span class="text-sm leading-none">→</span>
               </span>
               <span class="earn-slow-glare" aria-hidden="true"></span>
             </a>
             <div class="flex items-center gap-2 text-xs sm:text-sm text-slate-600 font-medium">
               <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span>Для клиента&nbsp;- <strong class="font-bold text-slate-950">7&nbsp;дней бесплатного теста</strong></span>
+              <span>7&nbsp;дней бесплатного теста для каждого клиента</span>
             </div>
           </div>
 
@@ -700,81 +699,81 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
 
       </div>
 
-      <!-- ================= БЛОК: ТАРИФЫ КЛИЕНТА (МИНИМАЛИСТИЧНЫЕ ПОЛУПРОЗРАЧНЫЕ ПЛАШКИ) ================= -->
-      <div class="pt-6 sm:pt-10">
+      <!-- ================= БЛОК: ТАРИФЫ КЛИЕНТА (ЁМКО, ШРИФТ ВЕЗДЕ INTER, ЗЕЛЕНАЯ ПЛАШКА) ================= -->
+      <div class="pt-6 sm:pt-8 font-inter">
         
         <!-- Заголовок тарифов и подпись -->
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-6 sm:mb-8">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-5 sm:mb-6">
           <h3 class="font-benzin uppercase tracking-tight font-black text-xl sm:text-2xl md:text-3xl text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
             <span class="pearl-title-gradient">ТАРИФЫ</span> КЛИЕНТА
           </h3>
-          <div class="text-xs sm:text-sm text-slate-600 font-medium">
+          <div class="text-xs sm:text-sm text-slate-600 font-medium font-inter">
             Запуск <strong class="font-bold text-slate-900">29&nbsp;000&nbsp;₽</strong> разово + ежемесячная подписка
           </div>
         </div>
 
-        <!-- 4 минималистичные полупрозрачные аккуратные плашки -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6 items-stretch font-inter">
+        <!-- 4 ёмкие аккуратные полупрозрачные плашки - шрифт Inter -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4 lg:gap-5 items-stretch font-inter">
           
           <!-- 1. Старт -->
-          <div class="rounded-3xl bg-white/45 backdrop-blur-md border border-sky-200/60 p-6 sm:p-7 flex flex-col justify-between hover:bg-white/65 hover:border-sky-300/80 hover:shadow-[0_12px_32px_rgba(2,132,199,0.08)] transition-all duration-300 group">
+          <div class="rounded-2xl bg-white/45 backdrop-blur-md border border-sky-200/60 p-5 sm:p-5.5 flex flex-col justify-between hover:bg-white/65 hover:border-sky-300/80 hover:shadow-[0_10px_28px_rgba(2,132,199,0.08)] transition-all duration-300 group">
             <div>
-              <div class="text-base sm:text-lg font-black text-slate-900 tracking-tight font-benzin" style="font-family: 'Benzin', sans-serif !important;">Старт</div>
-              <div class="text-xs text-slate-500 font-medium mt-1">до&nbsp;200 диалогов</div>
+              <div class="text-base sm:text-[17px] font-extrabold text-slate-900 tracking-tight font-inter">Старт</div>
+              <div class="text-xs text-slate-500 font-medium mt-0.5">до&nbsp;200 диалогов</div>
             </div>
-            <div class="mt-6 pt-4 border-t border-sky-100/80">
-              <div class="text-2xl sm:text-[28px] font-black text-slate-900 tracking-tight leading-none">25&nbsp;000&nbsp;₽</div>
-              <div class="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-widest mt-1.5">В МЕСЯЦ</div>
+            <div class="mt-4 pt-3.5 border-t border-sky-100/80">
+              <div class="text-2xl sm:text-[26px] font-black text-slate-900 tracking-tight leading-none font-inter">25&nbsp;000&nbsp;₽</div>
+              <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1 font-inter">В МЕСЯЦ</div>
             </div>
           </div>
 
           <!-- 2. Бизнес (Хит) -->
-          <div class="rounded-3xl bg-white/65 backdrop-blur-md border-2 border-sky-400/70 p-6 sm:p-7 flex flex-col justify-between relative shadow-[0_14px_36px_rgba(2,132,199,0.12)] hover:bg-white/80 transition-all duration-300 group">
-            <div class="absolute -top-3 right-6">
-              <span class="text-[10px] font-black uppercase tracking-wider px-3 py-0.5 rounded-full bg-sky-600 text-white shadow-xs">ХИТ</span>
+          <div class="rounded-2xl bg-white/65 backdrop-blur-md border-2 border-sky-400/70 p-5 sm:p-5.5 flex flex-col justify-between relative shadow-[0_12px_32px_rgba(2,132,199,0.12)] hover:bg-white/80 transition-all duration-300 group">
+            <div class="absolute -top-2.5 right-5">
+              <span class="text-[9.5px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-sky-600 text-white shadow-xs font-inter">ХИТ</span>
             </div>
             <div>
-              <div class="text-base sm:text-lg font-black text-slate-900 tracking-tight font-benzin" style="font-family: 'Benzin', sans-serif !important;">Бизнес</div>
-              <div class="text-xs text-slate-500 font-medium mt-1">до&nbsp;600 диалогов</div>
+              <div class="text-base sm:text-[17px] font-extrabold text-slate-900 tracking-tight font-inter">Бизнес</div>
+              <div class="text-xs text-slate-500 font-medium mt-0.5">до&nbsp;600 диалогов</div>
             </div>
-            <div class="mt-6 pt-4 border-t border-sky-200/80">
-              <div class="text-2xl sm:text-[28px] font-black text-sky-600 tracking-tight leading-none">39&nbsp;000&nbsp;₽</div>
-              <div class="text-[10px] sm:text-[11px] font-bold text-sky-600/70 uppercase tracking-widest mt-1.5">В МЕСЯЦ</div>
+            <div class="mt-4 pt-3.5 border-t border-sky-200/80">
+              <div class="text-2xl sm:text-[26px] font-black text-sky-600 tracking-tight leading-none font-inter">39&nbsp;000&nbsp;₽</div>
+              <div class="text-[10px] font-bold text-sky-600/70 uppercase tracking-widest mt-1 font-inter">В МЕСЯЦ</div>
             </div>
           </div>
 
           <!-- 3. Поток -->
-          <div class="rounded-3xl bg-white/45 backdrop-blur-md border border-sky-200/60 p-6 sm:p-7 flex flex-col justify-between hover:bg-white/65 hover:border-sky-300/80 hover:shadow-[0_12px_32px_rgba(2,132,199,0.08)] transition-all duration-300 group">
+          <div class="rounded-2xl bg-white/45 backdrop-blur-md border border-sky-200/60 p-5 sm:p-5.5 flex flex-col justify-between hover:bg-white/65 hover:border-sky-300/80 hover:shadow-[0_10px_28px_rgba(2,132,199,0.08)] transition-all duration-300 group">
             <div>
-              <div class="text-base sm:text-lg font-black text-slate-900 tracking-tight font-benzin" style="font-family: 'Benzin', sans-serif !important;">Поток</div>
-              <div class="text-xs text-slate-500 font-medium mt-1">до&nbsp;1&nbsp;500 диалогов</div>
+              <div class="text-base sm:text-[17px] font-extrabold text-slate-900 tracking-tight font-inter">Поток</div>
+              <div class="text-xs text-slate-500 font-medium mt-0.5">до&nbsp;1&nbsp;500 диалогов</div>
             </div>
-            <div class="mt-6 pt-4 border-t border-sky-100/80">
-              <div class="text-2xl sm:text-[28px] font-black text-slate-900 tracking-tight leading-none">59&nbsp;000&nbsp;₽</div>
-              <div class="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-widest mt-1.5">В МЕСЯЦ</div>
+            <div class="mt-4 pt-3.5 border-t border-sky-100/80">
+              <div class="text-2xl sm:text-[26px] font-black text-slate-900 tracking-tight leading-none font-inter">59&nbsp;000&nbsp;₽</div>
+              <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1 font-inter">В МЕСЯЦ</div>
             </div>
           </div>
 
           <!-- 4. Империя -->
-          <div class="rounded-3xl bg-white/45 backdrop-blur-md border border-sky-200/60 p-6 sm:p-7 flex flex-col justify-between hover:bg-white/65 hover:border-sky-300/80 hover:shadow-[0_12px_32px_rgba(2,132,199,0.08)] transition-all duration-300 group">
+          <div class="rounded-2xl bg-white/45 backdrop-blur-md border border-sky-200/60 p-5 sm:p-5.5 flex flex-col justify-between hover:bg-white/65 hover:border-sky-300/80 hover:shadow-[0_10px_28px_rgba(2,132,199,0.08)] transition-all duration-300 group">
             <div>
-              <div class="text-base sm:text-lg font-black text-slate-900 tracking-tight font-benzin" style="font-family: 'Benzin', sans-serif !important;">Империя</div>
-              <div class="text-xs text-slate-500 font-medium mt-1">больше 1&nbsp;500 диалогов</div>
+              <div class="text-base sm:text-[17px] font-extrabold text-slate-900 tracking-tight font-inter">Империя</div>
+              <div class="text-xs text-slate-500 font-medium mt-0.5">больше 1&nbsp;500 диалогов</div>
             </div>
-            <div class="mt-6 pt-4 border-t border-sky-100/80">
-              <div class="text-2xl sm:text-[28px] font-black text-slate-900 tracking-tight leading-none">от&nbsp;99&nbsp;000&nbsp;₽</div>
-              <div class="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-widest mt-1.5">В МЕСЯЦ</div>
+            <div class="mt-4 pt-3.5 border-t border-sky-100/80">
+              <div class="text-2xl sm:text-[26px] font-black text-slate-900 tracking-tight leading-none font-inter">от&nbsp;99&nbsp;000&nbsp;₽</div>
+              <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1 font-inter">В МЕСЯЦ</div>
             </div>
           </div>
 
         </div>
 
-        <!-- Нижняя аккуратная полупрозрачная плашка с доходом партнера -->
-        <div class="mt-5 p-4 sm:p-5 rounded-2xl bg-white/45 backdrop-blur-md border border-sky-200/60 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs sm:text-sm font-inter">
-          <div class="text-slate-700">
-            Ваш доход с&nbsp;одного клиента на&nbsp;«Бизнесе»&nbsp;- <strong class="font-bold text-slate-950">до&nbsp;8&nbsp;700&nbsp;₽ за&nbsp;запуск + до&nbsp;9&nbsp;750&nbsp;₽ каждый месяц</strong>
+        <!-- 10. ПЛАШКА ДОХОДА ПАРТНЕРА: ЗЕЛЕНАЯ -->
+        <div class="mt-4 p-4 sm:p-4.5 rounded-2xl bg-emerald-500/15 backdrop-blur-md border border-emerald-400/50 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs sm:text-sm font-inter">
+          <div class="text-emerald-950 font-medium">
+            Ваш доход с&nbsp;одного клиента на&nbsp;«Бизнесе»&nbsp;- <strong class="font-extrabold text-emerald-900">до&nbsp;8&nbsp;700&nbsp;₽ за&nbsp;запуск + до&nbsp;9&nbsp;750&nbsp;₽ каждый месяц</strong>
           </div>
-          <a href="#calc" class="inline-flex items-center gap-1 font-bold text-sky-600 hover:text-sky-700 transition-colors shrink-0">
+          <a href="#calc" class="inline-flex items-center gap-1 font-extrabold text-emerald-700 hover:text-emerald-800 transition-colors shrink-0">
             <span>Как это посчитано</span>
             <span class="text-base leading-none">→</span>
           </a>
@@ -785,11 +784,11 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
     </section>
 
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ПРОДУКТА К ЖИВОМУ ТЕСТУ ВЕРЫ -->
-            <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8 lg:my-10">
+                <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8 lg:my-10">
       <a href="#talk-to-vera" class="flowing-connector-link group" title="Поговорите с Верой здесь и сейчас">
-        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="gradPartnerFlowVeraTalk" x1="500" y1="10" x2="500" y2="150" gradientUnits="userSpaceOnUse">
+            <linearGradient id="gradPartnerFlowVeraTalk" x1="790" y1="10" x2="220" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
               <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
               <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
@@ -799,12 +798,12 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
               <feComposite in="SourceGraphic" in2="blur" operator="over"/>
             </filter>
           </defs>
-          <path d="M 500,10 C 500,60 500,100 500,150" 
+          <path d="M 790,10 C 710,65 470,50 310,95 C 250,115 220,132 220,150" 
                 stroke="url(#gradPartnerFlowVeraTalk)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-          <path d="M 500,10 C 500,60 500,100 500,150" 
+          <path d="M 790,10 C 710,65 470,50 310,95 C 250,115 220,132 220,150" 
                 class="delicate-connector-beam" stroke="url(#gradPartnerFlowVeraTalk)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowPartnerFlowVeraTalk)"/>
-          <circle cx="500" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
-          <path d="M 494.5,142.5 L 500,150 L 505.5,142.5" stroke="#0369A1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="790" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
+          <path d="M 214.5,142.5 L 220,150 L 225.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -940,11 +939,11 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
     </section>
 
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ТЕСТА ВЕРЫ К ПРИМЕРАМ ИНТЕГРАЦИИ -->
-            <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8 lg:my-10">
+                <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8 lg:my-10">
       <a href="#cases" class="flowing-connector-link group" title="Примеры интеграции">
-        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="gradFlowTalkToCases" x1="500" y1="10" x2="500" y2="150" gradientUnits="userSpaceOnUse">
+            <linearGradient id="gradFlowTalkToCases" x1="210" y1="10" x2="780" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
               <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
               <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
@@ -954,12 +953,12 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
               <feComposite in="SourceGraphic" in2="blur" operator="over"/>
             </filter>
           </defs>
-          <path d="M 500,10 C 500,60 500,100 500,150" 
+          <path d="M 210,10 C 290,65 520,50 670,95 C 735,115 780,132 780,150" 
                 stroke="url(#gradFlowTalkToCases)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-          <path d="M 500,10 C 500,60 500,100 500,150" 
+          <path d="M 210,10 C 290,65 520,50 670,95 C 735,115 780,132 780,150" 
                 class="delicate-connector-beam" stroke="url(#gradFlowTalkToCases)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowFlowTalkToCases)"/>
-          <circle cx="500" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
-          <path d="M 494.5,142.5 L 500,150 L 505.5,142.5" stroke="#0369A1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="210" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
+          <path d="M 774.5,142.5 L 780,150 L 785.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -1154,11 +1153,11 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
     </section>
 
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ПРИМЕРОВ ИНТЕГРАЦИИ К ЦЕЛЕВОЙ АУДИТОРИИ -->
-            <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8 lg:my-10">
+                <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8 lg:my-10">
       <a href="#fit" class="flowing-connector-link group" title="Кому предлагать">
-        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="gradPartnerFlowCasesToFit" x1="500" y1="10" x2="500" y2="150" gradientUnits="userSpaceOnUse">
+            <linearGradient id="gradPartnerFlowCasesToFit" x1="790" y1="10" x2="220" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
               <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
               <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
@@ -1168,12 +1167,12 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
               <feComposite in="SourceGraphic" in2="blur" operator="over"/>
             </filter>
           </defs>
-          <path d="M 500,10 C 500,60 500,100 500,150" 
+          <path d="M 790,10 C 710,65 470,50 310,95 C 250,115 220,132 220,150" 
                 stroke="url(#gradPartnerFlowCasesToFit)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-          <path d="M 500,10 C 500,60 500,100 500,150" 
+          <path d="M 790,10 C 710,65 470,50 310,95 C 250,115 220,132 220,150" 
                 class="delicate-connector-beam" stroke="url(#gradPartnerFlowCasesToFit)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowPartnerFlowCasesToFit)"/>
-          <circle cx="500" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
-          <path d="M 494.5,142.5 L 500,150 L 505.5,142.5" stroke="#0369A1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="790" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
+          <path d="M 214.5,142.5 L 220,150 L 225.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -1426,11 +1425,11 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
     </section>
 
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ЦЕЛЕВОЙ АУДИТОРИИ К СПОСОБАМ ЗАРАБОТАТЬ -->
-            <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8 lg:my-10">
+                <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8 lg:my-10">
       <a href="#ways" class="flowing-connector-link group" title="Способы заработать">
-        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="gradPartnerFlowFitToWays" x1="500" y1="10" x2="500" y2="150" gradientUnits="userSpaceOnUse">
+            <linearGradient id="gradPartnerFlowFitToWays" x1="210" y1="10" x2="780" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
               <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
               <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
@@ -1440,12 +1439,12 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
               <feComposite in="SourceGraphic" in2="blur" operator="over"/>
             </filter>
           </defs>
-          <path d="M 500,10 C 500,60 500,100 500,150" 
+          <path d="M 210,10 C 290,65 520,50 670,95 C 735,115 780,132 780,150" 
                 stroke="url(#gradPartnerFlowFitToWays)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-          <path d="M 500,10 C 500,60 500,100 500,150" 
+          <path d="M 210,10 C 290,65 520,50 670,95 C 735,115 780,132 780,150" 
                 class="delicate-connector-beam" stroke="url(#gradPartnerFlowFitToWays)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowPartnerFlowFitToWays)"/>
-          <circle cx="500" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
-          <path d="M 494.5,142.5 L 500,150 L 505.5,142.5" stroke="#0369A1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="210" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
+          <path d="M 774.5,142.5 L 780,150 L 785.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -1944,11 +1943,11 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
     </section>
 
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ СПОСОБОВ ЗАРАБОТКА К ВЫПЛАТАМ (ПУТЬ ПАРТНЁРА) -->
-            <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8 lg:my-10">
+                <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8 lg:my-10">
       <a href="#money" class="flowing-connector-link group" title="Откуда ваши деньги">
-        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="gradPartnerFlowWaysToMoney" x1="500" y1="10" x2="500" y2="150" gradientUnits="userSpaceOnUse">
+            <linearGradient id="gradPartnerFlowWaysToMoney" x1="790" y1="10" x2="220" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
               <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
               <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
@@ -1958,12 +1957,12 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
               <feComposite in="SourceGraphic" in2="blur" operator="over"/>
             </filter>
           </defs>
-          <path d="M 500,10 C 500,60 500,100 500,150" 
+          <path d="M 790,10 C 710,65 470,50 310,95 C 250,115 220,132 220,150" 
                 stroke="url(#gradPartnerFlowWaysToMoney)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-          <path d="M 500,10 C 500,60 500,100 500,150" 
+          <path d="M 790,10 C 710,65 470,50 310,95 C 250,115 220,132 220,150" 
                 class="delicate-connector-beam" stroke="url(#gradPartnerFlowWaysToMoney)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowPartnerFlowWaysToMoney)"/>
-          <circle cx="500" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
-          <path d="M 494.5,142.5 L 500,150 L 505.5,142.5" stroke="#0369A1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="790" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
+          <path d="M 214.5,142.5 L 220,150 L 225.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -2090,11 +2089,11 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
     </section>
 
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ВЫПЛАТ К РОСТУ СТАТУСА (ПУТЬ ПАРТНЁРА) -->
-            <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8 lg:my-10">
+                <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8 lg:my-10">
       <a href="#ladder" class="flowing-connector-link group" title="Рост статуса и проценты">
-        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="gradPartnerFlowMoneyToLadder" x1="500" y1="10" x2="500" y2="150" gradientUnits="userSpaceOnUse">
+            <linearGradient id="gradPartnerFlowMoneyToLadder" x1="210" y1="10" x2="780" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
               <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
               <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
@@ -2104,12 +2103,12 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
               <feComposite in="SourceGraphic" in2="blur" operator="over"/>
             </filter>
           </defs>
-          <path d="M 500,10 C 500,60 500,100 500,150" 
+          <path d="M 210,10 C 290,65 520,50 670,95 C 735,115 780,132 780,150" 
                 stroke="url(#gradPartnerFlowMoneyToLadder)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-          <path d="M 500,10 C 500,60 500,100 500,150" 
+          <path d="M 210,10 C 290,65 520,50 670,95 C 735,115 780,132 780,150" 
                 class="delicate-connector-beam" stroke="url(#gradPartnerFlowMoneyToLadder)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowPartnerFlowMoneyToLadder)"/>
-          <circle cx="500" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
-          <path d="M 494.5,142.5 L 500,150 L 505.5,142.5" stroke="#0369A1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="210" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
+          <path d="M 774.5,142.5 L 780,150 L 785.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -2266,11 +2265,11 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
 
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ СТАТУСОВ К КАЛЬКУЛЯТОРУ (ПУТЬ ПАРТНЁРА) -->
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ЛЕСТНИЦЫ К СЦЕНАРИЯМ (ВЫЙТИ НА 1 000 000 ₽) -->
-            <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8 lg:my-10">
+                <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8 lg:my-10">
       <a href="#scenario1m" class="flowing-connector-link group" title="Выйти на доход 1 000 000 ₽">
-        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="gradPartnerFlowLadderTo1M" x1="500" y1="10" x2="500" y2="150" gradientUnits="userSpaceOnUse">
+            <linearGradient id="gradPartnerFlowLadderTo1M" x1="790" y1="10" x2="220" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
               <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
               <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
@@ -2280,12 +2279,12 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
               <feComposite in="SourceGraphic" in2="blur" operator="over"/>
             </filter>
           </defs>
-          <path d="M 500,10 C 500,60 500,100 500,150" 
+          <path d="M 790,10 C 710,65 470,50 310,95 C 250,115 220,132 220,150" 
                 stroke="url(#gradPartnerFlowLadderTo1M)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-          <path d="M 500,10 C 500,60 500,100 500,150" 
+          <path d="M 790,10 C 710,65 470,50 310,95 C 250,115 220,132 220,150" 
                 class="delicate-connector-beam" stroke="url(#gradPartnerFlowLadderTo1M)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowPartnerFlowLadderTo1M)"/>
-          <circle cx="500" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
-          <path d="M 494.5,142.5 L 500,150 L 505.5,142.5" stroke="#0369A1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="790" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
+          <path d="M 214.5,142.5 L 220,150 L 225.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -2391,11 +2390,11 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
     </section>
 
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ СЦЕНАРИЕВ К КАЛЬКУЛЯТОРУ -->
-            <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8 lg:my-10">
+                <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8 lg:my-10">
       <a href="#calc" class="flowing-connector-link group" title="Рассчитать свой доход">
-        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="gradPartnerFlow1MToCalc" x1="500" y1="10" x2="500" y2="150" gradientUnits="userSpaceOnUse">
+            <linearGradient id="gradPartnerFlow1MToCalc" x1="210" y1="10" x2="780" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
               <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
               <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
@@ -2405,12 +2404,12 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
               <feComposite in="SourceGraphic" in2="blur" operator="over"/>
             </filter>
           </defs>
-          <path d="M 500,10 C 500,60 500,100 500,150" 
+          <path d="M 210,10 C 290,65 520,50 670,95 C 735,115 780,132 780,150" 
                 stroke="url(#gradPartnerFlow1MToCalc)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-          <path d="M 500,10 C 500,60 500,100 500,150" 
+          <path d="M 210,10 C 290,65 520,50 670,95 C 735,115 780,132 780,150" 
                 class="delicate-connector-beam" stroke="url(#gradPartnerFlow1MToCalc)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowPartnerFlow1MToCalc)"/>
-          <circle cx="500" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
-          <path d="M 494.5,142.5 L 500,150 L 505.5,142.5" stroke="#0369A1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="210" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
+          <path d="M 774.5,142.5 L 780,150 L 785.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -2684,11 +2683,11 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
     </section>
 
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ КАЛЬКУЛЯТОРА К ФОРМЕ ЗАЯВКИ (ПУТЬ ПАРТНЁРА) -->
-            <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8 lg:my-10">
+                <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8 lg:my-10">
       <a href="#join" class="flowing-connector-link group" title="Стать партнёром">
-        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-full h-auto max-h-[90px] sm:max-h-[120px] md:max-h-[140px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="gradPartnerFlowCalcToJoin" x1="500" y1="10" x2="500" y2="150" gradientUnits="userSpaceOnUse">
+            <linearGradient id="gradPartnerFlowCalcToJoin" x1="790" y1="10" x2="500" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
               <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
               <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
@@ -2698,12 +2697,12 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
               <feComposite in="SourceGraphic" in2="blur" operator="over"/>
             </filter>
           </defs>
-          <path d="M 500,10 C 500,60 500,100 500,150" 
+          <path d="M 790,10 C 710,65 580,55 520,95 C 505,115 500,132 500,150" 
                 stroke="url(#gradPartnerFlowCalcToJoin)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-          <path d="M 500,10 C 500,60 500,100 500,150" 
+          <path d="M 790,10 C 710,65 580,55 520,95 C 505,115 500,132 500,150" 
                 class="delicate-connector-beam" stroke="url(#gradPartnerFlowCalcToJoin)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowPartnerFlowCalcToJoin)"/>
-          <circle cx="500" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
-          <path d="M 494.5,142.5 L 500,150 L 505.5,142.5" stroke="#0369A1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="790" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
+          <path d="M 494.5,142.5 L 500,150 L 505.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
