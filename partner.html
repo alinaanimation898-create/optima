@@ -511,7 +511,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
       </div>
 
       <!-- Сетка: 2 фото основателей СЛЕВА ОДНО НАД ДРУГИМ (4-5 колонок), текст письма СПРАВА (7-8 колонок) -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-center font-inter">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-stretch font-inter">
         
         <!-- ЛЕВАЯ КОЛОНКА: Фото Алины и Давида (в одну строчку на мобилке, друг над другом на десктопе) -->
         <div class="lg:col-span-4 flex justify-center w-full">
@@ -537,53 +537,55 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
         </div>
 
         <!-- ПРАВАЯ КОЛОНКА: Крупный заголовок с "МЫ - АЛИНА И ДАВИД" на одной строчке + текст -->
-        <div class="lg:col-span-8 flex flex-col space-y-4 sm:space-y-4.5 text-xs sm:text-sm lg:text-[15px] text-slate-700 leading-relaxed font-inter px-1 sm:px-2">
+        <div class="lg:col-span-8 flex flex-col justify-between text-xs sm:text-sm lg:text-[15px] text-slate-700 leading-relaxed font-inter px-1 sm:px-2">
           
-          <!-- Десктопный заголовок: МЫ - АЛИНА И ДАВИД строго на одной строчке -->
-          <h3 class="hidden lg:block font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[32px] xl:text-[36px] leading-[1.2] text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
-            <span class="pearl-title-gradient">Здравствуйте!</span> <span class="pearl-title-gradient whitespace-nowrap">Мы&nbsp;- Алина и&nbsp;Давид,</span> <span class="text-[#0f172a]">основатели Altai&nbsp;Optima</span>
-          </h3>
+          <div class="space-y-4 sm:space-y-4.5">
+            <!-- Десктопный заголовок: МЫ - АЛИНА И ДАВИД строго на одной строчке -->
+            <h3 class="hidden lg:block font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[32px] xl:text-[36px] leading-[1.2] text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
+              <span class="pearl-title-gradient">Здравствуйте!</span> <span class="pearl-title-gradient whitespace-nowrap">Мы&nbsp;- Алина и&nbsp;Давид,</span> <span class="text-[#0f172a]">основатели Altai&nbsp;Optima</span>
+            </h3>
 
-          <p class="text-slate-800 text-sm sm:text-base lg:text-[15.5px] font-medium leading-relaxed">
-            Мы строим честное партнерство: вы зарабатываете вместе с&nbsp;нами на&nbsp;каждом этапе. Наш флагман&nbsp;- <span class="bg-gradient-to-r from-emerald-600 via-sky-500 to-indigo-600 bg-clip-text text-transparent font-extrabold">Вера, виртуальный продавец мечты</span>, созданный на&nbsp;передовой ИИ-технологий и&nbsp;двенадцатилетнем опыте реальных продаж.
-          </p>
+            <p class="text-slate-800 text-sm sm:text-base lg:text-[15.5px] font-medium leading-relaxed">
+              Мы строим честное партнерство: вы зарабатываете вместе с&nbsp;нами на&nbsp;каждом этапе. Наш флагман&nbsp;- <span class="bg-gradient-to-r from-emerald-600 via-sky-500 to-indigo-600 bg-clip-text text-transparent font-extrabold">Вера, виртуальный продавец мечты</span>, созданный на&nbsp;передовой ИИ-технологий и&nbsp;двенадцатилетнем опыте реальных продаж.
+            </p>
 
-          <ul class="space-y-3 sm:space-y-3.5 pt-1">
-            <li class="flex items-start gap-3">
-              <span class="w-2 h-2 rounded-full bg-sky-500 shrink-0 mt-2 ring-4 ring-sky-100"></span>
-              <div>
-                <strong class="font-bold text-slate-950">Сервис уровня Ritz-Carlton:</strong> Вера окружает каждого входящего лида максимальной заботой&nbsp;- отвечает за&nbsp;секунды, общается тепло, помнит контекст диалога, фиксирует детали в&nbsp;базу данных и&nbsp;вовремя поздравляет с&nbsp;днем рождения. Клиент чувствует персональное внимание, пока собственник бизнеса спокойно отдыхает.
-              </div>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="w-2 h-2 rounded-full bg-sky-500 shrink-0 mt-2 ring-4 ring-sky-100"></span>
-              <div>
-                <strong class="font-bold text-slate-950">Продукт, за который ручаются репутацией:</strong> Веру приятно рекомендовать близкому кругу. Это умная система, исключающая раздражающие шаблонные отписки и&nbsp;глупых ботов с&nbsp;кнопками.
-              </div>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="w-2 h-2 rounded-full bg-sky-500 shrink-0 mt-2 ring-4 ring-sky-100"></span>
-              <div>
-                <strong class="font-bold text-slate-950">Формат работы выбираете вы:</strong> передавайте клиентов нам под ключ, проводите демонстрации самостоятельно или продавайте решение под собственной торговой маркой (White Label).
-              </div>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="w-2 h-2 rounded-full bg-sky-500 shrink-0 mt-2 ring-4 ring-sky-100"></span>
-              <div>
-                <strong class="font-bold text-slate-950">Прозрачные и своевременные выплаты:</strong> официальный агентский договор, четкий процент с&nbsp;запуска в&nbsp;течение 5&nbsp;рабочих дней и&nbsp;стабильный пассивный доход со&nbsp;всей абонентской платы клиентов строго до&nbsp;10-го числа каждого месяца.
-              </div>
-            </li>
-          </ul>
+            <ul class="space-y-3 sm:space-y-3.5 pt-1">
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 rounded-full bg-sky-500 shrink-0 mt-2 ring-4 ring-sky-100"></span>
+                <div>
+                  <strong class="font-bold text-slate-950">Сервис уровня Ritz-Carlton:</strong> Вера окружает каждого входящего лида максимальной заботой&nbsp;- отвечает за&nbsp;секунды, общается тепло, помнит контекст диалога, фиксирует детали в&nbsp;базу данных и&nbsp;вовремя поздравляет с&nbsp;днем рождения. Клиент чувствует персональное внимание, пока собственник бизнеса спокойно отдыхает.
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 rounded-full bg-sky-500 shrink-0 mt-2 ring-4 ring-sky-100"></span>
+                <div>
+                  <strong class="font-bold text-slate-950">Продукт, за который ручаются репутацией:</strong> Веру приятно рекомендовать близкому кругу. Это умная система, исключающая раздражающие шаблонные отписки и&nbsp;глупых ботов с&nbsp;кнопками.
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 rounded-full bg-sky-500 shrink-0 mt-2 ring-4 ring-sky-100"></span>
+                <div>
+                  <strong class="font-bold text-slate-950">Формат работы выбираете вы:</strong> передавайте клиентов нам под ключ, проводите демонстрации самостоятельно или продавайте решение под собственной торговой маркой (White Label).
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 rounded-full bg-sky-500 shrink-0 mt-2 ring-4 ring-sky-100"></span>
+                <div>
+                  <strong class="font-bold text-slate-950">Прозрачные и своевременные выплаты:</strong> официальный агентский договор, четкий процент с&nbsp;запуска в&nbsp;течение 5&nbsp;рабочих дней и&nbsp;стабильный пассивный доход со&nbsp;всей абонентской платы клиентов строго до&nbsp;10-го числа каждого месяца.
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Выделенный призыв Давайте расти вместе! (в правой колонке, опущен вниз по красной рамке) -->
+          <div class="pt-6 sm:pt-8 lg:pt-10 mt-auto text-left">
+            <p class="font-benzin uppercase tracking-tight font-black text-xl sm:text-2xl lg:text-3xl bg-gradient-to-r from-emerald-600 via-sky-500 to-indigo-600 bg-clip-text text-transparent inline-block leading-tight" style="font-family: 'Benzin', sans-serif !important;">
+              Давайте расти вместе!
+            </p>
+          </div>
 
         </div>
 
-      </div>
-
-      <!-- Выделенный призыв Давайте расти вместе! по центру под обеими колонками -->
-      <div class="pt-8 sm:pt-10 text-center w-full">
-        <p class="font-benzin uppercase tracking-tight font-black text-xl sm:text-2xl md:text-3xl lg:text-[32px] bg-gradient-to-r from-emerald-600 via-sky-500 to-indigo-600 bg-clip-text text-transparent inline-block leading-tight text-center" style="font-family: 'Benzin', sans-serif !important;">
-          Давайте расти вместе!
-        </p>
       </div>
 
     </section>
@@ -666,70 +668,72 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
         </div>
 
         <!-- Правая колонка (7 колонок): 4 готовых тезиса Веры + полупрозрачная плашка каналов/CRM + кнопка шрифтом Inter -->
-        <div class="lg:col-span-7 flex flex-col justify-between h-full space-y-4 font-inter text-left">
+        <div class="lg:col-span-7 flex flex-col justify-between font-inter text-left">
           
-          <!-- 4 пункта по тексту пользователя с неоновой подсветкой -->
-          <div class="space-y-3 sm:space-y-3.5">
-            
-            <!-- 1. Отвечает за секунды в 24/7 -->
-            <div class="flex items-start gap-3 sm:gap-3.5 group">
-              <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-gradient-to-br from-sky-400 via-sky-500 to-blue-600 text-white shadow-[0_0_14px_rgba(14,165,233,0.55)] border border-sky-300/80 flex items-center justify-center shrink-0 font-bold text-xs sm:text-sm mt-0.5 neon-badge-pulse group-hover:scale-110 transition-transform">✓</span>
-              <div>
-                <h4 class="font-bold text-sm sm:text-base text-slate-900 leading-snug">Отвечает за&nbsp;секунды в&nbsp;24/7</h4>
-                <p class="text-xs sm:text-[13.5px] text-slate-600 mt-0.5 leading-relaxed">днем, ночью и&nbsp;в&nbsp;выходные. Лид пишет в&nbsp;23:47&nbsp;- и&nbsp;сразу чувствует персональное внимание.</p>
+          <div class="space-y-4">
+            <!-- 4 пункта по тексту пользователя с неоновой подсветкой -->
+            <div class="space-y-3 sm:space-y-3.5">
+              
+              <!-- 1. Отвечает за секунды в 24/7 -->
+              <div class="flex items-start gap-3 sm:gap-3.5 group">
+                <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-gradient-to-br from-sky-400 via-sky-500 to-blue-600 text-white shadow-[0_0_14px_rgba(14,165,233,0.55)] border border-sky-300/80 flex items-center justify-center shrink-0 font-bold text-xs sm:text-sm mt-0.5 neon-badge-pulse group-hover:scale-110 transition-transform">✓</span>
+                <div>
+                  <h4 class="font-bold text-sm sm:text-base text-slate-900 leading-snug">Отвечает за&nbsp;секунды в&nbsp;24/7</h4>
+                  <p class="text-xs sm:text-[13.5px] text-slate-600 mt-0.5 leading-relaxed">днем, ночью и&nbsp;в&nbsp;выходные. Лид пишет в&nbsp;23:47&nbsp;- и&nbsp;сразу чувствует персональное внимание.</p>
+                </div>
               </div>
+
+              <!-- 2. Ведет живой диалог и продает -->
+              <div class="flex items-start gap-3 sm:gap-3.5 group">
+                <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-gradient-to-br from-sky-400 via-sky-500 to-blue-600 text-white shadow-[0_0_14px_rgba(14,165,233,0.55)] border border-sky-300/80 flex items-center justify-center shrink-0 font-bold text-xs sm:text-sm mt-0.5 neon-badge-pulse group-hover:scale-110 transition-transform">✓</span>
+                <div>
+                  <h4 class="font-bold text-sm sm:text-base text-slate-900 leading-snug">Ведет живой диалог и&nbsp;продает</h4>
+                  <p class="text-xs sm:text-[13.5px] text-slate-600 mt-0.5 leading-relaxed">обращается по&nbsp;имени, общается как лучший эксперт компании и&nbsp;бережно доводит человека до&nbsp;сделки, исключая глупые шаблонные отписки с&nbsp;кнопками.</p>
+                </div>
+              </div>
+
+              <!-- 3. Фиксирует всё в систему -->
+              <div class="flex items-start gap-3 sm:gap-3.5 group">
+                <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-gradient-to-br from-sky-400 via-sky-500 to-blue-600 text-white shadow-[0_0_14px_rgba(14,165,233,0.55)] border border-sky-300/80 flex items-center justify-center shrink-0 font-bold text-xs sm:text-sm mt-0.5 neon-badge-pulse group-hover:scale-110 transition-transform">✓</span>
+                <div>
+                  <h4 class="font-bold text-sm sm:text-base text-slate-900 leading-snug">Фиксирует всё в&nbsp;систему</h4>
+                  <p class="text-xs sm:text-[13.5px] text-slate-600 mt-0.5 leading-relaxed">сохраняет суть переписки, предпочтения и&nbsp;контакты прямо в&nbsp;CRM, используя эти детали в&nbsp;каждом следующем касании.</p>
+                </div>
+              </div>
+
+              <!-- 4. Выстраивает долгосрочную дружбу -->
+              <div class="flex items-start gap-3 sm:gap-3.5 group">
+                <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-gradient-to-br from-sky-400 via-sky-500 to-blue-600 text-white shadow-[0_0_14px_rgba(14,165,233,0.55)] border border-sky-300/80 flex items-center justify-center shrink-0 font-bold text-xs sm:text-sm mt-0.5 neon-badge-pulse group-hover:scale-110 transition-transform">✓</span>
+                <div>
+                  <h4 class="font-bold text-sm sm:text-base text-slate-900 leading-snug">Выстраивает долгосрочную дружбу</h4>
+                  <p class="text-xs sm:text-[13.5px] text-slate-600 mt-0.5 leading-relaxed">помнит историю заказов, вовремя поздравляет с&nbsp;днем рождения и&nbsp;возвращает клиентов за&nbsp;повторными покупками.</p>
+                </div>
+              </div>
+
             </div>
 
-            <!-- 2. Ведет живой диалог и продает -->
-            <div class="flex items-start gap-3 sm:gap-3.5 group">
-              <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-gradient-to-br from-sky-400 via-sky-500 to-blue-600 text-white shadow-[0_0_14px_rgba(14,165,233,0.55)] border border-sky-300/80 flex items-center justify-center shrink-0 font-bold text-xs sm:text-sm mt-0.5 neon-badge-pulse group-hover:scale-110 transition-transform">✓</span>
+            <!-- 9b. ПОЛУПРОЗРАЧНАЯ ПЛАШКА: КАНАЛЫ И ИНТЕГРАЦИИ -->
+            <div class="p-3.5 sm:p-4 rounded-2xl bg-white/50 backdrop-blur-md border border-sky-200/70 shadow-2xs text-xs sm:text-[13px] leading-relaxed space-y-1.5 font-inter">
               <div>
-                <h4 class="font-bold text-sm sm:text-base text-slate-900 leading-snug">Ведет живой диалог и&nbsp;продает</h4>
-                <p class="text-xs sm:text-[13.5px] text-slate-600 mt-0.5 leading-relaxed">обращается по&nbsp;имени, общается как лучший эксперт компании и&nbsp;бережно доводит человека до&nbsp;сделки, исключая глупые шаблонные отписки с&nbsp;кнопками.</p>
+                <strong class="font-bold text-slate-900">Каналы:</strong>
+                <span class="font-bold text-[#075E54]">WhatsApp</span>,
+                <span class="font-bold text-[#229ED9]">Telegram</span>,
+                <span class="font-bold text-[#0077FF]">ВКонтакте</span>,
+                <span class="font-bold" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Instagram</span>,
+                <span class="font-bold text-[#00AAFF]">Авито</span>,
+                <span class="text-slate-800 font-bold">MAX</span>,
+                <span class="text-slate-800 font-medium">виджет на сайте</span> и&nbsp;другие соцсети&nbsp;·
+                <span class="text-sky-700 font-medium">распознает голосовые сообщения</span>
+              </div>
+              <div>
+                <strong class="font-bold text-slate-900">Интеграции:</strong>
+                <span class="text-slate-700 font-medium">amoCRM, Битрикс24, 1С, МойСклад, Google&nbsp;Таблицы и&nbsp;другие сервисы</span>
               </div>
             </div>
-
-            <!-- 3. Фиксирует всё в систему -->
-            <div class="flex items-start gap-3 sm:gap-3.5 group">
-              <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-gradient-to-br from-sky-400 via-sky-500 to-blue-600 text-white shadow-[0_0_14px_rgba(14,165,233,0.55)] border border-sky-300/80 flex items-center justify-center shrink-0 font-bold text-xs sm:text-sm mt-0.5 neon-badge-pulse group-hover:scale-110 transition-transform">✓</span>
-              <div>
-                <h4 class="font-bold text-sm sm:text-base text-slate-900 leading-snug">Фиксирует всё в&nbsp;систему</h4>
-                <p class="text-xs sm:text-[13.5px] text-slate-600 mt-0.5 leading-relaxed">сохраняет суть переписки, предпочтения и&nbsp;контакты прямо в&nbsp;CRM, используя эти детали в&nbsp;каждом следующем касании.</p>
-              </div>
-            </div>
-
-            <!-- 4. Выстраивает долгосрочную дружбу -->
-            <div class="flex items-start gap-3 sm:gap-3.5 group">
-              <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-gradient-to-br from-sky-400 via-sky-500 to-blue-600 text-white shadow-[0_0_14px_rgba(14,165,233,0.55)] border border-sky-300/80 flex items-center justify-center shrink-0 font-bold text-xs sm:text-sm mt-0.5 neon-badge-pulse group-hover:scale-110 transition-transform">✓</span>
-              <div>
-                <h4 class="font-bold text-sm sm:text-base text-slate-900 leading-snug">Выстраивает долгосрочную дружбу</h4>
-                <p class="text-xs sm:text-[13.5px] text-slate-600 mt-0.5 leading-relaxed">помнит историю заказов, вовремя поздравляет с&nbsp;днем рождения и&nbsp;возвращает клиентов за&nbsp;повторными покупками.</p>
-              </div>
-            </div>
-
           </div>
 
-          <!-- 9b. ПОЛУПРОЗРАЧНАЯ ПЛАШКА: КАНАЛЫ И ИНТЕГРАЦИИ -->
-          <div class="p-3.5 sm:p-4 rounded-2xl bg-white/50 backdrop-blur-md border border-sky-200/70 shadow-2xs text-xs sm:text-[13px] leading-relaxed space-y-1.5 font-inter">
-            <div>
-              <strong class="font-bold text-slate-900">Каналы:</strong>
-              <span class="font-bold text-[#075E54]">WhatsApp</span>,
-              <span class="font-bold text-[#229ED9]">Telegram</span>,
-              <span class="font-bold text-[#0077FF]">ВКонтакте</span>,
-              <span class="font-bold" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Instagram</span>,
-              <span class="font-bold text-[#00AAFF]">Авито</span>,
-              <span class="text-slate-800 font-bold">MAX</span>,
-              <span class="text-slate-800 font-medium">виджет на сайте</span> и&nbsp;другие соцсети&nbsp;·
-              <span class="text-sky-700 font-medium">распознает голосовые сообщения</span>
-            </div>
-            <div>
-              <strong class="font-bold text-slate-900">Интеграции:</strong>
-              <span class="text-slate-700 font-medium">amoCRM, Битрикс24, 1С, МойСклад, Google&nbsp;Таблицы и&nbsp;другие сервисы</span>
-            </div>
-          </div>
-
-          <!-- 8. Кнопка «ПОГОВОРИТЬ С ВЕРОЙ → » шрифтом Inter + блик -->
-          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-5 pt-3 lg:pt-6 lg:mt-auto text-center sm:text-left">
+          <!-- 8. Кнопка «ПОГОВОРИТЬ С ВЕРОЙ → » шрифтом Inter + блик (ОПУЩЕНА В КРАСНУЮ РАМКУ) -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-5 pt-8 sm:pt-12 lg:pt-16 mt-auto text-center sm:text-left">
             <a href="#talk-to-vera" class="btn-earn-shine w-full sm:w-auto inline-flex items-center justify-center font-inter uppercase tracking-wide font-extrabold text-xs sm:text-sm text-white bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 hover:from-sky-400 hover:to-blue-500 active:scale-95 px-7 sm:px-8 py-3.5 sm:py-4 rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-sky-500/30 transition-all transform hover:-translate-y-0.5 relative overflow-hidden">
               <span class="relative z-10 flex items-center gap-1.5">
                 <span>ПОГОВОРИТЬ С ВЕРОЙ</span>
@@ -854,12 +858,12 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
 
     <!-- ================= 3.2 SECTION: ПОГОВОРИТЕ С ВЕРОЙ ЗДЕСЬ И СЕЙЧАС ================= -->
     <section id="talk-to-vera" class="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 font-inter scroll-mt-28">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center text-left">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch text-left">
         
-        <!-- ЛЕВАЯ КОЛОНКА (6 колонок): Заголовок вверху, подзаголовок по центру, рейтинг внизу -->
-        <div class="lg:col-span-6 flex flex-col justify-between h-full min-h-[580px] lg:min-h-[620px] py-1">
+        <!-- ЛЕВАЯ КОЛОНКА (6 колонок): Заголовок вверху (красная рамка), подзаголовок по центру (желтая рамка), рейтинг внизу -->
+        <div class="lg:col-span-6 flex flex-col justify-between py-2 lg:py-4">
           
-          <!-- 1. Заголовок (вверху, на уровне верха смартфона) -->
+          <!-- 1. Заголовок (вверху в красной рамке, на уровне верха смартфона) -->
           <div class="text-center lg:text-left">
             <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-3xl lg:text-[36px] xl:text-[40px] leading-[1.2] text-[#0f172a] overflow-visible" style="font-family: 'Benzin', sans-serif !important;">
               <span class="pearl-title-gradient">ПОГОВОРИТЕ</span><br class="hidden lg:inline">
@@ -867,8 +871,8 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
             </h2>
           </div>
 
-          <!-- 2. Подзаголовок и подсказка со стрелкой (по центру, вровень с окном сообщений) -->
-          <div class="my-auto py-6 lg:py-8 space-y-4 text-center lg:text-left">
+          <!-- 2. Подзаголовок и подсказка со стрелкой (по центру в желтой рамке, вровень с окном сообщений) -->
+          <div class="my-auto py-10 sm:py-14 lg:py-20 space-y-4 text-center lg:text-left">
             <p class="font-inter text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-lg mx-auto lg:mx-0">
               Напишите в&nbsp;чат все, что угодно. Вера думает, чувствует контекст и&nbsp;ведет диалог как <span class="whitespace-nowrap">ваш лучший менеджер по&nbsp;продажам</span>
             </p>
