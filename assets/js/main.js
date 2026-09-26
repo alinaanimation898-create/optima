@@ -1438,9 +1438,6 @@
               counterEl.classList.remove('text-emerald-700', 'font-bold');
             }
             runAmoCardAnimation();
-      if (document.getElementById('casePhoneHeader')) {
-        selectCaseNiche('beauty');
-      }
           }
         }
       ];
@@ -2613,12 +2610,12 @@
       if (listContainer) {
         const buttons = listContainer.querySelectorAll('.case-niche-btn');
         buttons.forEach(btn => {
-          btn.className = 'case-niche-btn w-full py-3.5 px-4 rounded-xl flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:bg-slate-100/70 border-l-4 border-transparent text-slate-800';
+          btn.className = 'case-niche-btn w-full py-3.5 px-4 rounded-2xl flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:bg-slate-100/70 border border-transparent text-slate-800';
           const titleSpan = btn.querySelector('span:first-child');
           if (titleSpan) {
             titleSpan.className = 'text-sm sm:text-base tracking-tight font-medium group-hover:text-sky-700 transition-colors';
           }
-          const arrow = btn.querySelector('.group-hover\:translate-x-0\.5') || btn.querySelector('.text-sky-500, .text-slate-400');
+          const arrow = btn.querySelector('.transition-transform') || btn.querySelector('span:last-child');
           if (arrow) {
             arrow.className = 'text-slate-400 group-hover:text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform';
           }
@@ -2627,12 +2624,12 @@
 
       const activeBtn = clickedBtn || (listContainer ? listContainer.querySelector(`button[onclick*="'${key}'"]`) : null);
       if (activeBtn) {
-        activeBtn.className = 'case-niche-btn active w-full py-3.5 px-4 rounded-xl flex items-center justify-between text-left transition-all duration-200 group cursor-pointer bg-sky-50/80 border-l-4 border-sky-500 font-bold text-sky-950';
+        activeBtn.className = 'case-niche-btn active w-full py-3.5 px-4 rounded-2xl flex items-center justify-between text-left transition-all duration-200 group cursor-pointer bg-sky-50/90 shadow-xs border border-sky-200/90 font-bold text-sky-950';
         const titleSpan = activeBtn.querySelector('span:first-child');
         if (titleSpan) {
           titleSpan.className = 'text-sm sm:text-base tracking-tight font-bold text-sky-950';
         }
-        const arrow = activeBtn.querySelector('.text-slate-400, .text-sky-500');
+        const arrow = activeBtn.querySelector('.transition-transform') || activeBtn.querySelector('span:last-child');
         if (arrow) {
           arrow.className = 'text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform';
         }
@@ -2911,9 +2908,9 @@
             });
 
             stepIdx++;
-            const t2 = setTimeout(showNextMessage, 3800);
+            const t2 = setTimeout(showNextMessage, 2200);
             caseChatTimers.push(t2);
-          }, 1200);
+          }, 800);
           caseChatTimers.push(t1);
 
         } else {
@@ -2929,7 +2926,7 @@
           });
 
           stepIdx++;
-          const t3 = setTimeout(showNextMessage, msg.type === 'status' ? 4000 : 2400);
+          const t3 = setTimeout(showNextMessage, msg.type === 'status' ? 2400 : 1600);
           caseChatTimers.push(t3);
         }
       }
@@ -3507,6 +3504,7 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       initHeroDynamicTime();
+      if (typeof selectCaseNiche === 'function' && document.getElementById('casePhoneHeader')) selectCaseNiche('beauty');
       initLivingNotificationsStory();
       initBrotherEasterEgg();
       try {
