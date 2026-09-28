@@ -92,6 +92,23 @@
       stroke-dasharray: 120 720;
       animation: flowingConnectorSweep 3.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     }
+    @keyframes flowingConnectorSweepMobile {
+      0% {
+        stroke-dashoffset: 260;
+        opacity: 0.15;
+      }
+      30%, 70% {
+        opacity: 0.95;
+      }
+      100% {
+        stroke-dashoffset: -40;
+        opacity: 0.15;
+      }
+    }
+    .delicate-connector-beam-mobile {
+      stroke-dasharray: 60 260;
+      animation: flowingConnectorSweepMobile 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
   </style>
 </head>
 <body class="selection:bg-sky-200 selection:text-sky-950 overflow-x-clip">
@@ -405,7 +422,8 @@
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ХИРО К БЛОКУ ПОТЕРЬ (АНИМИРОВАННАЯ СТРЕЛКА) -->
     <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-4 sm:my-6">
       <a href="#losses" class="flowing-connector-link group" title="Где бизнес теряет деньги">
-        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Desktop connector -->
+        <svg class="hidden sm:block w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gradFlowHeroToLosses" x1="500" y1="10" x2="500" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.8"/>
@@ -423,6 +441,15 @@
                 class="delicate-connector-beam" stroke="url(#gradFlowHeroToLosses)" stroke-width="2.0" stroke-linecap="round" filter="url(#glowFlowHeroToLosses)"/>
           <circle cx="500" cy="10" r="2.2" fill="#0284C7" opacity="0.85"/>
           <path d="M 494.5,142.5 L 500,150 L 505.5,142.5" stroke="#F43F5E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <!-- Mobile connector (centered vertical path) -->
+        <svg class="block sm:hidden w-full h-auto min-h-[70px] max-h-[100px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 180,10 L 180,110" 
+                stroke="url(#gradFlowHeroToLosses)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <path d="M 180,10 L 180,110" 
+                class="delicate-connector-beam-mobile" stroke="url(#gradFlowHeroToLosses)" stroke-width="2.0" stroke-linecap="round" filter="url(#glowFlowHeroToLosses)"/>
+          <circle cx="180" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
+          <path d="M 174.5,102.5 L 180,110 L 185.5,102.5" stroke="#F43F5E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -491,7 +518,8 @@
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ПОТЕРЬ К ПИСЬМУ ОСНОВАТЕЛЕЙ -->
     <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
       <a href="#founders-letter" class="flowing-connector-link group" title="Письмо основателей">
-        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Desktop connector -->
+        <svg class="hidden sm:block w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gradFlowLossesToFounders" x1="210" y1="10" x2="420" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
@@ -509,6 +537,15 @@
                 class="delicate-connector-beam" stroke="url(#gradFlowLossesToFounders)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowFlowLossesToFounders)"/>
           <circle cx="210" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
           <path d="M 414.5,142.5 L 420,150 L 425.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <!-- Mobile connector (flows left-to-center down to title per image14) -->
+        <svg class="block sm:hidden w-full h-auto min-h-[90px] max-h-[125px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 65,10 C 65,55 170,45 180,110" 
+                stroke="url(#gradFlowLossesToFounders)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <path d="M 65,10 C 65,55 170,45 180,110" 
+                class="delicate-connector-beam-mobile" stroke="url(#gradFlowLossesToFounders)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowLossesToFounders)"/>
+          <circle cx="65" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
+          <path d="M 174.5,102.5 L 180,110 L 185.5,102.5" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -766,7 +803,8 @@
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ 100% ЗАЯВОК К УВЕДОМЛЕНИЯМ (ВЕРА РАБОТАЕТ, ПОКА ВЫ ОТДЫХАЕТЕ) -->
     <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8">
       <a href="#cta-final" class="flowing-connector-link group" title="Вера работает, пока вы отдыхаете">
-        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Desktop connector -->
+        <svg class="hidden sm:block w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gradFlowToCtaFinal" x1="210" y1="10" x2="780" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#10B981" stop-opacity="0.8"/>
@@ -784,6 +822,15 @@
                 class="delicate-connector-beam" stroke="url(#gradFlowToCtaFinal)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowFlowToCtaFinal)"/>
           <circle cx="210" cy="10" r="2.2" fill="#10B981" opacity="0.8"/>
           <path d="M 774.5,142.5 L 780,150 L 785.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <!-- Mobile connector (flows right-to-left down to title per image15) -->
+        <svg class="block sm:hidden w-full h-auto min-h-[90px] max-h-[125px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 270,10 C 270,55 120,45 100,110" 
+                stroke="url(#gradFlowToCtaFinal)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <path d="M 270,10 C 270,55 120,45 100,110" 
+                class="delicate-connector-beam-mobile" stroke="url(#gradFlowToCtaFinal)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowToCtaFinal)"/>
+          <circle cx="270" cy="10" r="2.5" fill="#10B981" opacity="0.9"/>
+          <path d="M 94.5,102.5 L 100,110 L 105.5,102.5" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -961,7 +1008,8 @@
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ УВЕДОМЛЕНИЙ К СЦЕНАРИЯМ (ПОГОВОРИТЕ С ВЕРОЙ) -->
     <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8">
       <a href="#scenarios" class="flowing-connector-link group" title="Поговорите с Верой здесь и сейчас">
-        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Desktop connector -->
+        <svg class="hidden sm:block w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gradFlowScenariosFromCta" x1="790" y1="10" x2="220" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
@@ -979,6 +1027,15 @@
                 class="delicate-connector-beam" stroke="url(#gradFlowScenariosFromCta)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowFlowScenariosFromCta)"/>
           <circle cx="790" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
           <path d="M 214.5,142.5 L 220,150 L 225.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <!-- Mobile connector (flows right-to-left down to title per image13) -->
+        <svg class="block sm:hidden w-full h-auto min-h-[90px] max-h-[125px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 310,10 C 310,55 120,45 80,110" 
+                stroke="url(#gradFlowScenariosFromCta)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <path d="M 310,10 C 310,55 120,45 80,110" 
+                class="delicate-connector-beam-mobile" stroke="url(#gradFlowScenariosFromCta)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowScenariosFromCta)"/>
+          <circle cx="310" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
+          <path d="M 74.5,102.5 L 80,110 L 85.5,102.5" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -1199,12 +1256,12 @@
           <path d="M 214.5,154.5 L 220,162 L 225.5,154.5" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
 
-        <!-- Мобильная гибкая изогнутая стрелка -->
-        <svg class="block sm:hidden w-full h-auto min-h-[90px] max-h-[120px] overflow-visible" viewBox="0 0 360 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M 270,5 C 230,45 150,40 100,80 C 80,96 70,110 70,122" stroke="url(#gradFlowToTrial)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-          <path d="M 270,5 C 230,45 150,40 100,80 C 80,96 70,110 70,122" class="delicate-connector-beam" stroke="url(#gradFlowToTrial)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowTrial)"/>
-          <circle cx="270" cy="5" r="2.5" fill="#0284C7" opacity="0.9"/>
-          <path d="M 64.5,114.5 L 70,122 L 75.5,114.5" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <!-- Мобильная гибкая изогнутая стрелка (справа от рейтинга в центр/левее плашки) -->
+        <svg class="block sm:hidden w-full h-auto min-h-[90px] max-h-[125px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 230,10 C 230,55 120,45 130,110" stroke="url(#gradFlowToTrial)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <path d="M 230,10 C 230,55 120,45 130,110" class="delicate-connector-beam-mobile" stroke="url(#gradFlowToTrial)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowTrial)"/>
+          <circle cx="230" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
+          <path d="M 124.5,102.5 L 130,110 L 135.5,102.5" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -1452,7 +1509,8 @@
             <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ИЗЯЩНАЯ ТРАЕКТОРИЯ ПЕРЕТЕКАНИЯ -->
     <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
       <a href="#psychology" class="flowing-connector-link group" title="Интеллект ВЕРЫ">
-        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Desktop connector -->
+        <svg class="hidden sm:block w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gradFlowPsychology" x1="205" y1="10" x2="235" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
@@ -1474,6 +1532,15 @@
           <circle cx="205" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
           <!-- 4. Тонкий, острый шеврон-наконечник строго по референсу -->
           <path d="M 229.5,142.5 L 235,150 L 240.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <!-- Mobile connector (flows left-to-right-to-left down to title per image19) -->
+        <svg class="block sm:hidden w-full h-auto min-h-[90px] max-h-[125px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 90,10 C 85,35 140,50 135,75 C 130,95 105,98 100,110" 
+                stroke="url(#gradFlowPsychology)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <path d="M 90,10 C 85,35 140,50 135,75 C 130,95 105,98 100,110" 
+                class="delicate-connector-beam-mobile" stroke="url(#gradFlowPsychology)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowPsychology)"/>
+          <circle cx="90" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
+          <path d="M 94.5,102.5 L 100,110 L 105.5,102.5" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -1631,7 +1698,8 @@
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ИЗЯЩНАЯ ТРАЕКТОРИЯ ПЕРЕТЕКАНИЯ -->
     <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
       <a href="#cases" class="flowing-connector-link group" title="Примеры интеграции">
-        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Desktop connector -->
+        <svg class="hidden sm:block w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gradFlowCases" x1="210" y1="10" x2="780" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
@@ -1653,6 +1721,15 @@
           <circle cx="210" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
           <!-- 4. Тонкий, острый шеврон-наконечник строго по референсу -->
           <path d="M 774.5,142.5 L 780,150 L 785.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <!-- Mobile connector (flows left-to-center down to title per image12) -->
+        <svg class="block sm:hidden w-full h-auto min-h-[90px] max-h-[125px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 110,10 C 105,50 200,55 205,110" 
+                stroke="url(#gradFlowCases)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <path d="M 110,10 C 105,50 200,55 205,110" 
+                class="delicate-connector-beam-mobile" stroke="url(#gradFlowCases)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowCases)"/>
+          <circle cx="110" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
+          <path d="M 199.5,102.5 L 205,110 L 210.5,102.5" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -1848,7 +1925,8 @@
 
     <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
       <a href="#crm" class="flowing-connector-link group" title="Ваша база в надежных руках">
-        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Desktop connector -->
+        <svg class="hidden sm:block w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gradFlowCrm" x1="790" y1="10" x2="240" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
@@ -1870,6 +1948,15 @@
           <circle cx="790" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
           <!-- 4. Тонкий, острый шеврон-наконечник строго по референсу -->
           <path d="M 234.5,142.5 L 240,150 L 245.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <!-- Mobile connector (flows right-to-left down to title per image11) -->
+        <svg class="block sm:hidden w-full h-auto min-h-[90px] max-h-[125px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 230,10 C 240,45 150,55 145,110" 
+                stroke="url(#gradFlowCrm)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <path d="M 230,10 C 240,45 150,55 145,110" 
+                class="delicate-connector-beam-mobile" stroke="url(#gradFlowCrm)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowCrm)"/>
+          <circle cx="230" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
+          <path d="M 139.5,102.5 L 145,110 L 150.5,102.5" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -2047,7 +2134,8 @@
             <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ИЗЯЩНАЯ ТРАЕКТОРИЯ ПЕРЕТЕКАНИЯ -->
     <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
       <a href="#calculator" class="flowing-connector-link group" title="Посчитайте свои потери">
-        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- ДЕСКТОП: широкая плавная дуга -->
+        <svg class="hidden sm:block w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gradFlowCalculator" x1="210" y1="10" x2="780" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
@@ -2069,6 +2157,27 @@
           <circle cx="210" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
           <!-- 4. Тонкий, острый шеврон-наконечник строго по референсу -->
           <path d="M 774.5,142.5 L 780,150 L 785.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+
+        <!-- МОБИЛЬНЫЙ: траектория от CRM к заголовку Калькулятора -->
+        <svg class="block sm:hidden w-full h-auto max-h-[120px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradFlowCalculatorMob" x1="80" y1="10" x2="180" y2="110" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
+            </linearGradient>
+            <filter id="glowFlowCalculatorMob" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 80,10 C 80,55 170,50 180,110" 
+                stroke="url(#gradFlowCalculatorMob)" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <path d="M 80,10 C 80,55 170,50 180,110" 
+                class="delicate-connector-beam-mobile" stroke="url(#gradFlowCalculatorMob)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowCalculatorMob)"/>
+          <circle cx="80" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
+          <path d="M 174.5,102.5 L 180,110 L 185.5,102.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -2363,7 +2472,8 @@
             <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ИЗЯЩНАЯ ТРАЕКТОРИЯ ПЕРЕТЕКАНИЯ -->
     <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
       <a href="#unit-economics" class="flowing-connector-link group" title="Сравнение с менеджером">
-        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- ДЕСКТОП: широкая плавная дуга справа налево -->
+        <svg class="hidden sm:block w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gradFlowUnitEco" x1="790" y1="10" x2="220" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#34D399" stop-opacity="0.4"/>
@@ -2386,6 +2496,27 @@
           <!-- 4. Тонкий, острый шеврон-наконечник строго по референсу -->
           <path d="M 214.5,142.5 L 220,150 L 225.5,142.5" stroke="#059669" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
+
+        <!-- МОБИЛЬНЫЙ: траектория от кнопки калькулятора к заголовку ВЕРА ИЛИ МЕНЕДЖЕР -->
+        <svg class="block sm:hidden w-full h-auto max-h-[120px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradFlowUnitEcoMob" x1="220" y1="10" x2="155" y2="110" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#34D399" stop-opacity="0.4"/>
+              <stop offset="50%" stop-color="#10B981" stop-opacity="0.75"/>
+              <stop offset="100%" stop-color="#059669" stop-opacity="0.95"/>
+            </linearGradient>
+            <filter id="glowFlowUnitEcoMob" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 220,10 C 230,55 160,50 155,110" 
+                stroke="url(#gradFlowUnitEcoMob)" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <path d="M 220,10 C 230,55 160,50 155,110" 
+                class="delicate-connector-beam-mobile" stroke="url(#gradFlowUnitEcoMob)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowUnitEcoMob)"/>
+          <circle cx="220" cy="10" r="2.2" fill="#10B981" opacity="0.8"/>
+          <path d="M 149.5,102.5 L 155,110 L 160.5,102.5" stroke="#059669" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
       </a>
     </div>
 
@@ -2393,8 +2524,8 @@
       
       <!-- ЗАГОЛОВОК И ПОДЗАГОЛОВОК СЕКЦИИ -->
       <div class="text-center max-w-4xl mx-auto space-y-2.5">
-        <h2 class="font-benzin uppercase tracking-tight font-black text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-[42px] leading-tight break-words select-none text-[#0f172a] overflow-visible">
-          <span class="pearl-title-gradient">ВЕРА В&nbsp;3&nbsp;РАЗА ВЫГОДНЕЕ,</span><br class="hidden sm:inline"> ЧЕМ ШТАТНЫЙ МЕНЕДЖЕР
+        <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[52px] leading-tight break-words select-none text-[#0f172a] overflow-visible">
+          ВЕРА ИЛИ МЕНЕДЖЕР: <span class="pearl-title-gradient">КТО ВЫГОДНЕЕ?</span>
         </h2>
         <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
           Штатный менеджер - ~960&nbsp;000&nbsp;₽ в год, Вера - от 304&nbsp;000&nbsp;₽
@@ -2660,7 +2791,8 @@
             <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ИЗЯЩНАЯ ТРАЕКТОРИЯ ПЕРЕТЕКАНИЯ -->
     <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
       <a href="#constructor" class="flowing-connector-link group" title="Тарифы">
-        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- ДЕСКТОП: прямая линия к тарифам -->
+        <svg class="hidden sm:block w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gradFlowConstructor" x1="500" y1="10" x2="500" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
@@ -2682,6 +2814,27 @@
           <circle cx="500" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
           <!-- 4. Тонкий, острый шеврон-наконечник строго по центру над Тарифами -->
           <path d="M 494.5,142.5 L 500,150 L 505.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+
+        <!-- МОБИЛЬНЫЙ: аккуратная вертикальная траектория точно в центр ТАРИФЫ -->
+        <svg class="block sm:hidden w-full h-auto max-h-[120px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradFlowConstructorMob" x1="180" y1="10" x2="180" y2="110" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
+            </linearGradient>
+            <filter id="glowFlowConstructorMob" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 180,10 L 180,110" 
+                stroke="url(#gradFlowConstructorMob)" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <path d="M 180,10 L 180,110" 
+                class="delicate-connector-beam-mobile" stroke="url(#gradFlowConstructorMob)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowConstructorMob)"/>
+          <circle cx="180" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
+          <path d="M 174.5,102.5 L 180,110 L 185.5,102.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -2957,7 +3110,8 @@
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ИЗЯЩНАЯ ТРАЕКТОРИЯ ПЕРЕТЕКАНИЯ -->
     <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
       <a href="#solutions" class="flowing-connector-link group" title="Как начать">
-        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- ДЕСКТОП: широкая плавная дуга к слову НАЧАТЬ -->
+        <svg class="hidden sm:block w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gradFlowSolutions" x1="790" y1="10" x2="550" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
@@ -2979,6 +3133,27 @@
           <circle cx="790" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
           <!-- 4. Тонкий, острый шеврон-наконечник строго на слово НАЧАТЬ -->
           <path d="M 544.5,142.5 L 550,150 L 555.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+
+        <!-- МОБИЛЬНЫЙ: траектория от кнопки к заголовку КАК НАЧАТЬ -->
+        <svg class="block sm:hidden w-full h-auto max-h-[120px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradFlowSolutionsMob" x1="90" y1="10" x2="240" y2="110" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
+            </linearGradient>
+            <filter id="glowFlowSolutionsMob" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 90,10 C 90,55 220,50 240,110" 
+                stroke="url(#gradFlowSolutionsMob)" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <path d="M 90,10 C 90,55 220,50 240,110" 
+                class="delicate-connector-beam-mobile" stroke="url(#gradFlowSolutionsMob)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowSolutionsMob)"/>
+          <circle cx="90" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
+          <path d="M 234.5,102.5 L 240,110 L 245.5,102.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -3104,7 +3279,8 @@
             <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ «КАК НАЧАТЬ» К «СОЮЗНИКИ В ПРИБЫЛИ» -->
     <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-8 sm:my-12">
       <a href="#our-principle" class="flowing-connector-link group" title="Союзники в прибыли">
-        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- ДЕСКТОП: плавная дуга к Союзникам в прибыли -->
+        <svg class="hidden sm:block w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gradFlowToPrinciple" x1="375" y1="10" x2="310" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
@@ -3120,6 +3296,27 @@
           <path d="M 375,10 C 375,70 325,100 310,150" class="delicate-connector-beam" stroke="url(#gradFlowToPrinciple)" stroke-width="1.8" stroke-linecap="round" filter="url(#glowFlowPrinciple)"/>
           <circle cx="375" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
           <path d="M 304.5,142.5 L 310,150 L 315.5,142.5" stroke="#0369A1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+
+        <!-- МОБИЛЬНЫЙ: траектория от шага 4 к заголовку СОЮЗНИКИ В ПРИБЫЛИ -->
+        <svg class="block sm:hidden w-full h-auto max-h-[120px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradFlowToPrincipleMob" x1="90" y1="10" x2="175" y2="110" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
+            </linearGradient>
+            <filter id="glowFlowPrincipleMob" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 90,10 C 90,50 160,60 175,110" 
+                stroke="url(#gradFlowToPrincipleMob)" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <path d="M 90,10 C 90,50 160,60 175,110" 
+                class="delicate-connector-beam-mobile" stroke="url(#gradFlowToPrincipleMob)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowPrincipleMob)"/>
+          <circle cx="90" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
+          <path d="M 169.5,102.5 L 175,110 L 180.5,102.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -3194,7 +3391,8 @@
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ СЕРДЕЧКА К КНОПКЕ «ИНТЕГРИРОВАТЬ ВЕРУ» -->
     <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-8 sm:my-12">
       <a href="#final" class="flowing-connector-link group" title="Интегрировать Веру">
-        <svg class="w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- ДЕСКТОП: плавная дуга к кнопке Интегрировать Веру -->
+        <svg class="hidden sm:block w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gradFlowToFinalBtn" x1="640" y1="10" x2="500" y2="150" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
@@ -3210,6 +3408,27 @@
           <path d="M 640,10 C 620,70 540,100 500,150" class="delicate-connector-beam" stroke="url(#gradFlowToFinalBtn)" stroke-width="1.8" stroke-linecap="round" filter="url(#glowFlowFinalBtn)"/>
           <circle cx="640" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
           <path d="M 494.5,142.5 L 500,150 L 505.5,142.5" stroke="#0369A1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+
+        <!-- МОБИЛЬНЫЙ: траектория от цитаты основателей точно в кнопку ИНТЕГРИРОВАТЬ ВЕРУ -->
+        <svg class="block sm:hidden w-full h-auto max-h-[120px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradFlowToFinalBtnMob" x1="175" y1="10" x2="230" y2="110" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
+            </linearGradient>
+            <filter id="glowFlowFinalBtnMob" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 175,10 C 175,45 230,55 230,110" 
+                stroke="url(#gradFlowToFinalBtnMob)" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <path d="M 175,10 C 175,45 230,55 230,110" 
+                class="delicate-connector-beam-mobile" stroke="url(#gradFlowToFinalBtnMob)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowFinalBtnMob)"/>
+          <circle cx="175" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
+          <path d="M 224.5,102.5 L 230,110 L 235.5,102.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
