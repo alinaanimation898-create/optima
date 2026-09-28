@@ -56,20 +56,20 @@
     }
     @keyframes flowingConnectorSweep {
       0% {
-        stroke-dashoffset: 820;
-        opacity: 0.12;
+        stroke-dashoffset: 420;
+        opacity: 0.15;
       }
-      30%, 70% {
-        opacity: 0.95;
+      25%, 75% {
+        opacity: 1;
       }
       100% {
-        stroke-dashoffset: -80;
-        opacity: 0.12;
+        stroke-dashoffset: -40;
+        opacity: 0.15;
       }
     }
     .delicate-connector-beam {
-      stroke-dasharray: 120 720;
-      animation: flowingConnectorSweep 3.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      stroke-dasharray: 90 320;
+      animation: flowingConnectorSweep 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     }
     @keyframes flowingConnectorSweepCompact {
       0% {
@@ -89,25 +89,40 @@
       animation: flowingConnectorSweepCompact 1.8s ease-in-out infinite;
     }
     .delicate-connector-beam-emerald {
-      stroke-dasharray: 120 720;
-      animation: flowingConnectorSweep 3.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      stroke-dasharray: 90 320;
+      animation: flowingConnectorSweep 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     }
     @keyframes flowingConnectorSweepMobile {
       0% {
-        stroke-dashoffset: 260;
-        opacity: 0.15;
+        stroke-dashoffset: 190;
+        opacity: 0.2;
       }
-      30%, 70% {
-        opacity: 0.95;
+      25%, 75% {
+        opacity: 1;
       }
       100% {
-        stroke-dashoffset: -40;
-        opacity: 0.15;
+        stroke-dashoffset: -20;
+        opacity: 0.2;
       }
     }
     .delicate-connector-beam-mobile {
-      stroke-dasharray: 60 260;
-      animation: flowingConnectorSweepMobile 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      stroke-dasharray: 55 160;
+      animation: flowingConnectorSweepMobile 1.9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+    @keyframes connectorArrowBounce {
+      0%, 100% {
+        transform: translateY(0);
+        opacity: 0.8;
+      }
+      50% {
+        transform: translateY(4.5px);
+        opacity: 1;
+      }
+    }
+    .delicate-connector-arrow {
+      animation: connectorArrowBounce 1.4s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center;
     }
   </style>
 </head>
@@ -149,11 +164,6 @@
         <a href="#scenarios" class="px-3 sm:px-4 py-1.5 rounded-full bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 hover:from-sky-400 hover:to-blue-500 active:scale-95 text-white font-bold text-[11px] sm:text-xs transition-all duration-200 hover:scale-105 shadow-md shadow-sky-500/25 flex items-center justify-center shrink-0 ao-nav-cta whitespace-nowrap">
           <span>Поговорить с&nbsp;Верой</span>
         </a>
-
-        <!-- КНОПКА НАВЕРХ -->
-        <button type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-slate-100/90 hover:bg-slate-200 border border-slate-200 text-slate-700 flex items-center justify-center text-xs sm:text-sm font-bold transition-all hover:scale-110 cursor-pointer shadow-inner shrink-0" title="Подняться наверх">
-          ↑
-        </button>
 
         <!-- МОБИЛЬНАЯ КНОПКА МЕНЮ -->
         <button type="button" onclick="toggleMobileStickyMenu()" class="md:hidden w-7 h-7 rounded-full bg-slate-100/90 hover:bg-slate-200 border border-slate-200 text-slate-700 flex items-center justify-center text-sm font-bold transition cursor-pointer shrink-0">
@@ -272,9 +282,9 @@
     <!-- ФОНОВОЕ ВИДЕО НА ВСЮ ШИРИНУ И ВЫСОТУ С АППАРАТНЫМ GPU-УСКОРЕНИЕМ И БЕСШОВНЫМ ГРАДИЕНТОМ -->
     <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none select-none">
       <!-- Фоновый постер для мгновенного первого кадра без мигания -->
-      <img src="eva_desk_wide.webp" alt="" class="absolute inset-0 w-full h-full object-cover object-[88%_center] sm:object-center select-none" />
+      <img src="eva_desk_wide.webp" alt="" class="absolute inset-0 w-full h-full object-cover object-[88%_center] sm:object-center select-none" style="transform: scale(1.05) translateZ(0); -webkit-transform: scale(1.05) translateZ(0); transform-origin: center center;" />
       
-      <!-- Аппаратный видеопоток (чистый GPU слой без масок) -->
+      <!-- Аппаратный видеопоток (чистый GPU слой без масок) с легким масштабом для скрытия артефактов кодека по краям -->
       <video 
         id="heroBgVideo"
         src="0906.mp4" 
@@ -284,11 +294,13 @@
         playsinline 
         preload="metadata"
         class="absolute inset-0 w-full h-full object-cover object-[88%_center] sm:object-center select-none pointer-events-none"
-        style="transform: translateZ(0); -webkit-transform: translateZ(0); will-change: transform;"
+        style="transform: scale(1.05) translateZ(0); -webkit-transform: scale(1.05) translateZ(0); transform-origin: center center; top: -6px; height: calc(100% + 12px); will-change: transform;"
       ></video>
 
       <!-- Мягкий градиент угасания книзу (отдельный слой, не нагружающий видео) -->
       <div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent via-60% to-[#f0f5fa]"></div>
+      <!-- Тонкая защита от темной полосы статусной строки на мобильных -->
+      <div class="absolute top-0 inset-x-0 h-1.5 bg-[#CEE5F6]/40 pointer-events-none"></div>
     </div>
 
     <!-- МЯГКИЙ СВЕТОВОЙ ОРЕОЛ ПОД ЛОГОТИПОМ И КОНТАКТАМИ -->
@@ -440,7 +452,7 @@
           <path d="M 500,10 C 500,60 500,100 500,150" 
                 class="delicate-connector-beam" stroke="url(#gradFlowHeroToLosses)" stroke-width="2.0" stroke-linecap="round" filter="url(#glowFlowHeroToLosses)"/>
           <circle cx="500" cy="10" r="2.2" fill="#0284C7" opacity="0.85"/>
-          <path d="M 494.5,142.5 L 500,150 L 505.5,142.5" stroke="#F43F5E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 494.5,142.5 L 500,150 L 505.5,142.5" class="delicate-connector-arrow" stroke="#F43F5E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
         <!-- Mobile connector (centered vertical path) -->
         <svg class="block sm:hidden w-full h-auto min-h-[70px] max-h-[100px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -449,7 +461,7 @@
           <path d="M 180,10 L 180,110" 
                 class="delicate-connector-beam-mobile" stroke="url(#gradFlowHeroToLosses)" stroke-width="2.0" stroke-linecap="round" filter="url(#glowFlowHeroToLosses)"/>
           <circle cx="180" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
-          <path d="M 174.5,102.5 L 180,110 L 185.5,102.5" stroke="#F43F5E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 174.5,102.5 L 180,110 L 185.5,102.5" class="delicate-connector-arrow" stroke="#F43F5E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -457,7 +469,7 @@
     <!-- 2. СЕКЦИЯ: ГДЕ БИЗНЕС ТЕРЯЕТ ДЕНЬГИ (3 КАРТОЧКИ) -->
     <section id="losses" class="py-8 sm:py-12 relative z-20">
       <div class="text-center max-w-5xl mx-auto space-y-3 sm:space-y-4 mb-10 sm:mb-14 lg:mb-16">
-        <h2 id="scrollProblemTitle" class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl lg:text-[54px] leading-tight break-words select-none overflow-visible py-0.5 text-[#0f172a]">
+        <h2 id="scrollProblemTitle" class="font-benzin uppercase tracking-tight font-black text-[32px] sm:text-4xl md:text-5xl lg:text-[58px] leading-tight break-words select-none overflow-visible py-0.5 text-[#0f172a]">
           <span class="pearl-title-gradient">ГДЕ</span> <span class="bg-gradient-to-r from-rose-600 via-red-500 to-rose-600 bg-clip-text text-transparent">БИЗНЕС</span> ТЕРЯЕТ&nbsp;ДЕНЬГИ
         </h2>
       </div>
@@ -536,7 +548,7 @@
           <path d="M 210,10 C 270,60 360,90 420,150" 
                 class="delicate-connector-beam" stroke="url(#gradFlowLossesToFounders)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowFlowLossesToFounders)"/>
           <circle cx="210" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
-          <path d="M 414.5,142.5 L 420,150 L 425.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 414.5,142.5 L 420,150 L 425.5,142.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
         <!-- Mobile connector (flows left-to-center down to title per image14) -->
         <svg class="block sm:hidden w-full h-auto min-h-[90px] max-h-[125px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -545,7 +557,7 @@
           <path d="M 65,10 C 65,55 170,45 180,110" 
                 class="delicate-connector-beam-mobile" stroke="url(#gradFlowLossesToFounders)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowLossesToFounders)"/>
           <circle cx="65" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
-          <path d="M 174.5,102.5 L 180,110 L 185.5,102.5" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 174.5,102.5 L 180,110 L 185.5,102.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -555,7 +567,7 @@
       
       <!-- ВЕРХНЯЯ ШАПКА -->
       <div class="space-y-1.5 text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-        <h2 class="ao-sc font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-3xl lg:text-[28px] xl:text-[34px] 2xl:text-[38px] leading-[1.2] text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
+        <h2 class="ao-sc font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-4xl lg:text-[36px] xl:text-[40px] 2xl:text-[44px] leading-[1.2] text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
           <span class="pearl-title-gradient">Здравствуйте!</span> <span class="whitespace-nowrap">Мы&nbsp;- основатели</span> <span class="whitespace-nowrap">Altai&nbsp;Optima</span>
         </h2>
       </div>
@@ -643,7 +655,7 @@
             <path d="M 200,6 L 200,98" stroke="url(#gradFlowToReality)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
             <path d="M 200,6 L 200,98" class="delicate-connector-beam" stroke="url(#gradFlowToReality)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowReality)"/>
             <circle cx="200" cy="6" r="2.2" fill="#0284C7" opacity="0.9"/>
-            <path d="M 194.5,91 L 200,98 L 205.5,91" stroke="#10B981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M 194.5,91 L 200,98 L 205.5,91" class="delicate-connector-arrow" stroke="#10B981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
           </svg>
         </a>
       </div>
@@ -692,9 +704,9 @@
         </div>
       </div>
 
-      <!-- 3. Нижняя одиночная стрелка: от плашки к заголовку «100% ОБРАБОТАННЫХ ЗАЯВОК» -->
+      <!-- 3. Нижняя одиночная стрелка: от плашки к заголовку «100% ОБРАБОТАННЫХ ОБРАЩЕНИЙ» -->
       <div class="flowing-connector-container w-full max-w-md mx-auto px-4 select-none">
-        <a href="#manifesto" class="flowing-connector-link group block" title="Перейти к 100% обработанных заявок">
+        <a href="#manifesto" class="flowing-connector-link group block" title="Перейти к 100% обработанных обращений">
           <svg class="w-full h-auto max-h-[105px] sm:max-h-[115px] overflow-visible" viewBox="0 0 400 105" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="gradFlowTo100" x1="200" y1="0" x2="200" y2="100" gradientUnits="userSpaceOnUse">
@@ -710,19 +722,19 @@
             <path d="M 200,6 L 200,98" stroke="url(#gradFlowTo100)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
             <path d="M 200,6 L 200,98" class="delicate-connector-beam" stroke="url(#gradFlowTo100)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlow100)"/>
             <circle cx="200" cy="6" r="2.2" fill="#10B981" opacity="0.9"/>
-            <path d="M 194.5,91 L 200,98 L 205.5,91" stroke="#047857" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M 194.5,91 L 200,98 L 205.5,91" class="delicate-connector-arrow" stroke="#047857" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
           </svg>
         </a>
       </div>
 
     </div>
 
-    <!-- 4. МАНИФЕСТ: 100% ОБРАБОТАННЫХ ЗАЯВОК -->
+    <!-- 4. МАНИФЕСТ: 100% ОБРАБОТАННЫХ ОБРАЩЕНИЙ -->
     <section id="manifesto" class="space-y-8 sm:space-y-12 md:space-y-16 text-center relative z-20 pt-8 sm:pt-14 pb-12 sm:pb-16">
       <div class="space-y-4 sm:space-y-6 max-w-5xl mx-auto py-2 sm:py-4">
         <div class="py-2">
-          <h2 class="uppercase tracking-tight font-black text-3xl sm:text-5xl md:text-6xl font-benzin select-none leading-tight overflow-visible">
-            <span class="pearl-title-gradient">100% ОБРАБОТАННЫХ<br>ЗАЯВОК</span>
+          <h2 class="uppercase tracking-tight font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-benzin select-none leading-tight overflow-visible">
+            <span class="pearl-title-gradient">100% ОБРАБОТАННЫХ<br>ОБРАЩЕНИЙ</span>
           </h2>
         </div>
       </div>
@@ -821,7 +833,7 @@
           <path d="M 210,10 C 290,65 520,50 670,95 C 735,115 780,132 780,150" 
                 class="delicate-connector-beam" stroke="url(#gradFlowToCtaFinal)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowFlowToCtaFinal)"/>
           <circle cx="210" cy="10" r="2.2" fill="#10B981" opacity="0.8"/>
-          <path d="M 774.5,142.5 L 780,150 L 785.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 774.5,142.5 L 780,150 L 785.5,142.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
         <!-- Mobile connector (flows right-to-left down to title per image15) -->
         <svg class="block sm:hidden w-full h-auto min-h-[90px] max-h-[125px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -830,7 +842,7 @@
           <path d="M 270,10 C 270,55 120,45 100,110" 
                 class="delicate-connector-beam-mobile" stroke="url(#gradFlowToCtaFinal)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowToCtaFinal)"/>
           <circle cx="270" cy="10" r="2.5" fill="#10B981" opacity="0.9"/>
-          <path d="M 94.5,102.5 L 100,110 L 105.5,102.5" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 94.5,102.5 L 100,110 L 105.5,102.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -987,7 +999,7 @@
             
             <!-- Заголовок H2: ВЕРА РАБОТАЕТ, ВЫ ОТДЫХАЕТЕ (pearl gradient) -->
             <div class="cta-title-block">
-              <h2 class="font-benzin font-black uppercase tracking-tight text-2xl sm:text-3xl md:text-4xl lg:text-[44px] leading-tight text-[#0f172a] overflow-visible">
+              <h2 class="font-benzin font-black uppercase tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-[48px] leading-tight text-[#0f172a] overflow-visible">
                 <span class="pearl-title-gradient">ВЕРА РАБОТАЕТ,</span><br class="hidden sm:inline"> <span class="whitespace-nowrap">ВЫ</span>&nbsp;ОТДЫХАЕТЕ
               </h2>
             </div>
@@ -1026,7 +1038,7 @@
           <path d="M 790,10 C 710,65 470,50 310,95 C 250,115 220,132 220,150" 
                 class="delicate-connector-beam" stroke="url(#gradFlowScenariosFromCta)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowFlowScenariosFromCta)"/>
           <circle cx="790" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
-          <path d="M 214.5,142.5 L 220,150 L 225.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 214.5,142.5 L 220,150 L 225.5,142.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
         <!-- Mobile connector (flows right-to-left down to title per image13) -->
         <svg class="block sm:hidden w-full h-auto min-h-[90px] max-h-[125px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1035,7 +1047,7 @@
           <path d="M 310,10 C 310,55 120,45 80,110" 
                 class="delicate-connector-beam-mobile" stroke="url(#gradFlowScenariosFromCta)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowScenariosFromCta)"/>
           <circle cx="310" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
-          <path d="M 74.5,102.5 L 80,110 L 85.5,102.5" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 74.5,102.5 L 80,110 L 85.5,102.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -1050,7 +1062,7 @@
           
           <!-- ЗАГОЛОВОК + ПОДЗАГОЛОВОК (ПОДНЯТ К ВЕРХУ ТЕЛЕФОНА) -->
           <div class="space-y-4 sm:space-y-5 lg:space-y-2.5 text-center lg:text-left pt-1 lg:pt-2 mb-2 sm:mb-4 lg:mb-0">
-            <h2 class="ao-sc font-benzin uppercase tracking-tight font-black text-[26px] sm:text-3xl md:text-3xl lg:text-[28px] xl:text-[34px] 2xl:text-[38px] leading-[1.15] lg:leading-[1.2] hyphens-none overflow-visible text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
+            <h2 class="ao-sc font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-4xl lg:text-[36px] xl:text-[40px] 2xl:text-[44px] leading-[1.15] lg:leading-[1.2] hyphens-none overflow-visible text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
               <span class="pearl-title-gradient">ПОГОВОРИТЕ</span><br>
               <span class="pearl-title-gradient">С&nbsp;ВЕРОЙ</span> ЗДЕСЬ<br class="lg:hidden">
               <span class="hidden lg:inline">&nbsp;</span>И&nbsp;СЕЙЧАС
@@ -1211,24 +1223,6 @@
             </div>
           </div>
 
-          <!-- ИНТЕРАКТИВНЫЙ БЛОК: ЗВЕЗДНЫЙ РЕЙТИНГ ВЕРЫ (ПОСЛЕ ЭКРАНА СМАРТФОНА) -->
-          <div class="mt-6 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-slate-200/90 shadow-sm max-w-sm sm:max-w-md w-full mx-auto text-center select-none">
-            <div class="flex items-center justify-between gap-2 mb-1.5">
-              <span class="text-xs sm:text-[13px] font-bold text-slate-800">Оцените профессионализм Веры:</span>
-              <span id="starRatingValue" class="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200/80">★ 5.0</span>
-            </div>
-            <div class="flex items-center justify-center gap-1.5" id="starRatingGroup">
-              <button type="button" onclick="rateVera(1)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="1 звезда">★</button>
-              <button type="button" onclick="rateVera(2)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="2 звезды">★</button>
-              <button type="button" onclick="rateVera(3)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="3 звезды">★</button>
-              <button type="button" onclick="rateVera(4)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="4 звезды">★</button>
-              <button type="button" onclick="rateVera(5)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="5 звезд">★</button>
-            </div>
-            <div id="starFeedbackText" class="text-[11px] text-slate-500 mt-1.5 font-medium leading-snug">
-              Нажмите на звезду, чтобы проголосовать за качество ответов
-            </div>
-          </div>
-
         </div>
 
       </div>
@@ -1253,7 +1247,7 @@
           <path d="M 790,5 C 700,60 480,45 320,105 C 255,130 220,145 220,162" stroke="url(#gradFlowToTrial)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
           <path d="M 790,5 C 700,60 480,45 320,105 C 255,130 220,145 220,162" class="delicate-connector-beam" stroke="url(#gradFlowToTrial)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowTrial)"/>
           <circle cx="790" cy="5" r="2.5" fill="#0284C7" opacity="0.9"/>
-          <path d="M 214.5,154.5 L 220,162 L 225.5,154.5" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 214.5,154.5 L 220,162 L 225.5,154.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
 
         <!-- Мобильная гибкая изогнутая стрелка (справа от рейтинга в центр/левее плашки) -->
@@ -1261,7 +1255,7 @@
           <path d="M 230,10 C 230,55 120,45 130,110" stroke="url(#gradFlowToTrial)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
           <path d="M 230,10 C 230,55 120,45 130,110" class="delicate-connector-beam-mobile" stroke="url(#gradFlowToTrial)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowTrial)"/>
           <circle cx="230" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
-          <path d="M 124.5,102.5 L 130,110 L 135.5,102.5" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 124.5,102.5 L 130,110 L 135.5,102.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -1400,13 +1394,13 @@
         position: relative;
         z-index: 2;
         display: inline-block;
-        background: linear-gradient(135deg, #ffffff 0%, #7dd3fc 30%, #38bdf8 55%, #a7f3d0 80%, #ffffff 100%) !important;
-        background-size: 220% 220% !important;
+        background: linear-gradient(90deg, #34d399 0%, #38bdf8 50%, #818cf8 100%) !important;
+        background-size: 200% 200% !important;
         -webkit-background-clip: text !important;
         -webkit-text-fill-color: transparent !important;
         background-clip: text !important;
         animation: pearlTitleGradientGlide 6s ease-in-out infinite !important;
-        filter: drop-shadow(0 2px 10px rgba(2, 44, 84, 0.45));
+        filter: drop-shadow(0 2px 12px rgba(15, 23, 42, 0.6));
         letter-spacing: -0.01em;
       }
     </style>
@@ -1425,7 +1419,7 @@
               <!-- ОРЕОЛ И ПЛАВАЮЩИЙ БЛИК БОЖЕСТВЕННОГО ЗНАКА ВОКРУГ ТЕКСТА -->
               <div class="divine-halo" aria-hidden="true"></div>
               <div class="divine-beam" aria-hidden="true"></div>
-              <h2 class="font-benzin text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight uppercase leading-[1.1] relative text-white">
+              <h2 class="font-benzin text-[34px] sm:text-[42px] lg:text-[54px] font-extrabold tracking-tight uppercase leading-[1.1] relative text-white">
                 <span class="divine-title-text font-black tracking-tight">ТЕСТ 7 ДНЕЙ</span>
               </h2>
             </div>
@@ -1531,7 +1525,7 @@
           <!-- 3. Деликатная стартовая точка -->
           <circle cx="205" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
           <!-- 4. Тонкий, острый шеврон-наконечник строго по референсу -->
-          <path d="M 229.5,142.5 L 235,150 L 240.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 229.5,142.5 L 235,150 L 240.5,142.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
         <!-- Mobile connector (flows left-to-right-to-left down to title per image19) -->
         <svg class="block sm:hidden w-full h-auto min-h-[90px] max-h-[125px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1540,7 +1534,7 @@
           <path d="M 90,10 C 85,35 140,50 135,75 C 130,95 105,98 100,110" 
                 class="delicate-connector-beam-mobile" stroke="url(#gradFlowPsychology)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowPsychology)"/>
           <circle cx="90" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
-          <path d="M 94.5,102.5 L 100,110 L 105.5,102.5" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 94.5,102.5 L 100,110 L 105.5,102.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -1551,10 +1545,8 @@
 
       <!-- ЗАГОЛОВОК СЕКЦИИ -->
       <div class="text-left max-w-5xl mb-7 sm:mb-10">
-        <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[40px] leading-tight break-words text-[#0f172a] overflow-visible">
-          <span class="pearl-title-gradient">ВЕРА УЧИЛАСЬ У&nbsp;ЛУЧШИХ</span><br>
-          ОТ&nbsp;КЛАССИКИ ПЕРЕГОВОРОВ<br>
-          ДО&nbsp;ПРЕМИАЛЬНОГО СЕРВИСА
+        <h2 class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl lg:text-[46px] leading-tight break-words text-[#0f172a] overflow-visible">
+          <span class="pearl-title-gradient">ВЕРА УЧИЛАСЬ У&nbsp;ЛУЧШИХ</span>
         </h2>
       </div>
 
@@ -1719,7 +1711,7 @@
           <!-- 3. Деликатная стартовая точка -->
           <circle cx="210" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
           <!-- 4. Тонкий, острый шеврон-наконечник строго по референсу -->
-          <path d="M 774.5,142.5 L 780,150 L 785.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 774.5,142.5 L 780,150 L 785.5,142.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
         <!-- Mobile connector (flows left-to-center down to title per image12) -->
         <svg class="block sm:hidden w-full h-auto min-h-[90px] max-h-[125px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1728,7 +1720,7 @@
           <path d="M 110,10 C 105,50 200,55 205,110" 
                 class="delicate-connector-beam-mobile" stroke="url(#gradFlowCases)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowCases)"/>
           <circle cx="110" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
-          <path d="M 199.5,102.5 L 205,110 L 210.5,102.5" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 199.5,102.5 L 205,110 L 210.5,102.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -1738,7 +1730,7 @@
          ========================================================================== -->
     <section id="cases" class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-18 font-inter">
       <div class="text-center max-w-4xl mx-auto space-y-2.5 mb-8 sm:mb-12">
-        <h2 class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-5xl md:text-6xl lg:text-[56px] xl:text-[60px] leading-tight text-[#0f172a] overflow-visible" style="font-family: 'Benzin', sans-serif !important;">
+        <h2 class="font-benzin uppercase tracking-tight font-black text-[34px] sm:text-5xl md:text-6xl lg:text-[60px] xl:text-[66px] leading-tight text-[#0f172a] overflow-visible" style="font-family: 'Benzin', sans-serif !important;">
           ПРИМЕРЫ <span class="pearl-title-gradient">ИНТЕГРАЦИИ</span>
         </h2>
         <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto font-inter">
@@ -1946,7 +1938,7 @@
           <!-- 3. Деликатная стартовая точка -->
           <circle cx="790" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
           <!-- 4. Тонкий, острый шеврон-наконечник строго по референсу -->
-          <path d="M 234.5,142.5 L 240,150 L 245.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 234.5,142.5 L 240,150 L 245.5,142.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
         <!-- Mobile connector (flows right-to-left down to title per image11) -->
         <svg class="block sm:hidden w-full h-auto min-h-[90px] max-h-[125px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1955,7 +1947,7 @@
           <path d="M 230,10 C 240,45 150,55 145,110" 
                 class="delicate-connector-beam-mobile" stroke="url(#gradFlowCrm)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowCrm)"/>
           <circle cx="230" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
-          <path d="M 139.5,102.5 L 145,110 L 150.5,102.5" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 139.5,102.5 L 145,110 L 150.5,102.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -1968,7 +1960,7 @@
         <div class="lg:col-span-6 space-y-6 text-center lg:text-left font-inter">
           
           <div class="space-y-4">
-            <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[40px] leading-tight text-[#0f172a] overflow-visible">
+            <h2 class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl lg:text-[46px] leading-tight text-[#0f172a] overflow-visible">
               <span class="pearl-title-gradient block sm:inline">ВАША БАЗА</span> <span class="inline-block whitespace-nowrap">В&nbsp;НАДЕЖНЫХ РУКАХ</span>
             </h2>
 
@@ -2004,8 +1996,8 @@
             </div>
           </div>
 
-          <!-- БЛОК СРАВНЕНИЯ: БЫЛО vs СТАЛО БЕЗ ПОДЛОЖЕК -->
-          <div class="space-y-4 max-w-xl mx-auto lg:mx-0 text-left pt-6 sm:pt-8">
+          <!-- БЛОК СРАВНЕНИЯ (НА ДЕСКТОПЕ: В ЛЕВОЙ КОЛОНКЕ ПОД ЛОГОТИПАМИ) -->
+          <div class="hidden lg:block space-y-4 max-w-xl mx-auto lg:mx-0 text-left pt-6 sm:pt-8">
             
             <!-- Было (человеческий фактор) -->
             <div class="flex items-start gap-3.5">
@@ -2127,6 +2119,27 @@
           </div>
         </div>
 
+        <!-- БЛОК СРАВНЕНИЯ НА МОБИЛЬНЫХ: ПЕРЕНЕСЕН ПОСЛЕ КАРТОЧКИ КЛИЕНТА ИЗ CRM -->
+        <div class="lg:hidden w-full space-y-4 max-w-xl mx-auto text-left pt-6 sm:pt-8 font-inter">
+          
+          <!-- Было (человеческий фактор) -->
+          <div class="flex items-start gap-3.5">
+            <span class="w-6 h-6 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center font-black text-xs shrink-0 mt-0.5">✕</span>
+            <div class="text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="font-bold text-slate-950">Человеческий фактор:</strong> менеджеры устают, забывают внести контакт, путают этапы воронки и теряют историю переписки
+            </div>
+          </div>
+
+          <!-- Стало (с Altai Optima) -->
+          <div class="flex items-start gap-3.5">
+            <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-black text-xs shrink-0 mt-0.5">✓</span>
+            <div class="text-sm sm:text-base text-slate-700 leading-relaxed">
+              <strong class="font-bold text-slate-950">С Altai Optima:</strong> Вера четко и&nbsp;моментально создаёт карточку клиента и&nbsp;фиксирует всю информацию по&nbsp;клиенту
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </section>
 
@@ -2155,7 +2168,7 @@
           <!-- 3. Деликатная стартовая точка -->
           <circle cx="210" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
           <!-- 4. Тонкий, острый шеврон-наконечник строго по референсу -->
-          <path d="M 774.5,142.5 L 780,150 L 785.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 774.5,142.5 L 780,150 L 785.5,142.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
 
         <!-- МОБИЛЬНЫЙ: траектория от CRM к заголовку Калькулятора -->
@@ -2176,7 +2189,7 @@
           <path d="M 80,10 C 80,55 170,50 180,110" 
                 class="delicate-connector-beam-mobile" stroke="url(#gradFlowCalculatorMob)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowCalculatorMob)"/>
           <circle cx="80" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
-          <path d="M 174.5,102.5 L 180,110 L 185.5,102.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 174.5,102.5 L 180,110 L 185.5,102.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -2184,7 +2197,7 @@
 <section id="calculator" class="relative z-20 py-10 sm:py-12 lg:py-16 xl:py-20 space-y-8 sm:space-y-9">
       <!-- 1. ЗАГОЛОВОК И ПОДЗАГОЛОВОК КАЛЬКУЛЯТОРА -->
       <div class="text-center max-w-5xl mx-auto px-4 space-y-3 relative z-10 pb-2 sm:pb-3">
-        <h2 class="font-benzin uppercase tracking-tight font-black text-2xl min-[360px]:text-3xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[58px] leading-[1.12] text-[#0f172a] overflow-visible" style="font-family: 'Benzin', sans-serif !important;">
+        <h2 class="font-benzin uppercase tracking-tight font-black text-3xl min-[360px]:text-4xl sm:text-5xl md:text-6xl lg:text-[58px] xl:text-[64px] leading-[1.12] text-[#0f172a] overflow-visible" style="font-family: 'Benzin', sans-serif !important;">
           <span class="block">СКОЛЬКО ДЕНЕГ</span>
           <span class="block">ВЫ&nbsp;ТЕРЯЕТЕ</span>
           <span class="block"><span class="pearl-title-gradient">БЕЗ&nbsp;ВЕРЫ</span></span>
@@ -2493,7 +2506,7 @@
           <!-- 3. Деликатная стартовая точка -->
           <circle cx="790" cy="10" r="2.2" fill="#10B981" opacity="0.8"/>
           <!-- 4. Тонкий, острый шеврон-наконечник строго по референсу -->
-          <path d="M 214.5,142.5 L 220,150 L 225.5,142.5" stroke="#059669" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 214.5,142.5 L 220,150 L 225.5,142.5" class="delicate-connector-arrow" stroke="#059669" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
 
         <!-- МОБИЛЬНЫЙ: траектория от кнопки калькулятора к заголовку ВЕРА ИЛИ МЕНЕДЖЕР -->
@@ -2514,7 +2527,7 @@
           <path d="M 220,10 C 230,55 160,50 155,110" 
                 class="delicate-connector-beam-mobile" stroke="url(#gradFlowUnitEcoMob)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowUnitEcoMob)"/>
           <circle cx="220" cy="10" r="2.2" fill="#10B981" opacity="0.8"/>
-          <path d="M 149.5,102.5 L 155,110 L 160.5,102.5" stroke="#059669" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 149.5,102.5 L 155,110 L 160.5,102.5" class="delicate-connector-arrow" stroke="#059669" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -2523,11 +2536,11 @@
       
       <!-- ЗАГОЛОВОК И ПОДЗАГОЛОВОК СЕКЦИИ -->
       <div class="text-center max-w-4xl mx-auto space-y-2.5">
-        <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[52px] leading-tight break-words select-none text-[#0f172a] overflow-visible">
-          ВЕРА ИЛИ МЕНЕДЖЕР: <span class="pearl-title-gradient">КТО ВЫГОДНЕЕ?</span>
+        <h2 class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl lg:text-[56px] xl:text-[60px] leading-tight break-words select-none text-[#0f172a] overflow-visible">
+          ВЕРА ИЛИ МЕНЕДЖЕР <span class="pearl-title-gradient">КТО ВЫГОДНЕЕ?</span>
         </h2>
         <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
-          Штатный менеджер - ~960&nbsp;000&nbsp;₽ в год, Вера - от 304&nbsp;000&nbsp;₽
+          Штатный менеджер&nbsp;— ~960&nbsp;000&nbsp;₽ в&nbsp;год<br>Вера&nbsp;— от&nbsp;304&nbsp;000&nbsp;₽
         </p>
       </div>
 
@@ -2812,7 +2825,7 @@
           <!-- 3. Деликатная стартовая точка -->
           <circle cx="500" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
           <!-- 4. Тонкий, острый шеврон-наконечник строго по центру над Тарифами -->
-          <path d="M 494.5,142.5 L 500,150 L 505.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 494.5,142.5 L 500,150 L 505.5,142.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
 
         <!-- МОБИЛЬНЫЙ: аккуратная вертикальная траектория точно в центр ТАРИФЫ -->
@@ -2833,7 +2846,7 @@
           <path d="M 180,10 L 180,110" 
                 class="delicate-connector-beam-mobile" stroke="url(#gradFlowConstructorMob)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowConstructorMob)"/>
           <circle cx="180" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
-          <path d="M 174.5,102.5 L 180,110 L 185.5,102.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 174.5,102.5 L 180,110 L 185.5,102.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -2843,11 +2856,11 @@
       <!-- 2.2. ЗАГОЛОВОК И ПОЛОСА ТАРИФОВ (ЛЕСТНИЦА ВЫСОТЫ) -->
       <div class="max-w-[1100px] mx-auto mb-6 sm:mb-8">
         <div class="text-center max-w-4xl mx-auto space-y-2.5 mb-6 sm:mb-8">
-          <h2 class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl lg:text-[54px] leading-tight text-[#0f172a] overflow-visible">
+          <h2 class="font-benzin uppercase tracking-tight font-black text-[34px] sm:text-4xl md:text-5xl lg:text-[60px] leading-tight text-[#0f172a] overflow-visible">
             <span class="pearl-title-gradient">ТАРИФЫ</span>
           </h2>
           <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto font-inter">
-            Прозрачная стоимость без скрытых платежей. Интеграция с CRM и всеми каналами включена.
+            Прозрачная стоимость без скрытых платежей. Интеграция с CRM и всеми каналами включена
           </p>
         </div>
 
@@ -3131,7 +3144,7 @@
           <!-- 3. Деликатная стартовая точка -->
           <circle cx="790" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
           <!-- 4. Тонкий, острый шеврон-наконечник строго на слово НАЧАТЬ -->
-          <path d="M 544.5,142.5 L 550,150 L 555.5,142.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 544.5,142.5 L 550,150 L 555.5,142.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
 
         <!-- МОБИЛЬНЫЙ: траектория от кнопки к заголовку КАК НАЧАТЬ -->
@@ -3152,7 +3165,7 @@
           <path d="M 90,10 C 90,55 220,50 240,110" 
                 class="delicate-connector-beam-mobile" stroke="url(#gradFlowSolutionsMob)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowSolutionsMob)"/>
           <circle cx="90" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
-          <path d="M 234.5,102.5 L 240,110 L 245.5,102.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 234.5,102.5 L 240,110 L 245.5,102.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
@@ -3162,7 +3175,7 @@
       
       <!-- ШАПКА: КАК НАЧАТЬ -->
       <div class="text-center max-w-4xl mx-auto space-y-2.5 pb-2">
-        <h2 class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl lg:text-[54px] leading-tight text-[#0f172a] overflow-visible">
+        <h2 class="font-benzin uppercase tracking-tight font-black text-[34px] sm:text-4xl md:text-5xl lg:text-[60px] leading-tight text-[#0f172a] overflow-visible">
           КАК <span class="pearl-title-gradient">НАЧАТЬ</span>
         </h2>
         <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto font-inter">
@@ -3206,7 +3219,7 @@
                 Знакомство
               </h3>
               <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
-                Zoom-встреча или бриф прямо в мессенджере, как вам удобнее: WhatsApp, Telegram, MAX. Расспрашиваем о продукте, клиентах и о том, как у вас принято продавать. Если удобнее письменно, Вера проведёт бриф в&nbsp;переписке и&nbsp;соберёт ответы сама.
+                Zoom-встреча или бриф прямо в мессенджере, как вам удобнее: WhatsApp, Telegram, MAX. Расспрашиваем о продукте, клиентах и о том, как у вас принято продавать. Если удобнее письменно, Вера проведёт бриф в&nbsp;переписке и&nbsp;соберёт ответы сама
               </p>
             </div>
             <div class="text-[12px] sm:text-[13px] text-slate-500 font-medium pt-3.5 border-t border-sky-100/80 flex items-center gap-2">
@@ -3243,7 +3256,7 @@
                 Договор
               </h3>
               <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
-                Понравилось - фиксируем задачи, сроки, тариф и доступы. Подписываем договор и соглашение о конфиденциальности.
+                Понравилось - фиксируем задачи, сроки, тариф и доступы. Подписываем договор и соглашение о конфиденциальности
               </p>
             </div>
             <div class="text-[12px] sm:text-[13px] text-slate-500 font-medium pt-3.5 border-t border-sky-100/80 flex items-center gap-2">
@@ -3259,7 +3272,7 @@
                 Полная интеграция
               </h3>
               <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
-                Загружаем прайсы, регламенты, товарную матрицу и частые вопросы, подключаем остальные каналы и вашу CRM. Она изучает ваши реальные переписки с клиентами: как вы здороваетесь, как называете товары, как отвечаете на «дорого». Настраиваем правила: когда консультировать, когда передавать менеджеру, что делать со скидками.
+                Загружаем прайсы, регламенты, товарную матрицу и частые вопросы, подключаем остальные каналы и вашу CRM. Она изучает ваши реальные переписки с клиентами: как вы здороваетесь, как называете товары, как отвечаете на «дорого». Настраиваем правила: когда консультировать, когда передавать менеджеру, что делать со скидками
               </p>
             </div>
             <div class="text-[12px] sm:text-[13px] text-slate-500 font-medium pt-3.5 border-t border-sky-100/80 flex items-center gap-2">
@@ -3275,10 +3288,10 @@
 
     </section>
 
-            <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ «КАК НАЧАТЬ» К «СОЮЗНИКИ В ПРИБЫЛИ» -->
+            <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ «КАК НАЧАТЬ» К «СОЮЗНИКИ ПРИБЫЛИ» -->
     <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-8 sm:my-12">
-      <a href="#our-principle" class="flowing-connector-link group" title="Союзники в прибыли">
-        <!-- ДЕСКТОП: плавная дуга к Союзникам в прибыли -->
+      <a href="#our-principle" class="flowing-connector-link group" title="Союзники прибыли">
+        <!-- ДЕСКТОП: плавная дуга к Союзникам прибыли -->
         <svg class="hidden sm:block w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gradFlowToPrinciple" x1="375" y1="10" x2="310" y2="150" gradientUnits="userSpaceOnUse">
@@ -3294,10 +3307,10 @@
           <path d="M 375,10 C 375,70 325,100 310,150" stroke="url(#gradFlowToPrinciple)" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
           <path d="M 375,10 C 375,70 325,100 310,150" class="delicate-connector-beam" stroke="url(#gradFlowToPrinciple)" stroke-width="1.8" stroke-linecap="round" filter="url(#glowFlowPrinciple)"/>
           <circle cx="375" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
-          <path d="M 304.5,142.5 L 310,150 L 315.5,142.5" stroke="#0369A1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 304.5,142.5 L 310,150 L 315.5,142.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
 
-        <!-- МОБИЛЬНЫЙ: траектория от шага 4 к заголовку СОЮЗНИКИ В ПРИБЫЛИ -->
+        <!-- МОБИЛЬНЫЙ: траектория от шага 4 к заголовку СОЮЗНИКИ ПРИБЫЛИ -->
         <svg class="block sm:hidden w-full h-auto max-h-[120px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="gradFlowToPrincipleMob" x1="90" y1="10" x2="175" y2="110" gradientUnits="userSpaceOnUse">
@@ -3315,32 +3328,28 @@
           <path d="M 90,10 C 90,50 160,60 175,110" 
                 class="delicate-connector-beam-mobile" stroke="url(#gradFlowToPrincipleMob)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowPrincipleMob)"/>
           <circle cx="90" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
-          <path d="M 169.5,102.5 L 175,110 L 180.5,102.5" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M 169.5,102.5 L 175,110 L 180.5,102.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
         </svg>
       </a>
     </div>
 
     <!-- ==========================================================================
-         СЕКЦИЯ: СОЮЗНИКИ В ПРИБЫЛИ
+         СЕКЦИЯ: СОЮЗНИКИ ПРИБЫЛИ
          ========================================================================== -->
     <section id="our-principle" class="relative z-20 max-w-5xl lg:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-24 sm:pb-32 lg:pb-40 font-inter scroll-mt-28">
       
-      <!-- Заголовок секции: СОЮЗНИКИ В ПРИБЫЛИ -->
+      <!-- Заголовок секции: СОЮЗНИКИ ПРИБЫЛИ -->
       <div class="text-left mb-6 sm:mb-8">
-        <h3 class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl lg:text-[48px] text-[#0f172a] leading-tight overflow-visible" style="font-family: 'Benzin', sans-serif !important;">
-          СОЮЗНИКИ <span class="pearl-title-gradient">В&nbsp;ПРИБЫЛИ</span>
+        <h3 class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl lg:text-[52px] text-[#0f172a] leading-tight overflow-visible" style="font-family: 'Benzin', sans-serif !important;">
+          СОЮЗНИКИ <span class="pearl-title-gradient">ПРИБЫЛИ</span>
         </h3>
       </div>
 
-      <!-- Премиальная карточка прямой речи основателей -->
-      <div class="relative overflow-hidden bg-white/90 backdrop-blur-xl rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 border border-white/80 shadow-[0_20px_60px_rgba(2,132,199,0.08)] ring-1 ring-sky-100/90">
-        
-        <!-- Декоративная фоновая кавычка -->
-        <div class="absolute -right-2 -top-6 text-sky-200/25 pointer-events-none select-none font-serif text-8xl sm:text-9xl leading-none" aria-hidden="true">“</div>
-
+      <!-- Блок прямой речи основателей без белой подложки -->
+      <div class="relative">
         <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          <!-- ЛЕВАЯ КОЛОНКА: БОЛЬШОЙ ВЕРТИКАЛЬНЫЙ ПОРТРЕТ ОСНОВАТЕЛЕЙ (по референсу) -->
+          <!-- ЛЕВАЯ КОЛОНКА: БОЛЬШОЙ ВЕРТИКАЛЬНЫЙ ПОРТРЕТ ОСНОВАТЕЛЕЙ -->
           <div class="lg:col-span-5 flex flex-col items-center sm:items-start w-full">
             <div class="relative w-full max-w-[360px] lg:max-w-none aspect-[4/5] sm:aspect-[3/4] lg:aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-white/90 ring-1 ring-sky-200/60 bg-slate-100 group">
               <picture>
@@ -3349,32 +3358,17 @@
               </picture>
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent opacity-60 pointer-events-none"></div>
             </div>
-
-            <!-- Подпись под фото -->
-            <div class="w-full max-w-[360px] lg:max-w-none flex items-center justify-between gap-2 pt-3.5 text-xs text-slate-500">
-              <span class="inline-flex items-center gap-1.5 font-medium text-sky-950">
-                <svg class="w-4 h-4 text-emerald-500 shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                Личная ответственность
-              </span>
-              <span class="italic text-slate-400 font-serif">Altai Optima • Всегда на связи</span>
-            </div>
           </div>
 
-          <!-- ПРАВАЯ КОЛОНКА: ШАПКА + МАНИФЕСТ + КНОПКА ДЕЙСТВИЯ ВНУТРИ БЛОКА -->
+          <!-- ПРАВАЯ КОЛОНКА: ИМЕНА ОСНОВАТЕЛЕЙ + МАНИФЕСТ + КНОПКА ДЕЙСТВИЯ -->
           <div class="lg:col-span-7 flex flex-col justify-between">
             
-            <!-- Шапка речи -->
-            <div class="pb-4 mb-4 border-b border-sky-100/80">
-              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 text-sky-800 text-[11px] font-bold uppercase tracking-wider border border-sky-200/60 mb-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-sky-500 animate-pulse"></span>
-                Прямая речь основателей
-              </span>
-              <h4 class="font-benzin uppercase tracking-tight font-black text-xl sm:text-2xl text-slate-900 leading-snug" style="font-family: 'Benzin', sans-serif !important;">
+            <!-- Имена основателей (синий курсив как в 3-м блоке) -->
+            <div class="mb-4">
+              <span class="font-signature text-3xl sm:text-4xl text-[#0284c7] select-none leading-none block" style="font-family: 'Caveat', cursive;">
                 Алина и&nbsp;Давид
-              </h4>
-              <p class="text-xs sm:text-sm text-slate-500 mt-0.5">
+              </span>
+              <p class="text-xs sm:text-sm text-slate-500 mt-1">
                 Основатели Altai Optima
               </p>
             </div>

@@ -184,14 +184,18 @@ html, body {
     /* 2. ЛОКАЛЬНЫЙ И CDN ШРИФТ INTER (ДЛЯ ВСЕГО ОСТАЛЬНОГО ТЕКСТА) */
     @font-face {
       font-family: 'Inter';
-      src: url('Inter/Inter-Regular.otf') format('opentype');
+      src: url('Inter/Inter-Regular.otf') format('opentype'),
+           url('../../Inter/Inter-Regular.otf') format('opentype'),
+           url('/Inter/Inter-Regular.otf') format('opentype');
       font-weight: 400;
       font-style: normal;
       font-display: swap;
     }
     @font-face {
       font-family: 'Inter';
-      src: url('Inter/Inter-Bold.otf') format('opentype');
+      src: url('Inter/Inter-Bold.otf') format('opentype'),
+           url('../../Inter/Inter-Bold.otf') format('opentype'),
+           url('/Inter/Inter-Bold.otf') format('opentype');
       font-weight: 700;
       font-style: normal;
       font-display: swap;
@@ -1316,6 +1320,15 @@ html, body {
       66% {
         border-radius: 70px 100px 65px 105px / 105px 65px 95px 60px;
       }
+    }
+
+    #heroBgVideo {
+      object-fit: cover !important;
+      transform: scale(1.05) translateZ(0) !important;
+      -webkit-transform: scale(1.05) translateZ(0) !important;
+      transform-origin: center center !important;
+      top: -6px !important;
+      height: calc(100% + 12px) !important;
     }
 
     .hero-video-portal {
@@ -4878,14 +4891,18 @@ html, body {
       }
     }
 
-    /* ЧЁТКИЙ, АККУРАТНЫЙ БЕЛЫЙ ТЕКСТ БЕЗ РАЗМЫВАЮЩИХ КОНТУРОВ */
+    /* ГРАДИЕНТ ТЕСТ 7 ДНЕЙ (EMERALD-SKY-INDIGO) */
     .divine-title-text {
       position: relative;
       z-index: 2;
       display: inline-block;
-      color: #ffffff !important;
-      filter: drop-shadow(0 2px 8px rgba(2, 44, 84, 0.35))
-              drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+      background: linear-gradient(90deg, #34d399 0%, #38bdf8 50%, #818cf8 100%) !important;
+      background-size: 200% 200% !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+      animation: pearlTitleGradientGlide 6s ease-in-out infinite !important;
+      filter: drop-shadow(0 2px 12px rgba(15, 23, 42, 0.6));
       letter-spacing: -0.01em;
     }
 
