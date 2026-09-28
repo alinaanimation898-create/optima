@@ -2563,6 +2563,33 @@
       transform: translateY(0px) scale(0.99);
     }
 
+    /* МЕДЛЕННЫЙ БЛИК НА КНОПКЕ */
+    .btn-slow-shimmer {
+      position: relative;
+      overflow: hidden !important;
+    }
+    .btn-slow-shimmer::after {
+      content: '';
+      position: absolute;
+      top: -60%;
+      left: -130%;
+      width: 50%;
+      height: 220%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.42), transparent);
+      transform: rotate(25deg);
+      pointer-events: none;
+      animation: slowShimmerSweep 4.5s ease-in-out infinite;
+      z-index: 2;
+    }
+    @keyframes slowShimmerSweep {
+      0%, 25% {
+        left: -130%;
+      }
+      65%, 100% {
+        left: 160%;
+      }
+    }
+
     /* ЭКСКЛЮЗИВНАЯ СВЕТЛАЯ КНОПКА С ФАСКОЙ (CYBER-LUXURY WHITE/LIGHT BUTTON) */
     .btn-optic-light {
       position: relative;
