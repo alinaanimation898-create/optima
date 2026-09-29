@@ -364,7 +364,7 @@
             </div>
           </div>
 
-          <h1 class="hero-main-title font-benzin uppercase font-black text-[15px] min-[360px]:text-[17px] min-[390px]:text-[19px] sm:text-3xl md:text-[36px] lg:text-[42px] xl:text-[46px] leading-[1.18] overflow-visible text-white inline-flex flex-col items-start text-left max-w-full backdrop-blur-md bg-slate-950/35 sm:bg-transparent sm:backdrop-blur-none p-2.5 sm:p-0 rounded-2xl border border-white/15 sm:border-0 shadow-lg sm:shadow-none">
+          <h1 class="hero-main-title font-benzin uppercase font-black text-[15px] min-[360px]:text-[17px] min-[390px]:text-[19px] sm:text-3xl md:text-[36px] lg:text-[42px] xl:text-[46px] leading-[1.18] overflow-visible text-white inline-flex flex-col items-start text-left max-w-full backdrop-blur-md bg-slate-950/35 sm:bg-transparent sm:backdrop-blur-none p-2.5 sm:p-0 rounded-2xl border border-white/15 sm:border-0 shadow-lg sm:shadow-none" style="-webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);">
             <span class="block drop-shadow-[0_4px_18px_rgba(15,23,42,0.9)] drop-shadow-[0_1px_4px_rgba(0,0,0,0.95)]">
               ВАШ СИЛЬНЕЙШИЙ
             </span>
@@ -383,10 +383,10 @@
       <!-- НИЖНЯЯ ЧАСТЬ: ПЛАШКА ОПИСАНИЯ И КНОПКИ ДЕЙСТВИЯ С МЯГКОЙ ПОСАДКОЙ СНИЗУ -->
       <div class="max-w-[780px] lg:max-w-[820px] w-full mt-auto pt-6 sm:pt-10 space-y-3.5 sm:space-y-4 relative z-20">
         <!-- Стеклянная контрастная темная плашка описания -->
-        <div class="relative p-4 sm:p-6 rounded-2xl bg-slate-950/85 border border-white/20 backdrop-blur-2xl text-white shadow-[0_16px_48px_rgba(0,0,0,0.55)] overflow-hidden">
+        <div class="relative p-4 sm:p-6 rounded-2xl bg-slate-950/75 sm:bg-slate-950/85 border border-white/20 backdrop-blur-2xl text-white shadow-[0_16px_48px_rgba(0,0,0,0.55)] overflow-hidden" style="-webkit-backdrop-filter: blur(24px) saturate(180%); backdrop-filter: blur(24px) saturate(180%);">
           
           <p class="relative z-10 text-xs sm:text-sm md:text-[14px] lg:text-[15px] leading-relaxed text-slate-100 font-medium font-inter drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
-            <span class="bg-gradient-to-r from-emerald-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent font-extrabold">ИИ-продавец Вера</span> берет на&nbsp;себя переписку в&nbsp;любых мессенджерах и&nbsp;соцсетях, знает все о&nbsp;компании и&nbsp;продукте, окружает клиента вниманием уровня пятизвездочного отеля и&nbsp;фиксирует данные в&nbsp;CRM. Конверсия в&nbsp;сделку растет на&nbsp;30-40%&nbsp;- круглосуточно, стабильно, без&nbsp;усталости, праздников и&nbsp;выходных.
+            <span class="bg-gradient-to-r from-emerald-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent font-extrabold">ИИ-продавец Вера</span> берет на&nbsp;себя переписку в&nbsp;любых мессенджерах и&nbsp;соцсетях, знает все о&nbsp;компании и&nbsp;продукте, окружает клиента вниманием уровня пятизвездочного отеля и&nbsp;фиксирует данные в&nbsp;CRM. Конверсия в&nbsp;сделку растет на&nbsp;30-40%&nbsp;- круглосуточно, стабильно, без&nbsp;усталости, праздников и&nbsp;выходных
           </p>
 
           <!-- Бегущий неоновый луч-разделитель -->
@@ -456,6 +456,17 @@
         </svg>
         <!-- Mobile connector (centered vertical path) -->
         <svg class="block sm:hidden w-full h-auto min-h-[70px] max-h-[100px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradFlowHeroToLosses" x1="180" y1="10" x2="180" y2="110" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.8"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#F43F5E" stop-opacity="0.95"/>
+            </linearGradient>
+            <filter id="glowFlowHeroToLosses" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2.5" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
           <path d="M 180,10 L 180,110" 
                 stroke="url(#gradFlowHeroToLosses)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
           <path d="M 180,10 L 180,110" 
@@ -552,6 +563,17 @@
         </svg>
         <!-- Mobile connector (flows left-to-center down to title per image14) -->
         <svg class="block sm:hidden w-full h-auto min-h-[90px] max-h-[125px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradFlowLossesToFounders" x1="65" y1="10" x2="180" y2="110" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
+            </linearGradient>
+            <filter id="glowFlowLossesToFounders" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
           <path d="M 65,10 C 65,55 170,45 180,110" 
                 stroke="url(#gradFlowLossesToFounders)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
           <path d="M 65,10 C 65,55 170,45 180,110" 
@@ -837,6 +859,17 @@
         </svg>
         <!-- Mobile connector (flows right-to-left down to title per image15) -->
         <svg class="block sm:hidden w-full h-auto min-h-[90px] max-h-[125px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradFlowToCtaFinal" x1="270" y1="10" x2="100" y2="110" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#10B981" stop-opacity="0.75"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
+            </linearGradient>
+            <filter id="glowFlowToCtaFinal" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
           <path d="M 270,10 C 270,55 120,45 100,110" 
                 stroke="url(#gradFlowToCtaFinal)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
           <path d="M 270,10 C 270,55 120,45 100,110" 
@@ -1042,6 +1075,17 @@
         </svg>
         <!-- Mobile connector (flows right-to-left down to title per image13) -->
         <svg class="block sm:hidden w-full h-auto min-h-[90px] max-h-[125px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradFlowScenariosFromCta" x1="310" y1="10" x2="80" y2="110" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
+            </linearGradient>
+            <filter id="glowFlowScenariosFromCta" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
           <path d="M 310,10 C 310,55 120,45 80,110" 
                 stroke="url(#gradFlowScenariosFromCta)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
           <path d="M 310,10 C 310,55 120,45 80,110" 
@@ -1064,8 +1108,7 @@
           <div class="space-y-4 sm:space-y-5 lg:space-y-2.5 text-center lg:text-left pt-1 lg:pt-2 mb-2 sm:mb-4 lg:mb-0">
             <h2 class="ao-sc font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-4xl lg:text-[36px] xl:text-[40px] 2xl:text-[44px] leading-[1.15] lg:leading-[1.2] hyphens-none overflow-visible text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
               <span class="pearl-title-gradient">ПОГОВОРИТЕ</span><br>
-              <span class="pearl-title-gradient">С&nbsp;ВЕРОЙ</span> ЗДЕСЬ<br class="lg:hidden">
-              <span class="hidden lg:inline">&nbsp;</span>И&nbsp;СЕЙЧАС
+              <span class="pearl-title-gradient">С&nbsp;ВЕРОЙ</span> ЗДЕСЬ<br class="lg:hidden">И&nbsp;СЕЙЧАС
             </h2>
             <p class="font-inter text-xs sm:text-sm md:text-base font-normal text-slate-600 tracking-wide leading-relaxed pt-1 sm:pt-2 lg:pt-0">
               Напишите в&nbsp;чат все, что угодно. Вера думает,<br>чувствует контекст и&nbsp;ведет диалог как <span class="pearl-title-gradient font-bold whitespace-nowrap">ваш лучший менеджер по&nbsp;продажам</span>
@@ -1252,6 +1295,17 @@
 
         <!-- Мобильная гибкая изогнутая стрелка (справа от рейтинга в центр/левее плашки) -->
         <svg class="block sm:hidden w-full h-auto min-h-[90px] max-h-[125px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradFlowToTrial" x1="230" y1="10" x2="130" y2="110" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
+            </linearGradient>
+            <filter id="glowFlowTrial" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
           <path d="M 230,10 C 230,55 120,45 130,110" stroke="url(#gradFlowToTrial)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
           <path d="M 230,10 C 230,55 120,45 130,110" class="delicate-connector-beam-mobile" stroke="url(#gradFlowToTrial)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowTrial)"/>
           <circle cx="230" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
@@ -1394,13 +1448,11 @@
         position: relative;
         z-index: 2;
         display: inline-block;
-        background: linear-gradient(90deg, #34d399 0%, #38bdf8 50%, #818cf8 100%) !important;
-        background-size: 200% 200% !important;
-        -webkit-background-clip: text !important;
-        -webkit-text-fill-color: transparent !important;
-        background-clip: text !important;
-        animation: pearlTitleGradientGlide 6s ease-in-out infinite !important;
-        filter: drop-shadow(0 2px 12px rgba(15, 23, 42, 0.6));
+        color: #ffffff !important;
+        background: none !important;
+        -webkit-text-fill-color: #ffffff !important;
+        animation: none !important;
+        filter: drop-shadow(0 2px 14px rgba(0, 0, 0, 0.7));
         letter-spacing: -0.01em;
       }
     </style>
@@ -1529,6 +1581,17 @@
         </svg>
         <!-- Mobile connector (flows left-to-right-to-left down to title per image19) -->
         <svg class="block sm:hidden w-full h-auto min-h-[90px] max-h-[125px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradFlowPsychology" x1="90" y1="10" x2="100" y2="110" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
+            </linearGradient>
+            <filter id="glowFlowPsychology" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
           <path d="M 90,10 C 85,35 140,50 135,75 C 130,95 105,98 100,110" 
                 stroke="url(#gradFlowPsychology)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
           <path d="M 90,10 C 85,35 140,50 135,75 C 130,95 105,98 100,110" 
@@ -1715,6 +1778,17 @@
         </svg>
         <!-- Mobile connector (flows left-to-center down to title per image12) -->
         <svg class="block sm:hidden w-full h-auto min-h-[90px] max-h-[125px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradFlowCases" x1="110" y1="10" x2="205" y2="110" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
+            </linearGradient>
+            <filter id="glowFlowCases" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
           <path d="M 110,10 C 105,50 200,55 205,110" 
                 stroke="url(#gradFlowCases)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
           <path d="M 110,10 C 105,50 200,55 205,110" 
@@ -1942,6 +2016,17 @@
         </svg>
         <!-- Mobile connector (flows right-to-left down to title per image11) -->
         <svg class="block sm:hidden w-full h-auto min-h-[90px] max-h-[125px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradFlowCrm" x1="230" y1="10" x2="145" y2="110" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
+            </linearGradient>
+            <filter id="glowFlowCrm" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
           <path d="M 230,10 C 240,45 150,55 145,110" 
                 stroke="url(#gradFlowCrm)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
           <path d="M 230,10 C 240,45 150,55 145,110" 
@@ -1961,7 +2046,9 @@
           
           <div class="space-y-4">
             <h2 class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl lg:text-[46px] leading-tight text-[#0f172a] overflow-visible">
-              <span class="pearl-title-gradient block sm:inline">ВАША БАЗА</span> <span class="inline-block whitespace-nowrap">В&nbsp;НАДЕЖНЫХ РУКАХ</span>
+              <span class="pearl-title-gradient block">ВАША БАЗА</span>
+              <span class="block whitespace-nowrap">В&nbsp;НАДЕЖНЫХ</span>
+              <span class="block">РУКАХ</span>
             </h2>
 
             <!-- ЛОГОТИПЫ ПОДДЕРЖИВАЕМЫХ CRM ПРЯМО ПОД ЗАГОЛОВКОМ -->
@@ -2994,7 +3081,7 @@
             <div class="cfg-card cfg-card-volume">
               <h3>СКОЛЬКО ОБРАЩЕНИЙ В МЕСЯЦ</h3>
               <div class="text-xs text-slate-500 -mt-2 mb-4 leading-relaxed">
-                Цена зависит только от объёма работы. Каналы и CRM подключаем бесплатно.
+                Цена зависит только от объёма работы. Каналы и CRM подключаем бесплатно
               </div>
 
               <!-- Индикатор текущего числа и тарифа -->

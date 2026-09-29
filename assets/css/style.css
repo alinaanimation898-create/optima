@@ -4891,18 +4891,16 @@ html, body {
       }
     }
 
-    /* ГРАДИЕНТ ТЕСТ 7 ДНЕЙ (EMERALD-SKY-INDIGO) */
+    /* БЕЛЫЙ ЦВЕТ ДЛЯ ТЕСТ 7 ДНЕЙ */
     .divine-title-text {
       position: relative;
       z-index: 2;
       display: inline-block;
-      background: linear-gradient(90deg, #34d399 0%, #38bdf8 50%, #818cf8 100%) !important;
-      background-size: 200% 200% !important;
-      -webkit-background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-      background-clip: text !important;
-      animation: pearlTitleGradientGlide 6s ease-in-out infinite !important;
-      filter: drop-shadow(0 2px 12px rgba(15, 23, 42, 0.6));
+      color: #ffffff !important;
+      background: none !important;
+      -webkit-text-fill-color: #ffffff !important;
+      animation: none !important;
+      filter: drop-shadow(0 2px 14px rgba(0, 0, 0, 0.7));
       letter-spacing: -0.01em;
     }
 
