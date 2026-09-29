@@ -391,52 +391,45 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
 
   <!-- ================= HEADER (MATCHING MAIN SITE) ================= -->
   <header class="fixed top-0 left-0 right-0 z-50 bg-white/85 backdrop-blur-md border-b border-sky-200/60 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+    <div class="max-w-7xl mx-auto px-3 sm:px-5 lg:px-8 h-16 flex items-center justify-between gap-2">
       
       <!-- Logo image from main site -->
-      <a href="index.html" class="flex items-center gap-2.5 group shrink-0">
-        <img src="brand_logo.webp" alt="ALTAI OPTIMA" class="h-6 sm:h-7.5 w-auto object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
+      <a href="index.html" class="flex items-center gap-2 group shrink-0">
+        <img src="brand_logo.webp" alt="ALTAI OPTIMA" class="h-5 sm:h-6 w-auto object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
       </a>
 
-      <!-- Desktop Navigation (Clean, concise, perfect fit without overflow) -->
-      <nav class="hidden xl:flex items-center space-x-1 text-[12.5px] font-medium text-slate-700 shrink">
-        <a href="index.html" class="px-2.5 py-1 text-sky-700 hover:text-sky-900 bg-sky-50 rounded-full font-semibold transition-colors whitespace-nowrap">
-          ← Главная
-        </a>
-        <span class="text-slate-300 select-none">•</span>
-        <a href="#product" class="px-2 py-1 hover:text-sky-600 transition-colors whitespace-nowrap">О продукте</a>
-        <span class="text-slate-300 select-none">•</span>
-        <a href="#ways" class="px-2 py-1 hover:text-sky-600 transition-colors whitespace-nowrap">Форматы работы</a>
-        <span class="text-slate-300 select-none">•</span>
-        <a href="#money" class="px-2 py-1 hover:text-sky-600 transition-colors whitespace-nowrap">Выплаты</a>
-        <span class="text-slate-300 select-none">•</span>
-        <a href="#ladder" class="px-2 py-1 hover:text-sky-600 transition-colors whitespace-nowrap">Проценты</a>
-        <span class="text-slate-300 select-none">•</span>
-        <a href="#calc" class="px-2 py-1 hover:text-sky-600 transition-colors whitespace-nowrap">Калькулятор</a>
-        <span class="text-slate-300 select-none">•</span>
-        <a href="#fit" class="px-2 py-1 hover:text-sky-600 transition-colors whitespace-nowrap">Кому предлагать</a>
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-0.5 text-[11px] lg:text-[12px] font-medium text-slate-700 shrink min-w-0 overflow-hidden">
+        <a href="index.html" class="px-1.5 py-1 text-sky-700 hover:text-sky-900 bg-sky-50 rounded-full font-semibold transition-colors whitespace-nowrap text-[10.5px] lg:text-[11.5px]">← Главная</a>
+        <span class="text-slate-300 select-none px-0.5">•</span>
+        <a href="#product" class="px-1.5 py-1 hover:text-sky-600 transition-colors whitespace-nowrap">О продукте</a>
+        <span class="text-slate-300 select-none px-0.5">•</span>
+        <a href="#money" class="px-1.5 py-1 hover:text-sky-600 transition-colors whitespace-nowrap">Выплаты</a>
+        <span class="text-slate-300 select-none px-0.5">•</span>
+        <a href="#ladder" class="px-1.5 py-1 hover:text-sky-600 transition-colors whitespace-nowrap">Проценты</a>
+        <span class="text-slate-300 select-none px-0.5">•</span>
+        <a href="#calc" class="px-1.5 py-1 hover:text-sky-600 transition-colors whitespace-nowrap">Калькулятор</a>
       </nav>
 
-      <div class="flex items-center gap-3 shrink-0">
-        <a href="#join" class="inline-flex items-center justify-center px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 text-white font-bold text-xs sm:text-sm shadow-md shadow-sky-500/20 transition-all duration-300 transform hover:-translate-y-0.5 whitespace-nowrap">
+      <div class="flex items-center gap-2 shrink-0">
+        <a href="#join" class="inline-flex items-center justify-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 text-white font-bold text-xs shadow-md shadow-sky-500/20 transition-all duration-300 transform hover:-translate-y-0.5 whitespace-nowrap">
           Стать партнёром
         </a>
-        <button type="button" onclick="toggleMobileMenu()" class="xl:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100" aria-label="Меню">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        <button type="button" onclick="toggleMobileMenu()" class="md:hidden p-1.5 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100" aria-label="Меню">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
         </button>
       </div>
 
     </div>
 
     <!-- Mobile Drawer -->
-    <div id="mobile-menu-drawer" class="hidden xl:hidden bg-white/95 backdrop-blur-md border-b border-slate-200 px-4 py-4 space-y-1.5 text-sm font-medium text-slate-700">
+    <div id="mobile-menu-drawer" class="hidden md:hidden bg-white/95 backdrop-blur-md border-b border-slate-200 px-4 py-4 space-y-1.5 text-sm font-medium text-slate-700">
       <a href="index.html" class="block py-2 text-sky-600 font-semibold">← Главная&nbsp;страница</a>
       <a href="#product" onclick="toggleMobileMenu()" class="block py-2 hover:text-sky-600">О продукте</a>
       <a href="#ways" onclick="toggleMobileMenu()" class="block py-2 hover:text-sky-600">Форматы работы</a>
       <a href="#money" onclick="toggleMobileMenu()" class="block py-2 hover:text-sky-600">Выплаты</a>
       <a href="#ladder" onclick="toggleMobileMenu()" class="block py-2 hover:text-sky-600">Проценты</a>
       <a href="#calc" onclick="toggleMobileMenu()" class="block py-2 hover:text-sky-600">Калькулятор дохода</a>
-      <a href="#fit" onclick="toggleMobileMenu()" class="block py-2 hover:text-sky-600">Кому предлагать</a>
       <a href="#join" onclick="toggleMobileMenu()" class="block py-2 text-sky-600 font-bold">Стать партнёром</a>
     </div>
   </header>
@@ -448,7 +441,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
       <div class="text-center max-w-4xl mx-auto">
 
         <!-- Main Heading in Benzin -->
-        <h1 class="hero-main-title font-benzin uppercase font-black text-2xl min-[390px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.15] overflow-visible max-w-4xl mx-auto tracking-tight mb-6" style="font-family: 'Benzin', sans-serif !important;">
+        <h1 class="hero-main-title font-benzin uppercase font-black text-3xl min-[390px]:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] overflow-visible max-w-4xl mx-auto tracking-tight mb-6" style="font-family: 'Benzin', sans-serif !important;">
           <span class="text-sky-600">ПРОДУКТ, КОТОРЫЙ</span><br>
           <span class="bg-gradient-to-r from-emerald-600 via-sky-500 to-indigo-600 bg-clip-text text-transparent">САМ СЕБЯ ПРОДАЁТ</span>
         </h1>
@@ -969,7 +962,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
          ========================================================================== -->
     <section id="cases" class="scroll-mt-28 relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-18 font-inter">
       <div class="text-center max-w-4xl mx-auto space-y-2.5 mb-8 sm:mb-12">
-        <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[36px] xl:text-[40px] leading-tight text-[#0f172a] overflow-visible" style="font-family: 'Benzin', sans-serif !important;">
+        <h2 class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl lg:text-[42px] xl:text-[48px] leading-tight text-[#0f172a] overflow-visible" style="font-family: 'Benzin', sans-serif !important;">
           ПРИМЕРЫ <span class="pearl-title-gradient">ИНТЕГРАЦИИ</span>
         </h2>
         <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto font-inter">
@@ -1377,7 +1370,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6 text-center sm:text-left">
           <div class="w-full sm:w-auto">
             <h3 class="text-lg sm:text-xl font-bold font-sans tracking-tight text-sky-600 text-center sm:text-left">
-              Шаблон сообщения&nbsp;собственнику&nbsp;бизнеса
+              Шаблон сообщения<br>собственнику&nbsp;бизнеса
             </h3>
             <p class="text-xs sm:text-sm text-slate-600 mt-1 text-center sm:text-left">
               Просто скопируйте текст, отправьте знакомому владельцу бизнеса или&nbsp;РОП,<br class="hidden sm:inline"> и станьте&nbsp;партнёром
@@ -1404,7 +1397,6 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
               <div>
                 <div class="font-bold text-xs sm:text-sm text-white flex items-center gap-1.5">
                   Знакомый собственник&nbsp;/&nbsp;РОП
-                  <span class="w-2 h-2 rounded-full bg-[#25D366]"></span>
                 </div>
                 <div class="text-[10px] text-emerald-100/90">в сети</div>
               </div>
@@ -1670,8 +1662,8 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
         <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-indigo-400/20 rounded-full blur-3xl pointer-events-none"></div>
 
         <div class="relative z-10 text-center max-w-3xl mx-auto mb-8 font-inter">
-          <h3 class="font-inter uppercase tracking-tight font-black text-xl sm:text-2xl md:text-3xl text-slate-900 mb-3">
-            Руководитель группы → руководитель отдела&nbsp;продаж
+          <h3 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl text-slate-900 mb-3" style="font-family: 'Benzin', sans-serif !important;">
+            <span class="pearl-title-gradient">Карьерный рост</span>
           </h3>
           <p class="text-sm sm:text-base text-slate-700 font-medium leading-relaxed max-w-2xl mx-auto">
             Приведите знакомых маркетологов и продажников, обучите их и ведите за собой -<br class="hidden sm:inline"> так вы становитесь <strong class="text-purple-950">руководителем группы</strong> и получаете <strong class="text-purple-950">+5%</strong> с подписок клиентов своей группы.<br class="hidden sm:inline"> Когда ваши менеджеры соберут свои группы, вы становитесь <strong class="text-purple-950">руководителем отдела продаж</strong><br class="hidden sm:inline"> и получаете ещё <strong class="text-purple-950">+2%</strong> с клиентов их групп. Всё это - сверх комиссии самих менеджеров, из денег компании
@@ -1807,8 +1799,8 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
     <!-- ================= 4. SECTION: ОТКУДА ВАШИ ДЕНЬГИ ================= -->
     <section id="money" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-18 scroll-mt-28 relative">
       <div class="text-center max-w-4xl mx-auto mb-12 sm:mb-14">
-        <h2 class="font-benzin uppercase font-black text-2xl sm:text-3xl md:text-4xl lg:text-[36px] xl:text-[40px] leading-tight tracking-[0.01em] overflow-visible text-[#0f172a]">
-          <span class="pearl-title-gradient">ДОХОД</span> <span class="text-[#0f172a]">С&nbsp;КАЖДОГО&nbsp;ПЛАТЕЖА</span>
+        <h2 class="font-benzin uppercase font-black text-3xl sm:text-4xl md:text-5xl lg:text-[42px] xl:text-[48px] leading-tight tracking-[0.01em] overflow-visible text-[#0f172a]">
+          <span class="pearl-title-gradient">ДОХОД С&nbsp;КАЖДОГО</span><br class="sm:hidden"><span class="text-[#0f172a]"><span class="hidden sm:inline"> </span>ПЛАТЕЖА</span>
         </h2>
       </div>
 
@@ -1953,7 +1945,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
     <!-- ================= 5. SECTION: РОСТ СТАТУСА ================= -->
     <section id="ladder" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-18 scroll-mt-28 relative">
       <div class="text-center max-w-4xl mx-auto mb-12 sm:mb-14">
-        <h2 class="font-benzin uppercase font-black text-2xl sm:text-3xl md:text-4xl lg:text-[36px] xl:text-[40px] leading-tight tracking-[0.01em] overflow-visible text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
+        <h2 class="font-benzin uppercase font-black text-3xl sm:text-4xl md:text-5xl lg:text-[42px] xl:text-[48px] leading-tight tracking-[0.01em] overflow-visible text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
           <span class="pearl-title-gradient">БОЛЬШЕ КЛИЕНТОВ</span> <span class="text-[#0f172a]">= ВЫШЕ ПРОЦЕНТ</span>
         </h2>
       </div>
@@ -2128,7 +2120,8 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
       <!-- Section Heading in Benzin uppercase in 2 lines with Gradient Highlight -->
       <div class="relative z-10 max-w-5xl mb-8 sm:mb-10 text-center sm:text-left">
         <h3 class="font-benzin uppercase tracking-tight font-black text-base min-[390px]:text-lg sm:text-2xl md:text-3xl lg:text-[36px] xl:text-[40px] text-[#0f172a] mb-2 leading-[1.2]" style="font-family: 'Benzin', sans-serif !important;">
-          <span class="block">КАК ЗАРАБОТАТЬ <span class="bg-gradient-to-r from-emerald-600 via-sky-500 to-indigo-600 bg-clip-text text-transparent">1 000 000 ₽</span></span>
+          <span class="block">КАК ЗАРАБОТАТЬ</span>
+          <span class="block"><span class="bg-gradient-to-r from-emerald-600 via-sky-500 to-indigo-600 bg-clip-text text-transparent">1 000 000 ₽</span></span>
           <span class="block">НА ПАРТНЕРСТВЕ</span>
         </h3>
       </div>
@@ -2485,9 +2478,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
           <div class="text-xs text-slate-500 italic">
             «Мысли глобально, действуй&nbsp;локально»
           </div>
-          <p class="text-xs text-slate-500 max-w-sm leading-relaxed">
-            Официальная партнёрская программа сервиса ИИ-продавца Вера. Выплаты с каждого запуска и всех ежемесячных&nbsp;подписок.
-          </p>
+
         </div>
 
         <!-- КОЛОНКА 2: СВЯЗЬ И КАНАЛЫ -->
@@ -2502,6 +2493,12 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"></path>
                 </svg>
                 <span class="font-medium">Telegram: @altaioptima</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/79067574355" target="_blank" class="inline-flex items-center gap-2 text-slate-700 hover:text-[#25D366] transition-colors py-0.5 group">
+                <svg class="w-4 h-4 fill-current text-[#25D366] group-hover:scale-110 transition-transform shrink-0" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2ZM16.56 14.36C16.31 14.24 15.09 13.64 14.86 13.56C14.63 13.48 14.47 13.44 14.3 13.69C14.14 13.94 13.67 14.49 13.52 14.66C13.38 14.83 13.23 14.85 12.98 14.73C12.74 14.61 11.95 14.35 11.01 13.51C10.28 12.86 9.78 12.05 9.64 11.8C9.5 11.56 9.62 11.42 9.75 11.3C9.86 11.02 10 11.02 10.12 10.88C10.24 10.74 10.28 10.64 10.36 10.47C10.44 10.31 10.4 10.16 10.34 10.04C10.28 9.92 9.8 8.74 9.6 8.25C9.4 7.78 9.21 7.84 9.06 7.83C8.92 7.82 8.76 7.82 8.6 7.82C8.44 7.82 8.17 7.88 7.95 8.12C7.73 8.36 7.1 8.95 7.1 10.16C7.1 11.37 7.98 12.54 8.1 12.7C8.22 12.87 9.83 15.34 12.3 16.4C12.89 16.65 13.35 16.8 13.7 16.91C14.3 17.1 14.84 17.07 15.27 17.01C15.75 16.94 16.74 16.41 16.95 15.82C17.15 15.23 17.15 14.73 17.09 14.62C17.03 14.51 16.81 14.48 16.56 14.36Z"/></svg>
+                <span class="font-medium">WhatsApp: +7&nbsp;906&nbsp;757-43-55</span>
               </a>
             </li>
             <li>
