@@ -404,12 +404,12 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
 
   <!-- ================= HEADER (MATCHING MAIN SITE) ================= -->
   <header class="fixed top-0 left-0 right-0 z-50 bg-white/85 backdrop-blur-md border-b border-sky-200/60 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-2 sm:gap-4">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
       
       <!-- Logo image from main site -->
       <a href="index.html" class="flex items-center gap-2 group shrink-0">
         <img src="brand_logo.webp" alt="ALTAI OPTIMA" class="h-6 sm:h-7.5 w-auto object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
-        <span class="text-[11px] font-semibold text-sky-800 bg-sky-100/70 px-2 py-0.5 rounded-full border border-sky-200/80">Партнёр</span>
+        <span class="text-[10px] sm:text-[11px] font-semibold text-sky-800 bg-sky-100/70 px-2 py-0.5 rounded-full border border-sky-200/80">Партнёр</span>
       </a>
 
       <!-- Desktop Navigation (Clean, concise, perfect fit without overflow) -->
@@ -455,7 +455,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
     </div>
   </header>
 
-  <main class="pt-24 pb-28 overflow-x-hidden max-w-full">
+  <main class="pt-20 sm:pt-24 pb-28 overflow-x-hidden max-w-full">
 
     <!-- ================= 1. SECTION: HERO ================= -->
     <section id="top" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-10 sm:pt-20 sm:pb-14 relative">
@@ -514,50 +514,55 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
 
       <!-- Заголовок для мобильных экранов (над фотографиями) -->
       <div class="block lg:hidden mb-6 px-1 text-center">
-        <h3 class="font-benzin tracking-tight font-black leading-snug" style="font-family: 'Benzin', sans-serif !important;">
+        <h3 class="font-benzin tracking-tight font-black leading-snug text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
           <span class="pearl-title-gradient text-xl sm:text-2xl uppercase block mb-1">Здравствуйте!</span>
-          <div class="my-1.5 leading-tight flex items-center justify-center gap-1.5 flex-wrap">
-            <span class="text-[#0f172a] text-lg sm:text-xl font-bold">Мы&nbsp;—</span>
-            <span class="font-signature text-3xl min-[380px]:text-4xl text-[#0284c7] inline-block leading-none select-none px-1" style="font-family: 'Caveat', cursive !important; text-transform: none !important; font-weight: 700;">Алина и Давид</span>
-          </div>
-          <span class="text-slate-700 text-xs min-[360px]:text-sm sm:text-base font-bold uppercase tracking-wider block mt-1">основатели Altai Optima</span>
+          <span class="text-base sm:text-xl font-bold block text-[#0f172a]">Мы&nbsp;— Алина и&nbsp;Давид,</span>
+          <span class="text-slate-600 text-xs min-[360px]:text-sm sm:text-base font-bold uppercase tracking-wider block mt-1">основатели Altai Optima</span>
         </h3>
       </div>
 
       <!-- Сетка: 2 фото основателей СЛЕВА ОДНО НАД ДРУГИМ (4-5 колонок), текст письма СПРАВА (7-8 колонок) -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-stretch font-inter">
         
-        <!-- ЛЕВАЯ КОЛОНКА: Фото Алины и Давида (в одну строчку на мобилке, друг над другом на десктопе) -->
+        <!-- ЛЕВАЯ КОЛОНКА: Фото Алины и Давида (в одну строчку на мобилке, друг над другом на десктопе) с подписью прописью Caveat -->
         <div class="lg:col-span-4 flex justify-center w-full">
-          <div class="flex flex-row lg:flex-col gap-3 sm:gap-4 w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[220px]">
+          <div class="flex flex-row lg:flex-col gap-4 sm:gap-5 w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[220px]">
             
             <!-- Фото Алины (слева на мобилке, сверху на десктопе) -->
-            <div class="relative w-1/2 lg:w-full aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_12px_30px_rgba(2,132,199,0.12)] border-2 border-white ring-1 ring-sky-200/70 bg-slate-100 group">
-              <img src="founder_alina.webp" alt="Алина" class="w-full h-full object-cover object-[50%_15%] transition-transform duration-700 group-hover:scale-105" loading="lazy">
-              <div class="absolute inset-x-0 bottom-0 p-2 sm:p-2.5 lg:p-3 bg-gradient-to-t from-slate-950/85 via-slate-950/40 to-transparent">
-                <div class="font-extrabold text-white text-xs sm:text-sm lg:text-base leading-tight font-inter tracking-tight">Алина</div>
+            <div class="flex flex-col items-center w-1/2 lg:w-full">
+              <div class="relative w-full aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_12px_30px_rgba(2,132,199,0.12)] border-2 border-white ring-1 ring-sky-200/70 bg-slate-100 group">
+                <img src="founder_alina.webp" alt="Алина" class="w-full h-full object-cover object-[50%_15%] transition-transform duration-700 group-hover:scale-105" loading="lazy">
+              </div>
+              <div class="pt-2 sm:pt-2.5 text-center">
+                <span class="font-signature text-2xl min-[360px]:text-3xl sm:text-3xl lg:text-4xl text-[#0284c7] leading-none block select-none" style="font-family: 'Caveat', cursive !important; text-transform: none !important; font-weight: 700;">
+                  Алина
+                </span>
               </div>
             </div>
 
             <!-- Фото Давида (справа на мобилке, снизу на десктопе) -->
-            <div class="relative w-1/2 lg:w-full aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_12px_30px_rgba(2,132,199,0.12)] border-2 border-white ring-1 ring-sky-200/70 bg-slate-100 group">
-              <img src="founder_david.webp" alt="Давид" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" loading="lazy">
-              <div class="absolute inset-x-0 bottom-0 p-2 sm:p-2.5 lg:p-3 bg-gradient-to-t from-slate-950/85 via-slate-950/40 to-transparent">
-                <div class="font-extrabold text-white text-xs sm:text-sm lg:text-base leading-tight font-inter tracking-tight">Давид</div>
+            <div class="flex flex-col items-center w-1/2 lg:w-full">
+              <div class="relative w-full aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_12px_30px_rgba(2,132,199,0.12)] border-2 border-white ring-1 ring-sky-200/70 bg-slate-100 group">
+                <img src="founder_david.webp" alt="Давид" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" loading="lazy">
+              </div>
+              <div class="pt-2 sm:pt-2.5 text-center">
+                <span class="font-signature text-2xl min-[360px]:text-3xl sm:text-3xl lg:text-4xl text-[#0284c7] leading-none block select-none" style="font-family: 'Caveat', cursive !important; text-transform: none !important; font-weight: 700;">
+                  Давид
+                </span>
               </div>
             </div>
 
           </div>
         </div>
 
-        <!-- ПРАВАЯ КОЛОНКА: Крупный заголовок с "МЫ - АЛИНА И ДАВИД" на одной строчке + текст -->
+        <!-- ПРАВАЯ КОЛОНКА: Крупный заголовок + текст письма -->
         <div class="lg:col-span-8 flex flex-col justify-between text-xs sm:text-sm lg:text-[15px] text-slate-700 leading-relaxed font-inter px-1 sm:px-2">
           
           <div class="space-y-4 sm:space-y-4.5">
-            <!-- Десктопный заголовок: МЫ - АЛИНА И ДАВИД строго на одной строчке -->
+            <!-- Десктопный заголовок: классический гармоничный Benzin -->
             <h3 class="hidden lg:block font-benzin tracking-tight font-black text-2xl sm:text-3xl lg:text-[28px] xl:text-[32px] leading-snug text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
               <span class="pearl-title-gradient uppercase">Здравствуйте!</span> 
-              <span class="text-[#0f172a] text-xl xl:text-2xl font-bold">Мы&nbsp;—&nbsp;</span><span class="font-signature text-4xl xl:text-5xl text-[#0284c7] inline-block align-baseline select-none px-1" style="font-family: 'Caveat', cursive !important; text-transform: none !important; font-weight: 700;">Алина и Давид</span><span class="text-[#0f172a] text-xl xl:text-2xl font-bold uppercase tracking-normal">,&nbsp;основатели&nbsp;Altai&nbsp;Optima</span>
+              <span class="text-[#0f172a]">Мы&nbsp;— Алина и&nbsp;Давид, основатели Altai&nbsp;Optima</span>
             </h3>
 
             <p class="text-slate-800 text-sm sm:text-base lg:text-[15.5px] font-medium leading-relaxed">
@@ -948,24 +953,6 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
                 </form>
               </div>
 
-            </div>
-          </div>
-
-          <!-- НА МОБИЛЬНОМ: ОЦЕНИТЕ ПРОФЕССИОНАЛИЗМ С ТОНКОЙ ГОЛУБОЙ ЛИНИЕЙ -->
-          <div class="block lg:hidden space-y-2.5 mt-6 p-4 rounded-2xl border border-sky-200/90 bg-white/35 backdrop-blur-xs shadow-2xs max-w-sm w-full mx-auto text-center">
-            <div class="flex items-center justify-center gap-2">
-              <span class="text-xs sm:text-[13px] font-bold text-slate-800">Оцените профессионализм&nbsp;Веры:</span>
-              <span id="partnerStarRatingValueMobile" class="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200/80">★ 5.0</span>
-            </div>
-            <div class="flex items-center justify-center gap-1.5" id="partnerStarRatingGroupMobile">
-              <button type="button" onclick="ratePartnerVera(1)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="1 звезда">★</button>
-              <button type="button" onclick="ratePartnerVera(2)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="2 звезды">★</button>
-              <button type="button" onclick="ratePartnerVera(3)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="3 звезды">★</button>
-              <button type="button" onclick="ratePartnerVera(4)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="4 звезды">★</button>
-              <button type="button" onclick="ratePartnerVera(5)" class="star-btn text-2xl sm:text-3xl text-amber-400 hover:scale-125 transition-transform cursor-pointer focus:outline-none" title="5 звезд">★</button>
-            </div>
-            <div id="partnerStarFeedbackTextMobile" class="text-[11px] text-slate-500 font-medium leading-snug">
-              Нажмите на звезду, чтобы проголосовать за качество&nbsp;ответов
             </div>
           </div>
 
@@ -1409,8 +1396,9 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
       <div class="mt-4 max-w-4xl mx-auto font-inter">
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6 text-center sm:text-left">
           <div class="w-full sm:w-auto">
-            <h3 class="text-lg sm:text-xl font-bold font-sans tracking-tight text-sky-600 text-center sm:text-left">
-              Шаблон сообщения&nbsp;собственнику&nbsp;бизнеса
+            <h3 class="text-lg sm:text-xl font-bold font-sans tracking-tight text-sky-600 text-center sm:text-left leading-snug">
+              <span class="block">Шаблон сообщения</span>
+              <span class="block">собственнику бизнеса</span>
             </h3>
             <p class="text-xs sm:text-sm text-slate-600 mt-1 text-center sm:text-left">
               Просто скопируйте текст, отправьте знакомому владельцу бизнеса или&nbsp;РОП,<br class="hidden sm:inline"> и станьте&nbsp;партнёром
@@ -1437,7 +1425,6 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
               <div>
                 <div class="font-bold text-xs sm:text-sm text-white flex items-center gap-1.5">
                   Знакомый собственник&nbsp;/&nbsp;РОП
-                  <span class="w-2 h-2 rounded-full bg-[#25D366]"></span>
                 </div>
                 <div class="text-[10px] text-emerald-100/90">в сети</div>
               </div>
@@ -1704,7 +1691,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
 
         <div class="relative z-10 text-center max-w-3xl mx-auto mb-8 font-inter">
           <h3 class="font-inter uppercase tracking-tight font-black text-xl sm:text-2xl md:text-3xl text-slate-900 mb-3">
-            Руководитель группы → руководитель отдела&nbsp;продаж
+            КАРЬЕРНЫЙ РОСТ
           </h3>
           <p class="text-sm sm:text-base text-slate-700 font-medium leading-relaxed max-w-2xl mx-auto">
             Приведите знакомых маркетологов и продажников, обучите их и ведите за собой -<br class="hidden sm:inline"> так вы становитесь <strong class="text-purple-950">руководителем группы</strong> и получаете <strong class="text-purple-950">+5%</strong> с подписок клиентов своей группы.<br class="hidden sm:inline"> Когда ваши менеджеры соберут свои группы, вы становитесь <strong class="text-purple-950">руководителем отдела продаж</strong><br class="hidden sm:inline"> и получаете ещё <strong class="text-purple-950">+2%</strong> с клиентов их групп. Всё это - сверх комиссии самих менеджеров, из денег компании
@@ -1840,8 +1827,8 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
     <!-- ================= 4. SECTION: ОТКУДА ВАШИ ДЕНЬГИ ================= -->
     <section id="money" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-18 scroll-mt-28 relative">
       <div class="text-center max-w-4xl mx-auto mb-12 sm:mb-14">
-        <h2 class="font-benzin uppercase font-black text-xl min-[360px]:text-2xl sm:text-3xl md:text-4xl lg:text-[36px] xl:text-[40px] leading-tight tracking-[0.01em] text-[#0f172a]">
-          <span class="pearl-title-gradient block sm:inline">ВЫ ПОЛУЧАЕТЕ ПРОЦЕНТ</span> <span class="text-[#0f172a] block sm:inline">С КАЖДОГО ПЛАТЕЖА</span>
+        <h2 class="font-benzin uppercase font-black text-xl min-[360px]:text-2xl sm:text-3xl md:text-4xl lg:text-[36px] xl:text-[40px] leading-tight tracking-[0.01em] text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
+          <span class="pearl-title-gradient block sm:inline">ДОХОД С&nbsp;КАЖДОГО</span> <span class="text-[#0f172a] block sm:inline">ПЛАТЕЖА</span>
         </h2>
       </div>
 
@@ -1956,71 +1943,6 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
       <div class="mt-8 text-center text-xs text-slate-500 max-w-4xl mx-auto leading-relaxed font-inter">
         * Суммы в примере рассчитаны для тарифа «Бизнес»&nbsp;(39&nbsp;000&nbsp;₽/⁠мес). Для тарифа «Старт»&nbsp;(25&nbsp;000&nbsp;₽) ежемесячная выплата составляет 2&nbsp;500 - 6&nbsp;250&nbsp;₽/⁠мес, для тарифа «Поток»&nbsp;(59&nbsp;000&nbsp;₽) - 5&nbsp;900 - 14&nbsp;750&nbsp;₽/⁠мес, для тарифа «Империя»&nbsp;(99&nbsp;000&nbsp;₽) - 9&nbsp;900 - 24&nbsp;750&nbsp;₽/⁠мес. Выплаты - один раз в месяц, 10-го числа, от 3&nbsp;000&nbsp;₽ (меньшая сумма переходит на следующий&nbsp;месяц).
       </div>
-
-      <div class="mt-10 max-w-6xl mx-auto font-inter">
-        <h3 class="text-center text-lg sm:text-xl font-black text-slate-900 mb-5 font-inter">Как идут деньги - простыми&nbsp;словами</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 font-inter">
-          <div class="p-5 rounded-2xl bg-white/70 backdrop-blur-sm border border-purple-300 font-inter">
-            <div class="text-xs font-bold text-purple-900 mb-1">Шаг 1. Клиент платит&nbsp;нам</div>
-            <p class="text-xs text-slate-700 leading-relaxed">
-              Клиент оплачивает запуск и подписку на счёт Altai Optima. Вам не нужно ничего собирать, пробивать чеки или переводить&nbsp;деньги.
-            </p>
-          </div>
-          <div class="p-5 rounded-2xl bg-white/70 backdrop-blur-sm border border-purple-300 font-inter">
-            <div class="text-xs font-bold text-purple-900 mb-1">Шаг 2. Мы записываем ваш&nbsp;процент</div>
-            <p class="text-xs text-slate-700 leading-relaxed">
-              В день оплаты мы записываем, сколько вам причитается: процент от платежа клиента по вашей роли. Клиент закрепляется за вами по вашему коду&nbsp;партнёра.
-            </p>
-          </div>
-          <div class="p-5 rounded-2xl bg-white/70 backdrop-blur-sm border border-purple-300 font-inter">
-            <div class="text-xs font-bold text-purple-900 mb-1">Шаг 3. 10-го числа&nbsp;платим</div>
-            <p class="text-xs text-slate-700 leading-relaxed">
-              Раз в месяц, 10-го числа, мы переводим всё, что накопилось за прошлый месяц: за запуски, за подписки и бонус руководителя. Всё одним&nbsp;платежом.
-            </p>
-          </div>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 font-inter">
-          <div class="p-5 rounded-2xl bg-white/70 backdrop-blur-sm border border-purple-300 font-inter">
-            <div class="text-xs font-bold text-purple-900 mb-1">Когда придут&nbsp;деньги?</div>
-            <p class="text-xs text-slate-700 leading-relaxed">
-              Один раз в месяц, 10-го числа. Пример: клиент заплатил 15 сентября - вы получите свой процент 10&nbsp;октября.
-            </p>
-          </div>
-          <div class="p-5 rounded-2xl bg-white/70 backdrop-blur-sm border border-purple-300 font-inter">
-            <div class="text-xs font-bold text-purple-900 mb-1">Сколько нужно&nbsp;накопить?</div>
-            <p class="text-xs text-slate-700 leading-relaxed">
-              От 3&nbsp;000&nbsp;₽. Если накопилось меньше, деньги не пропадают, а переходят на следующий&nbsp;месяц.
-            </p>
-          </div>
-          <div class="p-5 rounded-2xl bg-white/70 backdrop-blur-sm border border-purple-300 font-inter">
-            <div class="text-xs font-bold text-purple-900 mb-1">Как понять, чей это&nbsp;клиент?</div>
-            <p class="text-xs text-slate-700 leading-relaxed">
-              Клиент закрепляется за тем, чей код партнёра указан в его заявке. Пока клиент платит подписку, он&nbsp;ваш.
-            </p>
-          </div>
-          <div class="p-5 rounded-2xl bg-white/70 backdrop-blur-sm border border-purple-300 font-inter">
-            <div class="text-xs font-bold text-purple-900 mb-1">А если клиент попросил вернуть&nbsp;деньги?</div>
-            <p class="text-xs text-slate-700 leading-relaxed">
-              Если возврат случился в первые 30 дней после запуска, процент за запуск вычитается из следующей выплаты. С подписок платим только за месяцы, которые клиент реально&nbsp;оплатил.
-            </p>
-          </div>
-          <div class="p-5 rounded-2xl bg-white/70 backdrop-blur-sm border border-purple-300 font-inter">
-            <div class="text-xs font-bold text-purple-900 mb-1">С чего платится&nbsp;процент?</div>
-            <p class="text-xs text-slate-700 leading-relaxed">
-              Только с денег, которые клиент реально заплатил нам. За вход в партнёрскую программу платить не нужно, покупать ничего не&nbsp;нужно.
-            </p>
-          </div>
-          <div class="p-5 rounded-2xl bg-white/70 backdrop-blur-sm border border-purple-300 font-inter">
-            <div class="text-xs font-bold text-purple-900 mb-1">Кто занимается деньгами и&nbsp;чеками?</div>
-            <p class="text-xs text-slate-700 leading-relaxed">
-              Мы. Клиент платит по договору с Altai Optima, вы деньги клиентов не принимаете. Выплаты идут по агентскому договору; самозанятые присылают нам&nbsp;чек.
-            </p>
-          </div>
-        </div>
-        <div class="text-center text-xs text-slate-500 max-w-4xl mx-auto leading-relaxed font-inter">
-          <strong class="text-slate-700">Словарик.</strong> Запуск - разовая настройка Веры у клиента&nbsp;(29&nbsp;000&nbsp;₽). Подписка - ежемесячная плата клиента за работу Веры. Активный клиент - тот, кто сейчас платит подписку. Ведущий менеджер - менеджер, у которого 10+ своих клиентов: он никем не руководит, просто получает повышенный процент. Руководитель группы - партнёр, который привёл своих менеджеров и ведёт их (+5% с клиентов группы). Руководитель отдела продаж - руководитель, чьи менеджеры собрали свои группы (+2% с клиентов этих&nbsp;групп).
-        </div>
-      </div>
     </section>
 
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ВЫПЛАТ К РОСТУ СТАТУСА (ПУТЬ ПАРТНЁРА) -->
@@ -2050,7 +1972,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
     <section id="ladder" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-18 scroll-mt-28 relative">
       <div class="text-center max-w-4xl mx-auto mb-12 sm:mb-14">
         <h2 class="font-benzin uppercase font-black text-xl min-[360px]:text-2xl sm:text-3xl md:text-4xl lg:text-[36px] xl:text-[40px] leading-tight tracking-[0.01em] text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
-          <span class="pearl-title-gradient">Больше клиентов в&nbsp;базе&nbsp;=</span><br> <span class="text-[#0f172a]">выше процент&nbsp;выплат</span>
+          <span class="pearl-title-gradient">БОЛЬШЕ КЛИЕНТОВ</span> <span class="text-[#0f172a]">= ВЫШЕ ПРОЦЕНТ</span>
         </h2>
       </div>
 
@@ -2106,7 +2028,6 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
           <div>
             <div class="flex items-center justify-between h-[26px] mb-2 font-inter">
               <span class="text-xs font-bold text-sky-700 uppercase tracking-wider font-inter">1-9 клиентов</span>
-              <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-sky-100 text-sky-800 border border-sky-200 font-inter">Базовый статус</span>
             </div>
             <div class="h-[54px] flex items-center mb-4">
               <h3 class="font-inter uppercase font-black tracking-tight text-xl sm:text-2xl text-slate-900">Менеджер по&nbsp;продажам</h3>
@@ -2152,7 +2073,6 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
           <div>
             <div class="flex items-center justify-between h-[26px] mb-2 font-inter">
               <span class="text-xs font-bold text-indigo-700 uppercase tracking-wider font-inter">10+ клиентов</span>
-              <span class="text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-indigo-100 text-indigo-800 border border-indigo-200 font-inter">Повышенная ставка</span>
             </div>
             <div class="h-[54px] flex items-center mb-4">
               <h3 class="font-inter uppercase font-black tracking-tight text-xl sm:text-2xl text-slate-900">Ведущий менеджер</h3>
@@ -2223,11 +2143,12 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
     <!-- ================= 6. SECTION: 3 РЕАЛЬНЫХ СЦЕНАРИЯ ВЫХОДА НА 1 000 000 ₽ ================= -->
     <section id="scenario1m" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-18 scroll-mt-28 relative font-inter">
       
-      <!-- Section Heading in Benzin uppercase in 2 lines with Gradient Highlight -->
+      <!-- Section Heading in Benzin uppercase in 3 lines on mobile with Gradient Highlight -->
       <div class="relative z-10 max-w-5xl mb-8 sm:mb-10 text-center sm:text-left">
-        <h3 class="font-benzin uppercase tracking-tight font-black text-base min-[360px]:text-lg sm:text-2xl md:text-3xl lg:text-[36px] xl:text-[40px] text-[#0f172a] mb-2 leading-snug sm:leading-[1.2]" style="font-family: 'Benzin', sans-serif !important;">
-          <span class="block sm:whitespace-nowrap">ЧТО НУЖНО, ЧТОБЫ ВЫЙТИ НА ДОХОД</span>
-          <span class="block sm:whitespace-nowrap"><span class="bg-gradient-to-r from-emerald-600 via-sky-500 to-indigo-600 bg-clip-text text-transparent whitespace-nowrap">1.000.000&nbsp;₽</span> В&nbsp;МЕСЯЦ</span>
+        <h3 class="font-benzin uppercase tracking-tight font-black text-xl min-[360px]:text-2xl sm:text-3xl md:text-4xl lg:text-[36px] xl:text-[40px] text-[#0f172a] mb-2 leading-tight" style="font-family: 'Benzin', sans-serif !important;">
+          <span class="block">КАК ЗАРАБОТАТЬ</span>
+          <span class="block bg-gradient-to-r from-emerald-600 via-sky-500 to-indigo-600 bg-clip-text text-transparent whitespace-nowrap">1.000.000&nbsp;₽</span>
+          <span class="block">НА&nbsp;ПАРТНЕРСТВЕ</span>
         </h3>
       </div>
 
@@ -2583,9 +2504,6 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
           <div class="text-xs text-slate-500 italic">
             «Мысли глобально, действуй&nbsp;локально»
           </div>
-          <p class="text-xs text-slate-500 max-w-sm leading-relaxed">
-            Официальная партнёрская программа сервиса ИИ-продавца Вера. Выплаты с каждого запуска и всех ежемесячных&nbsp;подписок.
-          </p>
         </div>
 
         <!-- КОЛОНКА 2: СВЯЗЬ И КАНАЛЫ -->
@@ -2594,6 +2512,14 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
             Связь и&nbsp;контакты
           </div>
           <ul class="space-y-2 text-xs flex flex-col items-center md:items-start">
+            <li>
+              <a href="https://wa.me/79067574355" target="_blank" class="inline-flex items-center gap-2 text-slate-700 hover:text-[#25D366] transition-colors py-0.5 group">
+                <svg class="w-4 h-4 text-[#25D366] fill-current group-hover:scale-110 transition-transform shrink-0" viewBox="0 0 24 24">
+                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.68 12.04 3.68C14.24 3.68 16.31 4.54 17.87 6.1C19.42 7.66 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15ZM16.56 14.36C16.31 14.24 15.09 13.64 14.86 13.56C14.63 13.48 14.47 13.44 14.3 13.69C14.14 13.94 13.67 14.49 13.52 14.66C13.38 14.83 13.23 14.85 12.98 14.73C12.74 14.61 11.95 14.35 11.01 13.51C10.28 12.86 9.78 12.05 9.64 11.8C9.5 11.56 9.62 11.42 9.75 11.3C9.86 11.02 10 11.02 10.12 10.88C10.24 10.74 10.28 10.64 10.36 10.47C10.44 10.31 10.4 10.16 10.34 10.04C10.28 9.92 9.8 8.74 9.6 8.25C9.4 7.78 9.21 7.84 9.06 7.83C8.92 7.82 8.76 7.82 8.6 7.82C8.44 7.82 8.17 7.88 7.95 8.12C7.73 8.36 7.1 8.95 7.1 10.16C7.1 11.37 7.98 12.54 8.1 12.7C8.22 12.87 9.83 15.34 12.3 16.4C12.89 16.65 13.35 16.8 13.7 16.91C14.3 17.1 14.84 17.07 15.27 17.01C15.75 16.94 16.74 16.41 16.95 15.82C17.15 15.23 17.15 14.73 17.09 14.62C17.03 14.51 16.81 14.48 16.56 14.36Z"></path>
+                </svg>
+                <span class="font-medium">WhatsApp: +7 906 757-43-55</span>
+              </a>
+            </li>
             <li>
               <a href="https://t.me/altaioptima" target="_blank" class="inline-flex items-center gap-2 text-slate-700 hover:text-[#229ED9] transition-colors py-0.5 group">
                 <svg class="w-4 h-4 text-[#229ED9] fill-current group-hover:scale-110 transition-transform shrink-0" viewBox="0 0 24 24">
