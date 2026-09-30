@@ -3794,13 +3794,13 @@
             mobMonthlyTotal.textContent = `${prefix}${formatPrice(monthly)}\u00A0₽/мес`;
           }
 
-          // 7. Кнопка «Запустить ИИ-продавца»
+          // 7. Кнопка «Интегрировать Веру»
           const ctaBtn = document.getElementById('ctaBtn');
           if (ctaBtn) {
             const activeChNames = CHANNELS.filter(c => state.channels[c.id]).map(c => c.label.replace(/\*+/g, '')).join(', ') || 'Без каналов';
             const activeCrmNames = CRMS.filter(c => state.crms[c.id]).map(c => c.label).join(', ') || 'Без CRM';
 
-            const tgMsg = `Здравствуйте! Хочу запустить ИИ-продавца:
+            const tgMsg = `Здравствуйте! Хочу интегрировать Веру:
 • Тариф: «${tariff.name}» (${tariff.detailsLimit})
 • Объём: ~${state.sliderValue} диалогов в месяц
 • Подписка: ${prefix}${formatPrice(monthly)} ₽/мес
