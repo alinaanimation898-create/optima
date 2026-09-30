@@ -536,7 +536,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
       <div class="block lg:hidden mb-6 px-1 text-center font-inter">
         <h3 class="text-slate-900 font-bold leading-snug">
           <span class="pearl-title-gradient text-xl sm:text-2xl font-black uppercase block mb-1">Здравствуйте!</span>
-          <span class="text-sm sm:text-base font-bold text-slate-800 block font-inter">Мы&nbsp;— Алина и&nbsp;Давид, основатели Altai&nbsp;Optima</span>
+          <span class="text-sm sm:text-base font-bold text-slate-800 block font-inter">Мы&nbsp;- Алина и&nbsp;Давид, основатели Altai&nbsp;Optima</span>
         </h3>
       </div>
 
@@ -551,8 +551,8 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
             <div class="w-1/2 lg:w-full">
               <div class="relative w-full aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_12px_30px_rgba(2,132,199,0.12)] border-2 border-white ring-1 ring-sky-200/70 bg-slate-100 group">
                 <img src="founder_alina.webp" alt="Алина" class="w-full h-full object-cover object-[50%_15%] transition-transform duration-700 group-hover:scale-105" loading="lazy">
-                <div class="absolute inset-x-2.5 sm:inset-x-3.5 bottom-2 sm:bottom-2.5 py-0.5 px-2 rounded-xl bg-white/40 backdrop-blur-md border border-white/50 shadow-xs text-center">
-                  <span class="font-signature text-xl min-[360px]:text-2xl sm:text-2xl lg:text-3xl text-[#0284c7] leading-none block select-none" style="font-family: 'Caveat', cursive !important; text-transform: none !important; font-weight: 700;">
+                <div class="absolute inset-x-2.5 sm:inset-x-3.5 bottom-2 sm:bottom-2.5 py-0.5 px-2 rounded-xl bg-slate-950/30 backdrop-blur-md border border-white/30 shadow-xs text-center">
+                  <span class="font-signature text-xl min-[360px]:text-2xl sm:text-2xl lg:text-3xl text-white leading-none block select-none drop-shadow-sm" style="font-family: 'Caveat', cursive !important; text-transform: none !important; font-weight: 700;">
                     Алина
                   </span>
                 </div>
@@ -584,7 +584,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
                 Здравствуйте!
               </h3>
               <p class="text-slate-900 text-base lg:text-lg xl:text-xl font-bold font-inter">
-                Мы&nbsp;— Алина и&nbsp;Давид, основатели Altai&nbsp;Optima
+                Мы&nbsp;- Алина и&nbsp;Давид, основатели Altai&nbsp;Optima
               </p>
             </div>
 
@@ -682,18 +682,21 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
             <!-- Затемнение снизу для контраста диалога -->
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent pointer-events-none"></div>
 
-            <!-- Облачко 1: Вопрос клиента (сверху-слева, анимированное появление) -->
-            <div class="product-chat-bubble-1 absolute left-3.5 sm:left-4 bottom-28 sm:bottom-32 max-w-[82%] sm:max-w-[80%] bg-white/95 backdrop-blur-md border border-white/80 rounded-2xl rounded-bl-xs p-3 sm:p-3.5 shadow-xl text-slate-900 font-inter text-xs leading-snug z-20">
-              <div class="font-normal text-[11.5px] sm:text-xs">Здравствуйте, а&nbsp;доставка в&nbsp;выходные&nbsp;есть?</div>
-              <div class="text-[9.5px] text-slate-400 mt-1 text-right font-mono">23:47</div>
-            </div>
+            <!-- Диалог Веры с клиентом (flex-колонка исключает наложение сообщений на любых экранах) -->
+            <div class="absolute left-3 sm:left-4 right-3 sm:right-4 bottom-3 sm:bottom-3.5 flex flex-col items-start gap-2 sm:gap-2.5 z-20 pointer-events-none">
+              <!-- Облачко 1: Вопрос клиента (сверху-слева) -->
+              <div class="product-chat-bubble-1 max-w-[85%] sm:max-w-[80%] bg-white/95 backdrop-blur-md border border-white/80 rounded-2xl rounded-bl-xs p-2.5 sm:p-3.5 shadow-xl text-slate-900 font-inter text-xs leading-snug pointer-events-auto">
+                <div class="font-normal text-[11px] sm:text-xs">Здравствуйте, а&nbsp;доставка в&nbsp;выходные&nbsp;есть?</div>
+                <div class="text-[9px] sm:text-[9.5px] text-slate-400 mt-0.5 sm:mt-1 text-right font-mono">23:47</div>
+              </div>
 
-            <!-- Облачко 2: Ответ Веры (снизу-справа, синяя плашка, анимированное появление с задержкой) -->
-            <div class="product-chat-bubble-2 absolute left-3.5 sm:left-4 right-3.5 sm:right-4 bottom-3 sm:bottom-3.5 bg-gradient-to-r from-sky-600 via-sky-600 to-blue-700 text-white rounded-2xl rounded-br-xs p-3 sm:p-3.5 shadow-2xl font-inter text-xs leading-relaxed z-20 border border-sky-400/40">
-              <div class="font-medium text-[11.5px] sm:text-xs text-white">Добрый вечер! На&nbsp;связи менеджер Вера. Доставка есть, и&nbsp;в&nbsp;субботу, и&nbsp;в&nbsp;воскресенье) Скажите, пожалуйста, как могу к&nbsp;вам обращаться и&nbsp;какой товар&nbsp;заинтересовал?</div>
-              <div class="text-[10px] text-sky-200 mt-1 font-medium flex items-center justify-between">
-                <span>23:47 ·&nbsp;Вера</span>
-                <span class="text-emerald-300 font-bold">✓✓</span>
+              <!-- Облачко 2: Ответ Веры (снизу-справа, синяя плашка) -->
+              <div class="product-chat-bubble-2 w-full bg-gradient-to-r from-sky-600 via-sky-600 to-blue-700 text-white rounded-2xl rounded-br-xs p-2.5 sm:p-3.5 shadow-2xl font-inter text-xs leading-relaxed border border-sky-400/40 pointer-events-auto">
+                <div class="font-medium text-[11px] sm:text-xs text-white">Добрый вечер! На&nbsp;связи менеджер Вера. Доставка есть, и&nbsp;в&nbsp;субботу, и&nbsp;в&nbsp;воскресенье) Скажите, пожалуйста, как могу к&nbsp;вам обращаться и&nbsp;какой товар&nbsp;заинтересовал?</div>
+                <div class="text-[9.5px] sm:text-[10px] text-sky-200 mt-1 font-medium flex items-center justify-between">
+                  <span>23:47 ·&nbsp;Вера</span>
+                  <span class="text-emerald-300 font-bold">✓✓</span>
+                </div>
               </div>
             </div>
 
@@ -1742,7 +1745,8 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
           
           <!-- ALTAI MOUNTAIN SCHEME: вершина - руководитель отдела, ручьи - к группе и группам ниже -->
           <style>
-  .altmtn-wrap{position:relative;z-index:20;margin-top:4px}
+  .altmtn-wrap{position:relative;z-index:20;margin-top:4px;margin-left:-1.5rem;margin-right:-1.5rem}
+  @media (min-width:640px){.altmtn-wrap{margin-left:-2.5rem;margin-right:-2.5rem}}
   .altmtn-svg{display:block;width:100%;height:auto}
   .altmtn-mobile{display:none}
   @media (max-width:639px){.altmtn-desktop{display:none}.altmtn-mobile{display:block}}
@@ -1758,7 +1762,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
   @keyframes altmtnFlow{to{stroke-dashoffset:-36}}
   @media (prefers-reduced-motion:reduce){.altmtn-flow,.altmtn-wave{animation:none}}
 </style>
-          <div class="altmtn-wrap">
+          <div class="altmtn-wrap -mx-6 sm:-mx-10">
             <div class="altmtn-desktop"><svg class="altmtn-svg" viewBox="0 0 1000 650" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Схема отдела продаж: вы на вершине, ниже ваша группа из 5 менеджеров, ещё ниже - группы, которые собрали ваши менеджеры" font-family="Inter, Arial, sans-serif"><defs>
   <linearGradient id="altmtnMain" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C4B5FD"/><stop offset="100%" stop-color="#F5F3FF"/></linearGradient>
   <linearGradient id="altmtnBack" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C7D2FE"/><stop offset="100%" stop-color="#EEF2FF"/></linearGradient>
@@ -2236,7 +2240,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
             <div class="py-3.5 mb-5 border-t border-b border-emerald-200/60 min-h-[88px] flex flex-col justify-center">
               <div class="text-[11px] font-bold text-emerald-900/70 uppercase tracking-wider">Что нужно в&nbsp;базе</div>
               <div class="text-lg sm:text-xl font-black text-emerald-950 mt-0.5">От 41 до 68&nbsp;клиентов</div>
-              <div class="text-[11px] text-slate-500 mt-0.5">В 1,5–2,5 раза меньше клиентов за счёт&nbsp;чека</div>
+              <div class="text-[11px] text-slate-500 mt-0.5">В 1,5-2,5 раза меньше клиентов за счёт&nbsp;чека</div>
             </div>
           </div>
 
@@ -2411,7 +2415,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
 <!-- ================= 8. SECTION: ФОРМА ПАРТНЁРСТВА ================= -->
     <section id="join" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-18 pb-32 sm:pb-44 lg:pb-56 scroll-mt-28 relative font-inter">
 
-      <!-- Form Section: Become a partner — двухколоночный layout -->
+      <!-- Form Section: Become a partner - двухколоночный layout -->
       <div id="form-container" class="font-inter pt-2 sm:pt-4">
 
         <!-- Двухколоночная сетка: слева фото, справа форма -->
@@ -2428,7 +2432,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
           <div class="flex flex-col gap-6 w-full">
             <!-- Заголовок -->
             <div>
-              <h3 class="font-benzin uppercase tracking-tight font-black text-2xl min-[360px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-emerald-600 via-sky-500 to-indigo-600 bg-clip-text text-transparent leading-tight text-center md:text-left" style="font-family: 'Benzin', sans-serif !important;">
+              <h3 class="font-benzin uppercase tracking-tight font-black text-lg min-[360px]:text-xl min-[400px]:text-2xl sm:text-3xl md:text-4xl lg:text-5xl bg-gradient-to-r from-emerald-600 via-sky-500 to-indigo-600 bg-clip-text text-transparent leading-tight text-center md:text-left" style="font-family: 'Benzin', sans-serif !important;">
                 Присоединяйтесь к&nbsp;команде
               </h3>
             </div>

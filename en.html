@@ -262,10 +262,11 @@
     
     
     <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none select-none">
-      
-      <img src="eva_desk_wide.webp" alt="" class="absolute inset-0 w-full h-full object-cover object-[88%_center] sm:object-center select-none" />
-      
-      
+      <picture class="block sm:hidden absolute inset-0 w-full h-full select-none">
+        <source srcset="Woman_typing_at_laptop_2K_20260930131957.webp" type="image/webp">
+        <img src="Woman_typing_at_laptop_2K_20260930131957.jpg" alt="Vera AI" class="w-full h-full object-cover object-center select-none" />
+      </picture>
+      <img src="eva_desk_wide.webp" alt="" class="hidden sm:block absolute inset-0 w-full h-full object-cover sm:object-center select-none" />
       <video 
         id="heroBgVideo"
         src="0906.mp4" 
@@ -274,11 +275,9 @@
         loop
         playsinline 
         preload="metadata"
-        class="absolute inset-0 w-full h-full object-cover object-[88%_center] sm:object-center select-none pointer-events-none"
+        class="hidden sm:block absolute inset-0 w-full h-full object-cover sm:object-center select-none pointer-events-none"
         style="transform: translateZ(0); -webkit-transform: translateZ(0); will-change: transform;"
       ></video>
-
-      
       <div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent via-60% to-[#f0f5fa]"></div>
     </div>
 

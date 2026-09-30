@@ -1331,6 +1331,12 @@ html, body {
       height: calc(100% + 12px) !important;
     }
 
+    @media (max-width: 639px) {
+      #heroBgVideo {
+        display: none !important;
+      }
+    }
+
     .hero-video-portal {
       position: relative;
       width: 100%;

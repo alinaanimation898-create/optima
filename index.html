@@ -295,12 +295,18 @@
   <!-- 2. МОНУМЕНТАЛЬНЫЙ FULL-SCREEN CINEMATIC HERO С ИНТЕГРИРОВАННЫМ ПРОЗРАЧНЫМ МЕНЮ -->
   <section class="relative w-full min-h-screen overflow-hidden flex flex-col justify-between py-5 sm:py-6 px-4 sm:px-8 lg:px-12 mb-12 sm:mb-18 md:mb-24 pb-8 sm:pb-12 md:pb-16">
     
-    <!-- ФОНОВОЕ ВИДЕО НА ВСЮ ШИРИНУ И ВЫСОТУ С АППАРАТНЫМ GPU-УСКОРЕНИЕМ И БЕСШОВНЫМ ГРАДИЕНТОМ -->
+    <!-- ФОНОВОЕ ВИДЕО НА ДЕСКТОПЕ / ФОТО НА МОБИЛЬНОЙ ВЕРСИИ -->
     <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none select-none">
-      <!-- Фоновый постер для мгновенного первого кадра без мигания -->
-      <img src="eva_desk_wide.webp" alt="" class="absolute inset-0 w-full h-full object-cover object-[88%_center] sm:object-center select-none" style="transform: scale(1.05) translateZ(0); -webkit-transform: scale(1.05) translateZ(0); transform-origin: center center;" />
+      <!-- Мобильное фото на первом экране -->
+      <picture class="block sm:hidden absolute inset-0 w-full h-full select-none">
+        <source srcset="Woman_typing_at_laptop_2K_20260930131957.webp" type="image/webp">
+        <img src="Woman_typing_at_laptop_2K_20260930131957.jpg" alt="Вера AI" class="w-full h-full object-cover object-center select-none" />
+      </picture>
+
+      <!-- Десктопный фоновый постер для мгновенного первого кадра без мигания -->
+      <img src="eva_desk_wide.webp" alt="" class="hidden sm:block absolute inset-0 w-full h-full object-cover sm:object-center select-none" style="transform: scale(1.05) translateZ(0); -webkit-transform: scale(1.05) translateZ(0); transform-origin: center center;" />
       
-      <!-- Аппаратный видеопоток (чистый GPU слой без масок) с легким масштабом для скрытия артефактов кодека по краям -->
+      <!-- Аппаратный видеопоток на десктопе -->
       <video 
         id="heroBgVideo"
         src="0906.mp4" 
@@ -309,7 +315,7 @@
         loop
         playsinline 
         preload="metadata"
-        class="absolute inset-0 w-full h-full object-cover object-[88%_center] sm:object-center select-none pointer-events-none"
+        class="hidden sm:block absolute inset-0 w-full h-full object-cover sm:object-center select-none pointer-events-none"
         style="transform: scale(1.05) translateZ(0); -webkit-transform: scale(1.05) translateZ(0); transform-origin: center center; top: -6px; height: calc(100% + 12px); will-change: transform;"
       ></video>
 
@@ -2652,7 +2658,7 @@
           ВЕРА ИЛИ МЕНЕДЖЕР <span class="pearl-title-gradient">КТО ВЫГОДНЕЕ?</span>
         </h2>
         <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
-          Штатный менеджер&nbsp;— ~960&nbsp;000&nbsp;₽ в&nbsp;год<br>Вера&nbsp;— от&nbsp;304&nbsp;000&nbsp;₽
+          Штатный менеджер&nbsp;- ~960&nbsp;000&nbsp;₽ в&nbsp;год<br>Вера&nbsp;- от&nbsp;304&nbsp;000&nbsp;₽
         </p>
       </div>
 
@@ -3494,7 +3500,7 @@
                 Знакомство начинается с&nbsp;бесплатного 7-дневного теста. Платеж за&nbsp;запуск в&nbsp;29&nbsp;000&nbsp;₽ покрывает чистую себестоимость внедрения: детальную упаковку сценариев, загрузку регламентов и&nbsp;подключение системы.
               </p>
               <p>
-                Наш главный доход&nbsp;— долгое партнерство. Мы получаем прибыль только тогда, когда Вера стабильно приносит Вам деньги и&nbsp;бережет нервы, а&nbsp;Вы спокойно продлеваете подписку месяц за&nbsp;месяцем.
+                Наш главный доход&nbsp;- долгое партнерство. Мы получаем прибыль только тогда, когда Вера стабильно приносит Вам деньги и&nbsp;бережет нервы, а&nbsp;Вы спокойно продлеваете подписку месяц за&nbsp;месяцем.
               </p>
               <p class="font-semibold text-slate-950 pt-1">
                 Вы абсолютно свободны отключиться от&nbsp;системы в&nbsp;любой момент, но мы уверены: <span class="bg-gradient-to-r from-sky-600 via-sky-500 to-emerald-600 bg-clip-text text-transparent font-extrabold">стоит Вам познакомиться с&nbsp;Верой, и&nbsp;это станет любовью с&nbsp;первого сообщения</span>🩵
