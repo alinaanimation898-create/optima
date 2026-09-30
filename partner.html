@@ -1707,7 +1707,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
           <span class="bg-gradient-to-r from-emerald-600 via-sky-500 to-indigo-600 bg-clip-text text-transparent">КАРЬЕРНЫЙ РОСТ</span>
         </h3>
         <p class="text-sm sm:text-base text-slate-700 font-medium leading-relaxed max-w-2xl mx-auto mb-8">
-          Стройте команду и получайте процент с её подписок: <strong class="text-purple-950">+5%</strong> с клиентов вашей группы и ещё <strong class="text-purple-950">+2%</strong> с клиентов групп ваших менеджеров. Это сверх их комиссии, из денег компании
+          Стройте команду и получайте процент с её подписок: <strong class="text-purple-950">+5%</strong> с клиентов вашей группы и ещё <strong class="text-purple-950">+2%</strong> с клиентов групп ваших менеджеров
         </p>
 
         <!-- Plain English Explanation Cards (Clean white with subtle outline) -->
@@ -1759,10 +1759,11 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
   .altmtn-t3{fill:#6D28D9;font-weight:800}
   .altmtn-node2 ~ .altmtn-t3{fill:#0369A1}
   .altmtn-node2 ~ .altmtn-t1{fill:#0C4A6E}
-  .altmtn-bed{fill:none;stroke:#BAE6FD;stroke-width:6;stroke-linecap:round;opacity:.85}
-  .altmtn-flow{fill:none;stroke:#0EA5E9;stroke-width:2.5;stroke-linecap:round;stroke-dasharray:6 12;animation:altmtnFlow 1.6s linear infinite}
-  .altmtn-wave{fill:none;stroke:#FFFFFF;stroke-width:2;opacity:.7;stroke-dasharray:14 10;animation:altmtnFlow 3s linear infinite}
-  @keyframes altmtnFlow{to{stroke-dashoffset:-36}}
+  .altmtn-bed{fill:none;stroke:rgba(186,230,253,0.45);stroke-width:3.5;stroke-linecap:round}
+  .altmtn-flow{fill:none;stroke:#38BDF8;stroke-width:2.5;stroke-linecap:round;stroke-dasharray:60 180;animation:altmtnNeonCascade 2.4s linear infinite;filter:drop-shadow(0 0 5px #38BDF8) drop-shadow(0 0 10px rgba(2,132,199,0.7))}
+  .altmtn-wave{fill:none;stroke:rgba(255,255,255,0.85);stroke-width:2;stroke-linecap:round;stroke-dasharray:30 20;animation:altmtnWaveFlow 3.5s linear infinite;filter:drop-shadow(0 0 3px rgba(255,255,255,0.6))}
+  @keyframes altmtnNeonCascade{0%{stroke-dashoffset:0}100%{stroke-dashoffset:-240}}
+  @keyframes altmtnWaveFlow{to{stroke-dashoffset:-50}}
   @media (prefers-reduced-motion:reduce){.altmtn-flow,.altmtn-wave{animation:none}}
 </style>
         <div class="altmtn-wrap">
