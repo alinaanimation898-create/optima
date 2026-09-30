@@ -2951,16 +2951,30 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
     
     /* ---------- ЖИВОЙ ДЕМО-ЧАТ С ВЕРОЙ НА СТРАНИЦЕ ПАРТНЕРА ---------- */
     let isPartnerChatSending = false;
+    let partnerChatSessionId = null;
 
     function getPartnerTimeStr() {
       return new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
     }
 
     function initPartnerLiveChat() {
+      partnerChatSessionId = null;
+      try {
+        sessionStorage.removeItem('altai_partner_demo_session_id');
+      } catch (e) {}
       const container = document.getElementById('partnerLiveChatMessages');
       if (!container) return;
 
       container.innerHTML = '';
+    }
+
+    function formatPartnerAiResponse(text) {
+      if (!text) return '';
+      let safe = escapeHtml(text);
+      safe = safe.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+      safe = safe.replace(/\*(.*?)\*/g, '<i>$1</i>');
+      safe = safe.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>');
+      return safe;
     }
 
     async function handlePartnerLiveChatSubmit(event) {
@@ -2979,7 +2993,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
       const userHtml = `
         <div class="flex justify-end transition-all duration-300">
           <div class="max-w-[85%] bg-[#d9fdd3] text-slate-900 px-3 py-2 rounded-tl-xl rounded-tr-xs rounded-br-xl rounded-bl-xl shadow-xs leading-relaxed text-xs">
-            <p>${escapeHtml(text)}</p>
+            <p class="whitespace-pre-wrap">${escapeHtml(text)}</p>
             <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-slate-500">
               <span>${timeStr}</span>
               <span class="text-[#53bdeb]">✓✓</span>
@@ -3011,18 +3025,31 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
 
       let replyText = '';
       try {
+        const payload = {
+          message: text,
+          tenant_id: 'altai_optima',
+          persona: 'stanislav'
+        };
+        if (partnerChatSessionId) {
+          payload.session_id = partnerChatSessionId;
+        }
+
         const res = await fetch('https://api.optima.altaiweb.online/api/v1/demo/chat', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            message: text,
-            tenant_id: 'altai_optima',
-            persona: 'stanislav'
-          })
+          body: JSON.stringify(payload)
         });
-        if (res.ok) {
+        if (res.status === 429) {
+          replyText = 'Сервер временно перегружен, пожалуйста, подождите минуту.';
+        } else if (res.ok) {
           const data = await res.json();
           replyText = data.assistant_response || data.response || '';
+          if (data && data.session_id) {
+            partnerChatSessionId = data.session_id;
+            try {
+              sessionStorage.setItem('altai_partner_demo_session_id', data.session_id);
+            } catch (e) {}
+          }
         }
       } catch (e) {}
 
@@ -3052,7 +3079,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
         <div class="flex justify-start transition-all duration-300">
           <div class="max-w-[88%] bg-white text-slate-900 px-3 py-2 rounded-tr-xl rounded-tl-xs rounded-br-xl rounded-bl-xl shadow-xs leading-relaxed text-xs border border-slate-100">
             <div class="text-[10px] font-bold text-emerald-800 mb-0.5">Вера</div>
-            <p>${escapeHtml(replyText)}</p>
+            <div class="leading-relaxed space-y-1">${formatPartnerAiResponse(replyText)}</div>
             <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-slate-400">
               <span>${replyTime}</span>
             </div>
@@ -3076,6 +3103,10 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
     }
 
     function resetPartnerLiveChat() {
+      partnerChatSessionId = null;
+      try {
+        sessionStorage.removeItem('altai_partner_demo_session_id');
+      } catch (e) {}
       initPartnerLiveChat();
       selectCaseNiche('beauty');
     }
