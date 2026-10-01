@@ -1,27 +1,31 @@
 /* =====================================================================
-   ALTAI OPTIMA - Обновление 21.09.2026 (Рефреш механик)
-   1. Строка «который час» на первом экране
-   2. Оживающие уведомления (автоответ ИИ)
-   3. Демо: кнопки «трудного клиента»
-   4. Команда: «Пригласить на собеседование» и «Нанять»
-   5. Результаты: расчётные сценарии по нишам
+   ALTAI OPTIMA - Рефреш механик (Bilingual RU/EN)
    ===================================================================== */
 (function () {
   'use strict';
 
+  var isEn = (document.documentElement.lang === 'en');
   var REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var nf = function (n) { return Math.round(n).toLocaleString('ru-RU').replace(/,/g, ' '); };
+  var nf = function (n) { return Math.round(n).toLocaleString(isEn ? 'en-US' : 'ru-RU').replace(/,/g, ' '); };
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
   /* ---------- Тарифы (единый источник цифр) ---------- */
   var SETUP = 29000;
-  var TARIFFS = [
+  var TARIFFS_RU = [
     { name: 'Старт', upTo: 200, price: 22000 },
     { name: 'Бизнес', upTo: 600, price: 33000 },
     { name: 'Поток', upTo: 1500, price: 55000 },
     { name: 'Империя', upTo: Infinity, price: 88000 }
   ];
+  var TARIFFS_EN = [
+    { name: 'Starter', upTo: 200, price: 22000 },
+    { name: 'Business', upTo: 600, price: 33000 },
+    { name: 'Stream', upTo: 1500, price: 55000 },
+    { name: 'Enterprise', upTo: Infinity, price: 88000 }
+  ];
+  var TARIFFS = isEn ? TARIFFS_EN : TARIFFS_RU;
+
   function tariffFor(dialogs) {
     for (var i = 0; i < TARIFFS.length; i++) if (dialogs <= TARIFFS[i].upTo) return TARIFFS[i];
     return TARIFFS[TARIFFS.length - 1];
@@ -30,7 +34,10 @@
   /* =================================================================
      1. «Сайт знает, который час»
      ================================================================= */
-  var DAYS = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+  var DAYS_RU = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+  var DAYS_EN = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  var DAYS = isEn ? DAYS_EN : DAYS_RU;
+
   function timeLine() {
     var el = document.getElementById('heroLiveTimeText') || document.getElementById('aoTimeText');
     if (!el) return;
@@ -39,11 +46,19 @@
     var hm = ('0' + h).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2);
     var weekend = day === 0 || day === 6;
     var text;
-    if (h >= 23 || h < 7) text = '<b>Сейчас ' + hm + '.</b> Ваши менеджеры спят. Он на смене.';
-    else if (weekend) text = '<b>' + DAYS[day] + ', ' + hm + '.</b> У отдела продаж выходной, у него - самые горячие часы.';
-    else if (h < 10) text = '<b>Сейчас ' + hm + '.</b> Отдел продаж ещё в пути, а он уже ответил первым клиентам.';
-    else if (h < 19) text = '<b>Сейчас ' + hm + '.</b> Пока менеджер на звонке, он уже ответил пятерым.';
-    else text = '<b>Сейчас ' + hm + '.</b> Рабочий день закончился, а клиенты продолжают писать. Он на связи.';
+    if (isEn) {
+      if (h >= 23 || h < 7) text = '<b>It is now ' + hm + '.</b> Your human team is asleep. Vera is actively selling.';
+      else if (weekend) text = '<b>' + DAYS[day] + ', ' + hm + '.</b> Your sales team is off duty, but for Vera these are peak hours.';
+      else if (h < 10) text = '<b>It is now ' + hm + '.</b> Your sales reps are commuting, and Vera has already qualified the first leads.';
+      else if (h < 19) text = '<b>It is now ' + hm + '.</b> While reps handle calls, Vera instantly replies to new inquiries.';
+      else text = '<b>It is now ' + hm + '.</b> The business day has ended, but inquiries keep flowing. Vera is on duty.';
+    } else {
+      if (h >= 23 || h < 7) text = '<b>Сейчас ' + hm + '.</b> Ваши менеджеры спят. Он на смене.';
+      else if (weekend) text = '<b>' + DAYS[day] + ', ' + hm + '.</b> У отдела продаж выходной, у него - самые горячие часы.';
+      else if (h < 10) text = '<b>Сейчас ' + hm + '.</b> Отдел продаж ещё в пути, а он уже ответил первым клиентам.';
+      else if (h < 19) text = '<b>Сейчас ' + hm + '.</b> Пока менеджер на звонке, он уже ответил пятерым.';
+      else text = '<b>Сейчас ' + hm + '.</b> Рабочий день закончился, а клиенты продолжают писать. Он на связи.';
+    }
     el.innerHTML = text;
   }
 
@@ -68,28 +83,39 @@
   /* =================================================================
      4. Команда: собеседование и найм
      ================================================================= */
-  var PERSONAS = {
+  var PERSONAS_RU = {
     stanislav: { greet: 'Добрый день! Готов к собеседованию. Спрашивайте про продукт, цены, возражения - отвечу так, как ответил бы вашему клиенту.', gen: 'Михаила' },
     yaroslav: { greet: 'Здравствуйте! Люблю конкретику: расскажите, что вы продаёте и где сейчас теряются заявки?', gen: 'Максима' },
     polina: { greet: 'Здравствуйте! Я отвечаю за заботу о клиентах. Задайте любой вопрос - постараюсь помочь.', gen: 'Софью' },
     dmitry: { greet: 'Привет! Корпоративные решения и быстрые ответы. Проверяйте меня на прочность!', gen: 'Дмитрия' },
     ekaterina: { greet: 'Добрый день. Моя специальность - аудит воронки и оценка заявок. Опишите вашу воронку, покажу, где в ней теряются деньги.', gen: 'Константина' }
   };
+  var PERSONAS_EN = {
+    stanislav: { greet: 'Good day! Ready for the interview. Ask about our products, pricing, objection handling, or CRM workflow.', gen: 'Mikhail' },
+    yaroslav: { greet: 'Hello! I focus on specifics: tell me about your offer and where you lose leads in the pipeline right now.', gen: 'Maxim' },
+    polina: { greet: 'Hello! I am responsible for premium customer experience and care. Ask me anything — let us see how I represent your brand.', gen: 'Sofya' },
+    dmitry: { greet: 'Hi! Enterprise solutions and sub-3-second responses. Test my endurance on high lead volume.', gen: 'Dmitry' },
+    ekaterina: { greet: 'Good day. My specialty is pipeline audit and lead scoring. Describe your typical customer.', gen: 'Konstantin' }
+  };
+  var PERSONAS = isEn ? PERSONAS_EN : PERSONAS_RU;
   var activeKey = 'stanislav';
+
   function personaNow() {
     var nameEl = document.getElementById('resumeCandidateName');
     var photo = document.getElementById('resumeCandidatePhoto');
-    var raw = nameEl ? nameEl.textContent.trim() : 'Михаил Орлов';
+    var raw = nameEl ? nameEl.textContent.trim() : (isEn ? 'Mikhail Orlov' : 'Михаил Орлов');
     var name = raw.toLowerCase().replace(/(^|\s|-)\S/g, function (c) { return c.toUpperCase(); });
     var p = PERSONAS[activeKey] || PERSONAS.stanislav;
     return { key: activeKey, name: name, first: name.split(' ')[0], photo: photo ? photo.getAttribute('src') : null, greet: p.greet, gen: p.gen };
   }
+
   function syncHireLabels() {
     var p = personaNow();
     var n = document.getElementById('aoHireName'); if (n) n.textContent = p.name;
-    var i = document.getElementById('aoInterviewBtn'); if (i) i.textContent = 'Пригласить ' + p.gen + ' на собеседование';
-    var h = document.getElementById('aoHireBtn'); if (h) h.textContent = 'Нанять ' + p.gen;
+    var i = document.getElementById('aoInterviewBtn'); if (i) i.textContent = isEn ? ('Invite ' + p.gen + ' to Interview') : ('Пригласить ' + p.gen + ' на собеседование');
+    var h = document.getElementById('aoHireBtn'); if (h) h.textContent = isEn ? ('Hire ' + p.gen) : ('Нанять ' + p.gen);
   }
+
   function applyPersonaToChat() {
     var p = window.AO_PERSONA; if (!p) return;
     var header = document.getElementById('chatHeader');
@@ -101,8 +127,9 @@
       }
     }
     var inp = document.getElementById('liveChatInput');
-    if (inp) inp.placeholder = 'Спросите ' + p.gen + ' о чём угодно…';
+    if (inp) inp.placeholder = isEn ? ('Ask ' + p.gen + ' anything…') : ('Спросите ' + p.gen + ' о чём угодно…');
   }
+
   function interview() {
     var p = personaNow();
     window.AO_PERSONA = p;
@@ -122,6 +149,7 @@
     }
     setTimeout(function () { var inp = document.getElementById('liveChatInput'); if (inp) inp.focus({ preventScroll: true }); }, REDUCED ? 0 : 700);
   }
+
   function hire() {
     var p = personaNow();
     var target = document.getElementById('constructor');
@@ -129,12 +157,15 @@
     var old = document.getElementById('aoHireBanner'); if (old) old.remove();
     var ban = document.createElement('div');
     ban.id = 'aoHireBanner'; ban.className = 'ao-hire-banner'; ban.setAttribute('role', 'status');
-    ban.innerHTML = 'Отличный выбор: <b></b> готов выйти на смену. Выберите тариф - через 3 дня он начнёт отвечать вашим клиентам.<button type="button" aria-label="Закрыть">×</button>';
+    ban.innerHTML = isEn
+      ? 'Great choice: <b></b> is ready to start. Choose a plan — in 3 days Vera will be closing deals in your CRM.<button type="button" aria-label="Close">×</button>'
+      : 'Отличный выбор: <b></b> готов выйти на смену. Выберите тариф - через 3 дня он начнёт отвечать вашим клиентам.<button type="button" aria-label="Закрыть">×</button>';
     ban.querySelector('b').textContent = p.name;
     ban.querySelector('button').addEventListener('click', function () { ban.remove(); });
     target.insertBefore(ban, target.firstChild);
     target.scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'start' });
   }
+
   function initHire() {
     var i = document.getElementById('aoInterviewBtn');
     var h = document.getElementById('aoHireBtn');
@@ -161,13 +192,7 @@
   /* =================================================================
      5. Результаты: расчётные сценарии по нишам
      ================================================================= */
-  var NICHES = [
-    { id: 'furniture', tab: 'Мебель на заказ', leads: 150, conv: 8, check: 120000, share: 30, dialogs: 400 },
-    { id: 'realty', tab: 'Недвижимость', leads: 120, conv: 4, check: 150000, share: 35, dialogs: 350, checkLabel: 'Средняя комиссия со сделки' },
-    { id: 'fashion', tab: 'Обувь и одежда онлайн', leads: 600, conv: 12, check: 8000, share: 40, dialogs: 1200 },
-    { id: 'services', tab: 'Юридические услуги', leads: 80, conv: 15, check: 60000, share: 25, dialogs: 150 }
-  ];
-  var CASES = [
+  var CASES_RU = [
     {
       id: 'furniture',
       tab: 'Мебель на заказ',
@@ -242,6 +267,83 @@
     }
   ];
 
+  var CASES_EN = [
+    {
+      id: 'furniture',
+      tab: 'Custom Furniture',
+      title: 'Cabinetry & Custom Furniture «WoodCraft»',
+      city: 'London / New York',
+      avatar: 'persona_mikhail.webp',
+      author: 'Michael Vance',
+      role: 'Founder & CEO',
+      quote: '«Previously, leads coming from our site after 8:00 PM went unanswered until morning — customers cooled down and bought elsewhere. Now Vera answers in 30 seconds, qualifies budget, and books design consultations. Reached full payback in 11 days.»',
+      metrics: [
+        { label: 'Revenue Growth', value: '+$8,200/mo', highlight: true },
+        { label: 'Response Speed', value: '38 seconds' },
+        { label: 'Plan Payback', value: '11 days' }
+      ],
+      before: 'Up to 35% of inquiries arrived in the evening and at night. Reps answered 10–12 hours later. Night traffic conversion was just 3.2%.',
+      solution: 'Connected AI sales agent across WhatsApp, Telegram, and Website Chat. AI calculates preliminary estimates and schedules designer visits directly in CRM.',
+      after: 'Instant 24/7 response. Night inquiry conversion into measurement appointments surged to 11.8%. +4.5 additional closed contracts every month.'
+    },
+    {
+      id: 'realty',
+      tab: 'Real Estate',
+      title: 'Prime City Realty Group',
+      city: 'Dubai / London',
+      avatar: 'persona_elena.webp',
+      author: 'Elena Hayes',
+      role: 'Head of Sales',
+      quote: '«Brokers were drowning in tire-kickers, while real buyers looking for premium homes waited 2 hours for a reply. Vera filtered out 84% of junk leads and routes only verified, qualified clients to brokers.»',
+      metrics: [
+        { label: 'Net Commission', value: '+$22,500/qtr', highlight: true },
+        { label: 'Junk Filtering', value: '84% spam' },
+        { label: 'Conversion Jump', value: '2.4x growth' }
+      ],
+      before: 'Brokers spent 65% of their day answering basic questions from casual visitors. Hot pre-approved buyers left for competitors.',
+      solution: 'AI agent qualifies budget, location, and purchase timeline within 40 seconds, shares relevant listings, and tasks brokers for immediate closing calls.',
+      after: 'Brokers speak exclusively with ready-to-buy clients. Lead qualification time dropped to 1 minute. +3 closed deals in month one.'
+    },
+    {
+      id: 'fashion',
+      tab: 'Fashion & E-Commerce',
+      title: 'Velvet Store Apparel & Footwear',
+      city: 'Global E-Commerce',
+      avatar: 'persona_viktoria.webp',
+      author: 'Victoria Brooks',
+      role: 'Chief Marketing Officer',
+      quote: '«During peak sales, WhatsApp and DMs blew up — human reps were physically overwhelmed and orders dropped off. Vera took over 90% of sizing and stock inquiries. Cart checkout conversion increased by 42%.»',
+      metrics: [
+        { label: 'Extra Orders', value: '+128 orders/mo', highlight: true },
+        { label: 'Peak Inquiries', value: '100% zero delay' },
+        { label: 'Night Checkouts', value: '82% of chats' }
+      ],
+      before: 'During evenings and weekends, up to 40% of \"is this size in stock?\" messages stayed unanswered. Customers switched to other stores.',
+      solution: 'Real-time inventory integration. AI instantly checks live stock, assists with sizing, and sends a direct payment checkout link.',
+      after: '0 missed inquiries. 82% of customers messaging at night complete checkout in chat before morning.'
+    },
+    {
+      id: 'services',
+      tab: 'Legal & B2B Services',
+      title: 'Legal Standard Law Group',
+      city: 'Enterprise Practice',
+      avatar: 'persona_dmitry.webp',
+      author: 'David Sterling',
+      role: 'Managing Partner',
+      quote: '«Attorneys should be winning court cases, not spending hours answering initial phone inquiries. Vera collects case details, evaluates legal scope, and books paid consultations automatically.»',
+      metrics: [
+        { label: 'Paid Consultations', value: '+46 per month', highlight: true },
+        { label: 'Attorney Hours Saved', value: '130+ hrs/mo' },
+        { label: 'Payback Period', value: '6 days' }
+      ],
+      before: 'Attorneys were constantly interrupted by dozens of raw inquiries. Qualification dragged on and meeting attendance was weak.',
+      solution: 'Pre-screening script: dispute category, claimed damages, available documentation. Automated booking into attorney calendar in CRM.',
+      after: 'Attorneys receive clients with complete case summaries. Paid consultation show-up rate increased from 28% to 64%.'
+    }
+  ];
+
+  var CASES = isEn ? CASES_EN : CASES_RU;
+
   function renderNiche(id) {
     var c = CASES.filter(function (x) { return x.id === id; })[0] || CASES[0];
     var box = document.getElementById('aoCase');
@@ -261,13 +363,13 @@
         '</div>' +
         '<div class="ao-case-flow">' +
           '<div class="ao-case-step">' +
-            '<div><strong>Было:</strong> ' + c.before + '</div>' +
+            '<div><strong>' + (isEn ? 'Before:' : 'Было:') + '</strong> ' + c.before + '</div>' +
           '</div>' +
           '<div class="ao-case-step">' +
-            '<div><strong>Что сделали:</strong> ' + c.solution + '</div>' +
+            '<div><strong>' + (isEn ? 'Solution:' : 'Что сделали:') + '</strong> ' + c.solution + '</div>' +
           '</div>' +
           '<div class="ao-case-step">' +
-            '<div><strong>Результат:</strong> ' + c.after + '</div>' +
+            '<div><strong>' + (isEn ? 'Result:' : 'Результат:') + '</strong> ' + c.after + '</div>' +
           '</div>' +
         '</div>' +
         '<div class="ao-case-quote-box">' +
@@ -282,10 +384,10 @@
         '</div>' +
       '</div>' +
       '<div class="ao-case-sidebar">' +
-        '<div class="ao-metrics-title">РЕЗУЛЬТАТ В ЦИФРАХ</div>' +
+        '<div class="ao-metrics-title">' + (isEn ? 'RESULTS IN NUMBERS' : 'РЕЗУЛЬТАТ В ЦИФРАХ') + '</div>' +
         '<div class="ao-metrics-grid">' + metricsHtml + '</div>' +
         '<div class="ao-case-cta">' +
-          '<a href="#calculator" class="ao-case-btn">Рассчитать для своего бизнеса</a>' +
+          '<a href="#calculator" class="ao-case-btn">' + (isEn ? 'Calculate for your business' : 'Рассчитать для своего бизнеса') + '</a>' +
         '</div>' +
       '</div>';
 

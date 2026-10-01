@@ -1,5 +1,162 @@
 (function() {
-        const books = [
+        const isEn = (document.documentElement.lang === 'en');
+        const books_en = [
+          {
+                    "id": 1,
+                    "title": "Excellence Wins",
+                    "author": "Horst Schulze",
+                    "category": "World-Class Service",
+                    "badge": "SERVICE STANDARDS",
+                    "gradient": "linear-gradient(145deg, #091a28 0%, #03456b 50%, #011624 100%)",
+                    "border": "#38bdf8",
+                    "spine": "#0284c7",
+                    "accent": "#38bdf8",
+                    "essence": "Creating flawless service through employee dignity and absolute quality standards. Teaches how to conduct business without subservience, vanity, or pandering, building genuine hospitality.",
+                    "quote": "«We are ladies and gentlemen serving ladies and gentlemen»",
+                    "thought": "Eliminates subservience and timid phrasing. The agent maintains professional poise, follows gold-standard business etiquette, and speaks with equal dignity."
+          },
+          {
+                    "id": 2,
+                    "title": "Never Split the Difference",
+                    "author": "Chris Voss",
+                    "category": "Negotiation Tactics",
+                    "badge": "TACTICAL EMPATHY",
+                    "gradient": "linear-gradient(145deg, #130f30 0%, #3e338c 50%, #0a071d 100%)",
+                    "border": "#c084fc",
+                    "spine": "#7c3aed",
+                    "accent": "#c084fc",
+                    "essence": "Applying FBI hostage negotiation protocols to business. Helps keep calm under pressure, defuse customer aggression, and uncover hidden objections.",
+                    "quote": "«Compromise is often the worst outcome. Uncover hidden motives through tactical empathy.»",
+                    "thought": "The algorithm analyzes sentiment, gently mirrors customer phrases, and asks calibrated questions. It stays cool during conflicts and never concedes to foolish discounts."
+          },
+          {
+                    "id": 3,
+                    "title": "Start with NO",
+                    "author": "Jim Camp",
+                    "category": "High-Stakes Negotiations",
+                    "badge": "NEGOTIATIONS",
+                    "gradient": "linear-gradient(145deg, #270611 0%, #6d1030 50%, #170208 100%)",
+                    "border": "#fb7185",
+                    "spine": "#e11d48",
+                    "accent": "#fb7185",
+                    "essence": "A negotiation framework without neediness, manipulation, or chasing premature agreement. Removes fear of rejection and preserves deal margins.",
+                    "quote": "«Give the client full permission to say NO to free the dialogue from pressure and pretense.»",
+                    "thought": "Accepts client doubts with composure, firmly protects company boundaries, and conducts constructive dialogue from a position of inner strength."
+          },
+          {
+                    "id": 4,
+                    "title": "SPIN Selling",
+                    "author": "Neil Rackham",
+                    "category": "B2B Methodology",
+                    "badge": "SPIN METHOD",
+                    "gradient": "linear-gradient(145deg, #071738 0%, #15459b 50%, #030b1c 100%)",
+                    "border": "#60a5fa",
+                    "spine": "#2563eb",
+                    "accent": "#60a5fa",
+                    "essence": "Scientifically backed methodology for high-value B2B deals using a sequenced question framework. Prevents premature pitches and insulates against common objections.",
+                    "quote": "«Top-league professionals ask precise questions, leading clients to realize the magnitude of their pain on their own.»",
+                    "thought": "Structured SPIN flow (Situation, Problem, Implication, Need-Payoff questions). The agent quantifies the problem before presenting the tailored solution."
+          },
+          {
+                    "id": 5,
+                    "title": "The Challenger Sale",
+                    "author": "Matthew Dixon, Brent Adamson",
+                    "category": "Commercial Teaching",
+                    "badge": "CHALLENGER SALE",
+                    "gradient": "linear-gradient(145deg, #1b0a2a 0%, #4a154b 50%, #13051e 100%)",
+                    "border": "#e879f9",
+                    "spine": "#a21caf",
+                    "accent": "#e879f9",
+                    "essence": "A landmark study demonstrating that intellectual challenge vastly outperforms passive relationship-building. Offers a commercial teaching framework to disrupt buyer assumptions.",
+                    "quote": "«Modern buyers pay for fresh insights into their business, not polite small talk.»",
+                    "thought": "Acts as an authoritative advisor, tailors messages to various decision-maker tiers, and firmly maintains initiative."
+          },
+          {
+                    "id": 6,
+                    "title": "Influence: The Psychology of Persuasion",
+                    "author": "Robert Cialdini",
+                    "category": "Decision Psychology",
+                    "badge": "INFLUENCE TRIGGERS",
+                    "gradient": "linear-gradient(145deg, #04241e 0%, #0b5e4f 50%, #021411 100%)",
+                    "border": "#34d399",
+                    "spine": "#059669",
+                    "accent": "#34d399",
+                    "essence": "The psychological mechanisms of agreement: reciprocity, social proof, commitment, and perceived scarcity. Teaches ethical influence without aggressive pressure.",
+                    "quote": "«True influence is not manipulation; it is framing value through natural psychological triggers.»",
+                    "thought": "Employs verified social proof, genuine case studies, and transparent guarantees without aggressive manipulation."
+          },
+          {
+                    "id": 7,
+                    "title": "No B.S. Ruthless Management",
+                    "author": "Dan Kennedy",
+                    "category": "Profit Management",
+                    "badge": "PROFIT CONTROL",
+                    "gradient": "linear-gradient(145deg, #241402 0%, #683804 50%, #140b01 100%)",
+                    "border": "#fbbf24",
+                    "spine": "#d97706",
+                    "accent": "#fbbf24",
+                    "essence": "Uncompromising focus on sales unit economics, discipline, and eliminating employee waste. Teaches running a business with zero tolerance for lost leads.",
+                    "quote": "«Any activity that does not generate profit or protect margins must be systematized or eliminated.»",
+                    "thought": "Zero tolerance for lost leads, forgotten follow-ups, or unrecorded customer data. Every lead is logged and driven through the pipeline."
+          },
+          {
+                    "id": 8,
+                    "title": "Customers for Life",
+                    "author": "Carl Sewell",
+                    "category": "Customer Care",
+                    "badge": "LTV & SERVICE",
+                    "gradient": "linear-gradient(145deg, #032326 0%, #08555e 50%, #011416 100%)",
+                    "border": "#2dd4bf",
+                    "spine": "#0d9488",
+                    "accent": "#2dd4bf",
+                    "essence": "Treating every customer not as a single transaction, but as a lifelong relationship worth hundreds of thousands in lifetime revenue.",
+                    "quote": "«Turn a one-off buyer into a lifelong advocate by treating customer service as an obsession.»",
+                    "thought": "Long-term relationship nurturing. Fast follow-ups, personalized recommendations, and memorable customer care."
+          },
+          {
+                    "id": 9,
+                    "title": "Delivering Happiness",
+                    "author": "Tony Hsieh",
+                    "category": "Company Culture",
+                    "badge": "LOYALTY & CULTURE",
+                    "gradient": "linear-gradient(145deg, #240722 0%, #63125e 50%, #140213 100%)",
+                    "border": "#f472b6",
+                    "spine": "#db2777",
+                    "accent": "#f472b6",
+                    "essence": "Building an extraordinary brand through WOW-level customer service that turns buyers into passionate brand evangelists.",
+                    "quote": "«Customer service should not be a department — it should be the entire company.»",
+                    "thought": "Human, empathetic, and warm communication. Vera turns casual inquiries into delighted, loyal advocates."
+          },
+          {
+                    "id": 10,
+                    "title": "Achieving Excellence Through Customer Service",
+                    "author": "John Tschohl",
+                    "category": "Service Systems",
+                    "badge": "SPEED & SERVICE",
+                    "gradient": "linear-gradient(145deg, #170d2b 0%, #3e1f75 50%, #0d061a 100%)",
+                    "border": "#a78bfa",
+                    "spine": "#7c3aed",
+                    "accent": "#a78bfa",
+                    "essence": "Speed and responsiveness as the ultimate competitive moat. Eliminating bureaucracy and resolving inquiries on the first touchpoint.",
+                    "quote": "«Speed of response is the modern currency of customer trust.»",
+                    "thought": "Under 3-second instant responses across all messengers. Resolves questions instantly without making clients wait in line."
+          },
+          {
+                    "id": 11,
+                    "title": "Getting to Yes",
+                    "author": "Roger Fisher, William Ury",
+                    "category": "Harvard Negotiation Project",
+                    "badge": "WIN-WIN NEGOTIATION",
+                    "gradient": "linear-gradient(145deg, #061e29 0%, #0f4c66 50%, #031017 100%)",
+                    "border": "#38bdf8",
+                    "spine": "#0284c7",
+                    "accent": "#38bdf8",
+                    "essence": "Principled negotiations separating people from the problem, focusing on underlying interests rather than fixed positions.",
+                    "quote": "«Be soft on the people, hard on the problem. Look for mutual gain before deciding.»",
+                    "thought": "Identifies mutually beneficial terms, clarifies real buyer motives, and closes deals where both parties win."
+          }
+];
+        const books_ru = [
           {
             "id": 1,
             "title": "Удовлетворение гарантировано",
@@ -156,6 +313,7 @@
           }
         ];
 
+        const books = isEn ? books_en : books_ru;
         let activeIndex = 0;
         let autoRotateTimer = null;
         const total = books.length;
@@ -252,7 +410,7 @@
             const dot = document.createElement("button");
             dot.type = "button";
             dot.className = "w-2.5 h-2.5 rounded-full transition-all duration-300 bg-slate-300 hover:bg-sky-400";
-            dot.setAttribute("aria-label", `Книга ${i + 1}`);
+            dot.setAttribute("aria-label", isEn ? `Book ${i + 1}` : `Книга ${i + 1}`);
             dot.addEventListener("click", () => {
               setActiveBook(i);
               resetAutoRotate();
@@ -387,7 +545,7 @@
             if (titleEl) titleEl.textContent = `«${b.title}»`;
             if (quoteBookTitleEl) quoteBookTitleEl.textContent = b.title;
             if (downloadBtnBookTitleEl) downloadBtnBookTitleEl.textContent = `«${b.title}»`;
-            if (authorEl) authorEl.textContent = `Автор: ${b.author}`;
+            if (authorEl) authorEl.textContent = (isEn ? "Author: " : "Автор: ") + b.author;
             if (catEl) catEl.textContent = b.category;
             if (badgeEl) badgeEl.textContent = b.badge;
             if (quoteEl) quoteEl.textContent = b.quote;
@@ -472,7 +630,7 @@
           const t = document.getElementById("modalBookTitle");
           const a = document.getElementById("modalBookAuthor");
           if (t && title) t.textContent = title;
-          if (a && author) a.textContent = "Автор: " + author;
+          if (a && author) a.textContent = (isEn ? "Author: " : "Автор: ") + author;
 
           modal.classList.remove("opacity-0", "pointer-events-none");
           const inner = modal.querySelector("div");
