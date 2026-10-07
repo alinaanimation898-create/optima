@@ -96,24 +96,6 @@
             {"@type": "Offer", "name": "Империя - больше 1500 диалогов", "price": "99000", "priceCurrency": "RUB"}
           ]
         }
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://optima.altaiweb.online/#faq",
-        "mainEntity": [
-          {"@type": "Question", "name": "Что такое ИИ-продавец?",
-           "acceptedAnswer": {"@type": "Answer", "text": "Это виртуальный менеджер по продажам на базе искусственного интеллекта. Вера ведёт живую переписку с клиентами, отвечает на вопросы о товарах и ценах, выясняет потребность и бюджет и передаёт горячую заявку в CRM."}},
-          {"@type": "Question", "name": "Сколько стоит ИИ-продавец Вера?",
-           "acceptedAnswer": {"@type": "Answer", "text": "Запуск 29 000 ₽ разово, он включает первый месяц. Дальше подписка от 25 000 ₽ в месяц в зависимости от числа диалогов. Каналы и CRM подключаются в любом тарифе без доплат."}},
-          {"@type": "Question", "name": "В каких мессенджерах работает Вера?",
-           "acceptedAnswer": {"@type": "Answer", "text": "WhatsApp, Telegram, Instagram Direct, Авито, MAX, VK и чат на сайте, во всех каналах одновременно."}},
-          {"@type": "Question", "name": "С какими CRM интегрируется Вера?",
-           "acceptedAnswer": {"@type": "Answer", "text": "amoCRM, Битрикс24, 1С, МойСклад, Google Таблицы и Excel. Вера сама создаёт карточку клиента и заполняет поля сделки по вашим правилам."}},
-          {"@type": "Question", "name": "Можно ли попробовать бесплатно?",
-           "acceptedAnswer": {"@type": "Answer", "text": "Да, есть бесплатный тест 7 дней: Веру подключают к одному вашему каналу и собирают заявки в таблицу. Без привязки карты, запуск за сутки."}},
-          {"@type": "Question", "name": "Сколько времени занимает запуск?",
-           "acceptedAnswer": {"@type": "Answer", "text": "Тестовый запуск за сутки, полная интеграция с обучением на ваших прайсах, скриптах и переписках - от 3 дней."}}
-        ]
       }
     ]
   }
@@ -299,8 +281,6 @@
             <span class="text-slate-300 select-none">•</span>
             <a href="#constructor" class="px-2.5 py-1 hover:text-slate-900 hover:bg-black/5 rounded-full transition-all whitespace-nowrap">Тарифы</a>
             <span class="text-slate-300 select-none">•</span>
-            <a href="#faq" class="px-2.5 py-1 hover:text-slate-900 hover:bg-black/5 rounded-full transition-all whitespace-nowrap">Вопросы</a>
-            <span class="text-slate-300 select-none">•</span>
             <a href="partner.html" class="px-3 py-1 rounded-full border border-sky-400/80 bg-gradient-to-r from-sky-50 via-sky-100/50 to-blue-50 hover:border-sky-500 hover:shadow-xs transition-all whitespace-nowrap group">
               <span class="bg-gradient-to-r from-sky-600 to-blue-700 bg-clip-text text-transparent font-bold group-hover:from-sky-500 group-hover:to-blue-600 transition-colors">Партнерство</span>
             </a>
@@ -340,15 +320,6 @@
           <div class="flex items-center gap-2">
             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
             <span>Поговорить с Верой</span>
-          </div>
-          <span class="text-slate-400 text-[11px] group-hover:translate-x-0.5 transition-transform">→</span>
-        </a>
-
-        <!-- FAQ -->
-        <a href="#faq" onclick="toggleMobileStickyMenu()" class="w-full py-2.5 px-3.5 rounded-xl bg-slate-50/90 hover:bg-slate-100 border border-slate-200/80 text-slate-800 font-bold text-xs flex items-center justify-between transition-all group">
-          <div class="flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-sky-500"></span>
-            <span>Частые вопросы (FAQ)</span>
           </div>
           <span class="text-slate-400 text-[11px] group-hover:translate-x-0.5 transition-transform">→</span>
         </a>
@@ -1014,6 +985,13 @@
             <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal pt-1">
               Вера подхватывает обращения в&nbsp;любых мессенджерах одновременно, отправляя в&nbsp;CRM готовые заказы
             </p>
+
+            <div class="pt-2">
+              <a href="/avito/" class="inline-flex items-center gap-1.5 text-xs font-bold text-sky-700 hover:text-sky-900 transition-colors group/link">
+                <span>ИИ-продавец для Авито</span>
+                <span class="group-hover/link:translate-x-0.5 transition-transform font-bold">→</span>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -2059,13 +2037,21 @@
           </button>
 
           <!-- 7. Магазин мебели: Авито (Поздний вечер 22:30) -->
-          <button type="button" onclick="selectCaseNiche('furniture', this)" class="case-niche-btn w-full py-3.5 px-4 rounded-2xl flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:bg-slate-100/70 border border-transparent text-slate-800">
-            <span class="text-sm sm:text-base tracking-tight font-medium group-hover:text-sky-700 transition-colors">Магазин мебели</span>
-            <div class="flex items-center gap-2 shrink-0">
-              <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-800 border border-slate-300/80">Авито</span>
-              <span class="text-slate-400 group-hover:text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform">→</span>
+          <div class="relative space-y-1">
+            <button type="button" onclick="selectCaseNiche('furniture', this)" class="case-niche-btn w-full py-3.5 px-4 rounded-2xl flex items-center justify-between text-left transition-all duration-200 group cursor-pointer hover:bg-slate-100/70 border border-transparent text-slate-800">
+              <span class="text-sm sm:text-base tracking-tight font-medium group-hover:text-sky-700 transition-colors">Магазин мебели</span>
+              <div class="flex items-center gap-2 shrink-0">
+                <span class="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-800 border border-slate-300/80">Авито</span>
+                <span class="text-slate-400 group-hover:text-sky-500 font-bold text-sm group-hover:translate-x-0.5 transition-transform">→</span>
+              </div>
+            </button>
+            <div class="px-4 pb-1">
+              <a href="/avito/" class="inline-flex items-center gap-1.5 text-xs font-bold text-sky-700 hover:text-sky-900 transition-colors" title="ИИ-продавец для Авито">
+                <span>ИИ-продавец для Авито</span>
+                <span class="text-sky-500 font-bold">→</span>
+              </a>
             </div>
-          </button>
+          </div>
 
         </div>
 
@@ -3677,138 +3663,6 @@
 
         </div>
 
-      </div>
-
-    </section>
-
-    <!-- ==========================================================================
-         СЕКЦИЯ: ЧАСТЫЕ ВОПРОСЫ (FAQ)
-         ========================================================================== -->
-    <section id="faq" class="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-14 pb-16 sm:pb-24 font-inter scroll-mt-28">
-      
-      <!-- Заголовок секции -->
-      <div class="text-center mb-10 sm:mb-14 space-y-3">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100/80 border border-sky-200/80 text-[11px] font-bold text-sky-800 uppercase tracking-wider font-mono">
-          <span>FAQ • Ответы на вопросы</span>
-        </div>
-        <h2 class="font-benzin uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl text-[#0f172a] leading-tight" style="font-family: 'Benzin', sans-serif !important;">
-          ЧАСТЫЕ <span class="bg-gradient-to-r from-sky-600 via-sky-500 to-emerald-600 bg-clip-text text-transparent">ВОПРОСЫ</span>
-        </h2>
-        <p class="text-xs sm:text-sm text-slate-500 max-w-lg mx-auto">
-          Всё, что важно знать о возможностях, интеграциях и запуске ИИ-продавца Веры для вашего бизнеса
-        </p>
-      </div>
-
-      <!-- Список вопросов и ответов (Accordion cards) -->
-      <div class="space-y-4">
-        
-        <!-- 1. Что такое ИИ-продавец? -->
-        <details class="group rounded-2xl bg-white/80 border border-sky-100/90 shadow-[0_4px_20px_rgba(2,132,199,0.05)] hover:border-sky-300 transition-all overflow-hidden" open>
-          <summary class="flex items-center justify-between gap-4 p-5 sm:p-6 cursor-pointer list-none select-none font-bold text-sm sm:text-base text-slate-900 group-hover:text-sky-700 transition-colors">
-            <span class="flex items-center gap-3">
-              <span class="w-2 h-2 rounded-full bg-sky-500 shrink-0"></span>
-              <span>Что такое ИИ-продавец?</span>
-            </span>
-            <span class="w-7 h-7 rounded-full bg-sky-50 border border-sky-200/70 flex items-center justify-center shrink-0 transition-transform duration-200 group-open:rotate-180 text-sky-600">
-              <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-            </span>
-          </summary>
-          <div class="px-5 sm:px-6 pb-5 sm:pb-6 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-sky-50">
-            Это виртуальный менеджер по продажам на базе искусственного интеллекта. Вера ведёт живую переписку с клиентами, отвечает на вопросы о товарах и ценах, выясняет потребность и бюджет и передаёт горячую заявку в CRM.
-          </div>
-        </details>
-
-        <!-- 2. Сколько стоит ИИ-продавец Вера? -->
-        <details class="group rounded-2xl bg-white/80 border border-sky-100/90 shadow-[0_4px_20px_rgba(2,132,199,0.05)] hover:border-sky-300 transition-all overflow-hidden">
-          <summary class="flex items-center justify-between gap-4 p-5 sm:p-6 cursor-pointer list-none select-none font-bold text-sm sm:text-base text-slate-900 group-hover:text-sky-700 transition-colors">
-            <span class="flex items-center gap-3">
-              <span class="w-2 h-2 rounded-full bg-sky-500 shrink-0"></span>
-              <span>Сколько стоит ИИ-продавец Вера?</span>
-            </span>
-            <span class="w-7 h-7 rounded-full bg-sky-50 border border-sky-200/70 flex items-center justify-center shrink-0 transition-transform duration-200 group-open:rotate-180 text-sky-600">
-              <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-            </span>
-          </summary>
-          <div class="px-5 sm:px-6 pb-5 sm:pb-6 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-sky-50">
-            Запуск 29 000 ₽ разово, он включает первый месяц. Дальше подписка от 25 000 ₽ в месяц в зависимости от числа диалогов. Каналы и CRM подключаются в любом тарифе без доплат.
-          </div>
-        </details>
-
-        <!-- 3. В каких мессенджерах работает Вера? -->
-        <details class="group rounded-2xl bg-white/80 border border-sky-100/90 shadow-[0_4px_20px_rgba(2,132,199,0.05)] hover:border-sky-300 transition-all overflow-hidden">
-          <summary class="flex items-center justify-between gap-4 p-5 sm:p-6 cursor-pointer list-none select-none font-bold text-sm sm:text-base text-slate-900 group-hover:text-sky-700 transition-colors">
-            <span class="flex items-center gap-3">
-              <span class="w-2 h-2 rounded-full bg-sky-500 shrink-0"></span>
-              <span>В каких мессенджерах работает Вера?</span>
-            </span>
-            <span class="w-7 h-7 rounded-full bg-sky-50 border border-sky-200/70 flex items-center justify-center shrink-0 transition-transform duration-200 group-open:rotate-180 text-sky-600">
-              <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-            </span>
-          </summary>
-          <div class="px-5 sm:px-6 pb-5 sm:pb-6 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-sky-50">
-            WhatsApp, Telegram, Instagram Direct, Авито, MAX, VK и чат на сайте, во всех каналах одновременно.
-          </div>
-        </details>
-
-        <!-- 4. С какими CRM интегрируется Вера? -->
-        <details class="group rounded-2xl bg-white/80 border border-sky-100/90 shadow-[0_4px_20px_rgba(2,132,199,0.05)] hover:border-sky-300 transition-all overflow-hidden">
-          <summary class="flex items-center justify-between gap-4 p-5 sm:p-6 cursor-pointer list-none select-none font-bold text-sm sm:text-base text-slate-900 group-hover:text-sky-700 transition-colors">
-            <span class="flex items-center gap-3">
-              <span class="w-2 h-2 rounded-full bg-sky-500 shrink-0"></span>
-              <span>С какими CRM интегрируется Вера?</span>
-            </span>
-            <span class="w-7 h-7 rounded-full bg-sky-50 border border-sky-200/70 flex items-center justify-center shrink-0 transition-transform duration-200 group-open:rotate-180 text-sky-600">
-              <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-            </span>
-          </summary>
-          <div class="px-5 sm:px-6 pb-5 sm:pb-6 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-sky-50">
-            amoCRM, Битрикс24, 1С, МойСклад, Google Таблицы и Excel. Вера сама создаёт карточку клиента и заполняет поля сделки по вашим правилам.
-          </div>
-        </details>
-
-        <!-- 5. Можно ли попробовать бесплатно? -->
-        <details class="group rounded-2xl bg-white/80 border border-sky-100/90 shadow-[0_4px_20px_rgba(2,132,199,0.05)] hover:border-sky-300 transition-all overflow-hidden">
-          <summary class="flex items-center justify-between gap-4 p-5 sm:p-6 cursor-pointer list-none select-none font-bold text-sm sm:text-base text-slate-900 group-hover:text-sky-700 transition-colors">
-            <span class="flex items-center gap-3">
-              <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
-              <span>Можно ли попробовать бесплатно?</span>
-            </span>
-            <span class="w-7 h-7 rounded-full bg-sky-50 border border-sky-200/70 flex items-center justify-center shrink-0 transition-transform duration-200 group-open:rotate-180 text-sky-600">
-              <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-            </span>
-          </summary>
-          <div class="px-5 sm:px-6 pb-5 sm:pb-6 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-sky-50">
-            Да, есть бесплатный тест 7 дней: Веру подключают к одному вашему каналу и собирают заявки в таблицу. Без привязки карты, запуск за сутки.
-          </div>
-        </details>
-
-        <!-- 6. Сколько времени занимает запуск? -->
-        <details class="group rounded-2xl bg-white/80 border border-sky-100/90 shadow-[0_4px_20px_rgba(2,132,199,0.05)] hover:border-sky-300 transition-all overflow-hidden">
-          <summary class="flex items-center justify-between gap-4 p-5 sm:p-6 cursor-pointer list-none select-none font-bold text-sm sm:text-base text-slate-900 group-hover:text-sky-700 transition-colors">
-            <span class="flex items-center gap-3">
-              <span class="w-2 h-2 rounded-full bg-sky-500 shrink-0"></span>
-              <span>Сколько времени занимает запуск?</span>
-            </span>
-            <span class="w-7 h-7 rounded-full bg-sky-50 border border-sky-200/70 flex items-center justify-center shrink-0 transition-transform duration-200 group-open:rotate-180 text-sky-600">
-              <svg class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-            </span>
-          </summary>
-          <div class="px-5 sm:px-6 pb-5 sm:pb-6 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-sky-50">
-            Тестовый запуск за сутки, полная интеграция с обучением на ваших прайсах, скриптах и переписках - от 3 дней.
-          </div>
-        </details>
-
-      </div>
-
-      <!-- Призыв к действию под FAQ -->
-      <div class="mt-10 p-6 rounded-2xl bg-gradient-to-r from-sky-500/10 via-sky-400/5 to-blue-500/10 border border-sky-200/70 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-        <div>
-          <div class="text-sm sm:text-base font-bold text-slate-900">Остались вопросы по внедрению?</div>
-          <div class="text-xs text-slate-500 mt-0.5">Ответим на любые технические детали и рассчитаем окупаемость для вашей ниши</div>
-        </div>
-        <a href="https://t.me/altaioptima" target="_blank" rel="noopener" class="btn-optic px-5 py-2.5 text-xs font-bold uppercase tracking-wider rounded-xl whitespace-nowrap shrink-0 shadow-md">
-          <span>Задать вопрос в Telegram</span>
-        </a>
       </div>
 
     </section>
