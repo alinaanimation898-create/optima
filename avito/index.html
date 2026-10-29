@@ -103,10 +103,10 @@
           "@type": "OfferCatalog",
           "name": "Тарифы",
           "itemListElement": [
-            {"@type": "Offer", "name": "Старт - до 200 диалогов", "price": "25000", "priceCurrency": "RUB"},
-            {"@type": "Offer", "name": "Бизнес - до 600 диалогов", "price": "39000", "priceCurrency": "RUB"},
-            {"@type": "Offer", "name": "Поток - до 1500 диалогов", "price": "59000", "priceCurrency": "RUB"},
-            {"@type": "Offer", "name": "Империя - больше 1500 диалогов", "price": "99000", "priceCurrency": "RUB"}
+            {"@type": "Offer", "name": "Старт - до 500 диалогов", "price": "25000", "priceCurrency": "RUB"},
+            {"@type": "Offer", "name": "Бизнес - до 1200 диалогов", "price": "39000", "priceCurrency": "RUB"},
+            {"@type": "Offer", "name": "Поток - до 3000 диалогов", "price": "59000", "priceCurrency": "RUB"},
+            {"@type": "Offer", "name": "Империя - больше 3000 диалогов", "price": "99000", "priceCurrency": "RUB"}
           ]
         }
       },
@@ -1122,7 +1122,7 @@
               Тарифы
             </h2>
             <p class="text-sm sm:text-base text-slate-600 font-inter">
-              Подключение Авито, остальных каналов и CRM входит в любой тариф
+              Авито, остальные каналы и CRM подключаем бесплатно. Цена запуска зависит от тарифа
             </p>
           </div>
 
@@ -1133,7 +1133,7 @@
               <div class="cfg-tariffs-strip" id="cfgTariffsStrip" role="group" aria-label="Тарифные планы">
                 
                 <!-- Старт -->
-                <div class="cfg-tariff-card" data-tariff="start" data-slider="150" role="button" tabindex="0" aria-pressed="false">
+                <div class="cfg-tariff-card" data-tariff="start" data-slider="300" role="button" tabindex="0" aria-pressed="false">
                   <div class="cfg-tariff-top">
                     <div class="cfg-vol-scale" aria-hidden="true">
                       <span class="cfg-vol-seg active"></span>
@@ -1148,7 +1148,7 @@
                   <div class="cfg-tariff-bottom">
                     <div class="cfg-tariff-header">
                       <div class="cfg-tariff-name">Старт</div>
-                      <div class="cfg-tariff-limit">до 200 диалогов</div>
+                      <div class="cfg-tariff-limit">до 500 диалогов</div>
                     </div>
                     <div class="cfg-tariff-price">
                       <span class="cfg-tariff-val tabular-nums">25&nbsp;000</span>
@@ -1158,7 +1158,7 @@
                 </div>
 
                 <!-- Бизнес -->
-                <div class="cfg-tariff-card active" data-tariff="business" data-slider="400" role="button" tabindex="0" aria-pressed="true">
+                <div class="cfg-tariff-card active" data-tariff="business" data-slider="800" role="button" tabindex="0" aria-pressed="true">
                   <div class="cfg-tariff-badge">выбирают чаще</div>
                   <div class="cfg-tariff-top">
                     <div class="cfg-vol-scale" aria-hidden="true">
@@ -1174,7 +1174,7 @@
                   <div class="cfg-tariff-bottom">
                     <div class="cfg-tariff-header">
                       <div class="cfg-tariff-name">Бизнес</div>
-                      <div class="cfg-tariff-limit">до 600 диалогов</div>
+                      <div class="cfg-tariff-limit">до 1200 диалогов</div>
                     </div>
                     <div class="cfg-tariff-price">
                       <span class="cfg-tariff-val tabular-nums">39&nbsp;000</span>
@@ -1184,7 +1184,7 @@
                 </div>
 
                 <!-- Поток -->
-                <div class="cfg-tariff-card" data-tariff="stream" data-slider="1000" role="button" tabindex="0" aria-pressed="false">
+                <div class="cfg-tariff-card" data-tariff="stream" data-slider="2000" role="button" tabindex="0" aria-pressed="false">
                   <div class="cfg-tariff-top">
                     <div class="cfg-vol-scale" aria-hidden="true">
                       <span class="cfg-vol-seg active"></span>
@@ -1199,7 +1199,7 @@
                   <div class="cfg-tariff-bottom">
                     <div class="cfg-tariff-header">
                       <div class="cfg-tariff-name">Поток</div>
-                      <div class="cfg-tariff-limit">до 1500 диалогов</div>
+                      <div class="cfg-tariff-limit">до 3000 диалогов</div>
                     </div>
                     <div class="cfg-tariff-price">
                       <span class="cfg-tariff-val tabular-nums">59&nbsp;000</span>
@@ -1209,7 +1209,7 @@
                 </div>
 
                 <!-- Империя -->
-                <div class="cfg-tariff-card" data-tariff="empire" data-slider="2500" role="button" tabindex="0" aria-pressed="false">
+                <div class="cfg-tariff-card" data-tariff="empire" data-slider="4000" role="button" tabindex="0" aria-pressed="false">
                   <div class="cfg-tariff-top">
                     <div class="cfg-vol-scale" aria-hidden="true">
                       <span class="cfg-vol-seg active"></span>
@@ -1224,7 +1224,7 @@
                   <div class="cfg-tariff-bottom">
                     <div class="cfg-tariff-header">
                       <div class="cfg-tariff-name">Империя</div>
-                      <div class="cfg-tariff-limit">больше 1500 диалогов</div>
+                      <div class="cfg-tariff-limit">больше 3000 диалогов</div>
                     </div>
                     <div class="cfg-tariff-price">
                       <span class="cfg-tariff-from">от&nbsp;</span>
@@ -1247,7 +1247,7 @@
                   <div class="cfg-card cfg-card-volume">
                     <div class="text-xs font-bold uppercase tracking-wider text-slate-800 mb-2">Сколько обращений в месяц</div>
                     <div class="text-xs text-slate-500 mb-4 leading-relaxed">
-                      Цена зависит только от объёма работы. Каналы и CRM подключаем бесплатно
+                      Подписка зависит только от объёма диалогов. Каналы и CRM подключаем бесплатно
                     </div>
 
                     <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
@@ -1260,10 +1260,10 @@
                     </div>
 
                     <div class="relative py-1">
-                      <input type="range" id="cfgVolumeSlider" min="50" max="3000" step="50" value="400" class="cfg-range-slider" aria-label="Количество диалогов в месяц" aria-valuemin="50" aria-valuemax="3000" aria-valuenow="400">
+                      <input type="range" id="cfgVolumeSlider" min="50" max="5000" step="50" value="800" class="cfg-range-slider" aria-label="Количество диалогов в месяц" aria-valuemin="50" aria-valuemax="5000" aria-valuenow="800">
                       <div class="flex justify-between text-xs text-slate-400 font-bold mt-1.5 px-0.5">
                         <span>50</span>
-                        <span>3000+</span>
+                        <span>5000+</span>
                       </div>
                     </div>
 
@@ -1285,7 +1285,7 @@
                     <div class="cfg-card cfg-card-crms">
                       <div class="text-xs font-bold uppercase tracking-wider text-slate-800 mb-1">Где вы ведёте базу клиентов</div>
                       <div class="text-xs text-slate-500 mb-3 leading-relaxed min-h-[36px] flex items-center">
-                        Интеграция с CRM входит в любой тариф
+                        Таблица, amoCRM и Битрикс24 бесплатно. 1С и МойСклад +30&nbsp;000&nbsp;₽ к запуску
                       </div>
                       <div id="crms"></div>
                     </div>
@@ -1302,7 +1302,7 @@
 
                     <div class="pt-1 pb-2 border-b border-white/10 flex items-center justify-between text-xs sm:text-[13px]">
                       <span class="text-slate-300 font-medium">Запуск с первым месяцем:</span>
-                      <span class="text-white font-extrabold tabular-nums">29&nbsp;000&nbsp;₽</span>
+                      <span id="cfgSetupTotal" class="text-white font-extrabold tabular-nums">29&nbsp;000&nbsp;₽</span>
                     </div>
 
                     <div class="py-3 space-y-1">
@@ -1665,8 +1665,8 @@
   </footer>
 
   <!-- Скрипты сайта -->
-  <script defer src="/assets/js/main.js?v=3.5"></script>
-  <script defer src="/assets/js/altai-refresh.js?v=3.2"></script>
+  <script defer src="/assets/js/main.js?v=3.6"></script>
+  <script defer src="/assets/js/altai-refresh.js?v=3.3"></script>
 
   <!-- Скрипт sticky menu, чата демо и формы -->
   <script>
