@@ -36,7 +36,41 @@
             </div>
           </div>
         `,
-        renderStarter: () => '',
+        renderStarter: () => `
+          <div class="space-y-3 pt-1 animate-fade-in">
+            <div class="flex justify-center my-1">
+              <span class="text-[10px] bg-slate-900/10 text-slate-700 px-2.5 py-0.5 rounded-full font-medium">Сегодня</span>
+            </div>
+            <div class="flex justify-start items-end gap-1.5">
+              <div class="bg-white text-slate-900 p-3 rounded-2xl rounded-tl-xs max-w-[92%] shadow-xs border border-slate-200/60">
+                <div class="text-[9.5px] font-bold text-[#075e54] mb-1 flex items-center gap-1.5">
+                  <span>${isEn ? 'Vera' : 'Вера'}</span>
+                  <span class="text-[8.5px] bg-emerald-100 text-emerald-800 font-semibold px-1.5 py-0.2 rounded-full">ИИ-продавец</span>
+                </div>
+                <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">
+                  ${isEn 
+                    ? "Hello! 👋 I'm Vera, your autonomous AI sales manager. Ask me anything or tap a prompt below to test my live responses 👇"
+                    : "Здравствуйте! 👋 Я Вера&nbsp;— ваш автономный ИИ-продавец. Напишите мне любой вопрос в чат или нажмите на подсказку ниже, чтобы проверить меня в деле 👇"}
+                </p>
+                <div class="text-[9px] text-slate-400 text-right mt-1 font-sans">онлайн</div>
+              </div>
+            </div>
+            <div class="pt-1 space-y-1.5">
+              <div class="text-[10px] text-slate-500 font-bold px-1 uppercase tracking-wider">Быстрый вопрос Вере:</div>
+              <div class="flex flex-wrap gap-1.5">
+                <button type="button" onclick="sendQuickPrompt('Сколько стоит внедрение под ключ?')" class="text-[11px] bg-white hover:bg-emerald-50 text-slate-800 font-medium px-2.5 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-emerald-400 transition-all text-left cursor-pointer">
+                  💬 Сколько стоит внедрение?
+                </button>
+                <button type="button" onclick="sendQuickPrompt('Как ты интегрируешься с amoCRM и WhatsApp?')" class="text-[11px] bg-white hover:bg-emerald-50 text-slate-800 font-medium px-2.5 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-emerald-400 transition-all text-left cursor-pointer">
+                  💬 Интеграция с amoCRM
+                </button>
+                <button type="button" onclick="sendQuickPrompt('Что делать, если клиент говорит дорого?')" class="text-[11px] bg-white hover:bg-emerald-50 text-slate-800 font-medium px-2.5 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-emerald-400 transition-all text-left cursor-pointer">
+                  💬 Отработка «дорого»
+                </button>
+              </div>
+            </div>
+          </div>
+        `,
         renderAiBubble: (msg) => `
           <div class="flex justify-start items-end gap-1.5 animate-fade-in">
             <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs border border-slate-200/50">
@@ -99,7 +133,41 @@
             </div>
           </div>
         `,
-        renderStarter: () => '',
+        renderStarter: () => `
+          <div class="space-y-3 pt-1 animate-fade-in">
+            <div class="flex justify-center my-1">
+              <span class="text-[10px] bg-sky-900/10 text-sky-900 px-2.5 py-0.5 rounded-full font-medium">Сегодня</span>
+            </div>
+            <div class="flex justify-start items-end gap-1.5">
+              <div class="bg-white text-slate-900 p-3 rounded-2xl rounded-tl-xs max-w-[92%] shadow-xs border border-sky-100">
+                <div class="text-[9.5px] font-bold text-[#0088cc] mb-1 flex items-center gap-1.5">
+                  <span>${isEn ? 'Vera' : 'Вера'}</span>
+                  <span class="text-[8.5px] bg-sky-100 text-sky-800 font-semibold px-1.5 py-0.2 rounded-full">ИИ</span>
+                </div>
+                <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">
+                  ${isEn
+                    ? "Welcome to Telegram! 🚀 I reply in 2 seconds, qualify customers, and push deals to CRM. Try me out 👇"
+                    : "Привет! 🚀 Я Вера в Telegram. Отвечаю за 2 секунды, консультирую и бережно довожу клиента до сделки. Напишите любой вопрос или выберите вариант 👇"}
+                </p>
+                <div class="text-[9px] text-slate-400 text-right mt-1 font-sans">онлайн</div>
+              </div>
+            </div>
+            <div class="pt-1 space-y-1.5">
+              <div class="text-[10px] text-sky-900 font-bold px-1 uppercase tracking-wider">Быстрый вопрос Вере:</div>
+              <div class="flex flex-wrap gap-1.5">
+                <button type="button" onclick="sendQuickPrompt('Какие тарифы и сколько лидов входит?')" class="text-[11px] bg-white hover:bg-sky-50 text-slate-800 font-medium px-2.5 py-1.5 rounded-xl border border-sky-200/80 shadow-2xs hover:border-sky-400 transition-all text-left cursor-pointer">
+                  💬 Какие тарифы?
+                </button>
+                <button type="button" onclick="sendQuickPrompt('Чем ты лучше обычного чат-бота?')" class="text-[11px] bg-white hover:bg-sky-50 text-slate-800 font-medium px-2.5 py-1.5 rounded-xl border border-sky-200/80 shadow-2xs hover:border-sky-400 transition-all text-left cursor-pointer">
+                  💬 Чем лучше чат-бота?
+                </button>
+                <button type="button" onclick="sendQuickPrompt('Как запустить бесплатный тест-драйв?')" class="text-[11px] bg-white hover:bg-sky-50 text-slate-800 font-medium px-2.5 py-1.5 rounded-xl border border-sky-200/80 shadow-2xs hover:border-sky-400 transition-all text-left cursor-pointer">
+                  💬 Как запустить тест-драйв?
+                </button>
+              </div>
+            </div>
+          </div>
+        `,
         renderAiBubble: (msg) => `
           <div class="flex justify-start items-end gap-1.5 animate-fade-in">
             <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs">
@@ -177,7 +245,38 @@
             </div>
           </div>
         `,
-        renderStarter: () => '',
+        renderStarter: () => `
+          <div class="space-y-3 pt-1 animate-fade-in">
+            <div class="flex justify-center my-1">
+              <span class="text-[10px] bg-purple-900/10 text-purple-900 px-2.5 py-0.5 rounded-full font-medium">Сегодня</span>
+            </div>
+            <div class="flex justify-start items-end gap-1.5">
+              <div class="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 text-white p-3 rounded-2xl rounded-bl-xs max-w-[92%] shadow-xs">
+                <div class="text-[9.5px] font-bold text-pink-100 mb-1 flex items-center gap-1.5">
+                  <span>${isEn ? 'Vera' : 'Вера'}</span>
+                  <span class="text-[8.5px] bg-white/20 text-white font-semibold px-1.5 py-0.2 rounded-full">Direct</span>
+                </div>
+                <p class="leading-relaxed font-normal text-[11.5px] text-white">
+                  ${isEn
+                    ? "Hi! ✨ I manage Instagram Direct sales 24/7. Ask me about products, sizes, or delivery:"
+                    : "Привет! ✨ Я Вера в Instagram Direct. Помогаю подбирать товары, отвечать клиентам 24/7 и реанимировать старые диалоги. Напишите мне в директ 👇"}
+                </p>
+                <div class="text-[9px] text-white/80 text-right mt-1 font-sans">онлайн</div>
+              </div>
+            </div>
+            <div class="pt-1 space-y-1.5">
+              <div class="text-[10px] text-slate-500 font-bold px-1 uppercase tracking-wider">Быстрый вопрос Вере:</div>
+              <div class="flex flex-wrap gap-1.5">
+                <button type="button" onclick="sendQuickPrompt('Есть ли у вас доставка с примеркой?')" class="text-[11px] bg-white hover:bg-pink-50 text-slate-800 font-medium px-2.5 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-pink-400 transition-all text-left cursor-pointer">
+                  💬 Доставка с примеркой?
+                </button>
+                <button type="button" onclick="sendQuickPrompt('Как Вера реанимирует старую базу клиентов?')" class="text-[11px] bg-white hover:bg-pink-50 text-slate-800 font-medium px-2.5 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-pink-400 transition-all text-left cursor-pointer">
+                  💬 Реанимация базы
+                </button>
+              </div>
+            </div>
+          </div>
+        `,
         renderAiBubble: (msg) => `
           <div class="flex justify-start items-end gap-1.5 animate-fade-in">
             <div class="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 text-white p-3 rounded-2xl rounded-bl-xs max-w-[88%] shadow-xs">
@@ -248,7 +347,38 @@
           </div>
         `,
 
-        renderStarter: () => '',
+        renderStarter: () => `
+          <div class="space-y-3 pt-1 animate-fade-in">
+            <div class="flex justify-center my-1">
+              <span class="text-[10px] bg-slate-900/10 text-slate-700 px-2.5 py-0.5 rounded-full font-medium">Сегодня</span>
+            </div>
+            <div class="flex justify-start items-end gap-1">
+              <div class="bg-[#f2f3f5] text-slate-900 p-3 rounded-2xl rounded-tl-xs max-w-[92%] shadow-2xs">
+                <div class="text-[9.5px] font-bold text-slate-800 mb-1 flex items-center gap-1.5">
+                  <span>${isEn ? 'Vera' : 'Вера'}</span>
+                  <span class="text-[8.5px] bg-emerald-100 text-emerald-800 font-semibold px-1.5 py-0.2 rounded-full">Авито</span>
+                </div>
+                <p class="leading-relaxed font-normal text-[11.5px] text-slate-900">
+                  ${isEn
+                    ? "Hello! 📦 I'm Vera on Avito. I negotiate according to your rules and close deals 24/7. Ask me:"
+                    : "Здравствуйте! 📦 Я Вера на Авито. Отвечаю покупателям мгновенно, торгуюсь по вашим правилам и оформляю доставку. Проверьте меня в диалоге 👇"}
+                </p>
+                <div class="text-[8.5px] text-slate-400 text-right mt-1 font-sans">онлайн</div>
+              </div>
+            </div>
+            <div class="pt-1 space-y-1.5">
+              <div class="text-[10px] text-slate-500 font-bold px-1 uppercase tracking-wider">Быстрый вопрос Вере:</div>
+              <div class="flex flex-wrap gap-1.5">
+                <button type="button" onclick="sendQuickPrompt('Здравствуйте, товар ещё в наличии?')" class="text-[11px] bg-white hover:bg-slate-100 text-slate-800 font-medium px-2.5 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-slate-400 transition-all text-left cursor-pointer">
+                  💬 Товар в наличии?
+                </button>
+                <button type="button" onclick="sendQuickPrompt('Сделаете скидку 1000 рублей, если заберу сегодня?')" class="text-[11px] bg-white hover:bg-slate-100 text-slate-800 font-medium px-2.5 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-slate-400 transition-all text-left cursor-pointer">
+                  💬 Торг на Авито
+                </button>
+              </div>
+            </div>
+          </div>
+        `,
         renderAiBubble: (msg) => `
           <div class="flex justify-start items-end gap-1 animate-fade-in">
             <div class="bg-[#f2f3f5] text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-2xs">
@@ -689,6 +819,11 @@
       } catch (e) {}
     }
     window.rateVera = rateVera;
+    window.selectBranch = selectBranch;
+    window.sendQuickPrompt = sendQuickPrompt;
+    window.handleLiveChatSubmit = handleLiveChatSubmit;
+    window.focusChatInput = focusChatInput;
+    window.resetLiveChatDialogue = resetLiveChatDialogue;
 
     let currentScenarioBoost = 0.12;
     const calcAnimationFrames = {};
