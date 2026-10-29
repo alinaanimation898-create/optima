@@ -41,20 +41,6 @@
             <div class="flex justify-center my-1">
               <span class="text-[10px] bg-slate-900/10 text-slate-700 px-2.5 py-0.5 rounded-full font-medium">Сегодня</span>
             </div>
-            <div class="flex justify-start items-end gap-1.5">
-              <div class="bg-white text-slate-900 p-3 rounded-2xl rounded-tl-xs max-w-[92%] shadow-xs border border-slate-200/60">
-                <div class="text-[9.5px] font-bold text-[#075e54] mb-1 flex items-center gap-1.5">
-                  <span>${isEn ? 'Vera' : 'Вера'}</span>
-                  <span class="text-[8.5px] bg-emerald-100 text-emerald-800 font-semibold px-1.5 py-0.2 rounded-full">Вера</span>
-                </div>
-                <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">
-                  ${isEn 
-                    ? "Hello! 👋 I'm Vera. Ask me anything in the chat to test my live responses."
-                    : "Здравствуйте! 👋 Я Вера. Напишите мне любой вопрос в чат, чтобы проверить меня в деле."}
-                </p>
-                <div class="text-[9px] text-slate-400 text-right mt-1 font-sans">онлайн</div>
-              </div>
-            </div>
           </div>
         `,
         renderAiBubble: (msg) => `
@@ -949,8 +935,6 @@
       const gain = Math.round(revenue * growth);
 
       // Динамический тариф по объёму лидов:
-      let tariffName = '«Старт»';
-      let monthlyTariffPrice = 25000;
       if (leads <= 500) {
         tariffName = '«Старт»';
         monthlyTariffPrice = 25000;
@@ -3865,10 +3849,12 @@
           const hasHeavyCrm = TARIFF_CONFIG.heavyCrmIds.some(id => state.crms[id]);
           const setupExtra = hasHeavyCrm ? TARIFF_CONFIG.heavySetupExtra : 0;
           const setup = tariff.setupPrice + setupExtra;
-          const setupTotalEl = document.getElementById('cfgSetupTotal');
-          if (setupTotalEl) setupTotalEl.textContent = `${prefix}${formatPrice(setup)}\u00A0₽`;
           const monthly = tariff.monthlyPrice;
-          const earlyBird = tariff.earlyBirdPrice;
+
+          const cfgSetupTotalEl = document.getElementById('cfgSetupTotal');
+          if (cfgSetupTotalEl) {
+            cfgSetupTotalEl.textContent = `${prefix}${formatPrice(setup)}\u00A0₽`;
+          }
 
           const subPrefixEl = document.getElementById('cfgSubPrefix');
           const monthlyTotalEl = document.getElementById('monthlyTotal');
@@ -3889,22 +3875,27 @@
             const activeChannelsCount = Object.values(state.channels).filter(Boolean).length;
             const activeCrmsCount = Object.values(state.crms).filter(Boolean).length;
 
+            const setupValRu = `${prefix}${formatPrice(setup)}\u00A0₽ разово`;
+            const setupValEn = `${prefix}${formatPrice(setup)} ₽ one-time`;
+            const heavyRowRu = hasHeavyCrm ? [{ name: 'Подключение 1С / МойСклад', val: '+30\u00A0000\u00A0₽' }] : [];
+            const heavyRowEn = hasHeavyCrm ? [{ name: '1C / MoySklad integration', val: '+30\u00A0000\u00A0₽' }] : [];
+
             const rows = isEn ? [
               { name: 'Plan', val: tariff.name },
               { name: 'Dialogue Limit', val: tariff.detailsLimit },
               { name: `Channels: ${getChannelsCountText(activeChannelsCount)}`, val: '0\u00A0₽' },
               { name: `CRM Tracking: ${getCrmCountText(activeCrmsCount)}`, val: '0\u00A0₽' },
               { name: 'Pay-per-dialogue fee', val: 'None' },
-              ...(hasHeavyCrm ? [{ name: '1C / MoySklad integration', val: `+${formatPrice(setupExtra)}\u00A0₽` }] : []),
-              { name: 'Setup & Onboarding', val: `${prefix}${formatPrice(setup)}\u00A0₽ one-time` }
+              ...heavyRowEn,
+              { name: 'Setup & Onboarding', val: setupValEn }
             ] : [
               { name: 'Тариф', val: tariff.name },
               { name: 'Лимит диалогов', val: tariff.detailsLimit },
               { name: `Каналы: ${getChannelsCountText(activeChannelsCount)}`, val: '0\u00A0₽' },
               { name: `Учёт клиентов: ${getCrmCountText(activeCrmsCount)}`, val: '0\u00A0₽' },
               { name: 'Оплата за отдельные диалоги', val: 'нет' },
-              ...(hasHeavyCrm ? [{ name: 'Подключение 1С / МойСклад', val: `+${formatPrice(setupExtra)}\u00A0₽` }] : []),
-              { name: 'Запуск', val: `${prefix}${formatPrice(setup)}\u00A0₽ разово` }
+              ...heavyRowRu,
+              { name: 'Запуск', val: setupValRu }
             ];
 
             cfgDetailsRowsEl.innerHTML = rows.map(r => `
