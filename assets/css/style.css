@@ -2839,6 +2839,46 @@ html, body {
       z-index: 0;
       pointer-events: none;
     }
+
+    /* Пульсирующая анимация фото Веры (живое свечение и мягкий импульс) */
+    @keyframes veraPhotoPulseAura {
+      0% {
+        transform: scale(1);
+        box-shadow: 
+          0 0 0 0 rgba(56, 189, 248, 0.55),
+          0 0 0 0 rgba(14, 165, 233, 0.35),
+          0 20px 40px -10px rgba(15, 23, 42, 0.2);
+      }
+      40% {
+        transform: scale(1.025);
+        box-shadow: 
+          0 0 0 10px rgba(56, 189, 248, 0.25),
+          0 0 0 20px rgba(14, 165, 233, 0.08),
+          0 25px 50px -10px rgba(14, 165, 233, 0.35);
+      }
+      70% {
+        transform: scale(1.01);
+        box-shadow: 
+          0 0 0 16px rgba(56, 189, 248, 0.1),
+          0 0 0 28px rgba(14, 165, 233, 0),
+          0 22px 45px -10px rgba(14, 165, 233, 0.22);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 
+          0 0 0 0 rgba(56, 189, 248, 0),
+          0 0 0 0 rgba(14, 165, 233, 0),
+          0 20px 40px -10px rgba(15, 23, 42, 0.2);
+      }
+    }
+    .vera-avatar-pulse {
+      animation: veraPhotoPulseAura 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      transition: transform 0.3s ease;
+    }
+    .vera-avatar-pulse:hover {
+      transform: scale(1.04);
+    }
+
     .phone-titanium-shell {
       width: 100%;
       max-width: 440px;

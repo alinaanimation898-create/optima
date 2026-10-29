@@ -1374,34 +1374,45 @@
       
       <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center lg:items-stretch text-left">
         
-        <!-- ЛЕВАЯ КОЛОНКА: ЗАГОЛОВОК + ПОДЗАГОЛОВОК + ФОТО ВЕРЫ С НОУТБУКОМ -->
-        <div class="lg:col-span-5 flex flex-col justify-center space-y-4 sm:space-y-5 lg:pl-2 xl:pl-4">
+        <!-- ЛЕВАЯ КОЛОНКА: ЗАГОЛОВОК + ФОТО С ПУЛЬСОМ ПО ЦЕНТРУ + ТЕКСТ ПОД ФОТО -->
+        <div class="lg:col-span-5 flex flex-col justify-center space-y-5 lg:pl-2 xl:pl-4">
           
-          <!-- ЗАГОЛОВОК + ПОДЗАГОЛОВОК -->
-          <div class="space-y-3 sm:space-y-4 text-center lg:text-left">
-            <h2 class="ao-sc font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-4xl lg:text-[36px] xl:text-[40px] 2xl:text-[44px] leading-[1.15] lg:leading-[1.2] hyphens-none overflow-visible text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
-              <span class="pearl-title-gradient block">ПОГОВОРИТЕ</span>
-              <span class="pearl-title-gradient block">С&nbsp;ВЕРОЙ ЗДЕСЬ</span>
-              <span class="text-[#0f172a] block">И&nbsp;СЕЙЧАС</span>
-            </h2>
-            <p class="font-inter text-xs sm:text-sm md:text-base font-normal text-slate-600 tracking-wide leading-relaxed">
-              Напишите в&nbsp;чат все, что угодно. Вера думает, чувствует контекст и&nbsp;ведет диалог как <span class="pearl-title-gradient font-bold whitespace-nowrap">ваш лучший менеджер по&nbsp;продажам</span>
-            </p>
-          </div>
+          <div class="space-y-4 max-w-sm sm:max-w-md mx-auto lg:mx-0">
+            <!-- ЗАГОЛОВОК -->
+            <div class="text-center lg:text-left">
+              <h2 class="ao-sc font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-4xl lg:text-[36px] xl:text-[40px] 2xl:text-[44px] leading-[1.15] lg:leading-[1.2] hyphens-none overflow-visible text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
+                <span class="pearl-title-gradient block">ПОГОВОРИТЕ</span>
+                <span class="pearl-title-gradient block">С&nbsp;ВЕРОЙ ЗДЕСЬ</span>
+                <span class="text-[#0f172a] block">И&nbsp;СЕЙЧАС</span>
+              </h2>
+            </div>
 
-          <!-- ФОТО ВЕРЫ В КРУЖКЕ СЛЕВА ОТ ДИАЛОГА -->
-          <div class="w-full flex justify-center lg:justify-start pt-2">
-            <div class="relative w-48 h-48 sm:w-56 sm:h-56 rounded-full overflow-hidden border-4 border-white shadow-2xl ring-4 ring-sky-200/70 bg-gradient-to-b from-sky-50 to-white group shrink-0">
-              <img src="assets/images/vera_welcome.jpg" alt="Вера — ИИ-продавец" class="w-full h-full object-cover object-[center_16%] transform group-hover:scale-105 transition-transform duration-500">
-              <div class="absolute bottom-2 inset-x-0 flex justify-center">
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-white text-[10px] sm:text-xs font-semibold shadow-md">
-                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                  Вера онлайн
-                </span>
+            <!-- ФОТО ВЕРЫ В КРУЖКЕ: ВЫРОВНЕНО ПО ЦЕНТРУ ЗАГОЛОВКА С АНИМАЦИЕЙ ПУЛЬСА -->
+            <div class="w-full flex justify-center py-2">
+              <div class="relative flex items-center justify-center">
+                <!-- Мягкий внешний ореол пульса -->
+                <div class="absolute -inset-2.5 rounded-full bg-sky-400/25 blur-sm animate-ping opacity-35 pointer-events-none" style="animation-duration: 3.2s;"></div>
+                
+                <!-- Круглая карточка с фото Веры и пульсирующим свечением -->
+                <div class="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden border-4 border-white vera-avatar-pulse bg-gradient-to-b from-sky-50 to-white group shrink-0">
+                  <img src="assets/images/vera_welcome.jpg" alt="Вера — ИИ-продавец" class="w-full h-full object-cover object-[center_16%] transform group-hover:scale-105 transition-transform duration-500">
+                  <div class="absolute bottom-2.5 inset-x-0 flex justify-center">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-white text-[10px] sm:text-xs font-semibold shadow-md">
+                      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                      Вера онлайн
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
+            <!-- ТЕКСТ ПОД ФОТО -->
+            <div class="text-center lg:text-left">
+              <p class="font-inter text-xs sm:text-sm md:text-base font-normal text-slate-600 tracking-wide leading-relaxed">
+                Напишите в&nbsp;чат все, что угодно. Вера думает, чувствует контекст и&nbsp;ведет диалог как <span class="pearl-title-gradient font-bold whitespace-nowrap">ваш лучший менеджер по&nbsp;продажам</span>
+              </p>
+            </div>
+          </div>
           
         </div>
 
