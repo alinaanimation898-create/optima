@@ -1259,12 +1259,12 @@
     </div>
 
     <!-- 6. СЦЕНАРИИ РАБОТЫ В МЕССЕНДЖЕРАХ (ИНТЕРАКТИВНЫЙ СМАРТФОН С ГОТОВЫМИ СЦЕНАРИЯМИ) -->
-    <section id="scenarios" class="relative z-20 py-10 sm:py-12 lg:py-16 xl:py-20 max-w-6xl mx-auto font-inter">
+    <section id="scenarios" class="relative z-20 py-10 sm:py-12 lg:py-16 xl:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-inter">
       
       <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center lg:items-stretch text-left">
         
         <!-- ЛЕВАЯ КОЛОНКА: ЗАГОЛОВОК + ПОДЗАГОЛОВОК + 4 КНОПКИ МЕССЕНДЖЕРОВ + ЗВЕЗДНЫЙ РЕЙТИНГ -->
-        <div class="lg:col-span-6 flex flex-col justify-between lg:pl-4 xl:pl-6 2xl:pl-8">
+        <div class="lg:col-span-5 flex flex-col justify-between lg:pl-2 xl:pl-4">
           
           <!-- ЗАГОЛОВОК + ПОДЗАГОЛОВОК (ПОДНЯТ К ВЕРХУ ТЕЛЕФОНА) -->
           <div class="space-y-4 sm:space-y-5 lg:space-y-2.5 text-center lg:text-left pt-1 lg:pt-2 mb-2 sm:mb-4 lg:mb-0">
@@ -1276,18 +1276,6 @@
             <p class="font-inter text-xs sm:text-sm md:text-base font-normal text-slate-600 tracking-wide leading-relaxed pt-1 sm:pt-2 lg:pt-0">
               Напишите в&nbsp;чат все, что угодно. Вера думает,<br>чувствует контекст и&nbsp;ведет диалог как <span class="pearl-title-gradient font-bold whitespace-nowrap">ваш лучший менеджер по&nbsp;продажам</span>
             </p>
-
-            <!-- Заметный интерактивный указатель на окно диалога -->
-            <div class="pt-2 sm:pt-3 flex items-center justify-center lg:justify-start">
-              <button type="button" onclick="focusChatInput()" class="inline-flex items-center gap-2.5 px-4 sm:px-5 py-2.5 rounded-2xl bg-gradient-to-r from-sky-500/15 via-blue-500/10 to-emerald-500/15 hover:from-sky-500/25 hover:to-emerald-500/25 border-2 border-sky-400/60 hover:border-sky-500 text-sky-950 font-black text-xs sm:text-[13px] tracking-wide shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer group">
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
-                <span>НАПИШИТЕ В ОКНО ДИАЛОГА СПРАВА</span>
-                <span class="inline-flex items-center text-sky-600 group-hover:translate-x-1.5 transition-transform">
-                  <svg class="w-4 h-4 fill-current hidden lg:block" viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-                  <svg class="w-4 h-4 fill-current lg:hidden" viewBox="0 0 24 24"><path d="M11 4h2v12l5.5-5.5 1.42 1.42L12 19.84l-7.92-7.92L5.5 10.5 11 16V4z"/></svg>
-                </span>
-              </button>
-            </div>
           </div>
 
           <!-- 4 КНОПКИ СОЦСЕТЕЙ И НИШ (МЕБЕЛЬ, ОНЛАЙН-ОБУВЬ, САЛОН КРАСОТЫ, КРОССОВКИ) - ПОСЕРЕДИНЕ ЭКРАНА / ТЕЛЕФОНА -->
@@ -1367,13 +1355,7 @@
         </div>
 
         <!-- ПРАВАЯ КОЛОНКА: СМАРТФОН С ДИАЛОГОМ И ЖИВОЙ АНИМАЦИЕЙ -->
-        <div class="lg:col-span-6 flex flex-col items-center">
-          
-          <!-- Индикатор реального интерактива: живой чат -->
-          <div class="mb-3.5 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 text-white border border-sky-400/40 shadow-xl text-xs font-bold tracking-wide select-none backdrop-blur-md">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span class="text-white">ИНТЕРАКТИВНЫЙ ТЕСТ-ЧАТ • НАПИШИТЕ ВЕРЕ</span>
-          </div>
+        <div class="lg:col-span-7 flex flex-col items-center justify-center">
 
           <div class="phone-perspective-stage flex justify-center w-full">
             <div class="phone-titanium-shell" id="phoneContainer">

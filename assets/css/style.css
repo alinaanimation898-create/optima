@@ -2822,20 +2822,46 @@ html, body {
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
+      width: 100%;
+    }
+    .phone-perspective-stage::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      max-width: 520px;
+      height: 92%;
+      top: 4%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: radial-gradient(ellipse at center, rgba(56, 189, 248, 0.28) 0%, rgba(14, 165, 233, 0.12) 45%, transparent 72%);
+      filter: blur(48px);
+      z-index: 0;
+      pointer-events: none;
     }
     .phone-titanium-shell {
       width: 100%;
-      max-width: 385px;
-      height: 680px;
-      border-radius: 48px;
+      max-width: 500px;
+      height: 750px;
+      border-radius: 54px;
       background: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);
-      padding: 10px;
+      padding: 12px;
       border: 3px solid #e2e8f0;
       box-shadow: 
-        0 25px 60px -15px rgba(15, 23, 42, 0.15),
-        0 10px 30px -10px rgba(56, 189, 248, 0.2),
-        0 0 0 1px rgba(255, 255, 255, 0.9) inset;
+        0 35px 90px -15px rgba(15, 23, 42, 0.24),
+        0 20px 50px -10px rgba(56, 189, 248, 0.35),
+        0 0 0 1px rgba(255, 255, 255, 0.95) inset;
       position: relative;
+      z-index: 1;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @media (max-width: 640px) {
+      .phone-titanium-shell {
+        max-width: 100%;
+        height: 640px;
+        border-radius: 42px;
+        padding: 8px;
+      }
     }
     .phone-screen-display {
       width: 100%;
