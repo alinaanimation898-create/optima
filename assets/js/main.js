@@ -460,6 +460,18 @@
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;");
+      safe = safe.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:text-sky-800 underline break-all font-medium">$1</a>');
+      safe = safe.replace(/(^|[\s(>])(https?:\/\/[^\s<]+)/g, (match, prefix, url) => {
+        if (prefix === '="' || prefix === "='") return match;
+        let cleanUrl = url;
+        let trailing = '';
+        const punctMatch = cleanUrl.match(/[.,;:!?)]+$/);
+        if (punctMatch) {
+          trailing = punctMatch[0];
+          cleanUrl = cleanUrl.slice(0, -trailing.length);
+        }
+        return `${prefix}<a href="${cleanUrl}" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:text-sky-800 underline break-all font-medium">${cleanUrl}</a>${trailing}`;
+      });
       safe = safe.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
       safe = safe.replace(/\*(.*?)\*/g, '<i>$1</i>');
       safe = safe.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>');
@@ -4087,6 +4099,39 @@ Ready to discuss deployment!` : `Здравствуйте! Хочу интегр
   // ИНТЕРАКТИВНЫЙ ЧАТ TALLORA В IPHONE 17
   window.talloraSessionId = null;
 
+  function formatTalloraMessage(text) {
+    if (!text) return '';
+    let safe = text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+
+    // Markdown links: [Title](https://...)
+    safe = safe.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:text-sky-800 underline break-all font-medium">$1</a>');
+
+    // Raw URLs: https://... or http://...
+    safe = safe.replace(/(^|[\s(>])(https?:\/\/[^\s<]+)/g, (match, prefix, url) => {
+      if (prefix === '="' || prefix === "='") return match;
+      let cleanUrl = url;
+      let trailing = '';
+      const punctMatch = cleanUrl.match(/[.,;:!?)]+$/);
+      if (punctMatch) {
+        trailing = punctMatch[0];
+        cleanUrl = cleanUrl.slice(0, -trailing.length);
+      }
+      return `${prefix}<a href="${cleanUrl}" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:text-sky-800 underline break-all font-medium">${cleanUrl}</a>${trailing}`;
+    });
+
+    // Bold & Italic
+    safe = safe.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    safe = safe.replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+    // Line breaks
+    safe = safe.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>');
+
+    return safe;
+  }
+
   window.handleTalloraChatSubmit = async function(e) {
     if (e && e.preventDefault) e.preventDefault();
     const input = document.getElementById('talloraChatInput');
@@ -4102,7 +4147,7 @@ Ready to discuss deployment!` : `Здравствуйте! Хочу интегр
     const userBubble = `
       <div class="flex justify-end items-end gap-1.5 animate-fade-in">
         <div class="bg-[#d9fdd3] text-slate-900 p-2.5 rounded-2xl rounded-tr-xs max-w-[85%] shadow-xs">
-          <p class="leading-relaxed font-normal text-[11px] text-slate-800">${text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</p>
+          <p class="leading-relaxed font-normal text-[11px] text-slate-800">${formatTalloraMessage(text)}</p>
           <div class="text-[8.5px] text-emerald-800 text-right mt-0.5 font-sans flex items-center justify-end gap-0.5">
             <span>${time}</span>
             <span class="text-[#34B7F1] font-bold">✓✓</span>
@@ -4147,7 +4192,7 @@ Ready to discuss deployment!` : `Здравствуйте! Хочу интегр
         <div class="flex justify-start items-end gap-1.5 animate-fade-in">
           <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs border border-slate-200/50">
             <div class="text-[9.5px] font-bold text-[#075e54] mb-0.5">Вера · Tallora</div>
-            <p class="leading-relaxed font-normal text-[11px] text-slate-800">${reply}</p>
+            <p class="leading-relaxed font-normal text-[11px] text-slate-800">${formatTalloraMessage(reply)}</p>
             <div class="text-[8.5px] text-slate-400 text-right mt-0.5 font-sans">${time}</div>
           </div>
         </div>`;
@@ -4160,7 +4205,7 @@ Ready to discuss deployment!` : `Здравствуйте! Хочу интегр
         <div class="flex justify-start items-end gap-1.5 animate-fade-in">
           <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs border border-slate-200/50">
             <div class="text-[9.5px] font-bold text-[#075e54] mb-0.5">Вера · Tallora</div>
-            <p class="leading-relaxed font-normal text-[11px] text-slate-800">Мы производим женскую обувь нестандартных размеров с 36 по 44 на длину стопы 23–29,5 см. Подскажите, какую модель вам подсказать?</p>
+            <p class="leading-relaxed font-normal text-[11px] text-slate-800">${formatTalloraMessage("Мы производим женскую обувь нестандартных размеров с 36 по 44 на длину стопы 23–29,5 см. Подскажите, какую модель вам подсказать?")}</p>
             <div class="text-[8.5px] text-slate-400 text-right mt-0.5 font-sans">${time}</div>
           </div>
         </div>`;

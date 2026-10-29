@@ -3154,6 +3154,18 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
     function formatPartnerAiResponse(text) {
       if (!text) return '';
       let safe = escapeHtml(text);
+      safe = safe.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:text-sky-800 underline break-all font-medium">$1</a>');
+      safe = safe.replace(/(^|[\s(>])(https?:\/\/[^\s<]+)/g, (match, prefix, url) => {
+        if (prefix === '="' || prefix === "='") return match;
+        let cleanUrl = url;
+        let trailing = '';
+        const punctMatch = cleanUrl.match(/[.,;:!?)]+$/);
+        if (punctMatch) {
+          trailing = punctMatch[0];
+          cleanUrl = cleanUrl.slice(0, -trailing.length);
+        }
+        return `${prefix}<a href="${cleanUrl}" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:text-sky-800 underline break-all font-medium">${cleanUrl}</a>${trailing}`;
+      });
       safe = safe.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
       safe = safe.replace(/\*(.*?)\*/g, '<i>$1</i>');
       safe = safe.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>');
