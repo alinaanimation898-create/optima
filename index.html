@@ -1056,47 +1056,47 @@
       <!-- ВЕРСТКА В 2 СТОЛБИКА ТОЧНО ПО РЕФЕРЕНСУ СКРИНШОТА -->
       <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center max-w-6xl mx-auto">
         
-        <!-- Левая колонка: логотип бренда, БЫЛО / СДЕЛАЛИ / СТАЛО без подложек и текст -->
-        <div class="lg:col-span-7 flex flex-col justify-center space-y-5 text-left">
+        <!-- Левая колонка: крупный логотип бренда, стильные полупрозрачные карточки с линиями для БЫЛО / СДЕЛАЛИ / СТАЛО -->
+        <div class="lg:col-span-7 flex flex-col justify-center space-y-6 text-left">
           
-          <!-- Шапка кейса: только логотип Tallora и ссылка на сайт -->
-          <div class="flex items-center gap-3.5 mb-1">
-            <img src="assets/images/tallora_logo.png" alt="Tallora" class="h-8 sm:h-9 w-auto object-contain">
-            <a href="https://tallora.ru/" target="_blank" rel="noopener noreferrer" class="text-xs sm:text-sm font-semibold text-sky-600 hover:text-sky-800 transition-colors inline-flex items-center gap-1">
+          <!-- Шапка кейса: крупный логотип Tallora и аккуратная ссылка на сайт -->
+          <div class="flex items-center gap-4 mb-1">
+            <img src="assets/images/tallora_logo.png" alt="Tallora" class="h-12 sm:h-14 md:h-16 w-auto object-contain">
+            <a href="https://tallora.ru/" target="_blank" rel="noopener noreferrer" class="text-xs sm:text-sm font-bold text-sky-600 hover:text-sky-800 transition-colors inline-flex items-center gap-1.5 bg-sky-50 hover:bg-sky-100 border border-sky-200/60 px-3 py-1 rounded-full shadow-2xs">
               <span>tallora.ru</span>
               <span class="text-xs">↗</span>
             </a>
           </div>
 
-          <!-- Блоки кейса: БЫЛО, СДЕЛАЛИ, СТАЛО (без подложек) -->
-          <div class="space-y-4 sm:space-y-4.5 py-1">
+          <!-- Блоки кейса: БЫЛО, СДЕЛАЛИ, СТАЛО (полупрозрачные карточки с цветными линиями слева) -->
+          <div class="space-y-3.5 py-1">
             <!-- БЫЛО -->
-            <div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-5">
-              <span class="font-black text-sm sm:text-base tracking-wider text-[#0369a1] sm:w-24 shrink-0 uppercase">БЫЛО</span>
+            <div class="relative bg-white/40 backdrop-blur-sm border border-slate-200/50 rounded-2xl p-4 sm:p-4.5 border-l-4 border-l-sky-800/70 shadow-[0_2px_12px_rgba(15,23,42,0.02)] transition-all hover:bg-white/55">
+              <span class="font-black text-xs sm:text-[13px] tracking-wider text-[#0369a1] uppercase block mb-1">БЫЛО</span>
               <p class="text-xs sm:text-sm text-slate-700 font-normal leading-relaxed">
                 Сложные размерные сетки, десятки однотипных вопросов о&nbsp;посадке, клиенты уходят, пока ждут ответа менеджера.
               </p>
             </div>
 
             <!-- СДЕЛАЛИ -->
-            <div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-5">
-              <span class="font-black text-sm sm:text-base tracking-wider text-[#0284c7] sm:w-24 shrink-0 uppercase">СДЕЛАЛИ</span>
+            <div class="relative bg-white/40 backdrop-blur-sm border border-slate-200/50 rounded-2xl p-4 sm:p-4.5 border-l-4 border-l-sky-500 shadow-[0_2px_12px_rgba(15,23,42,0.02)] transition-all hover:bg-white/55">
+              <span class="font-black text-xs sm:text-[13px] tracking-wider text-[#0284c7] uppercase block mb-1">СДЕЛАЛИ</span>
               <p class="text-xs sm:text-sm text-slate-700 font-normal leading-relaxed">
                 Подключили Веру к&nbsp;каталогу сайта, МойСклад и&nbsp;amoCRM, запустили в&nbsp;WhatsApp, Telegram, Max и&nbsp;Instagram.
               </p>
             </div>
 
             <!-- СТАЛО -->
-            <div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-5">
-              <span class="font-black text-sm sm:text-base tracking-wider text-[#ea580c] sm:w-24 shrink-0 uppercase">СТАЛО</span>
-              <p class="text-xs sm:text-sm text-slate-700 font-normal leading-relaxed">
+            <div class="relative bg-white/55 backdrop-blur-sm border border-slate-200/60 rounded-2xl p-4 sm:p-4.5 border-l-4 border-l-emerald-500 shadow-[0_4px_16px_rgba(16,185,129,0.06)] transition-all hover:bg-white/70">
+              <span class="font-black text-xs sm:text-[13px] tracking-wider text-emerald-600 uppercase block mb-1">СТАЛО</span>
+              <p class="text-xs sm:text-sm text-slate-800 font-medium leading-relaxed">
                 Мгновенная консультация по&nbsp;размеру и&nbsp;колодке и&nbsp;доведение до&nbsp;оплаты без скриптов и&nbsp;потери контекста.
               </p>
             </div>
           </div>
 
-          <!-- Призыв протестировать на реальном клиенте (вместо кнопки) -->
-          <div class="pt-2">
+          <!-- Призыв протестировать на реальном клиенте -->
+          <div class="pt-1">
             <p class="text-xs sm:text-sm font-semibold text-slate-900 leading-snug">
               Убедитесь в&nbsp;качестве ответов лично: напишите Вере в&nbsp;чат прямо сейчас и&nbsp;протестируйте ее на&nbsp;реальном клиенте.
             </p>
@@ -1104,35 +1104,129 @@
 
         </div>
 
-        <!-- Правая колонка: интерактивный телефон iPhone 17 со стендом Tallora -->
+        <!-- Правая колонка: интерактивный нативный iPhone 17 с реальным чатом Tallora -->
         <div class="lg:col-span-5 flex justify-center items-center">
-          <div id="talloraPhoneFrame" class="relative w-full max-w-[340px] sm:max-w-[370px] h-[600px] sm:h-[640px] lg:h-[670px] bg-gradient-to-b from-[#1c2438] via-[#0d1424] to-[#070b16] rounded-[50px] sm:rounded-[56px] p-2 sm:p-2.5 shadow-[0_25px_60px_-15px_rgba(15,23,42,0.4),0_0_0_1px_rgba(255,255,255,0.1)_inset] border border-[#334155]/60 select-none">
+          <div id="talloraPhoneFrame" class="relative w-full max-w-[340px] sm:max-w-[365px] h-[610px] sm:h-[650px] bg-[#0c1220] rounded-[48px] sm:rounded-[52px] p-2.5 shadow-[0_25px_60px_-15px_rgba(15,23,42,0.35),0_0_0_1px_rgba(255,255,255,0.12)_inset] border border-slate-700/60 select-none flex flex-col">
             
-            <!-- Аппаратные кнопки iPhone 17 (Action button, Volume, Power) -->
-            <div class="absolute -left-[3px] top-24 w-[3px] h-6 bg-slate-600/80 rounded-l"></div>
-            <div class="absolute -left-[3px] top-36 w-[3px] h-10 bg-slate-600/80 rounded-l"></div>
-            <div class="absolute -left-[3px] top-50 w-[3px] h-10 bg-slate-600/80 rounded-l"></div>
-            <div class="absolute -right-[3px] top-32 w-[3px] h-14 bg-slate-600/80 rounded-r"></div>
-
-            <!-- Компактный Dynamic Island iPhone 17 -->
-            <div class="absolute top-3 inset-x-0 flex justify-center z-30 pointer-events-none">
-              <div class="w-20 sm:w-22 h-4 sm:h-4.5 bg-[#0d1424] rounded-full flex items-center justify-end pr-2 gap-1.5 ring-1 ring-white/10">
-                <div class="w-2 h-2 rounded-full bg-[#1e293b]"></div>
+            <!-- Экран iPhone 17 -->
+            <div class="relative w-full h-full rounded-[40px] sm:rounded-[44px] overflow-hidden bg-[#efeae2] flex flex-col border border-slate-900/40">
+              
+              <!-- Верхняя статусная строка iOS + Dynamic Island -->
+              <div class="bg-[#075e54] text-white pt-2.5 pb-1 px-5 flex items-center justify-between text-[11px] font-semibold shrink-0 z-30">
+                <span>9:41</span>
+                <!-- Dynamic Island pill -->
+                <div class="w-20 h-4 bg-[#0a0f1d] rounded-full flex items-center justify-end pr-2 gap-1 ring-1 ring-white/10">
+                  <div class="w-1.5 h-1.5 rounded-full bg-[#1e293b]"></div>
+                </div>
+                <div class="flex items-center gap-1 text-[10px]">
+                  <span>5G</span>
+                  <span>100%</span>
+                </div>
               </div>
-            </div>
 
-            <!-- Экран iPhone 17 с iframe демо-стенда: верхняя панель (тема/лого) и нижний дисклеймер скрыты -->
-            <div class="relative w-full h-full rounded-[44px] sm:rounded-[48px] overflow-hidden bg-white">
-              <iframe 
-                src="https://my.altaiweb.online/demo/tallora/" 
-                title="Интерактивный стенд: Вера для бренда Tallora" 
-                class="w-full border-0 absolute left-0" 
-                style="top: -53px; height: calc(100% + 96px);" 
-                loading="lazy" 
-                allow="clipboard-write">
-              </iframe>
-              <!-- Защитная маскирующая плашка снизу -->
-              <div class="absolute bottom-0 inset-x-0 h-6 bg-white pointer-events-none z-20"></div>
+              <!-- Шапка мессенджера (WhatsApp / Tallora) -->
+              <div class="bg-[#075e54] text-white px-3.5 py-2 flex items-center justify-between shadow-xs shrink-0 z-20">
+                <div class="flex items-center gap-2.5 min-w-0">
+                  <span class="text-white/80 text-sm cursor-pointer">‹</span>
+                  <div class="relative w-9 h-9 rounded-full overflow-hidden border border-white/30 shrink-0 bg-slate-800">
+                    <img src="assets/images/vera_avatar_hd.jpg" alt="Вера" class="w-full h-full object-cover">
+                    <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#075e54]"></span>
+                  </div>
+                  <div class="leading-tight truncate text-left">
+                    <div class="text-xs font-bold flex items-center gap-1 text-white">
+                      <span>Вера</span>
+                      <span class="text-emerald-300 text-[10px]">✓</span>
+                      <span class="text-[9px] bg-white/20 text-emerald-100 px-1 rounded font-normal">Tallora</span>
+                    </div>
+                    <div class="text-[9.5px] text-emerald-100 font-normal truncate">обувь 36–44 · в сети</div>
+                  </div>
+                </div>
+                <button type="button" onclick="resetTalloraChat()" class="text-[9.5px] bg-white/15 hover:bg-white/25 px-2 py-0.5 rounded text-white/90 font-medium transition-colors cursor-pointer shrink-0">
+                  Сброс
+                </button>
+              </div>
+
+              <!-- Контейнер сообщений чата Tallora -->
+              <div id="talloraChatMessages" class="flex-1 p-3 space-y-2.5 overflow-y-auto chat-bg-wa min-h-0 text-xs">
+                
+                <!-- Дата -->
+                <div class="flex justify-center my-0.5">
+                  <span class="text-[9.5px] bg-slate-900/10 text-slate-700 px-2 py-0.5 rounded-full font-medium">Сегодня</span>
+                </div>
+
+                <!-- 1. Сообщение от Веры -->
+                <div class="flex justify-start items-end gap-1.5 animate-fade-in">
+                  <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs border border-slate-200/50">
+                    <div class="text-[9.5px] font-bold text-[#075e54] mb-0.5">Вера · Tallora</div>
+                    <p class="leading-relaxed font-normal text-[11px] text-slate-800">
+                      Здравствуйте! 👋 Я Вера, консультант бренда обуви Tallora. Подбираю обувь для высоких девушек (размеры 36–44). Подскажите, какую модель или размер вы ищете?
+                    </p>
+                    <div class="text-[8.5px] text-slate-400 text-right mt-0.5 font-sans">09:41</div>
+                  </div>
+                </div>
+
+                <!-- 2. Вопрос клиента -->
+                <div class="flex justify-end items-end gap-1.5 animate-fade-in">
+                  <div class="bg-[#d9fdd3] text-slate-900 p-2.5 rounded-2xl rounded-tr-xs max-w-[85%] shadow-xs">
+                    <p class="leading-relaxed font-normal text-[11px] text-slate-800">
+                      Здравствуйте! Ищу лоферы или ботильоны 42–43 размера на стопу 27.5 см. Есть в наличии?
+                    </p>
+                    <div class="text-[8.5px] text-emerald-800 text-right mt-0.5 font-sans flex items-center justify-end gap-0.5">
+                      <span>09:42</span>
+                      <span class="text-[#34B7F1] font-bold">✓✓</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 3. Экспертный ответ Веры -->
+                <div class="flex justify-start items-end gap-1.5 animate-fade-in">
+                  <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs border border-slate-200/50">
+                    <div class="text-[9.5px] font-bold text-[#075e54] mb-0.5">Вера · Tallora</div>
+                    <p class="leading-relaxed font-normal text-[11px] text-slate-800">
+                      Да! На стопу 27,5 см отлично садится наш 42 размер. Рекомендую лоферы Como и ботильоны Milan из мягкой натуральной кожи — у них анатомическая колодка и комфортный подъем. Оформить заказ с бесплатной примеркой СДЭК?
+                    </p>
+                    <div class="text-[8.5px] text-slate-400 text-right mt-0.5 font-sans">09:42</div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Быстрые вопросы-подсказки по Tallora -->
+              <div class="bg-white/80 backdrop-blur-xs px-2.5 py-1.5 border-t border-slate-200/70 flex items-center gap-1.5 overflow-x-auto scrollbar-none shrink-0">
+                <button type="button" onclick="sendTalloraPrompt('Какие есть лоферы 42 размера?')" class="text-[10px] font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 px-2 py-0.5 rounded-full whitespace-nowrap cursor-pointer transition-colors shrink-0">
+                  Лоферы 42 размера
+                </button>
+                <button type="button" onclick="sendTalloraPrompt('Как работает примерка СДЭК?')" class="text-[10px] font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 px-2 py-0.5 rounded-full whitespace-nowrap cursor-pointer transition-colors shrink-0">
+                  Примерка СДЭК
+                </button>
+                <button type="button" onclick="sendTalloraPrompt('Где находится шоурум в Москве?')" class="text-[10px] font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 px-2 py-0.5 rounded-full whitespace-nowrap cursor-pointer transition-colors shrink-0">
+                  Шоурум в Москве
+                </button>
+              </div>
+
+              <!-- Панель ввода сообщения -->
+              <div class="p-2 bg-white border-t border-slate-200/80 flex items-center gap-1.5 shrink-0">
+                <form id="talloraChatForm" onsubmit="handleTalloraChatSubmit(event)" class="flex-1 flex items-center gap-1.5">
+                  <div class="flex-1 bg-slate-100 border border-slate-200 rounded-full px-3 py-1.5 flex items-center justify-between">
+                    <input 
+                      id="talloraChatInput" 
+                      type="text" 
+                      placeholder="Напишите Вере о Tallora…" 
+                      autocomplete="off" 
+                      class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-xs outline-none"
+                    >
+                    <span class="text-slate-400 text-xs ml-1">📎</span>
+                  </div>
+                  <button 
+                    id="talloraChatSubmitBtn" 
+                    type="submit" 
+                    class="w-7 h-7 rounded-full bg-[#00a884] hover:bg-[#008f6f] active:scale-95 text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer"
+                  >
+                    <svg class="w-3.5 h-3.5 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+                  </button>
+                </form>
+              </div>
+
             </div>
 
           </div>

@@ -4083,3 +4083,116 @@ Ready to discuss deployment!` : `Здравствуйте! Хочу интегр
   }
   window.addEventListener('scroll', updateAltaiSunset, { passive: true });
   updateAltaiSunset();
+
+  // ИНТЕРАКТИВНЫЙ ЧАТ TALLORA В IPHONE 17
+  window.talloraSessionId = null;
+
+  window.handleTalloraChatSubmit = async function(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const input = document.getElementById('talloraChatInput');
+    if (!input) return;
+    const text = input.value.trim();
+    if (!text) return;
+    input.value = '';
+
+    const box = document.getElementById('talloraChatMessages');
+    if (!box) return;
+
+    const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const userBubble = `
+      <div class="flex justify-end items-end gap-1.5 animate-fade-in">
+        <div class="bg-[#d9fdd3] text-slate-900 p-2.5 rounded-2xl rounded-tr-xs max-w-[85%] shadow-xs">
+          <p class="leading-relaxed font-normal text-[11px] text-slate-800">${text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</p>
+          <div class="text-[8.5px] text-emerald-800 text-right mt-0.5 font-sans flex items-center justify-end gap-0.5">
+            <span>${time}</span>
+            <span class="text-[#34B7F1] font-bold">✓✓</span>
+          </div>
+        </div>
+      </div>`;
+    box.insertAdjacentHTML('beforeend', userBubble);
+    box.scrollTop = box.scrollHeight;
+
+    const typingId = 'talloraTyping_' + Date.now();
+    const typingHtml = `
+      <div id="${typingId}" class="flex justify-start items-end gap-1.5 animate-fade-in">
+        <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs shadow-xs border border-slate-200/60">
+          <div class="flex items-center gap-1 py-0.5 px-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style="animation-delay: 0.2s"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style="animation-delay: 0.4s"></span>
+          </div>
+        </div>
+      </div>`;
+    box.insertAdjacentHTML('beforeend', typingHtml);
+    box.scrollTop = box.scrollHeight;
+
+    try {
+      const res = await fetch("https://api.optima.altaiweb.online/api/v1/demo/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          tenant_id: "tallora",
+          message: text,
+          session_id: window.talloraSessionId || undefined
+        })
+      });
+      const data = await res.json();
+      if (data && data.session_id) window.talloraSessionId = data.session_id;
+
+      const typingEl = document.getElementById(typingId);
+      if (typingEl) typingEl.remove();
+
+      const reply = data.assistant_response || "Спасибо за вопрос! С удовольствием помогу подобрать модель под ваши параметры.";
+      const aiBubble = `
+        <div class="flex justify-start items-end gap-1.5 animate-fade-in">
+          <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs border border-slate-200/50">
+            <div class="text-[9.5px] font-bold text-[#075e54] mb-0.5">Вера · Tallora</div>
+            <p class="leading-relaxed font-normal text-[11px] text-slate-800">${reply}</p>
+            <div class="text-[8.5px] text-slate-400 text-right mt-0.5 font-sans">${time}</div>
+          </div>
+        </div>`;
+      box.insertAdjacentHTML('beforeend', aiBubble);
+      box.scrollTop = box.scrollHeight;
+    } catch (err) {
+      const typingEl = document.getElementById(typingId);
+      if (typingEl) typingEl.remove();
+      const fallbackBubble = `
+        <div class="flex justify-start items-end gap-1.5 animate-fade-in">
+          <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs border border-slate-200/50">
+            <div class="text-[9.5px] font-bold text-[#075e54] mb-0.5">Вера · Tallora</div>
+            <p class="leading-relaxed font-normal text-[11px] text-slate-800">Мы производим женскую обувь нестандартных размеров с 36 по 44 на длину стопы 23–29,5 см. Подскажите, какую модель вам подсказать?</p>
+            <div class="text-[8.5px] text-slate-400 text-right mt-0.5 font-sans">${time}</div>
+          </div>
+        </div>`;
+      box.insertAdjacentHTML('beforeend', fallbackBubble);
+      box.scrollTop = box.scrollHeight;
+    }
+  };
+
+  window.sendTalloraPrompt = function(promptText) {
+    const input = document.getElementById('talloraChatInput');
+    if (input) {
+      input.value = promptText;
+      window.handleTalloraChatSubmit();
+    }
+  };
+
+  window.resetTalloraChat = function() {
+    window.talloraSessionId = null;
+    const box = document.getElementById('talloraChatMessages');
+    if (!box) return;
+    box.innerHTML = `
+      <div class="flex justify-center my-0.5">
+        <span class="text-[9.5px] bg-slate-900/10 text-slate-700 px-2 py-0.5 rounded-full font-medium">Сегодня</span>
+      </div>
+      <div class="flex justify-start items-end gap-1.5 animate-fade-in">
+        <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs border border-slate-200/50">
+          <div class="text-[9.5px] font-bold text-[#075e54] mb-0.5">Вера · Tallora</div>
+          <p class="leading-relaxed font-normal text-[11px] text-slate-800">
+            Здравствуйте! 👋 Я Вера, консультант бренда обуви Tallora. Подбираю обувь для высоких девушек (размеры 36–44). Подскажите, какую модель или размер вы ищете?
+          </p>
+          <div class="text-[8.5px] text-slate-400 text-right mt-0.5 font-sans">09:41</div>
+        </div>
+      </div>
+    `;
+  };

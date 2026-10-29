@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Шоурум</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Caveat:wght@600&amp;display=swap" rel="stylesheet">
+<style>
+html,body{min-height:100vh;margin:0;background:#F5F2EE}
+a{color:#C8102E}a:hover{color:#9E0B23}
+</style>
+</helmet>
+<div style="min-height: 100vh; width: 100%; box-sizing: border-box; background: #F5F2EE; font-family: 'Manrope', system-ui, sans-serif; color: #1C1B1A; position: relative; overflow-x: hidden; display: flex; flex-direction: column">
+  <div aria-hidden="true" style="position: absolute; right: -60px; bottom: -220px; font-size: 900px; line-height: 1; font-weight: 800; color: {{accent}}; opacity: 0.05; pointer-events: none">&amp;</div>
+
+  <header style="height: 84px; box-sizing: border-box; padding: 0 clamp(24px, 5vw, 64px); display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #E4DED6; position: relative">
+    <div style="display: flex; align-items: center; gap: 20px">
+      <img src="./assets/d8db02e58ed5ce97f2a09e2ac2f6ff02.png" alt="möbel&amp;zeit" style="height: 36px; width: auto; display: block">
+    </div>
+    <a href="https://optima.altaiweb.online" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: #6B645C; font-size: 13px; font-weight: 500">
+      <span>powered by</span>
+      <span style="font-weight: 800; letter-spacing: 0.04em; color: #14213D">ALTAI OPTIMA</span>
+    </a>
+  </header>
+
+  <main style="flex: 1; display: flex; gap: clamp(32px, 4vw, 72px); padding: 36px clamp(24px, 5vw, 64px) 36px; box-sizing: border-box; position: relative; min-height: 0; max-width: 1560px; margin: 0 auto; width: 100%">
+    <section style="width: 520px; flex-shrink: 0; display: flex; flex-direction: column; gap: 20px">
+      <!-- Преимущества Веры: без белых подложек, чистая типографика -->
+      <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center">
+        <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #3B3631"><span style="width: 8px; height: 8px; border-radius: 50%; background: #1F9D55"></span>Ответ за 15 секунд</span>
+        <span style="font-size: 13px; font-weight: 700; color: #3B3631">•&nbsp;&nbsp;24/7 без выходных</span>
+        <span style="font-size: 13px; font-weight: 700; color: #3B3631">•&nbsp;&nbsp;Понимает голосовые</span>
+        <span style="font-size: 13px; font-weight: 700; color: #3B3631">•&nbsp;&nbsp;Сервис 5★ отеля</span>
+      </div>
+
+      <h1 style="margin: 0; font-size: clamp(38px, 3.8vw, 54px); line-height: 1.04; font-weight: 800; letter-spacing: -0.02em; color: #1C1B1A">Вера уже изучила <span style="color: {{accent}}">вашу компанию</span></h1>
+
+      <p style="margin: 0; font-size: 17px; line-height: 1.55; color: #3B3631">Ваш новый любимый сотрудник. Обаяние живого эксперта, тонкий юмор уровня Довлатова и железная компьютерная дисциплина. Вера помнит каждого клиента, ведёт диалог как лучший менеджер салона и доводит его до реальной сделки в CRM.</p>
+
+      <p style="margin: -6px 0 0; font-family: 'Caveat', cursive; font-size: 26px; line-height: 1.1; color: {{accent}}">Напишите ей как покупатель, она уже ждёт в чате</p>
+
+      <!-- Соцсети: без белых плашек-подложек -->
+      <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 4px">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8A8178">Живёт там, где пишут ваши клиенты</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center">
+          <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 700; color: #1C1B1A"><span style="width: 8px; height: 8px; border-radius: 50%; background: #25D366"></span>WhatsApp</span>
+          <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 700; color: #1C1B1A"><span style="width: 8px; height: 8px; border-radius: 50%; background: #229ED9"></span>Telegram</span>
+          <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 700; color: #1C1B1A"><span style="width: 8px; height: 8px; border-radius: 50%; background: #E1306C"></span>Instagram</span>
+          <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 700; color: #1C1B1A"><span style="width: 8px; height: 8px; border-radius: 50%; background: #7B3FF2"></span>MAX</span>
+          <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 700; color: #1C1B1A"><span style="width: 8px; height: 8px; border-radius: 50%; background: #00AAFF"></span>Авито</span>
+          <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 700; color: #1C1B1A"><span style="width: 8px; height: 8px; border-radius: 50%; background: #0077FF"></span>VK</span>
+        </div>
+      </div>
+
+      <!-- CRM системы -->
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8A8178">Сама ведёт базу в любой CRM</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+          <span style="padding: 7px 12px; border-radius: 10px; background: #1C1B1A; color: #FFFFFF; font-size: 13px; font-weight: 700">amoCRM</span>
+          <span style="padding: 7px 12px; border-radius: 10px; background: #1C1B1A; color: #FFFFFF; font-size: 13px; font-weight: 700">Битрикс24</span>
+          <span style="padding: 7px 12px; border-radius: 10px; background: #1C1B1A; color: #FFFFFF; font-size: 13px; font-weight: 700">1С</span>
+          <span style="padding: 7px 12px; border-radius: 10px; background: #1C1B1A; color: #FFFFFF; font-size: 13px; font-weight: 700">МойСклад</span>
+          <span style="padding: 7px 12px; border-radius: 10px; background: #1C1B1A; color: #FFFFFF; font-size: 13px; font-weight: 700">Excel</span>
+        </div>
+      </div>
+
+      <p style="margin: auto 0 0; padding-top: 14px; border-top: 1px solid #E4DED6; font-size: 12px; line-height: 1.5; color: #6B645C">Это демо-версия Веры на основе открытых материалов möbel&amp;zeit. Для точных ответов во всех сценариях нужна полноценная интеграция от <a href="https://optima.altaiweb.online">ALTAI Optima</a></p>
+    </section>
+
+    <section aria-label="Чат с Верой" style="flex: 1; min-width: 0; background: #FFFFFF; border-radius: 28px; box-shadow: 0 30px 80px -30px rgba(60, 40, 20, 0.25), 0 0 0 1px #EAE4DC; display: flex; flex-direction: column; overflow: hidden; min-height: 600px">
+      <div style="display: flex; align-items: center; gap: 16px; padding: 20px 28px; border-bottom: 1px solid #F0EBE5">
+        <div style="position: relative; width: 56px; height: 56px; flex-shrink: 0">
+          <img src="./assets/de6c7ee3d01d2799af563037987cbfb6.png" alt="Вера" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; display: block; box-shadow: 0 0 0 3px #FFFFFF, 0 0 0 5px {{accent}}">
+          <span style="position: absolute; right: 0; bottom: 0; width: 14px; height: 14px; border-radius: 50%; background: #1F9D55; border: 3px solid #FFFFFF"></span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 2px; flex: 1">
+          <span style="font-size: 19px; font-weight: 800">Вера</span>
+          <span style="font-size: 14px; color: #6B645C">консультант möbel&amp;zeit · в сети</span>
+        </div>
+        <button aria-label="Сбросить диалог" style="font-family: inherit; display: flex; align-items: center; gap: 8px; background: #F5F2EE; border: 0; border-radius: 999px; padding: 10px 16px; font-size: 14px; font-weight: 600; color: #4E4842; cursor: pointer">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 3v5h5"></path></svg>
+          Новый диалог
+        </button>
+      </div>
+
+      <div style="flex: 1; padding: 28px; display: flex; flex-direction: column; gap: 18px; background: #FCFBF9; min-height: 0; overflow-y: auto">
+        <span style="align-self: center; font-size: 12px; font-weight: 600; color: #8A8178; background: #F2EEE8; padding: 6px 12px; border-radius: 999px">Сегодня</span>
+        <div style="align-self: flex-end; max-width: 72%; background: #1C1B1A; color: #FFFFFF; padding: 14px 18px; border-radius: 20px 20px 6px 20px; font-size: 16px; line-height: 1.5">Здравствуйте! Ищу диван в гостиную, хочется с электрическим механизмом. Что посоветуете?</div>
+        <div style="display: flex; gap: 12px; align-items: flex-end; max-width: 80%">
+          <img src="./assets/de6c7ee3d01d2799af563037987cbfb6.png" alt="" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; flex-shrink: 0">
+          <div style="background: #FFFFFF; border: 1px solid #EDE7E0; padding: 14px 18px; border-radius: 20px 20px 20px 6px; font-size: 16px; line-height: 1.55">Добрый день! Я Вера, консультант möbel&amp;zeit. Для гостиной с электромеханизмом посмотрите модель <b>Victoria Solo</b> - она плавно раскладывается нажатием кнопки в удобные положения. Подскажите, какая ширина нужна и сколько человек обычно сидит на диване?</div>
+        </div>
+        <div style="align-self: flex-end; max-width: 72%; background: #1C1B1A; color: #FFFFFF; padding: 14px 18px; border-radius: 20px 20px 6px 20px; font-size: 16px; line-height: 1.5">Около 2,5 метров, нас трое</div>
+        <div style="display: flex; gap: 12px; align-items: center">
+          <img src="./assets/de6c7ee3d01d2799af563037987cbfb6.png" alt="" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover">
+          <div aria-label="Вера печатает" style="display: flex; gap: 5px; background: #FFFFFF; border: 1px solid #EDE7E0; padding: 16px 18px; border-radius: 20px 20px 20px 6px">
+            <span style="width: 7px; height: 7px; border-radius: 50%; background: #B8AEA3"></span>
+            <span style="width: 7px; height: 7px; border-radius: 50%; background: #B8AEA3"></span>
+            <span style="width: 7px; height: 7px; border-radius: 50%; background: #B8AEA3"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Вопросы-подсказки (более реальные по запросу пользователя) -->
+      <div style="padding: 16px 24px 20px; border-top: 1px solid #F0EBE5; display: flex; flex-direction: column; gap: 12px">
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+          <button style="font-family: inherit; font-size: 13px; font-weight: 600; color: #1C1B1A; background: #F5F2EE; border: 0; border-radius: 999px; padding: 8px 14px; cursor: pointer">Какие есть механизмы?</button>
+          <button style="font-family: inherit; font-size: 13px; font-weight: 600; color: #1C1B1A; background: #F5F2EE; border: 0; border-radius: 999px; padding: 8px 14px; cursor: pointer">Сроки и доставка</button>
+          <button style="font-family: inherit; font-size: 13px; font-weight: 600; color: #1C1B1A; background: #F5F2EE; border: 0; border-radius: 999px; padding: 8px 14px; cursor: pointer">Где ближайший салон?</button>
+          <button style="font-family: inherit; font-size: 13px; font-weight: 600; color: #1C1B1A; background: #F5F2EE; border: 0; border-radius: 999px; padding: 8px 14px; cursor: pointer">Скидки в аутлете</button>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: center">
+          <label for="mz1-input" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Сообщение Вере</label>
+          <input id="mz1-input" placeholder="Спросите о моделях, тканях, ценах или доставке…" style="flex: 1; font-family: inherit; font-size: 16px; padding: 16px 20px; border-radius: 16px; border: 1px solid #E4DED6; background: #F8F6F3; color: #1C1B1A; outline: none">
+          <button aria-label="Отправить" style="width: 56px; height: 56px; border-radius: 16px; border: 0; background: {{accent}}; color: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0">
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"></path><path d="M22 2 15 22l-4-9-9-4 20-7z"></path></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+        <div style="display: flex; gap: 12px; align-items: center">
+          <label for="mz1-input" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Сообщение Вере</label>
+          <input id="mz1-input" placeholder="Спросите о моделях, тканях, ценах или доставке…" style="flex: 1; font-family: inherit; font-size: 16px; padding: 16px 20px; border-radius: 16px; border: 1px solid #E4DED6; background: #F8F6F3; color: #1C1B1A; outline: none">
+          <button aria-label="Отправить" style="width: 56px; height: 56px; border-radius: 16px; border: 0; background: {{accent}}; color: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0">
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"></path><path d="M22 2 15 22l-4-9-9-4 20-7z"></path></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#C8102E","options":["#C8102E","#1C1B1A","#14213D"]},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#C8102E' };
+  }
+}
+</script>
+</body>
+</html>
