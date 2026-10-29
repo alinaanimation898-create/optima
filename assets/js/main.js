@@ -45,12 +45,12 @@
               <div class="bg-white text-slate-900 p-3 rounded-2xl rounded-tl-xs max-w-[92%] shadow-xs border border-slate-200/60">
                 <div class="text-[9.5px] font-bold text-[#075e54] mb-1 flex items-center gap-1.5">
                   <span>${isEn ? 'Vera' : 'Вера'}</span>
-                  <span class="text-[8.5px] bg-emerald-100 text-emerald-800 font-semibold px-1.5 py-0.2 rounded-full">ИИ-продавец</span>
+                  <span class="text-[8.5px] bg-emerald-100 text-emerald-800 font-semibold px-1.5 py-0.2 rounded-full">Вера</span>
                 </div>
                 <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">
                   ${isEn 
-                    ? "Hello! 👋 I'm Vera, your autonomous AI sales manager. Ask me anything in the chat to test my live responses."
-                    : "Здравствуйте! 👋 Я Вера&nbsp;— ваш автономный ИИ-продавец. Напишите мне любой вопрос в чат, чтобы проверить меня в деле."}
+                    ? "Hello! 👋 I'm Vera. Ask me anything in the chat to test my live responses."
+                    : "Здравствуйте! 👋 Я Вера. Напишите мне любой вопрос в чат, чтобы проверить меня в деле."}
                 </p>
                 <div class="text-[9px] text-slate-400 text-right mt-1 font-sans">онлайн</div>
               </div>

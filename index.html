@@ -1056,27 +1056,22 @@
       <!-- ВЕРСТКА В 2 СТОЛБИКА ТОЧНО ПО РЕФЕРЕНСУ СКРИНШОТА -->
       <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center max-w-6xl mx-auto">
         
-        <!-- Левая колонка: бренд, карточки БЫЛО / СДЕЛАЛИ / СТАЛО и кнопка -->
-        <div class="lg:col-span-7 flex flex-col justify-center space-y-4 text-left">
+        <!-- Левая колонка: логотип бренда, БЫЛО / СДЕЛАЛИ / СТАЛО без подложек и текст -->
+        <div class="lg:col-span-7 flex flex-col justify-center space-y-5 text-left">
           
-          <!-- Шапка кейса: аватарка Веры + бренд TALLORA + ссылка -->
+          <!-- Шапка кейса: только логотип Tallora и ссылка на сайт -->
           <div class="flex items-center gap-3.5 mb-1">
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl overflow-hidden border border-slate-200/90 shadow-xs bg-white shrink-0">
-              <img src="assets/images/vera_welcome.jpg" alt="Вера" class="w-full h-full object-cover object-top">
-            </div>
-            <div class="flex flex-col justify-center">
-              <div class="font-black text-xl sm:text-2xl text-slate-950 tracking-wider font-sans">TALLORA</div>
-              <a href="https://tallora.ru/" target="_blank" rel="noopener noreferrer" class="text-xs sm:text-sm font-semibold text-sky-600 hover:text-sky-800 transition-colors inline-flex items-center gap-1">
-                <span>tallora.ru</span>
-                <span class="text-xs">↗</span>
-              </a>
-            </div>
+            <img src="assets/images/tallora_logo.png" alt="Tallora" class="h-8 sm:h-9 w-auto object-contain">
+            <a href="https://tallora.ru/" target="_blank" rel="noopener noreferrer" class="text-xs sm:text-sm font-semibold text-sky-600 hover:text-sky-800 transition-colors inline-flex items-center gap-1">
+              <span>tallora.ru</span>
+              <span class="text-xs">↗</span>
+            </a>
           </div>
 
-          <!-- Блоки кейса: БЫЛО, СДЕЛАЛИ, СТАЛО -->
-          <div class="space-y-3 sm:space-y-3.5">
+          <!-- Блоки кейса: БЫЛО, СДЕЛАЛИ, СТАЛО (без подложек) -->
+          <div class="space-y-4 sm:space-y-4.5 py-1">
             <!-- БЫЛО -->
-            <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-xs border border-slate-100 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+            <div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-5">
               <span class="font-black text-sm sm:text-base tracking-wider text-[#0369a1] sm:w-24 shrink-0 uppercase">БЫЛО</span>
               <p class="text-xs sm:text-sm text-slate-700 font-normal leading-relaxed">
                 Сложные размерные сетки, десятки однотипных вопросов о&nbsp;посадке, клиенты уходят, пока ждут ответа менеджера.
@@ -1084,7 +1079,7 @@
             </div>
 
             <!-- СДЕЛАЛИ -->
-            <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-xs border border-slate-100 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+            <div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-5">
               <span class="font-black text-sm sm:text-base tracking-wider text-[#0284c7] sm:w-24 shrink-0 uppercase">СДЕЛАЛИ</span>
               <p class="text-xs sm:text-sm text-slate-700 font-normal leading-relaxed">
                 Подключили Веру к&nbsp;каталогу сайта, МойСклад и&nbsp;amoCRM, запустили в&nbsp;WhatsApp, Telegram, Max и&nbsp;Instagram.
@@ -1092,7 +1087,7 @@
             </div>
 
             <!-- СТАЛО -->
-            <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-xs border border-slate-100 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+            <div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-5">
               <span class="font-black text-sm sm:text-base tracking-wider text-[#ea580c] sm:w-24 shrink-0 uppercase">СТАЛО</span>
               <p class="text-xs sm:text-sm text-slate-700 font-normal leading-relaxed">
                 Мгновенная консультация по&nbsp;размеру и&nbsp;колодке и&nbsp;доведение до&nbsp;оплаты без скриптов и&nbsp;потери контекста.
@@ -1100,38 +1095,44 @@
             </div>
           </div>
 
-          <!-- Кнопка и призыв -->
-          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 pt-2">
-            <button type="button" onclick="document.getElementById('talloraPhoneFrame')?.scrollIntoView({behavior:'smooth', block:'center'});" class="px-5 py-2.5 rounded-xl bg-[#f97316] hover:bg-[#ea580c] active:scale-95 text-white font-bold text-xs sm:text-sm shadow-sm transition-all cursor-pointer whitespace-nowrap">
-              Проверить Веру
-            </button>
-            <span class="text-xs sm:text-sm text-slate-500 font-normal">
-              Задайте ей&nbsp;любой вопрос в&nbsp;телефоне справа
-            </span>
+          <!-- Призыв протестировать на реальном клиенте (вместо кнопки) -->
+          <div class="pt-2">
+            <p class="text-xs sm:text-sm font-semibold text-slate-900 leading-snug">
+              Убедитесь в&nbsp;качестве ответов лично: напишите Вере в&nbsp;чат прямо сейчас и&nbsp;протестируйте ее на&nbsp;реальном клиенте.
+            </p>
           </div>
 
         </div>
 
-        <!-- Правая колонка: интерактивный телефон со стендом Tallora точно по референсу -->
+        <!-- Правая колонка: интерактивный телефон iPhone 17 со стендом Tallora -->
         <div class="lg:col-span-5 flex justify-center items-center">
-          <div id="talloraPhoneFrame" class="relative w-full max-w-[350px] sm:max-w-[380px] h-[610px] sm:h-[650px] lg:h-[680px] bg-[#0b1329] rounded-[48px] sm:rounded-[54px] p-2.5 sm:p-3 shadow-2xl border border-slate-700/60 ring-1 ring-white/20 select-none">
+          <div id="talloraPhoneFrame" class="relative w-full max-w-[340px] sm:max-w-[370px] h-[600px] sm:h-[640px] lg:h-[670px] bg-gradient-to-b from-[#1c2438] via-[#0d1424] to-[#070b16] rounded-[50px] sm:rounded-[56px] p-2 sm:p-2.5 shadow-[0_25px_60px_-15px_rgba(15,23,42,0.4),0_0_0_1px_rgba(255,255,255,0.1)_inset] border border-[#334155]/60 select-none">
             
-            <!-- Островок Dynamic Island -->
-            <div class="absolute top-3.5 inset-x-0 flex justify-center z-30 pointer-events-none">
-              <div class="w-24 h-5 bg-[#0b1329] rounded-full flex items-center justify-end pr-2.5 gap-1.5">
+            <!-- Аппаратные кнопки iPhone 17 (Action button, Volume, Power) -->
+            <div class="absolute -left-[3px] top-24 w-[3px] h-6 bg-slate-600/80 rounded-l"></div>
+            <div class="absolute -left-[3px] top-36 w-[3px] h-10 bg-slate-600/80 rounded-l"></div>
+            <div class="absolute -left-[3px] top-50 w-[3px] h-10 bg-slate-600/80 rounded-l"></div>
+            <div class="absolute -right-[3px] top-32 w-[3px] h-14 bg-slate-600/80 rounded-r"></div>
+
+            <!-- Компактный Dynamic Island iPhone 17 -->
+            <div class="absolute top-3 inset-x-0 flex justify-center z-30 pointer-events-none">
+              <div class="w-20 sm:w-22 h-4 sm:h-4.5 bg-[#0d1424] rounded-full flex items-center justify-end pr-2 gap-1.5 ring-1 ring-white/10">
                 <div class="w-2 h-2 rounded-full bg-[#1e293b]"></div>
               </div>
             </div>
 
-            <!-- Экран телефона с iframe демо-стенда -->
-            <div class="relative w-full h-full rounded-[40px] sm:rounded-[44px] overflow-hidden bg-white">
+            <!-- Экран iPhone 17 с iframe демо-стенда: верхняя панель (тема/лого) и нижний дисклеймер скрыты -->
+            <div class="relative w-full h-full rounded-[44px] sm:rounded-[48px] overflow-hidden bg-white">
               <iframe 
                 src="https://my.altaiweb.online/demo/tallora/" 
                 title="Интерактивный стенд: Вера для бренда Tallora" 
-                class="w-full h-full border-0" 
+                class="w-full border-0 absolute left-0" 
+                style="top: -53px; height: calc(100% + 96px);" 
                 loading="lazy" 
                 allow="clipboard-write">
               </iframe>
+              <!-- Защитная маскирующая плашка снизу -->
+              <div class="absolute bottom-0 inset-x-0 h-6 bg-white pointer-events-none z-20"></div>
             </div>
 
           </div>
@@ -1416,7 +1417,7 @@
             <div class="text-center lg:text-left">
               <h2 class="ao-sc font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-4xl lg:text-[36px] xl:text-[40px] 2xl:text-[44px] leading-[1.15] lg:leading-[1.2] hyphens-none overflow-visible text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
                 <span class="pearl-title-gradient block">ПОГОВОРИТЕ</span>
-                <span class="pearl-title-gradient block">С&nbsp;ВЕРОЙ ЗДЕСЬ</span>
+                <span class="pearl-title-gradient block whitespace-nowrap">С&nbsp;ВЕРОЙ&nbsp;ЗДЕСЬ</span>
                 <span class="text-[#0f172a] block">И&nbsp;СЕЙЧАС</span>
               </h2>
             </div>
@@ -1504,7 +1505,7 @@
                   <div class="flex items-center gap-1.5 w-full">
                     <form id="liveChatForm" onsubmit="handleLiveChatSubmit(event)" class="flex-1 flex items-center gap-1.5">
                       <div class="flex-1 bg-white border border-slate-200/90 rounded-2xl px-3 py-1.5 flex items-center justify-between shadow-2xs live-chat-input-glow">
-                        <input id="liveChatInput" type="text" placeholder="Напишите любой вопрос ИИ‑продавцу…|" autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-xs outline-none">
+                        <input id="liveChatInput" type="text" placeholder="Напишите любой вопрос Вере…|" autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-xs outline-none">
                         <span class="text-slate-400 text-sm ml-1">📎</span>
                       </div>
                       <button id="liveChatSubmitBtn" type="submit" class="w-8 h-8 rounded-full bg-[#00a884] hover:bg-[#008f6f] active:scale-95 text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
@@ -1858,14 +1859,14 @@
                 />
               </div>
 
-              <!-- КНОПКА ОТПРАВКИ: ПОТЕСТИРОВАТЬ ВЕРУ -->
+              <!-- КНОПКА ОТПРАВКИ: ПОПРОБОВАТЬ ВЕРУ -->
               <div class="pt-2 text-left">
                 <button 
                   type="submit" 
                   id="trialSubmitBtn"
                   class="w-full sm:w-auto px-8 sm:px-10 py-4 text-xs sm:text-sm font-extrabold uppercase tracking-wider rounded-2xl shadow-xl transition-all flex items-center justify-center gap-2.5 cursor-pointer bg-white text-[#0284c7] hover:bg-sky-50 hover:shadow-2xl hover:scale-[1.02] active:scale-95" style="font-family: 'Benzin', sans-serif !important;"
                 >
-                  <span>ПОТЕСТИРОВАТЬ ВЕРУ</span>
+                  <span>ПОПРОБОВАТЬ ВЕРУ</span>
                   <span class="text-sm font-sans font-bold">→</span>
                 </button>
               </div>
