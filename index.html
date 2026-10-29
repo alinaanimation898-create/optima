@@ -1046,60 +1046,94 @@
     <section id="tallora-demo" class="relative z-20 py-8 sm:py-12 lg:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-inter">
       
       <!-- Главный заголовок блока: строго в 2 строчки -->
-      <div class="text-center max-w-4xl mx-auto mb-8 sm:mb-10">
-        <h2 class="uppercase tracking-tight font-black text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-benzin leading-[1.18] overflow-visible text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
+      <div class="text-center max-w-4xl mx-auto mb-8 sm:mb-12">
+        <h2 class="uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl lg:text-[48px] xl:text-[52px] font-benzin leading-[1.12] overflow-visible text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
           <span class="pearl-title-gradient block">ВЕРА В&nbsp;ДЕЙСТВИИ:</span>
           <span class="text-[#0f172a] block">ЖИВОЙ КЕЙС</span>
         </h2>
       </div>
 
-      <!-- ВЕРСТКА В 2 СТОЛБИКА БЕЗ ПОДЛОЖКИ -->
+      <!-- ВЕРСТКА В 2 СТОЛБИКА ТОЧНО ПО РЕФЕРЕНСУ СКРИНШОТА -->
       <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center max-w-6xl mx-auto">
         
-        <!-- Левая колонка: описание кейса Tallora + компактная пара фото и лого -->
-        <div class="lg:col-span-5 flex flex-col justify-center space-y-4 text-left">
+        <!-- Левая колонка: бренд, карточки БЫЛО / СДЕЛАЛИ / СТАЛО и кнопка -->
+        <div class="lg:col-span-7 flex flex-col justify-center space-y-4 text-left">
           
-          <!-- Шапка кейса: компактное фото Веры + логотип бренда + ссылка -->
-          <div class="flex items-center gap-3.5 pb-1">
-            <div class="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm shrink-0 bg-white">
-              <img src="assets/images/vera_robot_desk.jpg" alt="Вера в Tallora" class="w-full h-full object-cover object-top">
+          <!-- Шапка кейса: аватарка Веры + бренд TALLORA + ссылка -->
+          <div class="flex items-center gap-3.5 mb-1">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl overflow-hidden border border-slate-200/90 shadow-xs bg-white shrink-0">
+              <img src="assets/images/vera_welcome.jpg" alt="Вера" class="w-full h-full object-cover object-top">
             </div>
-            <div class="space-y-1 min-w-0">
-              <img src="assets/images/tallora_logo.png" alt="Tallora" class="h-6 sm:h-7 w-auto object-contain">
-              <div>
-                <a href="https://tallora.ru/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-sky-700 hover:text-sky-900 transition-colors">
-                  <span>tallora.ru • Посетить сайт</span>
-                  <span class="text-xs">↗</span>
-                </a>
-              </div>
+            <div class="flex flex-col justify-center">
+              <div class="font-black text-xl sm:text-2xl text-slate-950 tracking-wider font-sans">TALLORA</div>
+              <a href="https://tallora.ru/" target="_blank" rel="noopener noreferrer" class="text-xs sm:text-sm font-semibold text-sky-600 hover:text-sky-800 transition-colors inline-flex items-center gap-1">
+                <span>tallora.ru</span>
+                <span class="text-xs">↗</span>
+              </a>
             </div>
           </div>
 
-          <!-- Текст интеграции кейса -->
-          <div class="space-y-3">
-            <p class="text-xs sm:text-sm text-slate-700 font-normal leading-relaxed">
-              Мы интегрировали Веру в&nbsp;инфраструктуру Tallora: подключили к&nbsp;каталогу сайта, остаткам в&nbsp;сервисе МойСклад и&nbsp;amoCRM. Теперь система мгновенно ориентируется в&nbsp;нестандартных размерных сетках, консультирует по&nbsp;посадке колодки и&nbsp;доводит покупателей до&nbsp;оплаты в&nbsp;WhatsApp, Telegram, Max и&nbsp;Instagram. Без скриптов, пауз и&nbsp;потери контекста.
-            </p>
+          <!-- Блоки кейса: БЫЛО, СДЕЛАЛИ, СТАЛО -->
+          <div class="space-y-3 sm:space-y-3.5">
+            <!-- БЫЛО -->
+            <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-xs border border-slate-100 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+              <span class="font-black text-sm sm:text-base tracking-wider text-[#0369a1] sm:w-24 shrink-0 uppercase">БЫЛО</span>
+              <p class="text-xs sm:text-sm text-slate-700 font-normal leading-relaxed">
+                Сложные размерные сетки, десятки однотипных вопросов о&nbsp;посадке, клиенты уходят, пока ждут ответа менеджера.
+              </p>
+            </div>
 
-            <p class="text-xs sm:text-sm font-semibold text-slate-900 leading-snug">
-              Оцените уровень интеллекта на&nbsp;практике: напишите Вере в&nbsp;чат и&nbsp;проверьте качество консультаций прямо сейчас
-            </p>
+            <!-- СДЕЛАЛИ -->
+            <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-xs border border-slate-100 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+              <span class="font-black text-sm sm:text-base tracking-wider text-[#0284c7] sm:w-24 shrink-0 uppercase">СДЕЛАЛИ</span>
+              <p class="text-xs sm:text-sm text-slate-700 font-normal leading-relaxed">
+                Подключили Веру к&nbsp;каталогу сайта, МойСклад и&nbsp;amoCRM, запустили в&nbsp;WhatsApp, Telegram, Max и&nbsp;Instagram.
+              </p>
+            </div>
+
+            <!-- СТАЛО -->
+            <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-xs border border-slate-100 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+              <span class="font-black text-sm sm:text-base tracking-wider text-[#ea580c] sm:w-24 shrink-0 uppercase">СТАЛО</span>
+              <p class="text-xs sm:text-sm text-slate-700 font-normal leading-relaxed">
+                Мгновенная консультация по&nbsp;размеру и&nbsp;колодке и&nbsp;доведение до&nbsp;оплаты без скриптов и&nbsp;потери контекста.
+              </p>
+            </div>
+          </div>
+
+          <!-- Кнопка и призыв -->
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 pt-2">
+            <button type="button" onclick="document.getElementById('talloraPhoneFrame')?.scrollIntoView({behavior:'smooth', block:'center'});" class="px-5 py-2.5 rounded-xl bg-[#f97316] hover:bg-[#ea580c] active:scale-95 text-white font-bold text-xs sm:text-sm shadow-sm transition-all cursor-pointer whitespace-nowrap">
+              Проверить Веру
+            </button>
+            <span class="text-xs sm:text-sm text-slate-500 font-normal">
+              Задайте ей&nbsp;любой вопрос в&nbsp;телефоне справа
+            </span>
           </div>
 
         </div>
 
-        <!-- Правая колонка: встроенный интерактивный демо-стенд компактнее и без дисклеймера -->
-        <div class="lg:col-span-7 flex flex-col items-center">
-          <div class="relative w-full rounded-2xl sm:rounded-3xl bg-zinc-50 border border-slate-300/80 shadow-2xl overflow-hidden h-[460px] sm:h-[490px] lg:h-[510px]">
-            <iframe 
-              src="https://my.altaiweb.online/demo/tallora/" 
-              title="Интерактивный стенд: Вера для бренда Tallora" 
-              class="w-full h-full border-0" 
-              loading="lazy" 
-              allow="clipboard-write">
-            </iframe>
-            <!-- Маскирующая плашка снизу для скрытия дисклеймера демо-версии -->
-            <div class="absolute bottom-0 inset-x-0 h-9 sm:h-10 bg-white pointer-events-none z-10"></div>
+        <!-- Правая колонка: интерактивный телефон со стендом Tallora точно по референсу -->
+        <div class="lg:col-span-5 flex justify-center items-center">
+          <div id="talloraPhoneFrame" class="relative w-full max-w-[350px] sm:max-w-[380px] h-[610px] sm:h-[650px] lg:h-[680px] bg-[#0b1329] rounded-[48px] sm:rounded-[54px] p-2.5 sm:p-3 shadow-2xl border border-slate-700/60 ring-1 ring-white/20 select-none">
+            
+            <!-- Островок Dynamic Island -->
+            <div class="absolute top-3.5 inset-x-0 flex justify-center z-30 pointer-events-none">
+              <div class="w-24 h-5 bg-[#0b1329] rounded-full flex items-center justify-end pr-2.5 gap-1.5">
+                <div class="w-2 h-2 rounded-full bg-[#1e293b]"></div>
+              </div>
+            </div>
+
+            <!-- Экран телефона с iframe демо-стенда -->
+            <div class="relative w-full h-full rounded-[40px] sm:rounded-[44px] overflow-hidden bg-white">
+              <iframe 
+                src="https://my.altaiweb.online/demo/tallora/" 
+                title="Интерактивный стенд: Вера для бренда Tallora" 
+                class="w-full h-full border-0" 
+                loading="lazy" 
+                allow="clipboard-write">
+              </iframe>
+            </div>
+
           </div>
         </div>
 
