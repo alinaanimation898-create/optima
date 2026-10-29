@@ -1501,15 +1501,12 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
             <img 
               src="assets/images/vera_handshake_target_audience.jpg" 
               alt="Вера заключает партнерство с бизнесом" 
-              class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+              class="absolute inset-0 w-full h-full object-cover object-[center_68%] transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
             >
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent pointer-events-none"></div>
             
             <div class="relative z-10 p-4 sm:p-5 text-white">
-              <span class="inline-block text-[10px] font-extrabold uppercase tracking-wider bg-emerald-500 text-white px-2.5 py-0.5 rounded-full mb-1.5 shadow-xs">
-                100% готовность к сделкам
-              </span>
               <p class="text-xs sm:text-sm font-semibold leading-snug drop-shadow-sm text-slate-100">
                 Вера берет на себя продажи 24/7, а вы получаете партнерский процент с каждого клиента
               </p>
@@ -2317,34 +2314,55 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
     <!-- ================= 6. SECTION: 3 РЕАЛЬНЫХ СЦЕНАРИЯ ВЫХОДА НА 1 000 000 ₽ ================= -->
     <section id="scenario1m" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-18 scroll-mt-28 relative font-inter">
       
-      <!-- Section Heading in Benzin uppercase: 2 lines on desktop, 3 on mobile with increased size & line-height -->
-      <div class="relative z-10 max-w-5xl mb-8 sm:mb-12 text-center sm:text-left">
-        <h3 class="font-benzin uppercase tracking-tight font-black text-2xl min-[360px]:text-3xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[52px] text-[#0f172a] leading-[1.25] sm:leading-[1.25] md:leading-[1.25] space-y-1 sm:space-y-2" style="font-family: 'Benzin', sans-serif !important;">
-          <span class="block">
-            <span class="block md:inline">КАК ЗАРАБОТАТЬ </span>
-            <span class="inline-block bg-gradient-to-r from-emerald-600 via-sky-500 to-indigo-600 bg-clip-text text-transparent whitespace-nowrap">1.000.000&nbsp;₽</span>
-          </span>
-          <span class="block">НА&nbsp;ПАРТНЕРСТВЕ</span>
-        </h3>
+      <!-- Section Heading with Vera in a Circle -->
+      <div class="relative z-10 flex flex-col md:flex-row items-center md:items-end justify-between gap-6 mb-8 sm:mb-12">
+        <div class="text-center md:text-left max-w-2xl">
+          <h3 class="font-benzin uppercase tracking-tight font-black text-2xl min-[360px]:text-3xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[50px] text-[#0f172a] leading-[1.25] sm:leading-[1.25] md:leading-[1.25] space-y-1 sm:space-y-2" style="font-family: 'Benzin', sans-serif !important;">
+            <span class="block">
+              <span class="block md:inline">КАК ЗАРАБОТАТЬ </span>
+              <span class="inline-block bg-gradient-to-r from-emerald-600 via-sky-500 to-indigo-600 bg-clip-text text-transparent whitespace-nowrap">1.000.000&nbsp;₽</span>
+            </span>
+            <span class="block">НА&nbsp;ПАРТНЕРСТВЕ</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 mt-3 font-medium">
+            3 реальных сценария выхода на стабильный ежемесячный доход
+          </p>
+        </div>
+
+        <!-- Vera with Rubles Circle Badge -->
+        <div class="flex items-center gap-3.5 bg-white/75 backdrop-blur-md border-2 border-emerald-300/80 rounded-full pl-2 pr-5 py-2 shadow-sm shrink-0">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 border-emerald-400 shadow-md ring-2 ring-emerald-100 shrink-0">
+            <img 
+              src="assets/images/vera_holding_rubles.jpg" 
+              alt="Вера с рублями — Цель 1 000 000 ₽" 
+              class="w-full h-full object-cover object-center"
+              loading="lazy"
+            >
+          </div>
+          <div class="text-left">
+            <div class="text-[10px] uppercase font-extrabold tracking-wider text-emerald-600">Цель: 1&nbsp;000&nbsp;000&nbsp;₽</div>
+            <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug">Пассивный доход<br>партнера</div>
+          </div>
+        </div>
       </div>
 
-      <!-- Compact 4-Column Scenario Cards (Altai Palette: Glacier Sky, Sunset Rose, Cedar Emerald, Golden Vera) -->
-      <div class="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 font-sans items-stretch">
+      <!-- Compact 3-Column Scenario Cards (Altai Palette: Glacier Sky, Sunset Rose, Cedar Emerald) -->
+      <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 font-sans items-stretch">
         
         <!-- Path 1: Personal Base (Altai Glacier Sky) -->
-        <div class="p-5 sm:p-5.5 rounded-3xl bg-[linear-gradient(160deg,#F0F9FF_0%,#FFFFFF_100%)] border-2 border-sky-200/90 hover:border-sky-400 flex flex-col justify-between h-full shadow-sm hover:shadow-md transition-all duration-300">
+        <div class="p-6 sm:p-7 rounded-3xl bg-[linear-gradient(160deg,#F0F9FF_0%,#FFFFFF_100%)] border-2 border-sky-200/90 hover:border-sky-400 flex flex-col justify-between h-full shadow-sm hover:shadow-md transition-all duration-300">
           <div class="flex flex-col">
-            <h4 class="text-base sm:text-lg font-bold text-slate-900 mb-2 leading-snug min-h-[28px] sm:min-h-[52px] flex items-center">
+            <h4 class="text-base sm:text-lg font-bold text-slate-900 mb-2 leading-snug min-h-[48px] sm:min-h-[56px] flex items-center">
               Подключение на тариф&nbsp;«Бизнес»
             </h4>
-            <p class="text-xs text-slate-600 leading-relaxed mb-4 min-h-[48px] sm:min-h-[54px] flex items-start">
-              <span>На тарифе «Бизнес»&nbsp;(39&nbsp;000&nbsp;₽/⁠мес) ставка менеджера с 10+ клиентов - <strong class="text-slate-900">25%&nbsp;(9&nbsp;750&nbsp;₽/⁠мес)</strong> с каждого&nbsp;продления</span>
+            <p class="text-xs sm:text-[13px] text-slate-600 leading-relaxed mb-4 min-h-[54px] sm:min-h-[64px] flex items-start">
+              <span>На тарифе «Бизнес»&nbsp;(39&nbsp;000&nbsp;₽/⁠мес) ставка менеджера с 10+ клиентов — <strong class="text-slate-900">25%&nbsp;(9&nbsp;750&nbsp;₽/⁠мес)</strong> с каждого&nbsp;продления</span>
             </p>
 
             <!-- Requirement Block -->
-            <div class="py-3.5 mb-5 border-t border-b border-sky-200/60 min-h-[88px] flex flex-col justify-center">
+            <div class="py-4 mb-5 border-t border-b border-sky-200/60 min-h-[96px] flex flex-col justify-center">
               <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Что нужно в&nbsp;базе</div>
-              <div class="text-lg sm:text-xl font-black text-slate-900 mt-0.5">~103 активных&nbsp;клиента</div>
+              <div class="text-xl sm:text-2xl font-black text-slate-900 mt-0.5">~103 активных&nbsp;клиента</div>
               <div class="text-[11px] text-slate-500 mt-0.5">≈12 подключений в месяц в течение года (с учётом оттока&nbsp;5%)</div>
             </div>
           </div>
@@ -2352,7 +2370,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
           <!-- Result Box -->
           <div class="pt-4 border-t border-sky-200/70">
             <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Доход с&nbsp;базы</div>
-            <div class="text-2xl sm:text-[24px] xl:text-[26px] font-black text-sky-600 mt-0.5 whitespace-nowrap">
+            <div class="text-2xl sm:text-[26px] xl:text-[28px] font-black text-sky-600 mt-0.5 whitespace-nowrap">
               1&nbsp;004 250&nbsp;₽/⁠мес
             </div>
             <div class="text-[11px] text-slate-500 mt-0.5 min-h-[28px]">каждый месяц со старых абонентских&nbsp;плат</div>
@@ -2360,19 +2378,19 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
         </div>
 
         <!-- Path 2: Team Scale (Altai Mountain Sunset Rose) -->
-        <div class="p-5 sm:p-5.5 rounded-3xl bg-[linear-gradient(160deg,#FFF1F2_0%,#FAF5FF_100%)] border-2 border-pink-200/90 hover:border-purple-300 flex flex-col justify-between h-full shadow-sm hover:shadow-md transition-all duration-300">
+        <div class="p-6 sm:p-7 rounded-3xl bg-[linear-gradient(160deg,#FFF1F2_0%,#FAF5FF_100%)] border-2 border-pink-200/90 hover:border-purple-300 flex flex-col justify-between h-full shadow-sm hover:shadow-md transition-all duration-300">
           <div class="flex flex-col">
-            <h4 class="text-base sm:text-lg font-bold text-slate-900 mb-2 leading-snug min-h-[28px] sm:min-h-[52px] flex items-center">
+            <h4 class="text-base sm:text-lg font-bold text-slate-900 mb-2 leading-snug min-h-[48px] sm:min-h-[56px] flex items-center">
               Масштаб через группу&nbsp;(+5%)
             </h4>
-            <p class="text-xs text-slate-600 leading-relaxed mb-4 min-h-[48px] sm:min-h-[54px] flex items-start">
+            <p class="text-xs sm:text-[13px] text-slate-600 leading-relaxed mb-4 min-h-[54px] sm:min-h-[64px] flex items-start">
               <span>Собираете группу менеджеров (маркетологов, CRM-специалистов). С каждого их клиента вам начисляется <strong class="text-purple-950">+5%&nbsp;(1&nbsp;950&nbsp;₽/⁠мес)</strong>&nbsp;ежемесячно</span>
             </p>
 
             <!-- Requirement Block -->
-            <div class="py-3.5 mb-5 border-t border-b border-pink-200/60 min-h-[88px] flex flex-col justify-center">
+            <div class="py-4 mb-5 border-t border-b border-pink-200/60 min-h-[96px] flex flex-col justify-center">
               <div class="text-[11px] font-bold text-purple-900/70 uppercase tracking-wider">Что нужно в&nbsp;группе</div>
-              <div class="text-lg sm:text-xl font-black text-purple-950 mt-0.5">15 менеджеров в&nbsp;группе</div>
+              <div class="text-xl sm:text-2xl font-black text-purple-950 mt-0.5">15 менеджеров в&nbsp;группе</div>
               <div class="text-[11px] text-slate-500 mt-0.5">Каждый ведёт по 30 клиентов + 15 ваших&nbsp;личных</div>
             </div>
           </div>
@@ -2380,7 +2398,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
           <!-- Result Box -->
           <div class="pt-4 border-t border-purple-200/70">
             <div class="text-[11px] font-bold text-purple-900/70 uppercase tracking-wider">Итого с&nbsp;группы</div>
-            <div class="text-2xl sm:text-[24px] xl:text-[26px] font-black text-purple-700 mt-0.5 whitespace-nowrap">
+            <div class="text-2xl sm:text-[26px] xl:text-[28px] font-black text-purple-700 mt-0.5 whitespace-nowrap">
               1&nbsp;023 750&nbsp;₽/⁠мес
             </div>
             <div class="text-[11px] text-purple-800/80 mt-0.5 min-h-[28px]">каждый месяц за счёт активной&nbsp;группы</div>
@@ -2388,19 +2406,19 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
         </div>
 
         <!-- Path 3: High Average Ticket (Altai Alpine Cedar Emerald) -->
-        <div class="p-5 sm:p-5.5 rounded-3xl bg-[linear-gradient(160deg,#ECFDF5_0%,#F0FDF4_100%)] border-2 border-emerald-200/90 hover:border-emerald-400 flex flex-col justify-between h-full shadow-sm hover:shadow-md transition-all duration-300">
+        <div class="p-6 sm:p-7 rounded-3xl bg-[linear-gradient(160deg,#ECFDF5_0%,#F0FDF4_100%)] border-2 border-emerald-200/90 hover:border-emerald-400 flex flex-col justify-between h-full shadow-sm hover:shadow-md transition-all duration-300">
           <div class="flex flex-col">
-            <h4 class="text-base sm:text-lg font-bold text-slate-900 mb-2 leading-snug min-h-[28px] sm:min-h-[52px] flex items-center">
+            <h4 class="text-base sm:text-lg font-bold text-slate-900 mb-2 leading-snug min-h-[48px] sm:min-h-[56px] flex items-center">
               Тарифы «Поток» и&nbsp;«Империя»
             </h4>
-            <p class="text-xs text-slate-600 leading-relaxed mb-4 min-h-[48px] sm:min-h-[54px] flex items-start">
-              <span>Работа со средним и крупным бизнесом (59&nbsp;000 - 99&nbsp;000&nbsp;₽/⁠мес). Комиссия менеджера - от <strong class="text-emerald-900">14&nbsp;750 до 24&nbsp;750&nbsp;₽/⁠мес</strong> с 1&nbsp;клиента</span>
+            <p class="text-xs sm:text-[13px] text-slate-600 leading-relaxed mb-4 min-h-[54px] sm:min-h-[64px] flex items-start">
+              <span>Работа со средним и крупным бизнесом (59&nbsp;000 - 99&nbsp;000&nbsp;₽/⁠мес). Комиссия менеджера — от <strong class="text-emerald-900">14&nbsp;750 до 24&nbsp;750&nbsp;₽/⁠мес</strong> с 1&nbsp;клиента</span>
             </p>
 
             <!-- Requirement Block -->
-            <div class="py-3.5 mb-5 border-t border-b border-emerald-200/60 min-h-[88px] flex flex-col justify-center">
+            <div class="py-4 mb-5 border-t border-b border-emerald-200/60 min-h-[96px] flex flex-col justify-center">
               <div class="text-[11px] font-bold text-emerald-900/70 uppercase tracking-wider">Что нужно в&nbsp;базе</div>
-              <div class="text-lg sm:text-xl font-black text-emerald-950 mt-0.5">От 41 до 68&nbsp;клиентов</div>
+              <div class="text-xl sm:text-2xl font-black text-emerald-950 mt-0.5">От 41 до 68&nbsp;клиентов</div>
               <div class="text-[11px] text-slate-500 mt-0.5">В 1,5-2,5 раза меньше клиентов за счёт&nbsp;чека</div>
             </div>
           </div>
@@ -2408,21 +2426,11 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
           <!-- Result Box -->
           <div class="pt-4 border-t border-emerald-200/70">
             <div class="text-[11px] font-bold text-emerald-900/70 uppercase tracking-wider">Доход с&nbsp;базы</div>
-            <div class="text-2xl sm:text-[24px] xl:text-[26px] font-black text-emerald-600 mt-0.5 whitespace-nowrap">
+            <div class="text-2xl sm:text-[26px] xl:text-[28px] font-black text-emerald-600 mt-0.5 whitespace-nowrap">
               1&nbsp;000 000+&nbsp;₽/⁠мес
             </div>
             <div class="text-[11px] text-slate-500 mt-0.5 min-h-[28px]">на небольшом пуле корпоративных&nbsp;клиентов</div>
           </div>
-        </div>
-
-        <!-- Column 4: Woman holding rubles (Вера с рублями — только фото) -->
-        <div class="rounded-3xl border-2 border-emerald-300/80 shadow-sm hover:shadow-md transition-all duration-300 h-full min-h-[340px] overflow-hidden relative group bg-slate-100 flex items-stretch">
-          <img 
-            src="assets/images/vera_holding_rubles.jpg" 
-            alt="Вера с рублями — партнерство Altai Optima" 
-            class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-            loading="lazy"
-          >
         </div>
 
       </div>
