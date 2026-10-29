@@ -4181,18 +4181,5 @@ Ready to discuss deployment!` : `Здравствуйте! Хочу интегр
     window.talloraSessionId = null;
     const box = document.getElementById('talloraChatMessages');
     if (!box) return;
-    box.innerHTML = `
-      <div class="flex justify-center my-0.5">
-        <span class="text-[9.5px] bg-slate-900/10 text-slate-700 px-2 py-0.5 rounded-full font-medium">Сегодня</span>
-      </div>
-      <div class="flex justify-start items-end gap-1.5 animate-fade-in">
-        <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs border border-slate-200/50">
-          <div class="text-[9.5px] font-bold text-[#075e54] mb-0.5">Вера · Tallora</div>
-          <p class="leading-relaxed font-normal text-[11px] text-slate-800">
-            Здравствуйте! 👋 Я Вера, консультант бренда обуви Tallora. Подбираю обувь для высоких девушек (размеры 36–44). Подскажите, какую модель или размер вы ищете?
-          </p>
-          <div class="text-[8.5px] text-slate-400 text-right mt-0.5 font-sans">09:41</div>
-        </div>
-      </div>
-    `;
+    box.innerHTML = '';
   };
