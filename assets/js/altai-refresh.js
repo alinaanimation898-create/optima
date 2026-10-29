@@ -11,18 +11,18 @@
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
   /* ---------- Тарифы (единый источник цифр) ---------- */
-  var SETUP = 29000;
+  var SETUP = 29000; // минимальный запуск (Старт). Запуск по тарифу - поле setup
   var TARIFFS_RU = [
-    { name: 'Старт', upTo: 200, price: 22000 },
-    { name: 'Бизнес', upTo: 600, price: 33000 },
-    { name: 'Поток', upTo: 1500, price: 55000 },
-    { name: 'Империя', upTo: Infinity, price: 88000 }
+    { name: 'Старт', upTo: 500, price: 25000, setup: 29000 },
+    { name: 'Бизнес', upTo: 1200, price: 39000, setup: 39000 },
+    { name: 'Поток', upTo: 3000, price: 59000, setup: 59000 },
+    { name: 'Империя', upTo: Infinity, price: 99000, setup: 99000 }
   ];
   var TARIFFS_EN = [
-    { name: 'Starter', upTo: 200, price: 22000 },
-    { name: 'Business', upTo: 600, price: 33000 },
-    { name: 'Stream', upTo: 1500, price: 55000 },
-    { name: 'Enterprise', upTo: Infinity, price: 88000 }
+    { name: 'Starter', upTo: 500, price: 25000, setup: 29000 },
+    { name: 'Business', upTo: 1200, price: 39000, setup: 39000 },
+    { name: 'Stream', upTo: 3000, price: 59000, setup: 59000 },
+    { name: 'Enterprise', upTo: Infinity, price: 99000, setup: 99000 }
   ];
   var TARIFFS = isEn ? TARIFFS_EN : TARIFFS_RU;
 

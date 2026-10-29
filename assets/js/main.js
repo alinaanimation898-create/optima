@@ -951,13 +951,13 @@
       // Динамический тариф по объёму лидов:
       let tariffName = '«Старт»';
       let monthlyTariffPrice = 25000;
-      if (leads <= 200) {
+      if (leads <= 500) {
         tariffName = '«Старт»';
         monthlyTariffPrice = 25000;
-      } else if (leads <= 600) {
+      } else if (leads <= 1200) {
         tariffName = '«Бизнес»';
         monthlyTariffPrice = 39000;
-      } else if (leads <= 1500) {
+      } else if (leads <= 3000) {
         tariffName = '«Поток»';
         monthlyTariffPrice = 59000;
       } else {
@@ -965,7 +965,8 @@
         monthlyTariffPrice = 99000;
       }
 
-      const launchPrice = 29000;
+      // Запуск по тарифу (как в конструкторе), без доплаты за 1С / МойСклад
+      const launchPrice = { 25000: 29000, 39000: 39000, 59000: 59000, 99000: 99000 }[monthlyTariffPrice] || 29000;
       const monthlyNet = gain - monthlyTariffPrice;
       const yearNet = gain * 12 - (launchPrice + monthlyTariffPrice * 12);
       const paybackDays = gain > 0 ? (launchPrice + monthlyTariffPrice) / (gain / 30) : Infinity;
@@ -3452,52 +3453,55 @@
       (function initTariffConstructor() {
         // 1. ЕДИНЫЙ ОБЪЕКТ-КОНФИГ ЦЕН, ЛИМИТОВ И ССЫЛОК
         const TARIFF_CONFIG = {
-          setupPrice: 29000,
+          // Запуск зависит от тарифа. Учётные системы (1С, МойСклад) - разовая доплата к запуску
+          heavySetupExtra: 30000,
+          heavyCrmIds: ['1c', 'moysklad'],
+          sliderMax: 5000,
           ctaUrl: 'https://t.me/altaioptima',
           tariffs: [
             {
               id: 'start',
               name: 'Старт',
-              maxLimit: 200,
-              limitLabel: 'до 200',
-              detailsLimit: 'до 200 в месяц',
+              maxLimit: 500,
+              limitLabel: 'до 500',
+              detailsLimit: 'до 500 в месяц',
               monthlyPrice: 25000,
-              earlyBirdPrice: 22000,
-              presetSliderValue: 150,
+              setupPrice: 29000,
+              presetSliderValue: 300,
               isCustom: false
             },
             {
               id: 'business',
               name: 'Бизнес',
-              maxLimit: 600,
-              limitLabel: 'до 600',
-              detailsLimit: 'до 600 в месяц',
+              maxLimit: 1200,
+              limitLabel: 'до 1200',
+              detailsLimit: 'до 1200 в месяц',
               monthlyPrice: 39000,
-              earlyBirdPrice: 33000,
+              setupPrice: 39000,
               badge: 'выбирают чаще',
-              presetSliderValue: 400,
+              presetSliderValue: 800,
               isCustom: false
             },
             {
               id: 'stream',
               name: 'Поток',
-              maxLimit: 1500,
-              limitLabel: 'до 1500',
-              detailsLimit: 'до 1500 в месяц',
+              maxLimit: 3000,
+              limitLabel: 'до 3000',
+              detailsLimit: 'до 3000 в месяц',
               monthlyPrice: 59000,
-              earlyBirdPrice: 55000,
-              presetSliderValue: 1000,
+              setupPrice: 59000,
+              presetSliderValue: 2000,
               isCustom: false
             },
             {
               id: 'empire',
               name: 'Империя',
               maxLimit: Infinity,
-              limitLabel: 'больше 1500',
+              limitLabel: 'больше 3000',
               detailsLimit: 'индивидуально',
               monthlyPrice: 99000,
-              earlyBirdPrice: 88000,
-              presetSliderValue: 2500,
+              setupPrice: 99000,
+              presetSliderValue: 4000,
               isCustom: true // приставка "от "
             }
           ]
@@ -3585,7 +3589,7 @@
 
         // Состояние конструктора
         const state = {
-          sliderValue: 400,
+          sliderValue: 800,
           billingPeriod: 'monthly', // 'monthly' | 'annual'
           channels: {},
           crms: {}
@@ -3628,10 +3632,7 @@
         }
 
         function getTariffByVolume(vol) {
-          if (vol <= 200) return TARIFF_CONFIG.tariffs[0]; // Старт
-          if (vol <= 600) return TARIFF_CONFIG.tariffs[1]; // Бизнес
-          if (vol <= 1500) return TARIFF_CONFIG.tariffs[2]; // Поток
-          return TARIFF_CONFIG.tariffs[3]; // Империя
+          return TARIFF_CONFIG.tariffs.find(t => vol <= t.maxLimit) || TARIFF_CONFIG.tariffs[3];
         }
 
         const channelsEl = document.getElementById('channels');
@@ -3683,6 +3684,18 @@
 
         renderChannelsList();
         renderCrmsList();
+
+        // Лимиты и пресеты берём из конфига, чтобы все страницы считали одинаково
+        if (sliderEl) {
+          sliderEl.max = TARIFF_CONFIG.sliderMax;
+          sliderEl.setAttribute('aria-valuemax', TARIFF_CONFIG.sliderMax);
+        }
+        if (tariffsStrip) {
+          tariffsStrip.querySelectorAll('.cfg-tariff-card').forEach(card => {
+            const t = TARIFF_CONFIG.tariffs.find(x => x.id === card.dataset.tariff);
+            if (t) card.dataset.slider = t.presetSliderValue;
+          });
+        }
 
         // Синхронизация полосы тарифов при клике или клавиатуре + мобильные точки
         const mobileDots = document.getElementById('cfgMobileDots');
@@ -3764,7 +3777,7 @@
         function updateSliderVisuals() {
           if (!sliderEl) return;
           const min = parseInt(sliderEl.min, 10) || 50;
-          const max = parseInt(sliderEl.max, 10) || 3000;
+          const max = parseInt(sliderEl.max, 10) || TARIFF_CONFIG.sliderMax;
           const val = state.sliderValue;
           const pct = ((val - min) / (max - min)) * 100;
           sliderEl.style.background = `linear-gradient(to right, #059669 0%, #059669 ${pct}%, #E2E8F0 ${pct}%, #E2E8F0 100%)`;
@@ -3825,7 +3838,7 @@
 
           // 1. Отображение ползунка и бейджа
           if (sliderDisplay) {
-            sliderDisplay.textContent = (state.sliderValue === 3000) ? '3000+' : `${state.sliderValue}\u00A0${isEn ? 'chats' : 'диалогов'}`;
+            sliderDisplay.textContent = (state.sliderValue >= TARIFF_CONFIG.sliderMax) ? `${TARIFF_CONFIG.sliderMax}+` : `${state.sliderValue}\u00A0${isEn ? 'chats' : 'диалогов'}`;
           }
           if (tariffBadge) {
             tariffBadge.textContent = isEn ? `plan «${tariff.name}»` : `тариф «${tariff.name}»`;
@@ -3849,7 +3862,11 @@
           }
 
           // 3. Стоимости
-          const setup = TARIFF_CONFIG.setupPrice;
+          const hasHeavyCrm = TARIFF_CONFIG.heavyCrmIds.some(id => state.crms[id]);
+          const setupExtra = hasHeavyCrm ? TARIFF_CONFIG.heavySetupExtra : 0;
+          const setup = tariff.setupPrice + setupExtra;
+          const setupTotalEl = document.getElementById('cfgSetupTotal');
+          if (setupTotalEl) setupTotalEl.textContent = `${prefix}${formatPrice(setup)}\u00A0₽`;
           const monthly = tariff.monthlyPrice;
           const earlyBird = tariff.earlyBirdPrice;
 
@@ -3878,14 +3895,16 @@
               { name: `Channels: ${getChannelsCountText(activeChannelsCount)}`, val: '0\u00A0₽' },
               { name: `CRM Tracking: ${getCrmCountText(activeCrmsCount)}`, val: '0\u00A0₽' },
               { name: 'Pay-per-dialogue fee', val: 'None' },
-              { name: 'Setup & Onboarding', val: '29,000 ₽ one-time' }
+              ...(hasHeavyCrm ? [{ name: '1C / MoySklad integration', val: `+${formatPrice(setupExtra)}\u00A0₽` }] : []),
+              { name: 'Setup & Onboarding', val: `${prefix}${formatPrice(setup)}\u00A0₽ one-time` }
             ] : [
               { name: 'Тариф', val: tariff.name },
               { name: 'Лимит диалогов', val: tariff.detailsLimit },
               { name: `Каналы: ${getChannelsCountText(activeChannelsCount)}`, val: '0\u00A0₽' },
               { name: `Учёт клиентов: ${getCrmCountText(activeCrmsCount)}`, val: '0\u00A0₽' },
               { name: 'Оплата за отдельные диалоги', val: 'нет' },
-              { name: 'Запуск', val: '29\u00A0000\u00A0₽ разово' }
+              ...(hasHeavyCrm ? [{ name: 'Подключение 1С / МойСклад', val: `+${formatPrice(setupExtra)}\u00A0₽` }] : []),
+              { name: 'Запуск', val: `${prefix}${formatPrice(setup)}\u00A0₽ разово` }
             ];
 
             cfgDetailsRowsEl.innerHTML = rows.map(r => `
@@ -3899,7 +3918,7 @@
           // 6. Мобильная закрепленная панель
           const mobSetupTotal = document.getElementById('mobSetupTotal');
           const mobMonthlyTotal = document.getElementById('mobMonthlyTotal');
-          if (mobSetupTotal) mobSetupTotal.textContent = formatPrice(setup);
+          if (mobSetupTotal) mobSetupTotal.textContent = `${prefix}${formatPrice(setup)}`;
           if (mobMonthlyTotal) {
             mobMonthlyTotal.textContent = `${prefix}${formatPrice(monthly)}\u00A0` + (isEn ? '₽/mo' : '₽/мес');
           }
@@ -3913,12 +3932,14 @@
             const tgMsg = isEn ? `Hello! I would like to integrate Vera:
 • Plan: «${tariff.name}» (${tariff.detailsLimit})
 • Volume: ~${state.sliderValue} chats/month
+• Setup: ${prefix}${formatPrice(setup)} ₽ one-time
 • Subscription: ${prefix}${formatPrice(monthly)} ₽/mo
 • Channels: ${activeChNames}
 • CRM: ${activeCrmNames}
 Ready to discuss deployment!` : `Здравствуйте! Хочу интегрировать Веру:
 • Тариф: «${tariff.name}» (${tariff.detailsLimit})
 • Объём: ~${state.sliderValue} диалогов в месяц
+• Запуск: ${prefix}${formatPrice(setup)} ₽ разово
 • Подписка: ${prefix}${formatPrice(monthly)} ₽/мес
 • Каналы: ${activeChNames}
 • Учёт клиентов: ${activeCrmNames}
