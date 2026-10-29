@@ -49,24 +49,10 @@
                 </div>
                 <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">
                   ${isEn 
-                    ? "Hello! 👋 I'm Vera, your autonomous AI sales manager. Ask me anything or tap a prompt below to test my live responses 👇"
-                    : "Здравствуйте! 👋 Я Вера&nbsp;— ваш автономный ИИ-продавец. Напишите мне любой вопрос в чат или нажмите на подсказку ниже, чтобы проверить меня в деле 👇"}
+                    ? "Hello! 👋 I'm Vera, your autonomous AI sales manager. Ask me anything in the chat to test my live responses."
+                    : "Здравствуйте! 👋 Я Вера&nbsp;— ваш автономный ИИ-продавец. Напишите мне любой вопрос в чат, чтобы проверить меня в деле."}
                 </p>
                 <div class="text-[9px] text-slate-400 text-right mt-1 font-sans">онлайн</div>
-              </div>
-            </div>
-            <div class="pt-1 space-y-1.5">
-              <div class="text-[10px] text-slate-500 font-bold px-1 uppercase tracking-wider">Быстрый вопрос Вере:</div>
-              <div class="flex flex-wrap gap-1.5">
-                <button type="button" onclick="sendQuickPrompt('Сколько стоит внедрение под ключ?')" class="text-[11px] bg-white hover:bg-emerald-50 text-slate-800 font-medium px-2.5 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-emerald-400 transition-all text-left cursor-pointer">
-                  💬 Сколько стоит внедрение?
-                </button>
-                <button type="button" onclick="sendQuickPrompt('Как ты интегрируешься с amoCRM и WhatsApp?')" class="text-[11px] bg-white hover:bg-emerald-50 text-slate-800 font-medium px-2.5 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-emerald-400 transition-all text-left cursor-pointer">
-                  💬 Интеграция с amoCRM
-                </button>
-                <button type="button" onclick="sendQuickPrompt('Что делать, если клиент говорит дорого?')" class="text-[11px] bg-white hover:bg-emerald-50 text-slate-800 font-medium px-2.5 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-emerald-400 transition-all text-left cursor-pointer">
-                  💬 Отработка «дорого»
-                </button>
               </div>
             </div>
           </div>
@@ -146,24 +132,10 @@
                 </div>
                 <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">
                   ${isEn
-                    ? "Welcome to Telegram! 🚀 I reply in 2 seconds, qualify customers, and push deals to CRM. Try me out 👇"
-                    : "Привет! 🚀 Я Вера в Telegram. Отвечаю за 2 секунды, консультирую и бережно довожу клиента до сделки. Напишите любой вопрос или выберите вариант 👇"}
+                    ? "Welcome to Telegram! 🚀 I reply in 2 seconds, qualify customers, and push deals to CRM."
+                    : "Привет! 🚀 Я Вера в Telegram. Отвечаю за 2 секунды, консультирую и бережно довожу клиента до сделки."}
                 </p>
                 <div class="text-[9px] text-slate-400 text-right mt-1 font-sans">онлайн</div>
-              </div>
-            </div>
-            <div class="pt-1 space-y-1.5">
-              <div class="text-[10px] text-sky-900 font-bold px-1 uppercase tracking-wider">Быстрый вопрос Вере:</div>
-              <div class="flex flex-wrap gap-1.5">
-                <button type="button" onclick="sendQuickPrompt('Какие тарифы и сколько лидов входит?')" class="text-[11px] bg-white hover:bg-sky-50 text-slate-800 font-medium px-2.5 py-1.5 rounded-xl border border-sky-200/80 shadow-2xs hover:border-sky-400 transition-all text-left cursor-pointer">
-                  💬 Какие тарифы?
-                </button>
-                <button type="button" onclick="sendQuickPrompt('Чем ты лучше обычного чат-бота?')" class="text-[11px] bg-white hover:bg-sky-50 text-slate-800 font-medium px-2.5 py-1.5 rounded-xl border border-sky-200/80 shadow-2xs hover:border-sky-400 transition-all text-left cursor-pointer">
-                  💬 Чем лучше чат-бота?
-                </button>
-                <button type="button" onclick="sendQuickPrompt('Как запустить бесплатный тест-драйв?')" class="text-[11px] bg-white hover:bg-sky-50 text-slate-800 font-medium px-2.5 py-1.5 rounded-xl border border-sky-200/80 shadow-2xs hover:border-sky-400 transition-all text-left cursor-pointer">
-                  💬 Как запустить тест-драйв?
-                </button>
               </div>
             </div>
           </div>
@@ -258,21 +230,10 @@
                 </div>
                 <p class="leading-relaxed font-normal text-[11.5px] text-white">
                   ${isEn
-                    ? "Hi! ✨ I manage Instagram Direct sales 24/7. Ask me about products, sizes, or delivery:"
-                    : "Привет! ✨ Я Вера в Instagram Direct. Помогаю подбирать товары, отвечать клиентам 24/7 и реанимировать старые диалоги. Напишите мне в директ 👇"}
+                    ? "Hi! ✨ I manage Instagram Direct sales 24/7. Ask me about products, sizes, or delivery."
+                    : "Привет! ✨ Я Вера в Instagram Direct. Помогаю подбирать товары, отвечать клиентам 24/7 и реанимировать старые диалоги."}
                 </p>
                 <div class="text-[9px] text-white/80 text-right mt-1 font-sans">онлайн</div>
-              </div>
-            </div>
-            <div class="pt-1 space-y-1.5">
-              <div class="text-[10px] text-slate-500 font-bold px-1 uppercase tracking-wider">Быстрый вопрос Вере:</div>
-              <div class="flex flex-wrap gap-1.5">
-                <button type="button" onclick="sendQuickPrompt('Есть ли у вас доставка с примеркой?')" class="text-[11px] bg-white hover:bg-pink-50 text-slate-800 font-medium px-2.5 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-pink-400 transition-all text-left cursor-pointer">
-                  💬 Доставка с примеркой?
-                </button>
-                <button type="button" onclick="sendQuickPrompt('Как Вера реанимирует старую базу клиентов?')" class="text-[11px] bg-white hover:bg-pink-50 text-slate-800 font-medium px-2.5 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-pink-400 transition-all text-left cursor-pointer">
-                  💬 Реанимация базы
-                </button>
               </div>
             </div>
           </div>
@@ -360,21 +321,10 @@
                 </div>
                 <p class="leading-relaxed font-normal text-[11.5px] text-slate-900">
                   ${isEn
-                    ? "Hello! 📦 I'm Vera on Avito. I negotiate according to your rules and close deals 24/7. Ask me:"
-                    : "Здравствуйте! 📦 Я Вера на Авито. Отвечаю покупателям мгновенно, торгуюсь по вашим правилам и оформляю доставку. Проверьте меня в диалоге 👇"}
+                    ? "Hello! 📦 I'm Vera on Avito. I negotiate according to your rules and close deals 24/7."
+                    : "Здравствуйте! 📦 Я Вера на Авито. Отвечаю покупателям мгновенно, торгуюсь по вашим правилам и оформляю доставку."}
                 </p>
                 <div class="text-[8.5px] text-slate-400 text-right mt-1 font-sans">онлайн</div>
-              </div>
-            </div>
-            <div class="pt-1 space-y-1.5">
-              <div class="text-[10px] text-slate-500 font-bold px-1 uppercase tracking-wider">Быстрый вопрос Вере:</div>
-              <div class="flex flex-wrap gap-1.5">
-                <button type="button" onclick="sendQuickPrompt('Здравствуйте, товар ещё в наличии?')" class="text-[11px] bg-white hover:bg-slate-100 text-slate-800 font-medium px-2.5 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-slate-400 transition-all text-left cursor-pointer">
-                  💬 Товар в наличии?
-                </button>
-                <button type="button" onclick="sendQuickPrompt('Сделаете скидку 1000 рублей, если заберу сегодня?')" class="text-[11px] bg-white hover:bg-slate-100 text-slate-800 font-medium px-2.5 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs hover:border-slate-400 transition-all text-left cursor-pointer">
-                  💬 Торг на Авито
-                </button>
               </div>
             </div>
           </div>
