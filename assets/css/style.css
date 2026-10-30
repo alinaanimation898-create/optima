@@ -2902,6 +2902,9 @@ html, body {
         border-radius: 38px;
         padding: 8px;
       }
+      #liveChatInput, #talloraChatInput {
+        font-size: 16px !important;
+      }
     }
     .phone-screen-display {
       width: 100%;

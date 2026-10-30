@@ -1188,7 +1188,7 @@
                       type="text" 
                       placeholder="Напишите Вере о Tallora…" 
                       autocomplete="off" 
-                      class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-xs outline-none"
+                      class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-[16px] sm:text-xs outline-none"
                     >
                     <span class="text-slate-400 text-xs ml-1">📎</span>
                   </div>
@@ -1478,17 +1478,20 @@
       
       <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center lg:items-stretch text-left">
         
-        <!-- ЛЕВАЯ КОЛОНКА: ЗАГОЛОВОК + ФОТО С ПУЛЬСОМ ПО ЦЕНТРУ -->
+        <!-- ЛЕВАЯ КОЛОНКА: ЗАГОЛОВОК + ПОДЗАГОЛОВОК + ФОТО С ПУЛЬСОМ ПО ЦЕНТРУ -->
         <div class="lg:col-span-5 flex flex-col justify-center space-y-5 lg:pl-2 xl:pl-4">
           
           <div class="space-y-4 max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl mx-auto lg:mx-0 overflow-visible">
-            <!-- ЗАГОЛОВОК -->
-            <div class="text-center lg:text-left overflow-visible">
+            <!-- ЗАГОЛОВОК + ПОДЗАГОЛОВОК -->
+            <div class="text-center lg:text-left overflow-visible space-y-3 sm:space-y-4">
               <h2 class="ao-sc font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-4xl lg:text-[34px] xl:text-[38px] leading-[1.15] lg:leading-[1.2] hyphens-none overflow-visible text-[#0f172a] pr-4" style="font-family: 'Benzin', sans-serif !important;">
                 <span class="pearl-title-gradient block">ПОГОВОРИТЕ</span>
                 <span class="pearl-title-gradient inline-block pr-3 whitespace-nowrap overflow-visible">С&nbsp;ВЕРОЙ&nbsp;ЗДЕСЬ</span>
                 <span class="text-[#0f172a] block">И&nbsp;СЕЙЧАС</span>
               </h2>
+              <p class="font-inter text-xs sm:text-sm md:text-base font-normal text-slate-600 tracking-wide leading-relaxed">
+                Напишите в&nbsp;чат все, что угодно. Вера думает, чувствует контекст и&nbsp;ведет диалог как <span class="pearl-title-gradient font-bold whitespace-nowrap">ваш лучший менеджер по&nbsp;продажам</span>
+              </p>
             </div>
 
             <!-- ФОТО ВЕРЫ В КРУЖКЕ: ВЫРОВНЕНО ПО ЦЕНТРУ ЗАГОЛОВКА С АНИМАЦИЕЙ ПУЛЬСА -->
@@ -1515,13 +1518,6 @@
 
         <!-- ПРАВАЯ КОЛОНКА: СМАРТФОН SAMSUNG GALAXY С ДИАЛОГОМ И ЖИВОЙ АНИМАЦИЕЙ -->
         <div class="lg:col-span-7 flex flex-col items-center justify-center">
-
-          <!-- ТЕКСТ-ПРИГЛАШЕНИЕ ПОДВИНУТ ВПЛОТНУЮ К ЧАТУ -->
-          <div class="w-full max-w-[430px] text-center mb-3.5 px-3">
-            <p class="font-inter text-xs sm:text-sm text-slate-700 font-normal leading-relaxed">
-              Напишите в&nbsp;чат все, что угодно. Вера думает, чувствует контекст и&nbsp;ведет диалог как <span class="pearl-title-gradient font-bold whitespace-nowrap">ваш лучший менеджер по&nbsp;продажам</span>
-            </p>
-          </div>
 
           <div class="phone-perspective-stage flex justify-center w-full">
             <div id="phoneContainer" class="relative w-full max-w-[390px] sm:max-w-[420px] h-[610px] sm:h-[640px] rounded-[38px] sm:rounded-[42px] bg-gradient-to-b from-slate-200 via-slate-100 to-slate-300 p-[3.5px] sm:p-[4px] shadow-[0_30px_70px_-15px_rgba(15,23,42,0.22),0_0_0_1px_rgba(255,255,255,0.95),inset_0_1px_2px_rgba(255,255,255,0.8)] select-none flex flex-col transition-all duration-300">
@@ -1589,7 +1585,7 @@
                   <div class="flex items-center gap-1.5 w-full">
                     <form id="liveChatForm" onsubmit="handleLiveChatSubmit(event)" class="flex-1 flex items-center gap-1.5">
                       <div class="flex-1 bg-white border border-slate-200/90 rounded-2xl px-3 py-1.5 flex items-center justify-between shadow-2xs live-chat-input-glow">
-                        <input id="liveChatInput" type="text" placeholder="Напишите любой вопрос Вере…|" autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-xs outline-none">
+                        <input id="liveChatInput" type="text" placeholder="Напишите любой вопрос Вере…|" autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-[16px] sm:text-xs outline-none">
                         <span class="text-slate-400 text-sm ml-1">📎</span>
                       </div>
                       <button id="liveChatSubmitBtn" type="submit" class="w-8 h-8 rounded-full bg-[#00a884] hover:bg-[#008f6f] active:scale-95 text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
