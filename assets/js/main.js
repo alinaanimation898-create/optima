@@ -4119,17 +4119,11 @@ Ready to discuss deployment!` : `Здравствуйте! Хочу интегр
     box.scrollTop = box.scrollHeight;
 
     try {
-      const res = await fetch("https://api.optima.altaiweb.online/api/v1/demo/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          tenant_id: "tallora",
-          message: text,
-          session_id: window.talloraSessionId || undefined
-        })
-      });
-      const data = await res.json();
-      if (data && data.session_id) window.talloraSessionId = data.session_id;
+      // The landing case runs on a read-only copy of the live tenant, synced from it (see demo tenants).
+      if (!window.talloraChat) {
+        window.talloraChat = new VeraDemoChat({ tenantId: "tallora_landing_demo", persistSession: false });
+      }
+      const data = await window.talloraChat.send(text);
 
       const typingEl = document.getElementById(typingId);
       if (typingEl) typingEl.remove();
@@ -4170,7 +4164,7 @@ Ready to discuss deployment!` : `Здравствуйте! Хочу интегр
   };
 
   window.resetTalloraChat = function() {
-    window.talloraSessionId = null;
+    if (window.talloraChat) window.talloraChat.reset();
     const box = document.getElementById('talloraChatMessages');
     if (!box) return;
     box.innerHTML = '';
