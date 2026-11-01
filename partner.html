@@ -80,6 +80,7 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/vera-demo-chat.js?v=1"></script>
   <script>
     if (window.tailwind) tailwind.config = {
       theme: {
@@ -3149,6 +3150,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
 
     function initPartnerLiveChat() {
       partnerChatSessionId = null;
+      if (window.partnerChat) window.partnerChat.sessionId = null;
       try {
         sessionStorage.removeItem('altai_partner_demo_session_id');
       } catch (e) {}
@@ -3227,33 +3229,21 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
 
       let replyText = '';
       try {
-        const payload = {
-          message: text,
-          tenant_id: 'altai_optima',
-          persona: 'stanislav'
-        };
-        if (partnerChatSessionId) {
-          payload.session_id = partnerChatSessionId;
+        if (!window.partnerChat) {
+          window.partnerChat = new VeraDemoChat({ tenantId: 'altai_optima', persistSession: false });
+          if (partnerChatSessionId) window.partnerChat.sessionId = partnerChatSessionId;
         }
-
-        const res = await fetch('https://api.optima.altaiweb.online/api/v1/demo/chat', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-        if (res.status === 429) {
-          replyText = 'Сервер временно перегружен, пожалуйста, подождите минуту.';
-        } else if (res.ok) {
-          const data = await res.json();
-          replyText = data.assistant_response || data.response || '';
-          if (data && data.session_id) {
-            partnerChatSessionId = data.session_id;
-            try {
-              sessionStorage.setItem('altai_partner_demo_session_id', data.session_id);
-            } catch (e) {}
-          }
+        const data = await window.partnerChat.send(text);
+        replyText = (data && (data.assistant_response || data.response)) || '';
+        if (data && data.session_id) {
+          partnerChatSessionId = data.session_id;
+          try {
+            sessionStorage.setItem('altai_partner_demo_session_id', data.session_id);
+          } catch (e) {}
         }
-      } catch (e) {}
+      } catch (e) {
+        if (e && e.status === 429) replyText = 'Сервер временно перегружен, пожалуйста, подождите минуту.';
+      }
 
       // Убираем индикатор набора
       const typingEl = document.getElementById('partnerTypingIndicator');
