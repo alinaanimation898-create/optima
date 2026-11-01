@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Страница не найдена</title>
+<script>
+  // /demo/<tenant> (old dashboard links) -> generic demo page
+  var m = location.pathname.match(/^\/demo\/([A-Za-z0-9_-]+)\/?$/);
+  if (m) location.replace('/demo/?t=' + encodeURIComponent(m[1]));
+</script>
+</head>
+<body style="font-family:system-ui,sans-serif;text-align:center;padding:4rem 1rem">
+<h1>404</h1>
+<p>Страница не найдена. <a href="/">На главную</a></p>
+</body>
+</html>
