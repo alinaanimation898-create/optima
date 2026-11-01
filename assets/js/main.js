@@ -361,47 +361,21 @@
     // AI DEMO CHAT CLIENT (Интеграция с Production API)
     class DemoChatClient {
       constructor() {
-        this.baseUrl = "https://api.optima.altaiweb.online";
         this.tenantId = "altai_optima";
-        this.storageKey = "altai_demo_session_id_altai_optima";
+        // persistSession:false -> every page load starts a new chat (as before)
+        this.chat = new VeraDemoChat({ tenantId: this.tenantId, persistSession: false });
         this.config = null;
         this.isSending = false;
-
-        // По требованию: при загрузке лендинга стираем старые id интерактивного чата,
-        // чтобы всегда начинать новый чат при отправке первого сообщения
-        try {
-          localStorage.removeItem('altai_demo_session_id');
-          localStorage.removeItem('altai_demo_session_id_altai_optima');
-        } catch (e) {}
       }
 
-      getSessionId() {
-        try {
-          return localStorage.getItem(this.storageKey);
-        } catch (e) {
-          return null;
-        }
-      }
-
-      setSessionId(id) {
-        try {
-          if (id) localStorage.setItem(this.storageKey, id);
-        } catch (e) {}
-      }
-
-      resetSession() {
-        try {
-          localStorage.removeItem(this.storageKey);
-        } catch (e) {}
-      }
+      getSessionId() { return this.chat.sessionId; }
+      setSessionId(id) { this.chat.sessionId = id || null; }
+      resetSession() { this.chat.reset(); }
 
       async getConfig() {
         if (this.config) return this.config;
         try {
-          const res = await fetch(`${this.baseUrl}/api/v1/demo/config?tenant_id=${encodeURIComponent(this.tenantId)}`);
-          if (!res.ok) throw new Error(`Config HTTP ${res.status}`);
-          this.config = await res.json();
-          return this.config;
+          this.config = await this.chat.getConfig();
         } catch (e) {
           this.config = {
             tenant_id: this.tenantId,
@@ -415,40 +389,13 @@
             ],
             max_message_length: 4000
           };
-          return this.config;
         }
+        return this.config;
       }
 
       async sendMessage(messageText) {
-        const personaKey = (window.AO_PERSONA && window.AO_PERSONA.key) || 'stanislav';
-        const payload = {
-          message: messageText.trim(),
-          session_id: this.getSessionId() || null,
-          tenant_id: this.tenantId,
-          persona: personaKey
-        };
-
-        const res = await fetch(`${this.baseUrl}/api/v1/demo/chat`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload)
-        });
-
-        if (res.status === 429) {
-          const err = new Error("Сервер временно перегружен, пожалуйста, подождите минуту.");
-          err.status = 429;
-          throw err;
-        }
-
-        if (!res.ok) {
-          throw new Error(`Ошибка сервера (${res.status})`);
-        }
-
-        const data = await res.json();
-        if (data && data.session_id) {
-          this.setSessionId(data.session_id);
-        }
-        return data;
+        this.chat.isSending = false;
+        return this.chat.send(messageText);
       }
     }
 
