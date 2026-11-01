@@ -1331,6 +1331,12 @@ html, body {
       height: calc(100% + 12px) !important;
     }
 
+    @media (max-width: 639px) {
+      #heroBgVideo {
+        display: none !important;
+      }
+    }
+
     .hero-video-portal {
       position: relative;
       width: 100%;
@@ -2816,20 +2822,89 @@ html, body {
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
+      width: 100%;
     }
+    .phone-perspective-stage::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      max-width: 580px;
+      height: 94%;
+      top: 3%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: radial-gradient(ellipse at center, rgba(56, 189, 248, 0.3) 0%, rgba(14, 165, 233, 0.12) 45%, transparent 72%);
+      filter: blur(48px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Пульсирующая анимация фото Веры (живое свечение и мягкий импульс) */
+    @keyframes veraPhotoPulseAura {
+      0% {
+        transform: scale(1);
+        box-shadow: 
+          0 0 0 0 rgba(56, 189, 248, 0.55),
+          0 0 0 0 rgba(14, 165, 233, 0.35),
+          0 20px 40px -10px rgba(15, 23, 42, 0.2);
+      }
+      40% {
+        transform: scale(1.025);
+        box-shadow: 
+          0 0 0 10px rgba(56, 189, 248, 0.25),
+          0 0 0 20px rgba(14, 165, 233, 0.08),
+          0 25px 50px -10px rgba(14, 165, 233, 0.35);
+      }
+      70% {
+        transform: scale(1.01);
+        box-shadow: 
+          0 0 0 16px rgba(56, 189, 248, 0.1),
+          0 0 0 28px rgba(14, 165, 233, 0),
+          0 22px 45px -10px rgba(14, 165, 233, 0.22);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 
+          0 0 0 0 rgba(56, 189, 248, 0),
+          0 0 0 0 rgba(14, 165, 233, 0),
+          0 20px 40px -10px rgba(15, 23, 42, 0.2);
+      }
+    }
+    .vera-avatar-pulse {
+      animation: veraPhotoPulseAura 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      transition: transform 0.3s ease;
+    }
+    .vera-avatar-pulse:hover {
+      transform: scale(1.04);
+    }
+
     .phone-titanium-shell {
       width: 100%;
-      max-width: 385px;
-      height: 680px;
+      max-width: 440px;
+      height: 620px;
       border-radius: 48px;
       background: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);
       padding: 10px;
       border: 3px solid #e2e8f0;
       box-shadow: 
-        0 25px 60px -15px rgba(15, 23, 42, 0.15),
-        0 10px 30px -10px rgba(56, 189, 248, 0.2),
-        0 0 0 1px rgba(255, 255, 255, 0.9) inset;
+        0 30px 70px -15px rgba(15, 23, 42, 0.2),
+        0 15px 40px -10px rgba(56, 189, 248, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.95) inset;
       position: relative;
+      z-index: 1;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @media (max-width: 640px) {
+      .phone-titanium-shell {
+        max-width: 100%;
+        height: 540px;
+        border-radius: 38px;
+        padding: 8px;
+      }
+      #liveChatInput, #talloraChatInput {
+        font-size: 16px !important;
+      }
     }
     .phone-screen-display {
       width: 100%;
@@ -4891,16 +4966,18 @@ html, body {
       }
     }
 
-    /* БЕЛЫЙ ЦВЕТ ДЛЯ ТЕСТ 7 ДНЕЙ */
+    /* ГРАДИЕНТ ДЛЯ ТЕСТ-ДРАЙВ ВЕРЫ (EMERALD -> SKY -> INDIGO ПО ПРИМЕРУ 3 БЛОКА) */
     .divine-title-text {
       position: relative;
       z-index: 2;
       display: inline-block;
-      color: #ffffff !important;
-      background: none !important;
-      -webkit-text-fill-color: #ffffff !important;
+      background: linear-gradient(90deg, #6ee7b7 0%, #bae6fd 50%, #c7d2fe 100%) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+      color: transparent !important;
       animation: none !important;
-      filter: drop-shadow(0 2px 14px rgba(0, 0, 0, 0.7));
+      filter: drop-shadow(0 2px 14px rgba(15, 23, 42, 0.6));
       letter-spacing: -0.01em;
     }
 

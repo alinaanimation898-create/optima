@@ -1,12 +1,13 @@
 // КОНФИГУРАЦИЯ РЕАЛИСТИЧНЫХ ИНТЕРФЕЙСОВ МЕССЕНДЖЕРОВ (WHATSAPP, TELEGRAM, INSTAGRAM, АВИТО)
+    const isEn = (document.documentElement.lang === 'en');
     const channelsConfig = {
       full_deal: {
         channel: 'WHATSAPP',
         badge: 'WhatsApp',
-        assistantName: 'Вера',
+        assistantName: isEn ? 'Vera' : 'Вера',
         headerBg: 'bg-[#075e54]',
         headerSubText: 'text-emerald-200',
-        statusText: 'в сети',
+        statusText: isEn ? 'online' : 'в сети',
         chatBg: 'chat-bg-wa',
         renderHeader: () => `
           <div class="flex items-center gap-2 w-full justify-between">
@@ -21,10 +22,10 @@
               </div>
               <div class="leading-tight text-left">
                 <div class="text-xs font-bold flex items-center gap-1 text-white">
-                  <span>Вера</span>
+                  <span>${isEn ? 'Vera' : 'Вера'}</span>
                   <span class="text-emerald-300 text-[10px]">✓</span>
                 </div>
-                <div class="text-[10px] text-emerald-200 font-medium">в сети • онлайн</div>
+                <div class="text-[10px] text-emerald-200 font-medium">${isEn ? 'online • 24/7' : 'в сети • онлайн'}</div>
               </div>
             </div>
             <div class="flex items-center gap-2 text-white/90">
@@ -35,7 +36,13 @@
             </div>
           </div>
         `,
-        renderStarter: () => '',
+        renderStarter: () => `
+          <div class="space-y-3 pt-1 animate-fade-in">
+            <div class="flex justify-center my-1">
+              <span class="text-[10px] bg-slate-900/10 text-slate-700 px-2.5 py-0.5 rounded-full font-medium">Сегодня</span>
+            </div>
+          </div>
+        `,
         renderAiBubble: (msg) => `
           <div class="flex justify-start items-end gap-1.5 animate-fade-in">
             <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs border border-slate-200/50">
@@ -63,7 +70,7 @@
             <button type="button" class="text-slate-400 hover:text-slate-600 p-1 cursor-pointer"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></button>
             <form id="liveChatForm" onsubmit="handleLiveChatSubmit(event)" class="flex-1 flex items-center gap-1.5">
               <div class="flex-1 bg-white border border-slate-200/90 rounded-2xl px-3 py-1.5 flex items-center justify-between shadow-2xs live-chat-input-glow">
-                <input id="liveChatInput" type="text" placeholder="Напишите сообщение..." autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-xs outline-none" />
+                <input id="liveChatInput" type="text" placeholder="${isEn ? 'Type a message...' : 'Напишите сообщение...'}" autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-xs outline-none" />
                 <span class="text-slate-400 text-sm ml-1">📎</span>
               </div>
               <button id="liveChatSubmitBtn" type="submit" class="w-8 h-8 rounded-full bg-[#00a884] hover:bg-[#008f6f] active:scale-95 text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
@@ -76,10 +83,10 @@
       price_objection: {
         channel: 'TELEGRAM',
         badge: 'Telegram',
-        assistantName: 'Вера',
+        assistantName: isEn ? 'Vera' : 'Вера',
         headerBg: 'bg-[#229ED9]',
         headerSubText: 'text-sky-100',
-        statusText: 'в сети',
+        statusText: isEn ? 'online' : 'в сети',
         chatBg: 'chat-bg-tg',
         renderHeader: () => `
           <div class="flex items-center gap-2 w-full justify-between text-white">
@@ -88,8 +95,8 @@
               <span>12</span>
             </div>
             <div class="px-3 py-0.5 rounded-full bg-white/20 shadow-2xs text-center">
-              <div class="text-[11.5px] font-bold text-white leading-tight">Вера</div>
-              <div class="text-[9.5px] text-sky-100 font-medium leading-tight">в сети • онлайн</div>
+              <div class="text-[11.5px] font-bold text-white leading-tight">${isEn ? 'Vera' : 'Вера'}</div>
+              <div class="text-[9.5px] text-sky-100 font-medium leading-tight">${isEn ? 'online • 24/7' : 'в сети • онлайн'}</div>
             </div>
             <div class="flex items-center gap-1.5">
               <button type="button" onclick="resetLiveChatDialogue()" class="text-[10px] text-white bg-white/20 hover:bg-white/30 px-2 py-1 rounded-md transition-all cursor-pointer font-semibold">
@@ -98,7 +105,27 @@
             </div>
           </div>
         `,
-        renderStarter: () => '',
+        renderStarter: () => `
+          <div class="space-y-3 pt-1 animate-fade-in">
+            <div class="flex justify-center my-1">
+              <span class="text-[10px] bg-sky-900/10 text-sky-900 px-2.5 py-0.5 rounded-full font-medium">Сегодня</span>
+            </div>
+            <div class="flex justify-start items-end gap-1.5">
+              <div class="bg-white text-slate-900 p-3 rounded-2xl rounded-tl-xs max-w-[92%] shadow-xs border border-sky-100">
+                <div class="text-[9.5px] font-bold text-[#0088cc] mb-1 flex items-center gap-1.5">
+                  <span>${isEn ? 'Vera' : 'Вера'}</span>
+                  <span class="text-[8.5px] bg-sky-100 text-sky-800 font-semibold px-1.5 py-0.2 rounded-full">ИИ</span>
+                </div>
+                <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">
+                  ${isEn
+                    ? "Welcome to Telegram! 🚀 I reply in 2 seconds, qualify customers, and push deals to CRM."
+                    : "Привет! 🚀 Я Вера в Telegram. Отвечаю за 2 секунды, консультирую и бережно довожу клиента до сделки."}
+                </p>
+                <div class="text-[9px] text-slate-400 text-right mt-1 font-sans">онлайн</div>
+              </div>
+            </div>
+          </div>
+        `,
         renderAiBubble: (msg) => `
           <div class="flex justify-start items-end gap-1.5 animate-fade-in">
             <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs">
@@ -131,7 +158,7 @@
             </button>
             <form id="liveChatForm" onsubmit="handleLiveChatSubmit(event)" class="flex-1 flex items-center gap-1.5">
               <div class="flex-1 bg-white border border-slate-200/90 rounded-2xl px-3 py-1.5 flex items-center justify-between shadow-2xs live-chat-input-glow">
-                <input id="liveChatInput" type="text" placeholder="Сообщение" autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-xs outline-none" />
+                <input id="liveChatInput" type="text" placeholder="${isEn ? 'Message...' : 'Сообщение'}" autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-xs outline-none" />
                 <span class="text-slate-400 text-xs ml-1">💅</span>
               </div>
               <button id="liveChatSubmitBtn" type="submit" class="w-8 h-8 rounded-full bg-[#2aabee] hover:bg-[#229ed9] active:scale-95 text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
@@ -144,10 +171,10 @@
       reanimate: {
         channel: 'INSTAGRAM DIRECT',
         badge: 'Instagram',
-        assistantName: 'Вера',
+        assistantName: isEn ? 'Vera' : 'Вера',
         headerBg: 'bg-white border-b border-slate-100',
         headerSubText: 'text-slate-400',
-        statusText: 'В сети',
+        statusText: isEn ? 'online' : 'В сети',
         chatBg: 'chat-bg-ig',
         renderHeader: () => `
           <div class="flex items-center gap-2 w-full justify-between text-slate-900">
@@ -163,10 +190,10 @@
               </div>
               <div class="leading-tight text-left">
                 <div class="text-xs font-extrabold flex items-center gap-1">
-                  <span>Вера</span>
+                  <span>${isEn ? 'Vera' : 'Вера'}</span>
                   <svg class="w-3 h-3 text-sky-500 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                 </div>
-                <div class="text-[9px] text-slate-400">Вера • В сети онлайн</div>
+                <div class="text-[9px] text-slate-400">${isEn ? 'Vera • online 24/7' : 'Вера • В сети онлайн'}</div>
               </div>
             </div>
             <div class="flex items-center gap-1.5">
@@ -176,7 +203,27 @@
             </div>
           </div>
         `,
-        renderStarter: () => '',
+        renderStarter: () => `
+          <div class="space-y-3 pt-1 animate-fade-in">
+            <div class="flex justify-center my-1">
+              <span class="text-[10px] bg-purple-900/10 text-purple-900 px-2.5 py-0.5 rounded-full font-medium">Сегодня</span>
+            </div>
+            <div class="flex justify-start items-end gap-1.5">
+              <div class="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 text-white p-3 rounded-2xl rounded-bl-xs max-w-[92%] shadow-xs">
+                <div class="text-[9.5px] font-bold text-pink-100 mb-1 flex items-center gap-1.5">
+                  <span>${isEn ? 'Vera' : 'Вера'}</span>
+                  <span class="text-[8.5px] bg-white/20 text-white font-semibold px-1.5 py-0.2 rounded-full">Direct</span>
+                </div>
+                <p class="leading-relaxed font-normal text-[11.5px] text-white">
+                  ${isEn
+                    ? "Hi! ✨ I manage Instagram Direct sales 24/7. Ask me about products, sizes, or delivery."
+                    : "Привет! ✨ Я Вера в Instagram Direct. Помогаю подбирать товары, отвечать клиентам 24/7 и реанимировать старые диалоги."}
+                </p>
+                <div class="text-[9px] text-white/80 text-right mt-1 font-sans">онлайн</div>
+              </div>
+            </div>
+          </div>
+        `,
         renderAiBubble: (msg) => `
           <div class="flex justify-start items-end gap-1.5 animate-fade-in">
             <div class="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 text-white p-3 rounded-2xl rounded-bl-xs max-w-[88%] shadow-xs">
@@ -214,10 +261,10 @@
       avito_deal: {
         channel: 'AVITO',
         badge: 'Авито',
-        assistantName: 'Вера',
+        assistantName: isEn ? 'Vera' : 'Вера',
         headerBg: 'bg-white border-b border-slate-200/80',
         headerSubText: 'text-slate-500',
-        statusText: 'в сети',
+        statusText: isEn ? 'online' : 'в сети',
         chatBg: 'chat-bg-avito',
         renderHeader: () => `
           <div class="flex items-center gap-2 w-full justify-between text-slate-900">
@@ -233,10 +280,10 @@
               </div>
               <div class="leading-tight text-left">
                 <div class="text-[11.5px] font-bold flex items-center gap-1">
-                  <span>Вера</span>
+                  <span>${isEn ? 'Vera' : 'Вера'}</span>
                   <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                 </div>
-                <div class="text-[9.5px] text-slate-500 truncate max-w-[130px]">в сети • онлайн</div>
+                <div class="text-[9.5px] text-slate-500 truncate max-w-[130px]">${isEn ? 'online • 24/7' : 'в сети • онлайн'}</div>
               </div>
             </div>
             <div class="flex items-center gap-1.5">
@@ -247,7 +294,27 @@
           </div>
         `,
 
-        renderStarter: () => '',
+        renderStarter: () => `
+          <div class="space-y-3 pt-1 animate-fade-in">
+            <div class="flex justify-center my-1">
+              <span class="text-[10px] bg-slate-900/10 text-slate-700 px-2.5 py-0.5 rounded-full font-medium">Сегодня</span>
+            </div>
+            <div class="flex justify-start items-end gap-1">
+              <div class="bg-[#f2f3f5] text-slate-900 p-3 rounded-2xl rounded-tl-xs max-w-[92%] shadow-2xs">
+                <div class="text-[9.5px] font-bold text-slate-800 mb-1 flex items-center gap-1.5">
+                  <span>${isEn ? 'Vera' : 'Вера'}</span>
+                  <span class="text-[8.5px] bg-emerald-100 text-emerald-800 font-semibold px-1.5 py-0.2 rounded-full">Авито</span>
+                </div>
+                <p class="leading-relaxed font-normal text-[11.5px] text-slate-900">
+                  ${isEn
+                    ? "Hello! 📦 I'm Vera on Avito. I negotiate according to your rules and close deals 24/7."
+                    : "Здравствуйте! 📦 Я Вера на Авито. Отвечаю покупателям мгновенно, торгуюсь по вашим правилам и оформляю доставку."}
+                </p>
+                <div class="text-[8.5px] text-slate-400 text-right mt-1 font-sans">онлайн</div>
+              </div>
+            </div>
+          </div>
+        `,
         renderAiBubble: (msg) => `
           <div class="flex justify-start items-end gap-1 animate-fade-in">
             <div class="bg-[#f2f3f5] text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-2xs">
@@ -271,7 +338,7 @@
             </button>
             <form id="liveChatForm" onsubmit="handleLiveChatSubmit(event)" class="flex-1 flex items-center gap-1.5">
               <div class="flex-1 bg-[#f2f3f5] border border-slate-200/80 rounded-xl px-3 py-1.5 flex items-center justify-between live-chat-input-glow">
-                <input id="liveChatInput" type="text" placeholder="Сообщение" autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-xs outline-none" />
+                <input id="liveChatInput" type="text" placeholder="${isEn ? 'Message...' : 'Сообщение'}" autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-xs outline-none" />
                 <span class="text-slate-400 text-xs ml-1">📷</span>
               </div>
               <button id="liveChatSubmitBtn" type="submit" class="w-8 h-8 rounded-xl bg-[#00aaff] hover:bg-[#0095e0] active:scale-95 text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
@@ -393,6 +460,18 @@
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;");
+      safe = safe.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:text-sky-800 underline break-all font-medium">$1</a>');
+      safe = safe.replace(/(^|[\s(>])(https?:\/\/[^\s<]+)/g, (match, prefix, url) => {
+        if (prefix === '="' || prefix === "='") return match;
+        let cleanUrl = url;
+        let trailing = '';
+        const punctMatch = cleanUrl.match(/[.,;:!?)]+$/);
+        if (punctMatch) {
+          trailing = punctMatch[0];
+          cleanUrl = cleanUrl.slice(0, -trailing.length);
+        }
+        return `${prefix}<a href="${cleanUrl}" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:text-sky-800 underline break-all font-medium">${cleanUrl}</a>${trailing}`;
+      });
       safe = safe.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
       safe = safe.replace(/\*(.*?)\*/g, '<i>$1</i>');
       safe = safe.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>');
@@ -688,6 +767,11 @@
       } catch (e) {}
     }
     window.rateVera = rateVera;
+    window.selectBranch = selectBranch;
+    window.sendQuickPrompt = sendQuickPrompt;
+    window.handleLiveChatSubmit = handleLiveChatSubmit;
+    window.focusChatInput = focusChatInput;
+    window.resetLiveChatDialogue = resetLiveChatDialogue;
 
     let currentScenarioBoost = 0.12;
     const calcAnimationFrames = {};
@@ -863,15 +947,13 @@
       const gain = Math.round(revenue * growth);
 
       // Динамический тариф по объёму лидов:
-      let tariffName = '«Старт»';
-      let monthlyTariffPrice = 25000;
-      if (leads <= 200) {
+      if (leads <= 500) {
         tariffName = '«Старт»';
         monthlyTariffPrice = 25000;
-      } else if (leads <= 600) {
+      } else if (leads <= 1200) {
         tariffName = '«Бизнес»';
         monthlyTariffPrice = 39000;
-      } else if (leads <= 1500) {
+      } else if (leads <= 3000) {
         tariffName = '«Поток»';
         monthlyTariffPrice = 59000;
       } else {
@@ -879,7 +961,8 @@
         monthlyTariffPrice = 99000;
       }
 
-      const launchPrice = 29000;
+      // Запуск по тарифу (как в конструкторе), без доплаты за 1С / МойСклад
+      const launchPrice = { 25000: 29000, 39000: 39000, 59000: 59000, 99000: 99000 }[monthlyTariffPrice] || 29000;
       const monthlyNet = gain - monthlyTariffPrice;
       const yearNet = gain * 12 - (launchPrice + monthlyTariffPrice * 12);
       const paybackDays = gain > 0 ? (launchPrice + monthlyTariffPrice) / (gain / 30) : Infinity;
@@ -2233,7 +2316,7 @@
         return `
           <div class="flex justify-start transition-all duration-300 opacity-0 translate-y-2">
             <div class="max-w-[88%] bg-white text-slate-900 px-3 py-2 rounded-tr-xl rounded-tl-xs rounded-br-xl rounded-bl-xl shadow-xs leading-relaxed text-xs border border-slate-100">
-              <div class="text-[10px] font-bold text-emerald-800 mb-0.5">Вера</div>
+              <div class="text-[10px] font-bold text-emerald-800 mb-0.5">${isEn ? 'Vera' : 'Вера'}</div>
               <p>${msg.text}</p>
               <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-slate-400">
                 <span>${msg.time || ''}</span>
@@ -2245,7 +2328,7 @@
         return `
           <div class="flex justify-start transition-all duration-300 opacity-0 translate-y-2">
             <div class="max-w-[88%] bg-white text-slate-900 px-3 py-2 rounded-tr-xl rounded-tl-xs rounded-br-xl rounded-bl-xl shadow-xs leading-relaxed text-xs border border-slate-100">
-              <div class="text-[10px] font-bold text-sky-800 mb-0.5">Вера</div>
+              <div class="text-[10px] font-bold text-sky-800 mb-0.5">${isEn ? 'Vera' : 'Вера'}</div>
               <p>${msg.text}</p>
               <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-slate-400">
                 <span>${msg.time || ''}</span>
@@ -2270,7 +2353,7 @@
         return `
           <div class="flex justify-start transition-all duration-300 opacity-0 translate-y-2">
             <div class="max-w-[88%] bg-white text-slate-900 px-3 py-2.5 rounded-2xl rounded-bl-xs shadow-xs leading-relaxed text-xs border border-slate-200">
-              <div class="text-[10px] font-bold text-pink-600 mb-0.5">Вера</div>
+              <div class="text-[10px] font-bold text-pink-600 mb-0.5">${isEn ? 'Vera' : 'Вера'}</div>
               <p>${msg.text}</p>
               <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-slate-400">
                 <span>${msg.time || ''}</span>
@@ -3101,16 +3184,31 @@
       const dayName = isWeekend ? (day === 6 ? 'Суббота' : 'Воскресенье') : '';
 
       let message = '';
-      if (hours >= 23 || hours < 7) {
-        message = `Сейчас ${timeStr}. Ваши менеджеры спят. Он на смене.`;
-      } else if (isWeekend) {
-        message = `${dayName}, ${timeStr}. У отдела продаж выходной, у него - самые горячие часы.`;
-      } else if (hours < 10) {
-        message = `Сейчас ${timeStr}. Отдел продаж ещё в пути, а он уже ответил первым клиентам.`;
-      } else if (hours < 19) {
-        message = `Сейчас ${timeStr}. Пока менеджер на звонке, он уже ответил пятерым.`;
+      if (isEn) {
+        const enDayName = isWeekend ? (day === 6 ? 'Saturday' : 'Sunday') : '';
+        if (hours >= 23 || hours < 7) {
+          message = `It is now ${timeStr}. Your human team is asleep. Vera is actively selling.`;
+        } else if (isWeekend) {
+          message = `${enDayName}, ${timeStr}. Your sales reps are off, but for Vera these are peak hours.`;
+        } else if (hours < 10) {
+          message = `It is now ${timeStr}. Your reps are commuting, and Vera has already qualified the first leads.`;
+        } else if (hours < 19) {
+          message = `It is now ${timeStr}. While reps handle active calls, Vera instantly answers new inquiries.`;
+        } else {
+          message = `It is now ${timeStr}. The workday is over, but inquiries keep flowing. Vera is on duty.`;
+        }
       } else {
-        message = `Сейчас ${timeStr}. Рабочий день закончился, а клиенты продолжают писать. Он на связи.`;
+        if (hours >= 23 || hours < 7) {
+          message = `Сейчас ${timeStr}. Ваши менеджеры спят. Он на смене.`;
+        } else if (isWeekend) {
+          message = `${dayName}, ${timeStr}. У отдела продаж выходной, у него - самые горячие часы.`;
+        } else if (hours < 10) {
+          message = `Сейчас ${timeStr}. Отдел продаж ещё в пути, а он уже ответил первым клиентам.`;
+        } else if (hours < 19) {
+          message = `Сейчас ${timeStr}. Пока менеджер на звонке, он уже ответил пятерым.`;
+        } else {
+          message = `Сейчас ${timeStr}. Рабочий день закончился, а клиенты продолжают писать. Он на связи.`;
+        }
       }
 
       textEl.innerHTML = message;
@@ -3351,52 +3449,55 @@
       (function initTariffConstructor() {
         // 1. ЕДИНЫЙ ОБЪЕКТ-КОНФИГ ЦЕН, ЛИМИТОВ И ССЫЛОК
         const TARIFF_CONFIG = {
-          setupPrice: 29000,
+          // Запуск зависит от тарифа. Учётные системы (1С, МойСклад) - разовая доплата к запуску
+          heavySetupExtra: 30000,
+          heavyCrmIds: ['1c', 'moysklad'],
+          sliderMax: 5000,
           ctaUrl: 'https://t.me/altaioptima',
           tariffs: [
             {
               id: 'start',
               name: 'Старт',
-              maxLimit: 200,
-              limitLabel: 'до 200',
-              detailsLimit: 'до 200 в месяц',
+              maxLimit: 500,
+              limitLabel: 'до 500',
+              detailsLimit: 'до 500 в месяц',
               monthlyPrice: 25000,
-              earlyBirdPrice: 22000,
-              presetSliderValue: 150,
+              setupPrice: 29000,
+              presetSliderValue: 300,
               isCustom: false
             },
             {
               id: 'business',
               name: 'Бизнес',
-              maxLimit: 600,
-              limitLabel: 'до 600',
-              detailsLimit: 'до 600 в месяц',
+              maxLimit: 1200,
+              limitLabel: 'до 1200',
+              detailsLimit: 'до 1200 в месяц',
               monthlyPrice: 39000,
-              earlyBirdPrice: 33000,
+              setupPrice: 39000,
               badge: 'выбирают чаще',
-              presetSliderValue: 400,
+              presetSliderValue: 800,
               isCustom: false
             },
             {
               id: 'stream',
               name: 'Поток',
-              maxLimit: 1500,
-              limitLabel: 'до 1500',
-              detailsLimit: 'до 1500 в месяц',
+              maxLimit: 3000,
+              limitLabel: 'до 3000',
+              detailsLimit: 'до 3000 в месяц',
               monthlyPrice: 59000,
-              earlyBirdPrice: 55000,
-              presetSliderValue: 1000,
+              setupPrice: 59000,
+              presetSliderValue: 2000,
               isCustom: false
             },
             {
               id: 'empire',
               name: 'Империя',
               maxLimit: Infinity,
-              limitLabel: 'больше 1500',
+              limitLabel: 'больше 3000',
               detailsLimit: 'индивидуально',
               monthlyPrice: 99000,
-              earlyBirdPrice: 88000,
-              presetSliderValue: 2500,
+              setupPrice: 99000,
+              presetSliderValue: 4000,
               isCustom: true // приставка "от "
             }
           ]
@@ -3484,7 +3585,7 @@
 
         // Состояние конструктора
         const state = {
-          sliderValue: 400,
+          sliderValue: 800,
           billingPeriod: 'monthly', // 'monthly' | 'annual'
           channels: {},
           crms: {}
@@ -3498,6 +3599,7 @@
         const formatPrice = (v) => v.toLocaleString('ru-RU').replace(/\s/g, '\u00A0');
 
         function getChannelsCountText(n) {
+          if (isEn) return `${n} channel${n === 1 ? '' : 's'} connected`;
           const mod10 = n % 10;
           const mod100 = n % 100;
           let word = 'каналов';
@@ -3513,6 +3615,7 @@
         }
 
         function getCrmCountText(n) {
+          if (isEn) return `${n} system${n === 1 ? '' : 's'}`;
           const mod10 = n % 10;
           const mod100 = n % 100;
           let word = 'систем';
@@ -3525,10 +3628,7 @@
         }
 
         function getTariffByVolume(vol) {
-          if (vol <= 200) return TARIFF_CONFIG.tariffs[0]; // Старт
-          if (vol <= 600) return TARIFF_CONFIG.tariffs[1]; // Бизнес
-          if (vol <= 1500) return TARIFF_CONFIG.tariffs[2]; // Поток
-          return TARIFF_CONFIG.tariffs[3]; // Империя
+          return TARIFF_CONFIG.tariffs.find(t => vol <= t.maxLimit) || TARIFF_CONFIG.tariffs[3];
         }
 
         const channelsEl = document.getElementById('channels');
@@ -3580,6 +3680,18 @@
 
         renderChannelsList();
         renderCrmsList();
+
+        // Лимиты и пресеты берём из конфига, чтобы все страницы считали одинаково
+        if (sliderEl) {
+          sliderEl.max = TARIFF_CONFIG.sliderMax;
+          sliderEl.setAttribute('aria-valuemax', TARIFF_CONFIG.sliderMax);
+        }
+        if (tariffsStrip) {
+          tariffsStrip.querySelectorAll('.cfg-tariff-card').forEach(card => {
+            const t = TARIFF_CONFIG.tariffs.find(x => x.id === card.dataset.tariff);
+            if (t) card.dataset.slider = t.presetSliderValue;
+          });
+        }
 
         // Синхронизация полосы тарифов при клике или клавиатуре + мобильные точки
         const mobileDots = document.getElementById('cfgMobileDots');
@@ -3661,7 +3773,7 @@
         function updateSliderVisuals() {
           if (!sliderEl) return;
           const min = parseInt(sliderEl.min, 10) || 50;
-          const max = parseInt(sliderEl.max, 10) || 3000;
+          const max = parseInt(sliderEl.max, 10) || TARIFF_CONFIG.sliderMax;
           const val = state.sliderValue;
           const pct = ((val - min) / (max - min)) * 100;
           sliderEl.style.background = `linear-gradient(to right, #059669 0%, #059669 ${pct}%, #E2E8F0 ${pct}%, #E2E8F0 100%)`;
@@ -3722,10 +3834,10 @@
 
           // 1. Отображение ползунка и бейджа
           if (sliderDisplay) {
-            sliderDisplay.textContent = (state.sliderValue === 3000) ? '3000+' : `${state.sliderValue}\u00A0диалогов`;
+            sliderDisplay.textContent = (state.sliderValue >= TARIFF_CONFIG.sliderMax) ? `${TARIFF_CONFIG.sliderMax}+` : `${state.sliderValue}\u00A0${isEn ? 'chats' : 'диалогов'}`;
           }
           if (tariffBadge) {
-            tariffBadge.textContent = `тариф «${tariff.name}»`;
+            tariffBadge.textContent = isEn ? `plan «${tariff.name}»` : `тариф «${tariff.name}»`;
           }
 
           // 2. Подсветка активной карточки тарифа в полосе и синхронизация точек
@@ -3746,9 +3858,15 @@
           }
 
           // 3. Стоимости
-          const setup = TARIFF_CONFIG.setupPrice;
+          const hasHeavyCrm = TARIFF_CONFIG.heavyCrmIds.some(id => state.crms[id]);
+          const setupExtra = hasHeavyCrm ? TARIFF_CONFIG.heavySetupExtra : 0;
+          const setup = tariff.setupPrice + setupExtra;
           const monthly = tariff.monthlyPrice;
-          const earlyBird = tariff.earlyBirdPrice;
+
+          const cfgSetupTotalEl = document.getElementById('cfgSetupTotal');
+          if (cfgSetupTotalEl) {
+            cfgSetupTotalEl.textContent = `${prefix}${formatPrice(setup)}\u00A0₽`;
+          }
 
           const subPrefixEl = document.getElementById('cfgSubPrefix');
           const monthlyTotalEl = document.getElementById('monthlyTotal');
@@ -3769,13 +3887,27 @@
             const activeChannelsCount = Object.values(state.channels).filter(Boolean).length;
             const activeCrmsCount = Object.values(state.crms).filter(Boolean).length;
 
-            const rows = [
+            const setupValRu = `${prefix}${formatPrice(setup)}\u00A0₽ разово`;
+            const setupValEn = `${prefix}${formatPrice(setup)} ₽ one-time`;
+            const heavyRowRu = hasHeavyCrm ? [{ name: 'Подключение 1С / МойСклад', val: '+30\u00A0000\u00A0₽' }] : [];
+            const heavyRowEn = hasHeavyCrm ? [{ name: '1C / MoySklad integration', val: '+30\u00A0000\u00A0₽' }] : [];
+
+            const rows = isEn ? [
+              { name: 'Plan', val: tariff.name },
+              { name: 'Dialogue Limit', val: tariff.detailsLimit },
+              { name: `Channels: ${getChannelsCountText(activeChannelsCount)}`, val: '0\u00A0₽' },
+              { name: `CRM Tracking: ${getCrmCountText(activeCrmsCount)}`, val: '0\u00A0₽' },
+              { name: 'Pay-per-dialogue fee', val: 'None' },
+              ...heavyRowEn,
+              { name: 'Setup & Onboarding', val: setupValEn }
+            ] : [
               { name: 'Тариф', val: tariff.name },
               { name: 'Лимит диалогов', val: tariff.detailsLimit },
               { name: `Каналы: ${getChannelsCountText(activeChannelsCount)}`, val: '0\u00A0₽' },
               { name: `Учёт клиентов: ${getCrmCountText(activeCrmsCount)}`, val: '0\u00A0₽' },
               { name: 'Оплата за отдельные диалоги', val: 'нет' },
-              { name: 'Запуск', val: '29\u00A0000\u00A0₽ разово' }
+              ...heavyRowRu,
+              { name: 'Запуск', val: setupValRu }
             ];
 
             cfgDetailsRowsEl.innerHTML = rows.map(r => `
@@ -3789,20 +3921,28 @@
           // 6. Мобильная закрепленная панель
           const mobSetupTotal = document.getElementById('mobSetupTotal');
           const mobMonthlyTotal = document.getElementById('mobMonthlyTotal');
-          if (mobSetupTotal) mobSetupTotal.textContent = formatPrice(setup);
+          if (mobSetupTotal) mobSetupTotal.textContent = `${prefix}${formatPrice(setup)}`;
           if (mobMonthlyTotal) {
-            mobMonthlyTotal.textContent = `${prefix}${formatPrice(monthly)}\u00A0₽/мес`;
+            mobMonthlyTotal.textContent = `${prefix}${formatPrice(monthly)}\u00A0` + (isEn ? '₽/mo' : '₽/мес');
           }
 
-          // 7. Кнопка «Запустить ИИ-продавца»
+          // 7. Кнопка «Интегрировать Веру»
           const ctaBtn = document.getElementById('ctaBtn');
           if (ctaBtn) {
             const activeChNames = CHANNELS.filter(c => state.channels[c.id]).map(c => c.label.replace(/\*+/g, '')).join(', ') || 'Без каналов';
             const activeCrmNames = CRMS.filter(c => state.crms[c.id]).map(c => c.label).join(', ') || 'Без CRM';
 
-            const tgMsg = `Здравствуйте! Хочу запустить ИИ-продавца:
+            const tgMsg = isEn ? `Hello! I would like to integrate Vera:
+• Plan: «${tariff.name}» (${tariff.detailsLimit})
+• Volume: ~${state.sliderValue} chats/month
+• Setup: ${prefix}${formatPrice(setup)} ₽ one-time
+• Subscription: ${prefix}${formatPrice(monthly)} ₽/mo
+• Channels: ${activeChNames}
+• CRM: ${activeCrmNames}
+Ready to discuss deployment!` : `Здравствуйте! Хочу интегрировать Веру:
 • Тариф: «${tariff.name}» (${tariff.detailsLimit})
 • Объём: ~${state.sliderValue} диалогов в месяц
+• Запуск: ${prefix}${formatPrice(setup)} ₽ разово
 • Подписка: ${prefix}${formatPrice(monthly)} ₽/мес
 • Каналы: ${activeChNames}
 • Учёт клиентов: ${activeCrmNames}
@@ -3955,3 +4095,136 @@
   }
   window.addEventListener('scroll', updateAltaiSunset, { passive: true });
   updateAltaiSunset();
+
+  // ИНТЕРАКТИВНЫЙ ЧАТ TALLORA В IPHONE 17
+  window.talloraSessionId = null;
+
+  function formatTalloraMessage(text) {
+    if (!text) return '';
+    let safe = text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+
+    // Markdown links: [Title](https://...)
+    safe = safe.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:text-sky-800 underline break-all font-medium">$1</a>');
+
+    // Raw URLs: https://... or http://...
+    safe = safe.replace(/(^|[\s(>])(https?:\/\/[^\s<]+)/g, (match, prefix, url) => {
+      if (prefix === '="' || prefix === "='") return match;
+      let cleanUrl = url;
+      let trailing = '';
+      const punctMatch = cleanUrl.match(/[.,;:!?)]+$/);
+      if (punctMatch) {
+        trailing = punctMatch[0];
+        cleanUrl = cleanUrl.slice(0, -trailing.length);
+      }
+      return `${prefix}<a href="${cleanUrl}" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:text-sky-800 underline break-all font-medium">${cleanUrl}</a>${trailing}`;
+    });
+
+    // Bold & Italic
+    safe = safe.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    safe = safe.replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+    // Line breaks
+    safe = safe.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>');
+
+    return safe;
+  }
+
+  window.handleTalloraChatSubmit = async function(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const input = document.getElementById('talloraChatInput');
+    if (!input) return;
+    const text = input.value.trim();
+    if (!text) return;
+    input.value = '';
+
+    const box = document.getElementById('talloraChatMessages');
+    if (!box) return;
+
+    const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const userBubble = `
+      <div class="flex justify-end items-end gap-1.5 animate-fade-in">
+        <div class="bg-[#d9fdd3] text-slate-900 p-2.5 rounded-2xl rounded-tr-xs max-w-[85%] shadow-xs">
+          <p class="leading-relaxed font-normal text-[11px] text-slate-800">${formatTalloraMessage(text)}</p>
+          <div class="text-[8.5px] text-emerald-800 text-right mt-0.5 font-sans flex items-center justify-end gap-0.5">
+            <span>${time}</span>
+            <span class="text-[#34B7F1] font-bold">✓✓</span>
+          </div>
+        </div>
+      </div>`;
+    box.insertAdjacentHTML('beforeend', userBubble);
+    box.scrollTop = box.scrollHeight;
+
+    const typingId = 'talloraTyping_' + Date.now();
+    const typingHtml = `
+      <div id="${typingId}" class="flex justify-start items-end gap-1.5 animate-fade-in">
+        <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs shadow-xs border border-slate-200/60">
+          <div class="flex items-center gap-1 py-0.5 px-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style="animation-delay: 0.2s"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style="animation-delay: 0.4s"></span>
+          </div>
+        </div>
+      </div>`;
+    box.insertAdjacentHTML('beforeend', typingHtml);
+    box.scrollTop = box.scrollHeight;
+
+    try {
+      const res = await fetch("https://api.optima.altaiweb.online/api/v1/demo/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          tenant_id: "tallora",
+          message: text,
+          session_id: window.talloraSessionId || undefined
+        })
+      });
+      const data = await res.json();
+      if (data && data.session_id) window.talloraSessionId = data.session_id;
+
+      const typingEl = document.getElementById(typingId);
+      if (typingEl) typingEl.remove();
+
+      const reply = data.assistant_response || "Спасибо за вопрос! С удовольствием помогу подобрать модель под ваши параметры.";
+      const aiBubble = `
+        <div class="flex justify-start items-end gap-1.5 animate-fade-in">
+          <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs border border-slate-200/50">
+            <div class="text-[9.5px] font-bold text-[#075e54] mb-0.5">Вера · Tallora</div>
+            <p class="leading-relaxed font-normal text-[11px] text-slate-800">${formatTalloraMessage(reply)}</p>
+            <div class="text-[8.5px] text-slate-400 text-right mt-0.5 font-sans">${time}</div>
+          </div>
+        </div>`;
+      box.insertAdjacentHTML('beforeend', aiBubble);
+      box.scrollTop = box.scrollHeight;
+    } catch (err) {
+      const typingEl = document.getElementById(typingId);
+      if (typingEl) typingEl.remove();
+      const fallbackBubble = `
+        <div class="flex justify-start items-end gap-1.5 animate-fade-in">
+          <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs border border-slate-200/50">
+            <div class="text-[9.5px] font-bold text-[#075e54] mb-0.5">Вера · Tallora</div>
+            <p class="leading-relaxed font-normal text-[11px] text-slate-800">${formatTalloraMessage("Мы производим женскую обувь нестандартных размеров с 36 по 44 на длину стопы 23–29,5 см. Подскажите, какую модель вам подсказать?")}</p>
+            <div class="text-[8.5px] text-slate-400 text-right mt-0.5 font-sans">${time}</div>
+          </div>
+        </div>`;
+      box.insertAdjacentHTML('beforeend', fallbackBubble);
+      box.scrollTop = box.scrollHeight;
+    }
+  };
+
+  window.sendTalloraPrompt = function(promptText) {
+    const input = document.getElementById('talloraChatInput');
+    if (input) {
+      input.value = promptText;
+      window.handleTalloraChatSubmit();
+    }
+  };
+
+  window.resetTalloraChat = function() {
+    window.talloraSessionId = null;
+    const box = document.getElementById('talloraChatMessages');
+    if (!box) return;
+    box.innerHTML = '';
+  };
