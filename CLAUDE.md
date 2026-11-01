@@ -8,8 +8,8 @@ Many legacy one-off Python generators live in the root; do not touch them unless
   `GET /api/v1/demo/config`, talks to `POST /api/v1/demo/chat`. `?api=stage` switches to the stage API. Hooks
   (`onUser/onTyping/onReply/onError`) for custom layouts; `VeraDemoChat.mount(el, {tenantId})` renders a default UI.
   `index.html`/`en.html`/`partner.html` and `ai-sales-widget.js` use it — do not copy-paste another fetch.
-- `demo/index.html?t=<id>`: generic instant demo for any demo tenant (branding from `/demo/config`).
-- `demo/_template/page.html` + `demo/generate.py`: `demo/<id>/demo.json` -> `demo/<id>/index.html` (`python3 demo/generate.py <id>`).
+- `demo/index.html?t=<id>`: generic instant demo for any demo tenant. Page = `demo/assets/demo-page.{css,js}` (two-column intro + chat, accent/avatar/name/placeholder/questions from `/demo/config`) plus legacy extras from `demo/assets/brands.json` (hero photo, footer logo, integrations list, white background; images in `demo/assets/brand/`). New demos get the default intro; add a `brands.json` entry for a richer look.
+- `demo/_template/page.html` + `demo/generate.py`: `demo/<id>/demo.json` -> `demo/<id>/index.html` (`python3 demo/generate.py <id>`): same page, with fixed title/OG tags and optional overrides (`hero_text`, `brand_name`, `accent`).
   Pages are `noindex` and not in `sitemap.xml` unless `"index": true`.
 - The landing Tallora case runs on `tallora_landing_demo` (read-only copy of `tallora`, synced hourly by the backend).
 - Skills (plain Python 3 stdlib, work for Claude Code and Antigravity): `.claude/skills/create-demo`, `.claude/skills/update-demo`.

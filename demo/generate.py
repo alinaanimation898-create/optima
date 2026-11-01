@@ -3,8 +3,8 @@
 
 Usage: python3 demo/generate.py <tenant_id> [<tenant_id> ...]   |   python3 demo/generate.py --all
 
-demo.json keys: tenant_id, brand_name, title, description, hero_title, hero_text,
-accent (css color), logo_url (optional), og_image (optional), index (bool, default false).
+demo.json keys: tenant_id, brand_name, title, description, hero_text (replaces the intro paragraph),
+accent (css color, optional; the API accent_color is used otherwise), og_image (optional), index (bool, default false).
 Pages are `noindex` and not listed in sitemap.xml unless "index": true (and then add them to sitemap.xml by hand).
 """
 import html
@@ -37,20 +37,22 @@ def render(cfg: dict) -> str:
     if not ID_RE.match(tid):
         raise SystemExit(f"bad tenant_id: {tid!r}")
     template = Template((ROOT / "_template" / "page.html").read_text(encoding="utf-8"))
-    logo = safe_url(cfg.get("logo_url"))
     og = safe_url(cfg.get("og_image"))
     brand = cfg.get("brand_name") or tid
+    overrides = {}
+    if cfg.get("hero_text"):
+        overrides["hero_description"] = str(cfg["hero_text"])
+    if cfg.get("brand_name"):
+        overrides["name"] = str(cfg["brand_name"])
+    if cfg.get("accent"):
+        overrides["accent"] = safe_color(cfg["accent"])
     return template.substitute(
         robots="" if cfg.get("index") else '<meta name="robots" content="noindex">',
         title=esc(cfg.get("title") or f"{brand} — ИИ-сотрудник"),
         description=esc(cfg.get("description") or f"Демо ИИ-сотрудника для {brand}"),
         og_image=f'<meta property="og:image" content="{esc(og)}">' if og else "",
-        accent=safe_color(cfg.get("accent")),
-        logo=f'<img alt="" src="{esc(logo)}">' if logo else "",
-        brand_name=esc(brand),
-        hero_title=esc(cfg.get("hero_title") or f"ИИ-сотрудник для {brand}"),
-        hero_text=esc(cfg.get("hero_text") or "Задайте любой вопрос — отвечает так же, как отвечал бы ваш лучший менеджер."),
         tenant_id_js=json.dumps(tid),
+        overrides_js=json.dumps(overrides).replace("</", "<\\/"),
     )
 
 
