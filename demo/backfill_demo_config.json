@@ -1,0 +1,126 @@
+{
+  "_note": "Candidates for POST /api/v1/admin/tenants/{id}/mark-demo {demo_config}. David approves which ids to backfill; ids that do not exist in the target DB are skipped. 'tallora' is a LIVE tenant and is intentionally absent: the landing uses tallora_landing_demo.",
+  "tenants": {
+    "haier": {
+      "display_name": "Haier",
+      "accent_color": "#005AAB",
+      "logo_url": "https://optima.altaiweb.online/demo/assets/brand/haier_logo.png",
+      "avatar_url": "https://optima.altaiweb.online/demo/assets/brand/haier_vera_avatar.jpg",
+      "hero_description": "Я уже изучила ваш бизнес и готова стать вашим лучшим сотрудником. Объединяю обаяние чуткого эксперта, острый ум и железную цифровую дисциплину. Держу в памяти историю каждого клиента, общаюсь по стандартам флагманского салона и уверенно довожу диалоги до реальных сделок в CRM.",
+      "placeholder_text": "Спросите о бытовой технике, характеристиках, ценах или доставке…"
+    },
+    "lada_digit": {
+      "display_name": "LADA Цифра"
+    },
+    "mediasafe": {
+      "display_name": "MediaSafe"
+    },
+    "kostis": {
+      "display_name": "КОСТИС"
+    },
+    "foxford": {
+      "display_name": "Фоксфорд"
+    },
+    "gk_fsk": {
+      "display_name": "ГК ФСК"
+    },
+    "neometria": {
+      "display_name": "Неометрия",
+      "accent_color": "#E07000",
+      "logo_url": "https://optima.altaiweb.online/demo/assets/brand/neometria_logo.png",
+      "avatar_url": "https://optima.altaiweb.online/demo/assets/brand/neometria_vera_avatar.jpg",
+      "hero_description": "Я уже изучила ваш бизнес и готова стать вашим лучшим сотрудником. Объединяю обаяние чуткого эксперта, острый ум и железную цифровую дисциплину. Держу в памяти историю каждого клиента, общаюсь по стандартам флагманского офиса продаж и уверенно довожу диалоги до реальных сделок в CRM.",
+      "placeholder_text": "Спросите о жилых комплексах, ценах, планировках или ипотеке…"
+    },
+    "mobel_zeit": {
+      "display_name": "möbel&zeit",
+      "accent_color": "#C8102E",
+      "logo_url": "https://optima.altaiweb.online/demo/assets/brand/mobel_zeit_badge.png",
+      "avatar_url": "https://optima.altaiweb.online/demo/assets/brand/mobel_zeit_vera_avatar.jpg",
+      "placeholder_text": "Спросите о моделях, тканях, ценах или доставке…"
+    },
+    "lagoon_resort": {
+      "display_name": "Lagoon Resort",
+      "accent_color": "#0A5C80",
+      "logo_url": "https://optima.altaiweb.online/demo/assets/brand/lagoon_resort_logo.svg",
+      "avatar_url": "https://optima.altaiweb.online/demo/assets/brand/lagoon_resort_vera_avatar.jpg",
+      "suggested_questions": [
+        "Какой минимальный порог входа для студии под ключ?",
+        "Как устроен арендный пул 60/40 и доходность по Cushman & Wakefield?",
+        "Чем отличаются инвестиционные резиденции от резиденций для жизни?",
+        "Как совместить доход от аренды с личным отдыхом на курорте?"
+      ],
+      "hero_description": "Я уже изучила ваш бизнес и готова стать вашим лучшим сотрудником. Объединяю обаяние чуткого эксперта, глубокое знание инвестиционной модели и железную цифровую дисциплину. Знаю все детали проекта Lagoon Resort в Батуми в партнёрстве с Hilton, точно рассчитываю параметры входа по исследованию Cushman & Wakefield и уверенно довожу инвесторов до бронирования консультации.",
+      "placeholder_text": "Спросите о резиденциях, ценах, рассрочке или ВНЖ…"
+    },
+    "medicinskiy_tsentr_nauka": {
+      "display_name": "Медицинский центр «Наука»"
+    },
+    "demo-meditsinskiy-tsentr-nauka": {
+      "display_name": "Медицинский центр «Наука»"
+    },
+    "altai_optima": {
+      "display_name": "ALTAI Optima"
+    },
+    "newo_ai": {
+      "display_name": "NEWO AI"
+    },
+    "demo_amo": {
+      "display_name": "amoCRM"
+    },
+    "demo_b24": {
+      "display_name": "Битрикс24"
+    },
+    "ak": {
+      "display_name": "A&K",
+      "accent_color": "#0E3275",
+      "logo_url": "https://optima.altaiweb.online/demo/assets/brand/ak_logo.png",
+      "avatar_url": "https://optima.altaiweb.online/demo/assets/brand/ak_vera_avatar.jpg",
+      "suggested_questions": [
+        "Сколько стоит подача заявки на Green Card под ключ и что входит в $35?",
+        "В какие сроки будет проходить регистрация и когда откроется прием заявок?",
+        "Нужен ли загранпаспорт для участия в лотерее Green Card?",
+        "Какие требования к образованию и фото предъявляет Госдепартамент США?"
+      ],
+      "hero_description": "Я уже изучила ваш бизнес и готова стать вашим лучшим сотрудником. Объединяю обаяние чуткого эксперта, глубокую визовую компетенцию и железную цифровую дисциплину. Держу в памяти регламенты Госдепартамента США, мгновенно передаю нестандартные вопросы персональному менеджеру A&K и уверенно перевожу интерес в готовые заявки.",
+      "placeholder_text": "Спросите о лотерее Green Card, шансах, требованиях или стоимости…"
+    },
+    "ak_relocation": {
+      "display_name": "A&K",
+      "accent_color": "#0E3275",
+      "logo_url": "https://optima.altaiweb.online/demo/assets/brand/ak_logo.png",
+      "avatar_url": "https://optima.altaiweb.online/demo/assets/brand/ak_vera_avatar.jpg",
+      "suggested_questions": [
+        "Сколько стоит подача заявки на Green Card под ключ и что входит в $35?",
+        "В какие сроки будет проходить регистрация и когда откроется прием заявок?",
+        "Нужен ли загранпаспорт для участия в лотерее Green Card?",
+        "Какие требования к образованию и фото предъявляет Госдепартамент США?"
+      ],
+      "hero_description": "Я уже изучила ваш бизнес и готова стать вашим лучшим сотрудником. Объединяю обаяние чуткого эксперта, глубокую визовую компетенцию и железную цифровую дисциплину. Держу в памяти регламенты Госдепартамента США, мгновенно передаю нестандартные вопросы персональному менеджеру A&K и уверенно перевожу интерес в готовые заявки.",
+      "placeholder_text": "Спросите о лотерее Green Card, шансах, требованиях или стоимости…"
+    },
+    "adiam": {
+      "display_name": "ADIAM",
+      "accent_color": "#1F62F2",
+      "logo_url": "https://optima.altaiweb.online/demo/assets/brand/adiam_logo.png",
+      "avatar_url": "https://optima.altaiweb.online/demo/assets/brand/adiam_vera_avatar.jpg",
+      "suggested_questions": [
+        "Какие рекламные форматы доступны на платформе ADIAM?",
+        "Какие виды таргетинга поддерживает платформа?",
+        "Как работает аналитика и мониторинг кампаний в реальном времени?",
+        "Как передать бриф для расчета индивидуального медиаплана?"
+      ],
+      "hero_description": "Я уже изучила ваш бизнес и готова стать вашим лучшим сотрудником. Объединяю экспертизу в AdTech, знание возможностей платформы ADIAM и цифровую дисциплину. Квалифицирую входящие запросы, собираю бриф и передаю аккаунт-менеджеру с готовым контекстом для расчета точного медиаплана.",
+      "placeholder_text": "Спросите о Programmatic-рекламе, форматах или таргетингах…"
+    },
+    "tallora_landing_demo": {
+      "display_name": "Tallora",
+      "accent_color": "#075e54",
+      "suggested_questions": [
+        "Какие есть лоферы 42 размера?",
+        "Как работает примерка СДЭК?",
+        "Где находится шоурум в Москве?"
+      ]
+    }
+  }
+}
