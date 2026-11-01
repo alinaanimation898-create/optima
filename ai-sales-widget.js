@@ -266,6 +266,7 @@
   let isOpen = false;
   let isSending = false;
   let sessionId = null;
+  let demoClient = null;
   let messages = [];
 
   // Web Audio synth chime for incoming messages (soft subtle ping)
@@ -847,31 +848,31 @@
     showTypingIndicator();
 
     try {
-      const payload = {
-        message: text,
-        session_id: sessionId,
-        tenant_id: CONFIG.tenantId
-      };
-
-      const res = await fetch(`${CONFIG.apiBaseUrl}/api/v1/demo/chat`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      });
-
-      removeTypingIndicator();
-
-      if (res.status === 429) {
-        throw new Error(T.errWait);
+      // Embed script: use the shared client when the host page includes it, else a plain fetch.
+      let data;
+      if (window.VeraDemoChat) {
+        if (!demoClient) {
+          demoClient = new window.VeraDemoChat({ tenantId: CONFIG.tenantId, apiBase: CONFIG.apiBaseUrl, persistSession: false });
+        }
+        demoClient.sessionId = sessionId || null;
+        try {
+          data = await demoClient.send(text);
+        } catch (e) {
+          removeTypingIndicator();
+          throw new Error(e && e.status === 429 ? T.errWait : `${T.errServer} (${(e && e.status) || ''})`);
+        }
+        removeTypingIndicator();
+      } else {
+        const res = await fetch(`${CONFIG.apiBaseUrl}/api/v1/demo/chat`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: text, session_id: sessionId, tenant_id: CONFIG.tenantId })
+        });
+        removeTypingIndicator();
+        if (res.status === 429) throw new Error(T.errWait);
+        if (!res.ok) throw new Error(`${T.errServer} (${res.status})`);
+        data = await res.json();
       }
-
-      if (!res.ok) {
-        throw new Error(`${T.errServer} (${res.status})`);
-      }
-
-      const data = await res.json();
       if (data && data.session_id) {
         sessionId = data.session_id;
       }
