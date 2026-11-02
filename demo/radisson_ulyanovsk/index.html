@@ -9,30 +9,19 @@
   <meta property="og:title" content="Гостиница Radisson, Ульяновск — ИИ-сотрудник">
   <meta property="og:description" content="Демо ИИ-сотрудника для Гостиница Radisson, Ульяновск">
   <meta property="og:image" content="https://optima.altaiweb.online/demo/assets/brand/radisson_ulyanovsk_vera.jpg">
-  <link rel="stylesheet" href="../../assets/css/vera-demo-chat.css">
-  <style>
-    :root { --accent: #00748C; }
-    body { margin: 0; font-family: Inter, system-ui, sans-serif; background: #fafafa; color: #18181b; }
-    .hero { background: var(--accent); color: #fff; padding: 28px 16px; }
-    .hero-in, .main { max-width: 960px; margin: 0 auto; }
-    .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
-    .brand img { height: 40px; border-radius: 8px; background: #fff; padding: 4px; }
-    .hero h1 { margin: 0 0 8px; font-size: clamp(22px, 5vw, 34px); }
-    .hero p { margin: 0; max-width: 620px; opacity: .92; line-height: 1.5; }
-    .main { padding: 16px; }
-    #chat { background: #fff; border: 1px solid #e4e4e7; border-radius: 14px; overflow: hidden; height: min(74vh, 640px); display: flex; }
-    #chat > .vdc-root { width: 100%; }
-    @media (prefers-color-scheme: dark) { body { background: #09090b; color: #fafafa; } #chat { background: #18181b; border-color: #3f3f46; } }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Inter:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../assets/demo-page.css">
+  <style>body { margin: 0; }</style>
 </head>
 <body>
-  <section class="hero"><div class="hero-in">
-    <div class="brand"><strong>Гостиница Radisson, Ульяновск</strong></div>
-    <h1>ИИ-консьерж Radisson Ульяновск</h1>
-    <p>Вера - ИИ-консьерж отеля. Спросите о номерах, ресторане, Конгресс-центре, террасе и катке.</p>
-  </div></section>
-  <main class="main"><div id="chat"></div></main>
+  <div id="app" class="dp"><div class="dp-err">Загрузка…</div></div>
+  <script>
+    window.DEMO_TENANT = "radisson_ulyanovsk";
+    window.DEMO_OVERRIDES = {"name": "\u0413\u043e\u0441\u0442\u0438\u043d\u0438\u0446\u0430 Radisson, \u0423\u043b\u044c\u044f\u043d\u043e\u0432\u0441\u043a", "accent": "#00748C"};
+  </script>
   <script src="../../assets/js/vera-demo-chat.js"></script>
-  <script>VeraDemoChat.mount(document.getElementById('chat'), { tenantId: "radisson_ulyanovsk" });</script>
+  <script src="../assets/demo-page.js"></script>
 </body>
 </html>
