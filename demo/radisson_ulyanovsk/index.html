@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Гостиница Radisson, Ульяновск — ИИ-сотрудник</title>
+  <meta name="description" content="Демо ИИ-сотрудника для Гостиница Radisson, Ульяновск">
+  <meta property="og:title" content="Гостиница Radisson, Ульяновск — ИИ-сотрудник">
+  <meta property="og:description" content="Демо ИИ-сотрудника для Гостиница Radisson, Ульяновск">
+  
+  <link rel="stylesheet" href="../../assets/css/vera-demo-chat.css">
+  <style>
+    :root { --accent: #00748C; }
+    body { margin: 0; font-family: Inter, system-ui, sans-serif; background: #fafafa; color: #18181b; }
+    .hero { background: var(--accent); color: #fff; padding: 28px 16px; }
+    .hero-in, .main { max-width: 960px; margin: 0 auto; }
+    .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .brand img { height: 40px; border-radius: 8px; background: #fff; padding: 4px; }
+    .hero h1 { margin: 0 0 8px; font-size: clamp(22px, 5vw, 34px); }
+    .hero p { margin: 0; max-width: 620px; opacity: .92; line-height: 1.5; }
+    .main { padding: 16px; }
+    #chat { background: #fff; border: 1px solid #e4e4e7; border-radius: 14px; overflow: hidden; height: min(74vh, 640px); display: flex; }
+    #chat > .vdc-root { width: 100%; }
+    @media (prefers-color-scheme: dark) { body { background: #09090b; color: #fafafa; } #chat { background: #18181b; border-color: #3f3f46; } }
+  </style>
+</head>
+<body>
+  <section class="hero"><div class="hero-in">
+    <div class="brand"><strong>Гостиница Radisson, Ульяновск</strong></div>
+    <h1>ИИ-сотрудник для компании «Гостиница Radisson, Ульяновск»</h1>
+    <p>Задайте любой вопрос о продуктах, ценах и условиях — отвечает так, как ответил бы лучший менеджер.</p>
+  </div></section>
+  <main class="main"><div id="chat"></div></main>
+  <script src="../../assets/js/vera-demo-chat.js"></script>
+  <script>VeraDemoChat.mount(document.getElementById('chat'), { tenantId: "radisson_ulyanovsk" });</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "display_name": "Гостиница Radisson, Ульяновск",
+  "welcome_message": "Здравствуйте! Я ИИ-ассистент компании «Гостиница Radisson, Ульяновск». Чем могу помочь?",
+  "suggested_questions": [
+    "Какие типы номеров есть в отеле и какая у них площадь?",
+    "Как заказать конференц-зал в Конгресс-центре на 200 человек?",
+    "Работает ли каток и летняя терраса?",
+    "Как добраться от аэропорта и вокзала?",
+    "Что такое «Yes I Can!» в Radisson?",
+    "Что есть в ресторане и лобби-баре «Галерея»?"
+  ],
+  "accent_color": "#00748C",
+  "site_url": "https://www.radissonhotels.com",
+  "optima_page_url": "https://optima.altaiweb.online/demo/radisson_ulyanovsk/"
+}
