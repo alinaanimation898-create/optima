@@ -2,7 +2,8 @@
   "tenant_id": "radisson_ulyanovsk",
   "brand_name": "Гостиница Radisson, Ульяновск",
   "accent": "#00748C",
-  "hero_title": "ИИ-сотрудник для компании «Гостиница Radisson, Ульяновск»",
-  "hero_text": "Задайте любой вопрос о продуктах, ценах и условиях — отвечает так, как ответил бы лучший менеджер.",
-  "logo_url": ""
+  "hero_title": "ИИ-консьерж Radisson Ульяновск",
+  "hero_text": "Вера - ИИ-консьерж отеля. Спросите о номерах, ресторане, Конгресс-центре, террасе и катке.",
+  "logo_url": "",
+  "og_image": "https://optima.altaiweb.online/demo/assets/brand/radisson_ulyanovsk_vera.jpg"
 }
