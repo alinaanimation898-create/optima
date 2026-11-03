@@ -1,7 +1,7 @@
 # CLAUDE.md — optima (marketing site + demo stands)
 
 Static site for optima.altaiweb.online (GitHub Pages, `main`). Separate git repo (ignored by the ALTAI root repo).
-Many legacy one-off Python generators live in the root; do not touch them unless asked.
+Unused files (stray site copies, old logo/avatar/font variants, one-off docs) were archived 2026-11-03 to `/home/d/altai_no_vcs/optima_archive_20261103/` (root repo issue #84); they stay in git history.
 
 ## Demo stands
 - `assets/js/vera-demo-chat.js` (+ `assets/css/vera-demo-chat.css`): **the one chat client** (`VeraDemoChat`). Reads
