@@ -3610,15 +3610,37 @@
         function setCfgMode(newMode) {
           if (state.mode === newMode) return;
           state.mode = newMode;
+          const isFixed = (newMode === 'fixed');
+          const isPayg = (newMode === 'payg');
           if (modeFixedBtn) {
-            const isFixed = (newMode === 'fixed');
             modeFixedBtn.classList.toggle('active', isFixed);
             modeFixedBtn.setAttribute('aria-selected', isFixed ? 'true' : 'false');
+            if (isFixed) {
+              modeFixedBtn.style.background = '#ffffff';
+              modeFixedBtn.style.color = '#0369a1';
+              modeFixedBtn.style.borderColor = 'rgba(2, 132, 199, 0.25)';
+              modeFixedBtn.style.boxShadow = '0 2px 8px rgba(2, 132, 199, 0.12)';
+            } else {
+              modeFixedBtn.style.background = 'transparent';
+              modeFixedBtn.style.color = '#64748b';
+              modeFixedBtn.style.borderColor = 'transparent';
+              modeFixedBtn.style.boxShadow = 'none';
+            }
           }
           if (modePaygBtn) {
-            const isPayg = (newMode === 'payg');
             modePaygBtn.classList.toggle('active', isPayg);
             modePaygBtn.setAttribute('aria-selected', isPayg ? 'true' : 'false');
+            if (isPayg) {
+              modePaygBtn.style.background = '#ffffff';
+              modePaygBtn.style.color = '#0369a1';
+              modePaygBtn.style.borderColor = 'rgba(2, 132, 199, 0.25)';
+              modePaygBtn.style.boxShadow = '0 2px 8px rgba(2, 132, 199, 0.12)';
+            } else {
+              modePaygBtn.style.background = 'transparent';
+              modePaygBtn.style.color = '#64748b';
+              modePaygBtn.style.borderColor = 'transparent';
+              modePaygBtn.style.boxShadow = 'none';
+            }
           }
           recalc();
         }

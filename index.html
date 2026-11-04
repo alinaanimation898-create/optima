@@ -129,8 +129,93 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-  <link rel="stylesheet" href="assets/css/style.css?v=4.3">
+  <link rel="stylesheet" href="assets/css/style.css?v=4.4">
   <link rel="stylesheet" href="assets/css/altai-refresh.css?v=3.4">
+  <style id="cfg-mode-toggle-critical-styles">
+    #constructor .cfg-mode-toggle-wrap {
+      width: 100%;
+      margin-bottom: 8px;
+    }
+    #constructor .cfg-mode-toggle {
+      display: flex !important;
+      width: 100% !important;
+      padding: 4px !important;
+      background: #f1f5f9 !important;
+      border: 1px solid #e2e8f0 !important;
+      border-radius: 16px !important;
+      gap: 4px !important;
+      box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.04) !important;
+      box-sizing: border-box !important;
+    }
+    #constructor .cfg-mode-btn {
+      flex: 1 1 0% !important;
+      padding: 10px 12px !important;
+      border-radius: 12px !important;
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      text-align: center !important;
+      color: #64748b !important;
+      background: transparent !important;
+      border: 1px solid transparent !important;
+      cursor: pointer !important;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      user-select: none !important;
+      line-height: 1.25 !important;
+      font-family: inherit !important;
+      box-sizing: border-box !important;
+    }
+    @media (max-width: 480px) {
+      #constructor .cfg-mode-btn {
+        padding: 8px 6px !important;
+        font-size: 12px !important;
+      }
+    }
+    #constructor .cfg-mode-btn:hover:not(.active) {
+      color: #0f172a !important;
+      background: rgba(255, 255, 255, 0.6) !important;
+    }
+    #constructor .cfg-mode-btn:focus-visible {
+      outline: 2px solid #0284c7 !important;
+      outline-offset: 1px !important;
+    }
+    #constructor .cfg-mode-btn.active {
+      background: #ffffff !important;
+      color: #0369a1 !important;
+      border-color: rgba(2, 132, 199, 0.25) !important;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.12), 0 1px 2px rgba(15, 23, 42, 0.04) !important;
+    }
+    #constructor .cfg-mode-subtitle {
+      font-size: 11.5px !important;
+      color: #64748b !important;
+      margin-top: 8px !important;
+      line-height: 1.4 !important;
+      padding-left: 2px !important;
+      padding-right: 2px !important;
+    }
+    #constructor #cfgComparisonNotice.notice-fixed-cheaper {
+      background: rgba(2, 132, 199, 0.12) !important;
+      border-color: rgba(56, 189, 248, 0.35) !important;
+      color: #e0f2fe !important;
+    }
+    #constructor #cfgComparisonNotice.notice-payg-cheaper {
+      background: rgba(16, 185, 129, 0.12) !important;
+      border-color: rgba(52, 211, 153, 0.35) !important;
+      color: #d1fae5 !important;
+    }
+    #constructor #cfgComparisonNotice .cfg-switch-mode-link {
+      color: #38bdf8 !important;
+      font-weight: 700 !important;
+      text-decoration: underline !important;
+      cursor: pointer !important;
+      background: none !important;
+      border: none !important;
+      padding: 0 !important;
+      margin-left: 6px !important;
+      font-size: inherit !important;
+      display: inline-flex !important;
+      align-items: center !important;
+    }
+  </style>
   <style id="flowing-connector-styles">
     .flowing-connector-link {
       display: block;
@@ -3537,12 +3622,12 @@
           <div class="cfg-cards-grid">
 
             <!-- ПЕРЕКЛЮЧАТЕЛЬ: ФИКСИРОВАННЫЙ ТАРИФ / ОПЛАТА ПО ФАКТУ -->
-            <div class="cfg-mode-toggle-wrap">
-              <div class="cfg-mode-toggle" role="tablist" aria-label="Вариант оплаты">
-                <button type="button" id="cfgModeFixedBtn" class="cfg-mode-btn active" role="tab" aria-selected="true" data-mode="fixed">Фиксированный тариф</button>
-                <button type="button" id="cfgModePaygBtn" class="cfg-mode-btn" role="tab" aria-selected="false" data-mode="payg">Оплата по факту</button>
+            <div class="cfg-mode-toggle-wrap w-full mb-2 select-none">
+              <div class="cfg-mode-toggle flex w-full p-1 bg-slate-100 rounded-2xl border border-slate-200/90 shadow-2xs gap-1" role="tablist" aria-label="Вариант оплаты" style="display:flex; width:100%; padding:4px; background:#f1f5f9; border:1px solid #e2e8f0; border-radius:16px; gap:4px; box-sizing:border-box;">
+                <button type="button" id="cfgModeFixedBtn" class="cfg-mode-btn active flex-1 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm text-center cursor-pointer transition-all bg-white text-sky-800 shadow-xs border border-sky-200" role="tab" aria-selected="true" data-mode="fixed" style="flex:1 1 0%; padding:10px 12px; border-radius:12px; font-weight:700; cursor:pointer; background:#ffffff; color:#0369a1; border:1px solid rgba(2,132,199,0.25); box-shadow:0 2px 8px rgba(2,132,199,0.12); line-height:1.25; font-family:inherit;">Фиксированный тариф</button>
+                <button type="button" id="cfgModePaygBtn" class="cfg-mode-btn flex-1 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm text-center cursor-pointer transition-all text-slate-600 hover:text-slate-900 bg-transparent border border-transparent" role="tab" aria-selected="false" data-mode="payg" style="flex:1 1 0%; padding:10px 12px; border-radius:12px; font-weight:700; cursor:pointer; background:transparent; color:#64748b; border:1px solid transparent; line-height:1.25; font-family:inherit;">Оплата по факту</button>
               </div>
-              <div class="cfg-mode-subtitle">
+              <div class="cfg-mode-subtitle text-[11.5px] text-slate-500 mt-2 px-1 leading-relaxed" style="font-size:11.5px; color:#64748b; margin-top:8px; line-height:1.4;">
                 Фикс - понятная сумма каждый месяц. По факту - платите только за реальные диалоги, выгодно в тихие месяцы.
               </div>
             </div>
@@ -4106,7 +4191,7 @@
       </div>
     </footer>
   <script defer src="assets/js/vera-demo-chat.js?v=1"></script>
-  <script defer src="assets/js/main.js?v=3.7"></script>
+  <script defer src="assets/js/main.js?v=3.8"></script>
   <!-- Обновление 21.09.2026: новые механики (после main.js) -->
   <script defer src="assets/js/altai-refresh.js?v=3.3"></script>
 
