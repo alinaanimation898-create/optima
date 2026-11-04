@@ -3399,7 +3399,7 @@
           // Запуск зависит от тарифа. Учётные системы (1С, МойСклад) - разовая доплата к запуску
           heavySetupExtra: 30000,
           heavyCrmIds: ['1c', 'moysklad'],
-          sliderMax: 5000,
+          sliderMax: 10000,
           ctaUrl: 'https://t.me/altaioptima',
           tariffs: [
             {
@@ -3440,12 +3440,12 @@
               id: 'empire',
               name: 'Империя',
               maxLimit: Infinity,
-              limitLabel: 'больше 3000',
-              detailsLimit: 'индивидуально',
+              limitLabel: 'до 5 000, далее +20 000 ₽ / 1 000',
+              detailsLimit: 'до 5 000 диалогов, далее +20 000 ₽ за каждую 1 000',
               monthlyPrice: 99000,
               setupPrice: 99000,
-              presetSliderValue: 4000,
-              isCustom: true // приставка "от "
+              presetSliderValue: 5000,
+              isCustom: false
             }
           ]
         };
@@ -3532,11 +3532,30 @@
 
         // Состояние конструктора
         const state = {
+          mode: 'fixed', // 'fixed' | 'payg'
           sliderValue: 800,
           billingPeriod: 'monthly', // 'monthly' | 'annual'
           channels: {},
           crms: {}
         };
+
+        // Функция расчёта оплаты по факту
+        function payAsYouGo(n) {
+          let s = 15000;
+          s += Math.min(n, 1000) * 30;
+          if (n > 1000) s += (Math.min(n, 3000) - 1000) * 20;
+          if (n > 3000) s += (n - 3000) * 17;
+          return s;
+        }
+
+        // Функция расчёта стоимости фиксированного тарифа (для Империи > 5000: +20 000 за каждую 1000)
+        function getFixedMonthlyPrice(tariff, vol) {
+          if (tariff.id === 'empire' && vol > 5000) {
+            const extraThousands = Math.ceil((vol - 5000) / 1000);
+            return tariff.monthlyPrice + extraThousands * 20000;
+          }
+          return tariff.monthlyPrice;
+        }
 
         // Инициализация чекбоксов
         CHANNELS.forEach(c => { state.channels[c.id] = c.defaultChecked; });
@@ -3585,6 +3604,32 @@
         const tariffBadge = document.getElementById('cfgCurrentTariffBadge');
         const tariffsStrip = document.getElementById('cfgTariffsStrip');
         const billingBtns = document.querySelectorAll('.cfg-billing-btn');
+        const modeFixedBtn = document.getElementById('cfgModeFixedBtn');
+        const modePaygBtn = document.getElementById('cfgModePaygBtn');
+
+        function setCfgMode(newMode) {
+          if (state.mode === newMode) return;
+          state.mode = newMode;
+          if (modeFixedBtn) {
+            const isFixed = (newMode === 'fixed');
+            modeFixedBtn.classList.toggle('active', isFixed);
+            modeFixedBtn.setAttribute('aria-selected', isFixed ? 'true' : 'false');
+          }
+          if (modePaygBtn) {
+            const isPayg = (newMode === 'payg');
+            modePaygBtn.classList.toggle('active', isPayg);
+            modePaygBtn.setAttribute('aria-selected', isPayg ? 'true' : 'false');
+          }
+          recalc();
+        }
+        window.setCfgMode = setCfgMode;
+
+        if (modeFixedBtn) {
+          modeFixedBtn.addEventListener('click', () => setCfgMode('fixed'));
+        }
+        if (modePaygBtn) {
+          modePaygBtn.addEventListener('click', () => setCfgMode('payg'));
+        }
 
         function renderChannelsList() {
           if (!channelsEl) return;
@@ -3658,6 +3703,7 @@
             if (!card) return;
             const sliderTarget = parseInt(card.dataset.slider, 10);
             if (!isNaN(sliderTarget)) {
+              if (state.mode !== 'fixed') setCfgMode('fixed');
               setVolume(sliderTarget);
             }
           });
@@ -3669,6 +3715,7 @@
                 e.preventDefault();
                 const sliderTarget = parseInt(card.dataset.slider, 10);
                 if (!isNaN(sliderTarget)) {
+                  if (state.mode !== 'fixed') setCfgMode('fixed');
                   setVolume(sliderTarget);
                 }
               }
@@ -3684,6 +3731,7 @@
               if (!isNaN(idx) && tariffCards[idx]) {
                 const sliderTarget = parseInt(tariffCards[idx].dataset.slider, 10);
                 if (!isNaN(sliderTarget)) {
+                  if (state.mode !== 'fixed') setCfgMode('fixed');
                   setVolume(sliderTarget);
                 }
                 tariffCards[idx].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
@@ -3774,24 +3822,29 @@
 
         // Основная функция пересчета стоимости и обновления интерфейса
         function recalc() {
+          const isPayg = (state.mode === 'payg');
           const tariff = getTariffByVolume(state.sliderValue);
-          const isAnnual = (state.billingPeriod === 'annual');
-          const isEmpire = tariff.isCustom;
-          const prefix = isEmpire ? 'от\u00A0' : '';
+          const fixedMonthly = getFixedMonthlyPrice(tariff, state.sliderValue);
+          const paygMonthly = payAsYouGo(state.sliderValue);
+          const monthly = isPayg ? paygMonthly : fixedMonthly;
 
           // 1. Отображение ползунка и бейджа
           if (sliderDisplay) {
-            sliderDisplay.textContent = (state.sliderValue >= TARIFF_CONFIG.sliderMax) ? `${TARIFF_CONFIG.sliderMax}+` : `${state.sliderValue}\u00A0${isEn ? 'chats' : 'диалогов'}`;
+            sliderDisplay.textContent = (state.sliderValue >= TARIFF_CONFIG.sliderMax)
+              ? `${formatPrice(TARIFF_CONFIG.sliderMax)}+`
+              : `${formatPrice(state.sliderValue)}\u00A0${isEn ? 'chats' : 'диалогов'}`;
           }
           if (tariffBadge) {
-            tariffBadge.textContent = isEn ? `plan «${tariff.name}»` : `тариф «${tariff.name}»`;
+            tariffBadge.textContent = isPayg
+              ? (isEn ? 'Pay-as-you-go' : 'Оплата по факту')
+              : (isEn ? `plan «${tariff.name}»` : `тариф «${tariff.name}»`);
           }
 
           // 2. Подсветка активной карточки тарифа в полосе и синхронизация точек
           if (tariffsStrip) {
-            let activeIdx = 0;
+            let activeIdx = -1;
             tariffCards.forEach((card, idx) => {
-              const isActive = (card.dataset.tariff === tariff.id);
+              const isActive = !isPayg && (card.dataset.tariff === tariff.id);
               card.classList.toggle('active', isActive);
               card.setAttribute('aria-pressed', isActive ? 'true' : 'false');
               if (isActive) {
@@ -3808,54 +3861,135 @@
           const hasHeavyCrm = TARIFF_CONFIG.heavyCrmIds.some(id => state.crms[id]);
           const setupExtra = hasHeavyCrm ? TARIFF_CONFIG.heavySetupExtra : 0;
           const setup = tariff.setupPrice + setupExtra;
-          const monthly = tariff.monthlyPrice;
 
           const cfgSetupTotalEl = document.getElementById('cfgSetupTotal');
           if (cfgSetupTotalEl) {
-            cfgSetupTotalEl.textContent = `${prefix}${formatPrice(setup)}\u00A0₽`;
+            cfgSetupTotalEl.textContent = `${formatPrice(setup)}\u00A0₽`;
           }
 
           const subPrefixEl = document.getElementById('cfgSubPrefix');
           const monthlyTotalEl = document.getElementById('monthlyTotal');
+          const subUnitLabelEl = document.getElementById('cfgSubUnitLabel');
+          const subPeriodLabelEl = document.getElementById('cfgSubPeriodLabel');
 
           if (subPrefixEl) {
-            subPrefixEl.classList.toggle('hidden', !isEmpire);
+            subPrefixEl.classList.add('hidden');
           }
 
           if (monthlyTotalEl) {
             monthlyTotalEl.textContent = formatPrice(monthly);
           }
 
-          // 4. Итог за первый год убран по требованию
+          if (subUnitLabelEl) {
+            subUnitLabelEl.textContent = isPayg ? '' : '/\u00A0мес';
+          }
 
-          // 5. Раскрывашка «Подробнее»
+          if (subPeriodLabelEl) {
+            subPeriodLabelEl.textContent = isPayg ? '₽/мес, по факту диалогов' : 'со 2-го месяца';
+          }
+
+          // 4. Подсказка ℹ️ под слайдером
+          const sliderNoticeEl = document.getElementById('cfgSliderNotice');
+          if (sliderNoticeEl) {
+            if (isPayg) {
+              sliderNoticeEl.textContent = 'Каждая цена действует только внутри своей ступени. Переключиться между вариантами можно с начала любого месяца.';
+            } else {
+              sliderNoticeEl.textContent = 'Если диалогов станет больше лимита, мы предупредим и предложим тариф выше со следующего месяца - без штрафов и без отключения.';
+            }
+          }
+
+          // 5. Строка-подсказка сравнения тарифов (только для режима по факту)
+          const compNoticeEl = document.getElementById('cfgComparisonNotice');
+          if (compNoticeEl) {
+            if (isPayg) {
+              if (fixedMonthly < paygMonthly) {
+                const diff = paygMonthly - fixedMonthly;
+                compNoticeEl.className = 'my-2 p-2.5 rounded-xl text-xs leading-snug border transition-all notice-fixed-cheaper';
+                compNoticeEl.innerHTML = `На вашем объёме тариф «${tariff.name}» выйдет на ${formatPrice(diff)}\u00A0₽ дешевле <button type="button" onclick="setCfgMode('fixed')" class="cfg-switch-mode-link">Переключить</button>`;
+              } else if (paygMonthly < fixedMonthly) {
+                const diff = fixedMonthly - paygMonthly;
+                compNoticeEl.className = 'my-2 p-2.5 rounded-xl text-xs leading-snug border transition-all notice-payg-cheaper';
+                compNoticeEl.innerHTML = `По факту выгоднее тарифа на ${formatPrice(diff)}\u00A0₽ в месяц`;
+              } else {
+                compNoticeEl.className = 'hidden';
+                compNoticeEl.innerHTML = '';
+              }
+            } else {
+              compNoticeEl.className = 'hidden';
+              compNoticeEl.innerHTML = '';
+            }
+          }
+
+          // 6. Раскрывашка «Подробнее»
           const cfgDetailsRowsEl = document.getElementById('cfgDetailsRows');
           if (cfgDetailsRowsEl) {
             const activeChannelsCount = Object.values(state.channels).filter(Boolean).length;
             const activeCrmsCount = Object.values(state.crms).filter(Boolean).length;
 
-            const setupValRu = `${prefix}${formatPrice(setup)}\u00A0₽ разово`;
-            const setupValEn = `${prefix}${formatPrice(setup)} ₽ one-time`;
+            const setupValRu = `${formatPrice(setup)}\u00A0₽ разово`;
+            const setupValEn = `${formatPrice(setup)} ₽ one-time`;
             const heavyRowRu = hasHeavyCrm ? [{ name: 'Подключение 1С / МойСклад', val: '+30\u00A0000\u00A0₽' }] : [];
             const heavyRowEn = hasHeavyCrm ? [{ name: '1C / MoySklad integration', val: '+30\u00A0000\u00A0₽' }] : [];
 
-            const rows = isEn ? [
-              { name: 'Plan', val: tariff.name },
-              { name: 'Dialogue Limit', val: tariff.detailsLimit },
-              { name: `Channels: ${getChannelsCountText(activeChannelsCount)}`, val: '0\u00A0₽' },
-              { name: `CRM Tracking: ${getCrmCountText(activeCrmsCount)}`, val: '0\u00A0₽' },
-              { name: 'Pay-per-dialogue fee', val: 'None' },
-              ...heavyRowEn,
-              { name: 'Setup & Onboarding', val: setupValEn }
-            ] : [
-              { name: 'Тариф', val: tariff.name },
-              { name: 'Лимит диалогов', val: tariff.detailsLimit },
-              { name: `Каналы: ${getChannelsCountText(activeChannelsCount)}`, val: '0\u00A0₽' },
-              { name: `Учёт клиентов: ${getCrmCountText(activeCrmsCount)}`, val: '0\u00A0₽' },
-              { name: 'Оплата за отдельные диалоги', val: 'нет' },
-              ...heavyRowRu,
-              { name: 'Запуск', val: setupValRu }
-            ];
+            let rows = [];
+            if (isPayg) {
+              const n = state.sliderValue;
+              const count1 = Math.min(n, 1000);
+              const sum1 = count1 * 30;
+              const tier1Row = count1 > 0 ? [{ name: `Диалоги 1-1 000 (${formatPrice(count1)} × 30 ₽)`, val: `${formatPrice(sum1)}\u00A0₽` }] : [];
+
+              let tier2Row = [];
+              if (n > 1000) {
+                const count2 = Math.min(n, 3000) - 1000;
+                const sum2 = count2 * 20;
+                tier2Row = [{ name: `Диалоги 1 001-3 000 (${formatPrice(count2)} × 20 ₽)`, val: `${formatPrice(sum2)}\u00A0₽` }];
+              }
+
+              let tier3Row = [];
+              if (n > 3000) {
+                const count3 = n - 3000;
+                const sum3 = count3 * 17;
+                tier3Row = [{ name: `Диалоги от 3 001 (${formatPrice(count3)} × 17 ₽)`, val: `${formatPrice(sum3)}\u00A0₽` }];
+              }
+
+              rows = isEn ? [
+                { name: 'Platform fee', val: '15\u00A0000\u00A0₽/mo' },
+                ...tier1Row,
+                ...tier2Row,
+                ...tier3Row,
+                { name: `Channels: ${getChannelsCountText(activeChannelsCount)}`, val: '0\u00A0₽' },
+                { name: `CRM Tracking: ${getCrmCountText(activeCrmsCount)}`, val: '0\u00A0₽' },
+                ...heavyRowEn,
+                { name: 'Setup & Onboarding', val: setupValEn }
+              ] : [
+                { name: 'Платформа', val: '15\u00A0000\u00A0₽/мес' },
+                ...tier1Row,
+                ...tier2Row,
+                ...tier3Row,
+                { name: `Каналы: ${getChannelsCountText(activeChannelsCount)}`, val: '0\u00A0₽' },
+                { name: `Учёт клиентов: ${getCrmCountText(activeCrmsCount)}`, val: '0\u00A0₽' },
+                ...heavyRowRu,
+                { name: 'Запуск', val: setupValRu }
+              ];
+            } else {
+              rows = isEn ? [
+                { name: 'Plan', val: tariff.name },
+                { name: 'Dialogue Limit', val: tariff.detailsLimit },
+                { name: `Channels: ${getChannelsCountText(activeChannelsCount)}`, val: '0\u00A0₽' },
+                { name: `CRM Tracking: ${getCrmCountText(activeCrmsCount)}`, val: '0\u00A0₽' },
+                { name: 'Pay-per-dialogue fee', val: 'None' },
+                ...heavyRowEn,
+                { name: 'Setup & Onboarding', val: setupValEn }
+              ] : [
+                { name: 'Тариф', val: tariff.name },
+                { name: 'Лимит диалогов', val: tariff.detailsLimit },
+                { name: `Каналы: ${getChannelsCountText(activeChannelsCount)}`, val: '0\u00A0₽' },
+                { name: `Учёт клиентов: ${getCrmCountText(activeCrmsCount)}`, val: '0\u00A0₽' },
+                { name: 'Оплата за отдельные диалоги', val: 'нет' },
+                ...heavyRowRu,
+                { name: 'Запуск', val: setupValRu }
+              ];
+            }
 
             cfgDetailsRowsEl.innerHTML = rows.map(r => `
               <tr class="hover:bg-white/5 transition-colors">
@@ -3865,35 +3999,53 @@
             `).join('');
           }
 
-          // 6. Мобильная закрепленная панель
+          // 7. Мобильная закрепленная панель
           const mobSetupTotal = document.getElementById('mobSetupTotal');
           const mobMonthlyTotal = document.getElementById('mobMonthlyTotal');
-          if (mobSetupTotal) mobSetupTotal.textContent = `${prefix}${formatPrice(setup)}`;
+          if (mobSetupTotal) mobSetupTotal.textContent = `${formatPrice(setup)}`;
           if (mobMonthlyTotal) {
-            mobMonthlyTotal.textContent = `${prefix}${formatPrice(monthly)}\u00A0` + (isEn ? '₽/mo' : '₽/мес');
+            mobMonthlyTotal.textContent = `${formatPrice(monthly)}\u00A0` + (isEn ? '₽/mo' : '₽/мес');
           }
 
-          // 7. Кнопка «Интегрировать Веру»
+          // 8. Кнопка «Интегрировать Веру»
           const ctaBtn = document.getElementById('ctaBtn');
           if (ctaBtn) {
             const activeChNames = CHANNELS.filter(c => state.channels[c.id]).map(c => c.label.replace(/\*+/g, '')).join(', ') || 'Без каналов';
             const activeCrmNames = CRMS.filter(c => state.crms[c.id]).map(c => c.label).join(', ') || 'Без CRM';
 
-            const tgMsg = isEn ? `Hello! I would like to integrate Vera:
-• Plan: «${tariff.name}» (${tariff.detailsLimit})
+            const tgMsg = isEn ? (isPayg ? `Hello! I would like to integrate Vera:
+• Payment: pay-as-you-go
+• Plan: pay-as-you-go
 • Volume: ~${state.sliderValue} chats/month
-• Setup: ${prefix}${formatPrice(setup)} ₽ one-time
-• Subscription: ${prefix}${formatPrice(monthly)} ₽/mo
+• Setup: ${formatPrice(setup)} ₽ one-time
+• Subscription: ${formatPrice(paygMonthly)} ₽/mo
 • Channels: ${activeChNames}
 • CRM: ${activeCrmNames}
-Ready to discuss deployment!` : `Здравствуйте! Хочу интегрировать Веру:
-• Тариф: «${tariff.name}» (${tariff.detailsLimit})
+Ready to discuss deployment!` : `Hello! I would like to integrate Vera:
+• Payment: fixed plan
+• Plan: «${tariff.name}» (${tariff.detailsLimit})
+• Volume: ~${state.sliderValue} chats/month
+• Setup: ${formatPrice(setup)} ₽ one-time
+• Subscription: ${formatPrice(fixedMonthly)} ₽/mo
+• Channels: ${activeChNames}
+• CRM: ${activeCrmNames}
+Ready to discuss deployment!`) : (isPayg ? `Здравствуйте! Хочу интегрировать Веру:
+• Оплата: по факту диалогов
+• Тариф: оплата по факту
 • Объём: ~${state.sliderValue} диалогов в месяц
-• Запуск: ${prefix}${formatPrice(setup)} ₽ разово
-• Подписка: ${prefix}${formatPrice(monthly)} ₽/мес
+• Запуск: ${formatPrice(setup)} ₽ разово
+• Подписка: ${formatPrice(paygMonthly)} ₽/мес
 • Каналы: ${activeChNames}
 • Учёт клиентов: ${activeCrmNames}
-Готов обсудить запуск!`;
+Готов обсудить запуск!` : `Здравствуйте! Хочу интегрировать Веру:
+• Оплата: фиксированный тариф
+• Тариф: «${tariff.name}» (${tariff.detailsLimit})
+• Объём: ~${state.sliderValue} диалогов в месяц
+• Запуск: ${formatPrice(setup)} ₽ разово
+• Подписка: ${formatPrice(fixedMonthly)} ₽/мес
+• Каналы: ${activeChNames}
+• Учёт клиентов: ${activeCrmNames}
+Готов обсудить запуск!`);
 
             ctaBtn.href = `${TARIFF_CONFIG.ctaUrl}?text=${encodeURIComponent(tgMsg)}`;
           }
