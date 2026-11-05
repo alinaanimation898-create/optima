@@ -97,7 +97,8 @@
     var footerLogo = asset(lg.footer_logo) || asset(cfg.logo_url);
     var hero = ov.hero_description || cfg.hero_description || lg.hero_description || DEFAULT_HERO;
     var placeholder = cfg.placeholder_text || lg.placeholder || 'Задайте любой вопрос по продукции, ценам или услугам...';
-    var chips = (cfg.suggested_questions && cfg.suggested_questions.length ? cfg.suggested_questions : lg.suggested_questions) || [];
+    // brands.json "hide_questions": true keeps the chat window free of suggestion chips (they hide replies on phones).
+    var chips = lg.hide_questions ? [] : (cfg.suggested_questions && cfg.suggested_questions.length ? cfg.suggested_questions : lg.suggested_questions) || [];
     var integrations = lg.integrations && lg.integrations.length ? lg.integrations : DEFAULT_INTEGRATIONS;
 
     document.title = 'Демо ALTAI Optima + ' + name;
@@ -125,7 +126,7 @@
             '<div class="dp-name"><b>Вера</b><small>консультант ' + esc(name) + ' · <span class="dp-status">в сети</span></small></div></div>' +
             '<button type="button" class="dp-reset" title="Начать диалог сначала" aria-label="Сбросить диалог">' + ICON_RESET + '<span>Новый диалог</span></button></div>' +
           '<div class="dp-stream" role="log" aria-live="polite"><div class="dp-day">Сегодня</div></div>' +
-          '<div class="dp-foot"><div class="dp-chips"></div>' +
+          '<div class="dp-foot">' + (chips.length ? '<div class="dp-chips"></div>' : '') +
             '<form class="dp-form"><input class="dp-input" type="text" autocomplete="off" maxlength="' + (cfg.max_message_length || 4000) + '" placeholder="' + esc(placeholder) + '">' +
             '<button class="dp-send" type="submit" aria-label="Отправить" disabled>' + ICON_SEND + '</button></form></div>' +
         '</section>' +
