@@ -3,7 +3,7 @@ name: create-demo
 description: >-
   Create a new demo stand (demo tenant + knowledge base + branded page) for ALTAI Optima from a company website.
   Crawls the site, builds the Vera knowledge base, creates a demo tenant through the demo-admin API with your
-  personal key, saves the presentation (welcome text, suggested questions, brand color), generates
+  personal key, saves the presentation (welcome text, brand color; no suggested questions), generates
   demo/<id>/index.html in this repo and runs a smoke test. Demo tenants only; live clients are unreachable.
   Use when asked to "создать демо", "сделай демо для сайта X", "new demo for <company>".
 ---
@@ -28,7 +28,7 @@ python3 .claude/skills/create-demo/scripts/create_demo.py \
   --name "Example" --tenant-id example --accent "#C8102E" --commit
 ```
 Optional: `--extra-materials brief.txt` (file or text), `--kb-file my_kb.md` (use your own knowledge base),
-`--questions "Q1" "Q2" ...`, `--logo-url https://...`, `--no-page`, `--no-smoke-test`.
+`--questions "Q1" ...` (smoke test only: demos never show suggested-question chips), `--logo-url https://...`, `--no-page`, `--no-smoke-test`.
 
 What it does: crawl → knowledge base (`prompt_builder.py`, structure in `references/knowledge_base_template.md`) →
 `POST /demo-admin/tenants` (409 if the id exists: use **update-demo**) → `PUT .../kb` → `PUT .../presentation` →
