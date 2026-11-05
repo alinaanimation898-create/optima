@@ -3443,9 +3443,9 @@
           const btn = document.getElementById('cfgChannelBtn_' + c);
           if (!btn) return;
           if (c === ch) {
-            btn.className = 'cfg-channel-btn active px-3 py-2.5 rounded-xl border text-xs font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer bg-white text-sky-800 border-white shadow-md font-inter';
+            btn.className = 'cfg-channel-btn active px-3 py-2.5 rounded-xl border text-xs font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer bg-sky-600 text-white border-sky-600 shadow-sm font-inter';
           } else {
-            btn.className = 'cfg-channel-btn px-3 py-2.5 rounded-xl border border-white/20 bg-white/10 hover:bg-white/20 text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer font-inter';
+            btn.className = 'cfg-channel-btn px-3 py-2.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer font-inter';
           }
         });
 
