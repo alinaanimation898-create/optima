@@ -3412,100 +3412,74 @@
         if (e.key === 'Escape') window.closePaygModal();
       });
 
-      (function initTariffConstructor() {
-        // 1. ЕДИНЫЙ ОБЪЕКТ-КОНФИГ ЦЕН, ЛИМИТОВ И ССЫЛОК
-        const TARIFF_CONFIG = {
-          heavySetupExtra: 30000,
-          heavyCrmIds: ['1c', 'moysklad'],
-          sliderMax: 10000,
-          ctaUrl: 'https://t.me/altaioptima',
-          tariffs: [
-            {
-              id: 'start',
-              name: 'Старт',
-              maxLimit: 500,
-              limitLabel: 'до 500',
-              detailsLimit: 'до 500 в месяц',
-              monthlyPrice: 25000,
-              setupPrice: 29000,
-              presetSliderValue: 500,
-              isCustom: false
-            },
-            {
-              id: 'business',
-              name: 'Бизнес',
-              maxLimit: 1200,
-              limitLabel: 'до 1200',
-              detailsLimit: 'до 1200 в месяц',
-              monthlyPrice: 39000,
-              setupPrice: 39000,
-              badge: 'выбирают чаще',
-              presetSliderValue: 1200,
-              isCustom: false
-            },
-            {
-              id: 'stream',
-              name: 'Поток',
-              maxLimit: 3000,
-              limitLabel: 'до 3000',
-              detailsLimit: 'до 3000 в месяц',
-              monthlyPrice: 59000,
-              setupPrice: 59000,
-              presetSliderValue: 3000,
-              isCustom: false
-            },
-            {
-              id: 'empire',
-              name: 'Империя',
-              maxLimit: Infinity,
-              limitLabel: 'до 5 000, далее +20 000 ₽ / 1 000',
-              detailsLimit: 'до 5 000 диалогов, далее +20 000 ₽ за каждую 1 000',
-              monthlyPrice: 99000,
-              setupPrice: 99000,
-              presetSliderValue: 5000,
-              isCustom: false
-            }
-          ]
-        };
+      // ОБРАБОТЧИКИ ФОРМЫ ТЕСТ-ДРАЙВА В КОНФИГУРАТОРЕ
+      window.selectCfgTrialChannel = function(ch) {
+        const hiddenInput = document.getElementById('cfgTrialChannel');
+        const contactInput = document.getElementById('cfgTrialContact');
+        const contactLabel = document.getElementById('cfgTrialContactLabel');
+        if (hiddenInput) hiddenInput.value = ch;
 
-        // Состояние конструктора
-        const state = {
-          sliderValue: 800
-        };
-
-        // Функция расчёта стоимости тарифа (для Империи > 5000: +20 000 за каждую полную/неполную 1000)
-        function getFixedMonthlyPrice(tariff, vol) {
-          if (tariff.id === 'empire' && vol > 5000) {
-            const extraThousands = Math.ceil((vol - 5000) / 1000);
-            return tariff.monthlyPrice + extraThousands * 20000;
+        ['Telegram', 'WhatsApp', 'Почта'].forEach(c => {
+          const btn = document.getElementById('cfgChannelBtn_' + c);
+          if (!btn) return;
+          if (c === ch) {
+            btn.className = 'cfg-channel-btn active px-3 py-2.5 rounded-xl border text-xs font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer bg-white text-sky-800 border-white shadow-md font-inter';
+          } else {
+            btn.className = 'cfg-channel-btn px-3 py-2.5 rounded-xl border border-white/20 bg-white/10 hover:bg-white/20 text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer font-inter';
           }
-          return tariff.monthlyPrice;
+        });
+
+        if (contactLabel && contactInput) {
+          if (ch === 'Telegram') {
+            contactLabel.textContent = 'Номер или ник в Telegram';
+            contactInput.placeholder = '@username или +7 (999) 000-00-00';
+          } else if (ch === 'WhatsApp') {
+            contactLabel.textContent = 'Номер в WhatsApp';
+            contactInput.placeholder = '+7 (999) 000-00-00';
+          } else {
+            contactLabel.textContent = 'Электронная почта';
+            contactInput.placeholder = 'name@company.ru';
+          }
+        }
+      };
+
+      window.handleCfgTrialSubmit = function(e) {
+        e.preventDefault();
+        const form = document.getElementById('cfgTrialForm');
+        const successBlock = document.getElementById('cfgTrialSuccess');
+        const name = document.getElementById('cfgTrialName')?.value || '';
+        const site = document.getElementById('cfgTrialSite')?.value || '';
+        const channel = document.getElementById('cfgTrialChannel')?.value || 'Telegram';
+        const contact = document.getElementById('cfgTrialContact')?.value || '';
+
+        const payload = {
+          name: name,
+          site: site,
+          channel: channel,
+          contact: contact,
+          source: 'constructor_trial_form'
+        };
+
+        if (window.handleTrialSubmitData) {
+          window.handleTrialSubmitData(payload);
+        } else {
+          try {
+            fetch('/api/leads', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            }).catch(() => {});
+          } catch (err) {}
         }
 
-        // Форматирование чисел с неразрывным пробелом
-        const formatPrice = (v) => v.toLocaleString('ru-RU').replace(/\s/g, '\u00A0');
+        if (form) form.classList.add('hidden');
+        if (successBlock) successBlock.classList.remove('hidden');
+      };
 
-        function getTariffByVolume(vol) {
-          return TARIFF_CONFIG.tariffs.find(t => vol <= t.maxLimit) || TARIFF_CONFIG.tariffs[3];
-        }
-
-        const sliderEl = document.getElementById('cfgVolumeSlider');
-        const sliderDisplay = document.getElementById('cfgSliderValueDisplay');
+      (function initTariffConstructor() {
         const tariffsStrip = document.getElementById('cfgTariffsStrip');
         const mobileDots = document.getElementById('cfgMobileDots');
         const tariffCards = tariffsStrip ? Array.from(tariffsStrip.querySelectorAll('.cfg-tariff-card')) : [];
-
-        // Лимиты и пресеты берём из конфига
-        if (sliderEl) {
-          sliderEl.max = TARIFF_CONFIG.sliderMax;
-          sliderEl.setAttribute('aria-valuemax', TARIFF_CONFIG.sliderMax);
-        }
-        if (tariffsStrip) {
-          tariffsStrip.querySelectorAll('.cfg-tariff-card').forEach(card => {
-            const t = TARIFF_CONFIG.tariffs.find(x => x.id === card.dataset.tariff);
-            if (t) card.dataset.slider = t.presetSliderValue;
-          });
-        }
 
         function updateMobileDots(activeIndex) {
           if (!mobileDots) return;
@@ -3519,10 +3493,12 @@
           tariffsStrip.addEventListener('click', e => {
             const card = e.target.closest('.cfg-tariff-card');
             if (!card) return;
-            const sliderTarget = parseInt(card.dataset.slider, 10);
-            if (!isNaN(sliderTarget)) {
-              setVolume(sliderTarget);
-            }
+            tariffCards.forEach((c, idx) => {
+              const isActive = (c === card);
+              c.classList.toggle('active', isActive);
+              c.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+              if (isActive) updateMobileDots(idx);
+            });
           });
 
           tariffsStrip.addEventListener('keydown', e => {
@@ -3530,25 +3506,27 @@
               const card = e.target.closest('.cfg-tariff-card');
               if (card) {
                 e.preventDefault();
-                const sliderTarget = parseInt(card.dataset.slider, 10);
-                if (!isNaN(sliderTarget)) {
-                  setVolume(sliderTarget);
-                }
+                tariffCards.forEach((c, idx) => {
+                  const isActive = (c === card);
+                  c.classList.toggle('active', isActive);
+                  c.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                  if (isActive) updateMobileDots(idx);
+                });
               }
             }
           });
 
-          // Мобильные точки пагинации
           if (mobileDots) {
             mobileDots.addEventListener('click', e => {
               const dot = e.target.closest('.cfg-mobile-dot');
               if (!dot) return;
               const idx = parseInt(dot.dataset.index, 10);
               if (!isNaN(idx) && tariffCards[idx]) {
-                const sliderTarget = parseInt(tariffCards[idx].dataset.slider, 10);
-                if (!isNaN(sliderTarget)) {
-                  setVolume(sliderTarget);
-                }
+                tariffCards.forEach((c, i) => {
+                  const isActive = (i === idx);
+                  c.classList.toggle('active', isActive);
+                  c.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                });
                 tariffCards[idx].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
                 updateMobileDots(idx);
               }
@@ -3577,110 +3555,6 @@
             }, { passive: true });
           }
         }
-
-        // Синхронизация визуального вида ползунка
-        function updateSliderVisuals() {
-          if (!sliderEl) return;
-          const min = parseInt(sliderEl.min, 10) || 50;
-          const max = parseInt(sliderEl.max, 10) || TARIFF_CONFIG.sliderMax;
-          const val = state.sliderValue;
-          const pct = Math.max(0, Math.min(100, ((val - min) / (max - min)) * 100));
-          sliderEl.style.background = `linear-gradient(to right, #0284c7 0%, #0284c7 ${pct}%, #e2e8f0 ${pct}%, #e2e8f0 100%)`;
-          sliderEl.value = val;
-          sliderEl.setAttribute('aria-valuenow', val);
-        }
-
-        function setVolume(val) {
-          state.sliderValue = val;
-          updateSliderVisuals();
-          recalc();
-        }
-
-        if (sliderEl) {
-          sliderEl.addEventListener('input', e => {
-            state.sliderValue = parseInt(e.target.value, 10);
-            updateSliderVisuals();
-            recalc();
-          });
-        }
-
-        // Основная функция пересчета тарифа и обновления элементов
-        function recalc() {
-          const tariff = getTariffByVolume(state.sliderValue);
-          const monthly = getFixedMonthlyPrice(tariff, state.sliderValue);
-          const setup = tariff.setupPrice;
-
-          // 1. Отображение значения ползунка
-          if (sliderDisplay) {
-            sliderDisplay.textContent = formatPrice(state.sliderValue);
-          }
-
-          // 2. Динамическая цена Империи на карточке (> 5000: 99 000 + 20 000 / 1000)
-          const cfgEmpirePriceEl = document.getElementById('cfgEmpirePrice');
-          if (cfgEmpirePriceEl) {
-            const empirePrice = getFixedMonthlyPrice(TARIFF_CONFIG.tariffs[3], state.sliderValue);
-            cfgEmpirePriceEl.textContent = formatPrice(empirePrice);
-          }
-
-          // 3. Подсветка активной карточки тарифа и бейджи
-          if (tariffsStrip) {
-            let activeIdx = -1;
-            tariffCards.forEach((card, idx) => {
-              const isActive = (card.dataset.tariff === tariff.id);
-              card.classList.toggle('active', isActive);
-              card.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-              const badgeWrap = card.querySelector('.cfg-tariff-badge-wrap');
-              if (badgeWrap) {
-                if (isActive) {
-                  badgeWrap.innerHTML = '<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-sky-600 text-white shadow-xs">вам подходит</span>';
-                } else if (card.dataset.tariff === 'business') {
-                  badgeWrap.innerHTML = '<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-slate-900 text-white shadow-xs">выбирают чаще</span>';
-                } else {
-                  badgeWrap.innerHTML = '';
-                }
-              }
-              if (isActive) {
-                activeIdx = idx;
-                if (window.innerWidth <= 767 && document.activeElement === sliderEl) {
-                  card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-                }
-              }
-            });
-            updateMobileDots(activeIdx);
-          }
-
-          // 4. Тёмная итоговая панель
-          const cfgSelectedTariffNameEl = document.getElementById('cfgSelectedTariffName');
-          if (cfgSelectedTariffNameEl) {
-            cfgSelectedTariffNameEl.textContent = tariff.name;
-          }
-
-          const cfgFinalSetupPriceEl = document.getElementById('cfgFinalSetupPrice');
-          if (cfgFinalSetupPriceEl) {
-            cfgFinalSetupPriceEl.textContent = `${formatPrice(setup)}\u00A0₽`;
-          }
-
-          const cfgFinalMonthlyPriceEl = document.getElementById('cfgFinalMonthlyPrice');
-          if (cfgFinalMonthlyPriceEl) {
-            cfgFinalMonthlyPriceEl.textContent = `${formatPrice(monthly)}\u00A0₽`;
-          }
-
-          // 5. Кнопка Telegram с готовым текстом
-          const ctaBtn = document.getElementById('ctaBtn');
-          if (ctaBtn) {
-            const tgMsg = `Здравствуйте! Хочу подключить Веру. Тариф ${tariff.name}, около ${formatPrice(state.sliderValue)} диалогов в месяц. Запуск ${formatPrice(setup)} ₽, подписка ${formatPrice(monthly)} ₽/мес.`;
-            ctaBtn.href = `${TARIFF_CONFIG.ctaUrl}?text=${encodeURIComponent(tgMsg)}`;
-          }
-
-          // Обратная совместимость для мобильной закрепленной панели (если есть в коде)
-          const mobSetupTotal = document.getElementById('mobSetupTotal');
-          const mobMonthlyTotal = document.getElementById('mobMonthlyTotal');
-          if (mobSetupTotal) mobSetupTotal.textContent = `${formatPrice(setup)}`;
-          if (mobMonthlyTotal) mobMonthlyTotal.textContent = `${formatPrice(monthly)}\u00A0₽/мес`;
-        }
-
-        updateSliderVisuals();
-        recalc();
       })();
 
       // ФИНАЛЬНЫЙ БЛОК (#cta-final): АНИМАЦИЯ КАРТОЧЕК

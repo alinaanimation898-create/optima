@@ -1960,11 +1960,11 @@ html, body {
       box-shadow: 0 2px 8px rgba(2, 132, 199, 0.45);
     }
 
-    /* Базовая объемная карточка тарифа — свежий зеленый фон Алтая */
+    /* Базовая объемная карточка тарифа - свежий зеленый фон Алтая */
     #constructor .cfg-tariff-card {
       position: relative;
-      border-radius: 24px;
-      padding: 22px 20px;
+      border-radius: 20px;
+      padding: 18px 20px;
       cursor: pointer;
       user-select: none;
       display: flex;
@@ -1972,11 +1972,15 @@ html, body {
       justify-content: space-between;
       transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, background 0.25s ease;
       box-sizing: border-box;
-      background: #ffffff;
-      border: 1.5px solid #e2e8f0;
-      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+      background: linear-gradient(160deg, #F0FDF4 0%, #ECFDF5 100%);
+      border: 1.5px solid rgba(16, 185, 129, 0.25);
+      box-shadow: 
+        0 4px 14px rgba(16, 185, 129, 0.06), 
+        0 1px 3px rgba(15, 23, 42, 0.03), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
       min-height: 220px;
       z-index: 1;
+      font-family: 'Inter', sans-serif !important;
     }
 
     @media (max-width: 767px) {
@@ -1985,24 +1989,25 @@ html, body {
         max-width: 290px;
         min-width: 250px;
         scroll-snap-align: center;
-        padding: 18px 16px;
+        padding: 16px 18px;
         min-height: 210px;
       }
     }
 
     /* Наведение на карточки тарифов */
     #constructor .cfg-tariff-card:hover:not(.active) {
-      transform: translateY(-3px);
-      border-color: #cbd5e1;
-      box-shadow: 0 10px 24px -4px rgba(15, 23, 42, 0.08);
+      transform: translateY(-4px);
+      background: linear-gradient(160deg, #ECFDF5 0%, #E6FBF0 100%);
+      border-color: rgba(16, 185, 129, 0.45);
+      box-shadow: 0 12px 24px -4px rgba(16, 185, 129, 0.15);
     }
 
-    /* Активная карточка тарифа с ярко-синей подсветкой */
+    /* Активная карточка тарифа с изумрудной подсветкой */
     #constructor .cfg-tariff-card.active {
-      transform: translateY(-3px);
-      background: #ffffff !important;
-      border: 2px solid #0284c7 !important;
-      box-shadow: 0 12px 28px -4px rgba(2, 132, 199, 0.22), 0 0 0 1px #0284c7 !important;
+      transform: translateY(-4px);
+      background: linear-gradient(160deg, #ECFDF5 0%, #D1FAE5 100%) !important;
+      border: 2px solid #10b981 !important;
+      box-shadow: 0 12px 26px -4px rgba(16, 185, 129, 0.28), 0 0 0 1px #10b981, inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
       z-index: 3;
     }
 
@@ -2092,8 +2097,8 @@ html, body {
       justify-content: center;
       flex-shrink: 0;
       color: #ffffff;
-      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-      box-shadow: 0 2px 6px rgba(2, 132, 199, 0.4);
+      background: #059669;
+      box-shadow: 0 2px 6px rgba(5, 150, 105, 0.4);
     }
 
     /* Шкала объёма */
