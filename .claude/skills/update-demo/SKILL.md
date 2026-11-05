@@ -24,7 +24,7 @@ python3 $S smoke <id> "Сколько стоит доставка?"
 ## Editing
 - `kb.json`: `prompt_modules[]` (`company_context` is the main text) and optional `knowledge_nodes[]`
   (`path`, `title`, `tier` L0/L1/L2, `summary`, `content`, `high_confidence_triggers`). Keep facts verifiable; remove invented prices.
-- `presentation.json`: `display_name`, `welcome_message`, `suggested_questions` (max 8), `accent_color`, `logo_url`,
+- `presentation.json`: `display_name`, `welcome_message`, `suggested_questions` (keep empty: demos never show question chips), `accent_color`, `logo_url`,
   `avatar_url`, `tagline`, `hero_description`, `placeholder_text`, `site_url`. URLs must be http(s).
 - `demo.json` (page only): `brand_name`, `hero_text` (intro paragraph), `accent`, `og_image`, `title`, `description`; the page is rebuilt by `push`.
 - Items missing from `kb.json` stay live unless you push with `--prune`.

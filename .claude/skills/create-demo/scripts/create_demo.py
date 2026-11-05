@@ -54,7 +54,7 @@ def main() -> int:
     ap.add_argument("--api-key", default="")
     ap.add_argument("--extra-materials", default="", help="file path or literal text")
     ap.add_argument("--kb-file", default="", help="pre-written company_context markdown (skips synthesis)")
-    ap.add_argument("--questions", nargs="+", default=None)
+    ap.add_argument("--questions", nargs="+", default=None, help="used only for the smoke test; never shown in the chat")
     ap.add_argument("--accent", default="#f59e0b", help="brand color, e.g. #C8102E")
     ap.add_argument("--logo-url", default="")
     ap.add_argument("--no-page", action="store_true", help="skip demo/<id>/ page generation")
@@ -104,7 +104,8 @@ def main() -> int:
     presentation = {
         "display_name": name,
         "welcome_message": welcome,
-        "suggested_questions": questions[:8],
+        # Never show suggested-question chips in the chat window (owner rule, 2026-11-05).
+        "suggested_questions": [],
         "accent_color": args.accent,
         "site_url": base_url if base_url.startswith("http") else "https://" + base_url,
         "optima_page_url": demo_api.page_url(tid, "prod"),
