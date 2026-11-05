@@ -109,3 +109,8 @@
   .dp h1 { font-size: 38px; } .dp-desc { font-size: 14.5px; } .dp-photo img { height: 170px; }
 }
 @media (max-width: 639px) { .dp-reset span { display: none; } }
+/* Phones/tablets: the page is a column, so flex:1 (basis 0) let Safari squeeze the chat down to header + input.
+   Give it a real height (most of the screen) and let the message stream scroll inside. */
+@media (max-width: 1023px) {
+  .dp-chat { flex: none; height: 78vh; height: 78svh; min-height: 460px; max-height: 760px; }
+}
