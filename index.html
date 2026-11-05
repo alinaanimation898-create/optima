@@ -129,11 +129,58 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-  <link rel="stylesheet" href="assets/css/style.css?v=4.7">
+  <link rel="stylesheet" href="assets/css/style.css?v=4.8">
   <link rel="stylesheet" href="assets/css/altai-refresh.css?v=3.4">
   <style id="cfg-custom-styles">
     #constructor .cfg-tariff-card {
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #constructor .cfg-tariff-header {
+      min-height: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .cfg-hero-trial-btn {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #2563eb 100%);
+      box-shadow: 0 0 0 1.5px rgba(56, 189, 248, 0.6), 0 12px 36px rgba(2, 132, 199, 0.45), 0 0 50px rgba(14, 165, 233, 0.35);
+      animation: cfgBtnPulse 3.5s ease-in-out infinite;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cfg-hero-trial-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.9), 0 16px 45px rgba(2, 132, 199, 0.6), 0 0 65px rgba(14, 165, 233, 0.55);
+    }
+    .cfg-hero-trial-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -80%;
+      width: 60%;
+      height: 200%;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.45) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: rotate(25deg);
+      animation: cfgBtnShine 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      pointer-events: none;
+    }
+    @keyframes cfgBtnShine {
+      0%, 25% { left: -80%; }
+      65%, 100% { left: 150%; }
+    }
+    @keyframes cfgBtnPulse {
+      0%, 100% {
+        box-shadow: 0 0 0 1.5px rgba(56, 189, 248, 0.5), 0 10px 30px rgba(2, 132, 199, 0.4), 0 0 40px rgba(14, 165, 233, 0.25);
+      }
+      50% {
+        box-shadow: 0 0 0 2.5px rgba(56, 189, 248, 0.9), 0 16px 45px rgba(2, 132, 199, 0.6), 0 0 65px rgba(14, 165, 233, 0.5);
+      }
     }
     #paygModal.hidden,
     #cfgTrialModal.hidden {
@@ -3417,8 +3464,8 @@
         <h2 class="uppercase tracking-tight font-black text-[32px] sm:text-4xl md:text-5xl lg:text-[54px] leading-tight text-[#0f172a] overflow-visible font-inter">
           <span class="pearl-title-gradient">ТАРИФЫ</span>
         </h2>
-        <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-3xl mx-auto font-inter leading-relaxed">
-          Считаем диалоги с уникальными клиентами, а не сообщения. Один человек за месяц - один диалог, сколько бы он ни написал и в каком бы канале ни вернулся
+        <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto font-inter leading-relaxed">
+          Считаем диалоги с уникальными клиентами, а не сообщения
         </p>
       </div>
 
@@ -3437,16 +3484,16 @@
               />
             </div>
           </div>
-          <!-- Справа: 3 пункта возможностей -->
+          <!-- Справа: 3 пункта возможностей (с градиентным акцентом, без точек на конце) -->
           <div class="md:col-span-7 space-y-4 text-left">
             <div class="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-inter">
-              <strong class="font-bold text-slate-900">Вера встречает клиентов во всех каналах:</strong> ведет диалог в WhatsApp, Telegram, Instagram, MAX, на Авито, в VK и на сайте.
+              <span class="bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-700 bg-clip-text text-transparent font-extrabold">Вера встречает клиентов во всех каналах</span>: ведет диалог в WhatsApp, Telegram, Instagram, MAX, на Авито, в VK и на сайте
             </div>
             <div class="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-inter">
-              <strong class="font-bold text-slate-900">Вера сама ведет CRM:</strong> мгновенно фиксирует контакты, историю переписки и готовые заявки в Битрикс24, amoCRM или любой другой системе.
+              <span class="bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-700 bg-clip-text text-transparent font-extrabold">Вера сама ведет CRM</span>: мгновенно фиксирует контакты, историю переписки и готовые заявки в Битрикс24, amoCRM или любой другой системе
             </div>
             <div class="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-inter">
-              <strong class="font-bold text-slate-900">Вера передает сложные вопросы команде:</strong> если клиенту требуется индивидуальный разбор или прошла оплата, диалог мгновенно переходит персональному менеджеру.
+              <span class="bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-700 bg-clip-text text-transparent font-extrabold">Вера передает сложные вопросы команде</span>: если клиенту требуется индивидуальный разбор или прошла оплата, диалог мгновенно переходит персональному менеджеру
             </div>
           </div>
         </div>
@@ -3475,7 +3522,8 @@
                 <span class="cfg-tariff-val tabular-nums font-inter">25&nbsp;000</span>
                 <span class="cfg-tariff-period font-inter">₽/мес</span>
               </div>
-              <div class="border-t border-emerald-900/10 my-3"></div>
+              <div class="text-[11px] min-h-[16px] mb-1 opacity-0 pointer-events-none select-none" aria-hidden="true">&nbsp;</div>
+              <div class="border-t border-emerald-900/10 my-2"></div>
               <div class="space-y-1.5 text-xs font-inter">
                 <div class="flex items-center justify-between text-slate-700">
                   <span class="text-slate-600">Интеграция Веры</span>
@@ -3510,7 +3558,8 @@
                 <span class="cfg-tariff-val tabular-nums font-inter">39&nbsp;000</span>
                 <span class="cfg-tariff-period font-inter">₽/мес</span>
               </div>
-              <div class="border-t border-emerald-900/10 my-3"></div>
+              <div class="text-[11px] min-h-[16px] mb-1 opacity-0 pointer-events-none select-none" aria-hidden="true">&nbsp;</div>
+              <div class="border-t border-emerald-900/10 my-2"></div>
               <div class="space-y-1.5 text-xs font-inter">
                 <div class="flex items-center justify-between text-slate-700">
                   <span class="text-slate-600">Интеграция Веры</span>
@@ -3545,7 +3594,8 @@
                 <span class="cfg-tariff-val tabular-nums font-inter">59&nbsp;000</span>
                 <span class="cfg-tariff-period font-inter">₽/мес</span>
               </div>
-              <div class="border-t border-emerald-900/10 my-3"></div>
+              <div class="text-[11px] min-h-[16px] mb-1 opacity-0 pointer-events-none select-none" aria-hidden="true">&nbsp;</div>
+              <div class="border-t border-emerald-900/10 my-2"></div>
               <div class="space-y-1.5 text-xs font-inter">
                 <div class="flex items-center justify-between text-slate-700">
                   <span class="text-slate-600">Интеграция Веры</span>
@@ -3616,15 +3666,15 @@
           Подключение Google Таблиц, amoCRM и Битрикс24 бесплатно. Интеграция с 1С или МойСклад - +30&nbsp;000&nbsp;₽ к интеграции, один раз
         </p>
 
-        <!-- 5. КНОПКА: НАЧАТЬ С ТЕСТ-ДРАЙВА (ОТКРЫВАЕТ МОДАЛЬНОЕ ОКНО) -->
-        <div class="text-center pt-2 sm:pt-4">
+        <!-- 5. КНОПКА: НАЧАТЬ С ТЕСТ-ДРАЙВА (БОЛЬШАЯ, С НЕОНОВЫМ СВЕЧЕНИЕМ И БЛИКОМ) -->
+        <div class="text-center pt-3 sm:pt-6 pb-2">
           <button 
             type="button" 
             onclick="openCfgTrialModal()"
-            class="inline-flex items-center justify-center gap-3 px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-black uppercase tracking-wider rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-0.5 active:scale-95 cursor-pointer bg-gradient-to-r from-sky-500 via-sky-600 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-inter"
+            class="cfg-hero-trial-btn group inline-flex items-center justify-center gap-3.5 px-8 sm:px-14 md:px-18 py-5 sm:py-6 text-base sm:text-xl md:text-2xl font-black uppercase tracking-wider rounded-2xl sm:rounded-3xl cursor-pointer text-white font-inter"
           >
             <span>НАЧАТЬ С ТЕСТ-ДРАЙВА</span>
-            <span class="text-xl">→</span>
+            <span class="text-2xl sm:text-3xl font-bold transition-transform group-hover:translate-x-1.5">→</span>
           </button>
         </div>
 
