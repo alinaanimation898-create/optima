@@ -3408,8 +3408,28 @@
           document.body.style.overflow = '';
         }
       };
+
+      // МОДАЛЬНОЕ ОКНО ТЕСТ-ДРАЙВА
+      window.openCfgTrialModal = function() {
+        const modal = document.getElementById('cfgTrialModal');
+        if (modal) {
+          modal.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        }
+      };
+      window.closeCfgTrialModal = function() {
+        const modal = document.getElementById('cfgTrialModal');
+        if (modal) {
+          modal.classList.add('hidden');
+          document.body.style.overflow = '';
+        }
+      };
+
       document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') window.closePaygModal();
+        if (e.key === 'Escape') {
+          window.closePaygModal();
+          window.closeCfgTrialModal();
+        }
       });
 
       // ОБРАБОТЧИКИ ФОРМЫ ТЕСТ-ДРАЙВА В КОНФИГУРАТОРЕ
