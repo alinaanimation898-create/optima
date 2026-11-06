@@ -172,6 +172,7 @@
       if (!on && typingEl) { typingEl.remove(); typingEl = null; }
     };
     chat.hooks.onReply = function (d) {
+      if (d.technical) { add('note', formatText(d.assistant_response || '')); return; }
       add('ai', '<b class="vdc-who">' + escapeHtml(who) + '</b>' + formatText(d.assistant_response || ''));
     };
     chat.hooks.onError = function (e) { add('ai vdc-error', escapeHtml(e.message || 'Ошибка')); };

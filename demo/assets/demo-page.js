@@ -172,6 +172,19 @@
       if (!on && typing) { typing.remove(); typing = null; }
     };
     chat.hooks.onReply = function (d) {
+      // Escalation: Vera writes nothing, as in a real chat. The page explains what happened instead.
+      if (d.technical) {
+        var note = document.createElement('div');
+        note.className = 'dp-esc';
+        note.innerHTML = '<b>🔔 Вера передала диалог менеджеру</b>' +
+          '<p>Клиент не получает автоответ, чат встаёт на паузу, а менеджеру в Telegram приходит карточка:</p>' +
+          '<pre>' + esc(escalationCard(lastUser, history, '', d.escalation && d.escalation.reason)) + '</pre>' +
+          '<em>💡 На демо-стенде чат не блокируется: можно продолжать.</em>';
+        history.push(lastUser);
+        stream.appendChild(note);
+        scroll();
+        return;
+      }
       var text = d.assistant_response || 'Спасибо за обращение! Менеджер свяжется с вами.', esca = '';
       if (d.escalation) {
         esca = '<div class="dp-esc"><b>🔔 Симуляция эскалации менеджеру (Human-in-the-Loop)</b>' +

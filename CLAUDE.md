@@ -4,6 +4,7 @@ Static site for optima.altaiweb.online (GitHub Pages, `main`). Separate git repo
 Unused files (stray site copies, old logo/avatar/font variants, one-off docs) were archived 2026-11-03 to `/home/d/altai_no_vcs/optima_archive_20261103/` (root repo issue #84); they stay in git history.
 
 ## Demo stands
+- Escalation in a demo: Vera writes nothing and `/demo/chat` returns a system note with `technical: true` (core #142). `vera-demo-chat.js` shows it as a grey line, `demo-page.js` as the escalation card. `ai-sales-widget.js`, `main.js` and `partner.html` show the note as a normal bubble.
 - `assets/js/vera-demo-chat.js` (+ `assets/css/vera-demo-chat.css`): **the one chat client** (`VeraDemoChat`). Reads
   `GET /api/v1/demo/config`, talks to `POST /api/v1/demo/chat`. `?api=stage` switches to the stage API. Hooks
   (`onUser/onTyping/onReply/onError`) for custom layouts; `VeraDemoChat.mount(el, {tenantId})` renders a default UI.

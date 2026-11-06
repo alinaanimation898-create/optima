@@ -6,6 +6,7 @@
 .vdc-user { align-self: flex-end; background: var(--vdc-accent); color: #fff; border-top-right-radius: 4px; }
 .vdc-who { display: block; font-size: 11px; opacity: .65; margin-bottom: 2px; }
 .vdc-error { background: #fef2f2; color: #991b1b; }
+.vdc-note { align-self: center; max-width: 90%; background: transparent; color: #71717a; font-size: 12px; text-align: center; }
 .vdc-link { color: var(--vdc-accent); text-decoration: underline; }
 .vdc-user .vdc-link { color: #fff; }
 .vdc-typing { display: flex; gap: 4px; padding: 12px; }
