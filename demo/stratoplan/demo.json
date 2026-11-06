@@ -3,7 +3,8 @@
   "brand_name": "Стратоплан",
   "accent": "#268AC5",
   "hero_title": "ИИ-консультант для Школы менеджмента «Стратоплан»",
-  "hero_text": "Расскажите о своей роли и цели: Вера подберёт программу, назовёт цену и условия, запишет на бесплатный эфир и передаст заявку менеджеру.",
   "logo_url": "",
-  "og_image": "https://optima.altaiweb.online/demo/assets/brand/stratoplan_vera.jpg"
+  "og_image": "https://optima.altaiweb.online/demo/assets/brand/stratoplan_vera.jpg",
+  "title": "Вера, ИИ-консультант Школы менеджмента «Стратоплан»",
+  "description": "Демо ИИ-консультанта для Школы менеджмента «Стратоплан»: подбор программы, цены, рассрочка и заявка менеджеру."
 }
