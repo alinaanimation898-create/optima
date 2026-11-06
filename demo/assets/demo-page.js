@@ -37,15 +37,28 @@
   function escalationCard(userText, history, reply, reason) {
     var ctx = history.concat([userText]).join(' ');
     var m, name = null;
-    if ((m = ctx.match(/(?:меня зовут|мое имя|я)\s+([А-ЯЁA-Z][а-яёa-z]+)/i)) ||
-        (m = ctx.match(/([А-ЯЁA-Z][а-яёa-z]+)\s+(?:здесь|тут)/i))) name = m[1].charAt(0).toUpperCase() + m[1].slice(1);
-    if (!name && (m = reply.match(/^([А-ЯЁA-Z][а-яёa-z]+)[,!]/)) &&
-        ['Здравствуйте', 'Добрый', 'Привет', 'Приветствую', 'Спасибо', 'Поняла', 'Конечно', 'Уже'].indexOf(m[1]) < 0) name = m[1];
+    // A name is a capitalised word: "Меня зовут Алексей", "Я Алексей", "Алексей здесь", or a short reply to
+    // "как к вам обращаться?" ("Алексей", "Алексей, руковожу отделом"). Newest message first; "я руковожу" is not a name.
+    var notName = ['Здравствуйте', 'Добрый', 'Доброе', 'Привет', 'Приветствую', 'Спасибо', 'Поняла', 'Понял', 'Конечно',
+      'Уже', 'Да', 'Нет', 'Хорошо', 'Ок', 'Скажите', 'Подскажите', 'Расскажите', 'Сколько', 'Какие', 'Какая', 'Как', 'Что', 'Чем',
+      'Где', 'Когда', 'Можно', 'Хочу', 'Нужно', 'Нам', 'Мы', 'Мне', 'Руковожу', 'Работаю', 'Интересует', 'Отлично',
+      'Понятно', 'Ясно', 'Супер', 'Давайте', 'Интересно', 'Благодарю', 'Здорово', 'Telegram', 'WhatsApp', 'Instagram', 'Email'];
+    function pick(w) { return w && notName.indexOf(w) < 0 ? w : null; }
+    var msgs = history.concat([userText]);
+    for (var k = msgs.length - 1; k >= 0 && !name; k--) {
+      var t = String(msgs[k] || '').trim();
+      if ((m = t.match(/(?:[Мм]еня зовут|[Мм]о[её] имя)\s+([А-ЯЁA-Z][а-яёa-z]+)/)) ||
+          (m = t.match(/(?:^|[\s,.!?])[Яя]\s*[-,]?\s+([А-ЯЁA-Z][а-яёa-z]+)/)) ||
+          (m = t.match(/([А-ЯЁA-Z][а-яёa-z]+)\s+(?:здесь|тут)\b/)) ||
+          (m = t.match(/^([А-ЯЁA-Z][а-яёa-z]{1,20})\s*(?:[,.!]|$)/))) name = pick(m[1]);
+    }
+    if (!name && (m = reply.match(/^([А-ЯЁA-Z][а-яёa-z]+)[,!]/))) name = pick(m[1]);
     var project = null;
     if (/клиник|медицин|стоматолог|здоров/i.test(ctx)) project = 'Медицина / Клиники';
     else if (/недвижим|резиденци|квартир|новостройк|жк/i.test(ctx)) project = 'Недвижимость / Резиденции';
     else if (/приложени|доставк/i.test(ctx)) project = 'Мобильное приложение / Доставка';
     else if (/магазин|e-commerce|бренд|ритейл/i.test(ctx)) project = 'E-commerce / Ритейл';
+    else if (/обучени|программ|курс|тимлид|школ/i.test(ctx)) project = 'Обучение / Развитие руководителей';
     var cities = [], cityRe = /(Москв|Казан|Санкт-Петербург|Питер|Батуми|Тбилиси|Екатеринбург|Новосибирск|Краснодар|Сочи)[а-я]*/gi, cm;
     var norm = { 'москв': 'Москва', 'казан': 'Казань', 'санкт-петербург': 'Санкт-Петербург', 'питер': 'Санкт-Петербург', 'батуми': 'Батуми',
       'тбилиси': 'Тбилиси', 'екатеринбург': 'Екатеринбург', 'новосибирск': 'Новосибирск', 'краснодар': 'Краснодар', 'сочи': 'Сочи' };
@@ -100,6 +113,9 @@
     // brands.json "hide_questions": true keeps the chat window free of suggestion chips (they hide replies on phones).
     var chips = lg.hide_questions ? [] : (cfg.suggested_questions && cfg.suggested_questions.length ? cfg.suggested_questions : lg.suggested_questions) || [];
     var integrations = lg.integrations && lg.integrations.length ? lg.integrations : DEFAULT_INTEGRATIONS;
+    // Optional brands.json wording: "of_name" (genitive, e.g. "Школы менеджмента «Стратоплан»") and "note_role" ("будущего слушателя").
+    var ofName = lg.of_name || name, sourceOf = lg.of_name || 'компании ' + name;
+    var noteRole = lg.note_role || 'покупателя';
 
     document.title = 'Демо ALTAI Optima + ' + name;
     root.className = 'dp' + (lg.white_background ? ' dp-white' : '');
@@ -110,7 +126,7 @@
     var info = '<div class="dp-info">' + integrations.map(function (i) {
       return '<p><b>' + esc(i.title) + '</b> <span>' + esc(i.description) + '</span></p>';
     }).join('') + '<p class="dp-small">И это лишь малая часть моих навыков. Напишите мне в чат и давайте пообщаемся поближе. Готова пройти любой стресс-тест.</p></div>' +
-      '<p class="dp-disc">Это демо-версия Веры на основе открытых материалов компании ' + esc(name) +
+      '<p class="dp-disc">Это демо-версия Веры на основе открытых материалов ' + esc(sourceOf) +
       '. Для точных ответов во всех сценариях нужна полноценная интеграция от <a href="https://optima.altaiweb.online" target="_blank" rel="noopener noreferrer">ALTAI Optima</a></p>';
 
     root.innerHTML =
@@ -118,12 +134,12 @@
         '<section class="dp-intro"><div class="dp-top">' +
           '<h1>Добрый день! <span>Меня зовут Вера</span></h1>' +
           '<p class="dp-desc">' + esc(hero) + '</p>' +
-          '<p class="dp-note">Напишите мне от лица покупателя и проверьте мой профессионализм в деле</p>' +
-          (photo ? '<div class="dp-photo"><img src="' + esc(photo) + '" alt="Вера — консультант ' + esc(name) + '"></div>' : '') +
+          '<p class="dp-note">Напишите мне от лица ' + esc(noteRole) + ' и проверьте мой профессионализм в деле</p>' +
+          (photo ? '<div class="dp-photo"><img src="' + esc(photo) + '" alt="Вера, консультант ' + esc(ofName) + '"></div>' : '') +
         '</div><div class="dp-info-desktop">' + info + '</div></section>' +
         '<section class="dp-chat" aria-label="Чат с Верой">' +
           '<div class="dp-head"><div class="dp-who"><div class="dp-ava"><img src="' + esc(avatar) + '" alt="Вера"><i></i></div>' +
-            '<div class="dp-name"><b>Вера</b><small>консультант ' + esc(name) + ' · <span class="dp-status">в сети</span></small></div></div>' +
+            '<div class="dp-name"><b>Вера</b><small>консультант ' + esc(ofName) + ' · <span class="dp-status">в сети</span></small></div></div>' +
             '<button type="button" class="dp-reset" title="Начать диалог сначала" aria-label="Сбросить диалог">' + ICON_RESET + '<span>Новый диалог</span></button></div>' +
           '<div class="dp-stream" role="log" aria-live="polite"><div class="dp-day">Сегодня</div></div>' +
           '<div class="dp-foot">' + (chips.length ? '<div class="dp-chips"></div>' : '') +
