@@ -1,0 +1,10 @@
+{
+  "display_name": "АэроТур",
+  "welcome_message": "Здравствуйте! Меня зовут Вера, я ИИ-консультант «АэроТура».\n\nПомогу с авиабилетами: подскажу по покупке, багажу, обмену и возврату, оформлю заявку на групповой перелёт от 10 человек, расскажу о командировках для компаний и о том, как стать агентом Agent.aero.\n\nКуда планируете лететь?",
+  "suggested_questions": [],
+  "accent_color": "#0070D3",
+  "site_url": "https://aerotur.aero",
+  "optima_page_url": "https://optima.altaiweb.online/demo/aerotur/",
+  "logo_url": "https://optima.altaiweb.online/demo/assets/brand/aerotur_logo.svg",
+  "placeholder_text": "Спросите о билетах, багаже, возврате или групповом перелёте…"
+}
