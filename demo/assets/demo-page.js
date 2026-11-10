@@ -33,8 +33,21 @@
   }
   function time() { return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); }
 
-  // Client-side preview of the Human-in-the-Loop card the supervisor would get (demo only).
-  function escalationCard(userText, history, reply, reason) {
+  // The Human-in-the-Loop card the manager gets. The backend sends the real one (escalation.alert_preview, written
+  // from the whole dialog); show it with demo-only bits (session id, internal channel name) cleaned up.
+  // Only if it is missing, fall back to a rough client-side guess (guessCard).
+  function escalationCard(userText, history, reply, e) {
+    e = e || {};
+    var p = String(e.alert_preview || '').trim();
+    if (p) {
+      return p.replace(/(👤 Клиент:\s*)demo_[a-z0-9]+/i, '$1имя не указано')
+        .replace(/\s*\(demo_[a-z0-9]+\)/gi, '')
+        .replace(/(📱 Канал:\s*)landing_demo\b/, '$1Виджет на сайте');
+    }
+    return guessCard(userText, history, reply, e.reason);
+  }
+
+  function guessCard(userText, history, reply, reason) {
     var ctx = history.concat([userText]).join(' ');
     var m, name = null;
     // A name is a capitalised word: "Меня зовут Алексей", "Я Алексей", "Алексей здесь", or a short reply to
@@ -43,7 +56,8 @@
       'Уже', 'Да', 'Нет', 'Хорошо', 'Ок', 'Скажите', 'Подскажите', 'Расскажите', 'Сколько', 'Какие', 'Какая', 'Как', 'Что', 'Чем',
       'Где', 'Когда', 'Можно', 'Хочу', 'Нужно', 'Нам', 'Мы', 'Мне', 'Руковожу', 'Работаю', 'Интересует', 'Отлично',
       'Понятно', 'Ясно', 'Супер', 'Давайте', 'Интересно', 'Благодарю', 'Здорово', 'Telegram', 'WhatsApp', 'Instagram', 'Email'];
-    function pick(w) { return w && notName.indexOf(w) < 0 ? w : null; }
+    // Imperatives and verbs ("Подождите", "Перезвоните", "Объясните") are not names.
+    function pick(w) { return w && notName.indexOf(w) < 0 && !/(?:те|ть|ться|тесь|ся)$/.test(w) ? w : null; }
     var msgs = history.concat([userText]);
     for (var k = msgs.length - 1; k >= 0 && !name; k--) {
       var t = String(msgs[k] || '').trim();
@@ -53,28 +67,16 @@
           (m = t.match(/^([А-ЯЁA-Z][а-яёa-z]{1,20})\s*(?:[,.!]|$)/))) name = pick(m[1]);
     }
     if (!name && (m = reply.match(/^([А-ЯЁA-Z][а-яёa-z]+)[,!]/))) name = pick(m[1]);
-    var project = null;
-    if (/клиник|медицин|стоматолог|здоров/i.test(ctx)) project = 'Медицина / Клиники';
-    else if (/недвижим|резиденци|квартир|новостройк|жк/i.test(ctx)) project = 'Недвижимость / Резиденции';
-    else if (/приложени|доставк/i.test(ctx)) project = 'Мобильное приложение / Доставка';
-    else if (/магазин|e-commerce|бренд|ритейл/i.test(ctx)) project = 'E-commerce / Ритейл';
-    else if (/обучени|программ|курс|тимлид|школ/i.test(ctx)) project = 'Обучение / Развитие руководителей';
     var cities = [], cityRe = /(Москв|Казан|Санкт-Петербург|Питер|Батуми|Тбилиси|Екатеринбург|Новосибирск|Краснодар|Сочи)[а-я]*/gi, cm;
     var norm = { 'москв': 'Москва', 'казан': 'Казань', 'санкт-петербург': 'Санкт-Петербург', 'питер': 'Санкт-Петербург', 'батуми': 'Батуми',
       'тбилиси': 'Тбилиси', 'екатеринбург': 'Екатеринбург', 'новосибирск': 'Новосибирск', 'краснодар': 'Краснодар', 'сочи': 'Сочи' };
     while ((cm = cityRe.exec(ctx))) { var c = norm[cm[1].toLowerCase()] || cm[0]; if (cities.indexOf(c) < 0) cities.push(c); }
+    // The backend's reason is a summary of the dialog: never replace it with a keyword guess.
     var problem = reason || 'Срочный вопрос клиента';
-    var money = /деньги|списал|баланс|оплат/i.test(ctx), stop = /встал|останов|не крут|сбой|ошибк/i.test(ctx);
-    if (money && stop) problem = 'Кампания остановлена, средства списаны';
-    else if (money) problem = 'Вопрос по балансу / списанию средств';
-    else if (stop) problem = 'Остановка открутки кампании / технический сбой';
-    else if (/договор|акт|счет|бухгалтер/i.test(ctx)) problem = 'Вопрос по закрывающим документам и договору';
-    else if (/скидк|тариф|стоимост|прайс/i.test(ctx)) problem = 'Запрос индивидуальных коммерческих условий';
     var contact = (ctx.match(/\+?[78][-\s(]?[0-9]{3}[-\s)]?[0-9]{3}[-\s]?[0-9]{2}[-\s]?[0-9]{2}/) ||
       ctx.match(/@[a-zA-Z0-9_]{4,}/) || ctx.match(/[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+/) || [null])[0];
     var l = ['🚨 Срочная эскалация менеджеру (Human-in-the-Loop)\n', '👤 Клиент: ' + (name || 'Имя не указано')];
     if (contact) l.push('📞 Контакт: ' + contact);
-    if (project) l.push('🏢 Проект / сфера: ' + project);
     if (cities.length) l.push('📍 География: ' + cities.join(', '));
     l.push('⚠️ Суть проблемы: ' + problem, '💬 Сообщение: «' + userText.trim() + '»', '📱 Канал: Виджет на сайте', '⏰ Норматив реакции: < 60 секунд');
     return l.join('\n');
@@ -178,7 +180,7 @@
         note.className = 'dp-esc';
         note.innerHTML = '<b>🔔 Вера передала диалог менеджеру</b>' +
           '<p>Клиент не получает автоответ, чат встаёт на паузу, а менеджеру в Telegram приходит карточка:</p>' +
-          '<pre>' + esc(escalationCard(lastUser, history, '', d.escalation && d.escalation.reason)) + '</pre>' +
+          '<pre>' + esc(escalationCard(lastUser, history, '', d.escalation)) + '</pre>' +
           '<em>💡 На демо-стенде чат не блокируется: можно продолжать.</em>';
         history.push(lastUser);
         stream.appendChild(note);
@@ -189,7 +191,7 @@
       if (d.escalation) {
         esca = '<div class="dp-esc"><b>🔔 Симуляция эскалации менеджеру (Human-in-the-Loop)</b>' +
           '<p>В боевом мессенджере диалог ставится на паузу, а в Telegram-бот команды отправляется карточка:</p>' +
-          '<pre>' + esc(escalationCard(lastUser, history, text, d.escalation.reason)) + '</pre>' +
+          '<pre>' + esc(escalationCard(lastUser, history, text, d.escalation)) + '</pre>' +
           '<em>💡 На демо-стенде диалог не блокируется — вы можете продолжить общение с Верой.</em></div>';
       }
       history.push(lastUser);
