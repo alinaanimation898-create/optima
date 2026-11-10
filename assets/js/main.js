@@ -413,7 +413,8 @@
       let safe = text
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;");
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
       safe = safe.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:text-sky-800 underline break-all font-medium">$1</a>');
       safe = safe.replace(/(^|[\s(>])(https?:\/\/[^\s<]+)/g, (match, prefix, url) => {
         if (prefix === '="' || prefix === "='") return match;
