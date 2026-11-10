@@ -1,4 +1,11 @@
 // КОНФИГУРАЦИЯ РЕАЛИСТИЧНЫХ ИНТЕРФЕЙСОВ МЕССЕНДЖЕРОВ (WHATSAPP, TELEGRAM, INSTAGRAM, АВИТО)
+    // Escapes untrusted text (user input) before it is interpolated into chat HTML.
+    function escapeHtml(s) {
+      return String(s == null ? '' : s)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+
     const isEn = (document.documentElement.lang === 'en');
     const channelsConfig = {
       full_deal: {
@@ -46,7 +53,7 @@
         renderAiBubble: (msg) => `
           <div class="flex justify-start items-end gap-1.5 animate-fade-in">
             <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs border border-slate-200/50">
-              <div class="text-[9.5px] font-bold text-[#075e54] mb-0.5">${msg.author || 'Вера'}</div>
+              <div class="text-[9.5px] font-bold text-[#075e54] mb-0.5">${escapeHtml(msg.author || 'Вера')}</div>
               <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">${msg.text}</p>
               <div class="text-[9px] text-slate-400 text-right mt-0.5 font-sans flex items-center justify-end gap-1">
                 <span>${msg.time}</span>
@@ -57,7 +64,7 @@
         renderUserBubble: (msg) => `
           <div class="flex justify-end items-end gap-1.5 animate-fade-in">
             <div class="bg-[#d9fdd3] text-slate-900 p-2.5 rounded-2xl rounded-tr-xs max-w-[85%] shadow-xs">
-              <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">${msg.text}</p>
+              <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">${escapeHtml(msg.text)}</p>
               <div class="text-[9px] text-emerald-800 text-right mt-0.5 font-sans flex items-center justify-end gap-1">
                 <span>${msg.time}</span>
                 <span class="text-[#34B7F1] font-bold">✓✓</span>
@@ -130,7 +137,7 @@
           <div class="flex justify-start items-end gap-1.5 animate-fade-in">
             <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs">
               <div class="text-[9.5px] font-bold text-[#0088cc] mb-0.5 flex items-center gap-1">
-                <span>${msg.author || 'Вера'}</span>
+                <span>${escapeHtml(msg.author || 'Вера')}</span>
                 <span class="text-[8px] bg-sky-100 text-sky-700 px-1 rounded font-normal">ИИ</span>
               </div>
               <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">${msg.text}</p>
@@ -143,7 +150,7 @@
         renderUserBubble: (msg) => `
           <div class="flex justify-end items-end gap-1.5 animate-fade-in">
             <div class="bg-[#eff7ff] text-slate-900 p-2.5 rounded-2xl rounded-tr-xs max-w-[85%] shadow-xs border border-sky-100">
-              <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">${msg.text}</p>
+              <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">${escapeHtml(msg.text)}</p>
               <div class="text-[9px] text-sky-600 text-right mt-0.5 font-sans flex items-center justify-end gap-1">
                 <span>${msg.time}</span>
                 <span class="text-[#229ed9]">✓✓</span>
@@ -227,7 +234,7 @@
         renderAiBubble: (msg) => `
           <div class="flex justify-start items-end gap-1.5 animate-fade-in">
             <div class="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 text-white p-3 rounded-2xl rounded-bl-xs max-w-[88%] shadow-xs">
-              <div class="text-[9.5px] font-bold text-pink-100 mb-0.5">${msg.author || 'Вера'}</div>
+              <div class="text-[9.5px] font-bold text-pink-100 mb-0.5">${escapeHtml(msg.author || 'Вера')}</div>
               <p class="leading-relaxed font-normal text-[11.5px] text-white">${msg.text}</p>
               <div class="text-[9px] text-white/80 text-right mt-0.5 font-sans">${msg.time}</div>
             </div>
@@ -236,7 +243,7 @@
         renderUserBubble: (msg) => `
           <div class="flex justify-end items-end gap-1.5 animate-fade-in">
             <div class="bg-[#efefef] text-slate-900 px-3 py-2 rounded-2xl rounded-br-xs max-w-[85%] shadow-2xs">
-              <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">${msg.text}</p>
+              <p class="leading-relaxed font-normal text-[11.5px] text-slate-800">${escapeHtml(msg.text)}</p>
               <div class="text-[9px] text-slate-400 text-right mt-0.5 font-sans">${msg.time}</div>
             </div>
           </div>
@@ -326,7 +333,7 @@
         renderUserBubble: (msg) => `
           <div class="flex justify-end items-end gap-1 animate-fade-in">
             <div class="bg-[#e1f3fe] text-slate-900 px-3 py-2 rounded-2xl rounded-tr-xs max-w-[85%] shadow-2xs">
-              <p class="leading-relaxed font-normal text-[11.5px] text-slate-900">${msg.text}</p>
+              <p class="leading-relaxed font-normal text-[11.5px] text-slate-900">${escapeHtml(msg.text)}</p>
               <div class="text-[8.5px] text-[#00aaff] text-right mt-0.5 font-sans">${msg.time} ✓✓</div>
             </div>
           </div>
