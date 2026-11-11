@@ -18,6 +18,23 @@ Unused files (stray site copies, old logo/avatar/font variants, one-off docs) we
   `/api/v1/demo-admin/*` API, which refuses live tenants. `--env stage` for experiments.
 - Working files per demo: `demo/<id>/{kb.json,presentation.json,demo.json,index.html}`; commit them on a branch.
 
+## SQL refill when the demo key is unavailable
+The normal path is always `update-demo` / the `/api/v1/demo-admin/*` API. If the personal demo key is not available, a
+demo tenant's KB and prompt can be refilled by SQL on the server (root repo issue #71). This is a **prod data write:
+ask David each time, run it by hand, never from a script that loops over tenants.**
+- Tables (`altai-core/src/db.rs`): `knowledge_nodes` (`tenant_id`, `path`, `title`, `tier`, `summary`, `content`,
+  `high_confidence_triggers`, `is_active`, `version`), `prompt_modules` (`tenant_id`, `slug`, `content`, `is_active`,
+  `version`), `tenants.demo_config` (presentation JSON: name, welcome message, accent, logo).
+- **Every statement is guarded by `kind='demo'` on `tenants`**, so a live tenant can never be hit. Check the rows first
+  with a SELECT using the same guard; bump `version` and `updated_at` with `CURRENT_TIMESTAMP`.
+```sql
+UPDATE prompt_modules SET content = $1, version = version + 1, updated_at = CURRENT_TIMESTAMP
+WHERE slug = 'company_context' AND tenant_id = 'foreignpay'
+  AND tenant_id IN (SELECT id FROM tenants WHERE kind = 'demo');
+```
+- A new node is an `INSERT ... SELECT ... FROM tenants WHERE id = $1 AND kind = 'demo'`. Synced copies
+  (`source_tenant_id`) are overwritten by the next sync: edit the source tenant (through David) instead.
+
 ## Rules
 - Never put an API key, admin key or tenant credentials in this repo.
 - Demo tenants only: anything that needs a live tenant, `promote`, `source_tenant_id` goes through David.
