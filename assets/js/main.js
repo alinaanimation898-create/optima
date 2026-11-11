@@ -3417,7 +3417,7 @@
         }
       };
 
-      // МОДАЛЬНОЕ ОКНО ТЕСТ-ДРАЙВА
+      // МОДАЛЬНОЕ ОКНО ЗАПРОСА ДЕМО
       window.openCfgTrialModal = function() {
         const modal = document.getElementById('cfgTrialModal');
         if (modal) {
@@ -3440,7 +3440,7 @@
         }
       });
 
-      // ОБРАБОТЧИКИ ФОРМЫ ТЕСТ-ДРАЙВА В КОНФИГУРАТОРЕ
+      // ОБРАБОТЧИКИ ФОРМЫ ЗАЯВКИ НА ДЕМО В КОНФИГУРАТОРЕ
       window.selectCfgTrialChannel = function(ch) {
         const hiddenInput = document.getElementById('cfgTrialChannel');
         const contactInput = document.getElementById('cfgTrialContact');

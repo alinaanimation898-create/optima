@@ -1,5 +1,5 @@
 /**
- * Серверный обработчик заявок на тест-драйв для Node.js / Vercel Serverless
+ * Серверный обработчик заявок на демо для Node.js / Vercel Serverless
  * Маршрут: /api/lead
  */
 
@@ -47,7 +47,7 @@ export default async function handler(req, res) {
 
     const selectedChannel = channel || 'Telegram';
     const message = [
-      '🔥 *Новая заявка на тест-драйв Веры!*',
+      '🔥 *Новая заявка на демо Веры!*',
       '',
       `👤 *Имя:* ${escapeMarkdown(name)}`,
       `🌐 *Сайт / ссылка:* ${escapeMarkdown(site)}`,
