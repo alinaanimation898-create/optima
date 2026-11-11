@@ -2,7 +2,9 @@
   "tenant_id": "paydigital",
   "brand_name": "PayDigital",
   "accent": "#0000BE",
-  "hero_title": "ИИ-сотрудник для компании «PayDigital»",
-  "hero_text": "Задайте любой вопрос о продуктах, ценах и условиях — отвечает так, как ответил бы лучший менеджер.",
-  "logo_url": "https://paydigital.shop/assets/logo-B2V1K0Ry.svg"
+  "hero_title": "ИИ-консультант для PayDigital",
+  "hero_text": "Спросите об эквайринге для цифровых товаров и игр, пополнении Steam, сервисах для путешествий, комиссиях и выплатах в USD, EUR и USDT.",
+  "logo_url": "https://paydigital.shop/assets/logo-B2V1K0Ry.svg",
+  "title": "Вера, ИИ-консультант PayDigital",
+  "description": "Демо ИИ-консультанта PayDigital: эквайринг для цифровых товаров, игр и путешествий, выплаты в любой валюте, подключение."
 }
