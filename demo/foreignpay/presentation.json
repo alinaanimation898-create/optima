@@ -1,8 +1,9 @@
 {
   "display_name": "ForeignPay",
-  "welcome_message": "Здравствуйте! Я ИИ-ассистент компании «ForeignPay». Чем могу помочь?",
+  "welcome_message": "Здравствуйте! Меня зовут Вера, я ИИ-консультант ForeignPay.\n\nПомогу оплатить зарубежные игры, подписки и сервисы рублями: пополнить Steam, выбрать ваучер Apple ID, PlayStation или ChatGPT под ваш регион и разобраться, если код не пришёл.\n\nПодскажите, пожалуйста, что вы хотите оплатить?",
   "suggested_questions": [],
   "accent_color": "#003CDA",
   "site_url": "https://foreignpay.ru",
-  "optima_page_url": "https://optima.altaiweb.online/demo/foreignpay/"
+  "optima_page_url": "https://optima.altaiweb.online/demo/foreignpay/",
+  "avatar_url": "https://optima.altaiweb.online/demo/assets/brand/foreignpay_vera_avatar.jpg"
 }
