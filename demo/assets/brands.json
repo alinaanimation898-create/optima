@@ -396,6 +396,37 @@
     }
    ],
    "hide_questions": true
+  },
+  "foreignpay": {
+   "name": "ForeignPay",
+   "accent": "#003CDA",
+   "hover": "#0030AE",
+   "avatar": "foreignpay_vera_avatar.jpg",
+   "photo": "foreignpay_vera.jpg",
+   "footer_logo": "foreignpay_logo.svg",
+   "of_name": "ForeignPay",
+   "note_role": "покупателя",
+   "placeholder": "Спросите о Steam, Apple ID, ChatGPT, ваучерах или сроках зачисления…",
+   "hero_description": "Я Вера, ИИ-консультант ForeignPay. Помогу оплатить зарубежные игры, подписки и сервисы рублями: подскажу, как пополнить Steam и PUBG Mobile, какой ваучер Apple ID, PlayStation или ChatGPT подойдёт к вашему региону, как работает виртуальная карта и что делать, если код не пришёл.",
+   "integrations": [
+    {
+     "title": "Я на связи везде:",
+     "description": "отвечаю покупателям на сайте, в Telegram, WhatsApp и MAX круглосуточно."
+    },
+    {
+     "title": "Я знаю каталог:",
+     "description": "сотни игр и сервисов, регионы и номиналы ваучеров, пополнение по логину и ID, виртуальные карты."
+    },
+    {
+     "title": "Я предупреждаю об ошибках:",
+     "description": "напомню про логин вместо никнейма, регион аккаунта и почту не на @icloud.com, чтобы деньги не ушли не туда."
+    },
+    {
+     "title": "Я передаю в поддержку:",
+     "description": "если код не пришёл или нужен возврат, передаю заказ с почтой, товаром и временем оплаты."
+    }
+   ],
+   "hide_questions": true
   }
  }
 }

@@ -1,0 +1,11 @@
+{
+  "tenant_id": "foreignpay",
+  "brand_name": "ForeignPay",
+  "accent": "#003CDA",
+  "hero_title": "ИИ-консультант для ForeignPay",
+  "hero_text": "Спросите о пополнении Steam и PUBG Mobile, ваучерах Apple ID, PlayStation и ChatGPT, виртуальных картах, сроках зачисления и возвратах.",
+  "logo_url": "https://optima.altaiweb.online/demo/assets/brand/foreignpay_logo.svg",
+  "title": "Вера, ИИ-консультант ForeignPay",
+  "description": "Демо ИИ-консультанта ForeignPay: оплата зарубежных игр, подписок и сервисов рублями, ваучеры, пополнение Steam, виртуальные карты.",
+  "og_image": "https://optima.altaiweb.online/demo/assets/brand/foreignpay_vera.jpg"
+}
