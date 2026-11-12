@@ -1,0 +1,10 @@
+{
+  "display_name": "ADIAM",
+  "welcome_message": "Здравствуйте! Меня зовут Вера, я ИИ-консультант ADIAM.\n\nРасскажу о programmatic-рекламе на платформе: форматах, таргетингах и аналитике в реальном времени, и помогу собрать бриф для медиаплана.\n\nПодскажите, пожалуйста, какую задачу хотите решить рекламой?",
+  "suggested_questions": [],
+  "accent_color": "#1F62F2",
+  "site_url": "https://adiam.tech",
+  "optima_page_url": "https://optima.altaiweb.online/demo/adiam/",
+  "logo_url": "https://optima.altaiweb.online/demo/assets/brand/adiam_logo.png",
+  "avatar_url": "https://optima.altaiweb.online/demo/assets/brand/adiam_vera_avatar.jpg"
+}
