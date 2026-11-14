@@ -8,7 +8,7 @@ description: >-
 
 # update-demo
 
-Same key and rules as **create-demo** (`~/.config/altai/demo_api_key` or `ALTAI_DEMO_API_KEY`, `--env stage|prod`).
+Same key and rules as **create-demo** (`~/.config/altai/demo_api_key_<env>` or `ALTAI_DEMO_API_KEY`, `--env stage|prod`).
 Run from the **root of the optima repo**. Demo tenants only: the API returns 403 for anything else.
 
 ```bash

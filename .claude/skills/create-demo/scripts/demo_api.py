@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Tiny client for the ALTAI demo-admin API (stdlib only). Shared by create-demo and update-demo.
 
-Key lookup: --api-key, env ALTAI_DEMO_API_KEY, file ~/.config/altai/demo_api_key (chmod 600).
+Key lookup: --api-key, env ALTAI_DEMO_API_KEY, file ~/.config/altai/demo_api_key_<env>, then
+~/.config/altai/demo_api_key (chmod 600). Keys are per environment: prod and stage keys differ.
 Environment: prod (default) or stage. The key only works on the environment that issued it.
 """
 import json
@@ -23,18 +24,21 @@ class ApiError(RuntimeError):
         self.detail = detail
 
 
-def load_key(explicit: str = "") -> str:
+def load_key(explicit: str = "", env: str = "prod") -> str:
+    """--api-key, env ALTAI_DEMO_API_KEY, ~/.config/altai/demo_api_key_<env>, then ~/.config/altai/demo_api_key."""
     key = explicit or os.environ.get("ALTAI_DEMO_API_KEY", "")
-    if not key:
+    for name in (f"demo_api_key_{env}", "demo_api_key"):
+        if key:
+            break
         try:
-            with open(os.path.expanduser("~/.config/altai/demo_api_key")) as f:
+            with open(os.path.expanduser(f"~/.config/altai/{name}")) as f:
                 key = f.read().strip()
         except OSError:
             key = ""
     if not key:
         raise SystemExit(
-            "Demo API key required: pass --api-key, set ALTAI_DEMO_API_KEY, or put it in "
-            "~/.config/altai/demo_api_key (chmod 600). Ask David for a personal key."
+            f"Demo API key required: pass --api-key, set ALTAI_DEMO_API_KEY, or put it in "
+            f"~/.config/altai/demo_api_key_{env} (chmod 600). Ask David for a personal key."
         )
     return key
 
@@ -46,7 +50,7 @@ class DemoApi:
         self.env = env
         # ALTAI_DEMO_API_BASE is for local testing against a dev server only
         self.base = os.environ.get("ALTAI_DEMO_API_BASE", API_BASES[env]).rstrip("/")
-        self.key = load_key(api_key)
+        self.key = load_key(api_key, env)
 
     def _call(self, method: str, path: str, body=None, auth: bool = True, timeout: int = 60):
         headers = {"Content-Type": "application/json"}

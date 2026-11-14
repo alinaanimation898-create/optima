@@ -16,9 +16,9 @@ Plain Python 3 (standard library). Run every command from the **root of the opti
 ## Setup (once)
 1. Get a personal demo key from David (shown once). Save it outside the repo:
    ```bash
-   mkdir -p ~/.config/altai && printf '%s' 'dmk_...' > ~/.config/altai/demo_api_key && chmod 600 ~/.config/altai/demo_api_key
+   mkdir -p ~/.config/altai && printf '%s' 'dmk_...' > ~/.config/altai/demo_api_key_prod && chmod 600 ~/.config/altai/demo_api_key_prod
    ```
-   (or `export ALTAI_DEMO_API_KEY=dmk_...`). Never commit it. Stage and prod have separate keys.
+   (or `export ALTAI_DEMO_API_KEY=dmk_...`). Never commit it. Stage and prod have separate keys: the stage one goes in `demo_api_key_stage`.
 2. Use `--env stage` while experimenting; the default is `prod`.
 
 ## Run

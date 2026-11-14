@@ -14,7 +14,7 @@ Unused files (stray site copies, old logo/avatar/font variants, one-off docs) we
   Pages are `noindex` and not in `sitemap.xml` unless `"index": true`.
 - The landing Tallora case runs on `tallora_landing_demo` (read-only copy of `tallora`, synced hourly by the backend).
 - Skills (plain Python 3 stdlib, work for Claude Code and Antigravity): `.claude/skills/create-demo`, `.claude/skills/update-demo`.
-  They use a personal demo key (`~/.config/altai/demo_api_key` or `ALTAI_DEMO_API_KEY`, never committed) and only the
+  They use a personal demo key (`~/.config/altai/demo_api_key_prod` / `_stage` or `ALTAI_DEMO_API_KEY`, never committed) and only the
   `/api/v1/demo-admin/*` API, which refuses live tenants. `--env stage` for experiments.
 - Working files per demo: `demo/<id>/{kb.json,presentation.json,demo.json,index.html}`; commit them on a branch.
 
