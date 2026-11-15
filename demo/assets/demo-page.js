@@ -167,7 +167,24 @@
     }
     function bubble(inner, extra) { return '<div class="dp-bubble">' + inner + (extra || '') + '<div class="dp-time">' + time() + '</div></div>'; }
 
-    chat.hooks.onUser = function (t) { lastUser = t; row('user', bubble(VeraDemoChat.formatText(t))); };
+    var lastUserRow = null, lastAiRow = null;
+    chat.hooks.onUser = function (t) { lastUser = t; lastAiRow = null; lastUserRow = row('user', bubble(VeraDemoChat.formatText(t))); };
+    chat.hooks.onUserVoice = function (v) {
+      lastUser = 'Голосовое сообщение'; lastAiRow = null;
+      lastUserRow = row('user', bubble(''));
+      lastUserRow.querySelector('.dp-bubble').insertBefore(VeraDemoChat.createVoicePlayer(v, 'dp'), lastUserRow.querySelector('.dp-time'));
+    };
+    // Transcript: small grey text under Vera's reply (or under the visitor's bubble when Vera wrote nothing).
+    chat.hooks.onTranscript = function (t) {
+      var host = lastAiRow || lastUserRow;
+      var b = host && host.querySelector('.dp-bubble');
+      if (!b) return;
+      var d = document.createElement('div');
+      d.className = 'dp-transcript';
+      d.textContent = 'Вы сказали: «' + t + '»';
+      b.insertBefore(d, b.querySelector('.dp-time'));
+      scroll();
+    };
     chat.hooks.onTyping = function (on) {
       status.textContent = on ? 'печатает…' : 'в сети';
       if (on && !typing) { typing = row('ai', '<div class="dp-typing" aria-label="Вера печатает"><span></span><span></span><span></span></div>'); }
@@ -195,7 +212,7 @@
           '<em>💡 На демо-стенде диалог не блокируется — вы можете продолжить общение с Верой.</em></div>';
       }
       history.push(lastUser);
-      row('ai', bubble(VeraDemoChat.formatText(text), esca));
+      lastAiRow = row('ai', bubble(VeraDemoChat.formatText(text), esca));
     };
     chat.hooks.onError = function (e) { row('ai err', bubble(esc(e.message || 'Извините, произошла временная ошибка связи. Пожалуйста, попробуйте еще раз.'))); };
 
@@ -203,8 +220,11 @@
       t = String(t || '').trim();
       if (!t || chat.isSending) return;
       input.value = ''; sendBtn.disabled = true;
-      chat.send(t).catch(function () {}).then(function () { input.focus(); });
+      if (voice) voice.sync();
+      chat.send(t).catch(function () {}).then(function () { input.focus(); if (voice) voice.sync(); });
     }
+    // Mic next to Send while the input is empty; only when the browser can record and /demo/config has voice_enabled: true.
+    var voice = VeraDemoChat.bindVoice(chat, { form: root.querySelector('.dp-form'), input: input, sendBtn: sendBtn, prefix: 'dp' });
     root.querySelector('.dp-form').addEventListener('submit', function (e) { e.preventDefault(); submit(input.value); });
     input.addEventListener('input', function () { sendBtn.disabled = !input.value.trim(); });
     chips.forEach(function (q) {

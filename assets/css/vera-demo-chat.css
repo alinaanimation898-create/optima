@@ -21,9 +21,30 @@
 .vdc-input { flex: 1; font-size: 16px; padding: 9px 12px; border: 1px solid #d4d4d8; border-radius: 10px; outline: none; }
 .vdc-input:focus { border-color: var(--vdc-accent); }
 .vdc-send { background: var(--vdc-accent); color: #fff; border: 0; border-radius: 10px; padding: 0 16px; font-weight: 600; cursor: pointer; }
+.vdc-mic, .vdc-rec-send { width: 40px; flex: none; border: 0; border-radius: 10px; background: var(--vdc-accent); color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.vdc-mic:disabled { opacity: .4; cursor: not-allowed; }
+.vdc-mic svg, .vdc-rec-send svg { width: 20px; height: 20px; }
+.vdc-rec { flex: 1; min-width: 0; display: flex; align-items: center; gap: 10px; }
+.vdc-rec[hidden], .vdc-hint[hidden] { display: none; }
+.vdc-rec-dot { width: 10px; height: 10px; flex: none; border-radius: 50%; background: #dc2626; animation: vdc-rec 1s infinite; }
+@keyframes vdc-rec { 50% { opacity: .25; } }
+.vdc-rec-time { flex: 1; min-width: 0; font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.vdc-rec-cancel { flex: none; border: 0; border-radius: 999px; padding: 7px 12px; background: #f4f4f5; color: #3f3f46; font-size: 13px; cursor: pointer; }
+.vdc-rec-send { align-self: stretch; }
+.vdc-hint { margin: 0 12px 6px; font-size: 12px; line-height: 1.4; color: #991b1b; background: #fef2f2; border-radius: 8px; padding: 6px 10px; }
+.vdc-voice { display: flex; align-items: center; gap: 8px; min-width: 140px; }
+.vdc-voice-play { width: 30px; height: 30px; flex: none; border: 0; border-radius: 50%; background: rgba(255,255,255,.3); color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.vdc-voice-play svg { width: 13px; height: 13px; }
+.vdc-voice-bar { flex: 1; min-width: 36px; height: 4px; border-radius: 2px; background: rgba(255,255,255,.35); overflow: hidden; }
+.vdc-voice-bar i { display: block; height: 100%; width: 0; background: #fff; }
+.vdc-voice-dur { flex: none; font-size: 12px; font-variant-numeric: tabular-nums; }
+.vdc-transcript { margin-top: 6px; font-size: 12px; line-height: 1.4; color: #71717a; }
 @media (prefers-color-scheme: dark) {
   .vdc-root { color: #fafafa; }
   .vdc-ai { background: #27272a; }
   .vdc-input { background: #18181b; border-color: #3f3f46; color: #fafafa; }
   .vdc-form { border-color: #3f3f46; }
+  .vdc-rec-cancel { background: #3f3f46; color: #fafafa; }
+  .vdc-hint { background: #3b1414; color: #fecaca; }
+  .vdc-transcript { color: #a1a1aa; }
 }
