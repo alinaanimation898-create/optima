@@ -224,7 +224,7 @@
       chat.send(t).catch(function () {}).then(function () { input.focus(); if (voice) voice.sync(); });
     }
     // Mic next to Send while the input is empty; only when the browser can record and /demo/config has voice_enabled: true.
-    var voice = VeraDemoChat.bindVoice(chat, { form: root.querySelector('.dp-form'), input: input, sendBtn: sendBtn, prefix: 'dp' });
+    var voice = typeof VeraDemoChat.bindVoice === 'function' && VeraDemoChat.bindVoice(chat, { form: root.querySelector('.dp-form'), input: input, sendBtn: sendBtn, prefix: 'dp' });
     root.querySelector('.dp-form').addEventListener('submit', function (e) { e.preventDefault(); submit(input.value); });
     input.addEventListener('input', function () { sendBtn.disabled = !input.value.trim(); });
     chips.forEach(function (q) {
