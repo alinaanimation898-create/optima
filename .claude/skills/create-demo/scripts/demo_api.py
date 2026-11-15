@@ -104,11 +104,6 @@ class DemoApi:
         return self._call("POST", "/api/v1/demo/chat", body, auth=False, timeout=90)
 
 
-def page_url(tid: str, env: str = "prod") -> str:
-    suffix = "" if env == "prod" else "?api=stage"
-    return f"{SITE_BASE}/demo/{tid}/{suffix}"
-
-
 def generic_url(tid: str, env: str = "prod") -> str:
     suffix = "" if env == "prod" else "&api=stage"
     return f"{SITE_BASE}/demo/?t={tid}{suffix}"

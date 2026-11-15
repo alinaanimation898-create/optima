@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""create-demo: website URL(s) -> crawl -> knowledge base -> demo tenant via /demo-admin -> presentation -> page -> smoke test.
+"""create-demo: website URL(s) -> crawl -> knowledge base -> demo tenant via /demo-admin -> presentation -> smoke test -> instant link `demo/?t=<id>`.
 
 Only talks to the demo-admin API, so it can never touch a live tenant. Run from the optima repo root.
 """
@@ -7,7 +7,6 @@ import argparse
 import json
 import os
 import re
-import subprocess
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -41,10 +40,6 @@ def kb_document(markdown: str) -> dict:
     }
 
 
-def git(*args) -> bool:
-    return subprocess.run(["git", *args], cwd=REPO).returncode == 0
-
-
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--urls", nargs="+", required=True)
@@ -57,14 +52,12 @@ def main() -> int:
     ap.add_argument("--questions", nargs="+", default=None, help="used only for the smoke test; never shown in the chat")
     ap.add_argument("--accent", default="#f59e0b", help="brand color, e.g. #C8102E")
     ap.add_argument("--logo-url", default="")
-    ap.add_argument("--no-page", action="store_true", help="skip demo/<id>/ page generation")
     ap.add_argument("--no-smoke-test", action="store_true")
-    ap.add_argument("--commit", action="store_true", help="create branch demo/<id> and commit the generated files")
     args = ap.parse_args()
 
     api = demo_api.DemoApi(args.env, args.api_key)
 
-    print(f"[1/6] Crawling {len(args.urls)} URL(s) ...")
+    print(f"[1/5] Crawling {len(args.urls)} URL(s) ...")
     crawl = crawler.crawl_site(args.urls)
     domain = crawl.get("domain", "")
     base_url = crawl.get("base_url", args.urls[0])
@@ -74,7 +67,7 @@ def main() -> int:
         name = prompt_builder.clean_company_name(title, domain) or "Новый клиент"
     tid = slugify(args.tenant_id.strip() or name or domain)
 
-    print(f"[2/6] Building knowledge base for '{name}' ...")
+    print(f"[2/5] Building knowledge base for '{name}' ...")
     if args.kb_file:
         with open(args.kb_file, encoding="utf-8") as f:
             kb_md = f.read()
@@ -89,7 +82,7 @@ def main() -> int:
         )
         questions = args.questions or prompt_builder.generate_suggested_questions(name, crawl.get("combined_text", ""))
 
-    print(f"[3/6] Creating demo tenant '{tid}' on {args.env} ...")
+    print(f"[3/5] Creating demo tenant '{tid}' on {args.env} ...")
     try:
         api.create_tenant(tid, name)
     except demo_api.ApiError as e:
@@ -99,7 +92,7 @@ def main() -> int:
         raise
     api.put_kb(tid, kb_document(kb_md))
 
-    print("[4/6] Saving presentation ...")
+    print("[4/5] Saving presentation ...")
     welcome = f"Здравствуйте! Я ИИ-ассистент компании «{name}». Чем могу помочь?"
     presentation = {
         "display_name": name,
@@ -108,7 +101,6 @@ def main() -> int:
         "suggested_questions": [],
         "accent_color": args.accent,
         "site_url": base_url if base_url.startswith("http") else "https://" + base_url,
-        "optima_page_url": demo_api.page_url(tid, "prod"),
     }
     if args.logo_url:
         presentation["logo_url"] = args.logo_url
@@ -121,22 +113,10 @@ def main() -> int:
     with open(os.path.join(out_dir, "presentation.json"), "w", encoding="utf-8") as f:
         json.dump(presentation, f, ensure_ascii=False, indent=2)
 
-    if not args.no_page:
-        print("[5/6] Generating demo/%s/index.html ..." % tid)
-        page_cfg = {
-            "tenant_id": tid, "brand_name": name, "accent": args.accent,
-            "hero_title": f"ИИ-сотрудник для компании «{name}»",
-            "hero_text": "Задайте любой вопрос о продуктах, ценах и условиях — отвечает так, как ответил бы лучший менеджер.",
-            "logo_url": args.logo_url,
-        }
-        with open(os.path.join(out_dir, "demo.json"), "w", encoding="utf-8") as f:
-            json.dump(page_cfg, f, ensure_ascii=False, indent=2)
-        subprocess.run([sys.executable, os.path.join(DEMO_DIR, "generate.py"), tid], check=True, cwd=REPO)
-
     reply = ""
     if not args.no_smoke_test:
         q = questions[0] if questions else "Расскажите в двух словах о компании."
-        print(f"[6/6] Smoke test: {q!r}")
+        print(f"[5/5] Smoke test: {q!r}")
         try:
             r = api.chat(tid, q)
             reply = r.get("assistant_response", "")
@@ -144,15 +124,9 @@ def main() -> int:
         except (demo_api.ApiError, SystemExit) as e:
             print(f"  [WARN] smoke test failed: {e}")
 
-    if args.commit:
-        if git("checkout", "-b", f"demo/{tid}") and git("add", os.path.join("demo", tid)):
-            git("commit", "-m", f"demo: add {tid}")
-
     print("\n" + "=" * 60)
     print(f"Demo '{tid}' ready ({args.env})")
     print(f"  instant URL : {demo_api.generic_url(tid, args.env)}")
-    if not args.no_page:
-        print(f"  custom page : {demo_api.page_url(tid, args.env)}  (live after the commit is merged to main)")
     if reply:
         print(f"  reply       : {reply[:300]}")
     print("=" * 60)

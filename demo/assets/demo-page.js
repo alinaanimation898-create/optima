@@ -1,7 +1,7 @@
 /*
  * demo-page.js — renders the two-column demo stand (intro + Vera chat) for one demo tenant.
  * Data: GET /api/v1/demo/config (via VeraDemoChat) + legacy extras from brands.json (photo, footer logo,
- * integrations, white background). Tenant id: window.DEMO_TENANT or ?t=<id>. window.DEMO_OVERRIDES (from demo.json)
+ * integrations, white background). Tenant id: window.DEMO_TENANT or ?t=<id>. window.DEMO_OVERRIDES (optional, unused now)
  * can override hero_description / accent / name. Requires ../assets/js/vera-demo-chat.js.
  */
 (function () {

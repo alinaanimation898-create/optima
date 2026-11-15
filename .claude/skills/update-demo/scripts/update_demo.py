@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """update-demo: pull / diff / push / smoke for an existing DEMO tenant. Run from the optima repo root.
 
-  update_demo.py pull  <id>              -> demo/<id>/kb.json + presentation.json (+ demo.json if missing)
+  update_demo.py pull  <id>              -> demo/<id>/kb.json + presentation.json
   update_demo.py diff  <id>              -> local working files vs what is live
-  update_demo.py push  <id> [--prune]    -> push KB + presentation, regenerate the page
+  update_demo.py push  <id> [--prune]    -> push KB + presentation
   update_demo.py smoke <id> "question"   -> ask the demo bot
   update_demo.py list                    -> demo tenants visible to your key
 
@@ -14,7 +14,6 @@ import argparse
 import difflib
 import json
 import os
-import subprocess
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -80,12 +79,6 @@ def cmd_pull(api, tid):
     for name, obj in (("kb.json", kb), ("presentation.json", pres)):
         with open(wpath(tid, name), "w", encoding="utf-8") as f:
             f.write(dump(obj) + "\n")
-    if not os.path.exists(wpath(tid, "demo.json")):
-        with open(wpath(tid, "demo.json"), "w", encoding="utf-8") as f:
-            json.dump({
-                "tenant_id": tid, "brand_name": pres.get("display_name") or tenant["business_name"],
-                "accent": pres.get("accent_color", "#f59e0b"), "logo_url": pres.get("logo_url", ""),
-            }, f, ensure_ascii=False, indent=2)
     print(f"pulled demo/{tid}/kb.json and presentation.json")
     if tenant.get("source_tenant_id"):
         print(f"NOTE: '{tid}' is synced from '{tenant['source_tenant_id']}': KB edits are overwritten by the next sync; "
@@ -129,9 +122,6 @@ def cmd_push(api, tid, prune: bool, force_kb: bool):
     if pres is not None:
         api.put_presentation(tid, pres)
         print("presentation updated")
-    gen = os.path.join(DEMO_DIR, "generate.py")
-    if os.path.exists(wpath(tid, "demo.json")) and os.path.exists(gen):
-        subprocess.run([sys.executable, gen, tid], check=True, cwd=REPO)
 
 
 def main() -> int:
