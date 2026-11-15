@@ -131,6 +131,7 @@
 
   <link rel="stylesheet" href="assets/css/style.css?v=4.8">
   <link rel="stylesheet" href="assets/css/altai-refresh.css?v=3.4">
+  <link rel="stylesheet" href="assets/css/bot-vs-vera.css?v=1.0">
   <style id="cfg-custom-styles">
     #constructor .cfg-tariff-card {
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1060,6 +1061,118 @@
           </div>
         </div>
 
+      </div>
+    </section>
+
+    <!-- 4.0. ОБЫЧНЫЙ БОТ ИЛИ ВЕРА: один вопрос, два диалога -->
+    <section id="bot-vs-vera" class="relative z-20 py-8 sm:py-12 lg:py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 font-inter scroll-mt-28">
+      <div class="text-center max-w-4xl mx-auto mb-8 sm:mb-10">
+        <h2 class="uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-benzin leading-[1.12] overflow-visible text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
+          <span class="text-slate-400 block">ОБЫЧНЫЙ БОТ</span>
+          <span class="block">ИЛИ <span class="pearl-title-gradient">ВЕРА</span></span>
+        </h2>
+        <p class="mt-4 sm:mt-5 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+          Клиент онлайн-школы задаёт самый частый вопрос. Реальная переписка с&nbsp;ботом крупной школы&nbsp;- и&nbsp;как тот&nbsp;же вопрос ведёт Вера.
+        </p>
+      </div>
+
+      <div class="relative">
+        <input type="radio" name="bvv-tab" id="bvv-tab-bot" class="bvv-radio" checked>
+        <input type="radio" name="bvv-tab" id="bvv-tab-vera" class="bvv-radio">
+        <div class="bvv-tabs" role="tablist">
+          <label for="bvv-tab-bot" class="bvv-tab">Обычный бот</label>
+          <label for="bvv-tab-vera" class="bvv-tab">Вера</label>
+        </div>
+
+        <div class="bvv-grid grid lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+          <!-- Обычный бот -->
+          <div class="bvv-panel bvv-panel--bot bvv-chat">
+            <div class="bvv-head">
+              <div class="bvv-ava" aria-hidden="true">🤖</div>
+              <div>
+                <div class="bvv-name">Бот онлайн-школы</div>
+                <div class="bvv-status">менеджер ответит с&nbsp;8:00 до&nbsp;21:00</div>
+              </div>
+              <span class="bvv-label">Скрипт</span>
+            </div>
+            <div class="bvv-body">
+              <div class="bvv-date">28 сентября</div>
+              <div class="bvv-msg bvv-msg--out">Сколько стоит обучение?<time>15:58</time></div>
+              <div class="bvv-msg bvv-msg--in">
+                Здравствуйте! Сейчас вы в&nbsp;боте онлайн-школы. Напишите свой вопрос&nbsp;- менеджер ответит на&nbsp;него с&nbsp;8:00 до&nbsp;21:00 мск.<time>15:58</time>
+              </div>
+              <div class="bvv-msg bvv-msg--in bvv-msg--dup">
+                Напишите свой вопрос&nbsp;- менеджер ответит на&nbsp;него в&nbsp;течение 5&nbsp;минут, с&nbsp;8:00 до&nbsp;21:00 мск.<time>15:58</time>
+                <span class="bvv-flag">Шаблон пришёл дважды</span>
+              </div>
+              <div class="bvv-msg bvv-msg--in">
+                Здравствуйте! Теперь с&nbsp;вами на&nbsp;связи живой человек, не&nbsp;бот. Вижу вашу заявку&nbsp;- сейчас можно забронировать место по&nbsp;сниженной стоимости 🔥 Что хотелось&nbsp;бы улучшить в&nbsp;учёбе ребёнка?<time>15:58</time>
+                <span class="bvv-flag">Цену не&nbsp;назвал</span>
+              </div>
+              <div class="bvv-msg bvv-msg--in">
+                Возможно, моё сообщение затерялось 🙂 Пока держу для вас место по&nbsp;ранней цене, но&nbsp;такие места быстро заканчиваются.<time>16:16</time>
+                <span class="bvv-flag">Давит вместо ответа</span>
+              </div>
+              <div class="bvv-date">29 сентября</div>
+              <div class="bvv-msg bvv-msg--in">
+                Напоминаю про вашу скидку: до&nbsp;её окончания остался 1&nbsp;день. Обсудим обучение?<time>15:55</time>
+                <span class="bvv-flag">«Последний день»</span>
+              </div>
+              <div class="bvv-date bvv-date--gap">27 октября · прошёл месяц</div>
+              <div class="bvv-msg bvv-msg--in">
+                Тук-тук! Только на&nbsp;4&nbsp;дня сохраняем уникальную скидку. Чтобы воспользоваться, напишите «Готов».<time>14:26</time>
+                <span class="bvv-flag">Та&nbsp;же скидка снова «сгорает»</span>
+              </div>
+            </div>
+            <div class="bvv-foot">✕&nbsp; Месяц, 6 сообщений&nbsp;- цена так и&nbsp;не&nbsp;названа</div>
+          </div>
+
+          <!-- Вера -->
+          <div class="bvv-panel bvv-panel--vera bvv-chat">
+            <div class="bvv-head">
+              <img src="assets/images/vera_avatar_hd.jpg" alt="Вера" class="bvv-ava" loading="lazy" width="40" height="40">
+              <div>
+                <div class="bvv-name">Вера</div>
+                <div class="bvv-status">онлайн 24/7</div>
+              </div>
+              <span class="bvv-label">ИИ-продавец</span>
+            </div>
+            <div class="bvv-body">
+              <div class="bvv-date">28 сентября</div>
+              <div class="bvv-msg bvv-msg--out">Сколько стоит обучение?<time>23:40</time></div>
+              <div class="bvv-msg bvv-msg--in">
+                Здравствуйте! Я&nbsp;Вера, помогаю подобрать обучение. Курс в&nbsp;мини-группе&nbsp;- от&nbsp;2&nbsp;900&nbsp;₽ в&nbsp;месяц, занятия с&nbsp;репетитором&nbsp;- от&nbsp;1&nbsp;200&nbsp;₽ за&nbsp;урок. Точная цена зависит от&nbsp;класса и&nbsp;предмета. В&nbsp;каком классе ребёнок и&nbsp;что хотите подтянуть?<time>23:40</time>
+                <span class="bvv-flag bvv-flag--ok">Цена в&nbsp;первом ответе</span>
+              </div>
+              <div class="bvv-msg bvv-msg--out">8 класс, математика. Хотим заранее готовиться к&nbsp;ОГЭ<time>23:42</time></div>
+              <div class="bvv-msg bvv-msg--in">
+                Тогда подойдёт годовой курс математики для 8&nbsp;класса: 2&nbsp;занятия в&nbsp;неделю в&nbsp;мини-группе и&nbsp;домашние задания с&nbsp;проверкой. 2&nbsp;900&nbsp;₽ в&nbsp;месяц, при оплате за&nbsp;полгода&nbsp;- 2&nbsp;500&nbsp;₽. Можно начать с&nbsp;бесплатного пробного урока: ближайший в&nbsp;субботу в&nbsp;11:00. Записать вас?<time>23:42</time>
+                <span class="bvv-flag bvv-flag--ok">Подобрала под задачу</span>
+              </div>
+              <div class="bvv-msg bvv-msg--out">Да, давайте<time>23:43</time></div>
+              <div class="bvv-msg bvv-msg--in">
+                Записала на&nbsp;субботу, 11:00 ✅ Ссылку на&nbsp;урок пришлю сюда за&nbsp;час до&nbsp;начала. Если появятся вопросы&nbsp;- пишите, я&nbsp;на&nbsp;связи.<time>23:43</time>
+                <span class="bvv-flag bvv-flag--ok">Заявка в&nbsp;CRM</span>
+              </div>
+            </div>
+            <div class="bvv-foot">✓&nbsp; 3 минуты ночью&nbsp;- клиент записан на&nbsp;пробный урок</div>
+          </div>
+        </div>
+      </div>
+
+      <dl class="bvv-sum mt-6 sm:mt-8">
+        <div class="bvv-row bvv-row--head"><span></span><span>Обычный бот</span><span>Вера</span></div>
+        <div class="bvv-row"><dt>Ответил на&nbsp;вопрос</dt><dd class="bvv-b">Нет, ни&nbsp;разу за&nbsp;месяц</dd><dd class="bvv-v">В&nbsp;первом сообщении</dd></div>
+        <div class="bvv-row"><dt>Когда отвечает</dt><dd class="bvv-b">Шаблон сразу, человек&nbsp;- с&nbsp;8 до&nbsp;21</dd><dd class="bvv-v">Сразу, 24/7, в&nbsp;23:40 тоже</dd></div>
+        <div class="bvv-row"><dt>Как убеждает</dt><dd class="bvv-b">Скидка, которая «сгорает» каждую неделю</dd><dd class="bvv-v">Вариант под класс, предмет и&nbsp;цель</dd></div>
+        <div class="bvv-row"><dt>Итог</dt><dd class="bvv-b">6 сообщений без ответа и&nbsp;раздражение</dd><dd class="bvv-v">Запись на&nbsp;пробный урок и&nbsp;заявка в&nbsp;CRM</dd></div>
+      </dl>
+
+      <div class="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
+        <p class="text-xs text-slate-400">Название школы скрыто. Диалог с&nbsp;Верой&nbsp;- пример, цены условные.</p>
+        <a href="#scenarios" class="inline-flex items-center gap-2 rounded-full bg-sky-600 hover:bg-sky-700 text-white text-sm font-bold px-5 py-2.5 shadow-[0_8px_24px_rgba(2,132,199,0.25)] transition-colors">
+          Задайте Вере свой вопрос <span aria-hidden="true">→</span>
+        </a>
       </div>
     </section>
 
