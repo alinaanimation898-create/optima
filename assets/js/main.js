@@ -913,11 +913,11 @@
         monthlyTariffPrice = 59000;
       } else {
         tariffName = '«Империя»';
-        monthlyTariffPrice = 99000;
+        monthlyTariffPrice = 89000;
       }
 
       // Запуск по тарифу (как в конструкторе), без доплаты за 1С / МойСклад
-      const launchPrice = { 25000: 29000, 39000: 39000, 59000: 59000, 99000: 99000 }[monthlyTariffPrice] || 29000;
+      const launchPrice = { 25000: 29000, 39000: 39000, 59000: 59000, 89000: 89000 }[monthlyTariffPrice] || 29000;
       const monthlyNet = gain - monthlyTariffPrice;
       const yearNet = gain * 12 - (launchPrice + monthlyTariffPrice * 12);
       const paybackDays = gain > 0 ? (launchPrice + monthlyTariffPrice) / (gain / 30) : Infinity;
