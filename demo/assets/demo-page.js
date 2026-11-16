@@ -118,6 +118,8 @@
     // Optional brands.json wording: "of_name" (genitive, e.g. "Школы менеджмента «Стратоплан»") and "note_role" ("будущего слушателя").
     var ofName = lg.of_name || name, sourceOf = lg.of_name || 'компании ' + name;
     var noteRole = lg.note_role || 'покупателя';
+    // brands.json "role": Vera's title under her name (default "консультант", e.g. "консьерж").
+    var role = lg.role || 'консультант';
 
     document.title = 'Демо ALTAI Optima + ' + name;
     root.className = 'dp' + (lg.white_background ? ' dp-white' : '');
@@ -137,11 +139,11 @@
           '<h1>Добрый день! <span>Меня зовут Вера</span></h1>' +
           '<p class="dp-desc">' + esc(hero) + '</p>' +
           '<p class="dp-note">Напишите мне от лица ' + esc(noteRole) + ' и проверьте мой профессионализм в деле</p>' +
-          (photo ? '<div class="dp-photo"><img src="' + esc(photo) + '" alt="Вера, консультант ' + esc(ofName) + '"></div>' : '') +
+          (photo ? '<div class="dp-photo"><img src="' + esc(photo) + '" alt="Вера, ' + esc(role) + ' ' + esc(ofName) + '"></div>' : '') +
         '</div><div class="dp-info-desktop">' + info + '</div></section>' +
         '<section class="dp-chat" aria-label="Чат с Верой">' +
           '<div class="dp-head"><div class="dp-who"><div class="dp-ava"><img src="' + esc(avatar) + '" alt="Вера"><i></i></div>' +
-            '<div class="dp-name"><b>Вера</b><small>консультант ' + esc(ofName) + ' · <span class="dp-status">в сети</span></small></div></div>' +
+            '<div class="dp-name"><b>Вера</b><small>' + esc(role) + ' ' + esc(ofName) + ' · <span class="dp-status">в сети</span></small></div></div>' +
             '<button type="button" class="dp-reset" title="Начать диалог сначала" aria-label="Сбросить диалог">' + ICON_RESET + '<span>Новый диалог</span></button></div>' +
           '<div class="dp-stream" role="log" aria-live="polite"><div class="dp-day">Сегодня</div></div>' +
           '<div class="dp-foot">' + (chips.length ? '<div class="dp-chips"></div>' : '') +
