@@ -128,8 +128,8 @@
     }
 
     html {
-      overflow-x: clip;
-      max-width: 100vw;
+      overflow-x: hidden;
+      max-width: 100%;
     }
 
     body {
@@ -141,8 +141,8 @@
         linear-gradient(180deg, #D9E8F1 0%, #E6EFF5 40%, #EEF2F6 100%);
       background-attachment: fixed;
       color: #0F172A;
-      overflow-x: clip;
-      max-width: 100vw;
+      overflow-x: hidden;
+      max-width: 100%;
     }
     .font-benzin {
       font-family: 'Benzin', sans-serif !important;
@@ -500,7 +500,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
       <!-- Logo image from main site -->
       <a href="index.html" class="flex items-center gap-2 group shrink-0">
         <img src="brand_logo.webp" alt="ALTAI OPTIMA" class="h-6 sm:h-7.5 w-auto object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
-        <span class="text-[10px] sm:text-[11px] font-semibold text-sky-800 bg-sky-100/70 px-2 py-0.5 rounded-full border border-sky-200/80">Устрой Веру на работу</span>
+        <span class="hidden min-[420px]:inline-block text-[10px] sm:text-[11px] font-semibold text-sky-800 bg-sky-100/70 px-2 py-0.5 rounded-full border border-sky-200/80 whitespace-nowrap">Устрой Веру на работу</span>
       </a>
 
       <!-- Desktop Navigation (Clean, concise, perfect fit without overflow) -->
@@ -548,12 +548,46 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
 
     <!-- ================= 1. SECTION: HERO ================= -->
     <section id="top" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-10 sm:pt-20 sm:pb-14 relative">
-      <div class="text-center max-w-5xl mx-auto">
+<style>
+.hero-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:1.5rem;align-items:center}
+.hero-grid .hero-txt{text-align:left}
+.hero-grid .hero-txt h1{text-align:left!important;font-size:clamp(12px,2.25vw,34px)!important;line-height:1.15!important}
+.hero-grid .hero-txt h1,.hero-grid .hero-txt p{margin-left:0!important;margin-right:0!important}
+.hero-grid .hero-txt .flex{justify-content:flex-start!important}
+.hero-vera{position:relative;padding:1.2rem}
+.hero-vera .hv-card{position:relative;border-radius:2rem;overflow:hidden;background:#fff;box-shadow:0 40px 80px -40px rgba(15,23,42,.35),0 0 0 1px rgba(15,23,42,.04)}
+.hero-vera img{width:100%;display:block}
+.hv-chip{position:absolute;z-index:2;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:1rem;padding:.65rem .9rem;font-family:'Inter',sans-serif!important;box-shadow:0 18px 36px -16px rgba(15,23,42,.35);border:1px solid rgba(255,255,255,.8)}
+.hv-chip small{display:block;font-size:.68rem;color:#64748b;font-weight:600}
+.hv-chip b{display:block;font-size:.95rem;color:#0f172a;font-weight:800;white-space:nowrap}
+.hv-chip.c1{left:0;top:18%}
+.hv-chip.c2{right:0;bottom:16%}
+.hv-chip.c2 b{color:#059669}
+.hv-live{display:flex!important;align-items:center;gap:.4rem}
+.hv-live i{flex:none;display:inline-block;width:.45rem;height:.45rem;border-radius:999px;background:#10b981;box-shadow:0 0 0 3px rgba(16,185,129,.2)}
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-grid .hero-txt,.hero-grid .hero-txt h1{text-align:center!important}
+  .hero-grid .hero-txt h1{font-size:clamp(11px,3.1vw,24px)!important;letter-spacing:-0.01em!important}
+  .hero-grid .hero-txt .flex{justify-content:center!important}
+  .hero-vera{max-width:320px;margin:0 auto;order:-1;padding:0.75rem}
+}
+@media(max-width:480px){
+  .hero-vera{max-width:280px;padding:0.5rem}
+  .hv-chip{padding:.4rem .65rem;border-radius:.75rem}
+  .hv-chip small{font-size:.62rem}
+  .hv-chip b{font-size:.82rem}
+  .hv-chip.c1{left:-0.5rem;top:12%}
+  .hv-chip.c2{right:-0.5rem;bottom:10%}
+}
+</style>
+      <div class="hero-grid">
+      <div class="hero-txt">
 
         <!-- Main Heading in Benzin (Strictly 2 lines) -->
-        <h1 class="hero-main-title font-benzin uppercase font-black tracking-tight mb-6 text-center max-w-5xl mx-auto" style="font-family: 'Benzin', sans-serif !important; font-size: clamp(12px, 2.85vw, 38px); line-height: 1.22; letter-spacing: -0.02em;">
+        <h1 class="hero-main-title font-benzin uppercase font-black tracking-tight mb-6 text-center max-w-5xl mx-auto" style="font-family: 'Benzin', sans-serif !important; font-size: clamp(12px, 3.8vw, 54px); line-height: 1.18;">
           <span class="text-sky-600 block whitespace-nowrap">УСТРОЙТЕ ВЕРУ НА&nbsp;РАБОТУ&nbsp;И</span>
-          <span class="bg-gradient-to-r from-emerald-600 via-sky-500 to-indigo-600 bg-clip-text text-transparent block whitespace-nowrap pb-1">ПОЛУЧАЙТЕ ЧАСТЬ ЕЕ&nbsp;ЗАРПЛАТЫ</span>
+          <span class="bg-gradient-to-r from-emerald-600 via-sky-500 to-indigo-600 bg-clip-text text-transparent block whitespace-nowrap">ПОЛУЧАЙТЕ ЧАСТЬ ЕЕ&nbsp;ЗАРПЛАТЫ</span>
         </h1>
 
         <!-- Descriptive Paragraph in Inter -->
@@ -572,6 +606,102 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
           </a>
         </div>
 
+      </div>
+      <div class="hero-vera"><div class="hv-card"><img src="assets/images/vera_hero.webp" alt="Вера, ИИ-продавец Altai Optima"></div><div class="hv-chip c1"><small class="hv-live"><i></i>Вера в сети</small><b>Ищет работу</b></div><div class="hv-chip c2"><small>Вам с одного клиента</small><b>+7 800 ₽ / мес</b></div></div>
+      </div>
+    </section>
+
+    <section id="quick" class="qk scroll-mt-28">
+<style>
+.qk{max-width:72rem;margin:0 auto;padding:3rem 1rem;font-family:'Inter',sans-serif!important}
+.qk-card{position:relative;border-radius:2rem;overflow:hidden;background:linear-gradient(135deg,#ffffff 0%,#f0f9ff 55%,#e0f2fe 100%);border:1px solid #e0f2fe;box-shadow:0 30px 70px -35px rgba(2,132,199,.45);}
+.qk-photo{position:relative;display:flex;align-items:flex-end;justify-content:center}
+.qk-photo img{width:100%;max-width:520px;display:block;mix-blend-mode:multiply;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 6%,#000 84%,transparent 100%),linear-gradient(to right,transparent 0,#000 8%,#000 90%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,transparent 0,#000 6%,#000 84%,transparent 100%),linear-gradient(to right,transparent 0,#000 8%,#000 90%,transparent 100%);mask-composite:intersect}
+.qk-tag{position:absolute;z-index:2;left:1.5rem;top:1.5rem;background:#fff;border-radius:999px;padding:.45rem .9rem;font-size:.78rem;font-weight:700;color:#0f172a;box-shadow:0 8px 20px -10px rgba(15,23,42,.3);display:flex;align-items:center;gap:.45rem}
+.qk-tag i{width:.5rem;height:.5rem;border-radius:999px;background:#10b981;box-shadow:0 0 0 4px rgba(16,185,129,.18)}
+.qk-body{padding:3rem;align-items:center;text-align:center;display:flex;flex-direction:column;justify-content:center}
+.qk-eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:800;color:#0284c7}
+.qk-h .pearl-title-gradient{font-size:inherit}
+.qk-h{font-family:'Benzin',sans-serif!important;font-weight:900;text-transform:uppercase;font-size:clamp(1.2rem,3vw,2.35rem);line-height:1.15;color:#0f172a;margin:.8rem 0 1rem;letter-spacing:-.01em}
+.qk-lead{color:#475569;font-size:1rem;line-height:1.6;max-width:34rem}
+.qk-lead b{color:#0f172a}
+.qk-cmp{width:100%;max-width:44rem;display:flex;text-align:left;align-items:stretch;gap:.75rem;margin:1.6rem 0}
+.qk-cmp>div{flex:1;border-radius:1.1rem;padding:1rem 1.1rem}
+.qk-bank{background:#fff;border:1px solid #e2e8f0}
+.qk-vera{background:linear-gradient(135deg,#0284c7,#0e7490);color:#fff;box-shadow:0 14px 30px -14px rgba(2,132,199,.7)}
+.qk-cmp small{display:block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.7}
+.qk-cmp strong{display:block;font-family:'Benzin',sans-serif!important;font-size:1.45rem;margin:.35rem 0 .2rem;white-space:nowrap}
+.qk-bank strong{color:#94a3b8;text-decoration:line-through;text-decoration-color:#f87171;text-decoration-thickness:2px}
+.qk-cmp span{font-size:.8rem;line-height:1.35;display:block;opacity:.8}
+.qk-roles{width:100%;max-width:44rem;text-align:left;display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.qk-role{border-top:2px solid #bae6fd;padding-top:.75rem}
+.qk-role div:first-child{font-size:.78rem;color:#64748b;font-weight:600}
+.qk-role div:nth-child(2){font-weight:900;color:#0f172a;margin-top:.25rem}
+.qk-role div:nth-child(3){font-weight:800;color:#059669;font-size:.92rem}
+.qk-role small{font-weight:500;color:#94a3b8;font-size:.75rem}
+.qk-foot{justify-content:center;text-align:left;display:flex;align-items:center;gap:1.25rem;margin-top:1.75rem;flex-wrap:wrap}
+.qx-badge{display:inline-block;margin-top:-.25rem;background:#ecfdf5;color:#047857;border:1px solid #a7f3d0;border-radius:999px;padding:.4rem 1rem;font-size:.9rem;font-weight:600}.qx-badge b{font-weight:900;text-transform:uppercase}
+.qx{width:100%;max-width:46rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.75rem 0 .5rem;text-align:left}
+.qx-col{border-radius:1.25rem;padding:1.4rem 1.5rem;background:#fff;border:1px solid #e2e8f0}
+.qx-win{background:#0f172a;border-color:#0f172a;color:#fff;box-shadow:0 20px 40px -20px rgba(15,23,42,.6)}
+.qx-t{font-weight:900;font-size:1.05rem;margin-bottom:.6rem;color:#0f172a}
+.qx-win .qx-t{color:#fff}
+.qx-r{display:flex;justify-content:space-between;align-items:baseline;gap:.75rem;padding:.6rem 0;border-top:1px solid #f1f5f9}
+.qx-win .qx-r{border-color:rgba(255,255,255,.1)}
+.qx-r span{font-size:.8rem;color:#64748b;white-space:nowrap}
+.qx-win .qx-r span{color:rgba(255,255,255,.55)}
+.qx-r b{font-size:.92rem;font-weight:700;text-align:right;color:#0f172a}
+.qx-win .qx-r b{color:#fff}
+.qx-r b.qx-bad{font-size:1.25rem;font-weight:900;color:#dc2626}
+.qx-r b.qx-good{font-size:1.25rem;font-weight:900;color:#34d399!important}
+@media(max-width:560px){.qx{grid-template-columns:1fr}}
+.qv{position:relative;width:100%;max-width:48rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0 1.75rem}
+.qv-c{border-radius:1.5rem;padding:1.8rem 1.6rem 4.2rem;text-align:center;position:relative;overflow:hidden}
+.qv-bank{background:#fff;border:1px solid #e2e8f0}
+.qv-vera{background:radial-gradient(120% 120% at 100% 0%,#0e7490 0%,#0f172a 60%);color:#fff;box-shadow:0 30px 60px -25px rgba(14,116,144,.7)}
+.qv-vera:after{content:"";position:absolute;right:-30%;top:-40%;width:80%;height:120%;background:radial-gradient(closest-side,rgba(52,211,153,.35),transparent)}
+.qv-k{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:#94a3b8}
+.qv-vera .qv-k{color:#6ee7b7}
+.qv-big{font-family:'Benzin',sans-serif!important;font-weight:900;font-size:clamp(1.35rem,4.2vw,3.1rem);line-height:1.1;margin:.7rem 0 .5rem;white-space:nowrap;position:relative;z-index:1}
+.qv-bank .qv-big{color:#cbd5e1;text-decoration:line-through;text-decoration-color:#f87171;text-decoration-thickness:3px}
+.qv-vera .qv-big{color:#34d399;text-shadow:0 0 40px rgba(52,211,153,.55)}
+.qv-s{font-size:.88rem;color:#64748b;position:relative;z-index:1}
+.qv-vera .qv-s{color:rgba(255,255,255,.75)}.qv-vera .qv-s b{color:#fff}
+.qv-vs{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);z-index:3;width:3rem;height:3rem;border-radius:999px;background:#fff;box-shadow:0 10px 25px -8px rgba(15,23,42,.35);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.8rem;color:#0f172a}
+.qv-res{grid-column:1/-1;margin:-2.6rem auto 0;position:relative;z-index:3;background:#fff;border-radius:999px;padding:.8rem 1.6rem;display:flex;align-items:center;gap:.8rem;box-shadow:0 18px 40px -16px rgba(15,23,42,.35);border:1px solid #e0f2fe}
+.qv-res span{font-size:.82rem;color:#64748b;font-weight:600}
+.qv-res b{font-family:'Benzin',sans-serif!important;font-size:1.35rem;color:#0f172a;white-space:nowrap}
+@media(max-width:600px){.qv{grid-template-columns:1fr}.qv-c{padding:1.4rem .8rem 3.2rem}.qv-vs{position:relative;left:auto;top:auto;transform:none;justify-self:center;margin:-1.9rem 0}.qv-res{flex-direction:column;gap:.35rem;border-radius:1.25rem;margin-top:-2rem;padding:.75rem 1rem}.qv-big{font-size:clamp(1.2rem,6.5vw,2.2rem)!important}}
+.qk-btn{display:inline-flex;padding:.9rem 1.5rem;border-radius:.8rem;color:#fff;font-weight:700;font-size:.92rem;text-decoration:none;background:linear-gradient(90deg,#0284c7,#1d4ed8);box-shadow:0 10px 24px -8px rgba(2,132,199,.55);transition:transform .2s}
+.qk-btn:hover{transform:translateY(-2px)}
+.qk-steps{font-size:.8rem;color:#64748b}
+.qk-steps b{color:#0f172a}
+.qk-note{font-size:10.5px;color:#94a3b8;line-height:1.5;margin-top:1.25rem}
+@media(max-width:900px){.qk-card{grid-template-columns:1fr}.qk-tag{top:auto;bottom:1rem}.qk-photo img{max-width:360px}.qk-body{padding:1.5rem 1.5rem 2rem}}
+@media(max-width:480px){.qk-cmp{flex-direction:column}.qk-roles{grid-template-columns:1fr}}
+</style>
+      <div class="qk-card">
+        <div class="qk-body">
+          <div class="qk-eyebrow">Давайте зарабатывать вместе</div>
+          <div class="qk-h"><span class="pearl-title-gradient">Делимся прибылью</span></div>
+          <p class="qk-lead">Доход как с&nbsp;миллиона на&nbsp;вкладе. Только без&nbsp;миллиона</p>
+          <div class="qv">
+            <div class="qv-c qv-bank">
+              <div class="qv-k">Вклад под 13%</div>
+              <div class="qv-big">1&nbsp;090&nbsp;000&nbsp;₽</div>
+              <div class="qv-s">ваших денег в&nbsp;банке</div>
+            </div>
+            <div class="qv-vs">VS</div>
+            <div class="qv-c qv-vera">
+              <div class="qv-k">Вера</div>
+              <div class="qv-big">0&nbsp;₽</div>
+              <div class="qv-s">и&nbsp;<b>1&nbsp;клиент</b> на&nbsp;тарифе «Поток»</div>
+            </div>
+            <div class="qv-res"><span>Результат одинаковый</span><b>11&nbsp;800&nbsp;₽</b><span>каждый месяц</span></div>
+          </div>
+          <a href="#money" class="qk-btn">Сколько на каждом тарифе →</a>
+          <div class="qk-note">20% от&nbsp;59&nbsp;000&nbsp;₽, со&nbsp;2-го месяца, для хедхантера. Ставка вклада - средняя по&nbsp;крупным банкам, ноябрь 2026. Не&nbsp;инвестиция, доход не&nbsp;гарантирован</div>
+        </div>
       </div>
     </section>
 
@@ -1835,7 +1965,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
           <span class="bg-gradient-to-r from-emerald-600 via-sky-500 to-indigo-600 bg-clip-text text-transparent">КАРЬЕРНЫЙ РОСТ</span>
         </h3>
         <p class="text-sm sm:text-base text-slate-700 font-medium leading-relaxed max-w-2xl mx-auto mb-8">
-          Откройте своё кадровое агентство. Приглашайте рекрутеров и получайте часть их процента: <strong class="text-purple-950">25%</strong> от процента вашей команды и <strong class="text-purple-950">15%</strong> от процента второй линии. Доля берётся из процента команды, компания платит с клиента одинаково
+          Откройте своё кадровое агентство. Приглашайте рекрутеров и хедхантеров и получайте часть их процента: <strong class="text-purple-950">25%</strong> от процента вашей команды и <strong class="text-purple-950">15%</strong> от процента второй линии. Доля берётся из процента команды, компания платит с клиента одинаково
 </p>
 
         <!-- Plain English Explanation Cards (Clean white with subtle outline) -->
@@ -1857,7 +1987,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
           <div class="p-5 rounded-2xl bg-white/80 backdrop-blur-sm border border-purple-200/90 shadow-xs font-inter hover:border-purple-300 transition-all">
             <div class="text-xs font-bold text-purple-900 mb-1">Шаг 3. Вам - четверть его процента</div>
             <p class="text-xs text-slate-700 leading-relaxed">
-              Вам идёт <strong>1&nbsp;170&nbsp;₽/⁠мес</strong> с каждого клиента этого рекрутера (25% от его 4&nbsp;680&nbsp;₽). Когда ваш рекрутер соберёт своё кадровое агентство, с клиентов его команды вам ещё 15% их процента (702&nbsp;₽ с клиента).
+              Вам идёт <strong>1&nbsp;170&nbsp;₽/⁠мес</strong> с каждого клиента этого рекрутера (25% от его 4&nbsp;680&nbsp;₽), с&nbsp;клиента хедхантера - <strong>1&nbsp;950&nbsp;₽/⁠мес</strong> (25% от&nbsp;7&nbsp;800&nbsp;₽). Когда ваш рекрутер соберёт своё кадровое агентство, с клиентов его команды вам ещё 15% их процента (702&nbsp;₽ с&nbsp;клиента рекрутера, 1&nbsp;170&nbsp;₽ с&nbsp;клиента хедхантера).
 </p>
           </div>
         </div>
@@ -1903,110 +2033,110 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
 </style>
         <div class="altmtn-wrap">
           <div class="altmtn-desktop"><svg class="altmtn-svg" viewBox="0 0 1000 760" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Схема кадрового агентства: вы на вершине, ниже ваша команда из 5 рекрутеров, ещё ниже - команды, которые собрали ваши рекрутеры" font-family="'Inter', sans-serif"><defs>
-  <linearGradient id="altmtnMain" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C4B5FD"/><stop offset="100%" stop-color="#F5F3FF"/></linearGradient>
-  <linearGradient id="altmtnBack" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C7D2FE"/><stop offset="100%" stop-color="#EEF2FF"/></linearGradient>
-  <linearGradient id="altmtnRiver" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7DD3FC" stop-opacity="1"/><stop offset="30%" stop-color="#BAE6FD" stop-opacity="0.85"/><stop offset="65%" stop-color="#E0F2FE" stop-opacity="0.4"/><stop offset="100%" stop-color="#EEF2F6" stop-opacity="0"/></linearGradient>
-  <linearGradient id="altmtnVyGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#0284C7"/><stop offset="45%" stop-color="#6D28D9"/><stop offset="100%" stop-color="#9333EA"/></linearGradient>
-</defs><path d="M0 600 L0 470 L110 330 L190 400 L290 245 L370 330 L500 200 L630 330 L710 245 L810 400 L890 330 L1000 470 L1000 600 Z" fill="url(#altmtnBack)"/><path d="M290 245 L270 275 L282 272 L292 284 L302 270 L312 276 Z M710 245 L690 276 L700 270 L710 284 L720 272 L730 275 Z" fill="#FFFFFF" opacity="0.9"/><path d="M30 600 L220 360 L290 410 L410 200 L460 145 L500 108 L540 145 L590 200 L710 410 L780 360 L970 600 Z" fill="url(#altmtnMain)"/><path d="M500 108 L460 160 L476 154 L488 166 L500 152 L512 166 L524 154 L540 160 Z" fill="#FFFFFF" stroke="#E0E7FF" stroke-width="1.5"/><text x="500" y="32" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11.5" font-weight="800" fill="#6D28D9" letter-spacing="1.4">РУКОВОДИТЕЛЬ ОТДЕЛА ПРОДАЖ</text><text x="500" y="82" text-anchor="middle" font-family="'Inter', sans-serif" font-size="38" font-weight="900" fill="url(#altmtnVyGrad)">ВЫ</text><path d="M0 578 C 150 556, 300 600, 500 578 S 850 556, 1000 580 L1000 760 L0 760 Z" fill="url(#altmtnRiver)"/>
+  <lineargradient id="altmtnMain" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C4B5FD"></stop><stop offset="100%" stop-color="#F5F3FF"></stop></lineargradient>
+  <lineargradient id="altmtnBack" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C7D2FE"></stop><stop offset="100%" stop-color="#EEF2FF"></stop></lineargradient>
+  <lineargradient id="altmtnRiver" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7DD3FC" stop-opacity="1"></stop><stop offset="30%" stop-color="#BAE6FD" stop-opacity="0.85"></stop><stop offset="65%" stop-color="#E0F2FE" stop-opacity="0.4"></stop><stop offset="100%" stop-color="#EEF2F6" stop-opacity="0"></stop></lineargradient>
+  <lineargradient id="altmtnVyGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#0284C7"></stop><stop offset="45%" stop-color="#6D28D9"></stop><stop offset="100%" stop-color="#9333EA"></stop></lineargradient>
+</defs><path d="M0 600 L0 470 L110 330 L190 400 L290 245 L370 330 L500 200 L630 330 L710 245 L810 400 L890 330 L1000 470 L1000 600 Z" fill="url(#altmtnBack)"></path><path d="M290 245 L270 275 L282 272 L292 284 L302 270 L312 276 Z M710 245 L690 276 L700 270 L710 284 L720 272 L730 275 Z" fill="#FFFFFF" opacity="0.9"></path><path d="M30 600 L220 360 L290 410 L410 200 L460 145 L500 108 L540 145 L590 200 L710 410 L780 360 L970 600 Z" fill="url(#altmtnMain)"></path><path d="M500 108 L460 160 L476 154 L488 166 L500 152 L512 166 L524 154 L540 160 Z" fill="#FFFFFF" stroke="#E0E7FF" stroke-width="1.5"></path><text x="500" y="32" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11.5" font-weight="800" fill="#6D28D9" letter-spacing="1.4">ВАШЕ КАДРОВОЕ АГЕНТСТВО</text><text x="500" y="82" text-anchor="middle" font-family="'Inter', sans-serif" font-size="38" font-weight="900" fill="url(#altmtnVyGrad)">ВЫ</text><path d="M0 578 C 150 556, 300 600, 500 578 S 850 556, 1000 580 L1000 760 L0 760 Z" fill="url(#altmtnRiver)"></path>
 <!-- Непрерывные лаконичные потоки, берущие начало прямо от вершины -->
-<path d="M 500 112 C 380 145, 190 190, 150 270 L 150 580" class="altmtn-bed"/><path d="M 500 112 C 380 145, 190 190, 150 270 L 150 580" class="altmtn-flow"/>
-<path d="M 500 112 C 430 155, 340 200, 325 270 L 325 580" class="altmtn-bed"/><path d="M 500 112 C 430 155, 340 200, 325 270 L 325 580" class="altmtn-flow"/>
-<path d="M 500 112 L 500 580" class="altmtn-bed"/><path d="M 500 112 L 500 580" class="altmtn-flow"/>
-<path d="M 500 112 C 570 155, 660 200, 675 270 L 675 580" class="altmtn-bed"/><path d="M 500 112 C 570 155, 660 200, 675 270 L 675 580" class="altmtn-flow"/>
-<path d="M 500 112 C 620 145, 810 190, 850 270 L 850 580" class="altmtn-bed"/><path d="M 500 112 C 620 145, 810 190, 850 270 L 850 580" class="altmtn-flow"/>
+<path d="M 500 112 C 380 145, 190 190, 150 270 L 150 580" class="altmtn-bed"></path><path d="M 500 112 C 380 145, 190 190, 150 270 L 150 580" class="altmtn-flow"></path>
+<path d="M 500 112 C 430 155, 340 200, 325 270 L 325 580" class="altmtn-bed"></path><path d="M 500 112 C 430 155, 340 200, 325 270 L 325 580" class="altmtn-flow"></path>
+<path d="M 500 112 L 500 580" class="altmtn-bed"></path><path d="M 500 112 L 500 580" class="altmtn-flow"></path>
+<path d="M 500 112 C 570 155, 660 200, 675 270 L 675 580" class="altmtn-bed"></path><path d="M 500 112 C 570 155, 660 200, 675 270 L 675 580" class="altmtn-flow"></path>
+<path d="M 500 112 C 620 145, 810 190, 850 270 L 850 580" class="altmtn-bed"></path><path d="M 500 112 C 620 145, 810 190, 850 270 L 850 580" class="altmtn-flow"></path>
 <!-- Исток потока на вершине прямо под ВЫ -->
-<g class="altmtn-source"><circle cx="500" cy="112" r="7" fill="none" stroke="#38BDF8" stroke-width="1.5" class="altmtn-pulse"/><circle cx="500" cy="112" r="4.5" fill="#0284C7"/><circle cx="500" cy="112" r="1.5" fill="#FFFFFF"/></g>
+<g class="altmtn-source"><circle cx="500" cy="112" r="7" fill="none" stroke="#38BDF8" stroke-width="1.5" class="altmtn-pulse"></circle><circle cx="500" cy="112" r="4.5" fill="#0284C7"></circle><circle cx="500" cy="112" r="1.5" fill="#FFFFFF"></circle></g>
 <!-- Плашки 1 и 2 уровня на десктопе -->
 <g class="altmtn-level-row">
-  <line x1="75" y1="230" x2="925" y2="230" stroke="#C084FC" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.4"/>
-  <rect x="355" y="214" width="290" height="32" rx="16" fill="#F3E8FF" stroke="#C084FC" stroke-width="1.5"/>
+  <line x1="75" y1="230" x2="925" y2="230" stroke="#C084FC" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.4"></line>
+  <rect x="355" y="214" width="290" height="32" rx="16" fill="#F3E8FF" stroke="#C084FC" stroke-width="1.5"></rect>
   <text x="500" y="228" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11.5" font-weight="800" fill="#581C87">1 УРОВЕНЬ · 25%</text>
-  <text x="500" y="240" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="#7E22CE">ваша прямая команда рекрутеров</text>
+  <text x="500" y="240" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="#7E22CE">рекрутеры и хедхантеры, которых пригласили вы</text>
 </g>
 <g class="altmtn-level-row">
-  <line x1="75" y1="392" x2="925" y2="392" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.4"/>
-  <rect x="355" y="376" width="290" height="32" rx="16" fill="#E0F2FE" stroke="#38BDF8" stroke-width="1.5"/>
+  <line x1="75" y1="392" x2="925" y2="392" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.4"></line>
+  <rect x="355" y="376" width="290" height="32" rx="16" fill="#E0F2FE" stroke="#38BDF8" stroke-width="1.5"></rect>
   <text x="500" y="390" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11.5" font-weight="800" fill="#0369A1">2 УРОВЕНЬ · 15%</text>
-  <text x="500" y="402" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="#0284C7">команды рекрутеров</text>
+  <text x="500" y="402" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" font-weight="600" fill="#0284C7">люди, которых пригласила ваша команда</text>
 </g>
 <!-- Полупрозрачные значки рубля, плавающие в реке дохода -->
 <g class="altmtn-rubles">
-  <g class="altmtn-ruble altmtn-float-1"><circle cx="90" cy="620" r="11" fill="#E0F2FE" fill-opacity="0.5" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.6"/><text x="90" y="624" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#0284C7" fill-opacity="0.8">₽</text></g>
-  <g class="altmtn-ruble altmtn-float-2"><circle cx="160" cy="650" r="13" fill="#E0F2FE" fill-opacity="0.55" stroke="#38BDF8" stroke-width="1.2" stroke-opacity="0.6"/><text x="160" y="654.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#0284C7" fill-opacity="0.8">₽</text></g>
-  <g class="altmtn-ruble altmtn-float-3"><circle cx="80" cy="685" r="10" fill="#E0F2FE" fill-opacity="0.45" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.5"/><text x="80" y="688.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#0284C7" fill-opacity="0.75">₽</text></g>
-  <g class="altmtn-ruble altmtn-float-1"><circle cx="210" cy="615" r="9" fill="#E0F2FE" fill-opacity="0.45" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.5"/><text x="210" y="618.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#0284C7" fill-opacity="0.75">₽</text></g>
-  <g class="altmtn-ruble altmtn-float-2"><circle cx="170" cy="715" r="11" fill="#E0F2FE" fill-opacity="0.5" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.6"/><text x="170" y="719" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#0284C7" fill-opacity="0.8">₽</text></g>
-  <g class="altmtn-ruble altmtn-float-3"><circle cx="235" cy="680" r="10" fill="#E0F2FE" fill-opacity="0.45" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.5"/><text x="235" y="683.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#0284C7" fill-opacity="0.75">₽</text></g>
-  <g class="altmtn-ruble altmtn-float-2"><circle cx="765" cy="680" r="10" fill="#E0F2FE" fill-opacity="0.45" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.5"/><text x="765" y="683.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#0284C7" fill-opacity="0.75">₽</text></g>
-  <g class="altmtn-ruble altmtn-float-3"><circle cx="790" cy="615" r="9" fill="#E0F2FE" fill-opacity="0.45" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.5"/><text x="790" y="618.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#0284C7" fill-opacity="0.75">₽</text></g>
-  <g class="altmtn-ruble altmtn-float-1"><circle cx="840" cy="650" r="13" fill="#E0F2FE" fill-opacity="0.55" stroke="#38BDF8" stroke-width="1.2" stroke-opacity="0.6"/><text x="840" y="654.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#0284C7" fill-opacity="0.8">₽</text></g>
-  <g class="altmtn-ruble altmtn-float-2"><circle cx="910" cy="620" r="11" fill="#E0F2FE" fill-opacity="0.5" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.6"/><text x="910" y="624" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#0284C7" fill-opacity="0.8">₽</text></g>
-  <g class="altmtn-ruble altmtn-float-3"><circle cx="830" cy="715" r="11" fill="#E0F2FE" fill-opacity="0.5" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.6"/><text x="830" y="719" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#0284C7" fill-opacity="0.8">₽</text></g>
-  <g class="altmtn-ruble altmtn-float-1"><circle cx="920" cy="685" r="10" fill="#E0F2FE" fill-opacity="0.45" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.5"/><text x="920" y="688.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#0284C7" fill-opacity="0.75">₽</text></g>
+  <g class="altmtn-ruble altmtn-float-1"><circle cx="90" cy="620" r="11" fill="#E0F2FE" fill-opacity="0.5" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.6"></circle><text x="90" y="624" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#0284C7" fill-opacity="0.8">₽</text></g>
+  <g class="altmtn-ruble altmtn-float-2"><circle cx="160" cy="650" r="13" fill="#E0F2FE" fill-opacity="0.55" stroke="#38BDF8" stroke-width="1.2" stroke-opacity="0.6"></circle><text x="160" y="654.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#0284C7" fill-opacity="0.8">₽</text></g>
+  <g class="altmtn-ruble altmtn-float-3"><circle cx="80" cy="685" r="10" fill="#E0F2FE" fill-opacity="0.45" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.5"></circle><text x="80" y="688.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#0284C7" fill-opacity="0.75">₽</text></g>
+  <g class="altmtn-ruble altmtn-float-1"><circle cx="210" cy="615" r="9" fill="#E0F2FE" fill-opacity="0.45" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.5"></circle><text x="210" y="618.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#0284C7" fill-opacity="0.75">₽</text></g>
+  <g class="altmtn-ruble altmtn-float-2"><circle cx="170" cy="715" r="11" fill="#E0F2FE" fill-opacity="0.5" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.6"></circle><text x="170" y="719" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#0284C7" fill-opacity="0.8">₽</text></g>
+  <g class="altmtn-ruble altmtn-float-3"><circle cx="235" cy="680" r="10" fill="#E0F2FE" fill-opacity="0.45" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.5"></circle><text x="235" y="683.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#0284C7" fill-opacity="0.75">₽</text></g>
+  <g class="altmtn-ruble altmtn-float-2"><circle cx="765" cy="680" r="10" fill="#E0F2FE" fill-opacity="0.45" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.5"></circle><text x="765" y="683.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#0284C7" fill-opacity="0.75">₽</text></g>
+  <g class="altmtn-ruble altmtn-float-3"><circle cx="790" cy="615" r="9" fill="#E0F2FE" fill-opacity="0.45" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.5"></circle><text x="790" y="618.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#0284C7" fill-opacity="0.75">₽</text></g>
+  <g class="altmtn-ruble altmtn-float-1"><circle cx="840" cy="650" r="13" fill="#E0F2FE" fill-opacity="0.55" stroke="#38BDF8" stroke-width="1.2" stroke-opacity="0.6"></circle><text x="840" y="654.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#0284C7" fill-opacity="0.8">₽</text></g>
+  <g class="altmtn-ruble altmtn-float-2"><circle cx="910" cy="620" r="11" fill="#E0F2FE" fill-opacity="0.5" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.6"></circle><text x="910" y="624" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#0284C7" fill-opacity="0.8">₽</text></g>
+  <g class="altmtn-ruble altmtn-float-3"><circle cx="830" cy="715" r="11" fill="#E0F2FE" fill-opacity="0.5" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.6"></circle><text x="830" y="719" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#0284C7" fill-opacity="0.8">₽</text></g>
+  <g class="altmtn-ruble altmtn-float-1"><circle cx="920" cy="685" r="10" fill="#E0F2FE" fill-opacity="0.45" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.5"></circle><text x="920" y="688.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#0284C7" fill-opacity="0.75">₽</text></g>
 </g>
-<g><rect x="75" y="270" width="150" height="76" rx="16" class="altmtn-node"/><text x="150" y="293" text-anchor="middle" class="altmtn-t1" font-size="14">Рекрутер 1</text><text x="150" y="312" text-anchor="middle" class="altmtn-t2" font-size="12">6 клиентов</text><text x="150" y="331" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +7 020 ₽/мес</text></g><g><rect x="250" y="270" width="150" height="76" rx="16" class="altmtn-node"/><text x="325" y="293" text-anchor="middle" class="altmtn-t1" font-size="14">Рекрутер 2</text><text x="325" y="312" text-anchor="middle" class="altmtn-t2" font-size="12">5 клиентов</text><text x="325" y="331" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +5 850 ₽/мес</text></g><g><rect x="425" y="270" width="150" height="76" rx="16" class="altmtn-node"/><text x="500" y="293" text-anchor="middle" class="altmtn-t1" font-size="14">Рекрутер 3</text><text x="500" y="312" text-anchor="middle" class="altmtn-t2" font-size="12">4 клиента</text><text x="500" y="331" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +4 680 ₽/мес</text></g><g><rect x="600" y="270" width="150" height="76" rx="16" class="altmtn-node"/><text x="675" y="293" text-anchor="middle" class="altmtn-t1" font-size="14">Рекрутер 4</text><text x="675" y="312" text-anchor="middle" class="altmtn-t2" font-size="12">3 клиента</text><text x="675" y="331" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +3 510 ₽/мес</text></g><g><rect x="775" y="270" width="150" height="76" rx="16" class="altmtn-node"/><text x="850" y="293" text-anchor="middle" class="altmtn-t1" font-size="14">Рекрутер 5</text><text x="850" y="312" text-anchor="middle" class="altmtn-t2" font-size="12">2 клиента</text><text x="850" y="331" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +2 340 ₽/мес</text></g><g><rect x="75" y="440" width="150" height="72" rx="16" class="altmtn-node2"/><text x="150" y="463" text-anchor="middle" class="altmtn-t1" font-size="13">Рекрутер</text><text x="150" y="482" text-anchor="middle" class="altmtn-t2" font-size="12">4 клиента</text><text x="150" y="501" text-anchor="middle" class="altmtn-t3" font-size="12">вам +2 808 ₽/мес</text></g><g><rect x="250" y="440" width="150" height="72" rx="16" class="altmtn-node2"/><text x="325" y="463" text-anchor="middle" class="altmtn-t1" font-size="13">Рекрутер</text><text x="325" y="482" text-anchor="middle" class="altmtn-t2" font-size="12">7 клиентов</text><text x="325" y="501" text-anchor="middle" class="altmtn-t3" font-size="12">вам +4 914 ₽/мес</text></g><g><rect x="425" y="440" width="150" height="72" rx="16" class="altmtn-node2"/><text x="500" y="463" text-anchor="middle" class="altmtn-t1" font-size="13">Рекрутер</text><text x="500" y="482" text-anchor="middle" class="altmtn-t2" font-size="12">2 клиента</text><text x="500" y="501" text-anchor="middle" class="altmtn-t3" font-size="12">вам +1 404 ₽/мес</text></g><g><rect x="600" y="440" width="150" height="72" rx="16" class="altmtn-node2"/><text x="675" y="463" text-anchor="middle" class="altmtn-t1" font-size="13">Рекрутер</text><text x="675" y="482" text-anchor="middle" class="altmtn-t2" font-size="12">5 клиентов</text><text x="675" y="501" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +3 510 ₽/мес</text></g><g><rect x="775" y="440" width="150" height="72" rx="16" class="altmtn-node2"/><text x="850" y="463" text-anchor="middle" class="altmtn-t1" font-size="13">Рекрутер</text><text x="850" y="482" text-anchor="middle" class="altmtn-t2" font-size="12">1 клиент</text><text x="850" y="501" text-anchor="middle" class="altmtn-t3" font-size="12">вам +702 ₽/мес</text></g><text x="500" y="640" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif" font-size="12" font-weight="700" fill="#0284C7" letter-spacing="1.2">ВАШ ДОХОД КАДРОВОГО АГЕНТСТВА В ЭТОМ ПРИМЕРЕ</text><text x="500" y="686" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif"><tspan font-size="44" font-weight="900" fill="#4C1D95">+53 820</tspan><tspan font-size="22" font-weight="700" fill="#6D28D9" dx="6"> ₽/мес</tspan></text><text x="500" y="716" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif" font-size="13.5" font-weight="500" fill="#0369A1">сверх дохода с ваших собственных клиентов</text></svg></div>
+<g><rect x="75" y="270" width="150" height="76" rx="16" class="altmtn-node"></rect><text x="150" y="293" text-anchor="middle" class="altmtn-t1" font-size="14">Рекрутер 1</text><text x="150" y="312" text-anchor="middle" class="altmtn-t2" font-size="12">6 клиентов</text><text x="150" y="331" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +7 020 ₽/мес</text></g><g><rect x="250" y="270" width="150" height="76" rx="16" class="altmtn-node"></rect><text x="325" y="293" text-anchor="middle" class="altmtn-t1" font-size="14">Хедхантер 2</text><text x="325" y="312" text-anchor="middle" class="altmtn-t2" font-size="12">5 клиентов</text><text x="325" y="331" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +9 750 ₽/мес</text></g><g><rect x="425" y="270" width="150" height="76" rx="16" class="altmtn-node"></rect><text x="500" y="293" text-anchor="middle" class="altmtn-t1" font-size="14">Рекрутер 3</text><text x="500" y="312" text-anchor="middle" class="altmtn-t2" font-size="12">4 клиента</text><text x="500" y="331" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +4 680 ₽/мес</text></g><g><rect x="600" y="270" width="150" height="76" rx="16" class="altmtn-node"></rect><text x="675" y="293" text-anchor="middle" class="altmtn-t1" font-size="14">Хедхантер 4</text><text x="675" y="312" text-anchor="middle" class="altmtn-t2" font-size="12">3 клиента</text><text x="675" y="331" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +5 850 ₽/мес</text></g><g><rect x="775" y="270" width="150" height="76" rx="16" class="altmtn-node"></rect><text x="850" y="293" text-anchor="middle" class="altmtn-t1" font-size="14">Рекрутер 5</text><text x="850" y="312" text-anchor="middle" class="altmtn-t2" font-size="12">2 клиента</text><text x="850" y="331" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +2 340 ₽/мес</text></g><g><rect x="75" y="440" width="150" height="72" rx="16" class="altmtn-node2"></rect><text x="150" y="463" text-anchor="middle" class="altmtn-t1" font-size="13">Рекрутер</text><text x="150" y="482" text-anchor="middle" class="altmtn-t2" font-size="12">4 клиента</text><text x="150" y="501" text-anchor="middle" class="altmtn-t3" font-size="12">вам +2 808 ₽/мес</text></g><g><rect x="250" y="440" width="150" height="72" rx="16" class="altmtn-node2"></rect><text x="325" y="463" text-anchor="middle" class="altmtn-t1" font-size="13">Хедхантер</text><text x="325" y="482" text-anchor="middle" class="altmtn-t2" font-size="12">7 клиентов</text><text x="325" y="501" text-anchor="middle" class="altmtn-t3" font-size="12">вам +8 190 ₽/мес</text></g><g><rect x="425" y="440" width="150" height="72" rx="16" class="altmtn-node2"></rect><text x="500" y="463" text-anchor="middle" class="altmtn-t1" font-size="13">Рекрутер</text><text x="500" y="482" text-anchor="middle" class="altmtn-t2" font-size="12">2 клиента</text><text x="500" y="501" text-anchor="middle" class="altmtn-t3" font-size="12">вам +1 404 ₽/мес</text></g><g><rect x="600" y="440" width="150" height="72" rx="16" class="altmtn-node2"></rect><text x="675" y="463" text-anchor="middle" class="altmtn-t1" font-size="13">Рекрутер</text><text x="675" y="482" text-anchor="middle" class="altmtn-t2" font-size="12">5 клиентов</text><text x="675" y="501" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +3 510 ₽/мес</text></g><g><rect x="775" y="440" width="150" height="72" rx="16" class="altmtn-node2"></rect><text x="850" y="463" text-anchor="middle" class="altmtn-t1" font-size="13">Рекрутер</text><text x="850" y="482" text-anchor="middle" class="altmtn-t2" font-size="12">1 клиент</text><text x="850" y="501" text-anchor="middle" class="altmtn-t3" font-size="12">вам +702 ₽/мес</text></g><text x="500" y="640" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif" font-size="12" font-weight="700" fill="#0284C7" letter-spacing="1.2">ВАШ ДОХОД КАДРОВОГО АГЕНТСТВА В ЭТОМ ПРИМЕРЕ</text><text x="500" y="686" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif"><tspan font-size="44" font-weight="900" fill="#4C1D95">+46 254</tspan><tspan font-size="22" font-weight="700" fill="#6D28D9" dx="6"> ₽/мес</tspan></text><text x="500" y="716" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif" font-size="13.5" font-weight="500" fill="#0369A1">сверх дохода с ваших собственных клиентов</text></svg></div>
           <div class="altmtn-mobile"><svg class="altmtn-svg" viewBox="0 0 390 870" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Схема кадрового агентства: вы на вершине, ниже 1-й уровень (5 рекрутеров) и 2-й уровень (их рекрутеры)" font-family="'Inter', sans-serif">
 <defs>
-  <linearGradient id="altmtnMainM" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C4B5FD"/><stop offset="100%" stop-color="#F5F3FF"/></linearGradient>
-  <linearGradient id="altmtnBackM" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C7D2FE"/><stop offset="100%" stop-color="#EEF2FF"/></linearGradient>
-  <linearGradient id="altmtnRiverM" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7DD3FC" stop-opacity="1"/><stop offset="30%" stop-color="#BAE6FD" stop-opacity="0.85"/><stop offset="65%" stop-color="#E0F2FE" stop-opacity="0.4"/><stop offset="100%" stop-color="#EEF2F6" stop-opacity="0"/></linearGradient>
-  <linearGradient id="altmtnVyGradM" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#0284C7"/><stop offset="45%" stop-color="#6D28D9"/><stop offset="100%" stop-color="#9333EA"/></linearGradient>
+  <lineargradient id="altmtnMainM" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C4B5FD"></stop><stop offset="100%" stop-color="#F5F3FF"></stop></lineargradient>
+  <lineargradient id="altmtnBackM" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C7D2FE"></stop><stop offset="100%" stop-color="#EEF2FF"></stop></lineargradient>
+  <lineargradient id="altmtnRiverM" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7DD3FC" stop-opacity="1"></stop><stop offset="30%" stop-color="#BAE6FD" stop-opacity="0.85"></stop><stop offset="65%" stop-color="#E0F2FE" stop-opacity="0.4"></stop><stop offset="100%" stop-color="#EEF2F6" stop-opacity="0"></stop></lineargradient>
+  <lineargradient id="altmtnVyGradM" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#0284C7"></stop><stop offset="45%" stop-color="#6D28D9"></stop><stop offset="100%" stop-color="#9333EA"></stop></lineargradient>
   <marker id="arrowMtn" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-    <path d="M 1 2 L 8 5 L 1 8 z" fill="#0EA5E9"/>
+    <path d="M 1 2 L 8 5 L 1 8 z" fill="#0EA5E9"></path>
   </marker>
 </defs>
-<path d="M0 720 L0 420 L70 300 L135 410 L195 260 L255 410 L320 300 L390 420 L390 720 Z" fill="url(#altmtnBackM)"/>
-<path d="M-60 720 L195 108 L450 720 Z" fill="url(#altmtnMainM)"/>
-<path d="M195 108 L166 150 L178 144 L190 154 L200 143 L212 152 L224 150 Z" fill="#FFFFFF" stroke="#E0E7FF" stroke-width="1.5"/>
-<text x="195" y="32" text-anchor="middle" font-size="10.5" font-weight="800" fill="#6D28D9" letter-spacing="1">РУКОВОДИТЕЛЬ ОТДЕЛА ПРОДАЖ</text>
+<path d="M0 720 L0 420 L70 300 L135 410 L195 260 L255 410 L320 300 L390 420 L390 720 Z" fill="url(#altmtnBackM)"></path>
+<path d="M-60 720 L195 108 L450 720 Z" fill="url(#altmtnMainM)"></path>
+<path d="M195 108 L166 150 L178 144 L190 154 L200 143 L212 152 L224 150 Z" fill="#FFFFFF" stroke="#E0E7FF" stroke-width="1.5"></path>
+<text x="195" y="32" text-anchor="middle" font-size="10.5" font-weight="800" fill="#6D28D9" letter-spacing="1">ВАШЕ КАДРОВОЕ АГЕНТСТВО</text>
 <text x="195" y="78" text-anchor="middle" font-size="34" font-weight="900" fill="url(#altmtnVyGradM)">ВЫ</text>
-<path d="M0 708 C 95 693, 195 718, 295 704 S 360 698, 390 706 L390 870 L0 870 Z" fill="url(#altmtnRiverM)"/>
+<path d="M0 708 C 95 693, 195 718, 295 704 S 360 698, 390 706 L390 870 L0 870 Z" fill="url(#altmtnRiverM)"></path>
 <!-- Левый непрерывный вертикальный поток от вершины через менеджеров -->
-<path d="M 195 110 C 195 135, 92 145, 92 176 L 92 718" class="altmtn-bed"/>
-<path d="M 195 110 C 195 135, 92 145, 92 176 L 92 718" class="altmtn-flow"/>
+<path d="M 195 110 C 195 135, 92 145, 92 176 L 92 718" class="altmtn-bed"></path>
+<path d="M 195 110 C 195 135, 92 145, 92 176 L 92 718" class="altmtn-flow"></path>
 
 <!-- Правый непрерывный вертикальный поток от вершины через агентов -->
-<path d="M 195 110 C 195 135, 298 145, 298 176 L 298 718" class="altmtn-bed"/>
-<path d="M 195 110 C 195 135, 298 145, 298 176 L 298 718" class="altmtn-flow"/>
+<path d="M 195 110 C 195 135, 298 145, 298 176 L 298 718" class="altmtn-bed"></path>
+<path d="M 195 110 C 195 135, 298 145, 298 176 L 298 718" class="altmtn-flow"></path>
 
 <!-- 5 горизонтальных переходов от менеджера к агенту -->
-<path d="M 170 261 L 214 261" class="altmtn-bed"/>
-<path d="M 170 261 L 214 261" class="altmtn-flow" marker-end="url(#arrowMtn)"/>
-<path d="M 170 357 L 214 357" class="altmtn-bed"/>
-<path d="M 170 357 L 214 357" class="altmtn-flow" marker-end="url(#arrowMtn)"/>
-<path d="M 170 453 L 214 453" class="altmtn-bed"/>
-<path d="M 170 453 L 214 453" class="altmtn-flow" marker-end="url(#arrowMtn)"/>
-<path d="M 170 549 L 214 549" class="altmtn-bed"/>
-<path d="M 170 549 L 214 549" class="altmtn-flow" marker-end="url(#arrowMtn)"/>
-<path d="M 170 645 L 214 645" class="altmtn-bed"/>
-<path d="M 170 645 L 214 645" class="altmtn-flow" marker-end="url(#arrowMtn)"/>
+<path d="M 170 261 L 214 261" class="altmtn-bed"></path>
+<path d="M 170 261 L 214 261" class="altmtn-flow" marker-end="url(#arrowMtn)"></path>
+<path d="M 170 357 L 214 357" class="altmtn-bed"></path>
+<path d="M 170 357 L 214 357" class="altmtn-flow" marker-end="url(#arrowMtn)"></path>
+<path d="M 170 453 L 214 453" class="altmtn-bed"></path>
+<path d="M 170 453 L 214 453" class="altmtn-flow" marker-end="url(#arrowMtn)"></path>
+<path d="M 170 549 L 214 549" class="altmtn-bed"></path>
+<path d="M 170 549 L 214 549" class="altmtn-flow" marker-end="url(#arrowMtn)"></path>
+<path d="M 170 645 L 214 645" class="altmtn-bed"></path>
+<path d="M 170 645 L 214 645" class="altmtn-flow" marker-end="url(#arrowMtn)"></path>
 <!-- Исток потока на вершине (руководитель запускает поток) -->
-<g class="altmtn-source"><circle cx="195" cy="96" r="6" fill="none" stroke="#38BDF8" stroke-width="1.5" class="altmtn-pulse"/><circle cx="195" cy="96" r="3.5" fill="#0284C7"/><circle cx="195" cy="96" r="1.5" fill="#FFFFFF"/></g>
+<g class="altmtn-source"><circle cx="195" cy="96" r="6" fill="none" stroke="#38BDF8" stroke-width="1.5" class="altmtn-pulse"></circle><circle cx="195" cy="96" r="3.5" fill="#0284C7"></circle><circle cx="195" cy="96" r="1.5" fill="#FFFFFF"></circle></g>
 <!-- Полупрозрачные значки рубля, плавающие в реке на мобильном -->
 <g class="altmtn-rubles">
-  <g class="altmtn-ruble altmtn-float-1"><circle cx="38" cy="745" r="9" fill="#E0F2FE" fill-opacity="0.5" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.6"/><text x="38" y="748.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#0284C7" fill-opacity="0.8">₽</text></g>
-  <g class="altmtn-ruble altmtn-float-2"><circle cx="30" cy="790" r="10" fill="#E0F2FE" fill-opacity="0.5" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.6"/><text x="30" y="793.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#0284C7" fill-opacity="0.8">₽</text></g>
-  <g class="altmtn-ruble altmtn-float-3"><circle cx="45" cy="835" r="9" fill="#E0F2FE" fill-opacity="0.45" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.5"/><text x="45" y="838.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#0284C7" fill-opacity="0.75">₽</text></g>
-  <g class="altmtn-ruble altmtn-float-2"><circle cx="352" cy="745" r="9" fill="#E0F2FE" fill-opacity="0.5" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.6"/><text x="352" y="748.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#0284C7" fill-opacity="0.8">₽</text></g>
-  <g class="altmtn-ruble altmtn-float-1"><circle cx="360" cy="790" r="10" fill="#E0F2FE" fill-opacity="0.5" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.6"/><text x="360" y="793.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#0284C7" fill-opacity="0.8">₽</text></g>
-  <g class="altmtn-ruble altmtn-float-3"><circle cx="345" cy="835" r="9" fill="#E0F2FE" fill-opacity="0.45" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.5"/><text x="345" y="838.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#0284C7" fill-opacity="0.75">₽</text></g>
-  <g class="altmtn-ruble altmtn-float-2"><circle cx="92" cy="725" r="8" fill="#E0F2FE" fill-opacity="0.45" stroke="#38BDF8" stroke-width="0.9" stroke-opacity="0.5"/><text x="92" y="728" text-anchor="middle" font-family="'Inter', sans-serif" font-size="8" font-weight="700" fill="#0284C7" fill-opacity="0.75">₽</text></g>
-  <g class="altmtn-ruble altmtn-float-1"><circle cx="298" cy="725" r="8" fill="#E0F2FE" fill-opacity="0.45" stroke="#38BDF8" stroke-width="0.9" stroke-opacity="0.5"/><text x="298" y="728" text-anchor="middle" font-family="'Inter', sans-serif" font-size="8" font-weight="700" fill="#0284C7" fill-opacity="0.75">₽</text></g>
+  <g class="altmtn-ruble altmtn-float-1"><circle cx="38" cy="745" r="9" fill="#E0F2FE" fill-opacity="0.5" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.6"></circle><text x="38" y="748.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#0284C7" fill-opacity="0.8">₽</text></g>
+  <g class="altmtn-ruble altmtn-float-2"><circle cx="30" cy="790" r="10" fill="#E0F2FE" fill-opacity="0.5" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.6"></circle><text x="30" y="793.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#0284C7" fill-opacity="0.8">₽</text></g>
+  <g class="altmtn-ruble altmtn-float-3"><circle cx="45" cy="835" r="9" fill="#E0F2FE" fill-opacity="0.45" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.5"></circle><text x="45" y="838.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#0284C7" fill-opacity="0.75">₽</text></g>
+  <g class="altmtn-ruble altmtn-float-2"><circle cx="352" cy="745" r="9" fill="#E0F2FE" fill-opacity="0.5" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.6"></circle><text x="352" y="748.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#0284C7" fill-opacity="0.8">₽</text></g>
+  <g class="altmtn-ruble altmtn-float-1"><circle cx="360" cy="790" r="10" fill="#E0F2FE" fill-opacity="0.5" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.6"></circle><text x="360" y="793.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#0284C7" fill-opacity="0.8">₽</text></g>
+  <g class="altmtn-ruble altmtn-float-3"><circle cx="345" cy="835" r="9" fill="#E0F2FE" fill-opacity="0.45" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.5"></circle><text x="345" y="838.5" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#0284C7" fill-opacity="0.75">₽</text></g>
+  <g class="altmtn-ruble altmtn-float-2"><circle cx="92" cy="725" r="8" fill="#E0F2FE" fill-opacity="0.45" stroke="#38BDF8" stroke-width="0.9" stroke-opacity="0.5"></circle><text x="92" y="728" text-anchor="middle" font-family="'Inter', sans-serif" font-size="8" font-weight="700" fill="#0284C7" fill-opacity="0.75">₽</text></g>
+  <g class="altmtn-ruble altmtn-float-1"><circle cx="298" cy="725" r="8" fill="#E0F2FE" fill-opacity="0.45" stroke="#38BDF8" stroke-width="0.9" stroke-opacity="0.5"></circle><text x="298" y="728" text-anchor="middle" font-family="'Inter', sans-serif" font-size="8" font-weight="700" fill="#0284C7" fill-opacity="0.75">₽</text></g>
 </g>
-<g><rect x="14" y="176" width="156" height="30" rx="10" fill="#F3E8FF" stroke="#C084FC" stroke-width="1.5"/><text x="92" y="189" text-anchor="middle" font-size="11" font-weight="800" fill="#581C87">1 УРОВЕНЬ · 25%</text><text x="92" y="200" text-anchor="middle" font-size="8.5" font-weight="600" fill="#7E22CE">ваша прямая команда</text></g>
-<g><rect x="220" y="176" width="156" height="30" rx="10" fill="#E0F2FE" stroke="#38BDF8" stroke-width="1.5"/><text x="298" y="189" text-anchor="middle" font-size="11" font-weight="800" fill="#0369A1">2 УРОВЕНЬ · 15%</text><text x="298" y="200" text-anchor="middle" font-size="8.5" font-weight="600" fill="#0284C7">команды рекрутеров</text></g>
-<g><rect x="14" y="224" width="156" height="74" rx="16" class="altmtn-node"/><text x="92" y="247" text-anchor="middle" class="altmtn-t1" font-size="13.5">Рекрутер 1</text><text x="92" y="265" text-anchor="middle" class="altmtn-t2" font-size="11.5">6 клиентов</text><text x="92" y="284" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +7 020 ₽/мес</text></g>
-<g><rect x="220" y="224" width="156" height="74" rx="16" class="altmtn-node2"/><text x="298" y="247" text-anchor="middle" class="altmtn-t1" font-size="13.5">Рекрутер</text><text x="298" y="265" text-anchor="middle" class="altmtn-t2" font-size="11.5">4 клиента</text><text x="298" y="284" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +2 808 ₽/мес</text></g>
-<g><rect x="14" y="320" width="156" height="74" rx="16" class="altmtn-node"/><text x="92" y="343" text-anchor="middle" class="altmtn-t1" font-size="13.5">Рекрутер 2</text><text x="92" y="361" text-anchor="middle" class="altmtn-t2" font-size="11.5">5 клиентов</text><text x="92" y="380" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +5 850 ₽/мес</text></g>
-<g><rect x="220" y="320" width="156" height="74" rx="16" class="altmtn-node2"/><text x="298" y="343" text-anchor="middle" class="altmtn-t1" font-size="13.5">Рекрутер</text><text x="298" y="361" text-anchor="middle" class="altmtn-t2" font-size="11.5">7 клиентов</text><text x="298" y="380" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +4 914 ₽/мес</text></g>
-<g><rect x="14" y="416" width="156" height="74" rx="16" class="altmtn-node"/><text x="92" y="439" text-anchor="middle" class="altmtn-t1" font-size="13.5">Рекрутер 3</text><text x="92" y="457" text-anchor="middle" class="altmtn-t2" font-size="11.5">4 клиента</text><text x="92" y="476" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +4 680 ₽/мес</text></g>
-<g><rect x="220" y="416" width="156" height="74" rx="16" class="altmtn-node2"/><text x="298" y="439" text-anchor="middle" class="altmtn-t1" font-size="13.5">Рекрутер</text><text x="298" y="457" text-anchor="middle" class="altmtn-t2" font-size="11.5">2 клиента</text><text x="298" y="476" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +1 404 ₽/мес</text></g>
-<g><rect x="14" y="512" width="156" height="74" rx="16" class="altmtn-node"/><text x="92" y="535" text-anchor="middle" class="altmtn-t1" font-size="13.5">Рекрутер 4</text><text x="92" y="553" text-anchor="middle" class="altmtn-t2" font-size="11.5">3 клиента</text><text x="92" y="572" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +3 510 ₽/мес</text></g>
-<g><rect x="220" y="512" width="156" height="74" rx="16" class="altmtn-node2"/><text x="298" y="535" text-anchor="middle" class="altmtn-t1" font-size="13.5">Рекрутер</text><text x="298" y="553" text-anchor="middle" class="altmtn-t2" font-size="11.5">5 клиентов</text><text x="298" y="572" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +3 510 ₽/мес</text></g>
-<g><rect x="14" y="608" width="156" height="74" rx="16" class="altmtn-node"/><text x="92" y="631" text-anchor="middle" class="altmtn-t1" font-size="13.5">Рекрутер 5</text><text x="92" y="649" text-anchor="middle" class="altmtn-t2" font-size="11.5">2 клиента</text><text x="92" y="668" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +2 340 ₽/мес</text></g>
-<g><rect x="220" y="608" width="156" height="74" rx="16" class="altmtn-node2"/><text x="298" y="631" text-anchor="middle" class="altmtn-t1" font-size="13.5">Рекрутер</text><text x="298" y="649" text-anchor="middle" class="altmtn-t2" font-size="11.5">1 клиент</text><text x="298" y="668" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +702 ₽/мес</text></g>
+<g><rect x="14" y="176" width="156" height="30" rx="10" fill="#F3E8FF" stroke="#C084FC" stroke-width="1.5"></rect><text x="92" y="189" text-anchor="middle" font-size="11" font-weight="800" fill="#581C87">1 УРОВЕНЬ · 25%</text><text x="92" y="200" text-anchor="middle" font-size="8.5" font-weight="600" fill="#7E22CE">ваша команда</text></g>
+<g><rect x="220" y="176" width="156" height="30" rx="10" fill="#E0F2FE" stroke="#38BDF8" stroke-width="1.5"></rect><text x="298" y="189" text-anchor="middle" font-size="11" font-weight="800" fill="#0369A1">2 УРОВЕНЬ · 15%</text><text x="298" y="200" text-anchor="middle" font-size="8.5" font-weight="600" fill="#0284C7">их команды</text></g>
+<g><rect x="14" y="224" width="156" height="74" rx="16" class="altmtn-node"></rect><text x="92" y="247" text-anchor="middle" class="altmtn-t1" font-size="13.5">Рекрутер 1</text><text x="92" y="265" text-anchor="middle" class="altmtn-t2" font-size="11.5">6 клиентов</text><text x="92" y="284" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +7 020 ₽/мес</text></g>
+<g><rect x="220" y="224" width="156" height="74" rx="16" class="altmtn-node2"></rect><text x="298" y="247" text-anchor="middle" class="altmtn-t1" font-size="13.5">Рекрутер</text><text x="298" y="265" text-anchor="middle" class="altmtn-t2" font-size="11.5">4 клиента</text><text x="298" y="284" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +2 808 ₽/мес</text></g>
+<g><rect x="14" y="320" width="156" height="74" rx="16" class="altmtn-node"></rect><text x="92" y="343" text-anchor="middle" class="altmtn-t1" font-size="13.5">Хедхантер 2</text><text x="92" y="361" text-anchor="middle" class="altmtn-t2" font-size="11.5">5 клиентов</text><text x="92" y="380" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +9 750 ₽/мес</text></g>
+<g><rect x="220" y="320" width="156" height="74" rx="16" class="altmtn-node2"></rect><text x="298" y="343" text-anchor="middle" class="altmtn-t1" font-size="13.5">Хедхантер</text><text x="298" y="361" text-anchor="middle" class="altmtn-t2" font-size="11.5">7 клиентов</text><text x="298" y="380" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +8 190 ₽/мес</text></g>
+<g><rect x="14" y="416" width="156" height="74" rx="16" class="altmtn-node"></rect><text x="92" y="439" text-anchor="middle" class="altmtn-t1" font-size="13.5">Рекрутер 3</text><text x="92" y="457" text-anchor="middle" class="altmtn-t2" font-size="11.5">4 клиента</text><text x="92" y="476" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +4 680 ₽/мес</text></g>
+<g><rect x="220" y="416" width="156" height="74" rx="16" class="altmtn-node2"></rect><text x="298" y="439" text-anchor="middle" class="altmtn-t1" font-size="13.5">Рекрутер</text><text x="298" y="457" text-anchor="middle" class="altmtn-t2" font-size="11.5">2 клиента</text><text x="298" y="476" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +1 404 ₽/мес</text></g>
+<g><rect x="14" y="512" width="156" height="74" rx="16" class="altmtn-node"></rect><text x="92" y="535" text-anchor="middle" class="altmtn-t1" font-size="13.5">Хедхантер 4</text><text x="92" y="553" text-anchor="middle" class="altmtn-t2" font-size="11.5">3 клиента</text><text x="92" y="572" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +5 850 ₽/мес</text></g>
+<g><rect x="220" y="512" width="156" height="74" rx="16" class="altmtn-node2"></rect><text x="298" y="535" text-anchor="middle" class="altmtn-t1" font-size="13.5">Рекрутер</text><text x="298" y="553" text-anchor="middle" class="altmtn-t2" font-size="11.5">5 клиентов</text><text x="298" y="572" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +3 510 ₽/мес</text></g>
+<g><rect x="14" y="608" width="156" height="74" rx="16" class="altmtn-node"></rect><text x="92" y="631" text-anchor="middle" class="altmtn-t1" font-size="13.5">Рекрутер 5</text><text x="92" y="649" text-anchor="middle" class="altmtn-t2" font-size="11.5">2 клиента</text><text x="92" y="668" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +2 340 ₽/мес</text></g>
+<g><rect x="220" y="608" width="156" height="74" rx="16" class="altmtn-node2"></rect><text x="298" y="631" text-anchor="middle" class="altmtn-t1" font-size="13.5">Рекрутер</text><text x="298" y="649" text-anchor="middle" class="altmtn-t2" font-size="11.5">1 клиент</text><text x="298" y="668" text-anchor="middle" class="altmtn-t3" font-size="12.5">вам +702 ₽/мес</text></g>
 <text x="195" y="768" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif" font-size="9.5" font-weight="700" fill="#0284C7" letter-spacing="0.6">ВАШ ДОХОД КАДРОВОГО АГЕНТСТВА В ЭТОМ ПРИМЕРЕ</text>
-<text x="195" y="810" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif"><tspan font-size="32" font-weight="900" fill="#4C1D95">+53 820</tspan><tspan font-size="16" font-weight="700" fill="#6D28D9" dx="5"> ₽/мес</tspan></text>
+<text x="195" y="810" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif"><tspan font-size="32" font-weight="900" fill="#4C1D95">+46 254</tspan><tspan font-size="16" font-weight="700" fill="#6D28D9" dx="5"> ₽/мес</tspan></text>
 <text x="195" y="836" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif" font-size="11" font-weight="500" fill="#0369A1">сверх дохода с ваших собственных клиентов</text>
 </svg></div>
         </div>
@@ -2046,15 +2176,77 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
         <p class="text-sm sm:text-base text-slate-600 font-medium mt-3">Разово за выход Веры на&nbsp;работу + каждый месяц с&nbsp;её&nbsp;зарплаты</p>
       </div>
       <div class="v3-wrap">
-        <div class="v3-tw"><table class="v3-table">
-          <thead><tr><th>Тариф</th><th>Клиент платит</th><th>Рекрутер</th><th>Хедхантер</th><th>Агентство с клиента рекрутера / хедхантера в&nbsp;команде</th></tr></thead>
-          <tbody>
-            <tr><td><b>Старт</b></td><td>29&nbsp;000&nbsp;₽ запуск<small>25&nbsp;000&nbsp;₽/мес</small></td><td><b>7&nbsp;250&nbsp;₽</b> + 3&nbsp;000&nbsp;₽/мес</td><td><b>8&nbsp;700&nbsp;₽</b> + 5&nbsp;000&nbsp;₽/мес</td><td>+750 / +1&nbsp;250&nbsp;₽/мес</td></tr>
-            <tr class="v3-hl"><td><b>Бизнес</b><small>самый популярный</small></td><td>39&nbsp;000&nbsp;₽ запуск<small>39&nbsp;000&nbsp;₽/мес</small></td><td><b>9&nbsp;750&nbsp;₽</b> + 4&nbsp;680&nbsp;₽/мес</td><td><b>11&nbsp;700&nbsp;₽</b> + 7&nbsp;800&nbsp;₽/мес</td><td>+1&nbsp;170 / +1&nbsp;950&nbsp;₽/мес</td></tr>
-            <tr><td><b>Поток</b></td><td>59&nbsp;000&nbsp;₽ запуск<small>59&nbsp;000&nbsp;₽/мес</small></td><td><b>14&nbsp;750&nbsp;₽</b> + 7&nbsp;080&nbsp;₽/мес</td><td><b>17&nbsp;700&nbsp;₽</b> + 11&nbsp;800&nbsp;₽/мес</td><td>+1&nbsp;770 / +2&nbsp;950&nbsp;₽/мес</td></tr>
-            <tr><td><b>Империя</b></td><td>89&nbsp;000&nbsp;₽ запуск<small>89&nbsp;000&nbsp;₽/мес</small></td><td><b>22&nbsp;250&nbsp;₽</b> + 10&nbsp;680&nbsp;₽/мес</td><td><b>26&nbsp;700&nbsp;₽</b> + 17&nbsp;800&nbsp;₽/мес</td><td>+2&nbsp;670 / +4&nbsp;450&nbsp;₽/мес</td></tr>
-          </tbody></table></div>
-        <div class="v3-sub" style="max-width:900px">Суммы для тех, кто работает сам. Первый месяц входит в&nbsp;запуск, процент с&nbsp;зарплаты Веры идёт со&nbsp;2-го месяца и&nbsp;дальше, пока клиент платит. Процент начисляется и&nbsp;на&nbsp;докупленные пакеты сообщений. Выплата одна в&nbsp;месяц, 10-го числа, от&nbsp;3&nbsp;000&nbsp;₽ (меньшая сумма переносится и&nbsp;не&nbsp;пропадает).</div>
+<style>
+.tf{font-family:'Inter',sans-serif!important;max-width:68rem;margin:0 auto}
+.tf-tabs{display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;margin-bottom:1.25rem}
+.tf-tab{position:relative;border:1px solid #e2e8f0;background:#fff;border-radius:999px;padding:.6rem 1.25rem;font-weight:700;font-size:.92rem;color:#334155;cursor:pointer;transition:all .2s}
+.tf-tab:hover{border-color:#7dd3fc}
+.tf-tab.on{background:#0f172a;color:#fff;border-color:#0f172a;box-shadow:0 10px 24px -12px rgba(15,23,42,.6)}
+.tf-tab em{position:absolute;top:-.55rem;right:-.35rem;font-style:normal;font-size:.6rem;font-weight:800;background:#10b981;color:#fff;border-radius:999px;padding:.1rem .4rem}
+.tf-pay{text-align:center;color:#475569;font-size:.95rem;margin-bottom:1.75rem}
+.tf-pay b{color:#0f172a}
+.tf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.tf-card{background:#fff;border:1px solid #e2e8f0;border-radius:1.5rem;padding:1.6rem;display:flex;flex-direction:column;box-shadow:0 20px 40px -30px rgba(15,23,42,.35)}
+.tf-card.hh{border-color:#a7f3d0;background:linear-gradient(180deg,#f0fdf4,#fff 45%)}
+.tf-card.ag{border-color:#ddd6fe;background:linear-gradient(180deg,#f5f3ff,#fff 45%)}
+.tf-role{font-weight:900;font-size:1.05rem;color:#0f172a}
+.tf-what{font-size:.8rem;color:#64748b;margin:.2rem 0 1.25rem;min-height:2.4em}
+.tf-row{display:flex;justify-content:space-between;align-items:baseline;padding:.7rem 0;border-top:1px dashed #e2e8f0}
+.tf-row span{font-size:.82rem;color:#64748b}
+.tf-row b{font-size:1.25rem;font-weight:900;color:#0f172a;white-space:nowrap}
+.tf-row b.g{color:#059669}
+.tf-row b.p{color:#6d28d9;font-size:1.1rem}
+.tf-year{margin-top:auto;padding-top:.9rem;font-size:.8rem;color:#475569}
+.tf-year b{color:#0f172a}
+.v3-sub{max-width:68rem!important;margin:1.5rem auto 0;text-align:center;font-size:.8rem;line-height:1.6;color:#64748b;font-family:'Inter',sans-serif!important}
+.v3-wl{max-width:68rem;margin:1.5rem auto 0;display:flex;align-items:center;justify-content:space-between;gap:1.25rem;flex-wrap:wrap;background:#0f172a;color:#cbd5e1;border-radius:1.25rem;padding:1.25rem 1.5rem;font-family:'Inter',sans-serif!important;font-size:.9rem}
+.v3-wl p{margin:0;flex:1;min-width:0}.v3-wl b{color:#fff}
+@media(max-width:640px){.v3-wl{flex-direction:column;text-align:center;padding:1.2rem}.v3-wl a{width:100%;text-align:center;display:block}}
+.v3-wl a{background:#fff;color:#0f172a;font-weight:800;border-radius:.75rem;padding:.7rem 1.2rem;text-decoration:none;white-space:nowrap}
+@media(max-width:860px){.tf-grid{grid-template-columns:1fr}.tf-what{min-height:0}}
+</style>
+<div class="tf" id="tfBox">
+  <div class="tf-tabs">
+    <button class="tf-tab" data-i="0">Старт</button>
+    <button class="tf-tab on" data-i="1">Бизнес<em>ХИТ</em></button>
+    <button class="tf-tab" data-i="2">Поток</button>
+    <button class="tf-tab" data-i="3">Империя</button>
+  </div>
+  <div class="tf-pay">Клиент платит <b id="tfL"></b> за&nbsp;запуск и&nbsp;дальше <b id="tfM"></b> в&nbsp;месяц</div>
+  <div class="tf-grid">
+    <div class="tf-card">
+      <div class="tf-role">Рекрутер</div><div class="tf-what">Даёте контакт, продажу ведём мы</div>
+      <div class="tf-row"><span>1-й месяц, 25% с&nbsp;запуска</span><b id="tfR1"></b></div>
+      <div class="tf-row"><span>Каждый месяц дальше, 12%</span><b class="g" id="tfR2"></b></div>
+      <div class="tf-year">За&nbsp;год с&nbsp;одного клиента <b id="tfRY"></b></div>
+    </div>
+    <div class="tf-card hh">
+      <div class="tf-role">Хедхантер</div><div class="tf-what">Сами показываете Веру и&nbsp;договариваетесь</div>
+      <div class="tf-row"><span>1-й месяц, 30% с&nbsp;запуска</span><b id="tfH1"></b></div>
+      <div class="tf-row"><span>Каждый месяц дальше, 20%</span><b class="g" id="tfH2"></b></div>
+      <div class="tf-year">За&nbsp;год с&nbsp;одного клиента <b id="tfHY"></b></div>
+    </div>
+    <div class="tf-card ag">
+      <div class="tf-role">Кадровое агентство</div><div class="tf-what">Получаете часть процента своей команды каждый месяц</div>
+      <div class="tf-row"><span>С&nbsp;клиента рекрутера в&nbsp;команде</span><b class="p" id="tfA1"></b></div>
+      <div class="tf-row"><span>С&nbsp;клиента хедхантера в&nbsp;команде</span><b class="p" id="tfA2"></b></div>
+      <div class="tf-year">2-я линия: <b id="tfA3"></b> с&nbsp;клиента</div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){var T=[[29000,25000],[39000,39000],[59000,59000],[89000,89000]];
+function f(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')+'\u00a0₽'}
+function s(i){var L=T[i][0],M=T[i][1],g=function(id){return document.getElementById(id)};
+g('tfL').textContent=f(L);g('tfM').textContent=f(M);
+g('tfR1').textContent=f(L*.25);g('tfR2').textContent='+'+f(M*.12);g('tfRY').textContent=f(L*.25+11*M*.12);
+g('tfH1').textContent=f(L*.30);g('tfH2').textContent='+'+f(M*.2);g('tfHY').textContent=f(L*.3+11*M*.2);
+g('tfA1').textContent='+'+f(M*.12*.25)+'/мес';g('tfA2').textContent='+'+f(M*.2*.25)+'/мес';
+g('tfA3').textContent='+'+f(M*.12*.15)+' / +'+f(M*.2*.15)+' в\u00a0месяц';
+document.querySelectorAll('#tfBox .tf-tab').forEach(function(b){b.classList.toggle('on',+b.dataset.i===i)})}
+document.querySelectorAll('#tfBox .tf-tab').forEach(function(b){b.addEventListener('click',function(){s(+b.dataset.i)})});s(1)})();
+</script>
+        <div class="v3-sub" style="max-width:900px">Суммы для тех, кто работает сам, «за год» - с&nbsp;учётом 1-го месяца и&nbsp;11 следующих. В&nbsp;первый месяц вы получаете процент с&nbsp;запуска (в&nbsp;него входит первый месяц работы Веры), со&nbsp;2-го месяца - процент с&nbsp;её&nbsp;зарплаты, пока клиент платит. Процент начисляется и&nbsp;на&nbsp;докупленные пакеты сообщений. Выплата одна в&nbsp;месяц, 10-го числа, от&nbsp;3&nbsp;000&nbsp;₽ (меньшая сумма переносится и&nbsp;не&nbsp;пропадает).</div>
         <div class="v3-wl">
           <p><b>Есть своё агентство или вы интегратор?</b> Продавайте Веру под своим брендом и&nbsp;по&nbsp;своей цене. Вере можно дать своё имя, дашборд и&nbsp;приложение остаются стандартными.</p>
           <a href="#join" onclick="selectPartnerTier('integrator')">Обсудить White Label</a>
@@ -2106,12 +2298,7 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
 
         <!-- Фото Веры с рублями (без подложки, увеличенное) -->
         <div class="w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 lg:w-56 lg:h-56 rounded-full overflow-hidden shadow-[0_16px_40px_rgba(2,132,199,0.18)] border-2 border-white ring-2 ring-emerald-400/80 shrink-0">
-          <img 
-            src="assets/images/vera_holding_rubles.jpg" 
-            alt="Вера с рублями - Цель 1 000 000 ₽" 
-            class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
-            loading="lazy"
-          >
+          <img src="assets/images/vera_holding_rubles.jpg" alt="Вера с рублями - Цель 1 000 000 ₽" class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105" loading="lazy">
         </div>
       </div>
 
@@ -2293,11 +2480,11 @@ input[name="c-sub"]:checked + div .text-\[10px\] {
                   <span class="oc-opt-s">собеседую · 20%</span>
                 </button>
               </div>
-              <div class="oc-hint" id="oc-role-hint">Хедхантер получает 30% за выход Веры на работу и 20% с её зарплаты каждый месяц.</div>
+              <div class="oc-hint" id="oc-role-hint">Хедхантер получает 30% за выход Веры на работу (11&nbsp;700&nbsp;₽) и 20% с зарплаты Веры каждый месяц.</div>
             </div>
             <div class="oc-q">
               <div class="oc-label">2. Какой тариф обычно берут ваши&nbsp;клиенты?</div>
-              <div class="oc-opts" data-group="sub"><button type="button" class="oc-opt" data-v="25000" aria-pressed="false"><span class="oc-opt-t">Старт</span><span class=oc-opt-s>25&nbsp;000&nbsp;₽</span></button><button type="button" class="oc-opt" data-v="39000" aria-pressed="true"><span class="oc-opt-t">Бизнес</span><span class=oc-opt-s>39&nbsp;000&nbsp;₽</span></button><button type="button" class="oc-opt" data-v="59000" aria-pressed="false"><span class="oc-opt-t">Поток</span><span class=oc-opt-s>59&nbsp;000&nbsp;₽</span></button><button type="button" class="oc-opt" data-v="89000" aria-pressed="false"><span class="oc-opt-t">Империя</span><span class=oc-opt-s>89&nbsp;000&nbsp;₽</span></button></div>
+              <div class="oc-opts" data-group="sub"><button type="button" class="oc-opt" data-v="25000" aria-pressed="false"><span class="oc-opt-t">Старт</span><span class="oc-opt-s">25&nbsp;000&nbsp;₽</span></button><button type="button" class="oc-opt" data-v="39000" aria-pressed="true"><span class="oc-opt-t">Бизнес</span><span class="oc-opt-s">39&nbsp;000&nbsp;₽</span></button><button type="button" class="oc-opt" data-v="59000" aria-pressed="false"><span class="oc-opt-t">Поток</span><span class="oc-opt-s">59&nbsp;000&nbsp;₽</span></button><button type="button" class="oc-opt" data-v="89000" aria-pressed="false"><span class="oc-opt-t">Империя</span><span class="oc-opt-s">89&nbsp;000&nbsp;₽</span></button></div>
               <div class="oc-hint">Не знаете - оставьте «Бизнес», его берут чаще&nbsp;всего.</div>
             </div>
             <div class="oc-q">
