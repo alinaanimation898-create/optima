@@ -9,6 +9,11 @@
  * Errors thrown by send() carry `.status` (429 = rate limit / queue busy) and a Russian `.message`.
  * VeraDemoChat.mount(el, opts) renders a ready-made chat UI; custom layouts use the hooks
  * (onUser / onTyping / onReply / onError) or call send() themselves and use VeraDemoChat.formatText().
+ *
+ * Voice (core POST /api/v1/demo/voice): shown only when VeraDemoChat.voiceSupported() and /demo/config has
+ * `voice_enabled: true` (chat.voiceAvailable()). chat.sendVoice(blob, secs) fires onUserVoice({blob, secs, url}) and, after
+ * onReply, onTranscript(text, data) when the transcript is not empty. VeraDemoChat.bindVoice() wires a mic button,
+ * the recording bar and the hint into a form; VeraDemoChat.createVoicePlayer() builds the play button for a voice bubble.
  */
 (function (global) {
   'use strict';
@@ -61,7 +66,8 @@
     this.persistSession = options.persistSession !== false;
     this.extraPayload = options.extraPayload || {};
     this.hooks = {
-      onUser: options.onUser, onTyping: options.onTyping, onReply: options.onReply, onError: options.onError
+      onUser: options.onUser, onTyping: options.onTyping, onReply: options.onReply, onError: options.onError,
+      onUserVoice: options.onUserVoice, onTranscript: options.onTranscript
     };
     this.config = null;
     this.sessionId = null;
@@ -135,6 +141,297 @@
     }
   };
 
+  // ---------------------------------------------------------------------------------------------------- voice
+  var VOICE_MAX_SECS = 60;
+  var VOICE_MIN_SECS = 1;
+
+  /** MediaRecorder + getUserMedia + secure context (https or localhost). */
+  VeraDemoChat.voiceSupported = function () {
+    try {
+      return !!(global.isSecureContext && global.MediaRecorder && global.navigator &&
+        global.navigator.mediaDevices && typeof global.navigator.mediaDevices.getUserMedia === 'function');
+    } catch (e) { return false; }
+  };
+
+  /** True only when the browser can record and the core said `voice_enabled: true` (old core: field missing -> false). */
+  VeraDemoChat.prototype.voiceAvailable = function () {
+    return VeraDemoChat.voiceSupported() && !!this.config && this.config.voice_enabled === true;
+  };
+
+  function pickMime() {
+    var list = ['audio/webm;codecs=opus', 'audio/webm', 'audio/mp4', 'audio/mp4;codecs=mp4a.40.2', 'audio/ogg;codecs=opus'];
+    for (var i = 0; i < list.length; i++) {
+      try { if (global.MediaRecorder.isTypeSupported(list[i])) return list[i]; } catch (e) {}
+    }
+    return '';
+  }
+
+  /**
+   * Recorder: start() asks for the microphone and begins; finish() resolves {blob, secs, mime}; cancel() drops it.
+   * opts: { maxSecs (60), onTick(secs), onLimit(promise of the result) } — at the limit it stops by itself.
+   */
+  VeraDemoChat.createRecorder = function (opts) {
+    opts = opts || {};
+    var maxSecs = opts.maxSecs || VOICE_MAX_SECS;
+    var stream = null, rec = null, chunks = [], timer = null, t0 = 0, mime = '', starting = false, cancelled = false;
+    var self = { active: false };
+
+    function release() {
+      if (timer) { clearInterval(timer); timer = null; }
+      if (stream) { stream.getTracks().forEach(function (t) { try { t.stop(); } catch (e) {} }); stream = null; }
+      self.active = false;
+    }
+    function elapsed() { return Math.min(maxSecs, (Date.now() - t0) / 1000); }
+
+    self.start = async function () {
+      if (self.active || starting) return;
+      starting = true; cancelled = false;
+      try {
+        var s = await global.navigator.mediaDevices.getUserMedia({ audio: true });
+        if (cancelled) { s.getTracks().forEach(function (t) { t.stop(); }); return; }
+        stream = s;
+        mime = pickMime();
+        chunks = [];
+        rec = mime ? new global.MediaRecorder(stream, { mimeType: mime }) : new global.MediaRecorder(stream);
+        rec.ondataavailable = function (ev) { if (ev.data && ev.data.size) chunks.push(ev.data); };
+        rec.start();
+        t0 = Date.now();
+        self.active = true;
+        timer = setInterval(function () {
+          var secs = elapsed();
+          if (opts.onTick) opts.onTick(secs);
+          if (secs >= maxSecs) {
+            var p = self.finish();
+            if (opts.onLimit) opts.onLimit(p); else p.catch(function () {});
+          }
+        }, 250);
+        if (opts.onTick) opts.onTick(0);
+      } catch (e) {
+        release();
+        throw e;
+      } finally {
+        starting = false;
+      }
+    };
+
+    self.finish = function () {
+      return new Promise(function (resolve, reject) {
+        if (!rec || !self.active) { reject(new Error('not recording')); return; }
+        var r = rec, secs = elapsed();
+        self.active = false;
+        if (timer) { clearInterval(timer); timer = null; }
+        r.onstop = function () {
+          var type = r.mimeType || mime || 'audio/webm';
+          var blob = new Blob(chunks, { type: type });
+          chunks = []; rec = null;
+          release();
+          resolve({ blob: blob, secs: secs, mime: type });
+        };
+        try { r.stop(); } catch (e) { release(); reject(e); }
+      });
+    };
+
+    self.cancel = function () {
+      cancelled = true;
+      if (rec) { rec.onstop = null; try { if (rec.state !== 'inactive') rec.stop(); } catch (e) {} }
+      rec = null; chunks = [];
+      release();
+    };
+    return self;
+  };
+
+  function voiceError(status, detail) {
+    if (detail && typeof detail === 'string') return detail;
+    if (status === 400) return 'Не удалось прочитать запись. Попробуйте ещё раз или напишите текстом.';
+    if (status === 404) return 'Демо не найдено или отключено.';
+    if (status === 413) return 'Запись слишком большая. Запишите сообщение покороче или напишите текстом.';
+    if (status === 429) return 'Слишком много голосовых сообщений — подождите немного или напишите текстом.';
+    return 'Ошибка сервера (' + status + ')';
+  }
+
+  /** Sends a recorded voice message; resolves with the API response (chat response + transcript). */
+  VeraDemoChat.prototype.sendVoice = async function (blob, secs) {
+    if (!blob || this.isSending) return null;
+    this.isSending = true;
+    var url = '';
+    try { url = global.URL.createObjectURL(blob); } catch (e) {}
+    if (this.hooks.onUserVoice) this.hooks.onUserVoice({ blob: blob, secs: secs || 0, url: url });
+    if (this.hooks.onTyping) this.hooks.onTyping(true);
+    try {
+      var fd = new FormData();
+      var ext = /mp4|m4a|aac/i.test(blob.type) ? 'm4a' : /ogg/i.test(blob.type) ? 'ogg' : 'webm';
+      fd.append('audio', blob, 'voice.' + ext);
+      fd.append('tenant_id', this.tenantId);
+      if (this.sessionId) fd.append('session_id', this.sessionId);
+      if (secs) fd.append('duration_secs', String(Math.floor(secs)));
+      var res = await fetch(this.baseUrl + '/api/v1/demo/voice', { method: 'POST', body: fd });
+      if (!res.ok) {
+        var detail = null;
+        try { detail = (await res.json()).detail; } catch (e2) {}
+        var e = new Error(voiceError(res.status, detail));
+        e.status = res.status;
+        throw e;
+      }
+      var data = await res.json();
+      if (data && data.session_id) this._setSession(data.session_id);
+      if (this.hooks.onReply) this.hooks.onReply(data);
+      var tr = data && typeof data.transcript === 'string' ? data.transcript.trim() : '';
+      if (tr && this.hooks.onTranscript) this.hooks.onTranscript(tr, data);
+      return data;
+    } catch (err) {
+      if (this.hooks.onError) this.hooks.onError(err);
+      throw err;
+    } finally {
+      this.isSending = false;
+      if (this.hooks.onTyping) this.hooks.onTyping(false);
+    }
+  };
+
+  function fmtSecs(s) {
+    s = Math.max(0, Math.round(s || 0));
+    return Math.floor(s / 60) + ':' + ('0' + (s % 60)).slice(-2);
+  }
+  VeraDemoChat.formatDuration = fmtSecs;
+
+  var SVG_MIC = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v4"/></svg>';
+  var SVG_PLAY = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12-7.5a1 1 0 0 0 0-1.72l-12-7.5A1 1 0 0 0 7 4.5Z"/></svg>';
+  var SVG_PAUSE = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>';
+  var SVG_SEND = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>';
+
+  /** Play button + duration for the visitor's voice bubble. `prefix` is the CSS class prefix ('dp' or 'vdc'). */
+  VeraDemoChat.createVoicePlayer = function (info, prefix) {
+    var wrap = document.createElement('div');
+    wrap.className = prefix + '-voice';
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = prefix + '-voice-play';
+    btn.setAttribute('aria-label', 'Воспроизвести');
+    btn.innerHTML = SVG_PLAY;
+    var bar = document.createElement('span');
+    bar.className = prefix + '-voice-bar';
+    var fill = document.createElement('i');
+    bar.appendChild(fill);
+    var dur = document.createElement('span');
+    dur.className = prefix + '-voice-dur';
+    var total = info.secs || 0;
+    dur.textContent = fmtSecs(total);
+    wrap.appendChild(btn); wrap.appendChild(bar); wrap.appendChild(dur);
+    var audio = null;
+    function reset() {
+      btn.innerHTML = SVG_PLAY; btn.setAttribute('aria-label', 'Воспроизвести');
+      fill.style.width = '0'; dur.textContent = fmtSecs(total);
+    }
+    btn.addEventListener('click', function () {
+      if (!info.url) return;
+      if (!audio) {
+        audio = new Audio(info.url);
+        audio.addEventListener('timeupdate', function () {
+          var d = isFinite(audio.duration) && audio.duration > 0 ? audio.duration : total;
+          if (d > 0) fill.style.width = Math.min(100, audio.currentTime / d * 100) + '%';
+          dur.textContent = fmtSecs(audio.currentTime);
+        });
+        audio.addEventListener('ended', reset);
+      }
+      if (audio.paused) {
+        audio.play().then(function () { btn.innerHTML = SVG_PAUSE; btn.setAttribute('aria-label', 'Пауза'); }).catch(function () {});
+      } else {
+        audio.pause(); btn.innerHTML = SVG_PLAY; btn.setAttribute('aria-label', 'Воспроизвести');
+      }
+    });
+    return wrap;
+  };
+
+  /**
+   * Wires voice recording into a text form. Does nothing (returns null) unless chat.voiceAvailable().
+   * ui: { form, input, sendBtn, prefix ('dp'|'vdc'), recorder opts? }. Adds a mic button next to Send (visible while the
+   * input is empty), a recording bar (timer, Cancel, Send) and a hint line. Returns { sync() } — call sync() after the
+   * input value is changed from code.
+   */
+  VeraDemoChat.bindVoice = function (chat, ui) {
+    if (!chat.voiceAvailable()) return null;
+    var p = ui.prefix, form = ui.form, input = ui.input, sendBtn = ui.sendBtn;
+
+    var mic = document.createElement('button');
+    mic.type = 'button';
+    mic.className = p + '-mic';
+    mic.setAttribute('aria-label', 'Записать голосовое сообщение');
+    mic.title = 'Записать голосовое сообщение';
+    mic.innerHTML = SVG_MIC;
+    form.insertBefore(mic, sendBtn);
+
+    var bar = document.createElement('div');
+    bar.className = p + '-rec';
+    bar.hidden = true;
+    bar.innerHTML = '<span class="' + p + '-rec-dot"></span><span class="' + p + '-rec-time" aria-live="off">0:00</span>' +
+      '<button type="button" class="' + p + '-rec-cancel">Отмена</button>' +
+      '<button type="button" class="' + p + '-rec-send" aria-label="Отправить голосовое сообщение">' + SVG_SEND + '</button>';
+    form.appendChild(bar);
+    var timeEl = bar.querySelector('.' + p + '-rec-time');
+
+    var hint = document.createElement('div');
+    hint.className = p + '-hint';
+    hint.setAttribute('role', 'status');
+    hint.hidden = true;
+    form.parentNode.insertBefore(hint, form);
+    var hintTimer = null;
+    function showHint(text) {
+      hint.textContent = text;
+      hint.hidden = !text;
+      if (hintTimer) clearTimeout(hintTimer);
+      if (text) hintTimer = setTimeout(function () { hint.hidden = true; }, 8000);
+    }
+
+    var recording = false;
+    function sync() {
+      var empty = !input.value.trim();
+      if (recording) {
+        input.style.display = 'none'; mic.style.display = 'none'; sendBtn.style.display = 'none'; bar.hidden = false;
+        return;
+      }
+      bar.hidden = true; input.style.display = '';
+      mic.style.display = empty ? '' : 'none';
+      sendBtn.style.display = empty ? 'none' : '';
+      mic.disabled = !!chat.isSending;
+    }
+    function setRecording(on) { recording = on; sync(); }
+
+    function deliver(result) {
+      setRecording(false);
+      if (result.secs < VOICE_MIN_SECS) { showHint('Слишком короткое сообщение — запишите ещё раз.'); return; }
+      chat.sendVoice(result.blob, result.secs).catch(function () {}).then(sync);
+    }
+
+    var recorder = VeraDemoChat.createRecorder({
+      maxSecs: VOICE_MAX_SECS,
+      onTick: function (secs) { timeEl.textContent = fmtSecs(secs) + ' / ' + fmtSecs(VOICE_MAX_SECS); },
+      onLimit: function (promise) { promise.then(deliver).catch(function () { setRecording(false); }); }
+    });
+
+    mic.addEventListener('click', function () {
+      if (recording || chat.isSending) return;
+      showHint('');
+      recorder.start().then(function () { setRecording(true); }).catch(function (e) {
+        var n = e && e.name;
+        if (n === 'NotAllowedError' || n === 'SecurityError' || n === 'PermissionDeniedError') {
+          showHint('Нет доступа к микрофону. Разрешите его в настройках браузера или напишите текстом.');
+        } else if (n === 'NotFoundError' || n === 'DevicesNotFoundError') {
+          showHint('Микрофон не найден. Напишите текстом.');
+        } else {
+          showHint('Не удалось включить запись. Напишите текстом.');
+        }
+        setRecording(false);
+      });
+    });
+    bar.querySelector('.' + p + '-rec-cancel').addEventListener('click', function () { recorder.cancel(); setRecording(false); });
+    bar.querySelector('.' + p + '-rec-send').addEventListener('click', function () {
+      recorder.finish().then(deliver).catch(function () { setRecording(false); });
+    });
+    input.addEventListener('input', sync);
+    global.addEventListener('pagehide', function () { recorder.cancel(); });
+    sync();
+    return { sync: sync };
+  };
+
   /**
    * Ready-made UI. Colors come from the tenant config (accent_color) via CSS variables:
    * --vdc-accent. opts: { chat, suggestions: true }.
@@ -151,6 +448,7 @@
       '<form class="vdc-form"><input class="vdc-input" type="text" autocomplete="off" maxlength="' +
       (cfg.max_message_length || 4000) + '" placeholder="' +
       escapeHtml(cfg.placeholder_text || 'Задайте вопрос…') + '"><button class="vdc-send" type="submit">Отправить</button></form>';
+    var lastUserEl = null, lastReplyEl = null;
 
     var box = el.querySelector('.vdc-messages');
     var input = el.querySelector('.vdc-input');
@@ -171,9 +469,23 @@
       if (on && !typingEl) typingEl = add('ai vdc-typing', '<span></span><span></span><span></span>');
       if (!on && typingEl) { typingEl.remove(); typingEl = null; }
     };
+    chat.hooks.onUserVoice = function (v) {
+      lastReplyEl = null;
+      lastUserEl = add('user vdc-voice-msg', '');
+      lastUserEl.appendChild(VeraDemoChat.createVoicePlayer(v, 'vdc'));
+    };
     chat.hooks.onReply = function (d) {
       if (d.technical) { add('note', formatText(d.assistant_response || '')); return; }
-      add('ai', '<b class="vdc-who">' + escapeHtml(who) + '</b>' + formatText(d.assistant_response || ''));
+      lastReplyEl = add('ai', '<b class="vdc-who">' + escapeHtml(who) + '</b>' + formatText(d.assistant_response || ''));
+    };
+    chat.hooks.onTranscript = function (t) {
+      var host = lastReplyEl || lastUserEl;
+      if (!host) return;
+      var d = document.createElement('div');
+      d.className = 'vdc-transcript';
+      d.textContent = 'Вы сказали: «' + t + '»';
+      host.appendChild(d);
+      box.scrollTop = box.scrollHeight;
     };
     chat.hooks.onError = function (e) { add('ai vdc-error', escapeHtml(e.message || 'Ошибка')); };
 
@@ -181,11 +493,15 @@
 
     function submit(text) {
       input.value = '';
-      chat.send(text).catch(function () {});
+      if (voice) voice.sync();
+      chat.send(text).catch(function () {}).then(function () { if (voice) voice.sync(); });
     }
     el.querySelector('.vdc-form').addEventListener('submit', function (e) {
       e.preventDefault();
       submit(input.value);
+    });
+    var voice = VeraDemoChat.bindVoice(chat, {
+      form: el.querySelector('.vdc-form'), input: input, sendBtn: el.querySelector('.vdc-send'), prefix: 'vdc'
     });
     if (opts.suggestions !== false) {
       var sg = el.querySelector('.vdc-suggest');

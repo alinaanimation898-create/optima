@@ -1,27 +1,22 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex">
-  <title>Вера, ИИ-консультант Школы менеджмента «Стратоплан»</title>
-  <meta name="description" content="Демо ИИ-консультанта для Школы менеджмента «Стратоплан»: подбор программы, цены, рассрочка и заявка менеджеру.">
-  <meta property="og:title" content="Вера, ИИ-консультант Школы менеджмента «Стратоплан»">
-  <meta property="og:description" content="Демо ИИ-консультанта для Школы менеджмента «Стратоплан»: подбор программы, цены, рассрочка и заявка менеджеру.">
-  <meta property="og:image" content="https://optima.altaiweb.online/demo/assets/brand/stratoplan_vera.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Inter:wght@400;500;600;700;800&display=swap">
-  <link rel="stylesheet" href="../assets/demo-page.css?v=20261105">
-  <style>body { margin: 0; }</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Демо ИИ-сотрудника</title>
+<link rel="canonical" href="https://optima.altaiweb.online/demo/?t=stratoplan">
+<meta http-equiv="refresh" content="0; url=../?t=stratoplan">
+<script>
+  // Old static demo page -> instant demo link (keeps other query params such as ?api=stage, and the hash).
+  (function () {
+    var p = new URLSearchParams(location.search);
+    p.set('t', "stratoplan");
+    location.replace('../?' + p.toString() + location.hash);
+  })();
+</script>
 </head>
-<body>
-  <div id="app" class="dp"><div class="dp-err">Загрузка…</div></div>
-  <script>
-    window.DEMO_TENANT = "stratoplan";
-    window.DEMO_OVERRIDES = {"name": "\u0421\u0442\u0440\u0430\u0442\u043e\u043f\u043b\u0430\u043d", "accent": "#268AC5"};
-  </script>
-  <script src="../../assets/js/vera-demo-chat.js"></script>
-  <script src="../assets/demo-page.js?v=20261105"></script>
+<body style="font-family:system-ui,sans-serif;text-align:center;padding:4rem 1rem">
+<p>Переходим на <a href="../?t=stratoplan">демо</a>…</p>
 </body>
 </html>

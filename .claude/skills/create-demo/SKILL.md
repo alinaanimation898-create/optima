@@ -1,10 +1,10 @@
 ---
 name: create-demo
 description: >-
-  Create a new demo stand (demo tenant + knowledge base + branded page) for ALTAI Optima from a company website.
+  Create a new demo stand (demo tenant + knowledge base) for ALTAI Optima from a company website.
   Crawls the site, builds the Vera knowledge base, creates a demo tenant through the demo-admin API with your
-  personal key, saves the presentation (welcome text, brand color; no suggested questions), generates
-  demo/<id>/index.html in this repo and runs a smoke test. Demo tenants only; live clients are unreachable.
+  personal key, saves the presentation (welcome text, brand color; no suggested questions) and runs a smoke test.
+  The result is only the instant link demo/?t=<id>: no static page, no git step. Demo tenants only; live clients are unreachable.
   Use when asked to "создать демо", "сделай демо для сайта X", "new demo for <company>".
 ---
 
@@ -25,19 +25,18 @@ Plain Python 3 (standard library). Run every command from the **root of the opti
 ```bash
 python3 .claude/skills/create-demo/scripts/create_demo.py \
   --urls "https://example.com" "https://example.com/pricing" \
-  --name "Example" --tenant-id example --accent "#C8102E" --commit
+  --name "Example" --tenant-id example --accent "#C8102E"
 ```
 Optional: `--extra-materials brief.txt` (file or text), `--kb-file my_kb.md` (use your own knowledge base),
-`--questions "Q1" ...` (smoke test only: demos never show suggested-question chips), `--logo-url https://...`, `--no-page`, `--no-smoke-test`.
+`--questions "Q1" ...` (smoke test only: demos never show suggested-question chips), `--logo-url https://...`, `--no-smoke-test`.
 
 What it does: crawl → knowledge base (`prompt_builder.py`, structure in `references/knowledge_base_template.md`) →
 `POST /demo-admin/tenants` (409 if the id exists: use **update-demo**) → `PUT .../kb` → `PUT .../presentation` →
-`demo/<id>/{kb.json,presentation.json,demo.json,index.html}` → smoke test via `/demo/chat`.
-With `--commit` it creates the branch `demo/<id>` and commits the files; merge to `main` to publish the page.
+local working copies `demo/<id>/{kb.json,presentation.json}` (for update-demo; do not commit new ones: the folder is served by GitHub Pages) → smoke test via `/demo/chat`.
 
 ## Result
 - Instant URL (works immediately, no deploy): `https://optima.altaiweb.online/demo/?t=<id>`
-- Custom page (after the merge): `https://optima.altaiweb.online/demo/<id>/` — `noindex`, not in `sitemap.xml`.
+- There are no static pages `demo/<id>/` any more (dropped 2026-11, #380); the old ones only redirect to the instant link.
 - Improve the answers by editing `demo/<id>/kb.json` and using **update-demo**.
 
 ## Rules

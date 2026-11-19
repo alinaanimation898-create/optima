@@ -437,7 +437,8 @@
    "footer_logo": "senat_logo.svg",
    "of_name": "SENAT",
    "note_role": "клиента",
-   "hide_questions": true
+   "hide_questions": true,
+   "role": "консьерж"
   }
  }
 }

@@ -1,7 +1,7 @@
 /*
  * demo-page.js — renders the two-column demo stand (intro + Vera chat) for one demo tenant.
  * Data: GET /api/v1/demo/config (via VeraDemoChat) + legacy extras from brands.json (photo, footer logo,
- * integrations, white background). Tenant id: window.DEMO_TENANT or ?t=<id>. window.DEMO_OVERRIDES (from demo.json)
+ * integrations, white background). Tenant id: window.DEMO_TENANT or ?t=<id>. window.DEMO_OVERRIDES (optional, unused now)
  * can override hero_description / accent / name. Requires ../assets/js/vera-demo-chat.js.
  */
 (function () {
@@ -118,6 +118,8 @@
     // Optional brands.json wording: "of_name" (genitive, e.g. "Школы менеджмента «Стратоплан»") and "note_role" ("будущего слушателя").
     var ofName = lg.of_name || name, sourceOf = lg.of_name || 'компании ' + name;
     var noteRole = lg.note_role || 'покупателя';
+    // brands.json "role": Vera's title under her name (default "консультант", e.g. "консьерж").
+    var role = lg.role || 'консультант';
 
     document.title = 'Демо ALTAI Optima + ' + name;
     root.className = 'dp' + (lg.white_background ? ' dp-white' : '');
@@ -137,11 +139,11 @@
           '<h1>Добрый день! <span>Меня зовут Вера</span></h1>' +
           '<p class="dp-desc">' + esc(hero) + '</p>' +
           '<p class="dp-note">Напишите мне от лица ' + esc(noteRole) + ' и проверьте мой профессионализм в деле</p>' +
-          (photo ? '<div class="dp-photo"><img src="' + esc(photo) + '" alt="Вера, консультант ' + esc(ofName) + '"></div>' : '') +
+          (photo ? '<div class="dp-photo"><img src="' + esc(photo) + '" alt="Вера, ' + esc(role) + ' ' + esc(ofName) + '"></div>' : '') +
         '</div><div class="dp-info-desktop">' + info + '</div></section>' +
         '<section class="dp-chat" aria-label="Чат с Верой">' +
           '<div class="dp-head"><div class="dp-who"><div class="dp-ava"><img src="' + esc(avatar) + '" alt="Вера"><i></i></div>' +
-            '<div class="dp-name"><b>Вера</b><small>консультант ' + esc(ofName) + ' · <span class="dp-status">в сети</span></small></div></div>' +
+            '<div class="dp-name"><b>Вера</b><small>' + esc(role) + ' ' + esc(ofName) + ' · <span class="dp-status">в сети</span></small></div></div>' +
             '<button type="button" class="dp-reset" title="Начать диалог сначала" aria-label="Сбросить диалог">' + ICON_RESET + '<span>Новый диалог</span></button></div>' +
           '<div class="dp-stream" role="log" aria-live="polite"><div class="dp-day">Сегодня</div></div>' +
           '<div class="dp-foot">' + (chips.length ? '<div class="dp-chips"></div>' : '') +
@@ -167,7 +169,24 @@
     }
     function bubble(inner, extra) { return '<div class="dp-bubble">' + inner + (extra || '') + '<div class="dp-time">' + time() + '</div></div>'; }
 
-    chat.hooks.onUser = function (t) { lastUser = t; row('user', bubble(VeraDemoChat.formatText(t))); };
+    var lastUserRow = null, lastAiRow = null;
+    chat.hooks.onUser = function (t) { lastUser = t; lastAiRow = null; lastUserRow = row('user', bubble(VeraDemoChat.formatText(t))); };
+    chat.hooks.onUserVoice = function (v) {
+      lastUser = 'Голосовое сообщение'; lastAiRow = null;
+      lastUserRow = row('user', bubble(''));
+      lastUserRow.querySelector('.dp-bubble').insertBefore(VeraDemoChat.createVoicePlayer(v, 'dp'), lastUserRow.querySelector('.dp-time'));
+    };
+    // Transcript: small grey text under Vera's reply (or under the visitor's bubble when Vera wrote nothing).
+    chat.hooks.onTranscript = function (t) {
+      var host = lastAiRow || lastUserRow;
+      var b = host && host.querySelector('.dp-bubble');
+      if (!b) return;
+      var d = document.createElement('div');
+      d.className = 'dp-transcript';
+      d.textContent = 'Вы сказали: «' + t + '»';
+      b.insertBefore(d, b.querySelector('.dp-time'));
+      scroll();
+    };
     chat.hooks.onTyping = function (on) {
       status.textContent = on ? 'печатает…' : 'в сети';
       if (on && !typing) { typing = row('ai', '<div class="dp-typing" aria-label="Вера печатает"><span></span><span></span><span></span></div>'); }
@@ -195,7 +214,7 @@
           '<em>💡 На демо-стенде диалог не блокируется — вы можете продолжить общение с Верой.</em></div>';
       }
       history.push(lastUser);
-      row('ai', bubble(VeraDemoChat.formatText(text), esca));
+      lastAiRow = row('ai', bubble(VeraDemoChat.formatText(text), esca));
     };
     chat.hooks.onError = function (e) { row('ai err', bubble(esc(e.message || 'Извините, произошла временная ошибка связи. Пожалуйста, попробуйте еще раз.'))); };
 
@@ -203,8 +222,11 @@
       t = String(t || '').trim();
       if (!t || chat.isSending) return;
       input.value = ''; sendBtn.disabled = true;
-      chat.send(t).catch(function () {}).then(function () { input.focus(); });
+      if (voice) voice.sync();
+      chat.send(t).catch(function () {}).then(function () { input.focus(); if (voice) voice.sync(); });
     }
+    // Mic next to Send while the input is empty; only when the browser can record and /demo/config has voice_enabled: true.
+    var voice = typeof VeraDemoChat.bindVoice === 'function' && VeraDemoChat.bindVoice(chat, { form: root.querySelector('.dp-form'), input: input, sendBtn: sendBtn, prefix: 'dp' });
     root.querySelector('.dp-form').addEventListener('submit', function (e) { e.preventDefault(); submit(input.value); });
     input.addEventListener('input', function () { sendBtn.disabled = !input.value.trim(); });
     chips.forEach(function (q) {
