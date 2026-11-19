@@ -1,0 +1,84 @@
+/* «Обычный бот или Вера»: два чата рядом (lg+), табы на мобильном (CSS-only, radio). */
+.bvv-radio { position: absolute; opacity: 0; pointer-events: none; }
+
+.bvv-tabs { display: flex; gap: 6px; padding: 4px; margin: 0 auto 16px; max-width: 360px;
+  background: rgba(241, 245, 249, 0.9); border: 1px solid rgba(226, 232, 240, 0.9); border-radius: 999px; }
+.bvv-tab { flex: 1; text-align: center; cursor: pointer; padding: 9px 12px; border-radius: 999px;
+  font-size: 13px; font-weight: 700; color: #64748b; transition: background .2s, color .2s, box-shadow .2s; user-select: none; }
+#bvv-tab-bot:checked ~ .bvv-tabs label[for="bvv-tab-bot"] { background: #fff; color: #0f172a; box-shadow: 0 2px 8px rgba(15,23,42,.08); }
+#bvv-tab-vera:checked ~ .bvv-tabs label[for="bvv-tab-vera"] { background: #0284c7; color: #fff; box-shadow: 0 4px 14px rgba(2,132,199,.3); }
+#bvv-tab-bot:focus-visible ~ .bvv-tabs label[for="bvv-tab-bot"],
+#bvv-tab-vera:focus-visible ~ .bvv-tabs label[for="bvv-tab-vera"] { outline: 2px solid #0284c7; outline-offset: 2px; }
+
+.bvv-panel { display: none; }
+#bvv-tab-bot:checked ~ .bvv-grid .bvv-panel--bot,
+#bvv-tab-vera:checked ~ .bvv-grid .bvv-panel--vera { display: flex; }
+
+@media (min-width: 1024px) {
+  .bvv-tabs { display: none; }
+  .bvv-panel { display: flex !important; }
+}
+
+/* Чат */
+.bvv-chat { flex-direction: column; border-radius: 24px; overflow: hidden; height: 100%;
+  border: 1px solid rgba(226, 232, 240, 0.9); background: #fff; box-shadow: 0 10px 40px rgba(15,23,42,.06); }
+.bvv-panel--vera.bvv-chat { border-color: rgba(125, 211, 252, 0.8); box-shadow: 0 16px 50px rgba(2,132,199,.14); }
+
+.bvv-head { display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-bottom: 1px solid #eef2f7; background: #f8fafc; }
+.bvv-panel--vera .bvv-head { background: linear-gradient(90deg, #f0f9ff, #fff); }
+.bvv-ava { width: 40px; height: 40px; border-radius: 999px; flex: none; object-fit: cover;
+  display: flex; align-items: center; justify-content: center; font-size: 18px; background: #e2e8f0; color: #64748b; }
+.bvv-name { font-weight: 800; font-size: 14px; color: #0f172a; line-height: 1.2; }
+.bvv-status { font-size: 12px; color: #94a3b8; }
+.bvv-panel--vera .bvv-status { color: #10b981; }
+.bvv-label { margin-left: auto; font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 999px; background: #f1f5f9; color: #64748b; white-space: nowrap; }
+.bvv-panel--vera .bvv-label { background: #e0f2fe; color: #0369a1; }
+
+.bvv-body { flex: 1; display: flex; flex-direction: column; gap: 10px; padding: 18px; background: #fbfcfe; }
+.bvv-panel--bot .bvv-body { background: #f8fafc; }
+
+.bvv-msg { max-width: 88%; padding: 10px 14px; border-radius: 18px; font-size: 14px; line-height: 1.45; color: #1e293b; position: relative; }
+.bvv-msg time { display: block; text-align: right; font-size: 11px; color: #94a3b8; margin-top: 4px; }
+.bvv-msg--in { align-self: flex-start; background: #fff; border: 1px solid #e8edf3; border-bottom-left-radius: 6px; }
+.bvv-msg--out { align-self: flex-end; background: #dcf2ff; border-bottom-right-radius: 6px; }
+.bvv-panel--bot .bvv-msg--in { color: #475569; }
+.bvv-msg--dup { opacity: .55; }
+
+.bvv-flag { display: inline-flex; align-items: center; gap: 5px; margin-top: 6px; font-size: 11px; font-weight: 700;
+  padding: 3px 9px; border-radius: 999px; background: #fff1f2; color: #e11d48; border: 1px solid #fecdd3; }
+.bvv-flag::before { content: "✕"; font-size: 10px; }
+.bvv-flag--ok { background: #ecfdf5; color: #059669; border-color: #a7f3d0; }
+.bvv-flag--ok::before { content: "✓"; }
+
+.bvv-date { align-self: center; font-size: 11px; font-weight: 700; color: #94a3b8; background: #eef2f7;
+  padding: 3px 10px; border-radius: 999px; margin: 6px 0 2px; }
+.bvv-date--gap { color: #e11d48; background: #fff1f2; }
+
+.bvv-foot { padding: 14px 18px; border-top: 1px solid #eef2f7; font-size: 13px; font-weight: 700; display: flex; gap: 8px; align-items: center; }
+.bvv-panel--bot .bvv-foot { color: #e11d48; background: #fff7f8; }
+.bvv-panel--vera .bvv-foot { color: #047857; background: #f0fdf9; }
+
+/* Итоговая таблица */
+.bvv-sum { border-radius: 20px; overflow: hidden; border: 1px solid #e2e8f0; background: rgba(255,255,255,.7); }
+.bvv-row { display: grid; grid-template-columns: 1fr; gap: 6px; padding: 14px 18px; border-top: 1px solid #eef2f7; font-size: 14px; }
+.bvv-row:first-child { border-top: 0; }
+.bvv-row dt { font-weight: 800; color: #0f172a; }
+.bvv-row .bvv-b { color: #64748b; }
+.bvv-row .bvv-v { color: #0369a1; font-weight: 600; }
+.bvv-row .bvv-b::before { content: "Бот: "; font-weight: 700; color: #94a3b8; }
+.bvv-row .bvv-v::before { content: "Вера: "; font-weight: 700; color: #0284c7; }
+html[lang="en"] .bvv-row .bvv-b::before { content: "Bot: "; }
+html[lang="en"] .bvv-row .bvv-v::before { content: "Vera: "; }
+.bvv-row--head { display: none; }
+@media (min-width: 768px) {
+  .bvv-row { grid-template-columns: 1.1fr 1fr 1fr; gap: 16px; align-items: center; }
+  .bvv-row .bvv-b::before, .bvv-row .bvv-v::before { content: none !important; }
+  .bvv-row--head { display: grid; background: #f8fafc; font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #94a3b8; }
+  .bvv-row--head span:last-child { color: #0284c7; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .bvv-panel .bvv-msg, .bvv-panel .bvv-date { animation: bvv-in .35s ease both; }
+}
+@keyframes bvv-in { from { opacity: 0; transform: translateY(6px); } }
