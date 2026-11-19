@@ -325,19 +325,18 @@
   --btn:linear-gradient(90deg,#0ea5e9 0%,#0284c7 50%,#2563eb 100%);
   --head:'Benzin',Arial,sans-serif;
   font-family:'Inter',Arial,sans-serif; color:var(--text);
-  background:radial-gradient(ellipse at 50% 30%,#ffffff 0%,#f3f8fc 45%,#e8f1f8 100%);
-  padding:120px 24px; box-sizing:border-box;
+  background:transparent;
+  padding:20px 24px 80px; box-sizing:border-box;
 }
 .vskills *{box-sizing:border-box;margin:0;padding:0}
 .vs-wrap{max-width:1240px;margin:0 auto}
-.vs-eyebrow{text-align:center;font-size:14px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#0284c7}
-.vs-h2{margin-top:14px;text-align:center;font-family:var(--head);font-weight:600;text-transform:uppercase;line-height:1.08;
-  font-size:clamp(32px,5vw,64px);background:var(--pearl);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#0284c7}
-.vs-h3{text-align:center;font-family:var(--head);font-weight:600;text-transform:uppercase;line-height:1.12;font-size:clamp(22px,3vw,36px);color:var(--ink)}
-.vs-h3 span{background:var(--grow);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#059669}
+.vs-h2{margin-top:10px;text-align:center;font-family:var(--head);font-weight:900;text-transform:uppercase;line-height:1.08;
+  font-size:clamp(30px,4.5vw,56px);background:var(--pearl);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#0284c7}
+.vs-h3{text-align:center;font-family:'Benzin',sans-serif !important;font-weight:900;text-transform:uppercase;line-height:1.15;letter-spacing:-0.02em;font-size:clamp(22px,3vw,36px);color:var(--ink)}
+.vs-h3 *{font-family:'Benzin',sans-serif !important}
 
 /* 1. Вера и умения */
-.vs-hub{margin-top:64px;display:grid;grid-template-columns:1fr 440px 1fr;gap:56px;align-items:center}
+.vs-hub{margin-top:54px;display:grid;grid-template-columns:1fr 440px 1fr;gap:56px;align-items:center}
 .vs-col{list-style:none;display:flex;flex-direction:column;gap:30px}
 .vs-item{display:flex;gap:16px;align-items:flex-start}
 .vs-col--left .vs-item{flex-direction:row-reverse;text-align:right}
@@ -355,8 +354,8 @@
 .vs-online::before{content:"";display:inline-block;width:8px;height:8px;margin-right:8px;border-radius:50%;background:#10b981;vertical-align:1px}
 
 /* 2. Каналы */
-.vs-channels{margin-top:110px}
-.vs-marquee{margin-top:44px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%)}
+.vs-channels{margin-top:100px}
+.vs-marquee{margin-top:40px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%)}
 .vs-ch-row{list-style:none;display:flex;gap:64px;width:max-content;padding:8px 0 16px;animation:vs-flow 28s linear infinite}
 .vs-marquee:hover .vs-ch-row{animation-play-state:paused}
 .vs-ch{width:140px;flex:none}
@@ -371,29 +370,206 @@
 .vs-ch small{display:block;font-size:13px;font-weight:500;color:var(--muted)}
 
 /* Акцент: Вера учится */
-.vs-accent{margin-top:110px;text-align:center}
-.vs-accent p{font-family:'Caveat',cursive;font-weight:700;line-height:1.1;font-size:clamp(34px,4.4vw,56px);
+.vs-accent{margin-top:100px;text-align:center}
+.vs-accent p{font-family:'Caveat',cursive;font-weight:700;line-height:1.15;font-size:clamp(28px,3.8vw,48px);
   background:var(--grow);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#0284c7}
-.vs-accent span{display:block;max-width:640px;margin:16px auto 0;font-size:17px;line-height:1.55;color:#475569}
+.vs-accent span{display:block;max-width:680px;margin:16px auto 0;font-size:17px;line-height:1.55;color:#475569}
 
-/* 3. Контроль */
-.vs-control{margin-top:120px;padding:64px 56px;border-radius:40px;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.9);
-  box-shadow:0 30px 80px rgba(2,132,199,.10);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
-.vs-control__sub{margin-top:14px;text-align:center;font-size:17px;color:#475569}
-.vs-three{list-style:none;margin-top:52px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:56px}
-.vs-three li{display:flex;flex-direction:column;gap:12px}
-.vs-three b{font-size:22px;font-weight:800;color:var(--ink)}
-.vs-three span{font-size:16px;line-height:1.6;color:#475569}
-.vs-chat{margin-top:6px;display:flex;flex-direction:column;gap:8px}
-.vs-three q{align-self:flex-end;padding:10px 16px;border-radius:14px 14px 4px 14px;background:var(--btn);color:#fff;font-size:15px;font-weight:600;quotes:none}
-.vs-three q.vs-chat__vera{align-self:flex-start;border-radius:14px 14px 14px 4px;background:#ecfdf5;color:#047857;border:1px solid #a7f3d0}
-
-/* 4. Интеграции и CTA */
-.vs-integr{margin-top:110px;text-align:center}
-.vs-integr + .vs-control{margin-top:100px}
+/* 3. Интеграции */
+.vs-integr{margin-top:100px;text-align:center}
 .vs-integr__names{margin-top:28px;font-size:clamp(20px,2.4vw,30px);font-weight:800;line-height:1.6;color:var(--ink)}
 .vs-integr__names i{font-style:normal;color:#7dd3fc;margin:0 4px}
 .vs-integr__names em{font-style:normal;background:var(--grow);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#0284c7}
+
+/* 4. Контроль (Вы всегда у руля) */
+.vs-control{margin-top:110px}
+.vs-control-header{text-align:center;max-width:840px;margin:0 auto}
+.vs-control__sub{margin-top:14px;font-size:17px;line-height:1.55;color:#475569}
+
+.vs-control-grid{margin-top:48px;display:grid;grid-template-columns:1fr 1.15fr;gap:36px;align-items:stretch}
+
+/* Визуальная карточка с фото partnership */
+.vs-control-photo{
+  position:relative;
+  border-radius:32px;
+  overflow:hidden;
+  background:#fff;
+  border:1px solid #dcebf6;
+  box-shadow:0 24px 60px rgba(2,132,199,.12);
+  min-height:460px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+}
+.vs-control-photo img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  transition:transform .5s ease;
+}
+.vs-control-photo:hover img{transform:scale(1.03)}
+.vs-control-photo__top-badge{
+  position:absolute;
+  top:20px;
+  left:20px;
+  z-index:2;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 18px;
+  border-radius:999px;
+  background:rgba(255,255,255,.94);
+  -webkit-backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.95);
+  box-shadow:0 10px 24px rgba(15,23,42,.15);
+  font-size:13px;
+  font-weight:700;
+  color:#0369a1;
+}
+.vs-control-photo__top-badge::before{
+  content:"";
+  display:inline-block;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#10b981;
+  box-shadow:0 0 0 2.5px rgba(16,185,129,.25);
+}
+.vs-control-photo__bottom-card{
+  position:relative;
+  z-index:2;
+  margin:20px;
+  padding:18px 22px;
+  border-radius:22px;
+  background:rgba(15,23,42,.84);
+  -webkit-backdrop-filter:blur(14px);
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 18px 40px rgba(0,0,0,.35);
+  color:#fff;
+}
+.vs-control-photo__bottom-card b{
+  display:block;
+  font-size:16px;
+  font-weight:800;
+  color:#f8fafc;
+  letter-spacing:.2px;
+}
+.vs-control-photo__bottom-card span{
+  display:block;
+  margin-top:4px;
+  font-size:13px;
+  line-height:1.45;
+  color:#cbd5e1;
+}
+
+/* Колонка карточек справа */
+.vs-control-cards{display:flex;flex-direction:column;gap:18px}
+.vs-control-card{
+  background:#fff;
+  border:1px solid #dcebf6;
+  border-radius:24px;
+  padding:24px 26px;
+  box-shadow:0 14px 36px rgba(2,132,199,.06);
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
+}
+.vs-control-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 22px 50px rgba(2,132,199,.13);
+  border-color:#bae6fd;
+}
+.vs-control-card__ico{
+  width:50px;
+  height:50px;
+  flex:none;
+  border-radius:16px;
+  background:var(--btn);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 10px 22px rgba(2,132,199,.25);
+}
+.vs-control-card__ico svg{
+  width:24px;
+  height:24px;
+  stroke:#fff;
+  fill:none;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.vs-control-card__body{flex:1}
+.vs-control-card__head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:6px;
+}
+.vs-control-card__head b{
+  font-size:18px;
+  font-weight:800;
+  color:var(--ink);
+}
+.vs-control-card__pill{
+  font-size:11px;
+  font-weight:700;
+  padding:4px 10px;
+  border-radius:999px;
+  background:#ecfdf5;
+  color:#047857;
+  border:1px solid #a7f3d0;
+  text-transform:uppercase;
+  letter-spacing:.4px;
+}
+.vs-control-card p{
+  font-size:14.5px;
+  line-height:1.55;
+  color:#475569;
+}
+.vs-chat-box{
+  margin-top:12px;
+  padding:12px 14px;
+  border-radius:16px;
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.vs-chat-msg{
+  font-size:13px;
+  line-height:1.4;
+  padding:8px 12px;
+  border-radius:12px;
+  max-width:92%;
+}
+.vs-chat-msg--user{
+  align-self:flex-end;
+  background:var(--btn);
+  color:#fff;
+  border-bottom-right-radius:3px;
+  font-weight:500;
+}
+.vs-chat-msg--vera{
+  align-self:flex-start;
+  background:#fff;
+  border:1px solid #a7f3d0;
+  color:#047857;
+  border-bottom-left-radius:3px;
+  font-weight:600;
+  box-shadow:0 2px 6px rgba(16,185,129,.08);
+}
+
+/* Кнопка CTA */
 .vs-cta{margin-top:64px;display:flex;justify-content:center}
 .vs-btn{display:inline-block;padding:18px 40px;border-radius:999px;background:var(--btn);color:#fff;font-weight:800;font-size:16px;letter-spacing:1px;
   text-transform:uppercase;text-decoration:none;white-space:nowrap;box-shadow:0 14px 32px rgba(14,165,233,.38);transition:transform .2s ease}
@@ -406,21 +582,21 @@
   .vs-col--left .vs-item{flex-direction:row;text-align:left}
   .vs-col{gap:24px}
   .vs-ch-row{gap:40px}
-  .vs-three{grid-template-columns:1fr;gap:40px}
-  .vs-control{padding:48px 24px;border-radius:28px}
-  .vs-three li{align-items:center;text-align:center}
-  .vs-chat{width:100%;max-width:340px}
+  .vs-control-grid{grid-template-columns:1fr;gap:28px}
+  .vs-control-photo{min-height:360px;max-height:440px}
 }
 @media (max-width:480px){
-  .vskills{padding:72px 16px}
+  .vskills{padding:20px 16px 60px}
   .vs-photo{width:260px;height:260px}
   .vs-photo::before{inset:-18px}
   .vs-ch-row{gap:32px}
   .vs-ch i{width:56px;height:56px;border-radius:18px}
-  .vs-channels,.vs-control{margin-top:96px}
+  .vs-channels,.vs-control{margin-top:80px}
   .vs-btn{font-size:14px;padding:16px 26px;letter-spacing:.5px}
+  .vs-control-photo{min-height:300px}
+  .vs-control-card{flex-direction:column;gap:14px;padding:20px 18px}
 }
-  </style>
+</style>
 
 </head>
 <body class="selection:bg-sky-200 selection:text-sky-950 overflow-x-clip">
@@ -1086,7 +1262,6 @@
     <section class="vskills relative z-20" id="skills" data-alias="manifesto">
       <div id="manifesto" class="sr-only"></div>
       <div class="vs-wrap">
-        <p class="vs-eyebrow">ВОЗМОЖНОСТИ</p>
         <h2 class="vs-h2">ВЕРА - ЛУЧШИЙ ПРОДАВЕЦ В ГАЛАКТИКЕ</h2>
 
         <div class="vs-hub">
@@ -1099,7 +1274,7 @@
           </ul>
 
           <div class="vs-photo">
-            <div class="vs-photo__ring"><img src="assets/images/vera_tariff_ok.jpg" alt="Вера - лучший продавец в галактике"></div>
+            <div class="vs-photo__ring"><img src="assets/images/vera_tariff_portrait.jpg" alt="Вера - лучший продавец в галактике"></div>
             <p class="vs-online">В сети 24/7</p>
           </div>
 
@@ -1113,12 +1288,12 @@
         </div>
 
         <div class="vs-accent">
-          <p>Через месяц Вера будет разбираться в вашем бизнесе круче собственника :)</p>
+          <p>Через месяц Вера будет разбираться в вашем бизнесе и всех нюансах как эксперт с многолетним стажем</p>
           <span>Она изучает не только ваш продукт, но и всю нишу. Не просто подберёт квартиру, а расскажет о стройке как эксперт</span>
         </div>
 
         <div class="vs-channels">
-          <h3 class="vs-h3">На связи <span>везде, где пишут клиенты</span></h3>
+          <h3 class="vs-h3">НА СВЯЗИ <span class="pearl-title-gradient">ВЕЗДЕ, ГДЕ ПИШУТ КЛИЕНТЫ</span></h3>
           <div class="vs-marquee">
             <ul class="vs-ch-row">
             <li class="vs-ch"><i style="background:linear-gradient(135deg,#f58529,#dd2a7b 55%,#8134af)"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17" cy="7" r=".6"/></svg></i><b>Instagram<small>Direct, комментарии</small></b></li>
@@ -1140,18 +1315,74 @@
         </div>
 
         <div class="vs-integr">
-          <h3 class="vs-h3">Подключается к <span>вашей CRM и ERP</span></h3>
+          <h3 class="vs-h3">ПОДКЛЮЧАЕТСЯ К <span class="pearl-title-gradient">ВАШЕЙ CRM И ERP</span></h3>
           <p class="vs-integr__names">amoCRM <i>·</i> Битрикс24 <i>·</i> 1С <i>·</i> МойСклад <i>·</i> Tilda <i>·</i> СДЭК <i>·</i> <em>и любая система с API</em></p>
         </div>
 
         <div class="vs-control">
-          <h3 class="vs-h3">Вы всегда <span>у руля</span></h3>
-          <p class="vs-control__sub">Вера работает сама, но последнее слово всегда за вами</p>
-          <ul class="vs-three">
-            <li><b>Личный супервизор</b><span>В первый месяц за вами закрепляется супервизор. Он вручную проверяет сотни ответов и обучает Веру, пока она не начнёт отвечать филигранно</span></li>
-            <li><b>Лёгкое управление</b><span>Пишете боту в Telegram обычными словами, и Вера сама обновляет базу знаний</span><div class="vs-chat"><q>Акция на пальто до 30 ноября, -15%</q><q class="vs-chat__vera">Принято! Внесла в базу знаний</q></div></li>
-            <li><b>Полный кабинет</b><span>Все диалоги, лиды, время ответа, команда и база знаний в одном месте. Никуда не нужно ходить, всё под рукой, даже с телефона</span></li>
-          </ul>
+          <div class="vs-control-header">
+            <h3 class="vs-h3">ВЫ ВСЕГДА <span class="pearl-title-gradient">У РУЛЯ</span></h3>
+            <p class="vs-control__sub">Вера работает автономно 24/7, но последнее слово всегда за вами - полный контроль стандартов, базы знаний и диалогов</p>
+          </div>
+
+          <div class="vs-control-grid">
+            <!-- Левая колонка: фото partnership с бейджами -->
+            <div class="vs-control-photo">
+              <img src="assets/images/vera_partnership.jpg" alt="Партнёрство собственника и ИИ-продавца Веры" loading="lazy">
+              <div class="vs-control-photo__top-badge">Синергия человека и ИИ</div>
+              <div class="vs-control-photo__bottom-card">
+                <b>100% контроль собственника</b>
+                <span>Вы задаёте регламенты и тон общения - Вера безукоризненно им следует без усталости и человеческого фактора</span>
+              </div>
+            </div>
+
+            <!-- Правая колонка: 3 карточки преимуществ -->
+            <div class="vs-control-cards">
+              <!-- Карточка 1: Супервизор -->
+              <div class="vs-control-card">
+                <div class="vs-control-card__ico">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                </div>
+                <div class="vs-control-card__body">
+                  <div class="vs-control-card__head">
+                    <b>Личный супервизор</b>
+                    <span class="vs-control-card__pill">1-й месяц в подарок</span>
+                  </div>
+                  <p>В первый месяц за вашим проектом закрепляется персональный методист-супервизор. Он вручную проверяет сотни диалогов и дообучает Веру, пока её ответы не станут безупречными.</p>
+                </div>
+              </div>
+
+              <!-- Карточка 2: Управление в Telegram -->
+              <div class="vs-control-card">
+                <div class="vs-control-card__ico">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 4L3 11l6 2.2L19 7l-7.5 7.8L17 20z"/></svg>
+                </div>
+                <div class="vs-control-card__body">
+                  <div class="vs-control-card__head">
+                    <b>Лёгкое управление в Telegram</b>
+                  </div>
+                  <p>Изменились цены, появилась новая акция или график работы? Просто напишите боту в Telegram обычным текстом или голосовым - Вера мгновенно обновит базу знаний.</p>
+                  <div class="vs-chat-box">
+                    <div class="vs-chat-msg vs-chat-msg--user">Акция на пальто до 30 ноября, -15%</div>
+                    <div class="vs-chat-msg vs-chat-msg--vera">✓ Принято! Внесла изменения в базу знаний</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Карточка 3: Полный кабинет -->
+              <div class="vs-control-card">
+                <div class="vs-control-card__ico">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+                </div>
+                <div class="vs-control-card__body">
+                  <div class="vs-control-card__head">
+                    <b>Полный кабинет аналитики 24/7</b>
+                  </div>
+                  <p>Все переписки, квалифицированные лиды, статистика времени первого ответа, интеграции и база знаний собраны в удобном интерфейсе. Всё открывается прямо с телефона.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="vs-cta"><a class="vs-btn" href="#trial">Устроить тест-драйв Веры →</a></div>
@@ -1311,7 +1542,7 @@
                       <span class="text-emerald-300 text-[10px]">✓</span>
                       <span class="text-[9px] bg-white/20 text-emerald-100 px-1 rounded font-normal">Tallora</span>
                     </div>
-                    <div class="text-[9.5px] text-emerald-100 font-normal truncate">обувь 36–44 · в сети</div>
+                    <div class="text-[9.5px] text-emerald-100 font-normal truncate">обувь 36-44 · в сети</div>
                   </div>
                 </div>
                 <button type="button" onclick="resetTalloraChat()" class="text-[9.5px] bg-white/15 hover:bg-white/25 px-2 py-0.5 rounded text-white/90 font-medium transition-colors cursor-pointer shrink-0">
@@ -1367,223 +1598,7 @@
 
     </section>
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ДЕМО-СТЕНДА К УВЕДОМЛЕНИЯМ (ВЕРА РАБОТАЕТ, ПОКА ВЫ ОТДЫХАЕТЕ) -->
-    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8">
-      <a href="#cta-final" class="flowing-connector-link group" title="Вера работает, пока вы отдыхаете">
-        <!-- Desktop connector -->
-        <svg class="hidden sm:block w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="gradFlowToCtaFinal" x1="210" y1="10" x2="780" y2="150" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#0284C7" stop-opacity="0.8"/>
-              <stop offset="50%" stop-color="#0369A1" stop-opacity="0.85"/>
-              <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95"/>
-            </linearGradient>
-            <filter id="glowFlowToCtaFinal" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="2" result="blur"/>
-              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-            </filter>
-          </defs>
-          <path d="M 210,10 C 290,65 520,50 670,95 C 735,115 780,132 780,150" 
-                stroke="url(#gradFlowToCtaFinal)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-          <path d="M 210,10 C 290,65 520,50 670,95 C 735,115 780,132 780,150" 
-                class="delicate-connector-beam" stroke="url(#gradFlowToCtaFinal)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowFlowToCtaFinal)"/>
-          <circle cx="210" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
-          <path d="M 774.5,142.5 L 780,150 L 785.5,142.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        </svg>
-        <!-- Mobile connector (flows right-to-left down to title per image15) -->
-        <svg class="block sm:hidden w-full h-auto min-h-[90px] max-h-[125px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="gradFlowToCtaFinal" x1="270" y1="10" x2="100" y2="110" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#0284C7" stop-opacity="0.75"/>
-              <stop offset="50%" stop-color="#0369A1" stop-opacity="0.85"/>
-              <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95"/>
-            </linearGradient>
-            <filter id="glowFlowToCtaFinal" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="2" result="blur"/>
-              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-            </filter>
-          </defs>
-          <path d="M 270,10 C 270,55 120,45 100,110" 
-                stroke="url(#gradFlowToCtaFinal)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-          <path d="M 270,10 C 270,55 120,45 100,110" 
-                class="delicate-connector-beam-mobile" stroke="url(#gradFlowToCtaFinal)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowToCtaFinal)"/>
-          <circle cx="270" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
-          <path d="M 94.5,102.5 L 100,110 L 105.5,102.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        </svg>
-      </a>
-    </div>
-
-    <!-- 5. ЭКРАН С УВЕДОМЛЕНИЯМИ: ИИ‑ПРОДАВЕЦ РАБОТАЕТ, ПОКА ВЫ ОТДЫХАЕТЕ -->
-    <section id="cta-final" class="ao-band ao-band--glacial relative py-[40px] lg:py-[60px] px-4 sm:px-6 lg:px-10 overflow-hidden">
-      <div class="max-w-[1200px] mx-auto relative z-10">
-        <div class="cta-final-grid">
-
-          <!-- ЛЕВАЯ КОЛОНКА (Уведомления) -->
-          <div class="cta-col-left">
-            
-            <!-- Претайтл «Знакомо?» с акцентной полоской 24px -->
-            <div class="cta-pretitle-block">
-              <span class="cta-pretitle-line" aria-hidden="true"></span>
-              <span class="cta-pretitle-text">Знакомо?</span>
-            </div>
-
-            <!-- Фоновое свечение (за карточками) -->
-            <div class="cta-cards-glow" aria-hidden="true"></div>
-
-            <!-- Сетка уведомлений (WhatsApp, Авито, MAX, Instagram, МойСклад) -->
-            <div class="cta-notifications-stage">
-
-              <!-- Левая колонка (на десктопе): карточки 1, 2, 3 -->
-              <div class="cta-notif-col-left">
-
-                <!-- Карточка 1: WhatsApp · 23:48 -->
-                <div class="cta-push-wrapper cta-push-wrap-1" style="--notif-order-mob: 1; --notif-rot-desk: -1deg; --notif-rot-mob: -0.4deg;">
-                  <div class="cta-push-card" style="--curr-rot: -1deg;">
-                    <div class="w-[38px] h-[38px] rounded-[9px] bg-[#25D366] flex items-center justify-center shrink-0 shadow-xs">
-                      <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.68 12.04 3.68C14.24 3.68 16.31 4.54 17.87 6.1C19.42 7.66 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15ZM16.56 14.36C16.31 14.24 15.09 13.64 14.86 13.56C14.63 13.48 14.47 13.44 14.3 13.69C14.14 13.94 13.67 14.49 13.52 14.66C13.38 14.83 13.23 14.85 12.98 14.73C12.74 14.61 11.95 14.35 11.01 13.51C10.28 12.86 9.78 12.05 9.64 11.8C9.5 11.56 9.62 11.42 9.75 11.3C9.86 11.02 10 11.02 10.12 10.88C10.24 10.74 10.28 10.64 10.36 10.47C10.44 10.31 10.4 10.16 10.34 10.04C10.28 9.92 9.8 8.74 9.6 8.25C9.4 7.78 9.21 7.84 9.06 7.83C8.92 7.82 8.76 7.82 8.6 7.82C8.44 7.82 8.17 7.88 7.95 8.12C7.73 8.36 7.1 8.95 7.1 10.16C7.1 11.37 7.98 12.54 8.1 12.7C8.22 12.87 9.83 15.34 12.3 16.4C12.89 16.65 13.35 16.8 13.7 16.91C14.3 17.1 14.84 17.07 15.27 17.01C15.75 16.94 16.74 16.41 16.95 15.82C17.15 15.23 17.15 14.73 17.09 14.62C17.03 14.51 16.81 14.48 16.56 14.36Z"></path></svg>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                      <div class="flex items-center justify-between gap-2">
-                        <span class="text-[15px] font-semibold text-black leading-tight truncate">Анна · WhatsApp</span>
-                        <span class="text-[13px] text-[#3c3c4399] font-normal leading-none shrink-0">23:48</span>
-                      </div>
-                      <p class="text-[15px] text-black font-normal leading-[1.3] line-clamp-2 mt-0.5">
-                        Здравствуйте! Готова оплатить прямо сейчас, отправьте реквизиты или ссылку на счет
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Карточка 2: Авито · 02:15 -->
-                <div class="cta-push-wrapper cta-push-wrap-2" style="--notif-order-mob: 2; --notif-rot-desk: 1.2deg; --notif-rot-mob: 0.2deg;">
-                  <div class="cta-push-card" style="--curr-rot: 1.2deg;">
-                    <div class="w-[38px] h-[38px] rounded-[9px] bg-white border border-slate-200/80 flex items-center justify-center p-1 shrink-0 shadow-xs">
-                      <svg class="w-6 h-6" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="10" cy="11" r="5" fill="#4B92FF"/>
-                        <circle cx="21" cy="10" r="4.2" fill="#00D287"/>
-                        <circle cx="21.5" cy="20.5" r="4.8" fill="#FF5252"/>
-                        <circle cx="11" cy="21" r="3.8" fill="#9644FF"/>
-                      </svg>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                      <div class="flex items-center justify-between gap-2">
-                        <span class="text-[15px] font-semibold text-black leading-tight truncate">Алексей · Авито</span>
-                        <span class="text-[13px] text-[#3c3c4399] font-normal leading-none shrink-0">02:15</span>
-                      </div>
-                      <p class="text-[15px] text-black font-normal leading-[1.3] line-clamp-2 mt-0.5">
-                        Цена актуальна? За 40&nbsp;000 отдадите? Могу забрать самовывозом через пару часов
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Карточка 3: Telegram · 07:12 -->
-                <div class="cta-push-wrapper cta-push-wrap-3" style="--notif-order-mob: 3; --notif-rot-desk: -0.8deg; --notif-rot-mob: -0.3deg;">
-                  <div class="cta-push-card" style="--curr-rot: -0.8deg;">
-                    <div class="w-[38px] h-[38px] rounded-[9px] bg-[#229ED9] flex items-center justify-center shrink-0 shadow-xs">
-                      <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                      <div class="flex items-center justify-between gap-2">
-                        <span class="text-[15px] font-semibold text-black leading-tight truncate">Илья · Telegram</span>
-                        <span class="text-[13px] text-[#3c3c4399] font-normal leading-none shrink-0">07:12</span>
-                      </div>
-                      <p class="text-[15px] text-black font-normal leading-[1.3] line-clamp-2 mt-0.5">
-                        Доброе утро. Срочно нужен расчет сметы до 9:00, иначе отдаем заказ другой компании
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-              <!-- Правая колонка (на десктопе со сдвигом вниз 40px): карточки 4, 5, 6 -->
-              <div class="cta-notif-col-right" style="margin-top: 40px;">
-
-                <!-- Карточка 4: Instagram · 09:30 -->
-                <div class="cta-push-wrapper cta-push-wrap-4" style="--notif-order-mob: 4; --notif-rot-desk: 1.4deg; --notif-rot-mob: 0.3deg;">
-                  <div class="cta-push-card" style="--curr-rot: 1.4deg;">
-                    <div class="w-[38px] h-[38px] rounded-[9px] flex items-center justify-center shrink-0 shadow-xs" style="background: linear-gradient(45deg, #feda75 0%, #fa7e1e 25%, #d62976 50%, #962fbf 75%, #4f5bd5 100%);">
-                      <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                      <div class="flex items-center justify-between gap-2">
-                        <span class="text-[15px] font-semibold text-black leading-tight truncate">Мария · Instagram</span>
-                        <span class="text-[13px] text-[#3c3c4399] font-normal leading-none shrink-0">09:30</span>
-                      </div>
-                      <p class="text-[15px] text-black font-normal leading-[1.3] line-clamp-2 mt-0.5">
-                        Добрый день! Писала вам вчера под постом и&nbsp;в&nbsp;директ, никто не&nbsp;отвечает... Есть в&nbsp;наличии?
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Карточка 5: Чат MAX · 14:05 -->
-                <div class="cta-push-wrapper cta-push-wrap-5" style="--notif-order-mob: 5; --notif-rot-desk: -1.1deg; --notif-rot-mob: -0.2deg;">
-                  <div class="cta-push-card" style="--curr-rot: -1.1deg;">
-                    <div class="w-[38px] h-[38px] rounded-[9px] bg-white border border-slate-200/80 flex items-center justify-center p-0.5 shrink-0 shadow-xs overflow-hidden">
-                      <img src="assets/logos/max_logo.webp" alt="MAX" class="w-full h-full object-contain select-none" loading="lazy">
-                    </div>
-                    <div class="flex-1 min-w-0">
-                      <div class="flex items-center justify-between gap-2">
-                        <span class="text-[15px] font-semibold text-black leading-tight truncate">Елена · Чат MAX</span>
-                        <span class="text-[13px] text-[#3c3c4399] font-normal leading-none shrink-0">14:05</span>
-                      </div>
-                      <p class="text-[15px] text-black font-normal leading-[1.3] line-clamp-2 mt-0.5">
-                        Сижу у&nbsp;вас на&nbsp;сайте. Помогите быстро подобрать комплектацию под наш бюджет
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Карточка 6: Telegram · 19:40 -->
-                <div class="cta-push-wrapper cta-push-wrap-6" style="--notif-order-mob: 6; --notif-rot-desk: 0.9deg; --notif-rot-mob: 0.4deg;">
-                  <div class="cta-push-card" style="--curr-rot: 0.9deg;">
-                    <div class="w-[38px] h-[38px] rounded-[9px] bg-[#229ED9] flex items-center justify-center shrink-0 shadow-xs">
-                      <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                      <div class="flex items-center justify-between gap-2">
-                        <span class="text-[15px] font-semibold text-black leading-tight truncate">Дмитрий · Telegram</span>
-                        <span class="text-[13px] text-[#3c3c4399] font-normal leading-none shrink-0">19:40</span>
-                      </div>
-                      <p class="text-[15px] text-black font-normal leading-[1.3] line-clamp-2 mt-0.5">
-                        Менеджер обещал перезвонить до 18:00 и&nbsp;пропал. Сделка вообще состоится или нет?
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-          <!-- ПРАВАЯ КОЛОНКА -->
-          <div class="cta-col-right">
-            
-            <!-- Заголовок H2: ВЕРА РАБОТАЕТ, ВЫ ОТДЫХАЕТЕ (pearl gradient) -->
-            <div class="cta-title-block">
-              <h2 class="font-benzin font-black uppercase tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-[48px] leading-tight text-[#0f172a] overflow-visible">
-                <span class="pearl-title-gradient">ВЕРА РАБОТАЕТ,</span><br class="hidden sm:inline"> <span class="whitespace-nowrap">ВЫ</span>&nbsp;ОТДЫХАЕТЕ
-              </h2>
-            </div>
-
-            <!-- Подзаголовок -->
-            <div class="cta-subtitle-block max-w-[540px] mt-6 sm:mt-8 lg:mt-6">
-              <p class="text-[17px] sm:text-[19px] leading-[1.6] text-[#3A4A5E] font-normal">
-                Каждый входящий лид под контролем 24/7. Вера сама ведет диалог и&nbsp;доводит клиента до&nbsp;сделки, пока вы наслаждаетесь растущей выручкой
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ УВЕДОМЛЕНИЙ К СЦЕНАРИЯМ (ПОГОВОРИТЕ С ВЕРОЙ) -->
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ДЕМО-СТЕНДА К СЦЕНАРИЯМ (ПОГОВОРИТЕ С ВЕРОЙ) -->
     <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8">
       <a href="#scenarios" class="flowing-connector-link group" title="Поговорите с Верой здесь и сейчас">
         <!-- Desktop connector -->
@@ -1658,7 +1673,7 @@
                 
                 <!-- Круглая карточка с фото Веры и пульсирующим свечением -->
                 <div class="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden border-4 border-white vera-avatar-pulse bg-gradient-to-b from-sky-50 to-white group shrink-0">
-                  <img src="assets/images/vera_welcome.jpg" alt="Вера — ИИ-продавец" class="w-full h-full object-cover object-[center_16%] transform group-hover:scale-105 transition-transform duration-500">
+                  <img src="assets/images/vera_welcome.jpg" alt="Вера - ИИ-продавец" class="w-full h-full object-cover object-[center_16%] transform group-hover:scale-105 transition-transform duration-500">
                   <div class="absolute bottom-2.5 inset-x-0 flex justify-center">
                     <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-white text-[10px] sm:text-xs font-semibold shadow-md">
                       <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -3321,7 +3336,7 @@
           <div class="md:col-span-5 flex justify-center">
             <div class="relative w-56 sm:w-64 md:w-full max-w-[280px] aspect-square rounded-3xl overflow-hidden shadow-xl border border-sky-100 bg-gradient-to-b from-sky-50 to-white">
               <img 
-                src="assets/images/vera_tariff_ok.jpg" 
+                src="assets/images/vera_tariff_portrait.jpg" 
                 alt="ИИ-продавец Вера" 
                 class="w-full h-full object-cover object-top"
                 loading="lazy"
@@ -3518,7 +3533,7 @@
         <!-- Пояснения под тарифами -->
         <div class="max-w-3xl mx-auto space-y-2 text-center text-xs sm:text-sm text-slate-600 font-inter leading-relaxed pt-2">
           <p>
-            <strong class="text-slate-900 font-semibold">Считаем только ответы Веры.</strong> В&nbsp;среднем один диалог&nbsp;— это 8–12 сообщений.
+            <strong class="text-slate-900 font-semibold">Считаем только ответы Веры.</strong> В&nbsp;среднем один диалог&nbsp;- это 8-12 сообщений.
           </p>
           <p class="text-emerald-700 font-semibold text-xs sm:text-[13px] sm:whitespace-nowrap">
             Мы союзники вашей прибыли. Как только вам станет выгоднее тариф выше, мы сами вам об этом напишем.
@@ -3548,7 +3563,7 @@
               Поток нерегулярный, бывают тихие месяцы?
             </div>
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Подписка на платформу 15&nbsp;000&nbsp;₽/мес. До 10&nbsp;000 сообщений&nbsp;— 3&nbsp;₽ за сообщение, от 10&nbsp;001 до 30&nbsp;000&nbsp;— 2&nbsp;₽, от 30&nbsp;001&nbsp;— 1,7&nbsp;₽. Все каналы и CRM подключаются бесплатно, разовый запуск 29&nbsp;000&nbsp;₽.
+              Подписка на платформу 15&nbsp;000&nbsp;₽/мес. До 10&nbsp;000 сообщений&nbsp;- 3&nbsp;₽ за сообщение, от 10&nbsp;001 до 30&nbsp;000&nbsp;- 2&nbsp;₽, от 30&nbsp;001&nbsp;- 1,7&nbsp;₽. Все каналы и CRM подключаются бесплатно, разовый запуск 29&nbsp;000&nbsp;₽.
             </p>
           </div>
           <button type="button" onclick="openPaygModal()" class="shrink-0 inline-flex items-center px-5 py-3 rounded-xl bg-sky-600 hover:bg-sky-500 active:scale-95 text-white font-bold text-xs sm:text-sm shadow-md transition-all cursor-pointer whitespace-nowrap font-inter">
@@ -3761,6 +3776,218 @@
       </div>
     </div>
 
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ТАРИФОВ К УВЕДОМЛЕНИЯМ (ВЕРА РАБОТАЕТ, ПОКА ВЫ ОТДЫХАЕТЕ) -->
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8 lg:my-10">
+      <a href="#cta-final" class="flowing-connector-link group" title="Вера работает, пока вы отдыхаете">
+        <svg class="hidden sm:block w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradFlowTariffsToCta" x1="210" y1="10" x2="780" y2="150" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#0284C7" stop-opacity="0.8"/>
+              <stop offset="50%" stop-color="#0369A1" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95"/>
+            </linearGradient>
+            <filter id="glowFlowTariffsToCta" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 210,10 C 290,65 520,50 670,95 C 735,115 780,132 780,150" 
+                stroke="url(#gradFlowTariffsToCta)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <path d="M 210,10 C 290,65 520,50 670,95 C 735,115 780,132 780,150" 
+                class="delicate-connector-beam" stroke="url(#gradFlowTariffsToCta)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowFlowTariffsToCta)"/>
+          <circle cx="210" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
+          <path d="M 774.5,142.5 L 780,150 L 785.5,142.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <svg class="block sm:hidden w-full h-auto min-h-[90px] max-h-[125px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradFlowTariffsToCtaMob" x1="270" y1="10" x2="100" y2="110" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#0284C7" stop-opacity="0.75"/>
+              <stop offset="50%" stop-color="#0369A1" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95"/>
+            </linearGradient>
+            <filter id="glowFlowTariffsToCtaMob" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 270,10 C 270,55 120,45 100,110" 
+                stroke="url(#gradFlowTariffsToCtaMob)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <path d="M 270,10 C 270,55 120,45 100,110" 
+                class="delicate-connector-beam-mobile" stroke="url(#gradFlowTariffsToCtaMob)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowTariffsToCtaMob)"/>
+          <circle cx="270" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
+          <path d="M 94.5,102.5 L 100,110 L 105.5,102.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </a>
+    </div>
+    <section id="cta-final" class="ao-band ao-band--glacial relative py-[40px] lg:py-[60px] px-4 sm:px-6 lg:px-10 overflow-hidden">
+      <div class="max-w-[1200px] mx-auto relative z-10">
+        <div class="cta-final-grid">
+
+          <!-- ЛЕВАЯ КОЛОНКА (Уведомления) -->
+          <div class="cta-col-left">
+            
+            <!-- Претайтл «Знакомо?» с акцентной полоской 24px -->
+            <div class="cta-pretitle-block">
+              <span class="cta-pretitle-line" aria-hidden="true"></span>
+              <span class="cta-pretitle-text">Знакомо?</span>
+            </div>
+
+            <!-- Фоновое свечение (за карточками) -->
+            <div class="cta-cards-glow" aria-hidden="true"></div>
+
+            <!-- Сетка уведомлений (WhatsApp, Авито, MAX, Instagram, МойСклад) -->
+            <div class="cta-notifications-stage">
+
+              <!-- Левая колонка (на десктопе): карточки 1, 2, 3 -->
+              <div class="cta-notif-col-left">
+
+                <!-- Карточка 1: WhatsApp · 23:48 -->
+                <div class="cta-push-wrapper cta-push-wrap-1" style="--notif-order-mob: 1; --notif-rot-desk: -1deg; --notif-rot-mob: -0.4deg;">
+                  <div class="cta-push-card" style="--curr-rot: -1deg;">
+                    <div class="w-[38px] h-[38px] rounded-[9px] bg-[#25D366] flex items-center justify-center shrink-0 shadow-xs">
+                      <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.68 12.04 3.68C14.24 3.68 16.31 4.54 17.87 6.1C19.42 7.66 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15ZM16.56 14.36C16.31 14.24 15.09 13.64 14.86 13.56C14.63 13.48 14.47 13.44 14.3 13.69C14.14 13.94 13.67 14.49 13.52 14.66C13.38 14.83 13.23 14.85 12.98 14.73C12.74 14.61 11.95 14.35 11.01 13.51C10.28 12.86 9.78 12.05 9.64 11.8C9.5 11.56 9.62 11.42 9.75 11.3C9.86 11.02 10 11.02 10.12 10.88C10.24 10.74 10.28 10.64 10.36 10.47C10.44 10.31 10.4 10.16 10.34 10.04C10.28 9.92 9.8 8.74 9.6 8.25C9.4 7.78 9.21 7.84 9.06 7.83C8.92 7.82 8.76 7.82 8.6 7.82C8.44 7.82 8.17 7.88 7.95 8.12C7.73 8.36 7.1 8.95 7.1 10.16C7.1 11.37 7.98 12.54 8.1 12.7C8.22 12.87 9.83 15.34 12.3 16.4C12.89 16.65 13.35 16.8 13.7 16.91C14.3 17.1 14.84 17.07 15.27 17.01C15.75 16.94 16.74 16.41 16.95 15.82C17.15 15.23 17.15 14.73 17.09 14.62C17.03 14.51 16.81 14.48 16.56 14.36Z"></path></svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="flex items-center justify-between gap-2">
+                        <span class="text-[15px] font-semibold text-black leading-tight truncate">Анна · WhatsApp</span>
+                        <span class="text-[13px] text-[#3c3c4399] font-normal leading-none shrink-0">23:48</span>
+                      </div>
+                      <p class="text-[15px] text-black font-normal leading-[1.3] line-clamp-2 mt-0.5">
+                        Здравствуйте! Готова оплатить прямо сейчас, отправьте реквизиты или ссылку на счет
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Карточка 2: Авито · 02:15 -->
+                <div class="cta-push-wrapper cta-push-wrap-2" style="--notif-order-mob: 2; --notif-rot-desk: 1.2deg; --notif-rot-mob: 0.2deg;">
+                  <div class="cta-push-card" style="--curr-rot: 1.2deg;">
+                    <div class="w-[38px] h-[38px] rounded-[9px] bg-white border border-slate-200/80 flex items-center justify-center p-1 shrink-0 shadow-xs">
+                      <svg class="w-6 h-6" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="11" r="5" fill="#4B92FF"/>
+                        <circle cx="21" cy="10" r="4.2" fill="#00D287"/>
+                        <circle cx="21.5" cy="20.5" r="4.8" fill="#FF5252"/>
+                        <circle cx="11" cy="21" r="3.8" fill="#9644FF"/>
+                      </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="flex items-center justify-between gap-2">
+                        <span class="text-[15px] font-semibold text-black leading-tight truncate">Алексей · Авито</span>
+                        <span class="text-[13px] text-[#3c3c4399] font-normal leading-none shrink-0">02:15</span>
+                      </div>
+                      <p class="text-[15px] text-black font-normal leading-[1.3] line-clamp-2 mt-0.5">
+                        Цена актуальна? За 40&nbsp;000 отдадите? Могу забрать самовывозом через пару часов
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Карточка 3: Telegram · 07:12 -->
+                <div class="cta-push-wrapper cta-push-wrap-3" style="--notif-order-mob: 3; --notif-rot-desk: -0.8deg; --notif-rot-mob: -0.3deg;">
+                  <div class="cta-push-card" style="--curr-rot: -0.8deg;">
+                    <div class="w-[38px] h-[38px] rounded-[9px] bg-[#229ED9] flex items-center justify-center shrink-0 shadow-xs">
+                      <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="flex items-center justify-between gap-2">
+                        <span class="text-[15px] font-semibold text-black leading-tight truncate">Илья · Telegram</span>
+                        <span class="text-[13px] text-[#3c3c4399] font-normal leading-none shrink-0">07:12</span>
+                      </div>
+                      <p class="text-[15px] text-black font-normal leading-[1.3] line-clamp-2 mt-0.5">
+                        Доброе утро. Срочно нужен расчет сметы до 9:00, иначе отдаем заказ другой компании
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Правая колонка (на десктопе со сдвигом вниз 40px): карточки 4, 5, 6 -->
+              <div class="cta-notif-col-right" style="margin-top: 40px;">
+
+                <!-- Карточка 4: Instagram · 09:30 -->
+                <div class="cta-push-wrapper cta-push-wrap-4" style="--notif-order-mob: 4; --notif-rot-desk: 1.4deg; --notif-rot-mob: 0.3deg;">
+                  <div class="cta-push-card" style="--curr-rot: 1.4deg;">
+                    <div class="w-[38px] h-[38px] rounded-[9px] flex items-center justify-center shrink-0 shadow-xs" style="background: linear-gradient(45deg, #feda75 0%, #fa7e1e 25%, #d62976 50%, #962fbf 75%, #4f5bd5 100%);">
+                      <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="flex items-center justify-between gap-2">
+                        <span class="text-[15px] font-semibold text-black leading-tight truncate">Мария · Instagram</span>
+                        <span class="text-[13px] text-[#3c3c4399] font-normal leading-none shrink-0">09:30</span>
+                      </div>
+                      <p class="text-[15px] text-black font-normal leading-[1.3] line-clamp-2 mt-0.5">
+                        Добрый день! Писала вам вчера под постом и&nbsp;в&nbsp;директ, никто не&nbsp;отвечает... Есть в&nbsp;наличии?
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Карточка 5: Чат MAX · 14:05 -->
+                <div class="cta-push-wrapper cta-push-wrap-5" style="--notif-order-mob: 5; --notif-rot-desk: -1.1deg; --notif-rot-mob: -0.2deg;">
+                  <div class="cta-push-card" style="--curr-rot: -1.1deg;">
+                    <div class="w-[38px] h-[38px] rounded-[9px] bg-white border border-slate-200/80 flex items-center justify-center p-0.5 shrink-0 shadow-xs overflow-hidden">
+                      <img src="assets/logos/max_logo.webp" alt="MAX" class="w-full h-full object-contain select-none" loading="lazy">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="flex items-center justify-between gap-2">
+                        <span class="text-[15px] font-semibold text-black leading-tight truncate">Елена · Чат MAX</span>
+                        <span class="text-[13px] text-[#3c3c4399] font-normal leading-none shrink-0">14:05</span>
+                      </div>
+                      <p class="text-[15px] text-black font-normal leading-[1.3] line-clamp-2 mt-0.5">
+                        Сижу у&nbsp;вас на&nbsp;сайте. Помогите быстро подобрать комплектацию под наш бюджет
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Карточка 6: Telegram · 19:40 -->
+                <div class="cta-push-wrapper cta-push-wrap-6" style="--notif-order-mob: 6; --notif-rot-desk: 0.9deg; --notif-rot-mob: 0.4deg;">
+                  <div class="cta-push-card" style="--curr-rot: 0.9deg;">
+                    <div class="w-[38px] h-[38px] rounded-[9px] bg-[#229ED9] flex items-center justify-center shrink-0 shadow-xs">
+                      <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="flex items-center justify-between gap-2">
+                        <span class="text-[15px] font-semibold text-black leading-tight truncate">Дмитрий · Telegram</span>
+                        <span class="text-[13px] text-[#3c3c4399] font-normal leading-none shrink-0">19:40</span>
+                      </div>
+                      <p class="text-[15px] text-black font-normal leading-[1.3] line-clamp-2 mt-0.5">
+                        Менеджер обещал перезвонить до 18:00 и&nbsp;пропал. Сделка вообще состоится или нет?
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- ПРАВАЯ КОЛОНКА -->
+          <div class="cta-col-right">
+            
+            <!-- Заголовок H2: ВЕРА РАБОТАЕТ, ВЫ ОТДЫХАЕТЕ (pearl gradient) -->
+            <div class="cta-title-block">
+              <h2 class="font-benzin font-black uppercase tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-[48px] leading-tight text-[#0f172a] overflow-visible">
+                <span class="pearl-title-gradient">ВЕРА РАБОТАЕТ,</span><br class="hidden sm:inline"> <span class="whitespace-nowrap">ВЫ</span>&nbsp;ОТДЫХАЕТЕ
+              </h2>
+            </div>
+
+            <!-- Подзаголовок -->
+            <div class="cta-subtitle-block max-w-[540px] mt-6 sm:mt-8 lg:mt-6">
+              <p class="text-[17px] sm:text-[19px] leading-[1.6] text-[#3A4A5E] font-normal">
+                Каждый входящий лид под контролем 24/7. Вера сама ведет диалог и&nbsp;доводит клиента до&nbsp;сделки, пока вы наслаждаетесь растущей выручкой
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ИЗЯЩНАЯ ТРАЕКТОРИЯ ПЕРЕТЕКАНИЯ -->
     <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
       <a href="#solutions" class="flowing-connector-link group" title="Как начать">
@@ -3877,7 +4104,7 @@
                 <span class="manifesto-stat-gradient">Тест-драйв Веры</span>
               </h3>
               <p class="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
-                Пришлите сайт&nbsp;— за&nbsp;сутки Вера изучит вашу компанию. Вы общаетесь с&nbsp;ней как клиент и&nbsp;проверяете, как она продаёт именно ваш продукт
+                Пришлите сайт&nbsp;- за&nbsp;сутки Вера изучит вашу компанию. Вы общаетесь с&nbsp;ней как клиент и&nbsp;проверяете, как она продаёт именно ваш продукт
               </p>
             </div>
             <div class="space-y-3 pt-3.5 border-t border-sky-200/80">
@@ -4019,7 +4246,7 @@
                 Мы строим открытый бизнес, поэтому наша финансовая модель предельно прозрачна.
               </p>
               <p>
-                Знакомство начинается с&nbsp;тест-драйва Веры на&nbsp;вашем бизнесе&nbsp;— Вера изучает вашу компанию и&nbsp;вы общаетесь с&nbsp;ней как клиент. Платеж за&nbsp;запуск от&nbsp;29&nbsp;000&nbsp;₽ покрывает чистую себестоимость внедрения: детальную упаковку сценариев, загрузку регламентов и&nbsp;подключение системы.
+                Знакомство начинается с&nbsp;тест-драйва Веры на&nbsp;вашем бизнесе&nbsp;- Вера изучает вашу компанию и&nbsp;вы общаетесь с&nbsp;ней как клиент. Платеж за&nbsp;запуск от&nbsp;29&nbsp;000&nbsp;₽ покрывает чистую себестоимость внедрения: детальную упаковку сценариев, загрузку регламентов и&nbsp;подключение системы.
               </p>
               <p>
                 Наш главный доход&nbsp;- долгое партнерство. Мы получаем прибыль только тогда, когда Вера стабильно приносит Вам деньги и&nbsp;бережет нервы, а&nbsp;Вы спокойно продлеваете подписку месяц за&nbsp;месяцем.
@@ -4250,7 +4477,7 @@
           '<div><strong>Связь:</strong> ' + escapeHtml(channel) + ' (' + escapeHtml(contact) + ')</div>';
       }
 
-      var message = '🔥 Новая заявка на тест-драйв Веры:\nИмя — ' + (name || 'Клиент') + '\nСайт — ' + site + '\nСвязь — ' + channel + ' ' + contact;
+      var message = '🔥 Новая заявка на тест-драйв Веры:\nИмя - ' + (name || 'Клиент') + '\nСайт - ' + site + '\nСвязь - ' + channel + ' ' + contact;
       if (tgLinkEl) {
         tgLinkEl.href = 'https://t.me/altaioptima?text=' + encodeURIComponent(message);
       }
