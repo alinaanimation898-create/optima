@@ -5,7 +5,8 @@
  *   const cfg  = await chat.getConfig();            // GET  /api/v1/demo/config
  *   const data = await chat.send('Привет');         // POST /api/v1/demo/chat
  *
- * API base: prod by default; `?api=stage` in the page URL (or options.env = 'stage') switches to stage.
+ * API base: prod by default; `?api=stage` / `?api=local` in the page URL (or options.env) switches to stage / http://localhost:8000.
+ * options.endpoint (default '/api/v1/demo/chat') is the path send() posts to; options.storageKey overrides the session key.
  * Errors thrown by send() carry `.status` (429 = rate limit / queue busy) and a Russian `.message`.
  * VeraDemoChat.mount(el, opts) renders a ready-made chat UI; custom layouts use the hooks
  * (onUser / onTyping / onReply / onError) or call send() themselves and use VeraDemoChat.formatText().
@@ -20,13 +21,15 @@
 
   var API = {
     prod: 'https://api.optima.altaiweb.online',
-    stage: 'https://stage-api.optima.altaiweb.online'
+    stage: 'https://stage-api.optima.altaiweb.online',
+    local: 'http://localhost:8000'
   };
 
   function detectEnv(explicit) {
-    if (explicit === 'stage' || explicit === 'prod') return explicit;
+    if (explicit === 'stage' || explicit === 'prod' || explicit === 'local') return explicit;
     try {
-      if (new URLSearchParams(global.location.search).get('api') === 'stage') return 'stage';
+      var q = new URLSearchParams(global.location.search).get('api');
+      if (q === 'stage' || q === 'local') return q;
     } catch (e) {}
     return 'prod';
   }
@@ -62,7 +65,8 @@
     this.tenantId = options.tenantId;
     this.env = detectEnv(options.env);
     this.baseUrl = (options.apiBase || API[this.env]).replace(/\/$/, '');
-    this.storageKey = 'vera_demo_session_' + this.tenantId;
+    this.storageKey = options.storageKey || 'vera_demo_session_' + this.tenantId;
+    this.endpoint = options.endpoint || '/api/v1/demo/chat';
     this.persistSession = options.persistSession !== false;
     this.extraPayload = options.extraPayload || {};
     this.hooks = {
@@ -116,7 +120,7 @@
         tenant_id: this.tenantId,
         session_id: this.sessionId || undefined
       });
-      var res = await fetch(this.baseUrl + '/api/v1/demo/chat', {
+      var res = await fetch(this.baseUrl + this.endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -384,6 +388,7 @@
     var recording = false;
     function sync() {
       var empty = !input.value.trim();
+      if (!enabled) { mic.style.display = 'none'; sendBtn.style.display = ''; bar.hidden = true; input.style.display = ''; return; }
       if (recording) {
         input.style.display = 'none'; mic.style.display = 'none'; sendBtn.style.display = 'none'; bar.hidden = false;
         return;
@@ -393,7 +398,8 @@
       sendBtn.style.display = empty ? 'none' : '';
       mic.disabled = !!chat.isSending;
     }
-    function setRecording(on) { recording = on; sync(); }
+    function setRecording(on) { recording = on; sync(); if (ui.onRecordingChange) ui.onRecordingChange(on); }
+    var enabled = true;
 
     function deliver(result) {
       setRecording(false);
@@ -429,7 +435,12 @@
     input.addEventListener('input', sync);
     global.addEventListener('pagehide', function () { recorder.cancel(); });
     sync();
-    return { sync: sync };
+    // isRecording(): a recording is in progress. setEnabled(false): mic hidden, Send always shown (text-only mode).
+    return {
+      sync: sync,
+      isRecording: function () { return recording; },
+      setEnabled: function (on) { enabled = !!on; sync(); }
+    };
   };
 
   /**
