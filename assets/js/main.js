@@ -24,7 +24,7 @@
                 <span class="text-xs">3</span>
               </div>
               <div class="relative w-8 h-8 rounded-full border border-white/40 overflow-hidden shadow-xs shrink-0 bg-slate-800">
-                <img src="assets/images/vera_ai_portrait.webp" onerror="this.src='avatar_eva.webp'" alt="Вера" class="w-full h-full object-cover" />
+                <img src="assets/images/vera_avatar_hd.jpg" onerror="this.src='avatar_eva.webp'" alt="Вера" class="w-full h-full object-cover" style="object-position: center top;" />
                 <span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-400 border border-white"></span>
               </div>
               <div class="leading-tight text-left">
@@ -192,7 +192,7 @@
             <div class="flex items-center gap-1.5">
               <div class="p-0.5 rounded-full bg-gradient-to-tr from-amber-400 via-rose-500 to-purple-600 shrink-0">
                 <div class="w-6 h-6 rounded-full overflow-hidden border border-white bg-slate-900">
-                  <img src="assets/images/vera_ai_portrait.webp" onerror="this.src='avatar_eva.webp'" alt="Вера" class="w-full h-full object-cover" />
+                  <img src="assets/images/vera_avatar_hd.jpg" onerror="this.src='avatar_eva.webp'" alt="Вера" class="w-full h-full object-cover" style="object-position: center top;" />
                 </div>
               </div>
               <div class="leading-tight text-left">
@@ -913,11 +913,11 @@
         monthlyTariffPrice = 59000;
       } else {
         tariffName = '«Империя»';
-        monthlyTariffPrice = 99000;
+        monthlyTariffPrice = 89000;
       }
 
       // Запуск по тарифу (как в конструкторе), без доплаты за 1С / МойСклад
-      const launchPrice = { 25000: 29000, 39000: 39000, 59000: 59000, 99000: 99000 }[monthlyTariffPrice] || 29000;
+      const launchPrice = { 25000: 29000, 39000: 39000, 59000: 59000, 89000: 89000 }[monthlyTariffPrice] || 29000;
       const monthlyNet = gain - monthlyTariffPrice;
       const yearNet = gain * 12 - (launchPrice + monthlyTariffPrice * 12);
       const paybackDays = gain > 0 ? (launchPrice + monthlyTariffPrice) / (gain / 30) : Infinity;
@@ -3828,7 +3828,7 @@
         <div class="flex justify-start items-end gap-1.5 animate-fade-in">
           <div class="bg-white text-slate-900 p-2.5 rounded-2xl rounded-tl-xs max-w-[88%] shadow-xs border border-slate-200/50">
             <div class="text-[9.5px] font-bold text-[#075e54] mb-0.5">Вера · Tallora</div>
-            <p class="leading-relaxed font-normal text-[11px] text-slate-800">${formatTalloraMessage("Мы производим женскую обувь нестандартных размеров с 36 по 44 на длину стопы 23–29,5 см. Подскажите, какую модель вам подсказать?")}</p>
+            <p class="leading-relaxed font-normal text-[11px] text-slate-800">${formatTalloraMessage("Мы производим женскую обувь нестандартных размеров с 36 по 44 на длину стопы 23-29,5 см. Подскажите, какую модель вам подсказать?")}</p>
             <div class="text-[8.5px] text-slate-400 text-right mt-0.5 font-sans">${time}</div>
           </div>
         </div>`;

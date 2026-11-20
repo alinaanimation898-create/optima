@@ -123,6 +123,7 @@
 
   <link rel="stylesheet" href="assets/css/style.css?v=4.3">
   <link rel="stylesheet" href="assets/css/altai-refresh.css?v=3.4">
+  <link rel="stylesheet" href="assets/css/bot-vs-vera.css?v=1.0">
   <style id="flowing-connector-styles">
     .flowing-connector-link {
       display: block;
@@ -981,6 +982,118 @@
           </div>
         </div>
 
+      </div>
+    </section>
+
+    <!-- 4.0. A REGULAR BOT OR VERA: one question, two conversations -->
+    <section id="bot-vs-vera" class="relative z-20 py-8 sm:py-12 lg:py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 font-inter scroll-mt-28">
+      <div class="text-center max-w-4xl mx-auto mb-8 sm:mb-10">
+        <h2 class="uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-benzin leading-[1.12] overflow-visible text-[#0f172a]" style="font-family: 'Benzin', sans-serif !important;">
+          <span class="text-slate-400 block">A REGULAR BOT</span>
+          <span class="block">OR <span class="pearl-title-gradient">VERA</span></span>
+        </h2>
+        <p class="mt-4 sm:mt-5 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+          A customer of an online school asks the most common question. A real chat with a&nbsp;large school's bot&nbsp;- and how Vera handles the same question.
+        </p>
+      </div>
+
+      <div class="relative">
+        <input type="radio" name="bvv-tab" id="bvv-tab-bot" class="bvv-radio" checked>
+        <input type="radio" name="bvv-tab" id="bvv-tab-vera" class="bvv-radio">
+        <div class="bvv-tabs" role="tablist">
+          <label for="bvv-tab-bot" class="bvv-tab">Regular bot</label>
+          <label for="bvv-tab-vera" class="bvv-tab">Vera</label>
+        </div>
+
+        <div class="bvv-grid grid lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+          <!-- Regular bot -->
+          <div class="bvv-panel bvv-panel--bot bvv-chat">
+            <div class="bvv-head">
+              <div class="bvv-ava" aria-hidden="true">🤖</div>
+              <div>
+                <div class="bvv-name">Online school bot</div>
+                <div class="bvv-status">a manager replies 8 am - 9 pm</div>
+              </div>
+              <span class="bvv-label">Script</span>
+            </div>
+            <div class="bvv-body">
+              <div class="bvv-date">September 28</div>
+              <div class="bvv-msg bvv-msg--out">How much does it cost?<time>15:58</time></div>
+              <div class="bvv-msg bvv-msg--in">
+                Hello! You are in the online school bot. Write your question and a&nbsp;manager will answer it between 8 am and 9 pm.<time>15:58</time>
+              </div>
+              <div class="bvv-msg bvv-msg--in bvv-msg--dup">
+                Write your question and a&nbsp;manager will answer it within 5&nbsp;minutes, between 8 am and 9 pm.<time>15:58</time>
+                <span class="bvv-flag">Template sent twice</span>
+              </div>
+              <div class="bvv-msg bvv-msg--in">
+                Hello! You are now talking to a&nbsp;real person, not a&nbsp;bot. I&nbsp;see your request: right now you can book a&nbsp;place at a&nbsp;reduced price 🔥 What would you like to improve in your child's studies?<time>15:58</time>
+                <span class="bvv-flag">No price given</span>
+              </div>
+              <div class="bvv-msg bvv-msg--in">
+                Maybe my message got lost 🙂 I'm still holding an early-price place for you, but these go fast.<time>16:16</time>
+                <span class="bvv-flag">Pressure instead of an answer</span>
+              </div>
+              <div class="bvv-date">September 29</div>
+              <div class="bvv-msg bvv-msg--in">
+                A reminder about your discount: only 1&nbsp;day left. Shall we talk about the course?<time>15:55</time>
+                <span class="bvv-flag">"Last day"</span>
+              </div>
+              <div class="bvv-date bvv-date--gap">October 27 · a month later</div>
+              <div class="bvv-msg bvv-msg--in">
+                Knock knock! For 4&nbsp;days only we keep a&nbsp;unique discount on courses and tutors. To use it, reply "Ready".<time>14:26</time>
+                <span class="bvv-flag">The same discount "expires" again</span>
+              </div>
+            </div>
+            <div class="bvv-foot">✕&nbsp; A month, 6 messages&nbsp;- still no price</div>
+          </div>
+
+          <!-- Vera -->
+          <div class="bvv-panel bvv-panel--vera bvv-chat">
+            <div class="bvv-head">
+              <img src="assets/images/vera_avatar_hd.jpg" alt="Vera" class="bvv-ava" loading="lazy" width="40" height="40">
+              <div>
+                <div class="bvv-name">Vera</div>
+                <div class="bvv-status">online 24/7</div>
+              </div>
+              <span class="bvv-label">AI salesperson</span>
+            </div>
+            <div class="bvv-body">
+              <div class="bvv-date">September 28</div>
+              <div class="bvv-msg bvv-msg--out">How much does it cost?<time>23:40</time></div>
+              <div class="bvv-msg bvv-msg--in">
+                Hello! I'm Vera, I&nbsp;help choose the right course. A&nbsp;small-group course starts at $39 a&nbsp;month, a&nbsp;private tutor at $15 per lesson. The exact price depends on the grade and subject. What grade is your child in, and what would you like to improve?<time>23:40</time>
+                <span class="bvv-flag bvv-flag--ok">Price in the first reply</span>
+              </div>
+              <div class="bvv-msg bvv-msg--out">8th grade, maths. We want to prepare for exams early<time>23:42</time></div>
+              <div class="bvv-msg bvv-msg--in">
+                Then the year-long 8th grade maths course fits: 2&nbsp;lessons a&nbsp;week in a&nbsp;small group plus checked homework. $39 a&nbsp;month, or $33 when paid for six months. You can start with a&nbsp;free trial lesson: the next one is on Saturday at 11:00. Shall I&nbsp;book you in?<time>23:42</time>
+                <span class="bvv-flag bvv-flag--ok">Matched to the goal</span>
+              </div>
+              <div class="bvv-msg bvv-msg--out">Yes, please<time>23:43</time></div>
+              <div class="bvv-msg bvv-msg--in">
+                Booked for Saturday, 11:00 ✅ I'll send the lesson link here an hour before it starts. Any questions, just write, I'm here.<time>23:43</time>
+                <span class="bvv-flag bvv-flag--ok">Lead in the CRM</span>
+              </div>
+            </div>
+            <div class="bvv-foot">✓&nbsp; 3 minutes at night&nbsp;- booked for a&nbsp;trial lesson</div>
+          </div>
+        </div>
+      </div>
+
+      <dl class="bvv-sum mt-6 sm:mt-8">
+        <div class="bvv-row bvv-row--head"><span></span><span>Regular bot</span><span>Vera</span></div>
+        <div class="bvv-row"><dt>Answered the question</dt><dd class="bvv-b">No, not once in a&nbsp;month</dd><dd class="bvv-v">In the first message</dd></div>
+        <div class="bvv-row"><dt>When it replies</dt><dd class="bvv-b">Template at once, a&nbsp;human 8 am - 9 pm</dd><dd class="bvv-v">Instantly, 24/7, at 23:40 too</dd></div>
+        <div class="bvv-row"><dt>How it persuades</dt><dd class="bvv-b">A discount that "expires" every week</dd><dd class="bvv-v">An option matched to grade, subject and goal</dd></div>
+        <div class="bvv-row"><dt>Result</dt><dd class="bvv-b">6 unanswered messages and irritation</dd><dd class="bvv-v">A trial lesson booked and a&nbsp;lead in the CRM</dd></div>
+      </dl>
+
+      <div class="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
+        <p class="text-xs text-slate-400">The school's name is hidden. The chat with Vera is an example, prices are illustrative.</p>
+        <a href="#scenarios" class="inline-flex items-center gap-2 rounded-full bg-sky-600 hover:bg-sky-700 text-white text-sm font-bold px-5 py-2.5 shadow-[0_8px_24px_rgba(2,132,199,0.25)] transition-colors">
+          Ask Vera your own question <span aria-hidden="true">→</span>
+        </a>
       </div>
     </section>
 
