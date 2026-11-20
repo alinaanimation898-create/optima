@@ -139,3 +139,20 @@
 @media (max-width: 1023px) {
   .dp-chat { flex: none; height: 78vh; height: 78svh; min-height: 460px; max-height: 760px; }
 }
+
+/* Boss mode (#466): the bar under the chat header that switches between customer and boss chat. */
+.dp-stream[hidden], .dp-mode[hidden], .dp-sub-c[hidden], .dp-sub-b[hidden] { display: none; }
+.dp-chips:empty { display: none; }
+.dp-boss-note { align-self: center; max-width: 320px; text-align: center; font-size: 12px; line-height: 1.4; color: #8A8178; }
+.dp-mode { flex: none; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-bottom: 1px solid #F0EBE5; border-radius: 0;
+  padding: 11px 16px; background: var(--accent); color: #fff; font: 600 13px/1.3 'Inter', sans-serif; text-align: center; cursor: pointer; overflow: hidden;
+  transition: background .15s, color .15s, box-shadow .15s; }
+.dp-mode:hover:not(:disabled) { background: var(--accent-hover); }
+.dp-mode:disabled { opacity: .5; cursor: not-allowed; }
+.dp-mode svg { width: 16px; height: 16px; flex: none; }
+.dp-mode.dp-mode-alt { background: transparent; color: var(--accent); box-shadow: inset 0 0 0 1.5px var(--accent); }
+.dp-mode.dp-mode-alt:hover:not(:disabled) { background: var(--accent-ring); }
+.dp-mode-in { animation: dp-mode-in .28s ease-out both; }
+@keyframes dp-mode-in { from { opacity: 0; transform: translateY(-14px); max-height: 0; padding-top: 0; padding-bottom: 0; } to { opacity: 1; transform: none; max-height: 80px; } }
+@media (prefers-reduced-motion: reduce) { .dp-mode-in { animation: none; } }
+@media (min-width: 640px) { .dp-mode { font-size: 14px; padding: 12px 24px; } }
