@@ -24,6 +24,7 @@
   var ICON_CLIENT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>';
   var BOSS_INTRO = '<div class="dp-day">Сегодня</div><div class="dp-boss-note">Вы — руководитель. Спросите Веру о сегодняшних клиентах, эскалациях или о том, что она знает.</div>';
   var BOSS_CHIPS = ['Сколько клиентов сегодня писали?', 'О чём чаще всего спрашивали?', 'Были ли сегодня эскалации?'];
+  var BOSS_BTN_DELAY_MS = 5000;  // the boss-mode button shows this long after Vera's first customer reply
   var BOSS_PLACEHOLDER = 'Спросите, сколько клиентов сегодня писали';
 
   function asset(v) { return !v ? '' : /^(https?:)?\/\//.test(v) ? v : BRAND + v; }
@@ -170,7 +171,7 @@
     var input = root.querySelector('.dp-input'), sendBtn = root.querySelector('.dp-send');
     var status = root.querySelector('.dp-status'), modeBtn = root.querySelector('.dp-mode'), chipsEl = root.querySelector('.dp-chips');
     var subC = root.querySelector('.dp-sub-c'), subB = root.querySelector('.dp-sub-b');
-    var mode = 'customer', voice = null, bossShown = false, drafts = { customer: '', boss: '' };
+    var mode = 'customer', voice = null, bossShown = false, bossTimer = null, drafts = { customer: '', boss: '' };
 
     function bubble(inner, extra) { return '<div class="dp-bubble">' + inner + (extra || '') + '<div class="dp-time">' + time() + '</div></div>'; }
 
@@ -244,7 +245,8 @@
         history.push(lastUser);
         lastAiRow = row('ai', bubble(VeraDemoChat.formatText(text), esca));
         // The first real reply (not a note, not an error, not empty) of this page load unlocks the boss-mode button.
-        if (bossEnabled && !bossShown && d.ok !== false && !d.error && String(d.assistant_response || '').trim()) showModeBtn();
+        // It appears BOSS_BTN_DELAY_MS after that reply, so the visitor reads Vera's answer first.
+        if (bossEnabled && !bossTimer && d.ok !== false && !d.error && String(d.assistant_response || '').trim()) bossTimer = setTimeout(showModeBtn, BOSS_BTN_DELAY_MS);
       };
       return view;
     }
