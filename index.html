@@ -350,10 +350,12 @@
 .vskills h2.vs-h2 .pearl {
   font-style: normal;
   background: var(--pearl);
+  background-size: 240% 240%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: #0284c7;
+  animation: pearlTitleGradientGlide 6s ease-in-out infinite;
 }
 
 /* Переключатели видимости Desktop / Mobile */
@@ -447,6 +449,17 @@
   border-radius: 50%;
   background: #22c55e;
   box-shadow: 0 0 0 4px #fff;
+  animation: vskillsPulse 2.4s ease-in-out infinite;
+}
+@keyframes vskillsPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 4px #fff, 0 0 0 3px rgba(34, 197, 94, 0.35);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 4px #fff, 0 0 12px 5px rgba(34, 197, 94, 0.65);
+  }
 }
 
 /* Десктоп: Акцентная цитата эксперта */
@@ -514,6 +527,15 @@
   position: relative;
   flex: none;
 }
+.vskills .vs-m-hero .ph2::before {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(2, 132, 199, 0.55);
+  animation: vskillsSpin 24s linear infinite;
+  pointer-events: none;
+}
 .vskills .vs-m-hero .ph2 img {
   width: 88px;
   height: 88px;
@@ -532,6 +554,7 @@
   border-radius: 50%;
   background: #22c55e;
   box-shadow: 0 0 0 3px #fff;
+  animation: vskillsPulse 2.4s ease-in-out infinite;
 }
 .vskills .vs-m-hero .hand {
   font-family: 'Caveat', cursive;
@@ -680,10 +703,12 @@
 .vskills .dark h2.vs-h2 .pearl {
   font-style: normal;
   background: linear-gradient(90deg, #4cc3ff, #8ab8ff);
+  background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: #4cc3ff;
+  animation: pearlTitleGradientGlide 5s ease-in-out infinite;
 }
 .vskills .dark .sub {
   color: #9fb1cb;
@@ -712,14 +737,33 @@
   display: flex;
   gap: 12px;
   width: max-content;
+  will-change: transform;
   animation: vskillsMq 32s linear infinite;
   margin-bottom: 12px;
 }
 .vskills .row.r {
   animation-direction: reverse;
 }
-.vskills .mq:hover .row {
-  animation-play-state: paused;
+@media (hover: hover) {
+  .vskills .mq:hover .row {
+    animation-play-state: paused;
+  }
+}
+@keyframes vskillsMq {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+@-webkit-keyframes vskillsMq {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(-50%, 0, 0);
+  }
 }
 .vskills .pill {
   display: flex;
@@ -1020,10 +1064,19 @@
   white-space: nowrap;
   box-shadow: 0 14px 32px rgba(14,165,233,.38);
   transition: transform .2s ease, box-shadow .2s ease;
+  animation: vskillsBtnGlow 4s ease-in-out infinite;
 }
 .vskills .vs-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 18px 36px rgba(14,165,233,.45);
+}
+@keyframes vskillsBtnGlow {
+  0%, 100% {
+    box-shadow: 0 12px 28px rgba(14, 165, 233, 0.35);
+  }
+  50% {
+    box-shadow: 0 16px 36px rgba(37, 99, 235, 0.55);
+  }
 }
 
 /* Адаптив */
@@ -1035,6 +1088,9 @@
   }
   .vskills .vs-mobile-only {
     display: block !important;
+  }
+  .vskills .row {
+    animation-duration: 22s;
   }
   .vskills .darkw {
     margin-top: 56px;
