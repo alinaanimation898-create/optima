@@ -1794,15 +1794,19 @@
                 </div>
               </div>
 
+              <input type="text" name="website" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
               <!-- КНОПКА ОТПРАВКИ -->
               <div class="pt-1">
                 <button 
                   type="submit" 
+                  id="trialSubmitBtn"
                   class="w-full sm:w-auto px-10 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider rounded-2xl shadow-xl transition-all flex items-center justify-center gap-2.5 cursor-pointer bg-white text-[#0284c7] hover:bg-sky-50 hover:shadow-2xl hover:scale-[1.02] active:scale-95"
                 >
                   <span>Request a demo</span>
                 </button>
               </div>
+
+              <div id="trialError" class="hidden p-3.5 rounded-2xl bg-red-500/20 border border-red-200/60 text-white text-xs sm:text-sm font-medium" role="alert"></div>
 
               <!-- ПЛАШКА УСПЕХА -->
               <div id="trialSuccess" class="hidden p-3.5 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 text-white text-xs sm:text-sm font-medium animate-fadeIn">
@@ -3890,8 +3894,9 @@
 
       </div>
     </footer>
+  <script src="assets/js/altai-ref.js?v=20261122"></script>
   <script defer src="assets/js/vera-demo-chat.js?v=20261115"></script>
-  <script defer src="assets/js/main.js?v=3.7"></script>
+  <script defer src="assets/js/main.js?v=3.8"></script>
   <!-- Обновление 21.09.2026: новые механики (после main.js) -->
   <script defer src="assets/js/altai-refresh.js?v=3.3"></script>
 
@@ -3900,17 +3905,41 @@
 
   <!-- Обработчик формы заявки на демо -->
   <script>
-    function handleTrialSubmit(event) {
+    async function handleTrialSubmit(event) {
       event.preventDefault();
       var form = event.target;
       var name = (form.name ? form.name.value : '').trim();
       var contact = (form.contact ? form.contact.value : '').trim();
+      var website = form.website ? form.website.value : '';
       var successEl = document.getElementById('trialSuccess');
-      if (successEl) {
-        successEl.classList.remove('hidden');
-      }
+      var errEl = document.getElementById('trialError');
+      var btn = document.getElementById('trialSubmitBtn');
       var message = 'Hello! I would like to request a demo of the AI sales agent built on my business.\nName: ' + (name || 'Client') + '\nContact: ' + contact;
       var tgUrl = 'https://t.me/altaioptima?text=' + encodeURIComponent(message);
+
+      if (errEl) errEl.classList.add('hidden');
+      var btnHtml = btn ? btn.innerHTML : '';
+      if (btn) { btn.disabled = true; btn.style.opacity = '0.7'; btn.innerHTML = '<span>Sending…</span>'; }
+
+      var res = await window.AltaiRef.sendLead({
+        kind: 'client_trial', name: name, contact: contact, channel: 'en', message: 'EN page demo request', website: website
+      });
+
+      if (btn) { btn.disabled = false; btn.style.opacity = ''; btn.innerHTML = btnHtml; }
+
+      if (!res.ok) {
+        if (errEl) {
+          errEl.textContent = 'We could not send your request. Please try again or ';
+          var a = document.createElement('a');
+          a.href = tgUrl; a.target = '_blank'; a.rel = 'noopener'; a.className = 'underline font-semibold';
+          a.textContent = 'message us on Telegram';
+          errEl.appendChild(a);
+          errEl.appendChild(document.createTextNode('.'));
+          errEl.classList.remove('hidden');
+        }
+        return;
+      }
+      if (successEl) successEl.classList.remove('hidden');
       setTimeout(function() {
         window.open(tgUrl, '_blank');
       }, 500);

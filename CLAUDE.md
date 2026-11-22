@@ -36,6 +36,11 @@ WHERE slug = 'company_context' AND tenant_id = 'foreignpay'
 - A new node is an `INSERT ... SELECT ... FROM tenants WHERE id = $1 AND kind = 'demo'`. Synced copies
   (`source_tenant_id`) are overwritten by the next sync: edit the source tenant (through David) instead.
 
+## Referral code and public forms (root issues #474, #477-#479)
+- `assets/js/altai-ref.js` (load it first on every roaming page: index, en, en/, partner, partner-offer, avito, demo): stores `?r=<code>` (alias `?ref=`, `^[A-Za-z0-9]{4,20}$`, lowercased, last link wins) in the cookie `altai_ref` (90 days, `Domain=.altaiweb.online`, so the partner portal reads it too). API: `AltaiRef.get()`, `apiBase()` (same prod/`?api=stage`/`?api=local` rule as `vera-demo-chat.js`), `portalUrl()` (partner portal for the same env), `postJson()`, `sendLead()`. Bump its `?v=` when it changes.
+- Forms post to core's public endpoints without credentials: trial forms (index `trialForm`, tariff constructor `cfgTrialForm` in `main.js`, `en.html`) -> `POST /api/v1/public/leads` (`kind: client_trial`); `partner.html` `#form-apply` -> `POST /api/v1/public/partner-signup`, then redirect to `<portal>/login?handoff=<token>`. Every form carries the hidden honeypot input `website`. On failure the trial forms show an error and keep the Telegram link; they never fake success.
+- The old `api/lead.js` / `api/lead.php` are gone (they were dead on GitHub Pages). **Do not push optima `main` before prod core has these two endpoints**, or the forms break on the live site.
+
 ## Rules
 - Never put an API key, admin key or tenant credentials in this repo.
 - Demo tenants only: anything that needs a live tenant, `promote`, `source_tenant_id` goes through David.
