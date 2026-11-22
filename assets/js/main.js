@@ -3471,33 +3471,41 @@
         }
       };
 
-      window.handleCfgTrialSubmit = function(e) {
+      window.handleCfgTrialSubmit = async function(e) {
         e.preventDefault();
         const form = document.getElementById('cfgTrialForm');
         const successBlock = document.getElementById('cfgTrialSuccess');
-        const name = document.getElementById('cfgTrialName')?.value || '';
-        const site = document.getElementById('cfgTrialSite')?.value || '';
+        const errEl = document.getElementById('cfgTrialError');
+        const btn = document.getElementById('cfgTrialSubmitBtn');
+        const name = (document.getElementById('cfgTrialName')?.value || '').trim();
+        const site = (document.getElementById('cfgTrialSite')?.value || '').trim();
         const channel = document.getElementById('cfgTrialChannel')?.value || 'Telegram';
-        const contact = document.getElementById('cfgTrialContact')?.value || '';
+        const contact = (document.getElementById('cfgTrialContact')?.value || '').trim();
+        const website = form && form.website ? form.website.value : '';
 
-        const payload = {
-          name: name,
-          site: site,
-          channel: channel,
-          contact: contact,
-          source: 'constructor_trial_form'
-        };
+        if (errEl) errEl.classList.add('hidden');
+        const btnHtml = btn ? btn.innerHTML : '';
+        if (btn) { btn.disabled = true; btn.style.opacity = '0.7'; btn.innerHTML = '<span>Отправляем…</span>'; }
 
-        if (window.handleTrialSubmitData) {
-          window.handleTrialSubmitData(payload);
-        } else {
-          try {
-            fetch('/api/leads', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(payload)
-            }).catch(() => {});
-          } catch (err) {}
+        const res = window.AltaiRef
+          ? await window.AltaiRef.sendLead({ kind: 'client_trial', name: name, contact: contact, channel: channel, site: site, message: 'Конструктор тарифов', website: website })
+          : { ok: false, data: {} };
+
+        if (btn) { btn.disabled = false; btn.style.opacity = ''; btn.innerHTML = btnHtml; }
+
+        if (!res.ok) {
+          if (errEl) {
+            const tgText = '🔥 Новая заявка на тест-драйв Веры:\nИмя - ' + name + '\nСайт - ' + site + '\nСвязь - ' + channel + ' ' + contact;
+            const tgUrl = 'https://t.me/altaioptima?text=' + encodeURIComponent(tgText);
+            const detail = (res.data && res.data.detail) ? String(res.data.detail) : 'Не удалось отправить заявку. Попробуйте ещё раз или напишите нам в Telegram.';
+            errEl.textContent = detail + ' ';
+            const a = document.createElement('a');
+            a.href = tgUrl; a.target = '_blank'; a.rel = 'noopener'; a.className = 'underline font-semibold';
+            a.textContent = 'Написать в Telegram';
+            errEl.appendChild(a);
+            errEl.classList.remove('hidden');
+          }
+          return;
         }
 
         if (form) form.classList.add('hidden');

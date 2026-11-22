@@ -3673,6 +3673,9 @@
                 />
               </div>
 
+              <input type="text" name="website" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
+              <div id="trialError" class="hidden p-3.5 rounded-2xl bg-red-500/20 border border-red-200/60 text-white text-xs sm:text-sm text-left" role="alert"></div>
+
               <!-- КНОПКА ОТПРАВКИ: ТЕСТ-ДРАЙВ ВЕРЫ -->
               <div class="pt-2 text-left">
                 <button 
@@ -4733,6 +4736,9 @@
             />
           </div>
 
+          <input type="text" name="website" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
+          <div id="cfgTrialError" class="hidden p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs sm:text-sm font-inter" role="alert"></div>
+
           <!-- 5. Большая кнопка Тест-драйв Веры -->
           <div class="pt-2">
             <button 
@@ -5395,8 +5401,9 @@
 
       </div>
     </footer>
+  <script src="assets/js/altai-ref.js?v=20261122"></script>
   <script defer src="assets/js/vera-demo-chat.js?v=20261115"></script>
-  <script defer src="assets/js/main.js?v=4.0"></script>
+  <script defer src="assets/js/main.js?v=4.1"></script>
   <!-- Обновление 21.09.2026: новые механики (после main.js) -->
   <script defer src="assets/js/altai-refresh.js?v=3.3"></script>
 
@@ -5446,6 +5453,7 @@
       var site = (form.site ? form.site.value : '').trim();
       var channel = (form.channel ? form.channel.value : 'Telegram').trim();
       var contact = (form.contact ? form.contact.value : '').trim();
+      var website = form.website ? form.website.value : '';
 
       if (!name || !site || !contact) {
         alert('Пожалуйста, заполните имя, сайт и контакт для связи.');
@@ -5456,6 +5464,31 @@
       var successEl = document.getElementById('trialSuccessScreen');
       var summaryEl = document.getElementById('trialLeadSummary');
       var tgLinkEl = document.getElementById('trialTgDirectLink');
+      var errEl = document.getElementById('trialError');
+      var btn = document.getElementById('trialSubmitBtn');
+
+      var message = '🔥 Новая заявка на тест-драйв Веры:\nИмя - ' + (name || 'Клиент') + '\nСайт - ' + site + '\nСвязь - ' + channel + ' ' + contact;
+      var tgUrl = 'https://t.me/altaioptima?text=' + encodeURIComponent(message);
+      if (tgLinkEl) tgLinkEl.href = tgUrl;
+
+      if (errEl) errEl.classList.add('hidden');
+      var btnHtml = btn ? btn.innerHTML : '';
+      if (btn) { btn.disabled = true; btn.style.opacity = '0.7'; btn.innerHTML = '<span>Отправляем…</span>'; }
+
+      var res = await window.AltaiRef.sendLead({
+        kind: 'client_trial', name: name, contact: contact, channel: channel, site: site, website: website
+      });
+
+      if (btn) { btn.disabled = false; btn.style.opacity = ''; btn.innerHTML = btnHtml; }
+
+      if (!res.ok) {
+        if (errEl) {
+          var detail = (res.data && res.data.detail) ? String(res.data.detail) : 'Не удалось отправить заявку. Попробуйте ещё раз или напишите нам в Telegram.';
+          errEl.innerHTML = escapeHtml(detail) + ' <a href="' + tgUrl + '" target="_blank" rel="noopener" class="underline font-semibold">Написать в Telegram</a>';
+          errEl.classList.remove('hidden');
+        }
+        return;
+      }
 
       if (summaryEl) {
         summaryEl.innerHTML = 
@@ -5463,34 +5496,8 @@
           '<div><strong>Сайт / ссылка:</strong> ' + escapeHtml(site) + '</div>' +
           '<div><strong>Связь:</strong> ' + escapeHtml(channel) + ' (' + escapeHtml(contact) + ')</div>';
       }
-
-      var message = '🔥 Новая заявка на тест-драйв Веры:\nИмя - ' + (name || 'Клиент') + '\nСайт - ' + site + '\nСвязь - ' + channel + ' ' + contact;
-      if (tgLinkEl) {
-        tgLinkEl.href = 'https://t.me/altaioptima?text=' + encodeURIComponent(message);
-      }
-
       if (formEl) formEl.classList.add('hidden');
       if (successEl) successEl.classList.remove('hidden');
-
-      // Отправка на серверный обработчик Telegram-бота
-      var payload = { name: name, site: site, channel: channel, contact: contact };
-      try {
-        var response = await fetch('/api/lead', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-        if (!response.ok && response.status === 404) {
-          // Если сервер на PHP
-          await fetch('/api/lead.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          }).catch(function() {});
-        }
-      } catch (err) {
-        console.warn('API lead delivery attempt logged:', err);
-      }
     }
 
     function resetTrialForm() {

@@ -80,6 +80,7 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/altai-ref.js?v=20261122"></script>
   <script src="assets/js/vera-demo-chat.js?v=20261115"></script>
   <script>
     if (window.tailwind) tailwind.config = {
@@ -2575,7 +2576,7 @@ document.querySelectorAll('#tfBox .tf-tab').forEach(function(b){b.addEventListen
             </div>
 
             <!-- Form: Become Partner -->
-            <form id="form-apply" class="space-y-4" data-subject="Заявка: Устроить Веру на работу" data-success="Заявка принята! Мы скоро свяжемся с вами.">
+            <form id="form-apply" class="space-y-4" novalidate>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label class="block text-xs font-bold text-slate-700 mb-1.5">Ваше имя&nbsp;*</label>
@@ -2603,12 +2604,35 @@ document.querySelectorAll('#tfBox .tf-tab').forEach(function(b){b.addEventListen
                 </div>
               </div>
 
-              <div class="pt-2">
-                <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-700 hover:to-indigo-700 text-white font-extrabold text-sm uppercase tracking-wider shadow-lg shadow-sky-500/25 transition-all transform hover:-translate-y-0.5">
-                  УСТРОИТЬ ВЕРУ НА РАБОТУ
-                </button>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1.5" for="p-email">Эл. почта (логин в кабинет)&nbsp;*</label>
+                  <input type="email" id="p-email" name="email" required autocomplete="email" maxlength="254" placeholder="name@company.ru" class="w-full px-4 py-3.5 rounded-xl border border-slate-300/80 bg-white/95 focus:bg-white focus:border-sky-500 focus:outline-none text-sm transition-colors shadow-2xs">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1.5" for="p-password">Пароль (от 8 символов)&nbsp;*</label>
+                  <div class="relative">
+                    <input type="password" id="p-password" name="password" required minlength="8" maxlength="128" autocomplete="new-password" placeholder="Придумайте пароль" class="w-full pl-4 pr-20 py-3.5 rounded-xl border border-slate-300/80 bg-white/95 focus:bg-white focus:border-sky-500 focus:outline-none text-sm transition-colors shadow-2xs">
+                    <button type="button" id="p-password-toggle" class="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-semibold text-sky-700 hover:text-sky-900" aria-label="Показать пароль">Показать</button>
+                  </div>
+                </div>
               </div>
-              <div class="form-status hidden text-center p-3 rounded-xl bg-emerald-50 border border-emerald-200"></div>
+
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1.5" for="p-ref">Код пригласившего партнёра</label>
+                <input type="text" id="p-ref" name="ref" maxlength="20" autocomplete="off" placeholder="Если вас пригласили - код появится сам" class="w-full px-4 py-3.5 rounded-xl border border-slate-300/80 bg-white/95 focus:bg-white focus:border-sky-500 focus:outline-none text-sm transition-colors shadow-2xs">
+              </div>
+
+              <input type="text" name="website" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+
+              <div class="pt-2">
+                <button type="submit" id="p-submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-700 hover:to-indigo-700 text-white font-extrabold text-sm uppercase tracking-wider shadow-lg shadow-sky-500/25 transition-all transform hover:-translate-y-0.5">
+                  СОЗДАТЬ КАБИНЕТ ПАРТНЁРА
+                </button>
+                <p class="mt-3 text-[11px] text-slate-500 text-center leading-relaxed">Нажимая кнопку, вы принимаете <a href="partner-offer.html" target="_blank" rel="noopener" class="underline hover:text-sky-700">условия партнёрской программы</a>.</p>
+              </div>
+              <div id="p-form-error" class="hidden text-center text-sm p-3 rounded-xl bg-red-50 border border-red-200 text-red-700" role="alert"></div>
             </form>
           </div>
 
@@ -3304,54 +3328,79 @@ document.querySelectorAll('#tfBox .tf-tab').forEach(function(b){b.addEventListen
 
     /* ---------- ОТПРАВКА ФОРМЫ ---------- */
     function initFormHandlers() {
-      function formToText(form) {
-        const lines = [];
-        const elements = form.querySelectorAll('[name]');
-        elements.forEach(el => {
-          const label = el.dataset.label || el.name;
-          if (el.type === 'checkbox') {
-            lines.push(`${label}: ${el.checked ? 'Да' : 'Нет'}`);
-          } else {
-            const v = String(el.tagName === 'SELECT' ? ((el.options[el.selectedIndex] || {}).text || el.value) : (el.value || '')).trim();
-            if (v) lines.push(`${label}: ${v}`);
-          }
+      const formApply = document.getElementById('form-apply');
+      if (!formApply) return;
+      const errBox = document.getElementById('p-form-error');
+      const submitBtn = document.getElementById('p-submit');
+      const pwd = document.getElementById('p-password');
+      const pwdToggle = document.getElementById('p-password-toggle');
+      const refInput = document.getElementById('p-ref');
+      const submitLabel = submitBtn ? submitBtn.textContent.trim() : '';
+
+      if (refInput && window.AltaiRef && !refInput.value) refInput.value = window.AltaiRef.get();
+      if (pwdToggle && pwd) {
+        pwdToggle.addEventListener('click', function () {
+          const show = pwd.type === 'password';
+          pwd.type = show ? 'text' : 'password';
+          pwdToggle.textContent = show ? 'Скрыть' : 'Показать';
+          pwdToggle.setAttribute('aria-label', show ? 'Скрыть пароль' : 'Показать пароль');
         });
-        return lines.join('\n');
       }
 
-      function handleFormSubmit(e) {
+      function showError(text, withLogin) {
+        if (!errBox) return;
+        errBox.textContent = text + ' ';
+        if (withLogin) {
+          const a = document.createElement('a');
+          a.href = window.AltaiRef.portalUrl() + '/login';
+          a.className = 'underline font-semibold';
+          a.textContent = 'Войти';
+          errBox.appendChild(a);
+        }
+        errBox.classList.remove('hidden');
+      }
+
+      formApply.addEventListener('submit', async function (e) {
         e.preventDefault();
-        const form = e.currentTarget;
-        if (!form.checkValidity()) {
-          form.reportValidity();
+        if (errBox) errBox.classList.add('hidden');
+        if (!formApply.checkValidity()) {
+          formApply.reportValidity();
           return;
         }
+        const f = formApply.elements;
+        const roleEl = f['status'];
+        const role = roleEl && roleEl.options[roleEl.selectedIndex] ? roleEl.options[roleEl.selectedIndex].text : '';
+        const contact = [f['phone'].value.trim(), f['telegram'].value.trim(), role]
+          .filter(Boolean).join(' | ').slice(0, 256);
+        const refVal = (f['ref'].value || '').trim().toLowerCase();
 
-        const text = formToText(form);
-        const subject = form.dataset.subject || 'Заявка Altai Optima';
-        const successMsg = form.dataset.success || 'Заявка принята! Мы скоро свяжемся с вами.';
-        const statusBox = form.querySelector('.form-status');
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.7';
+        submitBtn.textContent = 'Создаём кабинет…';
 
-        if (statusBox) {
-          statusBox.innerHTML = `
-            <div class="space-y-2">
-              <p class="font-bold text-emerald-700">✓ ${successMsg}</p>
-              <p class="text-slate-600 text-[11px]">Мы открываем почтовую программу. Если она не открылась, отправьте текст в Telegram:</p>
-              <textarea readonly class="w-full text-xs p-2 rounded border border-slate-300 bg-white font-mono" rows="4">${text}</textarea>
-              <div class="flex flex-wrap gap-2 pt-1 justify-center">
-                <a href="https://t.me/altaioptima?text=${encodeURIComponent(text)}" target="_blank" class="px-3 py-1.5 rounded-lg bg-[#229ED9] text-white font-bold text-xs">Написать в Telegram</a>
-              </div>
-            </div>
-          `;
-          statusBox.classList.remove('hidden');
+        const res = await window.AltaiRef.postJson('/api/v1/public/partner-signup', {
+          name: f['name'].value.trim(),
+          email: f['email'].value.trim(),
+          password: f['password'].value,
+          contact: contact,
+          ref: refVal,
+          website: f['website'].value
+        });
+
+        if (res.ok && res.data && res.data.handoff) {
+          window.location.href = window.AltaiRef.portalUrl() + '/login?handoff=' + encodeURIComponent(res.data.handoff);
+          return;
         }
-
-        const mailto = `mailto:${CONFIG.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
-        window.location.href = mailto;
-      }
-
-      const formApply = document.getElementById('form-apply');
-      if (formApply) formApply.addEventListener('submit', handleFormSubmit);
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '';
+        submitBtn.textContent = submitLabel;
+        const detail = res.data && res.data.detail ? String(res.data.detail) : '';
+        if (res.status === 409) {
+          showError(detail || 'Такая почта уже зарегистрирована.', true);
+        } else {
+          showError(detail || 'Не удалось создать кабинет. Проверьте соединение и попробуйте ещё раз.', false);
+        }
+      });
     }
 
     
