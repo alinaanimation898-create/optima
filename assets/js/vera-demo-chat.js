@@ -19,6 +19,14 @@
 (function (global) {
   'use strict';
 
+function altaiRefCode() {
+  try {
+    var c = window.AltaiRef && window.AltaiRef.get && window.AltaiRef.get();
+    if (!c) { var m = /(?:^|;\s*)altai_ref=([^;]+)/.exec(document.cookie || ''); c = m && decodeURIComponent(m[1]); }
+    return c ? String(c).toLowerCase() : '';
+  } catch (e) { return ''; }
+}
+
   var API = {
     prod: 'https://api.optima.altaiweb.online',
     stage: 'https://stage-api.optima.altaiweb.online',
@@ -120,6 +128,8 @@
         tenant_id: this.tenantId,
         session_id: this.sessionId || undefined
       });
+      var refCode = altaiRefCode();
+      if (refCode) payload.ref = refCode;
       var res = await fetch(this.baseUrl + this.endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -267,6 +277,8 @@
       fd.append('audio', blob, 'voice.' + ext);
       fd.append('tenant_id', this.tenantId);
       if (this.sessionId) fd.append('session_id', this.sessionId);
+      var refCode = altaiRefCode();
+      if (refCode) fd.append('ref', refCode);
       if (secs) fd.append('duration_secs', String(Math.floor(secs)));
       var res = await fetch(this.baseUrl + '/api/v1/demo/voice', { method: 'POST', body: fd });
       if (!res.ok) {
