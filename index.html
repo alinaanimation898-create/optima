@@ -327,7 +327,7 @@
   --btn: linear-gradient(90deg, #0ea5e9 0%, #0284c7 50%, #2563eb 100%);
   font-family: 'Inter', sans-serif;
   color: #0f1d33;
-  padding: 40px 24px 80px;
+  padding: 40px 24px 60px;
   box-sizing: border-box;
   position: relative;
   isolation: isolate;
@@ -1048,6 +1048,7 @@
 /* CTA */
 .vskills .vs-cta {
   margin-top: 64px;
+  margin-bottom: 12px;
   display: flex;
   justify-content: center;
 }
@@ -1101,7 +1102,7 @@
 }
 @media (max-width: 640px) {
   .vskills {
-    padding: 30px 16px 50px;
+    padding: 30px 16px 40px;
   }
   .vskills .dark {
     padding: 36px 14px;
@@ -1112,6 +1113,7 @@
   }
   .vskills .vs-cta {
     margin-top: 36px;
+    margin-bottom: 8px;
   }
   .vskills .vs-btn {
     display: block;
@@ -2527,13 +2529,38 @@
       })();
     </script>
 
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ТЕСТ-ДРАЙВА К СРАВНЕНИЮ «БОТ VS ВЕРА» (АНИМИРОВАННАЯ СТРЕЛКА) -->
+    <div class="flex flex-col items-center justify-center my-6 sm:my-8 lg:my-10 relative z-20">
+      <div class="flowing-connector-container w-full max-w-md mx-auto px-4 select-none">
+        <a href="#bot-vs-vera" class="flowing-connector-link group block" title="Бот - автоответчик. Вера - продавец">
+          <svg class="w-full h-auto min-h-[70px] sm:min-h-[90px] max-h-[110px] overflow-visible" viewBox="0 0 400 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="gradFlowSkillsToBvv" x1="200" y1="6" x2="200" y2="94" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#0284C7" stop-opacity="0.85"/>
+                <stop offset="50%" stop-color="#0284C7" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#10B981" stop-opacity="0.95"/>
+              </linearGradient>
+              <filter id="glowFlowSkillsToBvv" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="2" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+            </defs>
+            <path d="M 200,6 L 200,92" stroke="url(#gradFlowSkillsToBvv)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+            <path d="M 200,6 L 200,92" class="delicate-connector-beam" stroke="url(#gradFlowSkillsToBvv)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowSkillsToBvv)"/>
+            <circle cx="200" cy="6" r="2.2" fill="#0284C7" opacity="0.9"/>
+            <path d="M 194.5,85 L 200,92 L 205.5,85" class="delicate-connector-arrow" stroke="#10B981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
     <!-- 4.0. БОТ - ЭТО АВТООТВЕТЧИК. ВЕРА - ПРОДАВЕЦ: один вопрос, два диалога -->
     <section id="bot-vs-vera" class="relative z-20 py-8 sm:py-12 lg:py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 font-inter scroll-mt-28">
       <div class="bvv-wrap">
         <div class="text-center max-w-4xl mx-auto mb-8 sm:mb-10">
           <h2 class="font-benzin uppercase tracking-tight font-black leading-[1.08] text-center overflow-visible" style="font-family: 'Benzin', sans-serif !important; font-size: clamp(24px, 4.5vw, 48px);">
             <span class="block text-slate-400">БОТ - ЭТО АВТООТВЕТЧИК</span>
-            <span class="block pearl-title-gradient">ВЕРА - ПРОДАВЕЦ</span>
+            <span class="block bg-gradient-to-r from-emerald-600 via-sky-500 to-indigo-600 bg-clip-text text-transparent" style="background-image: linear-gradient(90deg, #059669 0%, #0ea5e9 50%, #4f46e5 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: pearlTitleGradientGlide 6s ease-in-out infinite;">ВЕРА - ПРОДАВЕЦ</span>
           </h2>
           <p class="text-center text-slate-600 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed mt-4 mb-2">
             Один и тот же вопрос клиента онлайн-школы. Реальный диалог
