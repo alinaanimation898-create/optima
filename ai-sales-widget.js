@@ -7,6 +7,14 @@
 (function () {
   'use strict';
 
+function altaiRefCode() {
+  try {
+    var c = window.AltaiRef && window.AltaiRef.get && window.AltaiRef.get();
+    if (!c) { var m = /(?:^|;\s*)altai_ref=([^;]+)/.exec(document.cookie || ''); c = m && decodeURIComponent(m[1]); }
+    return c ? String(c).toLowerCase() : '';
+  } catch (e) { return ''; }
+}
+
   const currentLang = document.documentElement.lang || (window.location.pathname.includes('/tr') ? 'tr' : (window.location.pathname.includes('/en') ? 'en' : 'ru'));
 
   // Smart time-of-day contextual generator (Morning Coffee, Peak Day, Evening Shift, Night Owl, Weekend)
@@ -866,7 +874,7 @@
         const res = await fetch(`${CONFIG.apiBaseUrl}/api/v1/demo/chat`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message: text, session_id: sessionId, tenant_id: CONFIG.tenantId })
+          body: JSON.stringify(Object.assign({ message: text, session_id: sessionId, tenant_id: CONFIG.tenantId }, altaiRefCode() ? { ref: altaiRefCode() } : {}))
         });
         removeTypingIndicator();
         if (res.status === 429) throw new Error(T.errWait);

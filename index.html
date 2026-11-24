@@ -3700,6 +3700,23 @@
                 />
               </div>
 
+              <div class="text-left">
+                <label for="trialRef" class="block text-[11px] font-mono font-semibold uppercase tracking-wider text-sky-100 mb-1.5 pl-1">
+                  Код партнёра <span class="normal-case font-normal text-sky-200/80">(если вам его дали)</span>
+                </label>
+                <input
+                  type="text"
+                  id="trialRef"
+                  name="ref"
+                  maxlength="20"
+                  autocomplete="off"
+                  autocapitalize="off"
+                  spellcheck="false"
+                  placeholder="например, ivanov"
+                  class="trial-input w-full sm:w-1/2 px-4 py-2.5 rounded-2xl bg-white/95 border border-white/30 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-sky-300 shadow-sm"
+                />
+              </div>
+
               <input type="text" name="website" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
               <div id="trialError" class="hidden p-3.5 rounded-2xl bg-red-500/20 border border-red-200/60 text-white text-xs sm:text-sm text-left" role="alert"></div>
 
@@ -5428,14 +5445,14 @@
 
       </div>
     </footer>
-  <script src="assets/js/altai-ref.js?v=20261122"></script>
-  <script defer src="assets/js/vera-demo-chat.js?v=20261115"></script>
+  <script src="assets/js/altai-ref.js?v=20261124"></script>
+  <script defer src="assets/js/vera-demo-chat.js?v=20261123"></script>
   <script defer src="assets/js/main.js?v=4.1"></script>
   <!-- Обновление 21.09.2026: новые механики (после main.js) -->
   <script defer src="assets/js/altai-refresh.js?v=3.3"></script>
 
   <!-- Интерактивный виджет живого общения с&nbsp;ИИ‑продавцом по установке софта -->
-  <script src="ai-sales-widget.js?v=2.5"></script>
+  <script src="ai-sales-widget.js?v=2.6"></script>
 
   <!-- Обработчик формы заявки на тест-драйв Веры -->
   <script>
@@ -5481,6 +5498,7 @@
       var channel = (form.channel ? form.channel.value : 'Telegram').trim();
       var contact = (form.contact ? form.contact.value : '').trim();
       var website = form.website ? form.website.value : '';
+      var ref = (form.ref ? form.ref.value : '').trim();
 
       if (!name || !site || !contact) {
         alert('Пожалуйста, заполните имя, сайт и контакт для связи.');
@@ -5503,7 +5521,7 @@
       if (btn) { btn.disabled = true; btn.style.opacity = '0.7'; btn.innerHTML = '<span>Отправляем…</span>'; }
 
       var res = await window.AltaiRef.sendLead({
-        kind: 'client_trial', name: name, contact: contact, channel: channel, site: site, website: website
+        kind: 'client_trial', name: name, contact: contact, channel: channel, site: site, website: website, ref: ref
       });
 
       if (btn) { btn.disabled = false; btn.style.opacity = ''; btn.innerHTML = btnHtml; }
@@ -5538,7 +5556,15 @@
         successEl.classList.add('hidden');
       }
       selectTrialChannel('Telegram');
+      fillTrialRef();
     }
+
+    // Pre-fills the partner code from the ?r= cookie; the visitor can type or fix it (Safari and messenger browsers lose the cookie).
+    function fillTrialRef() {
+      var el = document.getElementById('trialRef');
+      if (el && !el.value && window.AltaiRef) el.value = window.AltaiRef.get();
+    }
+    document.addEventListener('DOMContentLoaded', fillTrialRef);
 
     function escapeHtml(str) {
       if (!str) return '';

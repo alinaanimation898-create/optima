@@ -80,8 +80,8 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="assets/js/altai-ref.js?v=20261122"></script>
-  <script src="assets/js/vera-demo-chat.js?v=20261115"></script>
+  <script src="assets/js/altai-ref.js?v=20261124"></script>
+  <script src="assets/js/vera-demo-chat.js?v=20261123"></script>
   <script>
     if (window.tailwind) tailwind.config = {
       theme: {
@@ -3373,6 +3373,8 @@ document.querySelectorAll('#tfBox .tf-tab').forEach(function(b){b.addEventListen
         const contact = [f['phone'].value.trim(), f['telegram'].value.trim(), role]
           .filter(Boolean).join(' | ').slice(0, 256);
         const refVal = (f['ref'].value || '').trim().toLowerCase();
+        // A code the visitor typed or edited must exist (core answers 400); a cookie code that went stale is ignored.
+        const refTyped = refVal !== '' && refVal !== (window.AltaiRef ? window.AltaiRef.get() : '');
 
         submitBtn.disabled = true;
         submitBtn.style.opacity = '0.7';
@@ -3384,6 +3386,7 @@ document.querySelectorAll('#tfBox .tf-tab').forEach(function(b){b.addEventListen
           password: f['password'].value,
           contact: contact,
           ref: refVal,
+          ref_typed: refTyped,
           website: f['website'].value
         });
 
