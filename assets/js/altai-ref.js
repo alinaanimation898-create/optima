@@ -6,7 +6,8 @@
  * - window.AltaiRef.apiBase()  -> API base (prod default; ?api=stage / ?api=local), same rule as vera-demo-chat.js
  * - window.AltaiRef.portalUrl()-> partner portal base (prod / stage / local)
  * - window.AltaiRef.postJson(path, body) -> {ok, status, data}; never throws, no credentials
- * - window.AltaiRef.sendLead(fields) -> POST /api/v1/public/leads with ref, page and the honeypot filled in
+ * - window.AltaiRef.sendLead(fields) -> POST /api/v1/public/leads with ref, page and the honeypot filled in.
+ *   `fields.ref` (a code the visitor typed) wins over the cookie; a valid typed code is also stored as the cookie.
  */
 (function (global) {
   'use strict';
@@ -70,6 +71,13 @@
     });
   }
 
+  function typedRef(v) {
+    var t = String(v || '').trim().toLowerCase();
+    if (!t) return get();
+    if (CODE_RE.test(t)) store(t);
+    return t;
+  }
+
   function sendLead(f) {
     return postJson('/api/v1/public/leads', {
       kind: f.kind || 'client_trial',
@@ -79,7 +87,7 @@
       site: f.site || '',
       message: f.message || '',
       page: String(global.location.href).slice(0, 500),
-      ref: get(),
+      ref: typedRef(f.ref),
       website: f.website || ''
     });
   }
