@@ -327,13 +327,15 @@
   --btn: linear-gradient(90deg, #0ea5e9 0%, #0284c7 50%, #2563eb 100%);
   font-family: 'Inter', sans-serif;
   color: #0f1d33;
-  padding: 40px 24px 60px;
+  padding: 40px 0 60px;
   box-sizing: border-box;
   position: relative;
   isolation: isolate;
+  width: 100%;
+  overflow-x: clip;
 }
 .vskills * { box-sizing: border-box; }
-.vs-wrap { max-width: 1200px; margin: 0 auto; }
+.vs-wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
 /* Заголовки */
 .vskills h2.vs-h2 {
@@ -665,21 +667,26 @@
   background: #0f1d33;
 }
 
-/* ===== 2. ИНТЕГРАЦИИ: Карточка со стеклянным фоном и бегущими строками ===== */
+/* ===== 2. ИНТЕГРАЦИИ: Подложка со стеклянным фоном и бегущими строками (на всю ширину экрана) ===== */
 .vskills .darkw {
-  max-width: 1240px;
-  margin: 90px auto 0;
+  width: 100%;
+  max-width: 100%;
+  margin: 90px 0 0;
   padding: 0;
 }
 .vskills .dark {
   background: radial-gradient(120% 140% at 80% 0%, #1b3a66 0%, #0f1d33 55%);
   color: #fff;
-  border: 1px solid rgba(255,255,255,.14);
+  border-top: 1px solid rgba(255,255,255,.14);
+  border-bottom: 1px solid rgba(255,255,255,.14);
+  border-left: 0;
+  border-right: 0;
   box-shadow: 0 1px 0 rgba(255,255,255,.1) inset, 0 24px 60px rgba(15,29,51,.25);
-  border-radius: 36px;
+  border-radius: 0;
   padding: 64px 0;
   overflow: hidden;
   position: relative;
+  width: 100%;
 }
 .vskills .dark .top {
   display: flex;
@@ -1102,11 +1109,14 @@
 }
 @media (max-width: 640px) {
   .vskills {
-    padding: 30px 16px 40px;
+    padding: 30px 0 40px;
+  }
+  .vs-wrap {
+    padding: 0 16px;
   }
   .vskills .dark {
-    padding: 36px 14px;
-    border-radius: 24px;
+    padding: 36px 0;
+    border-radius: 0;
   }
   .vskills .darkw {
     margin-top: 48px;
@@ -1443,8 +1453,8 @@
           </div>
         </div>
 
-        <!-- Главная акцентная кнопка действия (Тест-драйв Веры) -->
-        <div class="pt-1 flex flex-col sm:flex-row items-stretch sm:items-start gap-3">
+        <!-- Главные акцентные кнопки действия -->
+        <div class="pt-1 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
           <div class="relative group inline-flex w-full sm:w-auto">
             <!-- Пульсирующий внешний ореол -->
             <div class="absolute -inset-1 sm:-inset-1.5 rounded-2xl bg-gradient-to-r from-sky-400 via-cyan-300 to-blue-600 blur-md opacity-75 group-hover:opacity-100 animate-pulse pointer-events-none transition duration-500"></div>
@@ -1455,6 +1465,17 @@
               <span class="relative z-10 inline-flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white text-sky-700 shadow-md text-xs sm:text-sm font-sans font-bold group-hover:translate-x-1.5 transition-transform">→</span>
             </a>
           </div>
+
+          <!-- Вторая кнопка: ПОГОВОРИТЕ С ВЕРОЙ ЗДЕСЬ И СЕЙЧАС -->
+          <button 
+            type="button" 
+            onclick="if(window.openAiSalesWidget){window.openAiSalesWidget();}else{const b=document.getElementById('altaiWidgetBtn');if(b)b.click();}"
+            class="relative w-full sm:w-auto py-4 sm:py-4.5 px-6 sm:px-8 text-xs sm:text-sm md:text-base font-black tracking-wider uppercase rounded-2xl flex items-center justify-center gap-2.5 transition-all duration-300 hover:scale-[1.04] active:scale-95 text-white bg-slate-950/80 hover:bg-slate-900 border border-white/30 hover:border-sky-400 backdrop-blur-xl shadow-xl cursor-pointer group"
+            style="font-family: 'Benzin', sans-serif !important;"
+          >
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0 shadow-[0_0_10px_#34d399]"></span>
+            <span class="relative z-10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)] text-center leading-tight">ПОГОВОРИТЕ С&nbsp;ВЕРОЙ ЗДЕСЬ И&nbsp;СЕЙЧАС</span>
+          </button>
         </div>
       </div>
 
@@ -2295,77 +2316,79 @@
             <i></i>
           </div>
         </div>
+      </div>
 
-        <!-- 2. Интеграции: каналы и учетные системы (десктоп + мобильный) -->
-        <div class="darkw">
-          <div class="dark">
-            <div class="top">
-              <h2 class="vs-h2">РАБОТАЕТ ТАМ, ГДЕ <span class="pearl">ВАШИ КЛИЕНТЫ</span></h2>
-              <p class="sub">Мессенджеры, соцсети, сайт и ваши системы учёта</p>
-            </div>
-
-            <div class="lbl vs-desktop-only">СОЦИАЛЬНЫЕ СЕТИ И МЕССЕНДЖЕРЫ</div>
-            <div class="mq">
-              <div class="row">
-                <div class="pill"><s style="background:#2aa3e0"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4zM22 2 11 13"/></svg></s><div>Telegram<small>Business</small></div></div>
-                <div class="pill"><s style="background:#25c05a"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></s><div>WhatsApp</div></div>
-                <div class="pill"><s style="background:#7b4be8"><b style="font-size:11px;font-weight:900;color:#fff">M</b></s><div>MAX</div></div>
-                <div class="pill"><s style="background:#3b6fe0"><b style="font-size:11px;font-weight:900;color:#fff">VK</b></s><div>VK</div></div>
-                <div class="pill"><s style="background:#e1306c"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></s><div>Instagram<small>Direct и комментарии</small></div></div>
-                <div class="pill"><s style="background:#58c08a"><b style="font-size:11px;font-weight:900;color:#fff">A</b></s><div>Авито</div></div>
-                <div class="pill"><s style="background:#3d6fe0"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18"/></svg></s><div>Виджет<small>на сайте</small></div></div>
-
-                <div class="pill"><s style="background:#2aa3e0"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4zM22 2 11 13"/></svg></s><div>Telegram<small>Business</small></div></div>
-                <div class="pill"><s style="background:#25c05a"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></s><div>WhatsApp</div></div>
-                <div class="pill"><s style="background:#7b4be8"><b style="font-size:11px;font-weight:900;color:#fff">M</b></s><div>MAX</div></div>
-                <div class="pill"><s style="background:#3b6fe0"><b style="font-size:11px;font-weight:900;color:#fff">VK</b></s><div>VK</div></div>
-                <div class="pill"><s style="background:#e1306c"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></s><div>Instagram<small>Direct и комментарии</small></div></div>
-                <div class="pill"><s style="background:#58c08a"><b style="font-size:11px;font-weight:900;color:#fff">A</b></s><div>Авито</div></div>
-                <div class="pill"><s style="background:#3d6fe0"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18"/></svg></s><div>Виджет<small>на сайте</small></div></div>
-
-                <div class="pill"><s style="background:#2aa3e0"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4zM22 2 11 13"/></svg></s><div>Telegram<small>Business</small></div></div>
-                <div class="pill"><s style="background:#25c05a"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></s><div>WhatsApp</div></div>
-                <div class="pill"><s style="background:#7b4be8"><b style="font-size:11px;font-weight:900;color:#fff">M</b></s><div>MAX</div></div>
-                <div class="pill"><s style="background:#3b6fe0"><b style="font-size:11px;font-weight:900;color:#fff">VK</b></s><div>VK</div></div>
-                <div class="pill"><s style="background:#e1306c"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></s><div>Instagram<small>Direct и комментарии</small></div></div>
-                <div class="pill"><s style="background:#58c08a"><b style="font-size:11px;font-weight:900;color:#fff">A</b></s><div>Авито</div></div>
-                <div class="pill"><s style="background:#3d6fe0"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18"/></svg></s><div>Виджет<small>на сайте</small></div></div>
-              </div>
-            </div>
-
-            <div class="lbl vs-desktop-only">СИСТЕМЫ УЧЁТА КЛИЕНТОВ</div>
-            <div class="mq">
-              <div class="row r">
-                <div class="pill"><s style="background:#2f7be8"><b style="font-size:11px;font-weight:900;color:#fff">amo</b></s><div>amoCRM</div></div>
-                <div class="pill"><s style="background:#29b5e8"><b style="font-size:11px;font-weight:900;color:#fff">Б24</b></s><div>Битрикс24</div></div>
-                <div class="pill"><s style="background:#f5c020"><b style="font-size:11px;font-weight:900;color:#fff">1С</b></s><div>1С</div></div>
-                <div class="pill"><s style="background:#2fb36b"><b style="font-size:11px;font-weight:900;color:#fff">МС</b></s><div>МойСклад</div></div>
-                <div class="pill"><s style="background:#1ea152"><b style="font-size:11px;font-weight:900;color:#fff">CD</b></s><div>СДЭК</div></div>
-                <div class="pill"><s style="background:#f26b3a"><b style="font-size:11px;font-weight:900;color:#fff">T</b></s><div>Tilda</div></div>
-                <div class="pill"><s style="background:#5a6886"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></s><div>API<small>любая система</small></div></div>
-
-                <div class="pill"><s style="background:#2f7be8"><b style="font-size:11px;font-weight:900;color:#fff">amo</b></s><div>amoCRM</div></div>
-                <div class="pill"><s style="background:#29b5e8"><b style="font-size:11px;font-weight:900;color:#fff">Б24</b></s><div>Битрикс24</div></div>
-                <div class="pill"><s style="background:#f5c020"><b style="font-size:11px;font-weight:900;color:#fff">1С</b></s><div>1С</div></div>
-                <div class="pill"><s style="background:#2fb36b"><b style="font-size:11px;font-weight:900;color:#fff">МС</b></s><div>МойСклад</div></div>
-                <div class="pill"><s style="background:#1ea152"><b style="font-size:11px;font-weight:900;color:#fff">CD</b></s><div>СДЭК</div></div>
-                <div class="pill"><s style="background:#f26b3a"><b style="font-size:11px;font-weight:900;color:#fff">T</b></s><div>Tilda</div></div>
-                <div class="pill"><s style="background:#5a6886"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></s><div>API<small>любая система</small></div></div>
-
-                <div class="pill"><s style="background:#2f7be8"><b style="font-size:11px;font-weight:900;color:#fff">amo</b></s><div>amoCRM</div></div>
-                <div class="pill"><s style="background:#29b5e8"><b style="font-size:11px;font-weight:900;color:#fff">Б24</b></s><div>Битрикс24</div></div>
-                <div class="pill"><s style="background:#f5c020"><b style="font-size:11px;font-weight:900;color:#fff">1С</b></s><div>1С</div></div>
-                <div class="pill"><s style="background:#2fb36b"><b style="font-size:11px;font-weight:900;color:#fff">МС</b></s><div>МойСклад</div></div>
-                <div class="pill"><s style="background:#1ea152"><b style="font-size:11px;font-weight:900;color:#fff">CD</b></s><div>СДЭК</div></div>
-                <div class="pill"><s style="background:#f26b3a"><b style="font-size:11px;font-weight:900;color:#fff">T</b></s><div>Tilda</div></div>
-                <div class="pill"><s style="background:#5a6886"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></s><div>API<small>любая система</small></div></div>
-              </div>
-            </div>
-
-            <div class="api">Нет вашей системы? <b>Подключим через API</b></div>
+      <!-- 2. Интеграции: каналы и учетные системы (растянуто по ширине всего экрана) -->
+      <div class="darkw">
+        <div class="dark">
+          <div class="top">
+            <h2 class="vs-h2">РАБОТАЕТ ТАМ, ГДЕ <span class="pearl">ВАШИ КЛИЕНТЫ</span></h2>
+            <p class="sub">Мессенджеры, соцсети, сайт и ваши системы учёта</p>
           </div>
-        </div>
 
+          <div class="lbl vs-desktop-only">СОЦИАЛЬНЫЕ СЕТИ И МЕССЕНДЖЕРЫ</div>
+          <div class="mq">
+            <div class="row">
+              <div class="pill"><s style="background:#2aa3e0"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4zM22 2 11 13"/></svg></s><div>Telegram<small>Business</small></div></div>
+              <div class="pill"><s style="background:#25c05a"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></s><div>WhatsApp</div></div>
+              <div class="pill"><s style="background:#7b4be8"><b style="font-size:11px;font-weight:900;color:#fff">M</b></s><div>MAX</div></div>
+              <div class="pill"><s style="background:#3b6fe0"><b style="font-size:11px;font-weight:900;color:#fff">VK</b></s><div>VK</div></div>
+              <div class="pill"><s style="background:#e1306c"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></s><div>Instagram<small>Direct и комментарии</small></div></div>
+              <div class="pill"><s style="background:#58c08a"><b style="font-size:11px;font-weight:900;color:#fff">A</b></s><div>Авито</div></div>
+              <div class="pill"><s style="background:#3d6fe0"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18"/></svg></s><div>Виджет<small>на сайте</small></div></div>
+
+              <div class="pill"><s style="background:#2aa3e0"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4zM22 2 11 13"/></svg></s><div>Telegram<small>Business</small></div></div>
+              <div class="pill"><s style="background:#25c05a"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></s><div>WhatsApp</div></div>
+              <div class="pill"><s style="background:#7b4be8"><b style="font-size:11px;font-weight:900;color:#fff">M</b></s><div>MAX</div></div>
+              <div class="pill"><s style="background:#3b6fe0"><b style="font-size:11px;font-weight:900;color:#fff">VK</b></s><div>VK</div></div>
+              <div class="pill"><s style="background:#e1306c"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></s><div>Instagram<small>Direct и комментарии</small></div></div>
+              <div class="pill"><s style="background:#58c08a"><b style="font-size:11px;font-weight:900;color:#fff">A</b></s><div>Авито</div></div>
+              <div class="pill"><s style="background:#3d6fe0"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18"/></svg></s><div>Виджет<small>на сайте</small></div></div>
+
+              <div class="pill"><s style="background:#2aa3e0"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4zM22 2 11 13"/></svg></s><div>Telegram<small>Business</small></div></div>
+              <div class="pill"><s style="background:#25c05a"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></s><div>WhatsApp</div></div>
+              <div class="pill"><s style="background:#7b4be8"><b style="font-size:11px;font-weight:900;color:#fff">M</b></s><div>MAX</div></div>
+              <div class="pill"><s style="background:#3b6fe0"><b style="font-size:11px;font-weight:900;color:#fff">VK</b></s><div>VK</div></div>
+              <div class="pill"><s style="background:#e1306c"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></s><div>Instagram<small>Direct и комментарии</small></div></div>
+              <div class="pill"><s style="background:#58c08a"><b style="font-size:11px;font-weight:900;color:#fff">A</b></s><div>Авито</div></div>
+              <div class="pill"><s style="background:#3d6fe0"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18"/></svg></s><div>Виджет<small>на сайте</small></div></div>
+            </div>
+          </div>
+
+          <div class="lbl vs-desktop-only">СИСТЕМЫ УЧЁТА КЛИЕНТОВ</div>
+          <div class="mq">
+            <div class="row r">
+              <div class="pill"><s style="background:#2f7be8"><b style="font-size:11px;font-weight:900;color:#fff">amo</b></s><div>amoCRM</div></div>
+              <div class="pill"><s style="background:#29b5e8"><b style="font-size:11px;font-weight:900;color:#fff">Б24</b></s><div>Битрикс24</div></div>
+              <div class="pill"><s style="background:#f5c020"><b style="font-size:11px;font-weight:900;color:#fff">1С</b></s><div>1С</div></div>
+              <div class="pill"><s style="background:#2fb36b"><b style="font-size:11px;font-weight:900;color:#fff">МС</b></s><div>МойСклад</div></div>
+              <div class="pill"><s style="background:#1ea152"><b style="font-size:11px;font-weight:900;color:#fff">CD</b></s><div>СДЭК</div></div>
+              <div class="pill"><s style="background:#f26b3a"><b style="font-size:11px;font-weight:900;color:#fff">T</b></s><div>Tilda</div></div>
+              <div class="pill"><s style="background:#5a6886"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></s><div>API<small>любая система</small></div></div>
+
+              <div class="pill"><s style="background:#2f7be8"><b style="font-size:11px;font-weight:900;color:#fff">amo</b></s><div>amoCRM</div></div>
+              <div class="pill"><s style="background:#29b5e8"><b style="font-size:11px;font-weight:900;color:#fff">Б24</b></s><div>Битрикс24</div></div>
+              <div class="pill"><s style="background:#f5c020"><b style="font-size:11px;font-weight:900;color:#fff">1С</b></s><div>1С</div></div>
+              <div class="pill"><s style="background:#2fb36b"><b style="font-size:11px;font-weight:900;color:#fff">МС</b></s><div>МойСклад</div></div>
+              <div class="pill"><s style="background:#1ea152"><b style="font-size:11px;font-weight:900;color:#fff">CD</b></s><div>СДЭК</div></div>
+              <div class="pill"><s style="background:#f26b3a"><b style="font-size:11px;font-weight:900;color:#fff">T</b></s><div>Tilda</div></div>
+              <div class="pill"><s style="background:#5a6886"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></s><div>API<small>любая система</small></div></div>
+
+              <div class="pill"><s style="background:#2f7be8"><b style="font-size:11px;font-weight:900;color:#fff">amo</b></s><div>amoCRM</div></div>
+              <div class="pill"><s style="background:#29b5e8"><b style="font-size:11px;font-weight:900;color:#fff">Б24</b></s><div>Битрикс24</div></div>
+              <div class="pill"><s style="background:#f5c020"><b style="font-size:11px;font-weight:900;color:#fff">1С</b></s><div>1С</div></div>
+              <div class="pill"><s style="background:#2fb36b"><b style="font-size:11px;font-weight:900;color:#fff">МС</b></s><div>МойСклад</div></div>
+              <div class="pill"><s style="background:#1ea152"><b style="font-size:11px;font-weight:900;color:#fff">CD</b></s><div>СДЭК</div></div>
+              <div class="pill"><s style="background:#f26b3a"><b style="font-size:11px;font-weight:900;color:#fff">T</b></s><div>Tilda</div></div>
+              <div class="pill"><s style="background:#5a6886"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></s><div>API<small>любая система</small></div></div>
+            </div>
+          </div>
+
+          <div class="api">Нет вашей системы? <b>Подключим через API</b></div>
+        </div>
+      </div>
+
+      <div class="vs-wrap">
         <!-- 3. Вы всегда у руля -->
         <div class="vs-control">
           <div style="text-align:center;max-width:840px;margin:0 auto">
@@ -2414,8 +2437,8 @@
                 <div class="glass li app">
                   <div class="aic">AI</div>
                   <div>
-                    <b>Приложение ALTAI Optima</b>
-                    <p>Переписки, лиды, статистика и скорость ответа 24/7 у вас в телефоне</p>
+                    <b>Личный кабинет ALTAI Optima</b>
+                    <p>Версия для десктопа и мобильное приложение, чтобы всё было под рукой: переписки, лиды, статистика и скорость ответа 24/7</p>
                   </div>
                 </div>
               </div>
@@ -2450,8 +2473,8 @@
               <div class="cl">
                 <div class="aic">AI</div>
                 <div>
-                  <b>Приложение ALTAI Optima</b>
-                  <p>Переписки, лиды и статистика в телефоне</p>
+                  <b>Личный кабинет ALTAI Optima</b>
+                  <p>Версия для десктопа и мобильное приложение — переписки, лиды и статистика всегда под рукой</p>
                 </div>
               </div>
             </div>
@@ -4386,7 +4409,7 @@
               <span class="bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-700 bg-clip-text text-transparent font-extrabold">Вера сама ведет CRM</span>: мгновенно фиксирует контакты, историю переписки и готовые заявки в Битрикс24, amoCRM или любой другой системе
             </div>
             <div class="text-sm sm:text-[15px] text-slate-700 leading-relaxed font-inter">
-              <span class="bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-700 bg-clip-text text-transparent font-extrabold">Вера передает сложные вопросы команде</span>: если клиенту требуется индивидуальный разбор или прошла оплата, диалог мгновенно переходит персональному менеджеру
+              <span class="bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-700 bg-clip-text text-transparent font-extrabold">Вера формирует подробный отчёт за день</span>: только спросите: «Вера, сколько клиентов сегодня написало и что они спрашивали?» — и через 30 секунд у вас уже будет готовый отчёт
             </div>
           </div>
         </div>
@@ -4565,19 +4588,11 @@
         </div>
 
         <!-- Пояснения под тарифами -->
-        <div class="max-w-3xl mx-auto space-y-2 text-center text-xs sm:text-sm text-slate-600 font-inter leading-relaxed pt-2">
+        <div class="max-w-3xl mx-auto text-center text-xs sm:text-sm text-slate-600 font-inter leading-relaxed pt-2">
           <p>
             <strong class="text-slate-900 font-semibold">Считаем только ответы Веры.</strong> В&nbsp;среднем один диалог&nbsp;- это 8-12 сообщений.
           </p>
-          <p class="text-emerald-700 font-semibold text-xs sm:text-[13px] sm:whitespace-nowrap">
-            Мы союзники вашей прибыли. Как только вам станет выгоднее тариф выше, мы сами вам об этом напишем.
-          </p>
         </div>
-
-        <!-- Примечание про 1С / МойСклад -->
-        <p class="text-center text-xs text-slate-500 font-inter">
-          Интеграция с 1С или МойСклад - +30&nbsp;000&nbsp;₽ к стоимости пакета
-        </p>
 
         <!-- 5. КНОПКА: ТЕСТ-ДРАЙВ ВЕРЫ (БОЛЬШАЯ, С НЕОНОВЫМ СВЕЧЕНИЕМ И БЛИКОМ, БЕЗ СТРЕЛКИ) -->
         <div class="text-center pt-4 sm:pt-6 pb-8 sm:pb-14 md:pb-16">
