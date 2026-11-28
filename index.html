@@ -547,15 +547,6 @@
   padding-top: 40px;
   border-top: 1px solid var(--line);
 }
-.vskills .vr-school .vr-mono,
-.vskills .vr-skills .vr-mono {
-  font-family: var(--head) !important;
-  font-weight: 900 !important;
-  font-size: 13.5px !important;
-  letter-spacing: 0.08em !important;
-  text-transform: uppercase !important;
-  color: #0284c7 !important;
-}
 .vskills .vr-school-lead {
   font-family: var(--body);
   font-size: 16px;
@@ -567,11 +558,23 @@
 .vskills .vr-authors-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 24px 0;
 }
 .vskills .vr-author-card {
   display: flex;
   flex-direction: column;
+  padding: 0 24px;
+  border-left: 1px solid var(--line);
+}
+.vskills .vr-author-card:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+.vskills .vr-author-card:last-child {
+  padding-right: 0;
 }
 .vskills .vr-author-name {
   font-family: var(--body) !important;
@@ -613,7 +616,7 @@
   align-items: start;
 }
 .vskills .vr-expert-h3 {
-  font-family: var(--head) !important;
+  font-family: 'Benzin', var(--head), sans-serif !important;
   font-weight: 900;
   font-size: clamp(24px, 3vw, 38px);
   line-height: 1.1;
@@ -625,6 +628,9 @@
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
+.vskills .vr-expert-h3 * {
+  font-family: 'Benzin', var(--head), sans-serif !important;
+}
 .vskills .vr-expert-desc {
   font-family: var(--body);
   font-size: 15.5px;
@@ -635,7 +641,26 @@
 .vskills .vr-niches-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 28px 36px;
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.vskills .vr-niche-item {
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.vskills .vr-niche-item:nth-child(odd) {
+  border-left: none;
+  padding-left: 0;
+  padding-right: 20px;
+}
+.vskills .vr-niche-item:nth-child(even) {
+  padding-left: 20px;
+  padding-right: 0;
+}
+.vskills .vr-niche-item:nth-last-child(-n+2) {
+  border-bottom: none;
 }
 .vskills .vr-niche-tag {
   font-family: var(--body);
@@ -940,7 +965,7 @@
     line-height: 1.25;
   }
 
-  /* Школа на мобилке: компактная сетка 2х2 карточек вместо полотна */
+  /* Школа на мобилке: аккуратная тонкая сетка 2х2 БЕЗ белых подложек */
   .vskills .vr-school-lead {
     font-size: 13.5px;
     line-height: 1.45;
@@ -948,14 +973,38 @@
   }
   .vskills .vr-authors-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 0;
   }
   .vskills .vr-author-card {
-    background: rgba(255, 255, 255, 0.75);
-    border: 1px solid #e2e8f0;
-    border-radius: 14px;
-    padding: 12px 10px;
-    box-shadow: 0 2px 8px rgba(15, 29, 51, 0.03);
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 10px 12px;
+  }
+  .vskills .vr-author-card:nth-child(odd) {
+    border-right: 1px solid var(--line) !important;
+    padding-left: 0;
+    padding-right: 12px;
+  }
+  .vskills .vr-author-card:nth-child(even) {
+    padding-left: 12px;
+    padding-right: 0;
+  }
+  .vskills .vr-author-card:nth-child(1),
+  .vskills .vr-author-card:nth-child(2) {
+    border-bottom: 1px solid var(--line) !important;
+    padding-top: 0;
+    padding-bottom: 12px;
+  }
+  .vskills .vr-author-card:nth-child(3),
+  .vskills .vr-author-card:nth-child(4) {
+    border-bottom: none !important;
+    padding-bottom: 0;
+    padding-top: 12px;
   }
   .vskills .vr-author-name {
     font-size: 13.5px !important;
@@ -978,7 +1027,7 @@
     text-align: center;
   }
 
-  /* Блок ниш (ЗНАЮ ТОЛК В ВАШЕМ ДЕЛЕ) на мобилке: компактная сетка 2 столбца вместо полотна */
+  /* Блок ниш на мобилке: аккуратная тонкая сетка 2 столбца БЕЗ белых подложек */
   .vskills .vr-expert-desc {
     font-size: 13.5px;
     line-height: 1.45;
@@ -986,14 +1035,26 @@
   }
   .vskills .vr-niches-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
   }
   .vskills .vr-niche-item {
-    background: rgba(255, 255, 255, 0.75);
-    border: 1px solid #e2e8f0;
-    border-radius: 14px;
-    padding: 12px 10px;
-    box-shadow: 0 2px 8px rgba(15, 29, 51, 0.03);
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    border-bottom: 1px solid var(--line) !important;
+    padding: 12px;
+  }
+  .vskills .vr-niche-item:nth-child(odd) {
+    border-right: 1px solid var(--line) !important;
+    padding-left: 0;
+    padding-right: 12px;
+  }
+  .vskills .vr-niche-item:nth-child(even) {
+    padding-left: 12px;
+    padding-right: 0;
   }
   .vskills .vr-niche-tag {
     font-size: 10.5px;
@@ -1008,10 +1069,12 @@
   }
   .vskills .vr-niche-etc {
     grid-column: span 2 !important;
+    border-bottom: none !important;
     text-align: center;
-    padding: 8px 12px;
-    background: rgba(241, 245, 249, 0.6);
-    border: 1px dashed #cbd5e1;
+    padding: 10px 0 4px;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
   }
 }
 </style>
@@ -2131,7 +2194,7 @@
           <!-- Экспертиза вашей ниши -->
           <div class="vr-expert-section">
             <div class="vr-expert-left">
-              <h3 class="vr-expert-h3" style="margin-top:0;"><span style="white-space:nowrap;">ЗНАЮ ТОЛК</span><br><span style="white-space:nowrap;">В&nbsp;ВАШЕМ ДЕЛЕ</span></h3>
+              <h3 class="vr-expert-h3" style="font-family: 'Benzin', sans-serif !important; margin-top:0;"><span style="white-space:nowrap;">ЗНАЕТ ТОЛК</span><br><span style="white-space:nowrap;">В&nbsp;ВАШЕМ ДЕЛЕ</span></h3>
               <p class="vr-expert-desc">
                 После запуска Вера с головой погружается в ваш бизнес: прайсы, регламенты, реальные переписки команды. Она говорит с клиентом языком ниши и справится с вопросом, которого нет ни в одном регламенте
               </p>
