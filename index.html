@@ -1397,10 +1397,30 @@
 
         <!-- Главные акцентные кнопки действия -->
         <div class="pt-1 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
-          <!-- Кнопка: ТЕСТ-ДРАЙВ ВЕРЫ (без стрелки и без свечения) -->
+          <!-- Первая кнопка: ТЕСТ-ДРАЙВ ВЕРЫ (без стрелки и без свечения) -->
           <a href="#trial" class="relative w-full sm:w-auto py-4 sm:py-4.5 px-8 sm:px-11 text-xs sm:text-sm md:text-base font-black tracking-wider uppercase rounded-2xl flex items-center justify-center transition-all duration-300 hover:scale-[1.02] active:scale-95 text-white bg-sky-700 hover:bg-sky-600 border border-white/20 shadow-md cursor-pointer group" style="font-family: 'Benzin', sans-serif !important; background: linear-gradient(135deg, #0284c7 0%, #1e40af 100%) !important;">
             <span class="relative z-10">ТЕСТ-ДРАЙВ ВЕРЫ</span>
           </a>
+
+          <!-- Вторая кнопка: ПОГОВОРИТЕ С ВЕРОЙ ЗДЕСЬ И СЕЙЧАС (только пульсирующий кружок) -->
+          <button 
+            type="button" 
+            onclick="if(window.openAiSalesWidget){window.openAiSalesWidget();}else{const b=document.getElementById('altaiWidgetBtn');if(b)b.click();}"
+            class="relative w-full sm:w-auto py-4 sm:py-4.5 px-7 sm:px-9 text-xs sm:text-sm md:text-base font-black tracking-wider uppercase rounded-2xl flex items-center justify-center gap-3 transition-all duration-300 hover:scale-[1.04] active:scale-95 text-white shadow-xl hover:shadow-2xl cursor-pointer group overflow-hidden border border-emerald-300/40"
+            style="font-family: 'Benzin', sans-serif !important; background: linear-gradient(135deg, #059669 0%, #10b981 45%, #0284c7 100%) !important; box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.5) !important;"
+          >
+            <!-- Блик при наведении -->
+            <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out pointer-events-none"></span>
+            
+            <!-- Живой индикатор онлайна (только пульсирующий кружок) -->
+            <span class="relative flex h-3 w-3 shrink-0">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-200 opacity-80"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-white shadow-[0_0_8px_#fff]"></span>
+            </span>
+            
+            <!-- Текст кнопки -->
+            <span class="relative z-10 text-center leading-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]">ПОГОВОРИТЕ С&nbsp;ВЕРОЙ ЗДЕСЬ И&nbsp;СЕЙЧАС</span>
+          </button>
         </div>
       </div>
 
@@ -2378,7 +2398,187 @@
       })();
     </script>
 
-<!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ТЕСТ-ДРАЙВА К СРАВНЕНИЮ «БОТ VS ВЕРА» (АНИМИРОВАННАЯ СТРЕЛКА) -->
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ РЕЗЮМЕ ВЕРЫ К ДИАЛОГУ «ПОГОВОРИТЕ С ВЕРОЙ ЗДЕСЬ И СЕЙЧАС» -->
+    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8">
+      <a href="#scenarios" class="flowing-connector-link group" title="Поговорите с Верой здесь и сейчас">
+        <!-- Desktop connector -->
+        <svg class="hidden sm:block w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradFlowScenariosFromResume" x1="500" y1="10" x2="220" y2="150" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
+            </linearGradient>
+            <filter id="glowFlowScenariosFromResume" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 500,10 C 500,60 310,80 220,150" 
+                stroke="url(#gradFlowScenariosFromResume)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <path d="M 500,10 C 500,60 310,80 220,150" 
+                class="delicate-connector-beam" stroke="url(#gradFlowScenariosFromResume)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowFlowScenariosFromResume)"/>
+          <circle cx="500" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
+          <path d="M 214.5,142.5 L 220,150 L 225.5,142.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <svg class="block sm:hidden w-full h-auto min-h-[90px] max-h-[125px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradFlowScenariosFromResumeMob" x1="180" y1="10" x2="80" y2="110" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
+              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
+              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
+            </linearGradient>
+            <filter id="glowFlowScenariosFromResumeMob" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+          <path d="M 180,10 C 180,50 110,60 80,110" 
+                stroke="url(#gradFlowScenariosFromResumeMob)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
+          <path d="M 180,10 C 180,50 110,60 80,110" 
+                class="delicate-connector-beam-mobile" stroke="url(#gradFlowScenariosFromResumeMob)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowScenariosFromResumeMob)"/>
+          <circle cx="180" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
+          <path d="M 74.5,102.5 L 80,110 L 85.5,102.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </a>
+    </div>
+
+<!-- 6. СЦЕНАРИИ РАБОТЫ В МЕССЕНДЖЕРАХ (ИНТЕРАКТИВНЫЙ СМАРТФОН С ГОТОВЫМИ СЦЕНАРИЯМИ) -->
+    <section id="scenarios" class="relative z-20 py-10 sm:py-12 lg:py-16 xl:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-inter">
+      
+      <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center lg:items-stretch text-left">
+        
+        <!-- ЛЕВАЯ КОЛОНКА: ЗАГОЛОВОК + ПОДЗАГОЛОВОК + ФОТО С ПУЛЬСОМ ПО ЦЕНТРУ -->
+        <div class="lg:col-span-5 flex flex-col justify-center space-y-5 lg:pl-2 xl:pl-4">
+          
+          <div class="space-y-4 max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl mx-auto lg:mx-0 overflow-visible">
+            <!-- ЗАГОЛОВОК + ПОДЗАГОЛОВОК -->
+            <div class="text-center lg:text-left overflow-visible space-y-3 sm:space-y-4">
+              <h2 class="ao-sc font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-4xl lg:text-[34px] xl:text-[38px] leading-[1.15] lg:leading-[1.2] hyphens-none overflow-visible text-[#0f172a] pr-4" style="font-family: 'Benzin', sans-serif !important;">
+                <span class="pearl-title-gradient block">ПОГОВОРИТЕ</span>
+                <span class="pearl-title-gradient inline-block pr-3 whitespace-nowrap overflow-visible">С&nbsp;ВЕРОЙ&nbsp;ЗДЕСЬ</span>
+                <span class="text-[#0f172a] block">И&nbsp;СЕЙЧАС</span>
+              </h2>
+              <p class="font-inter text-xs sm:text-sm md:text-base font-normal text-slate-600 tracking-wide leading-relaxed">
+                Напишите в&nbsp;чат все, что угодно. Вера думает, чувствует контекст и&nbsp;ведет диалог как <span class="pearl-title-gradient font-bold whitespace-nowrap">ваш лучший менеджер по&nbsp;продажам</span>
+              </p>
+            </div>
+
+            <!-- ФОТО ВЕРЫ В КРУЖКЕ: ВЫРОВНЕНО ПО ЦЕНТРУ ЗАГОЛОВКА С АНИМАЦИЕЙ ПУЛЬСА -->
+            <div class="w-full flex justify-center py-2">
+              <div class="relative flex items-center justify-center">
+                <!-- Мягкий внешний ореол пульса -->
+                <div class="absolute -inset-2.5 rounded-full bg-sky-400/25 blur-sm animate-ping opacity-35 pointer-events-none" style="animation-duration: 3.2s;"></div>
+                
+                <!-- Круглая карточка с фото Веры и пульсирующим свечением -->
+                <div class="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden border-4 border-white vera-avatar-pulse bg-gradient-to-b from-sky-50 to-white group shrink-0">
+                  <img src="assets/images/vera_welcome.jpg" alt="Вера - ИИ-продавец" class="w-full h-full object-cover object-[center_16%] transform group-hover:scale-105 transition-transform duration-500">
+                  <div class="absolute bottom-2.5 inset-x-0 flex justify-center">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-white text-[10px] sm:text-xs font-semibold shadow-md">
+                      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                      Вера онлайн
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+
+        <!-- ПРАВАЯ КОЛОНКА: СМАРТФОН SAMSUNG GALAXY С ДИАЛОГОМ И ЖИВОЙ АНИМАЦИЕЙ -->
+        <div class="lg:col-span-7 flex flex-col items-center justify-center">
+
+          <div class="phone-perspective-stage flex justify-center w-full">
+            <div id="phoneContainer" class="relative w-full max-w-[390px] sm:max-w-[420px] h-[610px] sm:h-[640px] rounded-[38px] sm:rounded-[42px] bg-gradient-to-b from-slate-200 via-slate-100 to-slate-300 p-[3.5px] sm:p-[4px] shadow-[0_30px_70px_-15px_rgba(15,23,42,0.22),0_0_0_1px_rgba(255,255,255,0.95),inset_0_1px_2px_rgba(255,255,255,0.8)] select-none flex flex-col transition-all duration-300">
+              <div id="phoneScreen" class="relative w-full h-full rounded-[35px] sm:rounded-[38px] overflow-hidden bg-white flex flex-col border border-slate-300/40 shadow-inner">
+                
+                <!-- SAMSUNG GALAXY INFINITY-O PUNCH-HOLE CAMERA -->
+                <div class="absolute top-2.5 left-1/2 -translate-x-1/2 z-50 flex items-center justify-center pointer-events-none">
+                  <div class="w-2.5 h-2.5 rounded-full bg-black ring-1 ring-white/20 flex items-center justify-center shadow-inner">
+                    <div class="w-1 h-1 rounded-full bg-[#1e293b]"></div>
+                  </div>
+                </div>
+
+                <!-- SAMSUNG ONE UI STATUS BAR -->
+                <div class="bg-[#075e54] text-white pt-2.5 pb-1 px-5 flex items-center justify-between text-[11px] font-semibold shrink-0 z-30 select-none">
+                  <span class="font-bold tracking-tight text-[11.5px]">12:45</span>
+                  <div class="w-6"></div>
+                  <div class="flex items-center gap-1.5 text-[10px] opacity-90">
+                    <span class="font-bold text-[8.5px] tracking-tight bg-white/20 px-1 py-0.5 rounded leading-none">5G</span>
+                    <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98C20.93 5.9 16.69 4 12 4zm0 3.2c3.8 0 7.24 1.48 9.8 3.88L12 18.42 2.2 11.08C4.76 8.68 8.2 7.2 12 7.2z"/></svg>
+                    <div class="flex items-center gap-1 text-[10px] font-bold">
+                      <span>85%</span>
+                      <div class="w-4 h-2 rounded-xs border border-current p-0.5 flex items-center">
+                        <div class="w-2.5 h-1 bg-current rounded-2xs"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ДИНАМИЧЕСКИЙ ХЕДЕР ЧАТА -->
+                <div id="chatHeader" class="pt-1.5 pb-2.5 px-3.5 text-white flex items-center justify-between transition-all duration-300 shadow-xs z-10 shrink-0 bg-[#075e54]">
+                  <div class="flex items-center gap-2 w-full justify-between">
+                    <div class="flex items-center gap-2">
+                      <div class="flex items-center text-white/90 text-sm font-semibold cursor-pointer">
+                        <svg class="w-4 h-4 mr-0.5 fill-current" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg>
+                        <span class="text-xs">3</span>
+                      </div>
+                      <div class="relative w-8 h-8 rounded-full border border-white/40 overflow-hidden shadow-xs shrink-0 bg-slate-800">
+                        <img src="assets/images/vera_avatar_hd.jpg" onerror="this.src='vera_avatar_hd.jpg'" alt="Вера" class="w-full h-full object-cover" style="object-position: center top;">
+                        <span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-400 border border-white"></span>
+                      </div>
+                      <div class="leading-tight text-left">
+                        <div class="text-xs font-bold flex items-center gap-1 text-white">
+                          <span>Вера</span>
+                          <span class="text-emerald-300 text-[10px]">✓</span>
+                        </div>
+                        <div class="text-[10px] text-emerald-200 font-medium">в сети • онлайн</div>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-2 text-white/90">
+                      <button type="button" onclick="resetLiveChatDialogue()" class="text-[10px] bg-white/15 hover:bg-white/25 px-2 py-1 rounded-md transition-all cursor-pointer font-medium">
+                        Очистить
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- КОНТЕЙНЕР СООБЩЕНИЙ -->
+                <div id="messagesContainer" class="p-3.5 space-y-3 flex-grow overflow-y-auto text-xs chat-bg-wa transition-colors duration-300 min-h-[220px]">
+                  <!-- Сообщения -->
+                </div>
+
+
+                <!-- ИНТЕРАКТИВНАЯ ПАНЕЛЬ ВВОДА -->
+                <div id="chatFooterBar" class="p-2.5 bg-white border-t border-slate-200/90 flex items-center gap-2 z-10 shrink-0 shadow-xs">
+                  <div class="flex items-center gap-1.5 w-full">
+                    <form id="liveChatForm" onsubmit="handleLiveChatSubmit(event)" class="flex-1 flex items-center gap-1.5">
+                      <div class="flex-1 bg-white border border-slate-200/90 rounded-2xl px-3 py-1.5 flex items-center justify-between shadow-2xs live-chat-input-glow">
+                        <input id="liveChatInput" type="text" placeholder="Напишите любой вопрос Вере…|" autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-[16px] sm:text-xs outline-none">
+                        <span class="text-slate-400 text-sm ml-1">📎</span>
+                      </div>
+                      <button id="liveChatSubmitBtn" type="submit" class="w-8 h-8 rounded-full bg-[#00a884] hover:bg-[#008f6f] active:scale-95 text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
+                        <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+                      </button>
+                    </form>
+                  </div>
+                </div>
+
+                <!-- SAMSUNG GESTURE NAVIGATION BAR -->
+                <div class="bg-white py-1 flex justify-center items-center shrink-0">
+                  <div class="w-28 h-1 bg-slate-300/80 rounded-full"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ДИАЛОГА С ВЕРОЙ К СРАВНЕНИЮ «БОТ VS ВЕРА» (АНИМИРОВАННАЯ СТРЕЛКА) -->
     <div class="flex flex-col items-center justify-center my-6 sm:my-8 lg:my-10 relative z-20">
       <div class="flowing-connector-container w-full max-w-md mx-auto px-4 select-none">
         <a href="#bot-vs-vera" class="flowing-connector-link group block" title="Бот - автоответчик. Вера - продавец">
@@ -2403,29 +2603,7 @@
       </div>
     </div>
 
-    <!-- КНОПКА ДЕЙСТВИЯ: ПОГОВОРИТЕ С ВЕРОЙ ЗДЕСЬ И СЕЙЧАС (НАД БЛОКОМ БОТ ИЛИ ЧЕЛОВЕК) -->
-    <div class="flex justify-center items-center px-4 my-6 sm:my-8 relative z-20">
-      <button 
-        type="button" 
-        onclick="if(window.openAiSalesWidget){window.openAiSalesWidget();}else{const b=document.getElementById('altaiWidgetBtn');if(b)b.click();}"
-        class="relative w-full sm:w-auto py-4 sm:py-4.5 px-8 sm:px-11 text-xs sm:text-sm md:text-base font-black tracking-wider uppercase rounded-2xl flex items-center justify-center gap-3 transition-all duration-300 hover:scale-[1.04] active:scale-95 text-white shadow-xl hover:shadow-2xl cursor-pointer group overflow-hidden border border-emerald-300/40"
-        style="font-family: 'Benzin', sans-serif !important; background: linear-gradient(135deg, #059669 0%, #10b981 45%, #0284c7 100%) !important; box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.5) !important;"
-      >
-        <!-- Блик при наведении -->
-        <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out pointer-events-none"></span>
-        
-        <!-- Живой индикатор онлайна (только пульсирующий кружок) -->
-        <span class="relative flex h-3 w-3 shrink-0">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-200 opacity-80"></span>
-          <span class="relative inline-flex rounded-full h-3 w-3 bg-white shadow-[0_0_8px_#fff]"></span>
-        </span>
-        
-        <!-- Текст кнопки -->
-        <span class="relative z-10 text-center leading-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]">ПОГОВОРИТЕ С&nbsp;ВЕРОЙ ЗДЕСЬ И&nbsp;СЕЙЧАС</span>
-      </button>
-    </div>
-
-    <!-- 4.0. БОТ - ЭТО АВТООТВЕТЧИК. ВЕРА - ПРОДАВЕЦ: один вопрос, два диалога -->
+<!-- 4.0. БОТ - ЭТО АВТООТВЕТЧИК. ВЕРА - ПРОДАВЕЦ: один вопрос, два диалога -->
     <section id="bot-vs-vera" class="relative z-20 py-8 sm:py-12 lg:py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 font-inter scroll-mt-28">
       <div class="bvv-wrap">
         <div class="text-center max-w-4xl mx-auto mb-8 sm:mb-10">
@@ -2609,386 +2787,7 @@
       })();
       </script>
     </section>
-
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ВОЗМОЖНОСТЕЙ ВЕРЫ К БЛОКУ «ВЕРА УЧИЛАСЬ У ЛУЧШИХ» -->
-    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
-      <a href="#psychology" class="flowing-connector-link group" title="Интеллект ВЕРЫ">
-        <!-- Desktop connector -->
-        <svg class="hidden sm:block w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="gradFlowPsychology" x1="205" y1="10" x2="235" y2="150" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
-              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
-              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
-            </linearGradient>
-            <filter id="glowFlowPsychology" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="2" result="blur"/>
-              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-            </filter>
-          </defs>
-          <!-- 1. Тонкая изящная базовая линия (пунктир 4 4 по референсу) -->
-          <path d="M 205,10 C 205,50 320,60 320,95 C 320,125 235,128 235,150" 
-                stroke="url(#gradFlowPsychology)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-          <!-- 2. Невесомый световой импульс энергии без визуального шума -->
-          <path d="M 205,10 C 205,50 320,60 320,95 C 320,125 235,128 235,150" 
-                class="delicate-connector-beam" stroke="url(#gradFlowPsychology)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowFlowPsychology)"/>
-          <!-- 3. Деликатная стартовая точка -->
-          <circle cx="205" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
-          <!-- 4. Тонкий, острый шеврон-наконечник строго по референсу -->
-          <path d="M 229.5,142.5 L 235,150 L 240.5,142.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        </svg>
-        <!-- Mobile connector (flows left-to-right-to-left down to title per image19) -->
-        <svg class="block sm:hidden w-full h-auto min-h-[90px] max-h-[125px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="gradFlowPsychology" x1="90" y1="10" x2="100" y2="110" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
-              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
-              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
-            </linearGradient>
-            <filter id="glowFlowPsychology" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="2" result="blur"/>
-              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-            </filter>
-          </defs>
-          <path d="M 90,10 C 85,35 140,50 135,75 C 130,95 105,98 100,110" 
-                stroke="url(#gradFlowPsychology)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-          <path d="M 90,10 C 85,35 140,50 135,75 C 130,95 105,98 100,110" 
-                class="delicate-connector-beam-mobile" stroke="url(#gradFlowPsychology)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowPsychology)"/>
-          <circle cx="90" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
-          <path d="M 94.5,102.5 L 100,110 L 105.5,102.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        </svg>
-      </a>
-    </div>
-
-<script defer src="assets/js/books.js?v=3.0"></script>
-    <!-- 6. БЛОК: НА ЧЁМ ВОСПИТАН ИИ‑ПРОДАВЕЦ (КНИГИ) -->
-    <section id="psychology" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16 xl:py-20 relative z-20 font-inter overflow-x-clip">
-
-      <!-- ЗАГОЛОВОК СЕКЦИИ -->
-      <div class="text-left max-w-5xl mb-7 sm:mb-10">
-        <h2 class="font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-5xl lg:text-[46px] leading-tight break-words text-[#0f172a] overflow-visible">
-          <span class="pearl-title-gradient">ВЕРА УЧИЛАСЬ У&nbsp;ЛУЧШИХ</span>
-        </h2>
-      </div>
-
-      <!-- 3-КОЛОНОЧНАЯ СЕТКА КНИГ -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center max-w-7xl mx-auto">
-        
-        <!-- ЭЛЕМЕНТ 1: ВИДЕО С ЭВОЙ -->
-        <div class="order-1 lg:order-2 lg:col-span-3 flex items-center justify-center">
-          <div class="relative w-full max-w-[260px] aspect-[4/5] sm:aspect-[3/4] rounded-3xl overflow-hidden shadow-lg border border-slate-200/90 bg-slate-950 group">
-            <video 
-              id="readingBookVideo"
-              data-src="the_girl_is_reading_book_202609081906.mp4" 
-              poster="eva_reading.webp"
-              muted 
-              loop 
-              playsinline 
-              preload="none"
-              class="w-full h-full object-cover select-none transition-transform duration-700 group-hover:scale-105"
-            ></video>
-          </div>
-        </div>
-
-        <!-- ЭЛЕМЕНТ 2: 3D-КАРУСЕЛЬ КНИГ -->
-        <div class="order-3 lg:order-1 lg:col-span-4 flex flex-col justify-center items-center select-none w-full">
-          <div id="bookSphereScene" class="relative w-full max-w-[360px] h-[290px] sm:h-[320px] flex items-center justify-center select-none cursor-grab active:cursor-grabbing" style="perspective: 1100px; transform-style: preserve-3d;">
-            <div id="bookSphereTrack" class="relative w-full h-full flex items-center justify-center" style="transform-style: preserve-3d;">
-              <!-- Книги генерируются скриптом -->
-            </div>
-          </div>
-
-          <!-- Навигация карусели -->
-          <div class="flex items-center justify-center gap-4 mt-3 z-10 select-none">
-            <button id="bookSpherePrev" type="button" aria-label="Предыдущая книга" class="p-1.5 text-slate-500 hover:text-sky-600 transition-colors flex items-center gap-1 active:scale-95 cursor-pointer font-bold text-xs">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
-              <span>Назад</span>
-            </button>
-            <div id="bookSphereDots" class="flex items-center gap-1.5"></div>
-            <button id="bookSphereNext" type="button" aria-label="Следующая книга" class="p-1.5 text-slate-500 hover:text-sky-600 transition-colors flex items-center gap-1 active:scale-95 cursor-pointer font-bold text-xs">
-              <span>Вперёд</span>
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-        </div>
-
-        <!-- ЭЛЕМЕНТ 3: ПАНЕЛЬ ОПИСАНИЯ КНИГИ -->
-        <div id="activeBookSection" class="contents lg:flex lg:flex-col lg:order-3 lg:col-span-5 lg:justify-between lg:space-y-4 text-left transition-opacity duration-300 relative p-1 sm:p-2">
-          
-          <div class="order-2 lg:order-none space-y-3 active-book-subpart transition-opacity duration-300">
-            <div class="space-y-1">
-              <h3 id="activeBookTitle" class="text-lg sm:text-xl font-black text-slate-900 tracking-tight leading-snug">
-                «Удовлетворение гарантировано»
-              </h3>
-              <p id="activeBookAuthor" class="text-xs sm:text-sm font-semibold text-slate-600">
-                Автор: Хорст Шульце
-              </p>
-            </div>
-
-            <div class="relative pl-3.5 border-l-3 border-sky-500 py-1 space-y-0.5 pr-2 min-h-[82px] sm:min-h-[88px] flex flex-col justify-center">
-              <div class="text-[9px] font-mono font-bold uppercase tracking-wider text-sky-600 flex items-center gap-1 mb-0.5">
-                <span>- ЛУЧШАЯ МЫСЛЬ -</span>
-              </div>
-              <blockquote id="activeBookQuote" class="text-xs sm:text-sm font-bold text-slate-900 leading-snug italic">
-                «Мы - дамы и господа к услугам дам и господ»
-              </blockquote>
-            </div>
-          </div>
-
-          <div class="order-4 lg:order-none pt-2.5 border-t border-slate-100 space-y-2 active-book-subpart transition-opacity duration-300 min-h-[110px] sm:min-h-[118px] flex flex-col justify-start">
-            <div class="space-y-1">
-              <div class="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-800">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span>Что дала ИИ‑продавцу:</span>
-              </div>
-              <p id="activeBookThought" class="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
-                В диалоге исключены робость и подобострастие. Агент держит благородную осанку, соблюдает эталонный деловой этикет и обращается к собеседнику с равным достоинством.
-              </p>
-            </div>
-          </div>
-
-          <!-- КНОПКА СКАЧАТЬ КНИГИ -->
-          <div class="order-5 lg:order-none pt-1 pb-2 sm:pb-0 active-book-subpart transition-opacity duration-300">
-            <button id="downloadBookBtn" type="button" class="btn-optic w-full shadow-md text-xs sm:text-[13px] font-bold uppercase tracking-wide flex items-center justify-center group/btn !px-4 sm:!px-6 !py-3 sm:!py-3.5 text-center leading-snug min-h-[44px]">
-              <span class="text-center leading-snug break-words">Скачать книги</span>
-            </button>
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- МОДАЛЬНОЕ ОКНО: СКАЧАТЬ КНИГИ В TELEGRAM -->
-      <div id="bookModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300" onclick="if(event.target === this) closeBookModal()">
-        <div class="relative w-full max-w-lg bg-gradient-to-br from-slate-900 via-[#0c1822] to-slate-950 border border-sky-500/30 rounded-3xl p-6 sm:p-8 text-white shadow-2xl transform scale-95 transition-all duration-300 overflow-hidden">
-          <div class="absolute -right-20 -top-20 w-60 h-60 bg-sky-500/15 rounded-full blur-3xl pointer-events-none"></div>
-
-          <button type="button" onclick="closeBookModal()" aria-label="Закрыть" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white flex items-center justify-center transition-colors cursor-pointer">
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-          </button>
-
-          <div class="space-y-4">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/20 text-sky-400 border border-sky-500/30 text-xs font-mono font-bold uppercase tracking-wider">
-              <span>Закрытая AI-библиотека</span>
-            </div>
-
-            <div class="pr-6">
-              <h3 id="modalBookTitle" class="text-xl sm:text-2xl font-extrabold text-white leading-tight">
-                Удовлетворение гарантировано
-              </h3>
-              <p id="modalBookAuthor" class="text-sm text-sky-400 font-semibold mt-1">
-                Автор: Хорст Шульце
-              </p>
-            </div>
-
-            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 text-sm text-slate-300 leading-relaxed space-y-2">
-              <p>
-                📚 Подробные конспекты ключевых идей, выжимки методик и готовые практические AI-промпты для продаж уже доступны в нашем Telegram-канале.
-              </p>
-              <p class="text-xs text-sky-300/80">
-                Перейдите по ссылке ниже, чтобы бесплатно скачать книги и получить доступ к базе знаний Altai Optima.
-              </p>
-            </div>
-
-            <div class="pt-2 flex flex-col gap-3">
-              <a id="modalTgLink" href="https://t.me/altaiweb/31" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold text-center text-sm shadow-lg shadow-sky-500/25 transition-all duration-200 flex items-center justify-center gap-2.5">
-                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
-                <span>Скачать книги в Telegram</span>
-              </a>
-              <button type="button" onclick="closeBookModal()" class="w-full py-2.5 text-xs text-slate-400 hover:text-slate-200 text-center transition-colors cursor-pointer">
-                Закрыть окно
-              </button>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </section>
-
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ИЗЯЩНАЯ ТРАЕКТОРИЯ ПЕРЕТЕКАНИЯ -->
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ОБУЧЕНИЯ ВЕРЫ К СЦЕНАРИЯМ (ПОГОВОРИТЕ С ВЕРОЙ) -->
-    <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none my-6 sm:my-8">
-      <a href="#scenarios" class="flowing-connector-link group" title="Поговорите с Верой здесь и сейчас">
-        <!-- Desktop connector -->
-        <svg class="hidden sm:block w-full h-auto min-h-[90px] sm:min-h-[110px] max-h-[130px] sm:max-h-[150px] md:max-h-[170px] overflow-visible" viewBox="0 0 1000 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="gradFlowScenariosFromCta" x1="790" y1="10" x2="220" y2="150" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
-              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
-              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
-            </linearGradient>
-            <filter id="glowFlowScenariosFromCta" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="2" result="blur"/>
-              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-            </filter>
-          </defs>
-          <path d="M 790,10 C 710,65 470,50 310,95 C 250,115 220,132 220,150" 
-                stroke="url(#gradFlowScenariosFromCta)" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-          <path d="M 790,10 C 710,65 470,50 310,95 C 250,115 220,132 220,150" 
-                class="delicate-connector-beam" stroke="url(#gradFlowScenariosFromCta)" stroke-width="1.7" stroke-linecap="round" filter="url(#glowFlowScenariosFromCta)"/>
-          <circle cx="790" cy="10" r="2.2" fill="#0284C7" opacity="0.8"/>
-          <path d="M 214.5,142.5 L 220,150 L 225.5,142.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        </svg>
-        <!-- Mobile connector (flows right-to-left down to title per image13) -->
-        <svg class="block sm:hidden w-full h-auto min-h-[90px] max-h-[125px] overflow-visible" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="gradFlowScenariosFromCta" x1="310" y1="10" x2="80" y2="110" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
-              <stop offset="50%" stop-color="#0284C7" stop-opacity="0.75"/>
-              <stop offset="100%" stop-color="#0369A1" stop-opacity="0.95"/>
-            </linearGradient>
-            <filter id="glowFlowScenariosFromCta" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="2" result="blur"/>
-              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-            </filter>
-          </defs>
-          <path d="M 310,10 C 310,55 120,45 80,110" 
-                stroke="url(#gradFlowScenariosFromCta)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="4 4" opacity="0.45"/>
-          <path d="M 310,10 C 310,55 120,45 80,110" 
-                class="delicate-connector-beam-mobile" stroke="url(#gradFlowScenariosFromCta)" stroke-width="1.9" stroke-linecap="round" filter="url(#glowFlowScenariosFromCta)"/>
-          <circle cx="310" cy="10" r="2.5" fill="#0284C7" opacity="0.9"/>
-          <path d="M 74.5,102.5 L 80,110 L 85.5,102.5" class="delicate-connector-arrow" stroke="#0369A1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        </svg>
-      </a>
-    </div>
-
-    <!-- 6. СЦЕНАРИИ РАБОТЫ В МЕССЕНДЖЕРАХ (ИНТЕРАКТИВНЫЙ СМАРТФОН С ГОТОВЫМИ СЦЕНАРИЯМИ) -->
-    <section id="scenarios" class="relative z-20 py-10 sm:py-12 lg:py-16 xl:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-inter">
-      
-      <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center lg:items-stretch text-left">
-        
-        <!-- ЛЕВАЯ КОЛОНКА: ЗАГОЛОВОК + ПОДЗАГОЛОВОК + ФОТО С ПУЛЬСОМ ПО ЦЕНТРУ -->
-        <div class="lg:col-span-5 flex flex-col justify-center space-y-5 lg:pl-2 xl:pl-4">
-          
-          <div class="space-y-4 max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl mx-auto lg:mx-0 overflow-visible">
-            <!-- ЗАГОЛОВОК + ПОДЗАГОЛОВОК -->
-            <div class="text-center lg:text-left overflow-visible space-y-3 sm:space-y-4">
-              <h2 class="ao-sc font-benzin uppercase tracking-tight font-black text-3xl sm:text-4xl md:text-4xl lg:text-[34px] xl:text-[38px] leading-[1.15] lg:leading-[1.2] hyphens-none overflow-visible text-[#0f172a] pr-4" style="font-family: 'Benzin', sans-serif !important;">
-                <span class="pearl-title-gradient block">ПОГОВОРИТЕ</span>
-                <span class="pearl-title-gradient inline-block pr-3 whitespace-nowrap overflow-visible">С&nbsp;ВЕРОЙ&nbsp;ЗДЕСЬ</span>
-                <span class="text-[#0f172a] block">И&nbsp;СЕЙЧАС</span>
-              </h2>
-              <p class="font-inter text-xs sm:text-sm md:text-base font-normal text-slate-600 tracking-wide leading-relaxed">
-                Напишите в&nbsp;чат все, что угодно. Вера думает, чувствует контекст и&nbsp;ведет диалог как <span class="pearl-title-gradient font-bold whitespace-nowrap">ваш лучший менеджер по&nbsp;продажам</span>
-              </p>
-            </div>
-
-            <!-- ФОТО ВЕРЫ В КРУЖКЕ: ВЫРОВНЕНО ПО ЦЕНТРУ ЗАГОЛОВКА С АНИМАЦИЕЙ ПУЛЬСА -->
-            <div class="w-full flex justify-center py-2">
-              <div class="relative flex items-center justify-center">
-                <!-- Мягкий внешний ореол пульса -->
-                <div class="absolute -inset-2.5 rounded-full bg-sky-400/25 blur-sm animate-ping opacity-35 pointer-events-none" style="animation-duration: 3.2s;"></div>
-                
-                <!-- Круглая карточка с фото Веры и пульсирующим свечением -->
-                <div class="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden border-4 border-white vera-avatar-pulse bg-gradient-to-b from-sky-50 to-white group shrink-0">
-                  <img src="assets/images/vera_welcome.jpg" alt="Вера - ИИ-продавец" class="w-full h-full object-cover object-[center_16%] transform group-hover:scale-105 transition-transform duration-500">
-                  <div class="absolute bottom-2.5 inset-x-0 flex justify-center">
-                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/80 backdrop-blur-md text-white text-[10px] sm:text-xs font-semibold shadow-md">
-                      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                      Вера онлайн
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-
-        <!-- ПРАВАЯ КОЛОНКА: СМАРТФОН SAMSUNG GALAXY С ДИАЛОГОМ И ЖИВОЙ АНИМАЦИЕЙ -->
-        <div class="lg:col-span-7 flex flex-col items-center justify-center">
-
-          <div class="phone-perspective-stage flex justify-center w-full">
-            <div id="phoneContainer" class="relative w-full max-w-[390px] sm:max-w-[420px] h-[610px] sm:h-[640px] rounded-[38px] sm:rounded-[42px] bg-gradient-to-b from-slate-200 via-slate-100 to-slate-300 p-[3.5px] sm:p-[4px] shadow-[0_30px_70px_-15px_rgba(15,23,42,0.22),0_0_0_1px_rgba(255,255,255,0.95),inset_0_1px_2px_rgba(255,255,255,0.8)] select-none flex flex-col transition-all duration-300">
-              <div id="phoneScreen" class="relative w-full h-full rounded-[35px] sm:rounded-[38px] overflow-hidden bg-white flex flex-col border border-slate-300/40 shadow-inner">
-                
-                <!-- SAMSUNG GALAXY INFINITY-O PUNCH-HOLE CAMERA -->
-                <div class="absolute top-2.5 left-1/2 -translate-x-1/2 z-50 flex items-center justify-center pointer-events-none">
-                  <div class="w-2.5 h-2.5 rounded-full bg-black ring-1 ring-white/20 flex items-center justify-center shadow-inner">
-                    <div class="w-1 h-1 rounded-full bg-[#1e293b]"></div>
-                  </div>
-                </div>
-
-                <!-- SAMSUNG ONE UI STATUS BAR -->
-                <div class="bg-[#075e54] text-white pt-2.5 pb-1 px-5 flex items-center justify-between text-[11px] font-semibold shrink-0 z-30 select-none">
-                  <span class="font-bold tracking-tight text-[11.5px]">12:45</span>
-                  <div class="w-6"></div>
-                  <div class="flex items-center gap-1.5 text-[10px] opacity-90">
-                    <span class="font-bold text-[8.5px] tracking-tight bg-white/20 px-1 py-0.5 rounded leading-none">5G</span>
-                    <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98C20.93 5.9 16.69 4 12 4zm0 3.2c3.8 0 7.24 1.48 9.8 3.88L12 18.42 2.2 11.08C4.76 8.68 8.2 7.2 12 7.2z"/></svg>
-                    <div class="flex items-center gap-1 text-[10px] font-bold">
-                      <span>85%</span>
-                      <div class="w-4 h-2 rounded-xs border border-current p-0.5 flex items-center">
-                        <div class="w-2.5 h-1 bg-current rounded-2xs"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- ДИНАМИЧЕСКИЙ ХЕДЕР ЧАТА -->
-                <div id="chatHeader" class="pt-1.5 pb-2.5 px-3.5 text-white flex items-center justify-between transition-all duration-300 shadow-xs z-10 shrink-0 bg-[#075e54]">
-                  <div class="flex items-center gap-2 w-full justify-between">
-                    <div class="flex items-center gap-2">
-                      <div class="flex items-center text-white/90 text-sm font-semibold cursor-pointer">
-                        <svg class="w-4 h-4 mr-0.5 fill-current" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg>
-                        <span class="text-xs">3</span>
-                      </div>
-                      <div class="relative w-8 h-8 rounded-full border border-white/40 overflow-hidden shadow-xs shrink-0 bg-slate-800">
-                        <img src="assets/images/vera_avatar_hd.jpg" onerror="this.src='vera_avatar_hd.jpg'" alt="Вера" class="w-full h-full object-cover" style="object-position: center top;">
-                        <span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-400 border border-white"></span>
-                      </div>
-                      <div class="leading-tight text-left">
-                        <div class="text-xs font-bold flex items-center gap-1 text-white">
-                          <span>Вера</span>
-                          <span class="text-emerald-300 text-[10px]">✓</span>
-                        </div>
-                        <div class="text-[10px] text-emerald-200 font-medium">в сети • онлайн</div>
-                      </div>
-                    </div>
-                    <div class="flex items-center gap-2 text-white/90">
-                      <button type="button" onclick="resetLiveChatDialogue()" class="text-[10px] bg-white/15 hover:bg-white/25 px-2 py-1 rounded-md transition-all cursor-pointer font-medium">
-                        Очистить
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- КОНТЕЙНЕР СООБЩЕНИЙ -->
-                <div id="messagesContainer" class="p-3.5 space-y-3 flex-grow overflow-y-auto text-xs chat-bg-wa transition-colors duration-300 min-h-[220px]">
-                  <!-- Сообщения -->
-                </div>
-
-
-                <!-- ИНТЕРАКТИВНАЯ ПАНЕЛЬ ВВОДА -->
-                <div id="chatFooterBar" class="p-2.5 bg-white border-t border-slate-200/90 flex items-center gap-2 z-10 shrink-0 shadow-xs">
-                  <div class="flex items-center gap-1.5 w-full">
-                    <form id="liveChatForm" onsubmit="handleLiveChatSubmit(event)" class="flex-1 flex items-center gap-1.5">
-                      <div class="flex-1 bg-white border border-slate-200/90 rounded-2xl px-3 py-1.5 flex items-center justify-between shadow-2xs live-chat-input-glow">
-                        <input id="liveChatInput" type="text" placeholder="Напишите любой вопрос Вере…|" autocomplete="off" class="w-full bg-transparent text-slate-800 placeholder:text-slate-400 text-[16px] sm:text-xs outline-none">
-                        <span class="text-slate-400 text-sm ml-1">📎</span>
-                      </div>
-                      <button id="liveChatSubmitBtn" type="submit" class="w-8 h-8 rounded-full bg-[#00a884] hover:bg-[#008f6f] active:scale-95 text-white flex items-center justify-center shrink-0 shadow-xs cursor-pointer">
-                        <svg class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
-                      </button>
-                    </form>
-                  </div>
-                </div>
-
-                <!-- SAMSUNG GESTURE NAVIGATION BAR -->
-                <div class="bg-white py-1 flex justify-center items-center shrink-0">
-                  <div class="w-28 h-1 bg-slate-300/80 rounded-full"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ДИАЛОГА С ВЕРОЙ К ПРИМЕРАМ ИНТЕГРАЦИИ -->
+<!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ СРАВНЕНИЯ БОТ VS ВЕРА К ПРИМЕРАМ ИНТЕГРАЦИИ -->
     <div class="flowing-connector-container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
       <a href="#cases" class="flowing-connector-link group" title="Примеры интеграции">
         <!-- Desktop connector -->
@@ -3038,7 +2837,8 @@
       </a>
     </div>
 
-    <!-- ==========================================================================
+    
+<!-- ==========================================================================
          СЕКЦИЯ: ПРИМЕРЫ ИНТЕГРАЦИИ (7 НИШ БИЗНЕСА И ДИАЛОГИ ВЕРЫ)
          ========================================================================== -->
     <section id="cases" class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-18 font-inter">
