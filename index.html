@@ -315,38 +315,52 @@
     }
   </style>
 
-  <style id="vskills-styles">
-/* ===== Блок «Что умеет Вера» для optima.altaiweb.online =====
-   Все стили внутри .vskills, остальную вёрстку сайта не задевают.
-   Шрифты Benzin, Inter, Caveat берутся с сайта. */
+      <style id="vskills-styles">
+/* ===== Блок «Резюме Веры: Лучший продавец в галактике» для optima.altaiweb.online =====
+   Все стили инкапсулированы внутри .vskills и .vr-card.
+   Используются фирменные шрифты Benzin (для имени ВЕРА и H2), Inter (для всего остального текста и цифр) и Caveat (рукописный). */
 .vskills {
   --ink: #0f1d33;
-  --text: #45556d;
+  --mute: #526077;
+  --line: #e2e8f0;
+  --accent: #0284c7;
+  --accent-dark: #0369a1;
+  --vera: #e0f2fe;
+  --vera-text: #0369a1;
+  --client: #f1f5f9;
+  --client-text: #0f1d33;
+  --ok: #10b981;
+  --head: 'Benzin', -apple-system, sans-serif;
+  --body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --hand: 'Caveat', cursive;
   --pearl: linear-gradient(135deg, #075985 0%, #0284c7 30%, #38bdf8 50%, #0284c7 70%, #082f49 100%);
-  --grow: linear-gradient(90deg, #0f8a8a, #2563eb);
-  --btn: linear-gradient(90deg, #0ea5e9 0%, #0284c7 50%, #2563eb 100%);
-  font-family: 'Inter', sans-serif;
-  color: #0f1d33;
+  --btn: linear-gradient(135deg, #0284c7 0%, #0ea5e9 40%, #2563eb 80%, #1d4ed8 100%);
+  font-family: var(--body);
+  color: var(--ink);
   padding: 40px 0 60px;
   box-sizing: border-box;
   position: relative;
   isolation: isolate;
   width: 100%;
-  overflow-x: clip;
 }
 .vskills * { box-sizing: border-box; }
 .vs-wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-/* Заголовки */
+/* Главный заголовок секции */
 .vskills h2.vs-h2 {
-  font-family: 'Benzin', sans-serif !important;
+  font-family: var(--head) !important;
   font-weight: 900;
-  font-size: clamp(22px, 4vw, 48px);
-  line-height: 1.1;
+  font-size: clamp(22px, 3.8vw, 42px);
+  line-height: 1.15;
   letter-spacing: -0.02em;
   text-transform: uppercase;
   text-align: center;
-  color: #0f1d33;
+  color: var(--ink);
+  margin: 0 auto;
+}
+.vskills .vs-nowrap {
+  white-space: nowrap;
+  display: inline-block;
 }
 .vskills h2.vs-h2 em,
 .vskills h2.vs-h2 .pearl {
@@ -359,752 +373,533 @@
   color: #0284c7;
   animation: pearlTitleGradientGlide 6s ease-in-out infinite;
 }
+@keyframes pearlTitleGradientGlide {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
 
-/* Переключатели видимости Desktop / Mobile */
-.vskills .vs-desktop-only { display: block; }
-.vskills .hero2.vs-desktop-only { display: grid; }
-.vskills .ctl.vs-desktop-only { display: grid; }
-.vskills .vs-mobile-only { display: none; }
-
-/* 1. Десктоп: Секция «Вера - лучший продавец в галактике» (3 колонки: фичи - фото Веры - фичи) */
-.vskills .hero2 {
-  grid-template-columns: 1fr 360px 1fr;
-  gap: 48px;
-  align-items: center;
-  margin-top: 56px;
-}
-.vskills .fc {
-  display: grid;
-  gap: 24px;
-}
-.vskills .f {
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-}
-.vskills .f.l {
-  flex-direction: row-reverse;
-  text-align: right;
-}
-.vskills .fi {
-  flex: none;
-  width: 38px;
-  height: 38px;
-  border-radius: 12px;
-  display: grid;
-  place-items: center;
-  color: #0284c7;
-  background: linear-gradient(140deg, rgba(2,132,199,0.12), rgba(14,165,233,0.04));
-  border: 1px solid rgba(2,132,199,0.18);
-  margin-top: 2px;
-}
-.vskills .fi svg {
-  width: 19px;
-  height: 19px;
-}
-.vskills .f b {
-  font-size: 16px;
-  font-weight: 800;
-  color: #0f1d33;
-  display: block;
-  line-height: 1.3;
-}
-.vskills .f p {
-  font-size: 13.5px;
-  color: #56657c;
+/* Рукописная подпись под заголовком */
+.vskills .vs-sub-hand {
+  font-family: var(--hand);
+  font-size: clamp(28px, 3.4vw, 38px);
+  color: var(--accent);
+  text-align: center;
+  transform: rotate(-2deg);
   margin-top: 4px;
-  line-height: 1.45;
+  margin-bottom: 28px;
 }
 
-/* Десктоп: Аватарка Веры с вращающейся пунктирной орбитой */
-.vskills .ava {
+/* Карточка резюме: полупрозрачная стеклянная подложка (15-20% прозрачности) */
+.vskills .vr-card {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 24px 60px -15px rgba(15, 29, 51, 0.08), 0 2px 10px rgba(15, 29, 51, 0.03);
+  border-radius: 28px;
+  padding: 48px 56px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   position: relative;
-  width: 360px;
-  height: 360px;
-  margin: 0 auto;
+  font-family: var(--body);
 }
-.vskills .ava img {
+
+/* Верхняя строка статуса */
+.vskills .vr-mono {
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+.vskills .vr-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+.vskills .vr-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--ok);
+  margin-right: 8px;
+  vertical-align: middle;
+  animation: vrDotPulse 2s infinite;
+}
+@keyframes vrDotPulse {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
+  70% { box-shadow: 0 0 0 9px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* Шапка кандидата */
+.vskills .vr-hd {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 56px;
+  margin-top: 40px;
+  align-items: center;
+}
+.vskills .vr-cand-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 14px;
+}
+.vskills .vr-avatar-wrap {
+  position: relative;
+  width: 132px;
+  height: 132px;
+  border-radius: 32px;
+  overflow: hidden;
+  border: 3px solid #38bdf8;
+  box-shadow: 0 12px 32px rgba(2, 132, 199, 0.25), 0 0 20px rgba(56, 189, 248, 0.2);
+  flex-shrink: 0;
+  background: #e0f2fe;
+}
+.vskills .vr-avatar-wrap img {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center top;
-  box-shadow: 0 0 0 6px rgba(255,255,255,.9), 0 0 0 8px #0284c7, 0 30px 70px rgba(2,132,199,.28);
-}
-.vskills .ava::before {
-  content: "";
-  position: absolute;
-  inset: -24px;
-  border-radius: 50%;
-  border: 1.5px dashed rgba(2,132,199,.45);
-  animation: vskillsSpin 40s linear infinite;
-}
-@keyframes vskillsSpin {
-  to { transform: rotate(360deg); }
-}
-.vskills .gd {
-  position: absolute;
-  right: 28px;
-  bottom: 28px;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: #22c55e;
-  box-shadow: 0 0 0 4px #fff;
-  animation: vskillsPulse 2.4s ease-in-out infinite;
-}
-@keyframes vskillsPulse {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 4px #fff, 0 0 0 3px rgba(34, 197, 94, 0.35);
-  }
-  50% {
-    transform: scale(1.08);
-    box-shadow: 0 0 0 4px #fff, 0 0 12px 5px rgba(34, 197, 94, 0.65);
-  }
-}
-
-/* Десктоп: Акцентная цитата эксперта */
-.vskills .expert {
-  margin-top: 64px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 12px;
-}
-.vskills .hand {
-  font-family: 'Caveat', cursive;
-  font-size: clamp(24px, 3.8vw, 36px);
-  line-height: 1.15;
-  color: #0f8a8a;
-}
-.vskills .expert p {
-  color: #45556d;
-  font-size: 16px;
-  line-height: 1.5;
-  max-width: 580px;
-}
-
-/* ===== 1.B. МОБИЛЬНАЯ ВЕРСИЯ: Аватар + чипы + свайп-карточки ===== */
-.vskills .vs-mobile-wrap {
-  position: relative;
-  isolation: isolate;
-  margin-top: 18px;
-}
-.vskills .vs-mobile-wrap::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(56,160,255,.45), transparent 70%);
-  right: -50px;
-  top: 60px;
-  filter: blur(10px);
-  pointer-events: none;
-}
-.vskills .vs-mobile-wrap::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(20,200,190,.3), transparent 70%);
-  left: -50px;
-  bottom: 0;
-  filter: blur(10px);
-  pointer-events: none;
-}
-
-.vskills .vs-m-hero {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-  margin-top: 18px;
-}
-.vskills .vs-m-hero .ph2 {
-  position: relative;
-  flex: none;
-}
-.vskills .vs-m-hero .ph2::before {
-  content: "";
-  position: absolute;
-  inset: -7px;
-  border-radius: 50%;
-  border: 1.5px dashed rgba(2, 132, 199, 0.55);
-  animation: vskillsSpin 24s linear infinite;
-  pointer-events: none;
-}
-.vskills .vs-m-hero .ph2 img {
-  width: 88px;
-  height: 88px;
-  border-radius: 50%;
-  box-shadow: 0 0 0 3px #fff, 0 0 0 5px #1d9be0;
   object-fit: cover;
   object-position: center top;
   display: block;
 }
-.vskills .vs-m-hero .ph2 .gd {
-  position: absolute;
-  right: 4px;
-  bottom: 4px;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #22c55e;
-  box-shadow: 0 0 0 3px #fff;
-  animation: vskillsPulse 2.4s ease-in-out infinite;
-}
-.vskills .vs-m-hero .hand {
-  font-family: 'Caveat', cursive;
-  font-size: clamp(22px, 5.2vw, 26px);
-  color: #0f8a8a;
-  line-height: 1.15;
-}
 
-.vskills .chips {
-  display: flex;
-  gap: 20px;
-  margin: 22px 0 16px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-.vskills .chips::-webkit-scrollbar {
-  display: none;
-}
-.vskills .chip {
-  flex: none;
-  border: 0;
-  background: none;
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  font-size: 15px;
-  padding: 4px 0 6px;
-  color: #8796ad;
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: all .2s ease;
-}
-.vskills .chip.a {
-  color: #0f1d33;
-  border-color: #2563eb;
-  font-weight: 700;
-}
-
-.vskills .sw {
-  display: flex;
-  gap: 12px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  margin: 0 -16px;
-  padding: 0 16px 8px;
-  -webkit-overflow-scrolling: touch;
-}
-.vskills .sw::-webkit-scrollbar {
-  display: none;
-}
-.vskills .sw .card {
-  flex: none;
-  width: 78%;
-  max-width: 320px;
-  scroll-snap-align: start;
-  background: linear-gradient(140deg, rgba(255,255,255,.65), rgba(255,255,255,.22)) !important;
-  backdrop-filter: blur(18px) saturate(1.4);
-  -webkit-backdrop-filter: blur(18px) saturate(1.4);
-  border: 1px solid rgba(255,255,255,.85);
-  border-radius: 22px;
-  padding: 20px;
-  box-shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 12px 32px rgba(30,80,140,.10) !important;
-  box-sizing: border-box;
-}
-.vskills .sw .card .ic {
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
-  background: linear-gradient(140deg, rgba(37,99,235,.12), rgba(14,165,233,.04)) !important;
-  border: 1px solid rgba(37,99,235,.18);
-  display: grid;
-  place-items: center;
-  color: #1d5fd8 !important;
-  margin-bottom: 14px;
-}
-.vskills .sw .card .ic svg {
-  width: 22px;
-  height: 22px;
-}
-.vskills .sw .card b {
-  font-size: 16.5px;
-  font-weight: 700;
-  display: block;
-  color: #0f1d33;
-  line-height: 1.3;
-}
-.vskills .sw .card p {
-  font-size: 13.5px;
-  color: #56657c;
-  margin-top: 6px;
-  line-height: 1.4;
-}
-
-.vskills .dots {
-  display: flex;
-  gap: 6px;
-  justify-content: center;
-  margin-top: 12px;
-}
-.vskills .dots i {
-  width: 6px;
-  height: 6px;
-  border-radius: 9px;
-  background: #b6c6da;
-  transition: all .25s ease;
-}
-.vskills .dots i.a {
-  width: 18px;
-  background: #0f1d33;
-}
-
-/* ===== 2. ИНТЕГРАЦИИ: Подложка со стеклянным фоном и бегущими строками (на всю ширину экрана) ===== */
-.vskills .darkw {
-  width: 100%;
-  max-width: 100%;
-  margin: 90px 0 0;
-  padding: 0;
-}
-.vskills .dark {
-  background: radial-gradient(120% 140% at 80% 0%, #1b3a66 0%, #0f1d33 55%);
-  color: #fff;
-  border-top: 1px solid rgba(255,255,255,.14);
-  border-bottom: 1px solid rgba(255,255,255,.14);
-  border-left: 0;
-  border-right: 0;
-  box-shadow: 0 1px 0 rgba(255,255,255,.1) inset, 0 24px 60px rgba(15,29,51,.25);
-  border-radius: 0;
-  padding: 64px 0;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-.vskills .dark .top {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 0 24px;
-}
-.vskills .dark .top h2.vs-h2,
-.vskills .dark h2.vs-h2 {
-  font-family: 'Benzin', sans-serif !important;
+/* Имя ВЕРА — Benzin с фирменным градиентом */
+.vskills .vr-name {
+  font-family: var(--head) !important;
   font-weight: 900;
-  text-transform: uppercase;
-  font-size: clamp(22px, 3.6vw, 42px);
-  line-height: 1.12;
-  color: #fff;
-}
-.vskills .dark .top h2.vs-h2 em,
-.vskills .dark h2.vs-h2 em,
-.vskills .dark .top h2.vs-h2 .pearl,
-.vskills .dark h2.vs-h2 .pearl {
-  font-style: normal;
-  background: linear-gradient(90deg, #4cc3ff, #8ab8ff);
+  font-size: clamp(42px, 5.8vw, 76px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin: 0;
+  background: linear-gradient(135deg, #075985 0%, #0284c7 30%, #38bdf8 55%, #0284c7 80%, #1d4ed8 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: #4cc3ff;
-  animation: pearlTitleGradientGlide 5s ease-in-out infinite;
+  color: #0284c7;
+  display: inline-block;
 }
-.vskills .dark .sub {
-  color: #9fb1cb;
-  font-size: 15px;
-  line-height: 1.45;
-  margin-top: 10px;
-  text-align: center;
-  max-width: 600px;
+
+/* Роль — Inter */
+.vskills .vr-role {
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: clamp(16px, 1.8vw, 21px);
+  line-height: 1.25;
+  margin-top: 8px;
+  color: #475569;
 }
-.vskills .lbl {
-  font-size: 12px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: #94a3b8;
+
+/* Метрики — Inter */
+.vskills .vr-kv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid var(--line);
+  padding: 12px 0;
+  font-size: 15.5px;
+  font-family: var(--body);
+}
+.vskills .vr-kv:last-child {
+  border-bottom: 0;
+}
+.vskills .vr-kv-val {
+  font-family: var(--body);
+  font-weight: 600;
+  color: var(--ink);
+}
+.vskills .vr-val-hl {
+  color: #0284c7;
   font-weight: 700;
-  margin: 36px 0 16px;
-  text-align: center;
 }
-.vskills .mq {
-  overflow: hidden;
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  margin-top: 14px;
+.vskills .vr-val-ok {
+  color: #10b981;
+  font-weight: 700;
 }
-.vskills .row {
-  display: flex;
-  gap: 12px;
-  width: max-content;
-  will-change: transform;
-  animation: vskillsMq 32s linear infinite;
-  margin-bottom: 12px;
-}
-.vskills .row.r {
-  animation-direction: reverse;
-}
-@media (hover: hover) {
-  .vskills .mq:hover .row {
-    animation-play-state: paused;
-  }
-}
-@keyframes vskillsMq {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-50%, 0, 0);
-  }
-}
-@-webkit-keyframes vskillsMq {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0);
-  }
-  100% {
-    -webkit-transform: translate3d(-50%, 0, 0);
-  }
-}
-.vskills .pill {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.14);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 18px;
-  padding: 10px 18px 10px 10px;
-  font-weight: 600;
-  font-size: 14.5px;
-  white-space: nowrap;
-  color: #fff;
-}
-.vskills .pill s {
-  text-decoration: none;
-  width: 36px;
-  height: 36px;
-  border-radius: 11px;
+
+/* О себе — Inter */
+.vskills .vr-about {
   display: grid;
-  place-items: center;
-  flex-shrink: 0;
-  color: #fff;
+  grid-template-columns: 7fr 5fr;
+  gap: 56px;
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
 }
-.vskills .pill small {
-  display: block;
-  font-size: 11px;
-  color: #94a3b8;
+.vskills .vr-about-desc {
+  font-family: var(--body);
   font-weight: 500;
-  margin-top: 2px;
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 1.5;
+  color: #1e293b;
+  margin: 16px 0 0;
 }
-.vskills .dark .api {
-  margin-top: 18px;
-  font-size: 13.5px;
-  color: #9fb1cb;
-  text-align: center;
+/* Блок «Школа» */
+.vskills .vr-school {
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
 }
-.vskills .dark .api b {
-  color: #fff;
+.vskills .vr-school .vr-mono,
+.vskills .vr-skills .vr-mono {
+  font-family: var(--head) !important;
+  font-weight: 900 !important;
+  font-size: 13.5px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #0284c7 !important;
 }
-
-/* ===== 3. ВЫ ВСЕГДА У РУЛЯ ===== */
-.vskills .vs-control {
-  margin-top: 96px;
+.vskills .vr-school-lead {
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.55;
+  color: #334155;
+  max-width: 840px;
+  margin: 14px 0 28px;
 }
-
-/* 3.A. Десктоп: Мокап смартфона + список */
-.vskills .ctl {
-  grid-template-columns: 1fr 1fr;
-  gap: 70px;
-  align-items: center;
-  margin-top: 50px;
+.vskills .vr-authors-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
 }
-.vskills .phone {
-  width: 330px;
-  margin: 0 auto;
-  border-radius: 44px;
-  padding: 10px;
-  background: linear-gradient(140deg, rgba(255,255,255,.7), rgba(255,255,255,.25));
-  border: 1px solid rgba(255,255,255,.9);
-  box-shadow: 0 30px 70px rgba(30,80,140,.22);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-}
-.vskills .scr {
-  border-radius: 36px;
-  background: linear-gradient(180deg, #f6f9fd, #e8f0fa);
-  overflow: hidden;
-}
-.vskills .ph {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  padding: 16px;
-  border-bottom: 1px solid rgba(15,29,51,.06);
-  background: rgba(255,255,255,.7);
-}
-.vskills .ph img {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center top;
-  flex-shrink: 0;
-}
-.vskills .ph b {
-  font-size: 14px;
-  display: block;
-  color: #0f1d33;
-}
-.vskills .ph small {
-  font-size: 11px;
-  color: #15803d;
-  font-weight: 600;
-}
-.vskills .msgs {
-  padding: 18px 14px 14px;
+.vskills .vr-author-card {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  min-height: 330px;
-  justify-content: flex-end;
 }
-.vskills .bub {
-  font-size: 13px;
-  padding: 10px 13px;
-  border-radius: 16px;
-  max-width: 82%;
-  line-height: 1.35;
-}
-.vskills .me {
-  align-self: flex-end;
-  background: linear-gradient(135deg, #0284c7, #2563eb);
-  color: #fff;
-  border-bottom-right-radius: 5px;
-}
-.vskills .v {
-  align-self: flex-start;
-  background: #fff;
-  color: #0f1d33;
-  border-bottom-left-radius: 5px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.04);
-}
-.vskills .inp {
-  margin: 0 12px 14px;
-  background: #fff;
-  border-radius: 99px;
-  padding: 11px 16px;
-  font-size: 12px;
-  color: #94a3b8;
-}
-.vskills .list {
-  display: grid;
-  gap: 0;
-}
-.vskills .li {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  padding: 22px 0;
-  border-bottom: 1px solid rgba(15,29,51,.1);
-}
-.vskills .li:first-child {
-  border-top: 1px solid rgba(15,29,51,.1);
-}
-.vskills .li b {
-  font-size: 18px;
+.vskills .vr-author-name {
+  font-family: var(--body) !important;
   font-weight: 700;
-  color: #0f1d33;
-  display: block;
-}
-.vskills .li p {
-  font-size: 14px;
-  color: #56657c;
-  margin-top: 4px;
-  line-height: 1.5;
-}
-.vskills .aic {
-  flex: none;
-  width: 44px;
-  height: 44px;
-  border-radius: 13px;
-  display: grid;
-  place-items: center;
-  font-weight: 900;
   font-size: 16px;
-  letter-spacing: -0.04em;
-  background: linear-gradient(140deg, #fff, #e0f2fe);
-  border: 1px solid rgba(2,132,199,.25);
-  color: #0284c7;
-  box-shadow: 0 6px 16px rgba(2,132,199,.15);
+  color: var(--ink);
+  margin: 0 0 6px;
 }
-
-/* 3.B. Мобильная версия: Telegram сообщение + 3 карточки управления */
-.vskills .vs-control-m {
-  margin-top: 20px;
-  position: relative;
-  isolation: isolate;
-}
-.vskills .vs-control-m::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  width: 240px;
-  height: 240px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(56,160,255,.35), transparent 70%);
-  right: -40px;
-  top: 80px;
-  filter: blur(10px);
-  pointer-events: none;
-}
-.vskills .tgm {
-  margin-top: 18px;
-  background: linear-gradient(140deg, rgba(255,255,255,.65), rgba(255,255,255,.22)) !important;
-  backdrop-filter: blur(18px) saturate(1.4);
-  -webkit-backdrop-filter: blur(18px) saturate(1.4);
-  border: 1px solid rgba(255,255,255,.85);
-  border-radius: 20px;
-  padding: 14px;
-  box-shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 12px 32px rgba(30,80,140,.10) !important;
-}
-.vskills .tgm .bub {
-  font-size: 13px;
-  padding: 9px 13px;
-  border-radius: 14px;
-  max-width: 85%;
-  margin: 6px 0;
+.vskills .vr-author-book {
+  font-family: var(--body);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 8px;
   line-height: 1.35;
 }
-.vskills .tgm .bub.me {
-  background: rgba(37,99,235,.14);
-  color: #0f1d33;
-  margin-left: auto;
+.vskills .vr-author-desc {
+  font-family: var(--body);
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: #526077;
+  margin: 0;
 }
-.vskills .tgm .bub.v {
-  background: rgba(255,255,255,.75);
-  color: #0f1d33;
+.vskills .vr-school-footnote {
+  font-family: var(--body);
+  font-size: 14px;
+  color: #64748b;
+  margin-top: 26px;
 }
 
-.vskills .ctl-m {
-  margin-top: 16px;
+/* Блок «Экспертиза» */
+.vskills .vr-expert-section {
+  margin-top: 48px;
+  padding-top: 44px;
+  border-top: 1px solid var(--line);
   display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 56px;
+  align-items: start;
+}
+.vskills .vr-expert-h3 {
+  font-family: var(--head) !important;
+  font-weight: 900;
+  font-size: clamp(24px, 3vw, 38px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: 0 0 18px;
+  background: linear-gradient(90deg, #059669 0%, #0ea5e9 50%, #4f46e5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+.vskills .vr-expert-desc {
+  font-family: var(--body);
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: #475569;
+  margin: 0;
+}
+.vskills .vr-niches-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px 36px;
+}
+.vskills .vr-niche-tag {
+  font-family: var(--body);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.vskills .vr-niche-desc {
+  font-family: var(--body);
+  font-size: 14.5px;
+  line-height: 1.48;
+  color: #1e293b;
+  margin: 0;
+}
+
+/* Чат-сообщения — Inter */
+.vskills .vr-chat {
+  display: flex;
+  flex-direction: column;
   gap: 10px;
 }
-.vskills .ctl-m .cl {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  background: linear-gradient(140deg, rgba(255,255,255,.65), rgba(255,255,255,.22)) !important;
-  backdrop-filter: blur(18px) saturate(1.4);
-  -webkit-backdrop-filter: blur(18px) saturate(1.4);
-  border: 1px solid rgba(255,255,255,.85);
+.vskills .vr-b {
   border-radius: 18px;
-  padding: 14px;
-  box-shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 12px 32px rgba(30,80,140,.10) !important;
+  padding: 12px 18px;
+  font-size: 14.5px;
+  line-height: 1.45;
+  max-width: 420px;
+  font-family: var(--body);
 }
-.vskills .ctl-m .cl .si {
-  flex: none;
-  width: 38px !important;
-  height: 38px !important;
-  border-radius: 12px !important;
-  background: linear-gradient(140deg, rgba(37,99,235,.12), rgba(14,165,233,.04)) !important;
-  border: 1px solid rgba(37,99,235,.18);
-  color: #1d5fd8 !important;
-  display: grid;
-  place-items: center;
-}
-.vskills .ctl-m .cl .si svg {
-  width: 19px;
-  height: 19px;
-}
-.vskills .ctl-m .cl .aic {
-  flex: none;
-  width: 38px !important;
-  height: 38px !important;
-  border-radius: 12px !important;
-  background: linear-gradient(140deg, #fff, #e8f1fd) !important;
-  border: 1px solid rgba(37,99,235,.18);
-  display: grid;
-  place-items: center;
-  font-weight: 900;
-  font-size: 14px;
-  letter-spacing: -.04em;
-  color: #0b5fa8;
-}
-.vskills .ctl-m .cl b {
-  font-size: 15px;
-  font-weight: 700;
-  color: #0f1d33;
+.vskills .vr-chat-who {
   display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  font-family: var(--body);
 }
-.vskills .ctl-m .cl p {
-  font-size: 13px;
-  color: #56657c;
-  margin-top: 3px;
-  line-height: 1.4;
+.vskills .vr-b.vr-c {
+  align-self: flex-start;
+  background: var(--client);
+  color: var(--client-text);
+  border-bottom-left-radius: 4px;
+  border: 1px solid #e2e8f0;
+}
+.vskills .vr-b.vr-c .vr-chat-who {
+  color: #64748b;
+}
+.vskills .vr-b.vr-v {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+  color: var(--vera-text);
+  border-bottom-right-radius: 4px;
+  border: 1px solid #7dd3fc;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.12);
+}
+.vskills .vr-b.vr-v .vr-chat-who {
+  color: #0284c7;
 }
 
-/* CTA */
-.vskills .vs-cta {
-  margin-top: 64px;
-  margin-bottom: 12px;
+/* Навыки и вкладки */
+.vskills .vr-skills {
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
+}
+.vskills .vr-chat-mobile {
+  display: none;
+}
+.vskills .vr-tabs {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scrollbar-width: none;
 }
-.vskills .vs-btn {
-  display: inline-block;
-  padding: 18px 42px;
+.vskills .vr-tabs::-webkit-scrollbar { display: none; }
+.vskills .vr-tab {
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 14.5px;
+  min-height: 44px;
+  padding: 0 22px;
   border-radius: 999px;
-  background: var(--btn);
-  color: #fff;
-  font-weight: 800;
-  font-size: 16px;
-  letter-spacing: 0.5px;
-  text-decoration: none;
+  border: 1.5px solid #cbd5e1;
+  background: #f8fafc;
+  color: #1e293b;
+  cursor: pointer;
+  transition: all 0.2s ease;
   white-space: nowrap;
-  box-shadow: 0 14px 32px rgba(14,165,233,.38);
-  transition: transform .2s ease, box-shadow .2s ease;
-  animation: vskillsBtnGlow 4s ease-in-out infinite;
+  box-shadow: 0 1px 3px rgba(15, 29, 51, 0.04);
 }
-.vskills .vs-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 36px rgba(14,165,233,.45);
+.vskills .vr-tab:hover {
+  border-color: #38bdf8;
+  color: #0284c7;
+  background: #f0f9ff;
+  transform: translateY(-1px);
 }
-@keyframes vskillsBtnGlow {
-  0%, 100% {
-    box-shadow: 0 12px 28px rgba(14, 165, 233, 0.35);
-  }
-  50% {
-    box-shadow: 0 16px 36px rgba(37, 99, 235, 0.55);
-  }
+.vskills .vr-tab[aria-selected="true"] {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff;
+  border-color: #0284c7;
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.35);
+  font-weight: 700;
+}
+
+.vskills .vr-panel {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 48px;
+  margin-top: 36px;
+  min-height: 330px;
+  align-items: start;
+}
+.vskills .vr-panel-title {
+  font-family: var(--body) !important;
+  font-weight: 800;
+  font-size: clamp(22px, 2.3vw, 28px);
+  line-height: 1.2;
+  margin: 0 0 12px;
+  background: linear-gradient(135deg, #075985 0%, #0284c7 40%, #0ea5e9 75%, #2563eb 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #0284c7;
+  display: inline-block;
+}
+.vskills .vr-panel-lead {
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--mute);
+  margin: 0 0 20px;
+}
+
+/* Выделение карточек навыков: цветные границы и легкие градиенты */
+.vskills .vr-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 20px;
+  align-content: start;
+}
+.vskills .vr-item {
+  border-radius: 18px;
+  padding: 18px 20px;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.vskills .vr-item.color-0 {
+  background: linear-gradient(155deg, #ffffff 0%, #f0f9ff 100%);
+  border: 1.5px solid #bae6fd;
+  box-shadow: 0 4px 16px -2px rgba(2, 132, 199, 0.08);
+}
+.vskills .vr-item.color-0 .vr-item-icon {
+  background: #e0f2fe;
+  color: #0284c7;
+}
+
+.vskills .vr-item.color-1 {
+  background: linear-gradient(155deg, #ffffff 0%, #f5f3ff 100%);
+  border: 1.5px solid #ddd6fe;
+  box-shadow: 0 4px 16px -2px rgba(124, 58, 237, 0.08);
+}
+.vskills .vr-item.color-1 .vr-item-icon {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+
+.vskills .vr-item.color-2 {
+  background: linear-gradient(155deg, #ffffff 0%, #f0fdfa 100%);
+  border: 1.5px solid #99f6e4;
+  box-shadow: 0 4px 16px -2px rgba(13, 148, 136, 0.08);
+}
+.vskills .vr-item.color-2 .vr-item-icon {
+  background: #ccfbf1;
+  color: #0d9488;
+}
+
+.vskills .vr-item.color-3 {
+  background: linear-gradient(155deg, #ffffff 0%, #eff6ff 100%);
+  border: 1.5px solid #bfdbfe;
+  box-shadow: 0 4px 16px -2px rgba(37, 99, 235, 0.08);
+}
+.vskills .vr-item.color-3 .vr-item-icon {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.vskills .vr-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px -2px rgba(15, 29, 51, 0.1);
+}
+
+.vskills .vr-item b {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--body) !important;
+  font-size: 15.5px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.35;
+}
+.vskills .vr-item-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.vskills .vr-item p {
+  margin: 8px 0 0;
+  font-family: var(--body);
+  font-size: 13.5px;
+  line-height: 1.48;
+  color: #475569;
+}
+.vskills .vr-fade {
+  animation: vrFade .35s ease;
+}
+@keyframes vrFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Адаптив */
-@media (max-width: 1024px) {
-  .vskills .vs-desktop-only,
-  .vskills .hero2.vs-desktop-only,
-  .vskills .ctl.vs-desktop-only {
+@media (max-width: 960px) {
+  .vskills .vr-card {
+    padding: 32px 24px;
+  }
+  .vskills .vr-hd,
+  .vskills .vr-about,
+  .vskills .vr-expert-section,
+  .vskills .vr-panel {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .vskills .vr-authors-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .vskills .vr-list {
+    grid-template-columns: 1fr;
+  }
+  .vskills .vr-chat-desktop {
     display: none !important;
   }
-  .vskills .vs-mobile-only {
-    display: block !important;
-  }
-  .vskills .row {
-    animation-duration: 22s;
-  }
-  .vskills .darkw {
-    margin-top: 56px;
-  }
-  .vskills .vs-control {
-    margin-top: 56px;
+  .vskills .vr-chat-mobile {
+    display: flex !important;
+    margin-top: 18px;
+    width: 100%;
   }
 }
 @media (max-width: 640px) {
@@ -1114,25 +909,109 @@
   .vs-wrap {
     padding: 0 16px;
   }
-  .vskills .dark {
-    padding: 36px 0;
-    border-radius: 0;
+  .vskills .vr-card {
+    padding: 24px 16px;
+    border-radius: 20px;
   }
-  .vskills .darkw {
-    margin-top: 48px;
+  /* На мобилке фото слева, Вера и менеджер справа */
+  .vskills .vr-cand-row {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
   }
-  .vskills .vs-cta {
-    margin-top: 36px;
-    margin-bottom: 8px;
+  .vskills .vr-avatar-wrap {
+    width: 84px;
+    height: 84px;
+    border-radius: 22px;
+    flex-shrink: 0;
   }
-  .vskills .vs-btn {
-    display: block;
-    width: 100%;
+  .vskills .vr-cand-meta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .vskills .vr-name {
+    font-size: 38px;
+    line-height: 1;
+  }
+  .vskills .vr-role {
+    font-size: 14.5px;
+    margin-top: 4px;
+    line-height: 1.25;
+  }
+
+  /* Школа на мобилке: компактная сетка 2х2 карточек вместо полотна */
+  .vskills .vr-school-lead {
+    font-size: 13.5px;
+    line-height: 1.45;
+    margin: 10px 0 16px;
+  }
+  .vskills .vr-authors-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .vskills .vr-author-card {
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 12px 10px;
+    box-shadow: 0 2px 8px rgba(15, 29, 51, 0.03);
+  }
+  .vskills .vr-author-name {
+    font-size: 13.5px !important;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+  .vskills .vr-author-book {
+    font-size: 11px;
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .vskills .vr-author-desc {
+    font-size: 11px;
+    line-height: 1.35;
+    color: #475569;
+  }
+  .vskills .vr-school-footnote {
+    font-size: 12px;
+    margin-top: 14px;
     text-align: center;
-    padding: 16px 20px;
-    font-size: 15px;
-    border-radius: 99px;
-    box-shadow: 0 10px 24px rgba(37,99,235,.35);
+  }
+
+  /* Блок ниш (ЗНАЮ ТОЛК В ВАШЕМ ДЕЛЕ) на мобилке: компактная сетка 2 столбца вместо полотна */
+  .vskills .vr-expert-desc {
+    font-size: 13.5px;
+    line-height: 1.45;
+    margin-bottom: 16px;
+  }
+  .vskills .vr-niches-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .vskills .vr-niche-item {
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 12px 10px;
+    box-shadow: 0 2px 8px rgba(15, 29, 51, 0.03);
+  }
+  .vskills .vr-niche-tag {
+    font-size: 10.5px;
+    font-weight: 800;
+    margin-bottom: 3px;
+    letter-spacing: 0.04em;
+  }
+  .vskills .vr-niche-desc {
+    font-size: 11.5px;
+    line-height: 1.35;
+    color: #334155;
+  }
+  .vskills .vr-niche-etc {
+    grid-column: span 2 !important;
+    text-align: center;
+    padding: 8px 12px;
+    background: rgba(241, 245, 249, 0.6);
+    border: 1px dashed #cbd5e1;
   }
 }
 </style>
@@ -1455,26 +1334,36 @@
 
         <!-- Главные акцентные кнопки действия -->
         <div class="pt-1 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
-          <div class="relative group inline-flex w-full sm:w-auto">
-            <!-- Пульсирующий внешний ореол -->
-            <div class="absolute -inset-1 sm:-inset-1.5 rounded-2xl bg-gradient-to-r from-sky-400 via-cyan-300 to-blue-600 blur-md opacity-75 group-hover:opacity-100 animate-pulse pointer-events-none transition duration-500"></div>
-            <div class="absolute -inset-2 rounded-2xl bg-sky-400/40 animate-ping opacity-35 pointer-events-none" style="animation-duration: 2.8s;"></div>
-            
-            <a href="#trial" class="btn-optic btn-slow-shimmer relative w-full sm:w-auto py-4 sm:py-4.5 px-8 sm:px-11 text-xs sm:text-sm md:text-base font-black tracking-wider uppercase rounded-2xl flex items-center justify-center gap-3 transition-all duration-300 hover:scale-[1.04] active:scale-95 text-white shadow-2xl" style="font-family: 'Benzin', sans-serif !important; background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 40%, #2563eb 80%, #1d4ed8 100%) !important; box-shadow: 0 0 35px rgba(14, 165, 233, 0.75), 0 12px 30px rgba(2, 132, 199, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.8) !important;">
-              <span class="relative z-10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">ТЕСТ-ДРАЙВ ВЕРЫ</span>
-              <span class="relative z-10 inline-flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white text-sky-700 shadow-md text-xs sm:text-sm font-sans font-bold group-hover:translate-x-1.5 transition-transform">→</span>
-            </a>
-          </div>
+          <!-- Первая кнопка: ТЕСТ-ДРАЙВ ВЕРЫ (без свечения) -->
+          <a href="#trial" class="relative w-full sm:w-auto py-4 sm:py-4.5 px-7 sm:px-9 text-xs sm:text-sm md:text-base font-black tracking-wider uppercase rounded-2xl flex items-center justify-center gap-3 transition-all duration-300 hover:scale-[1.02] active:scale-95 text-white bg-sky-700 hover:bg-sky-600 border border-white/20 shadow-md cursor-pointer group" style="font-family: 'Benzin', sans-serif !important; background: linear-gradient(135deg, #0284c7 0%, #1e40af 100%) !important;">
+            <span class="relative z-10">ТЕСТ-ДРАЙВ ВЕРЫ</span>
+            <span class="relative z-10 inline-flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white text-sky-800 shadow text-xs sm:text-sm font-sans font-bold group-hover:translate-x-1 transition-transform">→</span>
+          </a>
 
-          <!-- Вторая кнопка: ПОГОВОРИТЕ С ВЕРОЙ ЗДЕСЬ И СЕЙЧАС -->
+          <!-- Вторая кнопка: ПОГОВОРИТЕ С ВЕРОЙ ЗДЕСЬ И СЕЙЧАС (яркая, привлекательная, интерактивная) -->
           <button 
             type="button" 
             onclick="if(window.openAiSalesWidget){window.openAiSalesWidget();}else{const b=document.getElementById('altaiWidgetBtn');if(b)b.click();}"
-            class="relative w-full sm:w-auto py-4 sm:py-4.5 px-6 sm:px-8 text-xs sm:text-sm md:text-base font-black tracking-wider uppercase rounded-2xl flex items-center justify-center gap-2.5 transition-all duration-300 hover:scale-[1.04] active:scale-95 text-white bg-slate-950/80 hover:bg-slate-900 border border-white/30 hover:border-sky-400 backdrop-blur-xl shadow-xl cursor-pointer group"
-            style="font-family: 'Benzin', sans-serif !important;"
+            class="relative w-full sm:w-auto py-4 sm:py-4.5 px-6 sm:px-8 text-xs sm:text-sm md:text-base font-black tracking-wider uppercase rounded-2xl flex items-center justify-center gap-3 transition-all duration-300 hover:scale-[1.04] active:scale-95 text-white shadow-xl hover:shadow-2xl cursor-pointer group overflow-hidden border border-emerald-300/40"
+            style="font-family: 'Benzin', sans-serif !important; background: linear-gradient(135deg, #059669 0%, #10b981 45%, #0284c7 100%) !important; box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.5) !important;"
           >
-            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0 shadow-[0_0_10px_#34d399]"></span>
-            <span class="relative z-10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)] text-center leading-tight">ПОГОВОРИТЕ С&nbsp;ВЕРОЙ ЗДЕСЬ И&nbsp;СЕЙЧАС</span>
+            <!-- Блик при наведении -->
+            <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out pointer-events-none"></span>
+            
+            <!-- Живой индикатор онлайна -->
+            <span class="relative flex h-3 w-3 shrink-0">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-200 opacity-80"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-white shadow-[0_0_8px_#fff]"></span>
+            </span>
+            
+            <!-- Текст кнопки -->
+            <span class="relative z-10 text-center leading-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]">ПОГОВОРИТЕ С&nbsp;ВЕРОЙ ЗДЕСЬ И&nbsp;СЕЙЧАС</span>
+            
+            <!-- Иконка чата/сообщения -->
+            <svg class="relative z-10 w-4 h-4 sm:w-5 sm:h-5 text-white shrink-0 group-hover:scale-110 transition-transform drop-shadow" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.2L4 17.2V4h16v12z"/>
+              <circle cx="8" cy="10" r="1.5"/><circle cx="12" cy="10" r="1.5"/><circle cx="16" cy="10" r="1.5"/>
+            </svg>
           </button>
         </div>
       </div>
@@ -2146,413 +2035,314 @@
 
     </div>
 
-    <!-- 4. ВОЗМОЖНОСТИ: ЧТО УМЕЕТ ВЕРА -->
+            <!-- 4. ВОЗМОЖНОСТИ: ЧТО УМЕЕТ ВЕРА / РЕЗЮМЕ ВЕРЫ -->
     <section class="vskills relative z-20" id="skills" data-alias="manifesto">
       <div id="manifesto" class="sr-only"></div>
       <div class="vs-wrap">
-        <!-- 1. Секция «Вера - лучший продавец в галактике» -->
-        <h2 class="vs-h2">ВЕРА - ЛУЧШИЙ ПРОДАВЕЦ <span class="pearl">В ГАЛАКТИКЕ</span></h2>
+        <!-- Заголовок секции: «В ГАЛАКТИКЕ» на одной строчке -->
+        <h2 class="vs-h2">ВЕРА - ЛУЧШИЙ ПРОДАВЕЦ <span class="pearl vs-nowrap">В&nbsp;ГАЛАКТИКЕ</span></h2>
+        <div class="vs-sub-hand">скромно говоря)</div>
 
-        <!-- 1.A. Десктопная версия (3 колонки: 5 фич - аватар с орбитой - 5 фич) -->
-        <div class="hero2 vs-desktop-only">
-          <div class="fc">
-            <div class="f l">
-              <span class="fi">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              </span>
-              <div>
-                <b>Эксперт продукта и ниши</b>
-                <p>Товары, условия и специфика вашей сферы</p>
-              </div>
-            </div>
-            <div class="f l">
-              <span class="fi">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3H2l8 9.46V19l4 2v-8.54z"/></svg>
-              </span>
-              <div>
-                <b>Квалифицирует лиды</b>
-                <p>Бюджет, сроки и контакты сразу в CRM</p>
-              </div>
-            </div>
-            <div class="f l">
-              <span class="fi">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
-              </span>
-              <div>
-                <b>Фото и PDF в ответе</b>
-                <p>Прикрепляет файлы из базы знаний</p>
-              </div>
-            </div>
-            <div class="f l">
-              <span class="fi">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-              </span>
-              <div>
-                <b>Акции по расписанию</b>
-                <p>Сама включает и выключает акции</p>
-              </div>
-            </div>
-            <div class="f l">
-              <span class="fi">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-              </span>
-              <div>
-                <b>Помнит клиента</b>
-                <p>История диалога за 60 дней</p>
-              </div>
-            </div>
+        <!-- Карточка резюме -->
+        <div class="vr-card">
+          <!-- Верхняя строка: номер резюме и готовность -->
+          <div class="vr-top">
+            <span class="vr-mono">Резюме кандидата</span>
+            <span class="vr-mono"><span class="vr-dot"></span>Готова выйти завтра</span>
           </div>
 
-          <div class="ava">
-            <img src="assets/images/vera_avatar_hd.jpg" alt="Вера" style="object-fit:cover;object-position:center top;">
-            <i class="gd"></i>
-          </div>
-
-          <div class="fc">
-            <div class="f r">
-              <span class="fi">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
-              </span>
-              <div>
-                <b>Живые данные</b>
-                <p>Остатки, цены, ссылки и пункты СДЭК</p>
-              </div>
-            </div>
-            <div class="f r">
-              <span class="fi">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></svg>
-              </span>
-              <div>
-                <b>Понимает голосовые</b>
-                <p>Расшифрует голосовое до 4 минут</p>
-              </div>
-            </div>
-            <div class="f r">
-              <span class="fi">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4M16 15l3 3-3 3M19 18h-6"/></svg>
-              </span>
-              <div>
-                <b>Передаёт менеджеру</b>
-                <p>С кратким резюме в Telegram</p>
-              </div>
-            </div>
-            <div class="f r">
-              <span class="fi">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
-              </span>
-              <div>
-                <b>Спрашивает команду</b>
-                <p>Уточнит факт и запомнит ответ</p>
-              </div>
-            </div>
-            <div class="f r">
-              <span class="fi">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
-              </span>
-              <div>
-                <b>Сторис и комментарии</b>
-                <p>Отвечает и пишет в Direct</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="expert vs-desktop-only">
-          <div class="hand">Через месяц Вера будет разбираться в вашем бизнесе и всех нюансах как эксперт с многолетним стажем</div>
-          <p>Она изучает не только ваш продукт, но и всю нишу. Не просто подберёт квартиру, а расскажет о стройке как эксперт</p>
-        </div>
-
-        <!-- 1.B. Мобильная версия (Аватар Веры + эксперт + вкладки-чипы + свайп-карточки) -->
-        <div class="vs-mobile-wrap vs-mobile-only">
-          <div class="vs-m-hero">
-            <div class="ph2">
-              <img src="assets/images/vera_avatar_hd.jpg" alt="Вера">
-              <i class="gd"></i>
-            </div>
-            <div class="hand">знает ваш бизнес как эксперт с многолетним стажем</div>
-          </div>
-
-          <div class="chips" id="vs-chips">
-            <button type="button" class="chip a">Продаёт</button>
-            <button type="button" class="chip">Помнит и знает</button>
-            <button type="button" class="chip">С командой</button>
-          </div>
-
-          <div class="sw" id="vs-sw">
-            <div class="card">
-              <div class="ic">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              </div>
-              <b>Эксперт продукта и ниши</b>
-              <p>Товары, условия и специфика вашей сферы</p>
-            </div>
-            <div class="card">
-              <div class="ic">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3H2l8 9.46V19l4 2v-8.54z"/></svg>
-              </div>
-              <b>Квалифицирует лиды</b>
-              <p>Бюджет, сроки и контакты сразу в CRM</p>
-            </div>
-            <div class="card">
-              <div class="ic">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
-              </div>
-              <b>Фото и PDF в ответе</b>
-              <p>Прикрепляет файлы из базы знаний</p>
-            </div>
-            <div class="card">
-              <div class="ic">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-              </div>
-              <b>Акции по расписанию</b>
-              <p>Сама включает и выключает акции</p>
-            </div>
-          </div>
-
-          <div class="dots" id="vs-dots">
-            <i class="a"></i>
-            <i></i>
-            <i></i>
-            <i></i>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2. Интеграции: каналы и учетные системы (растянуто по ширине всего экрана) -->
-      <div class="darkw">
-        <div class="dark">
-          <div class="top">
-            <h2 class="vs-h2">РАБОТАЕТ ТАМ, ГДЕ <span class="pearl">ВАШИ КЛИЕНТЫ</span></h2>
-            <p class="sub">Мессенджеры, соцсети, сайт и ваши системы учёта</p>
-          </div>
-
-          <div class="lbl vs-desktop-only">СОЦИАЛЬНЫЕ СЕТИ И МЕССЕНДЖЕРЫ</div>
-          <div class="mq">
-            <div class="row">
-              <div class="pill"><s style="background:#2aa3e0"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4zM22 2 11 13"/></svg></s><div>Telegram<small>Business</small></div></div>
-              <div class="pill"><s style="background:#25c05a"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></s><div>WhatsApp</div></div>
-              <div class="pill"><s style="background:#7b4be8"><b style="font-size:11px;font-weight:900;color:#fff">M</b></s><div>MAX</div></div>
-              <div class="pill"><s style="background:#3b6fe0"><b style="font-size:11px;font-weight:900;color:#fff">VK</b></s><div>VK</div></div>
-              <div class="pill"><s style="background:#e1306c"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></s><div>Instagram<small>Direct и комментарии</small></div></div>
-              <div class="pill"><s style="background:#58c08a"><b style="font-size:11px;font-weight:900;color:#fff">A</b></s><div>Авито</div></div>
-              <div class="pill"><s style="background:#3d6fe0"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18"/></svg></s><div>Виджет<small>на сайте</small></div></div>
-
-              <div class="pill"><s style="background:#2aa3e0"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4zM22 2 11 13"/></svg></s><div>Telegram<small>Business</small></div></div>
-              <div class="pill"><s style="background:#25c05a"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></s><div>WhatsApp</div></div>
-              <div class="pill"><s style="background:#7b4be8"><b style="font-size:11px;font-weight:900;color:#fff">M</b></s><div>MAX</div></div>
-              <div class="pill"><s style="background:#3b6fe0"><b style="font-size:11px;font-weight:900;color:#fff">VK</b></s><div>VK</div></div>
-              <div class="pill"><s style="background:#e1306c"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></s><div>Instagram<small>Direct и комментарии</small></div></div>
-              <div class="pill"><s style="background:#58c08a"><b style="font-size:11px;font-weight:900;color:#fff">A</b></s><div>Авито</div></div>
-              <div class="pill"><s style="background:#3d6fe0"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18"/></svg></s><div>Виджет<small>на сайте</small></div></div>
-
-              <div class="pill"><s style="background:#2aa3e0"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4zM22 2 11 13"/></svg></s><div>Telegram<small>Business</small></div></div>
-              <div class="pill"><s style="background:#25c05a"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></s><div>WhatsApp</div></div>
-              <div class="pill"><s style="background:#7b4be8"><b style="font-size:11px;font-weight:900;color:#fff">M</b></s><div>MAX</div></div>
-              <div class="pill"><s style="background:#3b6fe0"><b style="font-size:11px;font-weight:900;color:#fff">VK</b></s><div>VK</div></div>
-              <div class="pill"><s style="background:#e1306c"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></s><div>Instagram<small>Direct и комментарии</small></div></div>
-              <div class="pill"><s style="background:#58c08a"><b style="font-size:11px;font-weight:900;color:#fff">A</b></s><div>Авито</div></div>
-              <div class="pill"><s style="background:#3d6fe0"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18"/></svg></s><div>Виджет<small>на сайте</small></div></div>
-            </div>
-          </div>
-
-          <div class="lbl vs-desktop-only">СИСТЕМЫ УЧЁТА КЛИЕНТОВ</div>
-          <div class="mq">
-            <div class="row r">
-              <div class="pill"><s style="background:#2f7be8"><b style="font-size:11px;font-weight:900;color:#fff">amo</b></s><div>amoCRM</div></div>
-              <div class="pill"><s style="background:#29b5e8"><b style="font-size:11px;font-weight:900;color:#fff">Б24</b></s><div>Битрикс24</div></div>
-              <div class="pill"><s style="background:#f5c020"><b style="font-size:11px;font-weight:900;color:#fff">1С</b></s><div>1С</div></div>
-              <div class="pill"><s style="background:#2fb36b"><b style="font-size:11px;font-weight:900;color:#fff">МС</b></s><div>МойСклад</div></div>
-              <div class="pill"><s style="background:#1ea152"><b style="font-size:11px;font-weight:900;color:#fff">CD</b></s><div>СДЭК</div></div>
-              <div class="pill"><s style="background:#f26b3a"><b style="font-size:11px;font-weight:900;color:#fff">T</b></s><div>Tilda</div></div>
-              <div class="pill"><s style="background:#5a6886"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></s><div>API<small>любая система</small></div></div>
-
-              <div class="pill"><s style="background:#2f7be8"><b style="font-size:11px;font-weight:900;color:#fff">amo</b></s><div>amoCRM</div></div>
-              <div class="pill"><s style="background:#29b5e8"><b style="font-size:11px;font-weight:900;color:#fff">Б24</b></s><div>Битрикс24</div></div>
-              <div class="pill"><s style="background:#f5c020"><b style="font-size:11px;font-weight:900;color:#fff">1С</b></s><div>1С</div></div>
-              <div class="pill"><s style="background:#2fb36b"><b style="font-size:11px;font-weight:900;color:#fff">МС</b></s><div>МойСклад</div></div>
-              <div class="pill"><s style="background:#1ea152"><b style="font-size:11px;font-weight:900;color:#fff">CD</b></s><div>СДЭК</div></div>
-              <div class="pill"><s style="background:#f26b3a"><b style="font-size:11px;font-weight:900;color:#fff">T</b></s><div>Tilda</div></div>
-              <div class="pill"><s style="background:#5a6886"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></s><div>API<small>любая система</small></div></div>
-
-              <div class="pill"><s style="background:#2f7be8"><b style="font-size:11px;font-weight:900;color:#fff">amo</b></s><div>amoCRM</div></div>
-              <div class="pill"><s style="background:#29b5e8"><b style="font-size:11px;font-weight:900;color:#fff">Б24</b></s><div>Битрикс24</div></div>
-              <div class="pill"><s style="background:#f5c020"><b style="font-size:11px;font-weight:900;color:#fff">1С</b></s><div>1С</div></div>
-              <div class="pill"><s style="background:#2fb36b"><b style="font-size:11px;font-weight:900;color:#fff">МС</b></s><div>МойСклад</div></div>
-              <div class="pill"><s style="background:#1ea152"><b style="font-size:11px;font-weight:900;color:#fff">CD</b></s><div>СДЭК</div></div>
-              <div class="pill"><s style="background:#f26b3a"><b style="font-size:11px;font-weight:900;color:#fff">T</b></s><div>Tilda</div></div>
-              <div class="pill"><s style="background:#5a6886"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg></s><div>API<small>любая система</small></div></div>
-            </div>
-          </div>
-
-          <div class="api">Нет вашей системы? <b>Подключим через API</b></div>
-        </div>
-      </div>
-
-      <div class="vs-wrap">
-        <!-- 3. Вы всегда у руля -->
-        <div class="vs-control">
-          <div style="text-align:center;max-width:840px;margin:0 auto">
-            <h2 class="vs-h2">ВЫ ВСЕГДА <span class="pearl">У РУЛЯ</span></h2>
-            <p class="vs-sub" style="margin:12px auto 0;text-align:center;color:#45556d;font-size:clamp(15px, 2vw, 17px);line-height:1.45">
-              Вера работает сама, последнее слово всегда за вами
-            </p>
-          </div>
-
-          <!-- 3.A. Десктопная версия: телефон + список -->
-          <div class="ctl vs-desktop-only">
-            <div class="phone">
-              <div class="scr">
-                <div class="ph">
+          <!-- Шапка кандидата: фото, имя, роль («Менеджер отдела продаж») + ключевые метрики -->
+          <div class="vr-hd">
+            <div class="vr-cand-col">
+              <div class="vr-cand-row">
+                <div class="vr-avatar-wrap">
                   <img src="assets/images/vera_avatar_hd.jpg" alt="Вера">
-                  <div>
-                    <b>Вера · управление</b>
-                    <small>в сети</small>
-                  </div>
                 </div>
-                <div class="msgs">
-                  <div class="bub me">С завтрашнего дня работаем до 21:00</div>
-                  <div class="bub v">Готово, обновила график в базе знаний</div>
-                  <div class="bub me">Акция на пальто до 30 ноября, -15%</div>
-                  <div class="bub v">Принято! С сегодняшнего дня предлагаю её клиентам</div>
+                <div class="vr-cand-meta">
+                  <h3 class="vr-name">Вера</h3>
+                  <div class="vr-role">Менеджер отдела продаж</div>
                 </div>
-                <div class="inp">Сообщение или голосовое</div>
               </div>
             </div>
+            <div class="vr-kv-col">
+              <div class="vr-kv"><span class="vr-mono">График</span><span class="vr-kv-val">24/7, 365 дней в году</span></div>
+              <div class="vr-kv"><span class="vr-mono">Ответ клиенту</span><span class="vr-kv-val">до 60 секунд</span></div>
+              <div class="vr-kv"><span class="vr-mono">Результат</span><span class="vr-kv-val vr-val-hl">+30-40% к конверсии</span></div>
+              <div class="vr-kv"><span class="vr-mono">Языки</span><span class="vr-kv-val">любой язык клиента</span></div>
+              <div class="vr-kv"><span class="vr-mono">Зарплата</span><span class="vr-kv-val">от 25 000 ₽ в месяц</span></div>
+            </div>
+          </div>
 
-            <div>
-              <div class="hand" style="font-size:clamp(24px, 3.2vw, 32px);margin-bottom:22px">Одно сообщение - и Вера уже знает о новой акции</div>
-              <div class="list">
-                <div class="glass li">
-                  <div>
-                    <b>Управление в Telegram</b>
-                    <p>Цены, акции и график меняете текстом или голосовым, без кабинетов и инструкций</p>
-                  </div>
+          <!-- О себе + мини-диалог -->
+          <div class="vr-about">
+            <div class="vr-about-info">
+              <div class="vr-mono">О себе</div>
+              <p class="vr-about-desc">
+                Живой менеджер с компьютерными мозгами. Знаю ваш товар до мелочей, веду сделку от «сколько стоит» до оплаты и пишу в 23:48 так же тепло, как в полдень
+              </p>
+            </div>
+            <div class="vr-chat-col">
+              <div class="vr-chat">
+                <div class="vr-b vr-c">
+                  <span class="vr-chat-who">Клиент</span>
+                  Ты какая-то скучная
                 </div>
-                <div class="glass li">
-                  <div>
-                    <b>Личный супервизор на старте</b>
-                    <p>Первый месяц ИИ-супервизор проверяет диалоги и дообучает Веру под ваши стандарты</p>
-                  </div>
-                </div>
-                <div class="glass li app">
-                  <div class="aic">AI</div>
-                  <div>
-                    <b>Личный кабинет ALTAI Optima</b>
-                    <p>Версия для десктопа и мобильное приложение, чтобы всё было под рукой: переписки, лиды, статистика и скорость ответа 24/7</p>
-                  </div>
+                <div class="vr-b vr-v">
+                  <span class="vr-chat-who">Вера</span>
+                  Виновна) Зато мои отчёты об оплатах читаются как детектив с хорошим финалом для кассы
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- 3.B. Мобильная версия: Telegram сообщение + 3 карточки управления -->
-          <div class="vs-control-m vs-mobile-only">
-            <div class="tgm">
-              <div class="bub me">С понедельника скидка 15% на годовой курс</div>
-              <div class="bub v">Готово ✅ Буду предлагать её с понедельника</div>
-            </div>
-            <div class="ctl-m">
-              <div class="cl">
-                <div class="si">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4zM22 2 11 13"/></svg>
-                </div>
-                <div>
-                  <b>Управление в Telegram</b>
-                  <p>Цены и акции меняете текстом или голосовым</p>
-                </div>
+          <!-- Школа Веры -->
+          <div class="vr-school">
+            <div class="vr-mono">Школа</div>
+            <p class="vr-school-lead">
+              Никаких шаблонных шпаргалок. Мы наполнили Веру наследием авторов, которые знали толк в человеческой природе, благородстве и законах коммерции
+            </p>
+            <div class="vr-authors-grid">
+              <div class="vr-author-card">
+                <h4 class="vr-author-name">Хорст Шульце</h4>
+                <div class="vr-author-book">«Удовлетворение гарантировано»</div>
+                <p class="vr-author-desc">Достоинство Ritz-Carlton без лакейства и суеты</p>
               </div>
-              <div class="cl">
-                <div class="si">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                </div>
-                <div>
-                  <b>Супервизор на старте</b>
-                  <p>Первый месяц проверяет диалоги и дообучает Веру</p>
-                </div>
+              <div class="vr-author-card">
+                <h4 class="vr-author-name">Крис Восс</h4>
+                <div class="vr-author-book">«Никогда не идите на компромисс»</div>
+                <p class="vr-author-desc">Слышит интонацию и сохраняет спокойствие в любом споре</p>
               </div>
-              <div class="cl">
-                <div class="aic">AI</div>
-                <div>
-                  <b>Личный кабинет ALTAI Optima</b>
-                  <p>Версия для десктопа и мобильное приложение — переписки, лиды и статистика всегда под рукой</p>
-                </div>
+              <div class="vr-author-card">
+                <h4 class="vr-author-name">Нил Рэкхэм</h4>
+                <div class="vr-author-book">«СПИН-продажи»</div>
+                <p class="vr-author-desc">Точные вопросы, которые за минуты вскрывают суть задачи</p>
+              </div>
+              <div class="vr-author-card">
+                <h4 class="vr-author-name">Роберт Чалдини</h4>
+                <div class="vr-author-book">«Психология влияния»</div>
+                <p class="vr-author-desc">Понимает, как люди принимают решения, и не манипулирует</p>
               </div>
             </div>
+            <div class="vr-school-footnote">
+              и др. А ещё пишет как Чехов и шутит как Ильф и Петров)
+            </div>
+          </div>
+
+          <!-- Экспертиза вашей ниши -->
+          <div class="vr-expert-section">
+            <div class="vr-expert-left">
+              <h3 class="vr-expert-h3" style="margin-top:0;"><span style="white-space:nowrap;">ЗНАЮ ТОЛК</span><br><span style="white-space:nowrap;">В&nbsp;ВАШЕМ ДЕЛЕ</span></h3>
+              <p class="vr-expert-desc">
+                После запуска Вера с головой погружается в ваш бизнес: прайсы, регламенты, реальные переписки команды. Она говорит с клиентом языком ниши и справится с вопросом, которого нет ни в одном регламенте
+              </p>
+            </div>
+            <div class="vr-niches-grid">
+              <div class="vr-niche-item">
+                <div class="vr-niche-tag">Клиника, салон</div>
+                <p class="vr-niche-desc">Знает каждую процедуру, состав препаратов, противопоказания и к какому мастеру записать</p>
+              </div>
+              <div class="vr-niche-item">
+                <div class="vr-niche-tag">Девелопер</div>
+                <p class="vr-niche-desc">Разбирается в планировках, сроках сдачи, отделке и нюансах ипотеки</p>
+              </div>
+              <div class="vr-niche-item">
+                <div class="vr-niche-tag">Отель</div>
+                <p class="vr-niche-desc">Знает каждый номер, вид из окна, трансфер и что посмотреть рядом</p>
+              </div>
+              <div class="vr-niche-item">
+                <div class="vr-niche-tag">Ритейл</div>
+                <p class="vr-niche-desc">Помнит размерную сетку, ткани, уход за вещью и что с чем носить</p>
+              </div>
+              <div class="vr-niche-item">
+                <div class="vr-niche-tag">B2B, Опт</div>
+                <p class="vr-niche-desc">Понимает спецификации, ГОСТы, минимальные партии и условия поставки</p>
+              </div>
+              <div class="vr-niche-item">
+                <div class="vr-niche-tag">Онлайн-школа</div>
+                <p class="vr-niche-desc">Знает программу каждого потока, спикеров, формат и кому какой курс подойдёт</p>
+              </div>
+              <div class="vr-niche-item vr-niche-etc" style="grid-column: 2;">
+                <div class="vr-niche-tag" style="color: #64748b; font-size: 13.5px; margin: 0; letter-spacing: 0.04em;">и др.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Навыки: интерактивные вкладки + панель -->
+          <div class="vr-skills">
+            <div class="vr-mono">Навыки</div>
+            <div class="vr-tabs" role="tablist" id="vrTabs"></div>
+            <div id="vrPanel"></div>
           </div>
         </div>
-
-        <div class="vs-cta"><a class="vs-btn" href="#trial">Устроить тест-драйв Веры →</a></div>
       </div>
     </section>
 
-    <!-- Скрипт переключения категорий мобильного свайпера «Что умеет Вера» -->
+    <!-- Скрипт переключения вкладок навыков Веры -->
     <script>
       (function() {
-        const G = {
-          'Продаёт': [
-            ['<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>', 'Эксперт продукта и ниши', 'Товары, условия и специфика вашей сферы'],
-            ['<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3H2l8 9.46V19l4 2v-8.54z"/></svg>', 'Квалифицирует лиды', 'Бюджет, сроки и контакты сразу в CRM'],
-            ['<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>', 'Фото и PDF в ответе', 'Прикрепляет файлы из базы знаний'],
-            ['<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>', 'Акции по расписанию', 'Сама включает и выключает акции']
-          ],
-          'Помнит и знает': [
-            ['<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>', 'Помнит клиента', 'История диалога за 60 дней'],
-            ['<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>', 'Живые данные', 'Остатки, цены, ссылки и пункты СДЭК'],
-            ['<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></svg>', 'Понимает голосовые', 'Расшифрует голосовое до 4 минут']
-          ],
-          'С командой': [
-            ['<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4M16 15l3 3-3 3M19 18h-6"/></svg>', 'Передаёт менеджеру', 'С кратким резюме в Telegram'],
-            ['<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>', 'Спрашивает команду', 'Уточнит факт и запомнит ответ'],
-            ['<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>', 'Сторис и комментарии', 'Отвечает и пишет в Direct']
-          ]
-        };
+        const CH = [
+          {
+            n: '01',
+            cv: 'Где работает',
+            q: 'А где ты вообще работаешь?',
+            a: 'Везде, где вам пишут клиенты) Подключение беру на себя вместе с командой Altai',
+            title: 'Продаёт там, где пишут клиенты',
+            lead: 'Каждый канал со всеми её навыками. Новые каналы появляются каждый месяц',
+            items: [
+              { t: 'Instagram Direct', d: 'Голосовые, до 5 фото и PDF в ответе, ответы на сторис, контроль 24-часового окна Meta' },
+              { t: 'Комментарии Instagram', d: 'Сама выбирает, кому ответить, и уводит в Direct по имени и с фото. Негатив сразу менеджеру' },
+              { t: 'Формы сайта, Tilda', d: 'Заявка оставлена, и через минуту клиенту пишут в WhatsApp' },
+              { t: 'MAX, Авито, VK, e-mail', d: 'Все навыки Веры в каждом канале' }
+            ]
+          },
+          {
+            n: '02',
+            cv: 'Навыки общения',
+            q: 'А ты точно ничего не выдумаешь?',
+            a: 'Только факты вашей компании. Чего не знаю, спрошу у команды и запомню навсегда',
+            title: 'Знает всё и выдумывает ничего',
+            lead: 'Отвечает только фактами компании, а манеры как у менеджера, которому приятно писать.',
+            items: [
+              { t: 'Живые данные', d: 'Остатки по размерам, цены, ссылки и пункты СДЭК прямо из ваших систем' },
+              { t: 'Голосовые до 4 минут', d: 'Расшифрует и ответит по сути, сама пришлёт фото товара и PDF' },
+              { t: 'Учится на лету', d: 'Спросит команду и ответит клиенту на всё сразу, ответ сохранит в базу' },
+              { t: 'Дожидается конца мысли', d: 'Пять сообщений подряд получат один ответ и «печатает...»' }
+            ]
+          },
+          {
+            n: '03',
+            cv: 'Ведение сделок',
+            q: 'А продавать ты умеешь или только болтать?',
+            a: 'Пришлю КП, забронирую и дам ссылку на оплату. В 23:48 так же, как в полдень)',
+            title: 'От «сколько стоит» до оплаты',
+            lead: 'Создаёт сделку, двигает по этапам, заполняет поля и ставит себе задачи на дожим.',
+            items: [
+              { t: 'Закрывает в чате', d: 'КП в PDF, бронь, запись на приём и ссылка на оплату' },
+              { t: 'amoCRM и Bitrix24', d: 'Сама ведёт по этапам и бережно дополняет только пустые поля' },
+              { t: 'Своя CRM Веры', d: 'Для тех, у кого CRM нет. Канбан, воронки, поля, CSV' },
+              { t: 'Второй пилот', d: 'Подсказывает менеджеру шаг и готовит ответ в его диалогах' }
+            ]
+          },
+          {
+            n: '04',
+            cv: 'Инициатива',
+            q: 'А если клиент перестал отвечать?',
+            a: 'Мягко напомню о себе через пару дней, отвечу на повисший вопрос или предложу спецпредложение — тепло и без спама)',
+            title: 'Сама пишет первой',
+            lead: 'Возвращает тех, кто взял паузу, напоминает о брони, сообщает о поступлении. По правилам площадок.',
+            items: [
+              { t: 'Рассылки, которые продают', d: 'Сама отвечает каждому откликнувшемуся и отдаёт горячих менеджеру' },
+              { t: 'Запуск после одного «да»', d: 'Сегмент из CRM или CSV, WhatsApp, Telegram, MAX, всё видно заранее' },
+              { t: 'Бережно к номеру', d: 'Безопасная скорость, тихие часы, кнопка «Пауза»' },
+              { t: 'Честный отчёт', d: 'Доставлено, ответили, стали клиентами. Стоп-лист ведёт сама' }
+            ]
+          },
+          {
+            n: '05',
+            cv: 'Работа в команде',
+            title: 'Последнее слово за вами',
+            lead: 'Управляйте Верой как удобно: личный кабинет на компьютере, приложение на телефоне, а для быстрых задач Telegram-бот. Обычными словами, без программиста.',
+            dialogs: [
+              { who: 'Вы', text: 'Сколько людей сегодня написали?', from: 'c' },
+              { who: 'Вера', text: '47) 9 горячих уже у менеджеров, 3 оплатили ночью. Чаще всего спрашивали про доставку', from: 'v' },
+              { who: 'Вы', text: 'Акция на пальто до 30 ноября, -15%', from: 'c' },
+              { who: 'Вера', text: 'Записала. Уже предлагаю клиентам, а 30-го уберу сама', from: 'v' }
+            ],
+            items: [
+              { t: 'Знания голосом', d: 'Покажет правку, применит после «да», отменит по просьбе' },
+              { t: 'Умная передача', d: 'Жалоба одному, заказ другому, VIP руководителю. Кнопка «Взять в работу»' },
+              { t: 'Чаты одной фразой', d: '«Какие чаты ждут менеджера?», пауза в одном чате или везде' },
+              { t: 'Сводка каждый день', d: 'Диалоги, сделки, воронка и прогноз владельцу' }
+            ]
+          },
+          {
+            n: '06',
+            cv: 'Отчётность',
+            q: 'А как я пойму, что ты работаешь?',
+            a: 'Всё видно в реальном времени. И сколько я вам сэкономила тоже)',
+            title: 'Всё видно в реальном времени',
+            lead: 'На компьютере и телефоне, в светлой и тёмной теме. Один аккаунт на несколько компаний.',
+            items: [
+              { t: 'Результаты', d: 'Горячие клиенты, время ответа, сделки, прогноз, «сэкономила вам»' },
+              { t: 'Диалоги', d: 'Все чаты вживую. Забрать у Веры и вернуть одним нажатием' },
+              { t: 'Команда и доступы', d: 'Гибкие права, приглашение ссылкой, журнал действий' },
+              { t: 'Данные под защитой', d: 'Московский сервер, 152-ФЗ, YandexGPT по запросу, NDA' }
+            ]
+          }
+        ];
 
-        function initMobileSkills() {
-          const chips = document.getElementById('vs-chips');
-          const sw = document.getElementById('vs-sw');
-          const dots = document.getElementById('vs-dots');
-          if (!chips || !sw || !dots) return;
+        function initVeraResumeTabs() {
+          const tabs = document.getElementById('vrTabs');
+          const panel = document.getElementById('vrPanel');
+          if (!tabs || !panel) return;
 
-          function renderCategory(category) {
-            chips.querySelectorAll('.chip').forEach(c => c.classList.toggle('a', c.textContent === category));
-            sw.innerHTML = G[category].map(item => `
-              <div class="card">
-                <div class="ic">${item[0]}</div>
-                <b>${item[1]}</b>
-                <p>${item[2]}</p>
+          function show(k) {
+            const c = CH[k];
+            Array.from(tabs.children).forEach((t, j) => {
+              t.setAttribute('aria-selected', j === k ? 'true' : 'false');
+            });
+
+            const items = c.items.map((x, idx) => `
+              <div class="vr-item color-${idx % 4}">
+                <b><span class="vr-item-icon">+</span>${x.t}</b>
+                <p>${x.d}</p>
               </div>
             `).join('');
-            sw.scrollLeft = 0;
-            dots.innerHTML = G[category].map((_, idx) => `<i class="${idx ? '' : 'a'}"></i>`).join('');
+
+            let chatHtml = '';
+            if (c.dialogs && c.dialogs.length) {
+              chatHtml = c.dialogs.map(m => `
+                <div class="vr-b vr-${m.from}">
+                  <span class="vr-chat-who">${m.who}</span>
+                  ${m.text}
+                </div>
+              `).join('');
+            } else {
+              chatHtml = `
+                <div class="vr-b vr-c"><span class="vr-chat-who">${c.qWho || 'Клиент'}</span>${c.q}</div>
+                <div class="vr-b vr-v"><span class="vr-chat-who">Вера</span>${c.a}</div>
+              `;
+            }
+
+            panel.innerHTML = `
+              <div class="vr-panel vr-fade">
+                <div class="vr-panel-info">
+                  <h4 class="vr-panel-title">${c.title}</h4>
+                  <p class="vr-panel-lead">${c.lead}</p>
+                  <div class="vr-chat vr-chat-desktop">
+                    ${chatHtml}
+                  </div>
+                </div>
+                <div class="vr-list">${items}</div>
+                <div class="vr-chat vr-chat-mobile">
+                  ${chatHtml}
+                </div>
+              </div>
+            `;
           }
 
-          chips.innerHTML = '';
-          Object.keys(G).forEach(cat => {
-            const btn = document.createElement('button');
-            btn.type = 'button';
-            btn.className = 'chip' + (cat === 'Продаёт' ? ' a' : '');
-            btn.textContent = cat;
-            btn.onclick = () => renderCategory(cat);
-            chips.appendChild(btn);
+          tabs.innerHTML = '';
+          CH.forEach((c, k) => {
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'vr-tab';
+            b.setAttribute('role', 'tab');
+            b.textContent = c.cv;
+            b.onclick = () => show(k);
+            tabs.appendChild(b);
           });
-
-          sw.addEventListener('scroll', () => {
-            if (!sw.firstElementChild) return;
-            const cardWidth = sw.firstElementChild.offsetWidth + 12;
-            const activeIdx = Math.round(sw.scrollLeft / cardWidth);
-            dots.querySelectorAll('i').forEach((dot, idx) => dot.classList.toggle('a', idx === activeIdx));
-          }, { passive: true });
+          show(0);
         }
 
         if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', initMobileSkills);
+          document.addEventListener('DOMContentLoaded', () => initVeraResumeTabs());
         } else {
-          initMobileSkills();
+          initVeraResumeTabs();
         }
       })();
     </script>
 
-    <!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ТЕСТ-ДРАЙВА К СРАВНЕНИЮ «БОТ VS ВЕРА» (АНИМИРОВАННАЯ СТРЕЛКА) -->
+<!-- СВЯЗУЮЩИЙ ПЕРЕХОД: ОТ ТЕСТ-ДРАЙВА К СРАВНЕНИЮ «БОТ VS ВЕРА» (АНИМИРОВАННАЯ СТРЕЛКА) -->
     <div class="flex flex-col items-center justify-center my-6 sm:my-8 lg:my-10 relative z-20">
       <div class="flowing-connector-container w-full max-w-md mx-auto px-4 select-none">
         <a href="#bot-vs-vera" class="flowing-connector-link group block" title="Бот - автоответчик. Вера - продавец">
